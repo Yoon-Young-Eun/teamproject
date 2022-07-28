@@ -1,9 +1,16 @@
 Manifest-Version: 1.0
 <<<<<<< HEAD
+<<<<<<< HEAD
 Built-By: Hyun
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+Built-By: user
+=======
+>>>>>>> main
 Built-By: swc19
+>>>>>>> main
 =======
 Built-By: USER
 >>>>>>> main

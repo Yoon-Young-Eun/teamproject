@@ -1,6 +1,10 @@
 Manifest-Version: 1.0
 <<<<<<< HEAD
+<<<<<<< HEAD
+Built-By: user
+=======
 Built-By: swc19
+>>>>>>> main
 =======
 Built-By: USER
 >>>>>>> main

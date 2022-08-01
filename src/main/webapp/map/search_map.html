@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="./../css/search_map.css" />
+</head>
+
+<body>
+
+<header>
+	<div class="header">
+		<h1><a href = "http://localhost:8080/Team_Git/main.html">△</a></h1>
+		<nav>
+			<ul class="top">
+				<li><a href="#">로그인</a></li>
+				<li><a href="#">회원가입</a></li>
+				<li><a href="http://localhost:8080/Team_Git/customer_voice/customer_voice.html">고객센터</a></li>
+			</ul>
+		</nav>
+	</div>
+	<div class="menu_wrapper">
+		<nav>
+			<ul class="middle">
+				<li><a href="#">회사 정보</a>
+					<ul>
+						<li><a href="#">인삿말</a></li>
+						<li><a href="#">오시는 길</a></li>
+					</ul></li>
+				<li><a href="#">세탁서비스</a>
+					<ul>
+						<li><a href="#">일반의류</a></li>
+						<li><a href="#">와이셔츠</a></li>
+						<li><a href="#">이불</a></li>
+						<li><a href="#">운동화</a></li>
+						<li><a href="#">가죽/모피</a></li>
+						<li><a href="#">아웃도어</a></li>
+						<li><a href="#">모자/인형/가방</a></li>
+						<li><a href="#">특수크리닝</a></li>
+						<li><a href="#">로얄크리닝</a></li>
+					</ul></li>
+				<li><a href="#">서비스지역</a>
+					<ul>
+						<li><a href="http://localhost:8080/Team_Git/map/search_map.html">서비스지역(서울)</a></li>
+					</ul></li>
+				<li><a href="#">이용정보</a>
+					<ul>
+						<li><a href="#">수거방법</a></li>
+						<li><a href="#">이용방법</a></li>
+					</ul></li>
+			</ul>
+		</nav>
+	</div>
+</header>
+
+<div class="wrapper">
+<div class="main_main">
+<p id=bdtt>서비스지역(서울)</p>
+<p id=bdtt2>원하시는 지역을 검색해 주세요</p><br><br>
+<div id="insert" >
+<input id="search"  type="text"/>
+<button type="button" onclick = "location.href='#'" id="search_btn"><img src="./../image/icon_search_w.png"></button>
+</div>
+
+<br><br><br>
+<div id="main_menu">
+<ul>
+<li><a href="#">전체</a></li>
+<li><a href="#">동작</a></li>
+<li><a href="#">강남</a></li>
+<li><a href="#">서초</a></li>
+<li><a href="#">송파</a></li>
+</ul>
+</div>
+<div class="main_body">
+<br><br><br><br>
+<div id="blank"></div>
+<div class="dirs">
+<!-- <div style="display:inline-block;vertical-align:text-top;line-height:0;height:338px" class="lu_map_section"><a style="cursor:pointer" data-url="https://www.google.com/maps/place/%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C/data=!4m2!3m1!1s0x357ca2012d5c39cf:0x7e11eca1405bf29b?sa=X&amp;hl=ko" href="#" jsaction="trigger.Ez7VMc" tabindex="0" data-ved="2ahUKEwj8i-mziJ35AhVFKqYKHT3gAUMQ8gF6BAgGEAE"><img src="https://www.google.com/maps/vt/data=OfRIL-9_KegZb_DxzR6KT1jkFTe0L1Ps_fBGWTyzuJyGk9FMNz2eUayB8kW5vCckENmyBe0Hzem4D8UQHH9nrsyj0THcNbo3Lse8AdUF-KjHwtBMRfJ5HIFlq-USU7IcxHcQLBIqGWdYwFDdr9E-XuNN-7QSPPWFPxH82ILyvTaL3Z5wlao3CXZ_oAmip6qHBs9VRpxo_YuSCv67XDYH3z9qXYzMGcDOZb-R0BU0wBUvfNZ5wnMxvA0FNw" style="border:0" class="GosL7d cYnjBd" height="338" id="lu_map" width="650" title="서울특별시 지도" alt="서울특별시 지도" data-atf="1" data-frt="0"></a></div> -->
+<img src=./../image/map.png>
+</div>
+
+<div id="chart_table">
+<div id="muin"><img src="./../image/muin3.png" width="490px" height="21px"></div>
+<div id="inner_chart">
+
+<div id="chart_wrap">
+<hr>
+<div class="chart">
+<div class="chart_item_mg"><img src=./../image/blue_85.png width=35px height=43px></div>
+<div class="chart_item">
+<span class="chart_title">
+2001아울렛(부평점)
+</span>
+<br>
+<span class="chart_icon">
+<img src=./../image/icon_store01.png>&nbsp;<img src=./../image/icon_store02.png>&nbsp;<img src=./../image/icon_store03.png>&nbsp;<img src=./../image/icon_store05.png>&nbsp;<img src=./../image/icon_store06.png>&nbsp;
+</span>
+<br>
+<span class="chart_body">
+인천광역시 부평구 경원대로 1277 2001<br>
+아울렛 지하 1층<br>
+032-363-5677<br>
+</span>
+</div>
+<div class="chart_item_mg"></div>
+</div>
+<hr>
+
+<div class="chart">
+<div class="chart_item_mg"><img src=./../image/blue_85.png width=35px height=43px></div>
+<div class="chart_item">
+<span class="chart_title">
+2001아울렛(분당점)
+</span>
+<br>
+<span class="chart_icon">
+<img src=./../image/icon_store01.png>&nbsp;<img src=./../image/icon_store02.png>&nbsp;<img src=./../image/icon_store03.png>&nbsp;<img src=./../image/icon_store05.png>&nbsp;<img src=./../image/icon_store06.png>&nbsp;
+</span>
+<br>
+<span class="chart_body">
+경기도 성남시 분당구 미금일로154번길<br>
+20(구미동) 2001아울렛분당점 지하2층<br>
+031-786-2929<br>
+</span>
+</div>
+<div class="chart_item_mg"></div>
+</div>
+<hr>
+
+<div class="chart">
+<div class="chart_item_mg"><img src=./../image/blue_85.png width=35px height=43px></div>
+<div class="chart_item">
+<span class="chart_title">
+2001아울렛(천호점)
+</span>
+<br>
+<span class="chart_icon">
+<img src=./../image/icon_store01.png>&nbsp;<img src=./../image/icon_store02.png>&nbsp;<img src=./../image/icon_store03.png>&nbsp;<img src=./../image/icon_store05.png>&nbsp;<img src=./../image/icon_store06.png>&nbsp;
+</span>
+<br>
+<span class="chart_body">
+서울특별시 강동구 구천면로 189 동아코아<br>
+2001아울렛<br>
+02-2224-6579<br>
+</span>
+</div>
+<div class="chart_item_mg"></div>
+</div>
+<hr>
+
+<div class="chart">
+<div class="chart_item_mg"><img src=./../image/blue_85.png width=35px height=43px></div>
+<div class="chart_item">
+<span class="chart_title">
+E-MART(가양점)
+</span>
+<br>
+<span class="chart_icon">
+<img src=./../image/icon_store01.png>&nbsp;<img src=./../image/icon_store02.png>&nbsp;<img src=./../image/icon_store03.png>&nbsp;<img src=./../image/icon_store05.png>&nbsp;<img src=./../image/icon_store06.png>&nbsp;
+</span>
+<br>
+<span class="chart_body">
+서울 강서구 가양3동 44-19 이마트<br>
+가양점3층<br>
+02-3662-5998<br>
+</span>
+</div>
+<div class="chart_item_mg"></div>
+</div>
+<hr>
+
+<div class="chart"><div class="chart_item_mg"><img src=./../image/blue_85.png width=35px height=43px></div><div class="chart_item"><span class="chart_title">
+E-MART(가양점)
+</span><br><span class="chart_icon"><img src=./../image/icon_store01.png>&nbsp;<img src=./../image/icon_store02.png>&nbsp;<img src=./../image/icon_store03.png>&nbsp;<img src=./../image/icon_store05.png>&nbsp;<img src=./../image/icon_store06.png>&nbsp;</span><br><span class="chart_body">
+서울 강서구 가양3동 44-19 이마트<br>
+가양점3층<br>
+02-3662-5998<br>
+</span></div><div class="chart_item_mg"></div></div><hr>
+
+<div class="chart"><div class="chart_item_mg"><img src=./../image/blue_85.png width=35px height=43px></div><div class="chart_item"><span class="chart_title">
+E-MART(가양점)
+</span><br><span class="chart_icon"><img src=./../image/icon_store01.png>&nbsp;<img src=./../image/icon_store02.png>&nbsp;<img src=./../image/icon_store03.png>&nbsp;<img src=./../image/icon_store05.png>&nbsp;<img src=./../image/icon_store06.png>&nbsp;</span><br><span class="chart_body">
+서울 강서구 가양3동 44-19 이마트<br>
+가양점3층<br>
+02-3662-5998<br>
+</span></div><div class="chart_item_mg"></div></div><hr>
+
+<div class="chart"><div class="chart_item_mg"><img src=./../image/blue_85.png width=35px height=43px></div><div class="chart_item"><span class="chart_title">
+E-MART(가양점)
+</span><br><span class="chart_icon"><img src=./../image/icon_store01.png>&nbsp;<img src=./../image/icon_store02.png>&nbsp;<img src=./../image/icon_store03.png>&nbsp;<img src=./../image/icon_store05.png>&nbsp;<img src=./../image/icon_store06.png>&nbsp;</span><br><span class="chart_body">
+서울 강서구 가양3동 44-19 이마트<br>
+가양점3층<br>
+02-3662-5998<br>
+</span></div><div class="chart_item_mg"></div></div><hr>
+
+<div class="chart"><div class="chart_item_mg"><img src=./../image/blue_85.png width=35px height=43px></div><div class="chart_item"><span class="chart_title">
+E-MART(가양점)
+</span><br><span class="chart_icon"><img src=./../image/icon_store01.png>&nbsp;<img src=./../image/icon_store02.png>&nbsp;<img src=./../image/icon_store03.png>&nbsp;<img src=./../image/icon_store05.png>&nbsp;<img src=./../image/icon_store06.png>&nbsp;</span><br><span class="chart_body">
+서울 강서구 가양3동 44-19 이마트<br>
+가양점3층<br>
+02-3662-5998<br>
+</span></div><div class="chart_item_mg"></div></div><hr>
+
+<div class="chart"><div class="chart_item_mg"><img src=./../image/blue_85.png width=35px height=43px></div><div class="chart_item"><span class="chart_title">
+E-MART(가양점)
+</span><br><span class="chart_icon"><img src=./../image/icon_store01.png>&nbsp;<img src=./../image/icon_store02.png>&nbsp;<img src=./../image/icon_store03.png>&nbsp;<img src=./../image/icon_store05.png>&nbsp;<img src=./../image/icon_store06.png>&nbsp;</span><br><span class="chart_body">
+서울 강서구 가양3동 44-19 이마트<br>
+가양점3층<br>
+02-3662-5998<br>
+</span></div><div class="chart_item_mg"></div></div><hr>
+
+<div class="chart"><div class="chart_item_mg"><img src=./../image/blue_85.png width=35px height=43px></div><div class="chart_item"><span class="chart_title">
+E-MART(가양점)
+</span><br><span class="chart_icon"><img src=./../image/icon_store01.png>&nbsp;<img src=./../image/icon_store02.png>&nbsp;<img src=./../image/icon_store03.png>&nbsp;<img src=./../image/icon_store05.png>&nbsp;<img src=./../image/icon_store06.png>&nbsp;</span><br><span class="chart_body">
+서울 강서구 가양3동 44-19 이마트<br>
+가양점3층<br>
+02-3662-5998<br>
+</span></div><div class="chart_item_mg"></div></div><hr>
+
+<div class="chart"><div class="chart_item_mg"><img src=./../image/blue_85.png width=35px height=43px></div><div class="chart_item"><span class="chart_title">
+E-MART(가양점)
+</span><br><span class="chart_icon"><img src=./../image/icon_store01.png>&nbsp;<img src=./../image/icon_store02.png>&nbsp;<img src=./../image/icon_store03.png>&nbsp;<img src=./../image/icon_store05.png>&nbsp;<img src=./../image/icon_store06.png>&nbsp;</span><br><span class="chart_body">
+서울 강서구 가양3동 44-19 이마트<br>
+가양점3층<br>
+02-3662-5998<br>
+</span></div><div class="chart_item_mg"></div></div><hr>
+
+<div class="chart"><div class="chart_item_mg"><img src=./../image/blue_85.png width=35px height=43px></div><div class="chart_item"><span class="chart_title">
+E-MART(가양점)
+</span><br><span class="chart_icon"><img src=./../image/icon_store01.png>&nbsp;<img src=./../image/icon_store02.png>&nbsp;<img src=./../image/icon_store03.png>&nbsp;<img src=./../image/icon_store05.png>&nbsp;<img src=./../image/icon_store06.png>&nbsp;</span><br><span class="chart_body">
+서울 강서구 가양3동 44-19 이마트<br>
+가양점3층<br>
+02-3662-5998<br>
+</span></div><div class="chart_item_mg"></div></div><hr>
+
+<div class="chart"><div class="chart_item_mg"><img src=./../image/blue_85.png width=35px height=43px></div><div class="chart_item"><span class="chart_title">
+E-MART(가양점)
+</span><br><span class="chart_icon"><img src=./../image/icon_store01.png>&nbsp;<img src=./../image/icon_store02.png>&nbsp;<img src=./../image/icon_store03.png>&nbsp;<img src=./../image/icon_store05.png>&nbsp;<img src=./../image/icon_store06.png>&nbsp;</span><br><span class="chart_body">
+서울 강서구 가양3동 44-19 이마트<br>
+가양점3층<br>
+02-3662-5998<br>
+</span></div><div class="chart_item_mg"></div></div><hr>
+
+<div class="chart"><div class="chart_item_mg"><img src=./../image/blue_85.png width=35px height=43px></div><div class="chart_item"><span class="chart_title">
+E-MART(가양점)
+</span><br><span class="chart_icon"><img src=./../image/icon_store01.png>&nbsp;<img src=./../image/icon_store02.png>&nbsp;<img src=./../image/icon_store03.png>&nbsp;<img src=./../image/icon_store05.png>&nbsp;<img src=./../image/icon_store06.png>&nbsp;</span><br><span class="chart_body">
+서울 강서구 가양3동 44-19 이마트<br>
+가양점3층<br>
+02-3662-5998<br>
+</span></div><div class="chart_item_mg"></div></div><hr>
+
+<div class="chart"><div class="chart_item_mg"><img src=./../image/blue_85.png width=35px height=43px></div><div class="chart_item"><span class="chart_title">
+E-MART(가양점)
+</span><br><span class="chart_icon"><img src=./../image/icon_store01.png>&nbsp;<img src=./../image/icon_store02.png>&nbsp;<img src=./../image/icon_store03.png>&nbsp;<img src=./../image/icon_store05.png>&nbsp;<img src=./../image/icon_store06.png>&nbsp;</span><br><span class="chart_body">
+서울 강서구 가양3동 44-19 이마트<br>
+가양점3층<br>
+02-3662-5998<br>
+</span></div><div class="chart_item_mg"></div></div><hr>
+
+<div class="chart">
+<div class="chart_item_mg"><img src=./../image/blue_85.png width=35px height=43px></div>
+<div class="chart_item">
+<span class="chart_title">
+E-MART(가양점)
+</span>
+<br>
+<span class="chart_icon">
+<img src=./../image/icon_store01.png>&nbsp;<img src=./../image/icon_store02.png>&nbsp;<img src=./../image/icon_store03.png>&nbsp;<img src=./../image/icon_store05.png>&nbsp;<img src=./../image/icon_store06.png>&nbsp;
+</span>
+<br>
+<span class="chart_body">
+서울 강서구 가양3동 44-19 이마트<br>
+가양점3층<br>
+02-3662-5998<br>
+</span>
+</div>
+<div class="chart_item_mg"></div>
+</div>
+<hr>
+
+</div></div>
+
+
+<div class="chart_page">
+<div class="page_btn"><a href="#"><img src="./../image/paging_first.png"></a></div>
+<div class="page_btn"><a href="#"><img src="./../image/paging_prev.png"></a></div>
+<span id="chart_page_num">12345</span>
+<div class="page_btn"><a href="#"><img src="./../image/paging_next.png"></a></div>
+<div class="page_btn"><a href="#"><img src="./../image/paging_last.png"></a></div>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="main_bottom">
+<br><br><br><br><br><br><br>
+</div>
+</div>
+</div>
+
+</div>
+
+
+<footer>
+<div class="footer_wrapper">
+	<div class="footer_top">
+		<ul class="bottom">
+			<li><a href="#">개인정보처리방침</a></li>
+			<li><a href="#">이용약관</a></li>
+			<li><a href="#">의료보관 이용약관</a></li>
+		</ul>
+	</div>
+	<div class="footer_body">
+		<div class="footer_mg"></div>
+		<div class="footer_m">
+			본사 : 서울특별시 동작구 장승배기로 171 노량진 아이빌딩 3층<br> 대표전화 : 1666-9210<br>
+			사업자번호 : 542-85-00739
+		</div>
+		<div class="footer_mg">
+		<h2>△</h2>
+		</div>
+	</div>
+</div>
+</footer>
+
+</body>
+
+</html>

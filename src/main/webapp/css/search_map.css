@@ -4,8 +4,8 @@
 	
 	margin-top:200px;
 	width : 1920px;
-/* 	margin-left:250px; */
-	text-align : center;
+	text-align: center;
+	
 }
 .main_main #bdtt {
 	font-size: 52px;
@@ -13,18 +13,26 @@
 .main_main #bdtt2 {
 	font-size: 28px;
 }
+.main_body_wrapper {
+	margin-left: 0px;
+	display: flex;
+	text-align: center;
+	align-content: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.main_body_margin {
+	width: 192px;
+	height: 1200px;
+	margin: 0px;
+}
 
-/*common*/
-/* .footer { */
-/* 	width : 1170px; */
-/* 	margin : 0 auto; */
-/* } */
 .main_body {
 	width : 1480px;
 	height: 1000px;
-	margin-top : 0px;
-	margin-left:200px;
-	margin-right:200px;
+	margin : 0px;
+/* 	margin-left:200px; */
+/* 	margin-right:200px; */
 	background-color: #f5f5f5;
 	display: flex;
 	align-content: center;

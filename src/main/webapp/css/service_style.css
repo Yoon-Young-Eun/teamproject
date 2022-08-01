@@ -1,8 +1,14 @@
 @charset "UTF-8";
 
-/* *{
+<<<<<<< HEAD
+/* *{ */
+/* 	border: 1px solid red; */
+/* } */
+=======
+*{
 	border : 1px solid red;
-}    */
+}    
+>>>>>>> main
 .main_div {
 	display: flex;
 }

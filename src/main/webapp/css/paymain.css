@@ -1,0 +1,236 @@
+*{
+  /* border: 1px solid red; */
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+hr{
+  margin: 30px;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+.header{
+  display: flex;
+  justify-content:space-between;
+  margin-top: 20px;
+}
+.header_topMenu{
+  display: flex;
+  justify-content: space-between;
+  width: 230px;
+  margin-right: 20px;
+ 
+}
+.header_logo{
+  margin-left: 55px;
+}
+
+
+.header_topMenu > *{
+  display:flex;
+  align-items: center;
+}
+.header_dep1{
+  display: flex;
+  width: 800px;
+  margin-left: 30%;
+  
+  
+}
+.header_dep1 > li{
+  text-align: center;
+  font-size: 25px;
+  margin: 15px;
+  font-weight: bold;
+  display: inline-block;
+  width: auto;
+}
+.header_dep1 > li > a{
+  color: white;
+  width: 350px;
+}
+.header_dep2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  margin-top: 15px;
+ }
+.header_dep2 > *{
+  width: 100%;
+  font-size: 25px; 
+  font-weight: 200;
+  background: #006eb7; 
+  
+  
+}
+.header_dep2 >li{
+  position: relative;
+  z-index: 1;
+}
+
+
+.header_dep2 > li > a{
+  color: white; 
+  display: block;
+  
+  text
+}
+.header_menu{
+  margin:3%;
+  background: #006eb7;
+  background-attachment: fixed;
+  height:65px;
+  
+}
+/* --------------------------메뉴 hover */
+
+.header_menu1 .header_dep1 > li:hover > .header_dep2{
+  display: block;
+ 
+  
+}
+.header_menu1 .header_dep1 > li:hover > a{
+  
+  color: #fff;
+}
+.header_menu1 .header_dep2 a:hover{
+  text-decoration: underline;
+  
+}
+.header_menu1 .header_dep2{
+  display: none;
+  background:none;
+  
+}
+
+
+/* --------------바디 양쪽 공백 css */
+.main{
+  display: flex;
+}
+.space_left{
+  width: 20%;
+}
+.space_right{
+  width: 20%;
+}
+.paymainBox{
+  width: 60%;
+}
+/* 결제시 유의사항 텍스트 css */
+
+.paymain_text{
+  font-size: 40px;
+  color: black;
+  text-align: center;
+  font-weight: bold;
+}
+.paymain_text1{
+  text-align: left;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 10px;
+  padding-top: 50px;
+  padding-left: 33px;
+}
+.paymain_text2 >ol >li{
+  margin: 10px;
+  margin-left: 33px;
+  font-size: 22px;
+  list-style: circle;
+  
+
+}
+#text_1 , #text_2,#text_3{
+  color: red;
+  font-weight: bold;
+}
+.paymain_text3{
+  text-align: left;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 10px;
+  padding-top: 50px;
+  padding-left: 33px;
+}
+.paymain_text4{
+  margin: 10px;
+  margin-left: 33px;
+  font-size: 22px;
+}
+.paymain_text5{
+  margin: 10px;
+  margin-left: 33px;
+  font-size: 22px;
+}
+#text_4{
+  color: red;
+  font-weight: 400;
+}
+.paymain_link1{
+  margin: 10px;
+  margin-left: 33px;
+  font-size: 22px;
+  text-align: right;
+  font-weight: bold;
+  color: blue;
+}
+.paymain_text6{
+  text-align: left;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 10px;
+  padding-top: 50px;
+  padding-left: 33px;
+}
+.paymain_text7{
+  margin: 10px;
+  margin-left: 33px;
+  font-size: 22px;
+}
+.paymain_text8{
+  margin: 10px;
+  margin-left: 33px;
+  font-size: 22px;
+}
+.paymain_link2{
+  margin: 10px;
+  margin-left: 33px;
+  font-size: 22px;
+  text-align: right;
+  font-weight: bold;
+  color: blue;
+}
+#text_5{
+  color: red;
+  font-weight: 400;
+}
+.paymain_text9{
+  text-align: center;
+  font-size: 15px;
+}
+#checkbox1{
+  width: 15px;
+  height: 15px;
+  
+  
+}
+#button1{
+  background-color: white;
+  width: 150px;
+  height: 40px;
+  
+  margin: 0px 10px;
+ 
+
+  
+}
+.paymain_button{
+  display: flex;
+  justify-content: center;
+  padding: 15px 0px;
+  
+}

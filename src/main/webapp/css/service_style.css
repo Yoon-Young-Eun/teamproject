@@ -1,0 +1,474 @@
+@charset "UTF-8";
+
+
+/* *{ */
+/* 	border: 1px solid red; */
+/* } */ 
+
+.main_div {
+	display: flex;
+}
+
+/* 세탁서비스 css */
+.div_l {
+	margin-top: 242px;
+	width: 450px;
+	background-color: a0a0a0;
+}
+
+.div_l_t {
+	border-bottom: solid 1px #CCC7C6;
+	background-color: white;
+	height: 200px;
+}
+
+.div_m {
+	margin-top: 242px;
+	width: 999px;
+	background-color: a0a0a0;
+}
+
+.div_m_t {
+	border-bottom: solid 1px #CCC7C6;
+	width: 999px;
+	height: 200px;
+	background-color: white;
+	text-align: center;
+}
+
+.title {
+	font-size: 50px;
+}
+
+.title_01 {
+	font-size: 30px;
+}
+
+.title_02 {
+	color: gray;
+	font-size: 20px;
+}
+
+.div_m_m {
+	width: 999px;
+	text-align: center;
+	padding-bottom: 40px;
+}
+
+.div_m_text01 {
+	padding-top: 50px;
+	font-size: 40px;
+}
+
+.div_m_text02 {
+	padding-bottom: 50px;
+	color: blue;
+	font-size: 40px;
+}
+
+.div_m_m2 {
+	position: relative;
+}
+
+.div_m_text03 {
+	font-weight: bold;
+	width: 800px;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+	font-size: 25px;
+}
+
+.div_m_text04 {
+	width: 800px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+	font-size: 15px;
+}
+
+.div_m_text05 {
+	width: 800px;
+	position: absolute;
+	top: 60%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+	font-size: 15px;
+}
+
+.div_m_b {
+	padding-bottom: 40px;
+	display: flex;
+	width: 999px;
+	font-size: 23px;
+}
+
+.div_m_b_l {
+	padding-top: 20px;
+	width: 250px;
+}
+
+.div_m_b_r {
+	width: 749px;
+}
+
+.div_m_b_r_1 {
+	display: flex;
+	justify-content: space-between;
+}
+
+.div_m_b_r_1_1 {
+	font-size: 20px;
+	display: flex;
+	flex-direction: column;
+	width: 360px;
+}
+
+.div_m_b_r_1_2 {
+	font-size: 20px;
+	display: flex;
+	flex-direction: column;
+	width: 360px;
+}
+
+.div_m_b_r_2 {
+	display: flex;
+	justify-content: space-between;
+}
+
+.div_m_b_r_2_1 {
+	padding-top: 30px;
+	font-size: 20px;
+	display: flex;
+	flex-direction: column;
+	width: 360px;
+}
+
+.div_m_b_r_2_2 {
+	padding-top: 30px;
+	font-size: 20px;
+	display: flex;
+	flex-direction: column;
+	width: 360px;
+}
+
+.p0 {
+	margin: 0;
+	font-size: 28px;
+	font-weight: bold;
+	color: #737373;
+}
+
+.p1 {
+	margin: 0;
+	font-size: 23px;
+	font-weight: bold;
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
+
+.p2 {
+	margin: 0;
+	padding: 5px 0px;
+	font-size: 18px;
+}
+
+.p3 {
+	margin: 0;
+	padding: 5px 0px;
+	font-size: 17px;
+}
+
+.div_m_b_last {
+	padding-bottom: 50px;
+}
+
+.div_r {
+	margin-top: 242px;
+	width: 450px;
+	background-color: a0a0a0;
+}
+
+.div_r_t {
+	border-bottom: solid 1px #CCC7C6;
+	background-color: white;
+	height: 200px;
+}
+
+/* 요금안내 */
+/* width :749px; */
+.price_title {
+	display: flex;
+}
+
+.price_title_1 {
+	font-size: 20px;
+	padding: 8px;
+	border: solid 1px #CCC7C6;
+	width: 374.5px;
+	text-align: center;
+	background-color: #e6e6e6;
+}
+
+.price_title_2 {
+	font-size: 20px;
+	padding: 8px;
+	border: solid 1px #CCC7C6;
+	width: 374.5px;
+	text-align: center;
+	background-color: #e6e6e6;
+}
+
+.price_contens {
+	display: flex;
+}
+
+.price_contens_1 {
+	font-size: 20px;
+	padding: 8px;
+	border: solid 1px #CCC7C6;
+	width: 374.5px;
+	text-align: center;
+	background-color: white;
+}
+
+.price_contens_2 {
+	font-size: 20px;
+	padding: 8px;
+	border: solid 1px #CCC7C6;
+	width: 374.5px;
+	text-align: center;
+	background-color: white;
+}
+
+.div_padding-top {
+	padding-top: 20px;
+}
+
+.image_01 {
+	width: 749px;
+	border: solid 1px #CCC7C6;
+}
+
+.line {
+    padding-bottom: 40px;
+	width: 999px;
+	border-top: solid 1px #CCC7C6;
+}
+/* 세탁서비스 css 종료 */
+
+/*common*/
+
+/* .footer {
+	width : 1899px;
+	margin : 0 auto;
+		      background-color: white;
+}
+ */
+.header {
+	width: 1170px;
+	margin: 0 auto;
+}
+
+.menu_wrapper {
+	height: 100px;
+	width: 100%;
+	/* margin: 200px auto; */
+	background-color: white;
+	/*화면 가운데에 고정*/
+	display: flex;
+	justify-content: center;
+}
+
+/*header*/
+header {
+	height: 150px;
+	background-color: white;
+	position: fixed;
+	width: 100%;
+	z-index: 9999;
+	/* 	padding-top: 50px; */
+	left: 0;
+}
+
+h1 {
+	color: black;
+	line-height: 100px;
+	float: left;
+}
+
+/*body*/
+body {
+	height: 100%; background-color : #f5f5f5;
+	margin: 0px;
+	background-color: #f5f5f5;
+}
+
+/*footer*/
+footer {
+	border-top: solid 1px #CCC7C6;
+	width: 1899px;
+	margin: 0 auto;
+	background-color: white;
+	height: 50px;
+	position: relative;
+	/* 	transform : translateY(-100%); */
+	width: 100%;
+	/* position: fixed;  */
+	bottom: 0;
+	left: 0;
+}
+
+h2 {
+	position: absolute;
+	right: 100px;
+	bottom: 60px;
+	color: black;
+}
+
+.footer {
+	position: relative; background-color : white;
+	color: black;
+	height: 100px;
+	font-size: 12px;
+	text-align: center;
+	background-color: white;
+}
+
+/*body*/
+
+/*upper menu*/
+.top {
+	float: right;
+}
+
+.top li {
+	font-size: 12px;
+	list-style: none;
+	float: left;
+}
+
+.top a {
+	line-height: 100px;
+	color: black;
+	padding: 0 15px;
+	display: block;
+	text-decoration: none;
+}
+
+.top li:hover>a {
+	background-color: none;
+	font-weight: bold;
+}
+
+/*main menu bar*/
+.middle {
+	list-style: none;
+	width: 1899px;
+	height: 50px;
+	background: #006eb7;
+	display: flex;
+	justify-content: center;
+}
+
+.middle li {
+	float: left;
+	padding-top: 10px;
+	position: relative;
+	margin: 0px 30px;
+}
+
+.middle li a {
+	display: block;
+	font-weight: bold;
+	font-size: 20px;
+	color: white;
+	margin: 0;
+	text-decoration: none;
+}
+
+.middle li:hover>a {
+	display: block;
+	background: none;
+	color: white;
+	font-size: bold;
+}
+
+.middle ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	left: 0;
+	padding-top: 30px;
+	width: 200px;
+	background: #006eb7;
+	text-align: center;
+	opacity: 0;
+}
+
+.middle ul li {
+	float: none;
+	margin: 0;
+	padding: 0;
+}
+
+.middle ul a {
+	font-weight: normal;
+	color: white;
+	font-size: 15px;
+}
+
+.middle ul li:hover a {
+	display: block;
+	height: 30px;
+	background: #b0d2e9;
+	font-weight: bold;
+}
+
+.middle li:hover ul {
+	opacity: 1;
+}
+
+.middle li:hover ul li {
+	height: 40px;
+	overflow: visible;
+	padding: 0;
+}
+
+/*bottom menu*/
+.bottom {
+	list-style: none;
+	height: 50px;
+	padding: 5px 1px;
+	margin: 0;
+	background-color: white;
+	display: flex;
+	justify-content: center;
+}
+
+.bottom li {
+	float: left;
+	position: relative;
+	margin: 5px 30px;
+	padding: 0;
+}
+
+.bottom li a {
+	display: block;
+	font-size: 12px;
+	color: black;
+	margin: 0;
+	text-decoration: none;
+}
+
+.bottom li:hover>a {
+	display: block;
+	background: none;
+	font-weight: bold;
+}

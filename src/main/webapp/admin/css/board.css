@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body { 
   margin : 0px ;
 }
@@ -22,10 +23,11 @@ header {
   padding : 20px ;
 }
 header > img {
-  float : left ;
+/*   float : left ; */
   margin-right : 30px ;
-  width : 120px ;
-  height : 110px ;
+  margin-top : 0px;
+  width : 125px ;
+  height : 105px ;
 }
 header > h1 {
   padding : 0px ;
@@ -38,48 +40,53 @@ header > h1 {
   display : none ;
 }
 
-/*게시판*/
-/*외곽잡기*/
+/*寃뚯떆�뙋*/
+/*�쇅怨쎌옟湲�*/
 #content_wrap {
-  border : 1px solid red ;
-  padding : 30px ;
-  background : honeydew ;
-  width : 100% ;
-  font-size : 13px ;
+	/*   border : 1px solid red ; */
+	padding: 30px;
+	background: black;
+	width: 100%;
+	font-size: 15px;
 }
+
 #content_wrap ul {
   background : #ffffff ;
   border : 1px solid #dddddd ;
   padding : 10px ;
 }
-#content_wrap ul li{
-  margin-bottom : 6px ;
+#content_wrap ul li {
+	margin-bottom: 7px;
 }
-#content_wrap ul li:nth-child(2){
+
+/* #content_wrap ul li:nth-child(2){
   margin-bottom : 10px ;
-}
+} */
+
 #content_wrap .title {
   font-weight : bold ;
   display : inline-block ;
   width : 60px ;
 }
 
-/*내부잡기 shift+home+insert */
+/*�궡遺��옟湲� shift+home+insert */
 #content_wrap li:nth-child(1) div{
   display : inline-block ;
 }
 #content_wrap li:nth-child(1) .radiobox {
-  font-size : 13px ;
+  font-size : 15px ;
   margin-left : 50px ;
 }
-/*쓰기영역 */
+/*�벐湲곗쁺�뿭 */
 .writeWrap {
-  padding : 10px ;
+  padding : 0px ;
+  padding-bottom: 12px;
   margin : 0px ;
+  width: 100%;
 }
 
 .writeWrap  .writeArea {
-  width : 95% ;
+  width : 100% ;
   padding : 5% ;
   font-size : 12px ;
   color : #666666 ;
@@ -95,43 +102,49 @@ header > h1 {
   padding : 10px ;
 }
 .configWrap .tag .InputArea input{
-  width: 500px ;
+  width: 400px ;
+  margin-left: 10px;
 }
 .end {
-  border-top : 1px solid #dddddd ;
-  background : white ;
-  width : 100%;
-  padding : 10px ;
-  padding-top : 30px ;
+	border-top: 1px solid #dddddd;
+	background: white;
+	width: 100%;
+	padding: 10px;
+	padding: 10px 10px 10px;
 }
+
 .end a {
-  font-size : 14px ;
-  border : 1px solid gold ;
-  background : khaki ;
-  padding : 3px ;
-  border-radius : 5px ;
+	font-size: 14px;
+	border: 2px solid black;
+	background: #ffffff;
+	padding: 3px;
+	border-radius: 5px;
+ 	font-weight: bold;
+ 	letter-spacing: 2px;
 }
+
 .end a:hover {
   font-weight : bold ;
   text-decoration : none ;
 }
+	
+.div2 {
+	display: flex;
+}
 
+.div3{
+	padding-left : 30px;
+}
 
+.dd{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.tag_di{
+	display: flex;
+}
 
 
 

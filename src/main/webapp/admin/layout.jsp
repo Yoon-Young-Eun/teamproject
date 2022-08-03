@@ -14,6 +14,7 @@
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
 <link href="css/styles.css" rel="stylesheet" />
+<link href="css/tables-div.css" rel="stylesheet" />
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
 	crossorigin="anonymous"></script>
 </head>
@@ -328,12 +329,105 @@
 						<div class="card-header">
 							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 게시판에 대한 세부제목
 						</div>
-						<!--  여기부터 내용물 -->
-						내용물 <br> <br> <br> <br> <br> <br> <br>
-						<br>
+						
+<!-- ----------------------------------- 여기부터 내용물 ------------------------------------------------------- -->
+
+				내용물 <br>
+						
+						
+				<div class="table_div_wrapper">	
+					<div class="table_div">
+						<div class="table_tr">
+                            	<div class="table_td1_head">Name</div>
+                            	<div class="table_td2_head">Position</div>
+                            	<div class="table_td3_head">Office</div>
+                            	<div class="table_td4_head">Age</div>
+                            	<div class="table_td5_head">Start date</div>
+                            	<div class="table_td6_head">Salary</div>
+							</div>
+							
+                            <div class="table_tr">
+                            	<div class="table_td1">Jackson Bradshaw</div>
+                            	<div class="table_td2">Director</div>
+                            	<div class="table_td3">New York</div>
+                            	<div class="table_td4">65</div>
+                            	<div class="table_td5">2008/09/26</div>
+                            	<div class="table_td6">	$645,750</div>
+							</div>
+							<div class="table_tr">
+                            	<div class="table_td1">Olivia Liang</div>
+                            	<div class="table_td2">Support Engineer</div>
+                            	<div class="table_td3">Singapore</div>
+                            	<div class="table_td4">64</div>
+                            	<div class="table_td5">2011/02/03</div>
+                            	<div class="table_td6">$234,500</div>
+							</div>
+							<div class="table_tr">
+                            	<div class="table_td1">Bruno Nash</div>
+                            	<div class="table_td2">Software Engineer</div>
+                            	<div class="table_td3">London</div>
+                            	<div class="table_td4">38</div>
+                            	<div class="table_td5">2011/05/03</div>
+                            	<div class="table_td6">$163,500</div>
+							</div>
+							<div class="table_tr">
+                            	<div class="table_td1">Sakura Yamamoto</div>
+                            	<div class="table_td2">Support Engineer</div>
+                            	<div class="table_td3">Tokyo</div>
+                            	<div class="table_td4">37</div>
+                            	<div class="table_td5">2009/08/19</div>
+                            	<div class="table_td6">$139,575</div>
+							</div>
+							<div class="table_tr">
+                            	<div class="table_td1">Thor Walton</div>
+                            	<div class="table_td2">Developer</div>
+                            	<div class="table_td3">New York</div>
+                            	<div class="table_td4">61</div>
+                            	<div class="table_td5">2013/08/11</div>
+                            	<div class="table_td6">$98,540</div>
+							</div>
+							<div class="table_tr">
+                            	<div class="table_td1">Finn Camacho</div>
+                            	<div class="table_td2">Support Engineer</div>
+                            	<div class="table_td3">San Francisco</div>
+                            	<div class="table_td4">47</div>
+                            	<div class="table_td5">2009/07/07</div>
+                            	<div class="table_td6">$87,500</div>
+							</div>
+							<div class="table_tr">
+                            	<div class="table_td1">Serge Baldwin</div>
+                            	<div class="table_td2">Data Coordinator</div>
+                            	<div class="table_td3">Singapore</div>
+                            	<div class="table_td4">64</div>
+                            	<div class="table_td5">2012/04/09</div>
+                            	<div class="table_td6">$138,575</div>
+							</div>
+							<div class="table_tr">
+                            	<div class="table_td1">Zenaida Frank</div>
+                            	<div class="table_td2">Software Engineer</div>
+                            	<div class="table_td3">New York</div>
+                            	<div class="table_td4">63</div>
+                            	<div class="table_td5">2010/01/04</div>
+                            	<div class="table_td6">$125,250</div>
+							</div>
+							<div class="table_tr">
+                            	<div class="table_td1">Jennifer Acosta</div>
+                            	<div class="table_td2">Junior Javascript Developer</div>
+                            	<div class="table_td3">Edinburgh</div>
+                            	<div class="table_td4">43</div>
+                            	<div class="table_td5">2013/02/01</div>
+                            	<div class="table_td6">$75,650</div>
+							</div>
+						</div>
+					</div>
+						
+						
+				<br>
 
 
-						<!-- 내용물 end -->
+
+<!-- ------------------------------------- 내용물 end ---------------------------------------------------------- -->
+
 						<div class="card-footer small text-muted">Updated yesterday
 							at 11:59 PM</div>
 					</div>

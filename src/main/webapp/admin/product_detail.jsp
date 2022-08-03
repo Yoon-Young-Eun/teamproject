@@ -10,6 +10,15 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>Dashboard - SB Admin</title>
+<!-- <-게시판 css -->
+<link rel="stylesheet" href="./css/product_detail_style.css" />
+<script type="text/javascript"
+	src="   https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/10.1.0/nouislider.js">
+	
+</script>
+<script type="text/javascript" src=" ./js/product_detail.js">
+	
+</script>
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
@@ -311,35 +320,60 @@
 			<main>
 
 
-				<div class="container-fluid px-4">
-					<h1 class="mt-4">게시판</h1>
-					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-						<li class="breadcrumb-item active">게시판</li>
-					</ol>
-					<div class="card mb-4">
-						<div class="card-body">
-							설명 또는 기타 필드를 넣을 수 있는 공간,,, <a target="_blank"
-								href="https://www.chartjs.org/docs/latest/">Chart.js
-								documentation</a>
+				<!-- DETAIL FORM -->
+				<form action="" method="POST" enctype="multipart/form-data"
+					class="form">
+					<div class="formHeader row">
+						<h2 class="text-1 fl">Product Detail</h2>
+						<div class="fr">
+							<button type="submit" class="btnSave bg-1 text-fff text-bold fr">SAVE</button>
+							<a href="" class="btnAdd fa fa-plus bg-1 text-fff"></a>
 						</div>
 					</div>
-					<div class="card mb-4">
-						<div class="card-header">
-							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 게시판에 대한 세부제목
+					<div class="formBody row">
+						<div class="column s-6">
+							<label class="inputGroup"> <span>Name</span> <span><input
+									type="text" name="name"></span>
+							</label> <label class="inputGroup"> <span>Code</span> <span><input
+									type="text" name="code"></span>
+							</label> <label class="inputGroup"> <span>Price</span> <span><input
+									type="text" name="price"></span>
+							</label> <label class="inputGroup"> <span>Note</span> <span><input
+									type="text" name="note"></span>
+							</label>
 						</div>
-						<!--  여기부터 내용물 -->
-						내용물 <br> <br> <br> <br> <br> <br> <br>
-						<br>
+						<div class="column s-6">
+							<label class="inputGroup"> <span>Category</span> <span>
+									<select name="cate">
+										<option value="cate01">Category01</option>
+										<option value="cate02">Category02</option>
+								</select> <i class="btnNewInput fa fa-plus bg-1 text-fff"></i>
+							</span>
+							</label> <label class="inputGroup hide"> <span>Brand</span> <span>
+									<input type="text" name="cate"> <select name="brand">
+										<option value="cate01">Brand01</option>
+										<option value="cate02">Brand02</option>
+								</select>
+							</span>
+							</label> <label class="inputGroup"> <span>Image</span> <input
+								type="hidden" name="img" value="src"> <span> <input
+									type="file" name="img" onchange="getImg(this)" multiple>
+									<img
+									src="http://bookstore.crunchpress.com/wp-content/uploads/2013/05/b2.jpg"
+									alt="" width="50">
+							</span>
 
-
-						<!-- 내용물 end -->
-						<div class="card-footer small text-muted">Updated yesterday
-							at 11:59 PM</div>
+							</label>
+						</div>
+						<div class="column">
+							<label class="inputGroup"> <span>Description</span> <textarea
+									name="description"></textarea>
+							</label>
+						</div>
 					</div>
-
-				</div>
+				</form>
 			</main>
+
 			<footer class="py-4 bg-light mt-auto">
 				<div class="container-fluid px-4">
 					<div

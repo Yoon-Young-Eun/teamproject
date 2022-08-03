@@ -10,6 +10,9 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>Dashboard - SB Admin</title>
+<!-- <-게시판 css -->
+<link rel="stylesheet" href="./css/board.css" />
+
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
@@ -311,6 +314,7 @@
 			<main>
 
 
+
 				<div class="container-fluid px-4">
 					<h1 class="mt-4">게시판</h1>
 					<ol class="breadcrumb mb-4">
@@ -328,18 +332,71 @@
 						<div class="card-header">
 							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 게시판에 대한 세부제목
 						</div>
-						<!--  여기부터 내용물 -->
-						내용물 <br> <br> <br> <br> <br> <br> <br>
-						<br>
+
+						<div id="wrap">
+							<header>
+								<img
+									src="https://i.etsystatic.com/14912200/r/il/7c4834/1295206612/il_570xN.1295206612_nj87.jpg">
+								<h1>admin 게시판</h1>
+								<h2>...</h2>
+							</header>
+							<div id="content_wrap">
+								<ul class="title_wrap">
+									<li><span class="title">게시판</span>
+										<div class="board_select">
+											<select value="게시판선택">
+												<option selected disabled>게시판선택</option>
+												<option value="ml">Deep Learning</option>
+												<option value="board">자유게시판</option>
+											</select>
+										</div>
+										<div class="radiobox">
+											<!--
+            <input type="checkBox" id="chkNotice1" name="chkB1">
+            <label for="chkNotice1">공지사항으로 게시글쓰기</label>
+            <input type="checkBox" id="chkNotice2" name="chkB2">
+            <label for="chkNotice2">일반글로 게시글쓰기</label>
+            -->
+											<input type="radio" name="write" id="write_O"> <label
+												for="write_O">공지사항으로 게시글쓰기</label> <input type="radio"
+												name="write" id="write_G"> <label for="write_G">일반글로
+												게시글쓰기</label>
+										</div></li>
+									<li><span class="title">제목</span> <input type="text"
+										onfocus="value=''" value="게시글 제목을 입력하세요" style="width: 500px" />
+									</li>
+									<li><span class="title" style="font-size: 10px;">동영상삽입</span>
+									</li>
+								</ul>
+								<div class="writeWrap">
+									<textarea class="writeArea" value=""></textarea>
+								</div>
+								<div class="configWrap">
+									<ul>
+										<li class="tag"><span class="title">태그달기</span>
+											<div class="InputArea">
+												<input type="text" id="tagInput" nae="tagInput"
+													onfocus="value=''" value="태그와 태그는 쉼표로 구분하세요">
+											</div></li>
+										<li><span class="title">공개설정</span></li>
+										<li><span class="title">검색설정</span></li>
+									</ul>
+								</div>
+								<div class="end">
+									<a href="#">저장하기</a> <a href="#">취소하기</a>
+								</div>
+
+							</div>
+						</div>
 
 
-						<!-- 내용물 end -->
 						<div class="card-footer small text-muted">Updated yesterday
 							at 11:59 PM</div>
 					</div>
 
 				</div>
 			</main>
+
 			<footer class="py-4 bg-light mt-auto">
 				<div class="container-fluid px-4">
 					<div

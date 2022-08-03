@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: USER
+=======
+Built-By: swc19
+>>>>>>> fe6daff43c1a4186a083bc0819caeddab4436485
 Build-Jdk: 15.0.2
 Created-By: Maven Integration for Eclipse
 

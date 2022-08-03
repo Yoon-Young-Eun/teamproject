@@ -10,6 +10,8 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>Dashboard - SB Admin</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="js/fileupload.js"></script>
 <!-- <-게시판 css -->
 <link rel="stylesheet" href="./css/board.css" />
 
@@ -335,10 +337,15 @@
 
 						<div id="wrap">
 							<header>
-							<div class="div2">
-								<div><img
-									src="https://i.etsystatic.com/14912200/r/il/7c4834/1295206612/il_570xN.1295206612_nj87.jpg" width=150px></div>
-								<div class="div3"><h1>관리자 게시판</h1></div>
+								<div class="div2">
+									<div>
+										<img
+											src="https://i.etsystatic.com/14912200/r/il/7c4834/1295206612/il_570xN.1295206612_nj87.jpg"
+											width=150px>
+									</div>
+									<div class="div3">
+										<h1>관리자 게시판</h1>
+									</div>
 								</div>
 							</header>
 							<div id="content_wrap">
@@ -372,21 +379,27 @@
 								</div>
 								<div class="configWrap">
 									<ul>
-										<li><span class="title">첨부파일</span>&nbsp;&nbsp;<input type="file" name="file"></li>
+										<li><span class="title">첨부파일</span>&nbsp;&nbsp;
+											<div class="filebox">
+												<label for="ex_filename">파일 선택</label> <input type="file"
+													id="ex_filename" class="upload-hidden"> <input
+													class="upload-name" value="" disabled="disabled">
+											</div></li>
 										<li class="tag">
-										<div class="tag_di">
-										<div class="title">태그달기</div>
-											<div class="InputArea"><input type="text" id="tagInput" nae="tagInput" onfocus="value=''" value="태그와 태그는 쉼표로 구분하세요">
-										</div>
-										</div></li>
-										<li><span class="title">공개설정</span>&nbsp;
-										<input type="radio" name="open" id="open_0">
-										<label for="open_0">전체공개</label>&nbsp;&nbsp;
-										<input type="radio" name="open" id="open_1">
-										<label for="open_1">회원만 공개</label>&nbsp;&nbsp;
-										<input type="radio" name="open" id="open_2">
-										<label for="open_2">비공개</label>
+											<div class="tag_di">
+												<div class="title">태그달기</div>
+												<div class="InputArea">
+													<input type="text" id="tagInput" nae="tagInput"
+														onfocus="value=''" value="태그와 태그는 쉼표로 구분하세요">
+												</div>
+											</div>
 										</li>
+										<li><span class="title">공개설정</span>&nbsp; <input
+											type="radio" name="open" id="open_0"> <label
+											for="open_0">전체공개</label>&nbsp;&nbsp; <input type="radio"
+											name="open" id="open_1"> <label for="open_1">회원만
+												공개</label>&nbsp;&nbsp; <input type="radio" name="open" id="open_2">
+											<label for="open_2">비공개</label></li>
 									</ul>
 								</div>
 								<div class="end">

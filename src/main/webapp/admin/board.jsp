@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+
+<%-- 
+<%@ page import="java.util.List"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+--%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,12 +15,27 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Dashboard - SB Admin</title>
+<title>약관관리</title>
+
+
+
+<!-- 테이블 필터2 -->
+<link href="css/tablefilter.css" rel="stylesheet"/>
+<script src="./js/tablefilter.js"></script>
+
+
+
+<!-- 체크박스 js -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="./js/checkbox.js"></script>
+
+<link href="css/provision.css" rel="stylesheet" />
+
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
 <link href="css/styles.css" rel="stylesheet" />
-<link href="css/tables-div.css" rel="stylesheet" />
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
 	crossorigin="anonymous"></script>
 </head>
@@ -66,10 +87,6 @@
 								<i class="fas fa-tachometer-alt"></i>
 							</div> 대시보드
 						</a>
-
-
-
-
 
 						<div class="sb-sidenav-menu-heading">관리자 메뉴</div>
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -310,128 +327,178 @@
 		</div>
 		<div id="layoutSidenav_content">
 			<main>
-
-
-				<div class="container-fluid px-4">
-					<h1 class="mt-4">게시판</h1>
+<div class="container-fluid px-4">
+					<h1 class="mt-4">회원관리</h1>
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-						<li class="breadcrumb-item active">게시판</li>
+						<li class="breadcrumb-item active">회원관리</li>
 					</ol>
 					<div class="card mb-4">
 						<div class="card-body">
-							설명 또는 기타 필드를 넣을 수 있는 공간,,, <a target="_blank"
-								href="https://www.chartjs.org/docs/latest/">Chart.js
-								documentation</a>
+							회원관리 페이지 입니다. <a target="_blank"
+								href="https://datatables.net/">아무링크</a> .
 						</div>
 					</div>
 					<div class="card mb-4">
 						<div class="card-header">
-							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 게시판에 대한 세부제목
-						</div>
-						
-<!-- ----------------------------------- 여기부터 내용물 ------------------------------------------------------- -->
-
-				내용물 <br>
-						
-						
-				<div class="table_div_wrapper">	
-					<div class="table_div">
-						<div class="table_tr">
-                            	<div class="table_td1_head">Name</div>
-                            	<div class="table_td2_head">Position</div>
-                            	<div class="table_td3_head">Office</div>
-                            	<div class="table_td4_head">Age</div>
-                            	<div class="table_td5_head">Start date</div>
-                            	<div class="table_td6_head">Salary</div>
-							</div>
+							<i class="fas fa-table me-1"></i> 회원상세
 							
-                            <div class="table_tr">
-                            	<div class="table_td1">Jackson Bradshaw</div>
-                            	<div class="table_td2">Director</div>
-                            	<div class="table_td3">New York</div>
-                            	<div class="table_td4">65</div>
-                            	<div class="table_td5">2008/09/26</div>
-                            	<div class="table_td6">	$645,750</div>
-							</div>
-							<div class="table_tr">
-                            	<div class="table_td1">Olivia Liang</div>
-                            	<div class="table_td2">Support Engineer</div>
-                            	<div class="table_td3">Singapore</div>
-                            	<div class="table_td4">64</div>
-                            	<div class="table_td5">2011/02/03</div>
-                            	<div class="table_td6">$234,500</div>
-							</div>
-							<div class="table_tr">
-                            	<div class="table_td1">Bruno Nash</div>
-                            	<div class="table_td2">Software Engineer</div>
-                            	<div class="table_td3">London</div>
-                            	<div class="table_td4">38</div>
-                            	<div class="table_td5">2011/05/03</div>
-                            	<div class="table_td6">$163,500</div>
-							</div>
-							<div class="table_tr">
-                            	<div class="table_td1">Sakura Yamamoto</div>
-                            	<div class="table_td2">Support Engineer</div>
-                            	<div class="table_td3">Tokyo</div>
-                            	<div class="table_td4">37</div>
-                            	<div class="table_td5">2009/08/19</div>
-                            	<div class="table_td6">$139,575</div>
-							</div>
-							<div class="table_tr">
-                            	<div class="table_td1">Thor Walton</div>
-                            	<div class="table_td2">Developer</div>
-                            	<div class="table_td3">New York</div>
-                            	<div class="table_td4">61</div>
-                            	<div class="table_td5">2013/08/11</div>
-                            	<div class="table_td6">$98,540</div>
-							</div>
-							<div class="table_tr">
-                            	<div class="table_td1">Finn Camacho</div>
-                            	<div class="table_td2">Support Engineer</div>
-                            	<div class="table_td3">San Francisco</div>
-                            	<div class="table_td4">47</div>
-                            	<div class="table_td5">2009/07/07</div>
-                            	<div class="table_td6">$87,500</div>
-							</div>
-							<div class="table_tr">
-                            	<div class="table_td1">Serge Baldwin</div>
-                            	<div class="table_td2">Data Coordinator</div>
-                            	<div class="table_td3">Singapore</div>
-                            	<div class="table_td4">64</div>
-                            	<div class="table_td5">2012/04/09</div>
-                            	<div class="table_td6">$138,575</div>
-							</div>
-							<div class="table_tr">
-                            	<div class="table_td1">Zenaida Frank</div>
-                            	<div class="table_td2">Software Engineer</div>
-                            	<div class="table_td3">New York</div>
-                            	<div class="table_td4">63</div>
-                            	<div class="table_td5">2010/01/04</div>
-                            	<div class="table_td6">$125,250</div>
-							</div>
-							<div class="table_tr">
-                            	<div class="table_td1">Jennifer Acosta</div>
-                            	<div class="table_td2">Junior Javascript Developer</div>
-                            	<div class="table_td3">Edinburgh</div>
-                            	<div class="table_td4">43</div>
-                            	<div class="table_td5">2013/02/01</div>
-                            	<div class="table_td6">$75,650</div>
-							</div>
+<form action="">
+<div class="flex">
+<div><input type='reset'></div>
+<div>
+<select class="mylist" onchange="myFunction()" class='form-control'>
+<option >회원코드</option>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+<option>6</option>
+</select> </div>
+
+<div>
+<select class="mylist1" onchange="myFunction()" class='form-control'>
+<option >아이디</option>
+<option>영은</option>
+<option>쵸리</option>
+<option>용현</option>
+<option>승현</option>
+<option>예린</option>
+<option>가형</option>
+</select> </div>
+
+<div>
+<select class="mylist2" onchange="myFunction()" class='form-control'>
+<option >이름</option>
+<option>영은</option>
+<option>쵸리</option>
+<option>용현</option>
+<option>승현</option>
+<option>예린</option>
+<option>가형</option>
+</select> </div>
+</div>
+ 
+
+</form>							
+							
+							
+							
+						</div>
+						<div class="card-body"> <!-- 디브 좌우 너비 100% -->
+			
+
+				<table id="datatablesSimple"	 class="myTable" >		
+
+    
+    
+    
+								<!--  table for 문 -->
+								<thead>
+									<tr>
+										<!-- EL 표현식으로 대체 ${board.seq}-->
+									<tr>	
+       									<th> <input type="checkbox" name="check" class="allcheck"></th>
+										<th>회원코드</th>
+										<th>아이디(이메일)</th>
+										<th>이름</th>
+										<th>핸드폰</th>
+										<th>SMS수신</th>
+										<th>핸드폰</th>
+										<th>SMS</th>
+										<th>계정상태</th>
+									</tr>
+								</thead>
+								
+ <%--                            나중에 boardList를 받아 for문으로 출력할 예정
+				              <c:forEach var="board" items="${boardList}">
+									<tfoot>
+										<tr>
+										    <td><input type="checkbox" name="check"></td>
+											<td>${board.seq }</td>
+											<td><a href="getBoard.do?seq=${board.seq }">${board.title }</a></td>
+											<td>${board.status}</td>
+											<td><fmt:formatDate value="${board.regDate }"
+													pattern="yyyy-MM-dd" /></td>
+											<td>${board.expirationDate}</td>
+										</tr>
+									</tfoot>
+								</c:forEach>	
+														 --%>
+														 
+								<tbody>
+										<tr>
+										<td><input type="checkbox" name="check"></td>
+										<td>6</td>
+										<td>disdiddms@naver.com</td>
+										<td>윤영은</td>
+										<td>36</td>
+										<td>010-3172-1263</td>
+										<td>true</td>
+										<td>false</td>
+										<td>신규회원</td>
+									</tr>
+									<tr>
+										<td><input type="checkbox" name="check"></td>
+										<td>5</td>
+										<td>쵸리@naver.com</td>
+										<td>우철</td>
+										<td>35</td>
+										<td>010-0000-0000</td>
+										<td>true</td>
+										<td>false</td>
+										<td>신규회원</td>
+									</tr>
+									<tr>
+											<td><input type="checkbox" name="check"></td>
+										<td>4</td>
+										<td>용현@naver.com</td>
+										<td>백용현</td>
+										<td>33</td>
+										<td>010-0000-0000</td>
+										<td>true</td>
+										<td>true</td>
+										<td>신규회원</td>
+									</tr>
+									<tr>
+						           		<td><input type="checkbox" name="check"></td>
+										<td>3</td>
+										<td>승현@naver.com</td>
+										<td>강승현</td>
+										<td>30</td>
+										<td>010-0000-0000</td>
+										<td>true</td>
+										<td>true</td>
+										<td>신규회원</td>
+									</tr>
+									<tr>
+											<td><input type="checkbox" name="check"></td>
+										<td>2</td>
+										<td>예린@naver.com</td>
+										<td>김예린</td>
+										<td>29</td>
+										<td>010-0000-0000</td>
+										<td>true</td>
+										<td>true</td>
+										<td>신규회원</td>
+									</tr>
+									<tr>
+									<td><input type="checkbox" name="check"></td>
+										<td>1</td>
+										<td>가형@naver.com</td>
+										<td>이가형</td>
+										<td>27</td>
+										<td>010-0000-0000</td>
+										<td>true</td>
+										<td>true</td>
+										<td>신규회원</td>
+									</tr>
+								</table>
+					
+								
 						</div>
 					</div>
-						
-						
-				<br>
-
-
-
-<!-- ------------------------------------- 내용물 end ---------------------------------------------------------- -->
-
-						<div class="card-footer small text-muted">Updated yesterday
-							at 11:59 PM</div>
-					</div>
-
 				</div>
 			</main>
 			<footer class="py-4 bg-light mt-auto">
@@ -448,6 +515,9 @@
 			</footer>
 		</div>
 	</div>
+	
+
+	
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>

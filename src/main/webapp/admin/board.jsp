@@ -1,11 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-
-<%-- 
-<%@ page import="java.util.List"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
---%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,14 +9,12 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>약관관리</title>
+<title>Dashboard - SB Admin</title>
 
 
-
-<!-- 테이블 필터2 -->
-<link href="css/tablefilter.css" rel="stylesheet"/>
-<script src="./js/tablefilter.js"></script>
-
+<!--  테이블 필터(중요) -->
+<link href="css/filter.css"rel="stylesheet" />
+<script src="js/filter.js"crossorigin="anonymous"></script>
 
 
 <!-- 체크박스 js -->
@@ -30,7 +22,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="./js/checkbox.js"></script>
 
-<link href="css/provision.css" rel="stylesheet" />
 
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
@@ -87,6 +78,10 @@
 								<i class="fas fa-tachometer-alt"></i>
 							</div> 대시보드
 						</a>
+
+
+
+
 
 						<div class="sb-sidenav-menu-heading">관리자 메뉴</div>
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -327,8 +322,10 @@
 		</div>
 		<div id="layoutSidenav_content">
 			<main>
-<div class="container-fluid px-4">
-					<h1 class="mt-4">회원관리</h1>
+
+
+				<div class="container-fluid px-4">
+						<h1 class="mt-4">회원관리</h1>
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
 						<li class="breadcrumb-item active">회원관리</li>
@@ -341,164 +338,158 @@
 					</div>
 					<div class="card mb-4">
 						<div class="card-header">
-							<i class="fas fa-table me-1"></i> 회원상세
-							
-<form action="">
-<div class="flex">
-<div><input type='reset'></div>
-<div>
-<select class="mylist" onchange="myFunction()" class='form-control'>
-<option >회원코드</option>
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-<option>5</option>
-<option>6</option>
-</select> </div>
-
-<div>
-<select class="mylist1" onchange="myFunction()" class='form-control'>
-<option >아이디</option>
-<option>영은</option>
-<option>쵸리</option>
-<option>용현</option>
-<option>승현</option>
-<option>예린</option>
-<option>가형</option>
-</select> </div>
-
-<div>
-<select class="mylist2" onchange="myFunction()" class='form-control'>
-<option >이름</option>
-<option>영은</option>
-<option>쵸리</option>
-<option>용현</option>
-<option>승현</option>
-<option>예린</option>
-<option>가형</option>
-</select> </div>
-</div>
- 
-
-</form>							
-							
-							
-							
+							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 게시판에 대한 세부제목
 						</div>
-						<div class="card-body"> <!-- 디브 좌우 너비 100% -->
-			
-
-				<table id="datatablesSimple"	 class="myTable" >		
-
-    
-    
-    
-								<!--  table for 문 -->
-								<thead>
-									<tr>
-										<!-- EL 표현식으로 대체 ${board.seq}-->
-									<tr>	
-       									<th> <input type="checkbox" name="check" class="allcheck"></th>
-										<th>회원코드</th>
-										<th>아이디(이메일)</th>
-										<th>이름</th>
-										<th>핸드폰</th>
-										<th>SMS수신</th>
-										<th>핸드폰</th>
-										<th>SMS</th>
-										<th>계정상태</th>
-									</tr>
-								</thead>
-								
- <%--                            나중에 boardList를 받아 for문으로 출력할 예정
-				              <c:forEach var="board" items="${boardList}">
-									<tfoot>
-										<tr>
-										    <td><input type="checkbox" name="check"></td>
-											<td>${board.seq }</td>
-											<td><a href="getBoard.do?seq=${board.seq }">${board.title }</a></td>
-											<td>${board.status}</td>
-											<td><fmt:formatDate value="${board.regDate }"
-													pattern="yyyy-MM-dd" /></td>
-											<td>${board.expirationDate}</td>
-										</tr>
-									</tfoot>
-								</c:forEach>	
-														 --%>
-														 
-								<tbody>
-										<tr>
-										<td><input type="checkbox" name="check"></td>
-										<td>6</td>
-										<td>disdiddms@naver.com</td>
-										<td>윤영은</td>
-										<td>36</td>
-										<td>010-3172-1263</td>
-										<td>true</td>
-										<td>false</td>
-										<td>신규회원</td>
-									</tr>
-									<tr>
-										<td><input type="checkbox" name="check"></td>
-										<td>5</td>
-										<td>쵸리@naver.com</td>
-										<td>우철</td>
-										<td>35</td>
-										<td>010-0000-0000</td>
-										<td>true</td>
-										<td>false</td>
-										<td>신규회원</td>
-									</tr>
-									<tr>
-											<td><input type="checkbox" name="check"></td>
-										<td>4</td>
-										<td>용현@naver.com</td>
-										<td>백용현</td>
-										<td>33</td>
-										<td>010-0000-0000</td>
-										<td>true</td>
-										<td>true</td>
-										<td>신규회원</td>
-									</tr>
-									<tr>
-						           		<td><input type="checkbox" name="check"></td>
-										<td>3</td>
-										<td>승현@naver.com</td>
-										<td>강승현</td>
-										<td>30</td>
-										<td>010-0000-0000</td>
-										<td>true</td>
-										<td>true</td>
-										<td>신규회원</td>
-									</tr>
-									<tr>
-											<td><input type="checkbox" name="check"></td>
-										<td>2</td>
-										<td>예린@naver.com</td>
-										<td>김예린</td>
-										<td>29</td>
-										<td>010-0000-0000</td>
-										<td>true</td>
-										<td>true</td>
-										<td>신규회원</td>
-									</tr>
-									<tr>
-									<td><input type="checkbox" name="check"></td>
-										<td>1</td>
-										<td>가형@naver.com</td>
-										<td>이가형</td>
-										<td>27</td>
-										<td>010-0000-0000</td>
-										<td>true</td>
-										<td>true</td>
-										<td>신규회원</td>
-									</tr>
-								</table>
+						
+						<!--  여기부터 내용물 -->
 					
-								
+
+
+
+    <table  id="datatablesSimple" class="emp-table dataPerPage" border="5">
+        <thead>
+        <tr>
+        <tr>
+            <th id="check_td"> <input type="checkbox" name="check" class="allcheck"></th>
+            <th col-index = 2>Employee ID</th>
+            <th col-index = 3>Gender
+                <select class="table-filter" onchange="filter_rows()">
+                    <option value="all"></option>
+                </select>
+            </th>
+
+            <th col-index = 4>Department
+                <select class="table-filter" onchange="filter_rows()">
+                    <option value="all"></option>
+                </select>
+            </th>
+            <th col-index = 5>Status
+                <select class="table-filter" onchange="filter_rows()">
+                    <option value="all"></option>
+                </select>
+            </th>
+            <th col-index = 6>Office
+                <select class="table-filter" onchange="filter_rows()">
+                    <option value="all"></option>
+                </select>
+            </th>
+            <tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>101</td>
+                <td>M</td>
+                <td>RnD</td>
+                <td>Online</td>
+                <td>Site 1</td>
+            </tr>
+            <tr>
+            <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>102</td>
+                <td>M</td>
+                <td>RnD</td>
+                <td>On Leave</td>
+                <td>Site 1</td>
+            </tr>
+            <tr>
+             <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>103</td>
+                <td>F</td>
+                <td>RnD</td>
+                <td>Online</td>
+                <td>Site 1</td>
+            </tr>
+            <tr>
+             <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>104</td>
+                <td>F</td>
+                <td>Engineering</td>
+                <td>Online</td>
+                <td>Site 1</td>
+            </tr>
+            <tr>
+             <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>201</td>
+                <td>F</td>
+                <td>Engineering</td>
+                <td>On Leave</td>
+                <td>Site 2</td>
+            </tr>
+            <tr>
+            <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>202</td>
+                <td>F</td>
+                <td>Engineering</td>
+                <td>Online</td>
+                <td>Site 2</td>
+            </tr>
+            <tr>
+            <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>203</td>
+                <td>M</td>
+                <td>Engineering</td>
+                <td>Online</td>
+                <td>Site 2</td>
+            </tr>
+            <tr>
+            <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>204</td>
+                <td>M</td>
+                <td>Design</td>
+                <td>Online</td>
+                <td>Site 2</td>
+            </tr>
+            <tr>
+             <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>301</td>
+                <td>F</td>
+                <td>Support</td>
+                <td>Online</td>
+                <td>Site 3</td>
+            </tr>
+            <tr>
+            <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>302</td>
+                <td>F</td>
+                <td>Support</td>
+                <td>Online</td>
+                <td>Site 3</td>
+            </tr>
+            <tr>
+             <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>303</td>
+                <td>M</td>
+                <td>Support</td>
+                <td>Terminated</td>
+                <td>Site 3</td>
+            </tr>
+            <tr>
+             <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>304</td>
+                <td>M</td>
+                <td>Support</td>
+                <td>On Leave</td>
+                <td>Site 3</td>
+            </tr>
+            
+
+        </tbody>
+    </table>
+
+<div class="flex">
+						<div> <input id="button" type="button" value="등록" /> </div>
+						<div> <input  id="button" type="button"  value="수정" /> </div>
+						<div> <input id="button" type="button" value="삭제" /> </div>
 						</div>
+
+
+
+						<!-- 내용물 end -->
+						<div class="card-footer small text-muted">Updated yesterday
+							at 11:59 PM</div>
 					</div>
+
 				</div>
 			</main>
 			<footer class="py-4 bg-light mt-auto">
@@ -515,9 +506,6 @@
 			</footer>
 		</div>
 	</div>
-	
-
-	
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
@@ -530,5 +518,8 @@
 	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
 		crossorigin="anonymous"></script>
 	<script src="js/datatables-simple-demo.js"></script>
+	    <script>
+        getUniqueValuesFromColumn()
+    </script>
 </body>
 </html>

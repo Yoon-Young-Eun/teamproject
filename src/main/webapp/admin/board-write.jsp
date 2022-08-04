@@ -325,15 +325,13 @@
 					</ol>
 					<div class="card mb-4">
 						<div class="card-body">
-							설명 또는 기타 필드를 넣을 수 있는 공간,,, <a target="_blank"
-								href="https://www.chartjs.org/docs/latest/">Chart.js
-								documentation</a>
+							관리자 게시판입니다
 						</div>
 					</div>
 					<div class="dd">
-						<div class="card-header">
+						<!-- <div class="card-header">
 							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 게시판에 대한 세부제목
-						</div>
+						</div> -->
 
 						<div id="wrap">
 							<header>

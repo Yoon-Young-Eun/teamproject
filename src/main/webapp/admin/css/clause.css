@@ -32,10 +32,10 @@ header > h1 {
 }
 
 .claus_all {
-	width: 336px;
-	height: 600px;
-	border: 1px solid black;
-	padding: 16px;
+	width: 360px;
+	height: 624px;
+	border: 12px solid #eeeeee;
+	padding:16px;
 	font-weight: bold;
 }
 

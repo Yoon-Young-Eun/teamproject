@@ -6,9 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="css/styles.css" rel="stylesheet" />
-<link href="css/manager.css" rel="stylesheet" />
-<script src="js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="js/fileupload.js"></script>
+<link href="css/member_staff.css" rel="stylesheet" />
 </head>
 
 

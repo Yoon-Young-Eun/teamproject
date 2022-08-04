@@ -45,7 +45,7 @@ header > h1 {
 #content_wrap {
 	/*   border : 1px solid red ; */
 	padding: 30px;
-	background: black;
+	background: lime;
 	width: 100%;
 	font-size: 15px;
 }

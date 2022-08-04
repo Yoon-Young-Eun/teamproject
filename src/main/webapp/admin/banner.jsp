@@ -21,9 +21,6 @@
 <!-- </div> -->
 
 
-
-
-
 <div class="popup_wrapper">
 <div class="popup_head"><h1>배너 등록</h1>
 <div class="popup_head_index">
@@ -41,14 +38,14 @@
 <div class="popup_upload">
 <div class="filebox">
 	<label for="ex_filename">파일 선택</label> 
-	<input type="file" id="ex_filename" class="upload-hidden"> 
+	<input type="file" id="ex_filename" class="upload-hidden" name="upImgPath" accept="image/*" onchange="setThumbnail(event);"/> 
 	<input class="upload-name" value="" disabled="disabled">
 </div>
 </div>
 <div class="popup_thum">
-<br><br><br>이곳은<br>
-썸네일<br>
-공간임<br><br><br><br>
+
+<div id="image_container"></div>
+
 </div>
 
 <div class="popup_btn">
@@ -58,6 +55,8 @@
 </div>
 
 </div>
+
+
 
 
 </body>

@@ -104,12 +104,18 @@
 	margin-top: 100px;
 	margin-left: -32px;
 }        
-.inner_box > .voice_icon_b { 
-	opacity: 0;
-}        
-.inner_box:hover > .voice_icon_b {            
-	opacity: 1;
-}   
+.inner_box > .voice_icon_b {
+  opacity: 0;
+}
+.inner_box:hover > .voice_icon_b {
+  opacity: 1;
+}
+.inner_box > .voice_icon_a {
+  opacity: 1;
+}
+.inner_box:hover > .voice_icon_a {
+  opacity: 0;
+}
 
 .main_body {
 	width : 1480px;

@@ -1,0 +1,614 @@
+@charset "UTF-8";
+
+/*common*/
+/*
+*{
+	border:1px solid red;
+}
+*/
+
+
+.footer {
+	width : 1170px;
+	margin : 0 auto;
+}
+
+.header {
+	width: 1170px;
+	margin: 0 auto;
+	
+}
+
+.menu_wrapper {
+	height: 100px;
+	width : 100%;
+	margin: 0px auto;
+	background-color: none;
+	/*화면 가운데에 고정*/
+	display: flex;
+	justify-content: center;
+}
+
+.wrapper {
+	height: auto;
+	min-height: 100%;
+	padding-bottom: 100px;
+}
+
+.method1 {
+	position: flex;
+	text-align: center;
+} 
+
+.method1 h2{
+	text-align: center;
+}
+
+.method2 {
+	margin-left: 200px;
+	margin-right: 200px;
+	font-size: 20px;
+}
+
+.method3 {
+	margin-left: 200px;
+	margin-right: 200px;
+	font-size: 20px;
+}
+
+/*header*/
+header {
+	height: 150px;
+	background-color: none;
+	position: flex;
+	width: 100%;
+	z-index: 9999;
+	top: 50px;
+	left: 0;
+}
+
+h1 {
+	color: black;
+	line-height: 150px;
+	float: left;
+}
+
+/*body*/
+
+#content{ position:relative; width:100%; margin:0;}
+
+body {
+	background-color : #f5f5f5;
+	
+}
+
+/*footer*/
+footer {
+	height: 100px;
+	background-color: none;
+	position: relative;
+	transform: translateY(-100%);
+	width: 100%;
+	bottom: 0;
+	left: 0;
+}
+
+.footer h2 {
+	color : black;
+	line-height : 100px;
+	float : right;
+}
+
+.footer {
+	color : black;
+	font-size : 12px;
+	text-align : center;
+}
+
+
+/*body*/
+
+/*upper menu*/
+.top {
+	float: right;
+}
+
+.top li {
+	font-size: 25px;
+	list-style: none;
+	float: left;
+}
+
+.top a {
+	line-height: 150px;
+	color: black;
+	padding: 0 15px;
+	display: block;
+	text-decoration: none;
+}
+
+.top li:hover>a {
+	background-color: none;
+	font-weight: bold;
+}
+
+/*main menu bar*/
+.middle {
+	list-style: none;
+	width : 1440px;
+	height : 50px;
+	background : #006eb7;
+	display: flex;
+	justify-content: center;
+
+}
+
+.middle li {
+	float: left;
+	top: 10px;
+	position: relative;
+	margin: 0px 30px;
+
+}
+
+.middle li a {
+	display: block;
+	font-weight: bold;
+	font-size: 20px;
+	color : white;
+	margin : 0;
+	text-decoration : none;
+}
+
+.middle li:hover>a {
+	display: block;
+	background: none;
+	color: white;
+	font-size : bold;
+}
+
+.middle ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	left: 0;
+	top: 30px;
+	width: 200px;
+	background: #006eb7;
+	text-align: center;
+	opacity: 0;
+	z-index: 1;
+}
+
+.middle ul li {
+	float: none;
+	margin: 0;
+	padding: 0;
+}
+
+.middle ul a {
+	font-weight: normal;
+	color: white;
+	font-size: 15px;
+}
+
+.middle ul li:hover a {
+	display: block;
+	height: 30px;
+	background: #b0d2e9;
+	font-weight: bold;
+}
+
+.middle li:hover ul {
+	opacity: 1;
+}
+
+.middle li:hover ul li {
+	height: 40px;
+	overflow: visible;
+	padding: 0;
+}
+
+/*bottom menu*/
+.bottom {
+	list-style: none;
+	height: 50px;
+	padding: 5px 1px;
+	margin: 0;
+	background: none;
+	display: flex;
+	justify-content: center;
+}
+
+.bottom li {
+	float: left;
+	position: relative;
+	margin: 5px 30px;
+	padding: 0;
+}
+
+.bottom li a {
+	display: block;
+	font-size: 12px;
+	color: black;
+	margin: 0;
+	text-decoration: none;
+}
+
+.bottom li:hover>a {
+	display: block;
+	background: none;
+	font-weight : bold;
+}
+
+.main{
+  display: flex;
+  width:1315px; 
+  height:627px;
+  margin-left: 10%;
+}
+
+.space_left{
+  width: 20%;
+  margin-left:5%; 
+   
+}
+.space_right{
+  width: 20%;
+}
+.paymainBox{
+  width: 60%;
+  margin-left: 3%
+}
+
+/* GENERAL */
+body {
+    margin: 0;
+}
+
+/* GENERAL */
+body {
+    margin: 0;
+}
+
+
+#adr1{
+	width:70%;
+	text-align: center;
+	color : black;
+	background-color: none;
+	padding-bottom: 2%;
+	padding-top:2%;
+	margin-left : 7%;
+}
+
+#adr2{
+	width:70%;
+	text-align: center;
+	color : black;
+	background-color: none;
+	padding-bottom: 2%;
+	padding-top:2%;
+	margin-left : 7%;
+}
+
+#adr3{
+	width:70%;
+	text-align: center;
+	color : black;
+	background-color: none;
+	padding-bottom: 2%;
+	padding-top:2%;
+	margin-left : 7%;
+}
+
+.adrList{
+	font-size:25px;
+	font-weight: bold;
+	text-align: left;
+	margin-left: 5%;
+	height: 40px;
+}
+
+.adrList1{
+	display: flex;
+	width:100%;
+}
+
+.adrList1-1{
+	width:100%;
+	text-align: center;
+	color : white;
+	background-color: none;
+	padding-bottom: 2%;
+	padding-top:2%;
+	margin-left : 7%;
+}
+
+.addr1-2{
+	width:100%;
+	text-align: center;
+	color : white;
+	background-color: none;
+	padding-bottom: 2%;
+	padding-top:2%;
+	margin-left : 7%;
+	
+}
+
+.mom-adr2{
+	display: flex;
+	width:100%;
+}
+
+.adr2{
+	width:100%;
+	padding-bottom: 2%;
+	padding-top:2%;
+	margin-left : 7%;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+}
+.adr-1{
+	font-size:25px;
+	padding-bottom: 2%;
+	padding-top:2%;
+	font-weight: bold;
+	width: 20%;
+}
+
+.adr-2{
+	display: flex;
+	align-items: center;
+	width: 65%;
+	text-decoration: underline;
+}
+
+
+#bg{
+	background-color: rgb(255,255,255,0);
+	border-style: none;
+	width: 100%;
+}
+
+.adr-3{
+	
+	width:20%;
+	
+}
+#btn{
+	width:120px;
+	height: 50px;
+	background-color: #00BFFF;
+	border-style: none;
+	border-radius: 10px;
+	color:black;
+	box-shadow: 1px 4px 0 rgba(255, 255, 255, 0);
+	margin-right: 0%;
+	font-size : 25px;
+	font-weight: bold;
+	margin-left: 10%;
+	margin-bottom: 5%;
+}
+
+.box1{
+	width: 25px;
+	height: 25px;
+	
+}
+
+.adr2-2{
+	display: flex;
+}
+
+.adr4-1{
+	font-size:20px;
+	font-weight: bold;
+	display: flex;
+	text-align: center;
+	margin-left: 5%;
+	width: 50%;
+	
+}
+
+.adr44{
+	display: flex;
+}
+
+.adr4-1-1{
+	margin-left: 7%;
+	display:flex;
+	justify-content:center;
+	width:30%;
+	align-items: center;
+	font-size:20px;
+	height: 30%;
+}
+
+.box1-1{
+	display: flex;
+	
+}
+.adr444{
+	display: flex;
+	align-items: center;
+	padding-top: 10px;
+}
+
+.box2{
+	width: 25px;
+	height: 25px;
+	
+}
+
+.adr555{
+	display: flex;
+	align-items: center;
+	padding-top: 10px;
+}
+.adr4-2{
+	border-style: none;
+	background-color: #D3D3D3;
+	border-radius: 25%;
+	margin-left: 5%;
+	display: flex;
+	height: 38px;
+	margin-top: 2%;
+}
+
+
+
+.adr4-2-1{
+	
+	display: flex;
+}
+.font{
+	font-size:18px;
+	margin-top: 8px;
+}
+#lock{
+	width: 20px;
+
+}
+
+
+.adr5-1{
+	font-size:20px;
+	font-weight: bold;
+	display: flex;
+	text-align: center;
+	margin-left: 5%;
+	width: 50%;
+	
+}
+
+.adr55{
+	display: flex;
+}
+
+.adr5-1-1{
+	margin-left: 7%;
+	display:flex;
+	justify-content:center;
+	width:30%;
+	align-items: center;
+	font-size:20px;
+	height: 30%;
+}
+.adr5-2{
+	border-style: none;
+	background-color: #D3D3D3;
+	border-radius: 25%;
+	margin-left: 5%;
+	display: flex;
+	margin-top: 2%;
+	height: 38px;
+	width: 95%;
+	
+}
+.adr5-2-1{
+	display: flex;
+}
+
+
+#btn:active{
+  box-shadow: 1px 1px 0 rgba(255, 255, 255, 0);
+  position: relative;
+  top:2px;
+ }
+
+.mom-sidebar{
+	width:176px;
+}
+
+.sidebar {
+   position: relative;
+/* Change :absolute; to :fixed; to keep the sidebar in place when scolling. */
+   width:185.087px;
+   height:311.979px;
+/* Sidebar Background */
+  
+/* Width of side bar. WARNING: If you change this, change .listItemA:width */
+  
+  padding-top: 10px;
+  margin-top : 10px;
+/* Padding above the sidebar image. */
+  font-family: helvetica;
+/* Font for the sidebar (Remove to keep the same font as the rest of the document) */
+	border-top-color: #006eb7;
+	border-left-color:#B0E0E6;
+	border-right-color:#B0E0E6;
+	border-bottom-color:#B0E0E6;
+	border-style: solid;
+}
+
+.sidebar a {
+  text-decoration: none;
+/* Removes the underline from links. */
+  color: #e9e7e7;
+/* Text color of the menu items */
+}
+
+
+.sidebar ul {
+  line-height: 40px;
+  overflow: hidden;
+  margin-left: 0;
+  padding-left: 10px;
+}
+
+.sidebar ul li {
+  width: 100%;
+  list-style-type: none;
+  background:none;
+  
+/* Background colour of the menu items. */
+  color: #695D46;
+/* Text colour of the side bar titles. (Not the links). */
+
+}
+.listItemA > #aaa {
+  position:relative;
+  left: -40px;
+  margin-left: 40px;
+  transition:.3s ;
+  color : #006eb7;
+  font-weight: bold;
+  padding-left: 8px;
+
+}
+
+#text{
+	font-size:25px;
+	color:#006eb7;
+	font-weight: bold;
+}
+
+.listItemA > #aaa:hover{
+  left:0;
+  
+}
+
+.listItemA {
+  height: 40px;
+  width: 240px;
+/* Alter this to be the .sidebar:width PLUS 40 */
+  transition: .3s;
+/* Speed of the hover animation */
+  position: relative;
+  left: -40px;
+  margin-left: 40px;
+}
+
+.listItemT {
+  text-align: center;
+
+}
+
+
+
+
+
+

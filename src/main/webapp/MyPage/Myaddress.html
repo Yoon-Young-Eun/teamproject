@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/Myaddress.css" />
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+    function sample6_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var addr = ''; // 주소 변수
+                var extraAddr = ''; // 참고항목 변수
+
+                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    addr = data.roadAddress;
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    addr = data.jibunAddress;
+                }
+
+                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+                if(data.userSelectedType === 'R'){
+                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                        extraAddr += data.bname;
+                    }
+                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                    if(data.buildingName !== '' && data.apartment === 'Y'){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                    if(extraAddr !== ''){
+                        extraAddr = ' (' + extraAddr + ')';
+                    }
+                    // 조합된 참고항목을 해당 필드에 넣는다.
+                    document.getElementById("btn").value = extraAddr;
+
+                } else {
+                    document.getElementById("btn").value = '';
+                }
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                //document.getElementById('searchBar').value = data.zonecode;
+                document.getElementById("btn").value = addr;
+                // 커서를 상세주소 필드로 이동한다.
+                document.getElementById("btn").focus();
+            }
+        }).open();
+    }
+    
+    function checkOnlyOne(element) {
+    	  
+    	  const checkboxes 
+    	      = document.getElementsByName("a");
+    	  
+    	  checkboxes.forEach((cb) => {
+    	    cb.checked = false;
+    	  })
+    	  
+    	  element.checked = true;
+    	}
+    
+    function checkOnlyOne1(element) {
+  	  
+  	  const checkboxes 
+  	      = document.getElementsByName("b");
+  	  
+  	  checkboxes.forEach((cb) => {
+  	    cb.checked = false;
+  	  })
+  	  
+  	  element.checked = true;
+  	}
+    
+</script>
+</head>
+<header>
+	<div class="header">
+		<h1><a href = "#" onclick = "location.href='main.html'">LOGO</a></h1>
+		<nav>
+			<ul class="top">
+				<li><a href="#">로그아웃</a></li>
+				<li><a href="#">마이페이지</a></li>
+				<li><a href="#">고객센터</a></li>
+			</ul>
+		</nav>
+	</div>
+
+	<div class="menu_wrapper">
+		<nav>
+			<ul class="middle">
+				<li><a href="#" onclick = "location.href='company_info.html'">회사 정보</a>
+					<ul>
+						<li><a href="company_info_greeting.html">인삿말</a></li>
+						<li><a href="#">오시는 길</a></li>
+					</ul></li>
+				<li><a href="./service_rundry/service_general.html">세탁서비스</a>
+					<ul>
+						<li><a href="./service_rundry/service_general.html">일반의류</a></li>
+						<li><a href="./service_rundry/service_shirts.html">와이셔츠</a></li>
+						<li><a href="./service_rundry/service_covers.html">이불</a></li>
+				     	<li><a href="./service_rundry/service_shoes.html">운동화</a></li>
+						<li><a href="./service_rundry/service_leather.html">가죽/모피</a></li>
+						<li><a href="./service_rundry/service_outdoor.html">아웃도어</a></li>
+						<li><a href="./service_rundry/service_etc.html">모자/인형/가방</a></li>
+						<li><a href="./service_rundry/service_special.html">특수크리닝</a></li>
+						<li><a href="./service_rundry/service_royal.html">로얄크리닝</a></li>
+					</ul></li>
+				<li><a href="#">서비스지역</a>
+					<ul>
+						<li><a href="./map/search_map.html">서비스지역(서울)</a></li>
+					</ul></li>
+				<li><a href="#">이용정보</a>
+					<ul>
+						<li><a href="company_method.html">수거방법</a></li>
+						<li><a href="company_method.html">이용방법</a></li>
+					</ul></li>
+			</ul>
+		</nav>
+	</div>
+</header>
+
+<body>
+
+<br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+<div class="main">
+<div class="space_left">
+	
+	<div class="mom-siderbar">
+	<div class="sidebar">
+        <ul>
+        	<li class="listItemA"><a href="#"><span id="text">마이 페이지</span></a></li>
+            <li class="listItemA"><a href="MyLaundry.html" id="aaa">내 세탁물 관리</a></li>
+            <li class="listItemA"><a href="Myaddress.html" id="aaa">내 주소지 관리</a></li>
+            <li class="listItemA"><a href="#" id="aaa">내 문의 내역</a></li>
+            <li class="listItemA"><a href="#" id="aaa">쿠폰/포인트 관리</a></li>
+            <li class="listItemA"><a href="#" id="aaa">회원 정보수정</a></li>
+            <li class="listItemA"><a href="Delete.html" id="aaa">회원 탈퇴</a></li>
+     	      	
+        </ul>
+      </div>
+      </div>
+ 
+
+</div>
+
+<div class="paymainBox">
+	<div class="adrList">
+	주소 리스트
+	</div>
+
+<div class="adrList1">
+	<div class="adrList1-1">
+	<div class="adrlist1-2"><input type="text" style=font-size:15px; id="adr1" value="주소를 입력하면 여기에 등록 되게끔 "></div>
+	<div class="adrlist1-3"><input type="text" style=font-size:15px; id="adr2" value="자바스크립트를 사용해서 처리할 예정"></div>
+	<div class="adrlist1-4"><input type="text" style=font-size:15px; id="adr3" value="대전시 유성구 행복동 1004-1 4층"></div>
+	
+</div>
+</div>
+
+<div class="mom-adr2">
+<div class ="adr2">
+<div class="adr-1">주소등록</div>
+<div class = "adr2-2">
+<div class="adr-2"><input type="text" id="bg" style="background-color: none;" placeholder="수거/배달 주소를 등록하세요" readonly="readonly"></div>
+<div class="adr-3"><button type="submit" id="btn" onclick="sample6_execDaumPostcode()">주소 검색</button></div>
+</div>
+</div>
+</div>
+<br><br>
+<div class="adr4">
+<div class="adr44">
+<div class="adr4-1">
+경기 의정부시 평화로 113-1<br>
+자연예가 105동 403호
+</div>
+
+<div class="adr4-1-1">
+<form>
+<div class="adr444">
+<input type="checkbox" name="a" value="yes" class="box1" onclick='checkOnlyOne(this)'><div class="box1-1"> 등록 </div>&nbsp;
+<input type="checkbox" name="a" value="no" class="box1" onclick='checkOnlyOne(this)'><div class="box1-1"> 삭제 </div>
+</div>
+</form>
+
+</div>
+
+</div>
+
+<div class="adr4-2"><div class="adr4-2-1"><img src="../image/lock.jpeg" alt="자물쇠사진" id="lock"></div><div class="font">현관 비밀번호 : 0000</div></div>
+</div>
+<br>
+<br>
+<hr>
+
+ 
+<div class="adr5">
+<div class="adr55">
+<div class="adr5-1">
+여기에 기능을 추가 해야<br>
+할 것 이다.
+</div>
+<div class="adr5-1-1">
+<form>
+<div class="adr555">
+<input type="checkbox" name="b" value="yes" class="box1" onclick='checkOnlyOne1(this)'><div class="box1-1"> 등록 </div>&nbsp;
+<input type="checkbox" name="b" value="no" class="box1" onclick='checkOnlyOne1(this)'><div class="box1-1"> 삭제 </div>
+</div>
+</form>
+</div>
+
+</div>
+
+<div class="adr5-2"><div class="adr5-2-1"><img src="../image/lock.jpeg" alt="자물쇠사진" id="lock"></div><div class="font">현관 비밀번호 : 0000</div></div>
+</div>
+</div>
+
+
+<div class="space_right">c</div>
+</div>
+	
+
+</body>
+<br><br><br><br>
+<br>
+<br>
+<br>
+
+
+<!-- <footer>
+	<nav>
+		<ul class="bottom">
+			<li><a href="#">개인정보처리방침</a></li>
+			<li><a href="#">이용약관</a></li>
+			<li><a href="#">의료보관 이용약관</a></li>
+		</ul>
+	</nav>
+
+	<div class=footer>
+		<h2>LOGO</h2>
+		본사 : 서울특별시 동작구 장승배기로 171 노량진 아이빌딩 3층<br> 대표전화 : 1666-9210<br>
+		사업자번호 : 542-85-00739
+	</div>
+</footer>
+ -->
+</html>

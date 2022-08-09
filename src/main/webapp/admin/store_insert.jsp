@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="css/styles.css" rel="stylesheet" />
-<link href="css/office_edit.css" rel="stylesheet" />
+<link href="css/store_insert.css" rel="stylesheet" />
 <script src="js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="js/fileupload.js"></script>
 </head>
@@ -14,9 +14,9 @@
 <body>
 
 <div class="popup_wrapper">
-<div class="popup_head"><h1>매장 관리</h1>
+<div class="popup_head"><h1>매장 등록</h1>
 <div class="popup_head_index">
-매장정보를 수정하거나 삭제합니다
+새로운 매장을 등록합니다
 </div>
 </div>
 <div class="popup_title">
@@ -26,9 +26,9 @@
 <div class="popup_content">
 <div class="popup_text">구분</div>
 &nbsp;<div class="popup_radio">
-<input class="office_type" type="radio" name="office_type_radio" checked="checked">직영</div>
+<input class="office_type" type="radio" name="office_type_radio" id="office_type1" checked="checked"><label for="office_type1">직영</label></div>
 <div class="popup_radio">
-<input class="office_type" name="office_type_radio" type="radio">외주
+<input class="office_type" type="radio" name="office_type_radio" id="office_type2"><label for="office_type2">외주</label>
 <!-- <select class="manager_level"><option value="0" selected="">직영</option> -->
 <!-- 	<option value="1">외주</option> -->
 <!-- </select> -->
@@ -49,8 +49,7 @@
 
 <div class="popup_btn">
 <div class="end">
-	<a href="#">확인</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">수정</a>&nbsp;&nbsp;&nbsp;&nbsp;
-	<a href="#">삭제</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">취소</a>
+	<a href="#">저장</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">취소</a>
 </div>
 </div>
 

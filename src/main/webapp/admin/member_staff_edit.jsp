@@ -20,7 +20,7 @@
 
 
 <div class="popup_wrapper">
-<div class="popup_head"><h1>매니저 수정</h1>
+<div class="popup_head"><h1>매니저 관리</h1>
 <div class="popup_head_index">
 매니저 직급을 수정합니다
 </div>

@@ -22,7 +22,7 @@
 
 
 <div class="popup_wrapper">
-<div class="popup_head"><h1>상품 정보 수정</h1>
+<div class="popup_head"><h1>상품 관리</h1>
 <div class="popup_head_index">
 상품명과 가격을 수정할 수 있습니다
 </div>

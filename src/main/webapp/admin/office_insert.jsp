@@ -11,15 +11,7 @@
 <script type="text/javascript" src="js/fileupload.js"></script>
 </head>
 
-
-
 <body>
-<!-- <input type="file"> -->
-<!-- <div class="filebox"> -->
-<!-- <label for="ex_file">파일선택</label> -->
-<!-- <input type="file" id="ex_file">  -->
-<!-- </div> -->
-
 
 <div class="popup_wrapper">
 <div class="popup_head"><h1>매장 등록</h1>
@@ -37,10 +29,8 @@
 <input class="office_type" type="radio" name="office_type_radio" checked="checked">직영</div>
 <div class="popup_radio">
 <input class="office_type" name="office_type_radio" type="radio">외주
-<!-- <select class="manager_level"><option value="사원">사원</option> -->
-<!-- 	<option value="대리" selected="">대리</option> -->
-<!-- 	<option value="과장">과장</option> -->
-<!-- 	<option value="차장">차장</option> -->
+<!-- <select class="manager_level"><option value="0" selected="">직영</option> -->
+<!-- 	<option value="1">외주</option> -->
 <!-- </select> -->
 </div>
 </div>
@@ -56,8 +46,6 @@
 <div class="popup_office">
 <div class="popup_text">전화번호</div>&nbsp;<div class="popup_inputbox"><input type="text" placeholder="010-1234-5678"></div>
 </div>
-<!-- <div class="popup_img"><img src="image/gorae.jpg" width="60px" height="60px"><br><br></div> -->
-
 
 <div class="popup_btn">
 <div class="end">
@@ -67,8 +55,7 @@
 
 </div>
 
-
-
+<!-- <div class="popup_img"><img src="image/oh_whale.jpg" width="360px" height="360px"><br><br></div> -->
 
 </body>
 </html>

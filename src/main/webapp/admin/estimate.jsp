@@ -315,20 +315,19 @@
 			<main>
 
 				<div class="container-fluid px-4">
-					<h1 class="mt-4">회원관리</h1>
+					<h1 class="mt-4">주문/결제</h1>
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-						<li class="breadcrumb-item active">회원관리</li>
+						<li class="breadcrumb-item active">견적상품</li>
 					</ol>
 					<div class="card mb-4">
 						<div class="card-body">
-							회원관리 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
-							.
+							견적상품 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
 						</div>
 					</div>
 					<div class="card mb-4">
 						<div class="card-header">
-							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 게시판에 대한 세부제목
+							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 견적상품에 대한 세부제목
 						</div>
 
 						<!--  여기부터 내용물 -->
@@ -353,149 +352,59 @@
 							<thead>
 								<tr>
 								<tr>
-									<th width="50" id="check_td"><input type="checkbox" name="check"
-										class="allcheck"></th>
-									<th col-index=2>회원코드</th>
-									<th col-index=3>아이디(이메일)</th>
-									<th col-index=4>이름</th>
-									<th col-index=5>핸드폰</th>
-									<th col-index=6>주소</th>
-									<th col-index=7>SMS수신<select class="table-filter"
-										onchange="filter_rows()">
+									<th width="50" id="check_td"><input type="checkbox"
+										name="check" class="allcheck"></th>
+									<th width="100px;" col-index=2>견적코드</th>
+									<th width="100px;" col-index=3>지점<select
+										class="table-filter" onchange="filter_rows()">
 											<option value="all"></option>
-									</select>
-									</th>
-									<th col-index=8>계정상태<select class="table-filter"
-										onchange="filter_rows()">
+									</select></th>
+									<th width="100px;" col-index=4>접수일자</th>
+									<th width="100px;" col-index=5>견적일자</th>
+									<th width="250px;" col-index=6>내용</th>
+									<th width="150px;" col-index=7>견적상태<select
+										class="table-filter" onchange="filter_rows()">
 											<option value="all"></option>
-									</select>
-									</th>
+									</select></th>
 								<tr>
 							</thead>
 							<tbody>
 								<tr>
 									<td id="check_td"><input type="checkbox" name="check"></td>
 									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>false</td>
-									<td>정상회원</td>
-
+									<td>직영</td>
+									<td>2022-08-06</td>
+									<td></td>
+									<td>특수세탁 1단계</td>
+									<td>견적대기</td>
 								</tr>
 								<tr>
 									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>true</td>
-									<td>신규회원</td>
+									<td>002</td>
+									<td>직영</td>
+									<td>2022-08-06</td>
+									<td></td>
+									<td>특수세탁 2단계</td>
+									<td>견적대기</td>
 								</tr>
 								<tr>
 									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>true</td>
-									<td>신규회원</td>
+									<td>003</td>
+									<td>외주</td>
+									<td>2022-08-06</td>
+									<td></td>
+									<td>특수세탁 1단계</td>
+									<td>견적대기</td>
 								</tr>
 								<tr>
 									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>true</td>
-									<td>신규회원</td>
+									<td>004</td>
+									<td>외주</td>
+									<td>2022-08-06</td>
+									<td></td>
+									<td>특수세탁 4단계</td>
+									<td>견적발송</td>
 								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>true</td>
-									<td>정상회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>false</td>
-									<td>신규회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>false</td>
-									<td>신규회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>true</td>
-									<td>신규회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>false</td>
-									<td>신규회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>true</td>
-									<td>신규회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>false</td>
-									<td>신규회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>true</td>
-									<td>신규회원</td>
-								</tr>
-
-
 							</tbody>
 						</table>
 						<div class="flex">

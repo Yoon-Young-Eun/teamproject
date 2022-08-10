@@ -12,16 +12,15 @@
 <title>Dashboard - SB Admin</title>
 
 <!-- icon 버튼 css -->
-<link href="css/icon.css" rel="stylesheet" />
+<link href="css/icon.css" rel="stylesheet"/>
 
 <!--  테이블 필터(중요) -->
-<link href="css/filter.css" rel="stylesheet" />
-<script src="js/filter.js" crossorigin="anonymous"></script>
+<link href="css/filter.css"rel="stylesheet" />
+<script src="js/filter.js"crossorigin="anonymous"></script>
 
 <!-- 체크박스 js -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="./js/checkbox.js"></script>
 
 <link
@@ -315,200 +314,105 @@
 			<main>
 
 				<div class="container-fluid px-4">
-					<h1 class="mt-4">회원관리</h1>
+						<h1 class="mt-4">매장관리</h1>
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-						<li class="breadcrumb-item active">회원관리</li>
+						<li class="breadcrumb-item active">매장관리</li>
 					</ol>
 					<div class="card mb-4">
 						<div class="card-body">
-							회원관리 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
-							.
+							매장관리 페이지 입니다. <a target="_blank"
+								href="https://datatables.net/">아무링크</a> .
 						</div>
 					</div>
 					<div class="card mb-4">
 						<div class="card-header">
-							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 게시판에 대한 세부제목
-						</div>
-
+							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 매장관리에 대한 세부제목
+						</div>						
 						<!--  여기부터 내용물 -->
+  
+     <!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
+     <div class="flex" > 
+      <input type="button" id="btnExport" value="PDF" class="icon_pdf"/><!-- pdf 버튼 -->
+	  <button class="icon_excel" onclick="exportToExcel('tblexportData', 'user-data')">Excel</button><!-- excel -->
+	 </div>
+	  
+	 
+	  
+	  <!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->  
+    <table id="datatablesSimple" class="emp-table dataPerPage tblCustomers tblexportData table" border="5">
+        <thead>
+        <tr>
+        <tr>
+            <th width="50" id="check_td"> <input type="checkbox" name="check" class="allcheck"></th>
+            <th width="120"col-index = 2>관리코드</th>
+            <th width="120"col-index = 3>구분
+                <select class="table-filter" onchange="filter_rows()">
+                    <option value="all"></option>
+                </select>
+            </th>
+            <th width="220" col-index = 4>매장명</th>
+            <th width="220"col-index = 5>주소</th>
+            <th width="120"col-index = 6>대표전화<tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>101</td>
+                <td>직영</td>
+                <td>세탁의 모든것 강북지점 </td>
+                <td>서울 송파구</td>
+                <td>02-981-1111</td>
+            </tr>
+            <tr>
+            <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>102</td>
+                <td>외주</td>
+                <td>런드리공 </td>
+                <td>서울 송파구</td>
+                <td>02-981-1111</td>
+            </tr>
+            <tr>
+             <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>103</td>
+                <td>외주</td>
+                <td>클린또피아 </td>
+                <td>서울 서초구</td>
+                <td>02-981-1111</td>
+            </tr>
+            <tr>
+             <td id="check_td"><input type="checkbox" name="check"></td>
+                   <td>101</td>
+                <td>직영</td>
+                <td>세탁의 모든것 도봉지점 </td>
+                <td>서울 동작구</td>
+                <td>02-981-1111</td>
+            </tr>
+            <tr>
+             <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>101</td>
+                <td>직영</td>
+                <td>세탁의 모든것 동작지점 </td>
+                <td>서울 송파구</td>
+                <td>02-981-1111</td>
+            </tr>
+            <tr>
+            <td id="check_td"><input type="checkbox" name="check"></td>
+                   <td>101</td>
+                <td>외주</td>
+                <td>매일세탁 </td>
+                <td>서울 송파구</td>
+                <td>02-981-1111</td>
+            </tr>
+     
 
-
-
-						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
-						<div class="flex">
-							<input type="button" id="btnExport" value="PDF" class="icon_pdf" />
-							<!-- pdf 버튼 -->
-							<button class="icon_excel"
-								onclick="exportToExcel('tblexportData', 'user-data')">Excel</button>
-							<!-- excel -->
-						</div>
-
-
-
-						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
-						<table id="datatablesSimple"
-							class="emp-table dataPerPage tblCustomers tblexportData table"
-							border="5">
-							<thead>
-								<tr>
-								<tr>
-									<th width="50" id="check_td"><input type="checkbox" name="check"
-										class="allcheck"></th>
-									<th col-index=2>회원코드</th>
-									<th col-index=3>아이디(이메일)</th>
-									<th col-index=4>이름</th>
-									<th col-index=5>핸드폰</th>
-									<th col-index=6>주소</th>
-									<th col-index=7>SMS수신<select class="table-filter"
-										onchange="filter_rows()">
-											<option value="all"></option>
-									</select>
-									</th>
-									<th col-index=8>계정상태<select class="table-filter"
-										onchange="filter_rows()">
-											<option value="all"></option>
-									</select>
-									</th>
-								<tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>false</td>
-									<td>정상회원</td>
-
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>true</td>
-									<td>신규회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>true</td>
-									<td>신규회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>true</td>
-									<td>신규회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>true</td>
-									<td>정상회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>false</td>
-									<td>신규회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>false</td>
-									<td>신규회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>true</td>
-									<td>신규회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>false</td>
-									<td>신규회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>true</td>
-									<td>신규회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>false</td>
-									<td>신규회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>true</td>
-									<td>신규회원</td>
-								</tr>
-
-
-							</tbody>
-						</table>
-						<div class="flex">
-							<div>
-								<input id="button" type="button" value="등록" />
-							</div>
-							<div>
-								<input id="button" type="button" value="수정" />
-							</div>
-							<div>
-								<input id="button" type="button" value="삭제" />
-							</div>
-
+        </tbody>
+    </table>
+<div class="flex">
+						<div> <input id="button" type="button" value="등록" /> </div>
+						<div> <input  id="button" type="button"  value="수정" /> </div>
+						<div> <input id="button" type="button" value="삭제" /> </div>
+						
 						</div>
 
 
@@ -546,23 +450,19 @@
 	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
 		crossorigin="anonymous"></script>
 	<script src="js/datatables-simple-demo.js"></script>
-	<script>
-		getUniqueValuesFromColumn()
-	</script>
-
-	<!-- pdf -->
-	<script type="text/javascript"
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	<script type="text/javascript"
-		src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
-	<script type="text/javascript"
-		src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-	<script src="js/pdf.js"></script>
-
-	<!-- excel -->
-	<script src="js/excel.js"></script>
-	<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
+	    <script>
+        getUniqueValuesFromColumn()
+    </script>
+    
+    <!-- pdf -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="js/pdf.js"></script>
+    
+    <!-- excel -->	
+    <script src="js/excel.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >	
+    	
 </body>
 </html>

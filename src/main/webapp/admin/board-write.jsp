@@ -335,12 +335,12 @@
 
 						<div id="wrap">
 							<header>
-								<div class="div2">
-									<div>
+								 <div class="div2">
+									<!--<div>
 										<img
 											src="https://i.etsystatic.com/14912200/r/il/7c4834/1295206612/il_570xN.1295206612_nj87.jpg"
 											width=150px>
-									</div>
+									</div> -->
 									<div class="div3">
 										<h1>관리자 게시판</h1>
 									</div>
@@ -364,9 +364,8 @@
             <label for="chkNotice2">일반글로 게시글쓰기</label>
             -->
 											<input type="radio" name="write" id="write_O"> <label
-												for="write_O">공지사항으로 게시글쓰기</label> <input type="radio"
-												name="write" id="write_G"> <label for="write_G">일반글로
-												게시글쓰기</label>
+												for="write_O">공지사항</label>&nbsp;&nbsp; <input type="radio"
+												name="write" id="write_G"> <label for="write_G">일반</label>
 										</div></li>
 									<li><span class="title">제목</span> <input type="text"
 										onfocus="value=''" value="게시글 제목을 입력하세요" style="width: 500px" />
@@ -407,9 +406,8 @@
 							</div>
 						</div>
 
-
-						<div class="card-footer small text-muted">Updated yesterday
-							at 11:59 PM</div>
+						<!-- <div class="card-footer small text-muted">Updated yesterday
+							at 11:59 PM</div> -->
 					</div>
 
 				</div>

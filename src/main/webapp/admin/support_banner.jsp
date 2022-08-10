@@ -6,9 +6,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="css/styles.css" rel="stylesheet" />
-<link href="css/banner.css" rel="stylesheet" />
+<link href="css/support_banner.css" rel="stylesheet" />
 <script src="js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="js/fileupload.js"></script>
+<script type="text/javascript" src="js/support_banner_fileupload.js"></script>
 </head>
 
 <body>
@@ -17,7 +17,6 @@
 <!-- <label for="ex_file">파일선택</label> -->
 <!-- <input type="file" id="ex_file">  -->
 <!-- </div> -->
-
 
 <div class="popup_wrapper">
 <div class="popup_head"><h1>배너 등록</h1>
@@ -36,7 +35,7 @@
 <div class="popup_upload">
 <div class="filebox">
 	<label for="ex_filename">파일 선택</label> 
-	<input type="file" id="ex_filename" class="upload-hidden" name="upImgPath" accept="image/*" onchange="setThumbnail(event);"/> 
+	<input type="file" id="ex_filename" class="upload-hidden" name="upImgPath" accept="image/*" onchange="setThumbnail(event);" /> 
 	<input class="upload-name" value="" disabled="disabled">
 </div>
 </div>
@@ -53,9 +52,6 @@
 </div>
 
 </div>
-
-
-
 
 </body>
 </html>

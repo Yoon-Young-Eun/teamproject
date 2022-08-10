@@ -11,6 +11,8 @@
 <script type="text/javascript" src="js/fileupload.js"></script>
 </head>
 
+
+
 <body>
 <!-- <input type="file"> -->
 <!-- <div class="filebox"> -->
@@ -20,9 +22,9 @@
 
 
 <div class="popup_wrapper">
-<div class="popup_head"><h1>배너 등록</h1>
+<div class="popup_head"><h1>배너 수정/삭제</h1>
 <div class="popup_head_index">
-사진을 첨부하여 배너를 등록합니다
+등록된 배너를 수정하거나 삭제합니다
 </div>
 </div>
 <div class="popup_title">
@@ -48,7 +50,8 @@
 
 <div class="popup_btn">
 <div class="end">
-	<a href="#">저장</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">취소</a>
+	<a href="#">저장</a>&nbsp;&nbsp;&nbsp;<a href="#">수정</a>&nbsp;&nbsp;&nbsp;
+	<a href="#">삭제</a>&nbsp;&nbsp;&nbsp;<a href="#">취소</a>
 </div>
 </div>
 

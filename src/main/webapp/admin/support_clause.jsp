@@ -11,7 +11,7 @@
 <meta name="author" content="" />
 <title>Dashboard - SB Admin</title>
 
-<link rel="stylesheet" href="./css/clause.css" />
+<link rel="stylesheet" href="./css/support_clause.css" />
 
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"

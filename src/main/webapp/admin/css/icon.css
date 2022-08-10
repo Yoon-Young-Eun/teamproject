@@ -1,0 +1,27 @@
+.icon_pdf{
+	width : 55px;
+	background-color: #ff0000;
+	color : white;
+	border : 1px solid none; 
+	border-radius: 0.3rem;
+	margin-left : 2px;
+	border-style : none;
+}
+
+
+.icon_excel{
+	width : 55px;
+	background-color: #009933;
+	color : white;
+    border : 1px solid none; 
+	border-radius: 0.3rem;
+	margin-left : 5px;
+	border-style : none;
+	
+}
+
+.icon_flex{
+	display : flex;
+	justify-content: flex-end;
+}
+

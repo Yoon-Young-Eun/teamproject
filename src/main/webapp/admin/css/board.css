@@ -25,17 +25,16 @@ ul, lu {
 
 header {
 	background: #eeeeee;
-	padding: 20px;
+	padding: 10px;
 }
 
-header>img {
-	/*   float : left ; */
+/* header>img {
+	  float : left ;
 	margin-right: 30px;
 	margin-top: 0px;
 	width: 125px;
 	height: 105px;
-}
-
+} */
 header>h1 {
 	padding: 0px;
 	margin: 0px;
@@ -54,9 +53,9 @@ header>h1 {
 #content_wrap {
 	/*   border : 1px solid red ; */
 	padding: 30px;
-	background: #eeeeee;
-	width: 100%;
+	background: #eeeeee; width : 100%;
 	font-size: 15px;
+	width: 100%;
 }
 
 #content_wrap ul {
@@ -65,13 +64,16 @@ header>h1 {
 	padding: 10px;
 }
 
- #content_wrap ul li {
+#content_wrap ul li {
 	margin-bottom: 7px;
-} 
+	margin-top: 7px;
+}
 
- #content_wrap ul li:nth-child(2){
-  margin-bottom : 10px ;
-} 
+#content_wrap ul li:nth-child(2) {
+	margin-bottom: 5px;
+	margin-top: 15px;
+}
+
 #content_wrap .title {
 	font-weight: bold;
 	display: inline-block;
@@ -89,9 +91,9 @@ header>h1 {
 }
 /*�벐湲곗쁺�뿭 */
 .writeWrap {
-	font-size: 15; 
-	padding : 0px;
- 	padding-bottom: 12px;
+	font-size: 15;
+	padding: 0px;
+	padding-bottom: 12px;
 	margin: 0px;
 	width: 100%;
 	padding: 0px;
@@ -116,7 +118,7 @@ header>h1 {
 }
 
 .configWrap .tag .InputArea input {
-	width: 400px;
+	width: 500px;
 	margin-left: 10px;
 }
 
@@ -145,11 +147,12 @@ header>h1 {
 
 .div2 {
 	display: flex;
+	margin-left: 135px;
 }
 
 .div3 {
 	padding-left: 30px;
-	width : 520px;
+	width: 520px;
 	text-align: center;
 	padding-top: 50px;
 }
@@ -162,6 +165,7 @@ header>h1 {
 
 .tag_di {
 	display: flex;
+	margin-bottom: 7px;
 }
 
 .filebox input[type="file"] {

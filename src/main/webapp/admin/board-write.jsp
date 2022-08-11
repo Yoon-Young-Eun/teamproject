@@ -352,8 +352,8 @@
 										<div class="board_select">
 											<select value="게시판선택">
 												<option selected disabled>게시판선택</option>
-												<option value="ml">Q&A</option>
-												<option value="board">자유게시판</option>
+												<option value="ml">공지사항</option>
+												<option value="board">광고</option>
 											</select>
 										</div>
 										<div class="radiobox">

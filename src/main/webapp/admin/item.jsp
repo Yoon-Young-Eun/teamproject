@@ -12,16 +12,15 @@
 <title>Dashboard - SB Admin</title>
 
 <!-- icon 버튼 css -->
-<link href="css/icon.css" rel="stylesheet" />
+<link href="css/icon.css" rel="stylesheet"/>
 
 <!--  테이블 필터(중요) -->
-<link href="css/filter.css" rel="stylesheet" />
-<script src="js/filter.js" crossorigin="anonymous"></script>
+<link href="css/filter.css"rel="stylesheet" />
+<script src="js/filter.js"crossorigin="anonymous"></script>
 
 <!-- 체크박스 js -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="./js/checkbox.js"></script>
 
 <link
@@ -315,200 +314,145 @@
 			<main>
 
 				<div class="container-fluid px-4">
-					<h1 class="mt-4">회원관리</h1>
+						<h1 class="mt-4">상품관리</h1>
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-						<li class="breadcrumb-item active">회원관리</li>
+						<li class="breadcrumb-item active">상품관리</li>
 					</ol>
 					<div class="card mb-4">
 						<div class="card-body">
-							회원관리 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
-							.
+							상품관리 페이지 입니다. <a target="_blank"
+								href="https://datatables.net/">아무링크</a> .
 						</div>
 					</div>
 					<div class="card mb-4">
 						<div class="card-header">
-							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 게시판에 대한 세부제목
+							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 상품관리에 대한 세부제목
 						</div>
-
+						
 						<!--  여기부터 내용물 -->
+					
 
+  
+     <!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
+     <div class="flex" > 
+      <input type="button" id="btnExport" value="PDF" class="icon_pdf"/><!-- pdf 버튼 -->
+	  <button class="icon_excel" onclick="exportToExcel('tblexportData', 'user-data')">Excel</button><!-- excel -->
+	 </div>
+	  
+	 
+	  
+	  <!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->  
+    <table id="datatablesSimple" class="emp-table dataPerPage tblCustomers tblexportData table" border="5">
+       <thead>
+	<tr>
+        <tr>
+            <th width ="50px;" id="check_td"> <input type="checkbox" name="check" class="allcheck"></th>
+            <th width ="200px;" col-index = 2>대분류
+                <select id="a" class="table-filter" onchange="filter_rows()">
+                    <option value="all"></option>
+                </select>
+            </th>
+            <th width ="200px;" col-index = 3>소분류
+                <select id="b" class="table-filter" onchange="filter_rows()">
+                    <option value="all"></option>
+                </select>
+            </th>
 
+            <th width ="200px;"col-index = 4>상품코드</th>
+            <th col-index = 5>상품명</th>
+            <th col-index = 6>가격</th>
+            <tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>상의</td>
+                <td>남성</td>
+                <td>AM001</td>
+                <td>흰색 와이셔츠</td>
+                <td>1800</td>
+            </tr>
+            <tr>
+            <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>상의</td>
+                <td>남성</td>
+                <td>AM002</td>
+                <td>흰색 와이셔츠(표백작업 필요 시)</td>
+                <td>3900</td>
+            </tr>
+            <tr>
+             <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>상의</td>
+                <td>남성</td>
+                <td>AM003</td>
+                <td>컬러 와이셔츠/면,마소재</td>
+                <td>3900</td>
+            </tr>
+            <tr>
+             <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>상의</td>
+                <td>여성</td>
+                <td>AF001</td>
+                <td>셔츠 및 블라우스</td>
+                <td>3900</td>
+            </tr>
+            <tr>
+             <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>상의</td>
+                <td>여성</td>
+                <td>AF002</td>
+                <td>면,마 소재 셔츠 및 블라우스</td>
+                <td>4900</td>
+            </tr>
+            <tr>
+            <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>상의</td>
+                <td>여성</td>
+                <td>AF003</td>
+                <td>실크, 린넨 재질의 셔츠 및 블라우스</td>
+                <td>5900</td>
+            </tr>
+            <tr>
+            <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>상의</td>
+                <td>공용</td>
+                <td>AU001</td>
+                <td>반팔 티셔츠</td>
+                <td>3900</td>
+            </tr>
+            <tr>
+            <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>상의</td>
+                <td>공용</td>
+                <td>AU002</td>
+                <td>긴팔 티셔츠</td>
+                <td>5900</td>
+            </tr>
+            <tr>
+             <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>외투</td>
+                <td>여성</td>
+                <td>BW001</td>
+                <td>가디건 숏</td>
+                <td>6900</td>
+            </tr>
+            <tr>
+            <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>외투</td>
+                <td>남성</td>
+                <td>BM001</td>
+                <td>가디건 롱</td>
+                <td>11900</td>
+            </tr>         
 
-						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
-						<div class="flex">
-							<input type="button" id="btnExport" value="PDF" class="icon_pdf" />
-							<!-- pdf 버튼 -->
-							<button class="icon_excel"
-								onclick="exportToExcel('tblexportData', 'user-data')">Excel</button>
-							<!-- excel -->
-						</div>
-
-
-
-						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
-						<table id="datatablesSimple"
-							class="emp-table dataPerPage tblCustomers tblexportData table"
-							border="5">
-							<thead>
-								<tr>
-								<tr>
-									<th width="50" id="check_td"><input type="checkbox" name="check"
-										class="allcheck"></th>
-									<th col-index=2>회원코드</th>
-									<th col-index=3>아이디(이메일)</th>
-									<th col-index=4>이름</th>
-									<th col-index=5>핸드폰</th>
-									<th col-index=6>주소</th>
-									<th col-index=7>SMS수신<select class="table-filter"
-										onchange="filter_rows()">
-											<option value="all"></option>
-									</select>
-									</th>
-									<th col-index=8>계정상태<select class="table-filter"
-										onchange="filter_rows()">
-											<option value="all"></option>
-									</select>
-									</th>
-								<tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>false</td>
-									<td>정상회원</td>
-
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>true</td>
-									<td>신규회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>true</td>
-									<td>신규회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>true</td>
-									<td>신규회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>true</td>
-									<td>정상회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>false</td>
-									<td>신규회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>false</td>
-									<td>신규회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>true</td>
-									<td>신규회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>false</td>
-									<td>신규회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>true</td>
-									<td>신규회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>false</td>
-									<td>신규회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
-									<td>true</td>
-									<td>신규회원</td>
-								</tr>
-
-
-							</tbody>
-						</table>
-						<div class="flex">
-							<div>
-								<input id="button" type="button" value="등록" />
-							</div>
-							<div>
-								<input id="button" type="button" value="수정" />
-							</div>
-							<div>
-								<input id="button" type="button" value="삭제" />
-							</div>
-
+        </tbody>
+    </table>
+<div class="flex">
+						<div> <input id="button" type="button" value="등록" /> </div>
+						<div> <input  id="button" type="button"  value="수정" /> </div>
+						<div> <input id="button" type="button" value="삭제" /> </div>
+						
 						</div>
 
 
@@ -546,23 +490,19 @@
 	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
 		crossorigin="anonymous"></script>
 	<script src="js/datatables-simple-demo.js"></script>
-	<script>
-		getUniqueValuesFromColumn()
-	</script>
-
-	<!-- pdf -->
-	<script type="text/javascript"
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	<script type="text/javascript"
-		src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
-	<script type="text/javascript"
-		src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-	<script src="js/pdf.js"></script>
-
-	<!-- excel -->
-	<script src="js/excel.js"></script>
-	<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
+	    <script>
+        getUniqueValuesFromColumn()
+    </script>
+    
+    <!-- pdf -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="js/pdf.js"></script>
+    
+    <!-- excel -->	
+    <script src="js/excel.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >	
+    	
 </body>
 </html>

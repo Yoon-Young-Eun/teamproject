@@ -315,20 +315,20 @@
 			<main>
 
 				<div class="container-fluid px-4">
-					<h1 class="mt-4">회원관리</h1>
+					<h1 class="mt-4">정지회원</h1>
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-						<li class="breadcrumb-item active">회원관리</li>
+						<li class="breadcrumb-item active">정지회원</li>
 					</ol>
 					<div class="card mb-4">
 						<div class="card-body">
-							회원관리 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
+							정지회원 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
 							.
 						</div>
 					</div>
 					<div class="card mb-4">
 						<div class="card-header">
-							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 게시판에 대한 세부제목
+							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 정지회원에 대한 세부제목
 						</div>
 
 						<!--  여기부터 내용물 -->
@@ -353,14 +353,13 @@
 							<thead>
 								<tr>
 								<tr>
-									<th width="50" id="check_td"><input type="checkbox" name="check"
-										class="allcheck"></th>
+									<th width="50" id="check_td"><input type="checkbox"
+										name="check" class="allcheck"></th>
 									<th col-index=2>회원코드</th>
 									<th col-index=3>아이디(이메일)</th>
-									<th col-index=4>이름</th>
-									<th col-index=5>핸드폰</th>
-									<th col-index=6>주소</th>
-									<th col-index=7>SMS수신<select class="table-filter"
+									<th col-index=3>이름</th>
+									<th col-index=4>내용(사유)</th>
+									<th col-index=5>SMS수신<select class="table-filter"
 										onchange="filter_rows()">
 											<option value="all"></option>
 									</select>
@@ -378,121 +377,108 @@
 									<td>001</td>
 									<td>disdiddms@naver.com</td>
 									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
+									<td>못됬음</td>
 									<td>false</td>
-									<td>정상회원</td>
+									<td>블랙회원</td>
 
 								</tr>
 								<tr>
 									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
+									<td>002</td>
 									<td>disdiddms@naver.com</td>
 									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
+									<td>그냥 싫음</td>
 									<td>true</td>
-									<td>신규회원</td>
+									<td>블랙회원</td>
 								</tr>
 								<tr>
 									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
+									<td>003</td>
 									<td>disdiddms@naver.com</td>
 									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
+									<td>5회연속 컴플레인(세탁문제 아님)</td>
 									<td>true</td>
-									<td>신규회원</td>
+									<td>블랙회원</td>
 								</tr>
 								<tr>
 									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
+									<td>004</td>
 									<td>disdiddms@naver.com</td>
 									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
+									<td>3달간 미접속자</td>
 									<td>true</td>
-									<td>신규회원</td>
+									<td>휴면회원</td>
 								</tr>
 								<tr>
 									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
+									<td>005</td>
 									<td>disdiddms@naver.com</td>
 									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
+									<td>ㅇㅇㅇㅇㅇㅇㅇㅇㅇ</td>
 									<td>true</td>
-									<td>정상회원</td>
+									<td>탈퇴회원</td>
 								</tr>
 								<tr>
 									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
+									<td>006</td>
 									<td>disdiddms@naver.com</td>
 									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
+									<td>배송기사에게 자꾸 심부름 시킴(나갈때 쓰레기 버려주세요)</td>
 									<td>false</td>
-									<td>신규회원</td>
+									<td>블랙회원</td>
 								</tr>
 								<tr>
 									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
+									<td>007</td>
 									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
+									<td>3달간 미접속자</td>
 									<td>false</td>
-									<td>신규회원</td>
+									<td>휴면회원</td>
 								</tr>
 								<tr>
 									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
+									<td>007</td>
 									<td>disdiddms@naver.com</td>
 									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
+									<td>으므민ㅇㅁ;ㄻ;ㅡ1!#@!#%!!%!%%</td>
 									<td>true</td>
-									<td>신규회원</td>
+									<td>블랙회원</td>
 								</tr>
 								<tr>
 									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
+									<td>009</td>
 									<td>disdiddms@naver.com</td>
 									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
+									<td>블랙!</td>
 									<td>false</td>
-									<td>신규회원</td>
+									<td>블랙회원</td>
 								</tr>
 								<tr>
 									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
+									<td>010</td>
 									<td>disdiddms@naver.com</td>
 									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
+									<td>졸림</td>
 									<td>true</td>
-									<td>신규회원</td>
+									<td>휴면회원</td>
 								</tr>
 								<tr>
 									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
+									<td>011</td>
 									<td>disdiddms@naver.com</td>
 									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
+									<td>ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ</td>
 									<td>false</td>
-									<td>신규회원</td>
+									<td>블랙회원</td>
 								</tr>
 								<tr>
 									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
+									<td>012</td>
 									<td>disdiddms@naver.com</td>
 									<td>윤영은</td>
-									<td>010-3172-1622</td>
-									<td>서울 강북구 수유 3동</td>
+									<td>ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ</td>
 									<td>true</td>
-									<td>신규회원</td>
+									<td>블랙회원</td>
 								</tr>
 
 

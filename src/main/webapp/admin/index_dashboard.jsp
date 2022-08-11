@@ -236,6 +236,7 @@
                         <div class="order"><div class="order_info">주문취소</div><div class="red_box"><div class="order_info_print">2</div></div></div>
                         <div class="order"><div class="order_info">수거예정</div><div class="red_box"><div class="order_info_print">16</div></div></div>
                         <div class="order"><div class="order_info">배달예정</div><div class="red_box"><div class="order_info_print">48</div></div></div>
+                        <div class="order"><div class="order_info">견적요청</div><div class="red_box"><div class="order_info_print">25</div></div></div>
                         <div class="order"><div class="order_info">문의답변</div><div class="red_box"><div class="order_info_print">53</div></div></div>
                         </div>
                         </div>

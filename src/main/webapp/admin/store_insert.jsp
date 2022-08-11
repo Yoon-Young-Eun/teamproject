@@ -22,8 +22,7 @@
 <div class="popup_title">
 <div class="popup_text">매장명</div>&nbsp;<div class="popup_inputbox"><input type="text" placeholder=""></div>
 </div>
-
-<div class="popup_content">
+<div class="popup_type">
 <div class="popup_text">구분</div>
 &nbsp;<div class="popup_radio">
 <input class="office_type" type="radio" name="office_type_radio" id="office_type1" checked="checked"><label for="office_type1">직영</label></div>
@@ -33,6 +32,9 @@
 <!-- 	<option value="1">외주</option> -->
 <!-- </select> -->
 </div>
+</div><!-- /popup_content -->
+<div class="popup_code">
+<div class="popup_text">매장코드</div>&nbsp;<div class="popup_inputbox"><input type="text" placeholder=""></div>
 </div>
 <div class="popup_office">
 <div class="popup_text">주소</div>&nbsp;<div class="popup_inputbox"><input type="text" placeholder="우편변호 검색"></div>

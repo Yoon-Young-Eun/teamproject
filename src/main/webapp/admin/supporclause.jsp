@@ -1,11 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-
-<%-- 
-<%@ page import="java.util.List"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
---%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,23 +9,19 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>약관관리</title>
+<title>Dashboard - SB Admin</title>
 
+<!-- icon 버튼 css -->
+<link href="css/icon.css" rel="stylesheet"/>
 
-
-
-<!-- 테이블 필터2 -->
-<link href="css/tablefilter.css" rel="stylesheet"/>
-<script src="./js/tablefilter.js"></script>
-
-
+<!--  테이블 필터(중요) -->
+<link href="css/filter.css"rel="stylesheet" />
+<script src="js/filter.js"crossorigin="anonymous"></script>
 
 <!-- 체크박스 js -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="./js/checkbox.js"></script>
-
-<link href="css/provision.css" rel="stylesheet" />
 
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
@@ -234,11 +224,6 @@
 							</nav>
 						</div>
 
-
-
-
-
-
 						<div class="sb-sidenav-menu-heading">Interface</div>
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 							data-bs-target="#collapseLayouts" aria-expanded="false"
@@ -307,7 +292,6 @@
 							</nav>
 						</div>
 
-
 						<div class="sb-sidenav-menu-heading">Addons</div>
 						<a class="nav-link" href="charts.html">
 							<div class="sb-nav-link-icon">
@@ -328,216 +312,108 @@
 		</div>
 		<div id="layoutSidenav_content">
 			<main>
+
 				<div class="container-fluid px-4">
-					<h1 class="mt-4">약관관리</h1>
+						<h1 class="mt-4">약관관리</h1>
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
 						<li class="breadcrumb-item active">약관관리</li>
 					</ol>
 					<div class="card mb-4">
 						<div class="card-body">
-							고객 약관에 관련 페이지입니다. <a target="_blank"
+							약관관리 페이지 입니다. <a target="_blank"
 								href="https://datatables.net/">아무링크</a> .
 						</div>
 					</div>
 					<div class="card mb-4">
 						<div class="card-header">
-							<i class="fas fa-table me-1"></i> 약관상세
-							
-<form action="">
-<div class="flex">
-<div><input type='reset'></div>
-<div>
-<select class="mylist" onchange="myFunction()" class='form-control'>
-<option >약관번호</option>
-<option>1</option>
-<option>2</option>
-<option>3</option>
-</select> </div>
-
-<div>
-<select class="mylist1" onchange="myFunction()" class='form-control'>
-<option >약관명</option>
-<option>약관1</option>
-<option>약관2</option>
-<option>약관3</option>
-</select> </div>
-
-<div>
-<select class="mylist2" onchange="myFunction()" class='form-control'>
-<option >수여부</option>
-<option>true</option>
-<option>	false</option>
-</select> </div>
-</div>
- 
-
-</form>							
-							
-							
-							
+							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 약관관리에 대한 세부제목
 						</div>
-						<div class="card-body"> <!-- 디브 좌우 너비 100% -->
-			
-
-				<table id="datatablesSimple"	 class="myTable" >		
-
-    
-    
-    
-								<!--  table for 문 -->
-								<thead>
-									<tr>
-										<!-- EL 표현식으로 대체 ${board.seq}-->
-									<tr>	
-       									<th> <input type="checkbox" name="check" class="allcheck"></th>
-										<th>약관번호</th>
-										<th>약관명</th>
-										<th>필수여부</th>
-										<th>등록일</th>
-										<th>만료일</th>
-									</tr>
-								</thead>
-								
- <%--                            나중에 boardList를 받아 for문으로 출력할 예정
-				              <c:forEach var="board" items="${boardList}">
-									<tfoot>
-										<tr>
-										    <td><input type="checkbox" name="check"></td>
-											<td>${board.seq }</td>
-											<td><a href="getBoard.do?seq=${board.seq }">${board.title }</a></td>
-											<td>${board.status}</td>
-											<td><fmt:formatDate value="${board.regDate }"
-													pattern="yyyy-MM-dd" /></td>
-											<td>${board.expirationDate}</td>
-										</tr>
-									</tfoot>
-								</c:forEach>	
-														 --%>
-														 
-								<tbody>
-																	<tr>
-										<td><input type="checkbox" name="check"></td>
-										<td>1</td>
-										<td>약관2</td>
-										<td>true</td>
-										<td>2022-08-04</td>
-										<td>2023-08-04</td>
-									</tr>
-									<tr>
-										<td><input type="checkbox" name="check"></td>
-											<td>2</td>
-										<td>약관2</td>
-										<td>true</td>
-										<td>2022-08-04</td>
-										<td>2023-08-04</td>
-							
-									</tr>
-									<tr>
-											<td><input type="checkbox" name="check"></td>
-										<td>3</td>
-										<td>약관3</td>
-										<td>false</td>
-										<td>2022-08-04</td>
-										<td>2023-08-04</td>
-										
-									</tr>
-									<tr>
-										<td><input type="checkbox" name="check"></td>
-										<td>2</td>
-										<td>약관3</td>
-										<td>false</td>
-										<td>2022-08-04</td>
-										<td>2023-08-04</td>
-									</tr>
-									<tr>
-										<td><input type="checkbox" name="check"></td>
-										<td>1</td>
-										<td>약관2</td>
-										<td>true</td>
-										<td>2022-08-04</td>
-										<td>2023-08-04</td>
-							
-									</tr>
-									<tr>
-										<td><input type="checkbox" name="check"></td>
-										<td>2</td>
-										<td>약관1</td>
-										<td>true</td>
-										<td>2022-08-04</td>
-										<td>2023-08-04</td>
-									</tr>
-									<tr>
-									<td><input type="checkbox" name="check"></td>
-											<td>3</td>
-										<td>약관1</td>
-										<td>true</td>
-										<td>2022-08-04</td>
-										<td>2023-08-04</td>
-										
-									</tr>
-									<tr>
-											<td><input type="checkbox" name="check"></td>
-										<td>2</td>
-										<td>약관1</td>
-										<td>true</td>
-										<td>2022-08-04</td>
-										<td>2023-08-04</td>
-									
-									</tr>
-									<tr>
-										<td><input type="checkbox" name="check"></td>
-										<td>3</td>
-										<td>약관1</td>
-										<td>true</td>
-										<td>2022-08-04</td>
-										<td>2023-08-04</td>
-									</tr>
-									<tr>
-										<td><input type="checkbox" name="check"></td>
-										<td>2</td>
-										<td>약관1</td>
-										<td>true</td>
-										<td>2022-08-04</td>
-										<td>2023-08-04</td>
-							
-									</tr>
-									<tr>
-											<td><input type="checkbox" name="check"></td>
-										<td>11</td>
-										<td>약관11</td>
-										<td>true</td>
-										<td>2022-08-04</td>
-										<td>2023-08-04</td>
-									</tr>
-									<tr>
-						           		<td><input type="checkbox" name="check"></td>
-										<td>112</td>
-										<td>약관112</td>
-										<td>true</td>
-										<td>2022-08-04</td>
-										<td>2023-08-04</td>
-									</tr>
-									<tr>
-											<td><input type="checkbox" name="check"></td>
-										<td>21</td>
-										<td>약관21</td>
-										<td>false</td>
-										<td>2022-08-04</td>
-										<td>2023-08-04</td>
-									
-									</tr>
-								</tbody>
-								<tr  class="card-header">
-									<td class= "card-header" colspan="6";   >
-									<input  id="flex" type="button" value="수정" />
-									<input id="flex" type="button" value="삭제" />
-									</td>
-								</table>
+						
+						<!--  여기부터 내용물 -->
 					
-								
+
+  
+     <!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
+     <div class="flex" > 
+      <input type="button" id="btnExport" value="PDF" class="icon_pdf"/><!-- pdf 버튼 -->
+	  <button class="icon_excel" onclick="exportToExcel('tblexportData', 'user-data')">Excel</button><!-- excel -->
+	 </div>
+	  
+	 
+	  
+	  <!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->  
+    <table id="datatablesSimple" class="emp-table dataPerPage tblCustomers tblexportData table" border="5">
+        <thead>
+        <tr>
+        <tr>
+            <th width="50px;" id="check_td"> <input type="checkbox" name="check" class="allcheck"></th>
+            <th width="120px;" col-index = 2>약관번호</th>
+            <th width="500px;" col-index = 3>약관이름</th>
+
+            <th width="180px;"col-index = 4>필수여부
+                <select class="table-filter" onchange="filter_rows()">
+                    <option value="all"></option>
+                </select>
+            </th>
+            <th width="120px;" col-index = 5>등록일자</th>
+            <tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>101</td>
+                <td>약관1약관1약관1약관1약관1약관1약관1약관1</td>
+                <td>true</td>
+                <td>2022-07-02</td>
+  
+            </tr>
+            <tr>
+            <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>102</td>
+                <td>약관1약관1약관1약관1약관1약관1약관1약관1</td>
+                <td>true</td>
+                <td>2022-07-02</td>
+            </tr>
+            <tr>
+             <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>103</td>
+                 <td>약관1약관1약관1약관1약관1약관1약관1약관1</td>
+              <td>false</td>
+                <td>2022-07-02</td>
+            </tr>
+            <tr>
+             <td id="check_td"><input type="checkbox" name="check"></td>
+                 <td>104</td>
+                <td>약관1약관1약관1약관1약관1약관1약관1약관1</td>
+                <td>true</td>
+                <td>2022-07-02</td>
+            </tr>
+            <tr>
+             <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>105</td>
+                <td>약관1약관1약관1약관1약관1약관1약관1약관1</td>
+                <td>false</td>
+                <td>2022-07-02</td>
+            </tr>
+
+
+        </tbody>
+    </table>
+<div class="flex">
+						<div> <input id="button" type="button" value="등록" /> </div>
+						<div> <input  id="button" type="button"  value="수정" /> </div>
+						<div> <input id="button" type="button" value="삭제" /> </div>
+						
 						</div>
+
+
+
+						<!-- 내용물 end -->
+						<div class="card-footer small text-muted">Updated yesterday
+							at 11:59 PM</div>
 					</div>
+
 				</div>
 			</main>
 			<footer class="py-4 bg-light mt-auto">
@@ -554,9 +430,6 @@
 			</footer>
 		</div>
 	</div>
-	
-
-	
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
@@ -569,5 +442,19 @@
 	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
 		crossorigin="anonymous"></script>
 	<script src="js/datatables-simple-demo.js"></script>
+	    <script>
+        getUniqueValuesFromColumn()
+    </script>
+    
+    <!-- pdf -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="js/pdf.js"></script>
+    
+    <!-- excel -->	
+    <script src="js/excel.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >	
+    	
 </body>
 </html>

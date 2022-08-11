@@ -12,12 +12,6 @@
 
 
 <body>
-<!-- <input type="file"> -->
-<!-- <div class="filebox"> -->
-<!-- <label for="ex_file">파일선택</label> -->
-<!-- <input type="file" id="ex_file">  -->
-<!-- </div> -->
-
 
 <div class="popup_wrapper">
 <div class="popup_head"><h1>매니저 관리</h1>
@@ -28,13 +22,22 @@
 <div class="popup_title">
 이&nbsp;&nbsp;름&nbsp;&nbsp;<input type="text" placeholder="">
 </div>
+<div class="popup_index">
+담&nbsp;&nbsp;당&nbsp;
+<select class="manager_dept"><option value="0">세탁</option>
+	<option value="1" selected="">배송</option>
+	<option value="2">웹페이지</option>
+	<option value="3">고객관리</option>
+	<option value="4">기타</option>
+</select>
+</div>
 
 <div class="popup_content">
 직&nbsp;&nbsp;급&nbsp;
-<select class="manager_level"><option value="사원">사원</option>
-	<option value="대리" selected="">대리</option>
-	<option value="과장">과장</option>
-	<option value="차장">차장</option>
+<select class="manager_level"><option value="0">사원</option>
+	<option value="1" selected="">대리</option>
+	<option value="2">과장</option>
+	<option value="3">차장</option>
 </select>
 </div>
 <div class="popup_login">

@@ -62,7 +62,7 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="#">회원관리</a>
                                     <a class="nav-link" href="#">블랙회원관리</a>
-                                    <a class="nav-link" href="#">매니저 관리</a>
+                                    <a class="nav-link" href="#">매니저관리</a>
                                 </nav>
                             </div>
                             
@@ -83,36 +83,36 @@
                                 매출현황
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="change_id_03" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">매출현황#1</a>
-                                    <a class="nav-link" href="#">매출현황#2</a>
-                                </nav>
-                            </div>
+<!--                             <div class="collapse" id="change_id_03" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
+<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
+<!--                                     <a class="nav-link" href="#">매출현황#1</a> -->
+<!--                                     <a class="nav-link" href="#">매출현황#2</a> -->
+<!--                                 </nav> -->
+<!--                             </div> -->
                             
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_04" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 상품등록
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="change_id_04" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">상품등록#1</a>
-                                    <a class="nav-link" href="#">상품등록#2</a>
-                                </nav>
-                            </div>
+<!--                             <div class="collapse" id="change_id_04" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
+<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
+<!--                                     <a class="nav-link" href="#">상품등록#1</a> -->
+<!--                                     <a class="nav-link" href="#">상품등록#2</a> -->
+<!--                                 </nav> -->
+<!--                             </div> -->
                             
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_05" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 매장관리
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="change_id_05" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">지점관리</a>
-                                    <a class="nav-link" href="#">외주관리</a>
-                                </nav>
-                            </div>
+<!--                             <div class="collapse" id="change_id_05" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
+<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
+<!--                                     <a class="nav-link" href="#">지점관리</a> -->
+<!--                                     <a class="nav-link" href="#">외주관리</a> -->
+<!--                                 </nav> -->
+<!--                             </div> -->
                             
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_06" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
@@ -121,9 +121,11 @@
                             </a>
                             <div class="collapse" id="change_id_06" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">Q&A</a>
+                                    <a class="nav-link" href="#">공지사항</a>
+                                    <a class="nav-link" href="#">이벤트</a>
+                                    <a class="nav-link" href="#">리뷰</a>
+                                    <a class="nav-link" href="#">QnA</a>
                                     <a class="nav-link" href="#">자주하는 질문</a>
-                                    <a class="nav-link" href="#">리뷰관리</a>
                                 </nav>
                             </div>
                             
@@ -147,6 +149,7 @@
                             </a>
                             <div class="collapse" id="change_id_08" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="#">쿠폰관리</a>
                                     <a class="nav-link" href="#">배너관리</a>
                                     <a class="nav-link" href="#">약관관리</a>
                                 </nav>

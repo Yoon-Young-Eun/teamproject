@@ -18,7 +18,7 @@
 <div class="popup_wrapper">
 <div class="popup_head">
 <div class="coupon_point_title_wrap">
-<div class="coupon_title"><a href="promo_coupon.jsp"><h1>쿠폰</h1></a></div>
+<div class="coupon_title"><a href="promo_coupon_edit.jsp"><h1>쿠폰</h1></a></div>
 <div class="point_title"><h1>포인트</h1></div></div>
 <div class="popup_head_index">
 포인트를 등록합니다

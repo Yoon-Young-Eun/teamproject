@@ -17,7 +17,7 @@
 <div class="popup_head">
 <div class="coupon_point_title_wrap">
 <div class="coupon_title"><h1>쿠폰</h1></div>
-<div class="point_title"><a href="promo_point.jsp"><h1>포인트</h1></a></div></div>
+<div class="point_title"><a href="promo_point_edit.jsp"><h1>포인트</h1></a></div></div>
 <div class="popup_head_index">
 할인 쿠폰을 등록합니다
 </div>

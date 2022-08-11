@@ -1,0 +1,160 @@
+@charset "UTF-8";
+
+.popup_wrapper {
+	width: 480px;
+	height: 450px;
+/* 	margin-top: 50px; */
+/* 	margin-left: 50px; */
+	border: 12px solid #eeeeee;
+	padding:16px;
+}
+#layer_reply {
+	display: none;
+}
+.popup_wrapper2 {
+	width: 480px;
+	height: 360px;
+	border: 12px solid #eeeeee;
+	padding: 16px;
+	margin-top: -12px;
+}
+.popup_title {
+	width: 100%;
+	border-bottom: 1px solid #dddddd;
+	padding-bottom: 2px;
+	margin-bottom: 12px;
+}
+.customer_question_title_row {
+	margin: 6px 0px;
+	width: 90px;
+	font-size: 18px;
+}
+.customer_question {
+	display: flex;
+}
+.customer_question_order {
+	display: flex;
+	border-bottom: 1px solid #dddddd;
+	padding-bottom: 4px;
+	margin-bottom: 12px;
+	
+}
+.customer_question_title {
+	margin: 6px 0px;
+	width: 90px;
+	font-size: 18px;
+}
+.customer_question_title_body {
+	width: 330px;
+	margin: 8px 0px 0px 0px;
+}
+
+.customer_question_name_body {
+	width: 121px;
+	margin: 8px 0px 0px 0px;
+}
+.customer_question_date_body {
+	width: 121px;
+	margin: 8px 0px 0px 0px;
+}
+.customer_question_content_body {
+	width: 330px;
+	height: 70px;
+	margin: 8px 0px 24px 0px;
+	overflow: auto;
+}
+/* .customer_question_file_body { */
+/* 	width: 330px; */
+/* 	height: 130px; */
+/* 	margin: 4px 0px 0px 0px; */
+/* } */
+/* .customer_question_file_body>img { */
+/* 	max-height:100%;	 */
+/* } */
+
+/* .popup_hr { */
+/* 	width: 466px; */
+/* 	height: 12px; */
+/* 	background-color: #eeeeee; */
+/* 	margin-left: -16px; */
+/* /* 	margin-top: 12px; */ */
+/* } */
+
+
+.customer_reply_head {
+	padding-bottom: 2px;
+	margin-top: 12px;
+	margin-bottom: 12px;
+	border-bottom: 1px solid #dddddd;
+}
+.customer_reply {
+	display: flex;
+}
+.customer_reply_title {
+	width: 50px;
+	margin: 6px 0px;
+}
+.customer_reply_title_body {
+	margin: 6px 0px;
+}
+.customer_reply_content_body {
+	margin: 6px 0px;
+}
+.customer_reply_title_body>input {
+	width: 350px;
+	height: 25px;
+}
+.customer_reply_content_body>input {
+	width: 350px;
+	height: 140px;
+}
+
+/* 버튼 */
+.popup_btn {
+/* 	display: flex; */
+/* 	justify-content: end; */
+	padding-right: 16px;
+	text-align: center;
+}
+
+.end {
+	border-top: 1px solid #dddddd;
+/* 	background: white; */
+	width: 100%;
+	margin-top: 12px;
+	padding: 18px 0px;
+/* 	padding: 10px 10px 10px; */
+	display: flex;
+	justify-content: center;
+}
+.end >a {
+	font-size: 14px;
+	border: 2px solid black;
+	background: #ffffff;
+	padding: 3px;
+	border-radius: 5px;
+ 	font-weight: bold;
+ 	letter-spacing: 2px;
+}
+.end >a:hover {
+  font-weight : bold ;
+  text-decoration : none ;
+}
+#layer_hidden_btn {
+	font-size: 14px;
+	border: 2px solid black;
+	background: #ffffff;
+	padding: 3px;
+	border-radius: 5px;
+ 	font-weight: bold;
+ 	letter-spacing: 2px;
+}
+#layer_reply_btn {
+	font-size: 14px;
+	border: 2px solid black;
+	background: #ffffff;
+	padding: 3px;
+	border-radius: 5px;
+ 	font-weight: bold;
+ 	letter-spacing: 2px;
+}

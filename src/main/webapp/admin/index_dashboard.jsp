@@ -124,7 +124,7 @@
                                     <a class="nav-link" href="#">공지사항</a>
                                     <a class="nav-link" href="#">이벤트</a>
                                     <a class="nav-link" href="#">리뷰</a>
-                                    <a class="nav-link" href="#">QnA</a>
+                                    <a class="nav-link" href="#">Q&A</a>
                                     <a class="nav-link" href="#">자주하는 질문</a>
                                 </nav>
                             </div>
@@ -149,8 +149,8 @@
                             </a>
                             <div class="collapse" id="change_id_08" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">쿠폰관리</a>
                                     <a class="nav-link" href="#">배너관리</a>
+                                    <a class="nav-link" href="#">쿠폰관리</a>
                                     <a class="nav-link" href="#">약관관리</a>
                                 </nav>
                             </div>

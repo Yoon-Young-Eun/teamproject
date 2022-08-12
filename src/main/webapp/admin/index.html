@@ -9,6 +9,7 @@
         <title>Dashboard - SB Admin</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/main_info_card.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
@@ -124,7 +125,7 @@
                                     <a class="nav-link" href="#">공지사항</a>
                                     <a class="nav-link" href="#">이벤트</a>
                                     <a class="nav-link" href="#">리뷰</a>
-                                    <a class="nav-link" href="#">QnA</a>
+                                    <a class="nav-link" href="#">Q&A</a>
                                     <a class="nav-link" href="#">자주하는 질문</a>
                                 </nav>
                             </div>
@@ -149,8 +150,8 @@
                             </a>
                             <div class="collapse" id="change_id_08" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">쿠폰관리</a>
                                     <a class="nav-link" href="#">배너관리</a>
+                                    <a class="nav-link" href="#">쿠폰관리</a>
                                     <a class="nav-link" href="#">약관관리</a>
                                 </nav>
                             </div>
@@ -208,7 +209,7 @@
                             <div class="sb-sidenav-menu-heading">Addons</div>
                             <a class="nav-link" href="charts.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                매출현황
+                                Charts
                             </a>
                             <a class="nav-link" href="tables-div.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
@@ -229,44 +230,90 @@
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
+                        
+                        
+<!-- ----------------------------- 대쉬보드 첫째 줄 카드 시작 ----------------------------------------- -->                        
+                        
+                        
+                        <div class="main_info_card">
+                        <div class="main_info_card_head">
+                        <div class="main_info_card_head_title">오늘의 할일</div>
+                        </div>
+                        <div class="main_info_card_body">
+                        <div class="order"><div class="order_info">주문완료</div><div class="red_box"><div class="order_info_print">110</div></div></div>
+                        <div class="order"><div class="order_info">주문취소</div><div class="red_box"><div class="order_info_print">2</div></div></div>
+                        <div class="order"><div class="order_info">수거예정</div><div class="red_box"><div class="order_info_print">16</div></div></div>
+                        <div class="order"><div class="order_info">배달예정</div><div class="red_box"><div class="order_info_print">48</div></div></div>
+                        <div class="order"><div class="order_info">문의답변</div><div class="red_box"><div class="order_info_print">53</div></div></div>
+                        </div>
+                        </div>
+                        
+                        
+<!-- ----------------------------- 대쉬보드 첫째 줄 카드 끝 ----------------------------------------- -->                        
+                        
+                        
+                        
+                        
+<!-- ----------------------------- 대쉬보드 둘째 줄 카드 시작 --------------------------------------- -->                        
+                        
+                        
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Primary Card</div>
+<!--                                 <div class="card bg-primary text-white mb-4"> -->
+                                <div class="card bg-transparent mb-4">
+                                    <div class="card_body">
+                                    <div class="card-body-wrapper"><div class="card-body">일 매출</div></div>
+                                    <div class="card-body-static">\ 583,100</div></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
+<!--                                         <a class="small text-white stretched-link" href="#">View Details</a> -->
+                                        <a class="small text-dark stretched-link" href="#">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">Warning Card</div>
+<!--                                 <div class="card bg-warning text-white mb-4"> -->
+                                <div class="card bg-transparent mb-4">
+                                    <div class="card_body">
+                                    <div class="card-body-wrapper"><div class="card-body">월 매출</div></div>
+                                    <div class="card-body-static">\ 3,938,670</div></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <a class="small text-dark stretched-link" href="#">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">Success Card</div>
+<!--                                 <div class="card bg-success text-white mb-4"> -->
+                                <div class="card bg-transparent mb-4">
+                                    <div class="card_body">
+                                    <div class="card-body-wrapper"><div class="card-body">연 매출</div></div>
+                                    <div class="card-body-static">\ 479,202,180</div></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <a class="small text-dark stretched-link" href="#">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">Danger Card</div>
+<!--                                 <div class="card bg-danger text-white mb-4"> -->
+                                <div class="card bg-transparent mb-4">
+                                    <div class="card_body">
+                                    <div class="card-body-wrapper"><div class="card-body">방문자</div></div>
+                                    <div class="visitor_img"><img src="image/visitor.png" width="15px" height="15px"></div>&nbsp;&nbsp;
+                                    <div class="card-body-static">2,358</div></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <a class="small  text-dark stretched-link" href="#">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        
+                        
+<!-- ----------------------------- 대쉬보드 둘째 줄 카드 끝 --------------------------------------- -->                        
+                        
+                        
                         <div class="row">
                             <div class="col-xl-6">
                                 <div class="card mb-4">

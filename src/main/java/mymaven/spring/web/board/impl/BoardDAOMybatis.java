@@ -45,7 +45,7 @@ public class BoardDAOMybatis{
 		}
 		
 		public List<Map<String, Object>> getArticleList(String searchKeyword, String searchCondition, int startRow, int endRow) {
-			System.out.println("시작!");
+		
 			Map<String, Object> map = new HashMap<String, Object>();
 			map.put("startRow", startRow);
 			map.put("endRow", endRow);

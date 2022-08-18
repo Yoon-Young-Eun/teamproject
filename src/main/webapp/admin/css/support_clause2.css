@@ -25,18 +25,12 @@ ul, lu {
 
 header {
 	background: #eeeeee;
-	padding: 10px;
+	padding: 0px;
 }
 
-/* header>img {
-	  float : left ;
-	margin-right: 30px;
-	margin-top: 0px;
-	width: 125px;
-	height: 105px;
-} */
+
 header>h1 {
-	padding: 0px;
+	padding-top: 30px;
 	margin: 0px;
 }
 
@@ -65,13 +59,13 @@ header>h1 {
 }
 
 #content_wrap ul li {
-	margin-bottom: 7px;
-	margin-top: 7px;
+	/* margin-bottom: 7px;
+	margin-top: 7px; */
 }
 
 #content_wrap ul li:nth-child(2) {
 	margin-bottom: 5px;
-	margin-top: 15px;
+	margin-top: 10px;
 }
 
 #content_wrap .title {
@@ -105,6 +99,8 @@ header>h1 {
 	font-size: 12px;
 	color: #666666;
 	min-height: 300px;
+	resize: none;
+	border: 1px solid #ddd;
 }
 
 .configWrap {
@@ -117,7 +113,7 @@ header>h1 {
 	padding: 10px;
 }
 
-.configWrap .tag .InputArea input {
+.configWrap .InputArea input {
 	width: 500px;
 	margin-left: 10px;
 }
@@ -150,14 +146,13 @@ header>h1 {
 
 .div2 {
 	display: flex;
-	margin-left: 138px;
+	margin-left: 175px;
 }
 
 .div3 {
-	padding-left: 30px;
 	width: 520px;
 	text-align: center;
-	padding-top: 15px;
+ 	padding-top: 25px;
 }
 
 .dd {
@@ -166,53 +161,17 @@ header>h1 {
 	align-items: center;
 }
 
-.tag_di {
-	display: flex;
-	margin-bottom: 7px;
-}
-
-.filebox input[type="file"] {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	padding: 0;
-	margin: -1px;
-	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
-	border: 0;
-}
-
-.filebox label {
-	display: inline-block;
-	padding: .23em .53em;
-	color: #000;
-	font-size: inherit;
-	line-height: normal;
-	vertical-align: middle;
-	background-color: #efefef;
-	cursor: pointer;
-	border: 1px solid #000;
-	border-bottom-color: #000;
-	border-radius: .25em;
-}
 
 /* named upload */
-.filebox .upload-name {
-	display: inline-block;
-	padding: .23em .75em; /* label의 패딩값과 일치 */
-	font-size: inherit;
-	font-family: inherit;
-	line-height: normal;
-	vertical-align: middle;
-	background-color: #f5f5f5;
-	border: 1px solid #ebebeb;
-	border-bottom-color: #e2e2e2;
-	border-radius: .25em;
-	-webkit-appearance: none; /* 네이티브 외형 감추기 */
-	-moz-appearance: none;
-	appearance: none;
-}
-
 .title_wrap {
 	margin-bottom: 7px;
+}
+
+.title_wrap_input{
+	width : 300px;
+}
+
+.require {
+	display: flex;
+	margin-top: 10px;
 }

@@ -22,7 +22,7 @@
 	<!-- ContextLoaderListener가 기본적으로 /WEB-INF/[서블릿 이름]-servlet.xml 파일을 읽어서 스프링 컨테이너를 구동하기 때문에 위치설정 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:applicationContext.xml</param-value> 
+		<param-value>classpath:applicationcontext.xml</param-value> 
 	</context-param>
 
 

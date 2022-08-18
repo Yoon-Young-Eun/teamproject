@@ -47,7 +47,6 @@
 	<a href="#">저장</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">취소</a>
 </div>
 
-
 </div>
 </div>
 </div>

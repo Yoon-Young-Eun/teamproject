@@ -10,18 +10,10 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>Dashboard - SEMO Admin</title>
-
-<!-- icon 버튼 css -->
-<link href="css/icon.css" rel="stylesheet"/>
-
-<!--  테이블 필터(중요) -->
-<link href="css/filter.css"rel="stylesheet" />
-<script src="js/filter.js"crossorigin="anonymous"></script>
-
-<!-- 체크박스 js -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="./js/checkbox.js"></script>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="js/fileupload.js"></script>
+<!-- <-게시판 css -->
+<link rel="stylesheet" href="./css/support_clause2.css" />
 
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
@@ -78,6 +70,10 @@
 								<i class="fas fa-tachometer-alt"></i>
 							</div> 대시보드
 						</a>
+
+
+
+
 
 						<div class="sb-sidenav-menu-heading">관리자 메뉴</div>
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -224,6 +220,11 @@
 							</nav>
 						</div>
 
+
+
+
+
+
 						<div class="sb-sidenav-menu-heading">Interface</div>
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 							data-bs-target="#collapseLayouts" aria-expanded="false"
@@ -292,6 +293,7 @@
 							</nav>
 						</div>
 
+
 						<div class="sb-sidenav-menu-heading">Addons</div>
 						<a class="nav-link" href="charts.html">
 							<div class="sb-nav-link-icon">
@@ -313,118 +315,91 @@
 		<div id="layoutSidenav_content">
 			<main>
 
+
+
 				<div class="container-fluid px-4">
-						<h1 class="mt-4">약관관리</h1>
+					<h1 class="mt-4">약관관리</h1>
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-						<li class="breadcrumb-item active">약관관리</li>
+						<li class="breadcrumb-item active">약관등록</li>
 					</ol>
 					<div class="card mb-4">
-						<div class="card-body">
-							약관관리 페이지 입니다. <a target="_blank"
-								href="https://datatables.net/">아무링크</a> .
-						</div>
+						<div class="card-body">약관을 등록해주세요.</div>
 					</div>
-					<div class="card mb-4">
-						<div class="card-header">
-							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 약관관리에 대한 세부제목
-						</div>
-						
-						<!--  여기부터 내용물 -->
-					
+					<div class="dd">
+						<!-- <div class="card-header">
+							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 게시판에 대한 세부제목
+						</div> -->
 
-  
-     <!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
-     <div class="flex" > 
-      <input type="button" id="btnExport" value="PDF" class="icon_pdf"/><!-- pdf 버튼 -->
-	  <button class="icon_excel" onclick="exportToExcel('tblexportData', 'user-data')">Excel</button><!-- excel -->
-	 </div>
-	  
-	 
-	  
-	  <!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->  
-    <table id="datatablesSimple" class="emp-table dataPerPage tblCustomers tblexportData table" border="5">
-        <thead>
-        <tr>
-        <tr>
-            <th width="50px;" id="check_td"> <input type="checkbox" name="check" class="allcheck"></th>
-            <th width="120px;" col-index = 2>약관번호</th>
-            <th width="500px;" col-index = 3>약관이름</th>
+						<div id="wrap">
+							<header>
+								<div class="div2">
+									<!--<div>
+										<img
+											src="https://i.etsystatic.com/14912200/r/il/7c4834/1295206612/il_570xN.1295206612_nj87.jpg"
+											width=150px>
+									</div> -->
+									<div class="div3">
+										<h1>약관 등록</h1>
+									</div>
+								</div>
+							</header>
+							<div id="content_wrap">
+								<ul class="title_wrap">
+									<li><span class="title">약관번호</span> <input class="title_wrap_input" type="text"
+										onfocus="value=''" value="약관번호를 입력"/>
+									</li>
+											<!--
+            <input type="checkBox" id="chkNotice1" name="chkB1">
+            <label for="chkNotice1">공지사항으로 게시글쓰기</label>
+            <input type="checkBox" id="chkNotice2" name="chkB2">
+            <label for="chkNotice2">일반글로 게시글쓰기</label>
+            -->
+									<li><span class="title">약관이름</span> <input class="title_wrap_input"  type="text"
+										onfocus="value=''" value="게시글 제목을 입력하세요"/>
+									</li>
+									<div class="require">
+									<li><span class="title">필수여부</span>
+										<div class="clause_select">
+											<select>
+												<option value="required">필수</option>
+												<option value="elective">선택</option>
+											</select>
+										</div></li>
+									</div>
+								</ul>
+								<div class="writeWrap">
+									<textarea class="writeArea" value=""></textarea>
+								</div>
+								<div class="configWrap">
+									<ul>
 
-            <th width="180px;"col-index = 4>필수여부
-                <select class="table-filter" onchange="filter_rows()">
-                    <option value="all"></option>
-                </select>
-            </th>
-            <th width="120px;" col-index = 5>등록일자</th>
-            <tr>
-        </thead>
-        <tbody>
-            <tr>
-            <td id="check_td"><input type="checkbox" name="check"></td>
-                <td>101</td>
-                <td>약관1약관1약관1약관1약관1약관1약관1약관1</td>
-                <td>true</td>
-                <td>2022-07-02</td>
-  
-            </tr>
-            <tr>
-            <td id="check_td"><input type="checkbox" name="check"></td>
-                <td>102</td>
-                <td>약관1약관1약관1약관1약관1약관1약관1약관1</td>
-                <td>true</td>
-                <td>2022-07-02</td>
-            </tr>
-            <tr>
-             <td id="check_td"><input type="checkbox" name="check"></td>
-                <td>103</td>
-                 <td>약관1약관1약관1약관1약관1약관1약관1약관1</td>
-              <td>false</td>
-                <td>2022-07-02</td>
-            </tr>
-            <tr>
-             <td id="check_td"><input type="checkbox" name="check"></td>
-                 <td>104</td>
-                <td>약관1약관1약관1약관1약관1약관1약관1약관1</td>
-                <td>true</td>
-                <td>2022-07-02</td>
-            </tr>
-            <tr>
-             <td id="check_td"><input type="checkbox" name="check"></td>
-                <td>105</td>
-                <td>약관1약관1약관1약관1약관1약관1약관1약관1</td>
-                <td>false</td>
-                <td>2022-07-02</td>
-            </tr>
+										<li><span class="title">공개설정</span>&nbsp; <input
+											type="radio" name="open" id="open_0"> <label
+											for="open_0">공개</label>&nbsp;&nbsp; <input type="radio"
+											name="open" id="open_1"> <label for="open_1">비공개</label>&nbsp;&nbsp;
+										
+									</ul>
+								</div>
+								<div class="end">
+									<a href="#">저장</a>&nbsp;&nbsp;<a href="#">취소</a>
+								</div>
 
-
-        </tbody>
-    </table>
-<div class="flex">
-						<div> <input id="button" type="button" value="등록" /> </div>
-						<div> <input  id="button" type="button"  value="수정" /> </div>
-						<div> <input id="button" type="button" value="삭제" /> </div>
-						
+							</div>
 						</div>
 
-
-
-						<!-- 내용물 end -->
-						<div class="card-footer small text-muted">Updated yesterday
-							at 11:59 PM</div>
+						<!-- <div class="card-footer small text-muted">Updated yesterday
+							at 11:59 PM</div> -->
 					</div>
 
 				</div>
 			</main>
+
 			<footer class="py-4 bg-light mt-auto">
 				<div class="container-fluid px-4">
 					<div
 						class="d-flex align-items-center justify-content-between small">
 						<div class="text-muted">Copyright &copy; Your Website 2022</div>
-						<div>
-							<a href="#">Privacy Policy</a> &middot; <a href="#">Terms
-								&amp; Conditions</a>
-						</div>
 					</div>
 				</div>
 			</footer>
@@ -442,19 +417,5 @@
 	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
 		crossorigin="anonymous"></script>
 	<script src="js/datatables-simple-demo.js"></script>
-	    <script>
-        getUniqueValuesFromColumn()
-    </script>
-    
-    <!-- pdf -->
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-    <script src="js/pdf.js"></script>
-    
-    <!-- excel -->	
-    <script src="js/excel.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >	
-    	
 </body>
 </html>

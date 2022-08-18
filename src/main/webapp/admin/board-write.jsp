@@ -25,7 +25,6 @@
    crossorigin="anonymous"></script>
 </head>
 <body class="sb-nav-fixed">
-<<<<<<< HEAD
    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
       <!-- Navbar Brand-->
       <a class="navbar-brand ps-3" href="index.html">Start Bootstrap</a>
@@ -68,70 +67,17 @@
             <div class="sb-sidenav-menu">
                <div class="nav">
                   <div class="sb-sidenav-menu-heading">Core</div>
-                  <a class="nav-link" href="index.html">
+                  <a class="nav-link" href="index.jsp">
                      <div class="sb-nav-link-icon">
                         <i class="fas fa-tachometer-alt"></i>
                      </div> 대시보드
                   </a>
-=======
-	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-		<!-- Navbar Brand-->
-		<a class="navbar-brand ps-3" href="index.html">Start Bootstrap</a>
-		<!-- Sidebar Toggle-->
-		<button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
-			id="sidebarToggle" href="#!">
-			<i class="fas fa-bars"></i>
-		</button>
-		<!-- Navbar Search-->
-		<form
-			class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-			<div class="input-group">
-				<input class="form-control" type="text" placeholder="Search for..."
-					aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-				<button class="btn btn-primary" id="btnNavbarSearch" type="button">
-					<i class="fas fa-search"></i>
-				</button>
-			</div>
-		</form>
-		<!-- Navbar-->
-		<ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-			<li class="nav-item dropdown"><a
-				class="nav-link dropdown-toggle" id="navbarDropdown" href="#"
-				role="button" data-bs-toggle="dropdown" aria-expanded="false"><i
-					class="fas fa-user fa-fw"></i></a>
-				<ul class="dropdown-menu dropdown-menu-end"
-					aria-labelledby="navbarDropdown">
-					<li><a class="dropdown-item" href="#!">Settings</a></li>
-					<li><a class="dropdown-item" href="#!">Activity Log</a></li>
-					<li><hr class="dropdown-divider" /></li>
-					<li><a class="dropdown-item" href="#!">Logout</a></li>
-				</ul></li>
-		</ul>
-	</nav>
-
-	<div id="layoutSidenav">
-		<div id="layoutSidenav_nav">
-			<nav class="sb-sidenav accordion sb-sidenav-dark"
-				id="sidenavAccordion">
-				<div class="sb-sidenav-menu">
-					<div class="nav">
-						<div class="sb-sidenav-menu-heading">Core</div>
-						<a class="nav-link" href="index.jsp">
-							<div class="sb-nav-link-icon">
-								<i class="fas fa-tachometer-alt"></i>
-							</div> 대시보드
-						</a>
->>>>>>> main
 
 
 
 
 
-<<<<<<< HEAD
                   <div class="sb-sidenav-menu-heading">관리자 메뉴</div>
-=======
-						<div class="sb-sidenav-menu-heading">관리자 메뉴</div>
->>>>>>> main
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_01" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 회원관리
@@ -139,17 +85,9 @@
                             </a>
                             <div class="collapse" id="change_id_01" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-<<<<<<< HEAD
-
                                     <a class="nav-link" href="member.jsp">회원관리</a>
                                     <a class="nav-link" href="member_black.jsp">블랙회원관리</a>
                                     <a class="nav-link" href="memberstaff.jsp">매니저관리</a>
-
-=======
-                                    <a class="nav-link" href="member.jsp">회원관리</a>
-                                    <a class="nav-link" href="member_black.jsp">블랙회원관리</a>
-                                    <a class="nav-link" href="memberstaff.jsp">매니저관리</a>
->>>>>>> main
                                 </nav>
                             </div>
                             
@@ -161,10 +99,6 @@
                             <div class="collapse" id="change_id_02" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="order.jsp">주문/결제</a>
-<<<<<<< HEAD
-
-=======
->>>>>>> main
                                     <a class="nav-link" href="#">견적상품</a>
                                 </nav>
                             </div>
@@ -181,17 +115,9 @@
 <!--                                 </nav> -->
 <!--                             </div> -->
                             
-<<<<<<< HEAD
-
                             <a class="nav-link collapsed" href="item.jsp" data-bs-toggle="collapse" data-bs-target="#change_id_04" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 <span onclick="newPage()">상품등록</span>
-
-=======
-                            <a class="nav-link collapsed" href="item.jsp" data-bs-toggle="collapse" data-bs-target="#change_id_04" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                <span onclick="newPage()">상품등록</span>
->>>>>>> main
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
 <!--                             <div class="collapse" id="change_id_04" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
@@ -250,10 +176,7 @@
                             </a>
                             <div class="collapse" id="change_id_08" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-<<<<<<< HEAD
-=======
 
->>>>>>> main
                                     <a class="nav-link" href="promo.jsp">쿠폰관리</a>
                                     <a class="nav-link" href="supporbanner.jsp">배너관리</a>
                                     <a class="nav-link" href="supporclause.jsp">약관관리</a>
@@ -264,8 +187,6 @@
 
 
 
-
-<<<<<<< HEAD
 
                   <div class="sb-sidenav-menu-heading">Interface</div>
                   <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -354,106 +275,16 @@
             </div>
          </nav>
       </div>
-=======
-						<div class="sb-sidenav-menu-heading">Interface</div>
-						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-							data-bs-target="#collapseLayouts" aria-expanded="false"
-							aria-controls="collapseLayouts">
-							<div class="sb-nav-link-icon">
-								<i class="fas fa-columns"></i>
-							</div> Layouts
-							<div class="sb-sidenav-collapse-arrow">
-								<i class="fas fa-angle-down"></i>
-							</div>
-						</a>
-						<div class="collapse" id="collapseLayouts"
-							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="layout-static.html">Static
-									Navigation</a> <a class="nav-link" href="layout-sidenav-light.html">Light
-									Sidenav</a>
-							</nav>
-						</div>
-						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-							data-bs-target="#collapsePages" aria-expanded="false"
-							aria-controls="collapsePages">
-							<div class="sb-nav-link-icon">
-								<i class="fas fa-book-open"></i>
-							</div> Pages
-							<div class="sb-sidenav-collapse-arrow">
-								<i class="fas fa-angle-down"></i>
-							</div>
-						</a>
-						<div class="collapse" id="collapsePages"
-							aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-							<nav class="sb-sidenav-menu-nested nav accordion"
-								id="sidenavAccordionPages">
-								<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-									data-bs-target="#pagesCollapseAuth" aria-expanded="false"
-									aria-controls="pagesCollapseAuth"> Authentication
-									<div class="sb-sidenav-collapse-arrow">
-										<i class="fas fa-angle-down"></i>
-									</div>
-								</a>
-								<div class="collapse" id="pagesCollapseAuth"
-									aria-labelledby="headingOne"
-									data-bs-parent="#sidenavAccordionPages">
-									<nav class="sb-sidenav-menu-nested nav">
-										<a class="nav-link" href="login.html">Login</a> <a
-											class="nav-link" href="register.html">Register</a> <a
-											class="nav-link" href="password.html">Forgot Password</a>
-									</nav>
-								</div>
-								<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-									data-bs-target="#pagesCollapseError" aria-expanded="false"
-									aria-controls="pagesCollapseError"> Error
-									<div class="sb-sidenav-collapse-arrow">
-										<i class="fas fa-angle-down"></i>
-									</div>
-								</a>
-								<div class="collapse" id="pagesCollapseError"
-									aria-labelledby="headingOne"
-									data-bs-parent="#sidenavAccordionPages">
-									<nav class="sb-sidenav-menu-nested nav">
-										<a class="nav-link" href="401.html">401 Page</a> <a
-											class="nav-link" href="404.html">404 Page</a> <a
-											class="nav-link" href="500.html">500 Page</a>
-									</nav>
-								</div>
-							</nav>
-						</div>
-
-
-						<div class="sb-sidenav-menu-heading">Addons</div>
-						<a class="nav-link" href="charts.html">
-							<div class="sb-nav-link-icon">
-								<i class="fas fa-chart-area"></i>
-							</div> Charts
-						</a> <a class="nav-link" href="tables-div.html">
-							<div class="sb-nav-link-icon">
-								<i class="fas fa-table"></i>
-							</div> Tables
-						</a>
-					</div>
-				</div>
-				<div class="sb-sidenav-footer">
-					<div class="small">Logged in as:</div>
-					Start Bootstrap
-				</div>
-			</nav>
-		</div>
-
-		<div id="layoutSidenav_content">
-			<main>
->>>>>>> main
 
       <div id="layoutSidenav_content">
          <main>
 
+
+
             <div class="container-fluid px-4">
                <h1 class="mt-4">게시판</h1>
                <ol class="breadcrumb mb-4">
-                  <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                  <li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
                   <li class="breadcrumb-item active">게시판</li>
                </ol>
                <div class="card mb-4">
@@ -466,7 +297,6 @@
                      <i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 게시판에 대한 세부제목
                   </div> -->
 
-<<<<<<< HEAD
                   <div id="wrap">
                      <header>
                          <div class="div2">
@@ -492,49 +322,6 @@
                               </div>
                               <div class="radiobox">
                                  <!--
-=======
-				<div class="container-fluid px-4">
-					<h1 class="mt-4">게시판</h1>
-					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
-						<li class="breadcrumb-item active">게시판</li>
-					</ol>
-					<div class="card mb-4">
-						<div class="card-body">
-							관리자 게시판입니다
-						</div>
-					</div>
-					<div class="dd">
-						<!-- <div class="card-header">
-							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 게시판에 대한 세부제목
-						</div> -->
-
-						<div id="wrap">
-							<header>
-								 <div class="div2">
-									<!--<div>
-										<img
-											src="https://i.etsystatic.com/14912200/r/il/7c4834/1295206612/il_570xN.1295206612_nj87.jpg"
-											width=150px>
-									</div> -->
-									<div class="div3">
-										<h1>관리자 게시판</h1>
-									</div>
-								</div>
-							</header>
-							<div id="content_wrap">
-								<ul class="title_wrap">
-									<li><span class="title">게시판</span>
-										<div class="board_select">
-											<select value="게시판선택">
-												<option selected disabled>게시판선택</option>
-												<option value="ml">공지사항</option>
-												<option value="board">광고</option>
-											</select>
-										</div>
-										<div class="radiobox">
-											<!--
->>>>>>> main
             <input type="checkBox" id="chkNotice1" name="chkB1">
             <label for="chkNotice1">공지사항으로 게시글쓰기</label>
             <input type="checkBox" id="chkNotice2" name="chkB2">
@@ -577,7 +364,7 @@
                            </ul>
                         </div>
                         <div class="end">
-                           <a href="#">저장</a>&nbsp;&nbsp;<a href="#">취소</a>
+                           <a href="#">저장하기</a>&nbsp;&nbsp;<a href="#">취소하기</a>
                         </div>
 
                      </div>

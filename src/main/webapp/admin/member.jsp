@@ -14,7 +14,7 @@
 <title>Dashboard - SB Admin</title>
 
 <!-- icon 버튼 css -->
-<link href="admin/css/icon.css" rel="stylesheet" />
+<link href="./admin/css/icon.css" rel="stylesheet" />
 
 <!--  테이블 필터(중요) -->
 <link href="admin/css/filter.css" rel="stylesheet" />

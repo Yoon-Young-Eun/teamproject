@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- <typeAliases> 엘리먼트는 <typeAlias>를 여러 개 가질 수 있으며 <typeAlias>를 이용하여 특정 
+		클래스의 별칭(Alias)을 선언할 수 있다. 이 Alias는 SQL 명령어들이 저장되는 SQL Mapper에서 사용할 수 있으며 
+		이를 통해 SQL Mapper 파일의 크기를 줄여주고 설정을 간단히 처리할 수 있도록 해 준다. -->
+	<typeAliases>
+		<typeAlias type="mymaven.spring.web.board.MemberVO"
+			alias="tb_member" />
+	</typeAliases>
+
+	<!-- <mappers> 엘리먼트는 여러 <mapper>를 가질 수 있으며 이 <mapper>를 이용하여 SQL 명령어들이 저장된 
+		SQL 파일을 등록할 수 있다. -->
+	<mappers>
+		<mapper resource="mappings/board-mapping.xml" />
+	</mappers>
+</configuration>
+ 

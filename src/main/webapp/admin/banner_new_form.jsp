@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="css/banner_new_form.css" rel="stylesheet" />
+<link href="css/board_write_form_default.css" rel="stylesheet" />
 <script src="js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="js/fileupload.js"></script>
 </head>
@@ -46,6 +46,7 @@
 <div class="end">
 	<a href="#">저장</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">취소</a>
 </div>
+
 
 </div>
 </div>

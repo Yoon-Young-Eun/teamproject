@@ -372,6 +372,47 @@
                 <td>2022-08-11</td>
                 <td>0</td>
             </tr>
+                        <tr>
+            <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>2</td>
+                <td>[공지]갈비찜 만드는 레시피</td>
+                <td>disdiddms</td>
+                <td>2022-08-11</td>
+                <td>0</td>
+            </tr>
+                        <tr>
+            <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>2</td>
+                <td>[공지]갈비찜 만드는 레시피</td>
+                <td>disdiddms</td>
+                <td>2022-08-11</td>
+                <td>0</td>
+            </tr>
+                        <tr>
+            <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>2</td>
+                <td>[공지]갈비찜 만드는 레시피</td>
+                <td>disdiddms</td>
+                <td>2022-08-11</td>
+                <td>0</td>
+            </tr>
+                        <tr>
+            <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>2</td>
+                <td>[공지]갈비찜 만드는 레시피</td>
+                <td>disdiddms</td>
+                <td>2022-08-11</td>
+                <td>0</td>
+            </tr>
+                        <tr>
+            <td id="check_td"><input type="checkbox" name="check"></td>
+                <td>2</td>
+                <td>[공지]갈비찜 만드는 레시피</td>
+                <td>disdiddms</td>
+                <td>2022-08-11</td>
+                <td>0</td>
+            </tr>
+            
             <tr>
              <td id="check_td"><input type="checkbox" name="check"></td>
                 <td>3</td>

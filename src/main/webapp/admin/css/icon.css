@@ -25,3 +25,31 @@
 	justify-content: flex-end;
 }
 
+.pageging{
+	width : 30px;
+	text-align : center; 
+	background-color: #3333ff;
+	color : white;
+    border : 1px solid none; 
+	border-radius: 0.3rem;
+	margin-left : 5px;
+	border-style : none;
+}
+
+.pageging2{
+	width : 30px;
+	text-align : center; 
+	background-color: #000066;
+	color : white;
+    border : 1px solid none; 
+	border-radius: 0.3rem;
+	margin-left : 5px;
+	border-style : none;
+}
+
+
+.b_button {
+	display : flex;
+	justify-content: space-between;
+	
+}

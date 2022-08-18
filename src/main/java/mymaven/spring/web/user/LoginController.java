@@ -23,11 +23,12 @@ public class LoginController {
         
 	
 		if (vo.getId() == null || vo.getId().equals("")) {
-			throw new IllegalAccessError("로그인 실패");
+			throw new IllegalAccessError("22");
 		}
 		
 
 		UserVO user = userDAO.getUser(vo);
+		System.out.println(userDAO.getUser(vo));
 		if (user != null) {
 			session.setAttribute("userName", user.getName());
 			return "member.do";

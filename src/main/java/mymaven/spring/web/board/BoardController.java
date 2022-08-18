@@ -79,7 +79,6 @@ public class BoardController {
 		model.addAttribute("board", boardService.getBoard(vo));
 		return "getBoard.jsp";
 	}
-	
 
 	@RequestMapping("/member.do")
 	public String getBoardList(String selectPage, String searchKeyword, String searchCondition, Model model, String pageNum) {
@@ -98,20 +97,21 @@ public class BoardController {
 	       int pageSize = Integer.parseInt(selectPage);
 	       System.out.println("pageSize =" +  pageSize);
 	       int currentPage = Integer.parseInt(pageNum); 
+	     
 	       int startRow = (currentPage -1)* pageSize +1;
-	       int endRow = currentPage * pageSize;
+	       int endRow = currentPage * pageSize; 
 	       System.out.println("endRow =" +  endRow);
-	       int count =0;
-	       int number = 0;
+	       int count =0; 	
+	       int number = 0;  
 	       List<Map<String, Object>> articleList = null;
-	       count = myBatis.getArticleCount();
+	       count = myBatis.getArticleCount(); 
+
 	       if(count >0) {
 	    	   articleList= myBatis.getArticleList(searchKeyword, searchCondition, startRow, endRow);
 	    	  
 	       }else {
 	    	   articleList=Collections.emptyList(); 
 	       }
-	       number= count - (currentPage-1)*pageSize;
 	       
 	       System.out.println("articleList =" +  articleList);
 	       
@@ -124,8 +124,6 @@ public class BoardController {
 	       model.addAttribute("articleList", articleList);
 	       model.addAttribute("number", number);
 	       
-	       System.out.println("しし");
-	       System.out.println("しし");
 		return "admin/member.jsp";
 		//return "getBoardList.jsp";
 	}

@@ -9,7 +9,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Dashboard - SB Admin</title>
+<title>Dashboard - SEMO Admin</title>
 
 <link rel="stylesheet" href="./css/support_clause.css" />
 

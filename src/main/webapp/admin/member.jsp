@@ -348,21 +348,18 @@
 
 
 						<div class="b_button">
-							<form action="member.do" method="post">
+							<form name="selectname" action="member.do" method="post">
 								<div col-index=8>
-									<select id="selectPage" onchange="selectCataFn()">
+									<select name="selectPage" onchange="this.form.submit()"> 
+									    <option value="">선택</option>
 										<option value="5">5</option>
 										<option value="10">10</option>
 										<option value="20">20</option>
 										<option value="50">50</option>
-									</select>
+									</select> entries per page
 								</div>
 							</form>
-							
-						
-
-
-
+	
 							<div>
 								<form action="member.do" method="post">
 									<div class="icon_flex">
@@ -539,7 +536,7 @@
 
 
 
-							<script>
+<!-- 							<script>
 								function selectCataFn() {
 									var val = "";
 
@@ -556,7 +553,7 @@
 										}
 									});
 								}
-							</script>
+							</script> -->
 
 </body>
 </html>

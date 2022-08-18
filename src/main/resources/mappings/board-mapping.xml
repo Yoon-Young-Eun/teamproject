@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- SQL Mapper XML은 MyBatis에서 가장 중요한 파일이다. 이 XML에 DB 연동에 필요한 SQL 명령어들이 저장되기 
+	때문이다. SQL Mapper 파일은 <mapper>를 루트 엘리먼트로 사용한다. 그리고 <insert>, <update>, <delete>, 
+	<select> 엘리먼트를 이용하여 필요한 SQL문을 등록한다. -->
+
+<mapper namespace="BoardDAO">
+	<resultMap type="tb_member" id="boardResult">
+		<id property="num" column="num" />
+		<result property="member_id" column="member_id" />
+		<result property="member_name" column="member_name" />
+		<result property="member_email" column="member_email" />
+		<result property="member_phone" column="member_phone" />
+		<result property="sns_approval" column="sns_approval" />
+		<result property="member_sex" column="member_sex" />
+		<result property="member_birth" column="member_birth" />
+		<result property="member_address1" column="member_address1" />
+		<result property="member_address2" column="member_address2" />
+		<result property="member_zipcode" column="member_zipcode" />
+	</resultMap>
+
+	<!-- Dynamic SQL -->
+	<insert id="insertBoard" parameterType="tb_member">
+		insert into
+		tb_member(num,title, writer, content)values((select
+		nvl(max(num),0)+1
+		from tb_member), #{member_id},#{member_name}, #{content})
+	</insert>
+
+
+
+
+	<update id="updateBoard" parameterType="tb_member">
+		update tb_member set
+		title=#{title}, content=#{content} where num=#{num}
+	</update>
+
+	<delete id="deleteBoard" parameterType="tb_member">
+		delete from tb_member
+		where num=#{num}
+	</delete>
+
+	<!-- <select id="getBoard" resultType="tb_member"> select * from tb_member 
+		where num=#{num} </select> -->
+	<select id="getBoard" resultType="tb_member">
+		select num, member_email,
+		member_name, member_phone, member_address1, member_address2,
+		sns_approval, member_zipcode from tb_member a, tb_order b where
+		num=#{num}
+	</select>
+
+	<select id="getArticleCount" resultType="int">
+		select count(*) from
+		tb_member
+	</select>
+
+	<!-- 기존 <select id="getBoardList" resultMap="boardResult"> select * from 
+		myboard where title like '%'||#{searchKeyword}||'%' order by num desc </select> 
+		수정 ↓↓↓↓ -->
+
+	<!-- Dynamic SQL -->
+	<select id="getBoardList" resultMap="boardResult">
+		select * from tb_member where 1=1
+		<if test="searchCondition=='member_address1'">
+			AND member_address1 like '%'||#{searchKeyword}||'%' order
+			by num desc
+		</if>
+		<if test="searchCondition=='member_name'">
+			AND member_name like '%'||#{searchKeyword}||'%' order by
+			num desc
+		</if>
+	</select>
+
+	<select id="getArticleList2" parameterType="Map"
+		resultType="Map">
+		<![CDATA[ select * from(select rownum rnum, num, member_email,member_name, member_phone, member_address1, member_address2,sns_approval, member_zipcode from (select * from tb_member order by num))where rnum >= #{startRow} and rnum <= #{endRow}]]>
+	</select>
+
+
+	<select id="getArticleList" parameterType="Map" resultType="Map">
+
+			<![CDATA[ select * from(select rownum rnum, num, member_email,member_name, member_phone, member_address1, member_address2,sns_approval, member_zipcode from (select * from tb_member order by num )]]>
+		<if test="searchCondition==null">
+			<![CDATA[ )where rnum >= #{startRow} and rnum <= #{endRow} ]]>
+		</if>
+		<if test="searchCondition=='member_address1'">
+			<![CDATA[where member_address1 like'%'||#{searchKeyword}||'%') where rnum >= #{startRow} and rnum <= #{endRow}]]>
+		</if>
+		<if test="searchCondition=='member_name'">
+			<![CDATA[where member_name like '%'||#{searchKeyword}||'%') where rnum >= #{startRow} and rnum <= #{endRow}]]>
+		</if>
+	</select>
+
+</mapper>
+
+
+
+<!-- Dynamic SQL <select id="getBoardList" resultMap="boardResult"> select 
+	* from tb_member where 1=1 <if test="searchCondition=='member_address1'"> 
+	AND member_address1 like '%'||#{searchKeyword}||'%' order by num desc </if> 
+	<if test="searchCondition=='member_name'"> AND member_name like '%'||#{searchKeyword}||'%' 
+	order by num desc </if> -->
+ 

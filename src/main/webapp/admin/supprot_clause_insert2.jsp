@@ -10,8 +10,10 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>Dashboard - SEMO Admin</title>
-
-<link rel="stylesheet" href="./css/support_clause.css" />
+<script src="js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="js/fileupload.js"></script>
+<!-- <-게시판 css -->
+<link rel="stylesheet" href="./css/support_clause2.css" />
 
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
@@ -314,54 +316,94 @@
 		<div id="layoutSidenav_content">
 			<main>
 
-				<div class="claus_all">
-					<div class="claus_title">
-						<h2>약관관리</h2>
+
+
+				<div class="container-fluid px-4">
+					<h1 class="mt-4">약관관리</h1>
+					<ol class="breadcrumb mb-4">
+						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
+						<li class="breadcrumb-item active">약관등록</li>
+					</ol>
+					<div class="card mb-4">
+						<div class="card-body">약관을 등록해주세요.</div>
 					</div>
-					<div class="claus_title2">약관관리 - 약관등록</div>
-					<ul>
-						<li><div class="claus_num">
-								약관번호<br> <input type="text" name="c_number">
-							</div></li>
-						<br>
-						<li><div class="claus_name">
-								약관이름<br> <input type="text" name="c_name">
-							</div></li>
-						<br>
-						<li><div class="claus_select">
-								약관필수 여부<br> <input type="radio" name="c_select" id="required"> 
-								<label for="required">필수</label>&nbsp;&nbsp; 
-									<input type="radio" name="c_select" id="elective"> <label for="elective">선택</label>&nbsp;&nbsp;
-							</div></li>
-						<br>
-						<li><div class="claus_date">
-								등록일<br> <input type="date" name="c_date">
-							</div></li>
-						<br>
-						<li><div class="claus_content">
-								약관내용<br>
-								<textarea>약관내용 샬라샬라</textarea>
-							</div></li>
-					</ul>
-						<div class="end">
-							<a href="#">저장</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">취소</a>
-						</div>
-				</div>
+					<div class="dd">
+						<!-- <div class="card-header">
+							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 게시판에 대한 세부제목
+						</div> -->
 
+						<div id="wrap">
+							<header>
+								<div class="div2">
+									<!--<div>
+										<img
+											src="https://i.etsystatic.com/14912200/r/il/7c4834/1295206612/il_570xN.1295206612_nj87.jpg"
+											width=150px>
+									</div> -->
+									<div class="div3">
+										<h1>약관 등록</h1>
+									</div>
+								</div>
+							</header>
+							<div id="content_wrap">
+								<ul class="title_wrap">
+									<li><span class="title">약관번호</span> <input class="title_wrap_input" type="text"
+										onfocus="value=''" value="약관번호를 입력"/>
+									</li>
+											<!--
+            <input type="checkBox" id="chkNotice1" name="chkB1">
+            <label for="chkNotice1">공지사항으로 게시글쓰기</label>
+            <input type="checkBox" id="chkNotice2" name="chkB2">
+            <label for="chkNotice2">일반글로 게시글쓰기</label>
+            -->
+									<li><span class="title">약관이름</span> <input class="title_wrap_input"  type="text"
+										onfocus="value=''" value="게시글 제목을 입력하세요"/>
+									</li>
+									<div class="require">
+									<li><span class="title">필수여부</span>
+										<div class="clause_select">
+											<select>
+												<option value="required">필수</option>
+												<option value="elective">선택</option>
+											</select>
+										</div></li>
+									</div>
+								</ul>
+								<div class="writeWrap">
+									<textarea class="writeArea" value=""></textarea>
+								</div>
+								<div class="configWrap">
+									<ul>
 
+										<li><span class="title">공개설정</span>&nbsp; <input
+											type="radio" name="open" id="open_0"> <label
+											for="open_0">공개</label>&nbsp;&nbsp; <input type="radio"
+											name="open" id="open_1"> <label for="open_1">비공개</label>&nbsp;&nbsp;
+										
+									</ul>
+								</div>
+								<div class="end">
+									<a href="#">저장</a>&nbsp;&nbsp;<a href="#">취소</a>
+								</div>
 
-				<footer class="py-4 bg-light mt-auto">
-					<div class="container-fluid px-4">
-						<div
-							class="d-flex align-items-center justify-content-between small">
-							<div class="text-muted">Copyright &copy; Your Website 2022</div>
-							<div>
-								<a href="#">Privacy Policy</a> &middot; <a href="#">Terms
-									&amp; Conditions</a>
 							</div>
 						</div>
+
+						<!-- <div class="card-footer small text-muted">Updated yesterday
+							at 11:59 PM</div> -->
 					</div>
-				</footer>
+
+				</div>
+			</main>
+
+			<footer class="py-4 bg-light mt-auto">
+				<div class="container-fluid px-4">
+					<div
+						class="d-flex align-items-center justify-content-between small">
+						<div class="text-muted">Copyright &copy; Your Website 2022</div>
+					</div>
+				</div>
+			</footer>
 		</div>
 	</div>
 	<script

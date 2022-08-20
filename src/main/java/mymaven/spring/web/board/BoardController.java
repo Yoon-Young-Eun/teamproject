@@ -35,9 +35,14 @@ public class BoardController {
 	@ModelAttribute("conditionMap")
 	public Map<String, String> searchConditionMap() {
 		Map<String, String> conditionMap = new HashMap<String, String>();
+<<<<<<< HEAD
 		conditionMap.put("제목", "member_address1");
 		conditionMap.put("내용", "member_name");
 		
+=======
+		conditionMap.put("����", "member_address1");
+		conditionMap.put("����", "member_name");
+>>>>>>> main
 		return conditionMap;
 	}
 	
@@ -81,55 +86,6 @@ public class BoardController {
 		return "getBoard.jsp";
 	}
 
-
-	
-//	@GetMapping("/member.do")
-//	public String getBoardList2(@RequestParam("selectPage")String selectPage, String searchKeyword, String searchCondition, Model model, String pageNum) {
-//		System.out.println("member.do");
-//		  
-//	      if (pageNum == null) {
-//	    	   pageNum = "1";
-//	       }
-//	      
-//	      System.out.println("selectPage =" +selectPage);
-//	       int pageSize = Integer.parseInt(selectPage); 
-//	       System.out.println("pageSize =" +  pageSize);
-//	       int currentPage = Integer.parseInt(pageNum); 
-//	       //한 페이지의 시작글 번호
-//	       int startRow = (currentPage -1)* pageSize +1;
-//	       int endRow = currentPage * pageSize; // 한페이지의 마지막 글번호
-//	       int count =0; //전체 글수?	
-//	       int number = 0;  // 현페이지 첫번째 번호?
-//	       List<Map<String, Object>> articleList = null;
-//	       count = myBatis.getArticleCount(); //전체 글의 수
-//	       if(count >0) {//현재 페이지에 해당하는 글 목록
-//	    	   System.out.println(searchCondition + searchKeyword);
-//	    	   articleList= myBatis.getArticleList(searchKeyword, searchCondition, startRow, endRow);
-//	    	  
-//	    	   System.out.println(articleList);
-//	       }else {
-//	    	   articleList=Collections.emptyList();  // 테이블에 값이 없다면, 결과가 없다는것 알수있도록 빈객체를 반환하는 것.
-//	       }
-//	       number= count - (currentPage-1)*pageSize; //글목록에 표시한 글 번호 
-//	       //해당 뷰에서 사용할 속성
-//	       
-//	       model.addAttribute("pageNum", pageNum);
-//	       model.addAttribute("pageSize", pageSize);
-//	       model.addAttribute("currentPage", currentPage);
-//	       model.addAttribute("endRow", endRow);
-//	       model.addAttribute("count", count);
-//	       model.addAttribute("number", number);
-//	       model.addAttribute("articleList", articleList);
-//	       model.addAttribute("number", number);
-//	       
-//	       System.out.println("지금!");
-//	       System.out.println("이전!");
-//		return "admin/member.jsp";
-//		//return "getBoardList.jsp";
-//	}
-	
-	
-
 	@RequestMapping("/member.do")
 	public String getBoardList(String selectPage, String searchKeyword, String searchCondition, Model model, String pageNum) {
 		System.out.println("member.do");
@@ -147,22 +103,21 @@ public class BoardController {
 	       int pageSize = Integer.parseInt(selectPage);
 	       System.out.println("pageSize =" +  pageSize);
 	       int currentPage = Integer.parseInt(pageNum); 
-	       //한 페이지의 시작글 번호
+	     
 	       int startRow = (currentPage -1)* pageSize +1;
-	       int endRow = currentPage * pageSize; // 한페이지의 마지막 글번호
+	       int endRow = currentPage * pageSize; 
 	       System.out.println("endRow =" +  endRow);
-	       int count =0; //전체 글수?	
-	       int number = 0;  // 현페이지 첫번째 번호?
+	       int count =0; 	
+	       int number = 0;  
 	       List<Map<String, Object>> articleList = null;
-	       count = myBatis.getArticleCount(); //전체 글의 수
-	       if(count >0) {//현재 페이지에 해당하는 글 목록
+	       count = myBatis.getArticleCount(); 
+
+	       if(count >0) {
 	    	   articleList= myBatis.getArticleList(searchKeyword, searchCondition, startRow, endRow);
 	    	  
 	       }else {
-	    	   articleList=Collections.emptyList();  // 테이블에 값이 없다면, 결과가 없다는것 알수있도록 빈객체를 반환하는 것.
+	    	   articleList=Collections.emptyList(); 
 	       }
-	       number= count - (currentPage-1)*pageSize; //글목록에 표시한 글 번호 
-	       //해당 뷰에서 사용할 속성
 	       
 	       System.out.println("articleList =" +  articleList);
 	       
@@ -175,69 +130,9 @@ public class BoardController {
 	       model.addAttribute("articleList", articleList);
 	       model.addAttribute("number", number);
 	       
-	       System.out.println("지금!");
-	       System.out.println("이전!");
 		return "admin/member.jsp";
 		//return "getBoardList.jsp";
 	}
-	
-	
-	
-	
-	//@RequestMapping("/getBoardList.do")
-//	@RequestMapping("/member.do")
-//	public String getBoardList(String searchKeyword, String searchCondition, Model model, String pageNum) {
-//		System.out.println("member.do");
-//		  
-//	      if (pageNum == null) {
-//	    	   pageNum = "1";
-//	       }
-//	      
-//		  int pageSize = 5; //한 페이지의 글의 개수
-//	       int currentPage = Integer.parseInt(pageNum); 
-//	       //한 페이지의 시작글 번호
-//	       int startRow = (currentPage -1)* pageSize +1;
-//	       int endRow = currentPage * pageSize; // 한페이지의 마지막 글번호
-//	       int count =0; //전체 글수?	
-//	       int number = 0;  // 현페이지 첫번째 번호?
-//	       List<Map<String, Object>> articleList = null;
-//	       count = myBatis.getArticleCount(); //전체 글의 수
-//	       if(count >0) {//현재 페이지에 해당하는 글 목록
-//	    	   System.out.println(searchCondition + searchKeyword);
-//	    	   articleList= myBatis.getArticleList(searchKeyword, searchCondition, startRow, endRow);
-//	    	  
-//	    	   System.out.println(articleList);
-//	       }else {
-//	    	   articleList=Collections.emptyList();  // 테이블에 값이 없다면, 결과가 없다는것 알수있도록 빈객체를 반환하는 것.
-//	       }
-//	       number= count - (currentPage-1)*pageSize; //글목록에 표시한 글 번호 
-//	       //해당 뷰에서 사용할 속성
-//	       
-//	       model.addAttribute("pageNum", pageNum);
-//	       model.addAttribute("pageSize", pageSize);
-//	       model.addAttribute("currentPage", currentPage);
-//	       model.addAttribute("endRow", endRow);
-//	       model.addAttribute("count", count);
-//	       model.addAttribute("number", number);
-//	       model.addAttribute("articleList", articleList);
-//	       model.addAttribute("number", number);
-//	       
-//	       System.out.println("지금!");
-//	       System.out.println("이전!");
-//		return "admin/member.jsp";
-//		//return "getBoardList.jsp";
-//	}
-
-//	//json
-//	@RequestMapping("/dataTransform.do")
-//	@ResponseBody
-//	public List<MemberVO> dataTransform(MemberVO vo){
-//	vo.setSearchCondition("TITLE");
-//	vo.setSearchKeyword("");
-//	List<MemberVO> boardList = boardService.getBoardList(vo);
-//	return boardList;
-//	}
-//	
 	
 }
 

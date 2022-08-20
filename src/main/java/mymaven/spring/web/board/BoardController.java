@@ -37,6 +37,7 @@ public class BoardController {
 		Map<String, String> conditionMap = new HashMap<String, String>();
 		conditionMap.put("제목", "member_address1");
 		conditionMap.put("내용", "member_name");
+		
 		return conditionMap;
 	}
 	

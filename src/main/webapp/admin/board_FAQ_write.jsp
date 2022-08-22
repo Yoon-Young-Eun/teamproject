@@ -357,7 +357,7 @@
 								<ul class="title_wrap">
 									 <li><span class="title">분류</span>
 										<div class="board_select">
-											<select class="select" value=" ">
+											<select class="select" value="분류">
 												<option selected disabled>분류</option>
 												<option value="wash">세탁관리</option>
 												<option value="order">주문관리</option>

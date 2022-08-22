@@ -373,7 +373,7 @@
             -->
             
 									<li><span class="title">제목</span> <input type="text"
-										placeholder="게시글 제목을 입력하세요" value="[공지] " /></li>
+										placeholder="게시글 제목을 입력하세요" /></li>
 								</ul>
 								<div id="summer" class="writeWrap">
 									<textarea id="summernote" class="writeArea" name="editordata"></textarea>

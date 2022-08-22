@@ -123,7 +123,7 @@
                             <div class="collapse" id="change_id_06" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="board_notice.jsp">공지사항</a>
-                                    <a class="nav-link" href="#">이벤트</a>
+                                    <a class="nav-link" href="board_event.jsp">이벤트</a>
                                     <a class="nav-link" href="#">리뷰</a>
 
                                     <a class="nav-link" href="board_Q&A.jsp">QnA</a>

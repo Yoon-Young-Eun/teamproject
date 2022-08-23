@@ -374,7 +374,7 @@
         </tbody>
     </table>
 <div class="flex">
-						<div> <input id="button" type="button" value="등록" onclick="window.location='/Team_Git/admin/board-write.jsp'"/> </div>
+						<div> <input id="button" type="button" value="등록" onclick="window.location='/Team_Git/admin/board_notice_write.jsp'"/> </div>
 						<div> <input  id="button" type="button"  value="수정" /> </div>
 						<div> <input id="button" type="button" value="삭제" /> </div>
 						

@@ -92,6 +92,9 @@
 			<![CDATA[where member_name like '%'||#{searchKeyword}||'%') where rnum >= #{startRow} and rnum <= #{endRow}]]>
 		</if>
 	</select>
+	
+		 <select id="getMessageList" resultType="message"> 
+		 select * from message </select> 
 
 </mapper>
 

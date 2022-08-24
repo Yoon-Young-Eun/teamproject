@@ -9,12 +9,19 @@
 	<typeAliases>
 		<typeAlias type="mymaven.spring.web.board.MemberVO"
 			alias="tb_member" />
-	</typeAliases>
+		<typeAlias type="mymaven.spring.web.board.MessageVO"
+			alias="message" />
+
+
+</typeAliases>
 
 	<!-- <mappers> 엘리먼트는 여러 <mapper>를 가질 수 있으며 이 <mapper>를 이용하여 SQL 명령어들이 저장된 
 		SQL 파일을 등록할 수 있다. -->
 	<mappers>
 		<mapper resource="mappings/board-mapping.xml" />
+
 	</mappers>
+
+
 </configuration>
  

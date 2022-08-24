@@ -150,7 +150,7 @@
                             <div class="collapse" id="change_id_06" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="board_notice.jsp">공지사항</a>
-                                    <a class="nav-link" href="#">이벤트</a>
+                                    <a class="nav-link" href="board_event.jsp">이벤트</a>
                                     <a class="nav-link" href="#">리뷰</a>
 
                                     <a class="nav-link" href="board_Q&A.jsp">QnA</a>
@@ -356,7 +356,7 @@
         </tbody>
     </table>
 <div class="flex">
-						<div> <input id="button" type="button" value="등록" /> </div>
+						<div> <input id="button" type="button" value="등록" onclick="window.location='/Team_Git/admin/board_event_write.jsp'"/> </div>
 						<div> <input  id="button" type="button"  value="수정" /> </div>
 						<div> <input id="button" type="button" value="삭제" /> </div>
 						

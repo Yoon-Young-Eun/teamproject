@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+.wrapper {
+	margin-top: 130px;
+	display: flex;
+}
+.margin_side {
+	width: 200px;
+}
+.side_menu_name {
+	font-size: 40px;
+	font-weight: bold;
+	margin-bottom: 30px;
+}
+.side_menu_title {
+	font-size: 22px;
+	font-weight: 800;
+	margin-bottom: 30px;
+}
+.side_menu_content {
+	color: #5d5d5d;
+	font-size: 18px;
+	font-weight: 200;
+	margin-bottom: 20px;
+}
+.mypage_head {
+	height: 220px;
+}
+.mypage_info_card {
+	width: 960px;
+	height: 150px;
+	display: flex;
+	padding: 24px 0px;
+	margin-bottom: 10px;
+	border: 4px solid #ddd;
+}
+.mypage_info_card_box_border {
+	width: 320px;
+	padding: 0px 24px;
+	border-right: 1px solid #ddd;
+}
+.mypage_info_card_box {
+	width: 320px;
+	padding: 0px 24px;
+}
+.mypage_info_card_title {
+	color: #666;
+	font-size: 20px;
+	font-weight: 600;
+	height: 114px;
+}
+.mypage_info_card_content {
+	color: #333;
+	font-size: 32px;
+	font-weight: 600;
+}
+
+.mypage_order {
+	width: 960px;
+	margin-top:20px;
+	padding-bottom: 10px;
+	border-bottom: 4px solid #000;
+	margin-top: 50px;
+}
+.mypage_item {
+	width: 960px;
+	margin-top:20px;
+	padding-bottom: 10px;
+	border-bottom: 4px solid #000;
+	margin-top: 100px;
+}
+.mypage_pay {
+	width: 960px;
+	margin-top:20px;
+	padding-bottom: 10px;
+	border-bottom: 4px solid #000;
+	margin-top: 100px;
+}
+.mypage_order_title {
+	font-size: 24px;
+	font-weight: bold;
+}
+.mypage_order_content {
+	width: 960px;
+	height: 50px;
+	border-bottom: 1px solid #ddd;
+}
+.mypage_item_content {
+	width: 960px;
+	height: 50px;
+	border-bottom: 1px solid #ddd;
+}
+.mypage_pay_content {
+	width: 960px;
+	height: 50px;
+	border-bottom: 1px solid #ddd;
+}

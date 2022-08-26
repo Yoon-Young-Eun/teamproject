@@ -63,6 +63,7 @@ public class BoardDAOMybatis{
 			System.out.println("---> MyBatis로 getBoardList() 기능 처리");
 		return sqlSessionTemplate.selectList("BoardDAO.getBoardList", vo);
 		}
+		
 		public List<Map<String, Object>> getArticleList(String searchKeyword, String searchCondition, int startRow, int endRow) {
 		
 			Map<String, Object> map = new HashMap<String, Object>();

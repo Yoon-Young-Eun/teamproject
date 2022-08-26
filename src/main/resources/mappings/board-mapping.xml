@@ -30,8 +30,6 @@
 	</insert>
 
 
-
-
 	<update id="updateBoard" parameterType="tb_member">
 		update tb_member set
 		title=#{title}, content=#{content} where num=#{num}

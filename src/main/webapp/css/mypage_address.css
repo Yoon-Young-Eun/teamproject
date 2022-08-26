@@ -38,6 +38,7 @@
 	margin-top: 8px;
 }
 .address_btn {
+	display: flex;
 	margin-top: 24px;
 }
 .address_update_btn {
@@ -47,6 +48,16 @@
 	padding: 6px 12px;
 	border: 1px solid #ddd;
 	border-radius: 2px;
+}
+
+.address_delete_btn{
+	width: 34px;
+	color: #f5002d;
+	font-size: 16px;
+	padding: 6px 12px;
+	border: 1px solid #ddd;
+	border-radius: 2px;
+	margin-left: 10px;
 }
 /* .address_add_address { */
 /* 	width: 800px; */

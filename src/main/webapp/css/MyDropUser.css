@@ -3,6 +3,7 @@
 html {
    width: 100%;
    max-width: 1920px;
+   font-family: 'Noto Sans KR', sans-serif;
 }
 
 /*header*/
@@ -304,7 +305,7 @@ a {
 }
 .side_menu_title {
 	font-size: 22px;
-	font-weight: 800;
+	font-weight: 500;
 	margin-bottom: 30px;
 }
 .side_menu_content {

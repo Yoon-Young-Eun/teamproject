@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
-<link rel="stylesheet" href="css/login.css"/>
+<link rel="stylesheet" href="css/complete.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -97,8 +97,8 @@
                <div>
                   <h4>어서오세야</h4>
                   <ul>
-                     <li><a href="#">인삿말</a></li>
-                     <li><a href="#">회사소개</a></li>
+                     <li><a href="company-info.jsp#hello">인삿말</a></li>
+                     <li><a href="company-info.jsp#info">회사소개</a></li>
                   </ul>
                </div>
             </div><!-- hrsub inner -->
@@ -156,41 +156,32 @@ $(function() {
 </script>
 </nav>
 
-<div class="page-container">
-        <div class="login-form-container shadow">
-            <div class="login-form-right-side" style = "background-image:url(image/loginimg.png);">
-                <div class="top-logo-wrap">
-                    
-                </div>
-                <h1>세탁의 모든것</h1>
-                <p></p>
-            </div>
-            <div class="login-form-left-side">
-                <div class="login-top-wrap">
-                </div>
-                <div class="login-input-container">
-                    <div class="login-input-wrap input-id">
-                        <i class="far fa-envelope"></i>
-                        <input placeholder="example@mail.com" type="text">
-                    </div>
-                    <div class="login-input-wrap input-password">
-                        <i class="fas fa-key"></i>
-                        <input placeholder="비밀번호"  type="password">
-                    </div>
-                </div>
-                <div class="login-btn-wrap">
-                    <button class="login-btn" onclick = "link.href='#'">로그인</button>
-                    <span>아직 회원이 아니십니까?&nbsp;&nbsp;<a href = "terms.jsp">회원가입</a></span>
-                    <span>비밀번호를 잊으셨나요? <a href="#" >&nbsp;&nbsp;비밀번호찾기</a></span>
-                </div>
-                <div class="social">
-                	<span>소셜 로그인</span>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class = "progress-bar">
+	<div class = "progress-img"><img src="image/progress-4.png"></div>
+	<div class = "progress-text">
+		<ul>
+			<li>이용약관</li>
+			<li>본인인증</li>
+			<li>회원정보</li>
+			<li><b>가입완료</b></li>
+		</ul>
+	</div>
+</div>
+
+<div class = "msg">
+	<span class = "text-1">환영합니다, <b>김애링</b> 님!</span><br>	
+	<span class = "text-1">회원가입이 완료되었습니다.</span><br>
+	<span class = "text-2">세모의 다양한 서비스를 지금 만나보세요!</span>
+</div>
+
+<div class = "btn">
+   <a href="login.jsp" class="action-button shadow animate blue">로그인</a>
+   <a href="main.jsp" class="action-button shadow animate blue">메인으로</a>
+</div>
 
 
+
+</body>
 
 <footer>
 	<div class = "bottom-menu">
@@ -209,5 +200,4 @@ $(function() {
 		</div>
 	</div>
 </footer>
-
 </html>

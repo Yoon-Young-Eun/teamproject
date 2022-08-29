@@ -188,7 +188,15 @@ $(function() {
 				<div class="db_name">생일빵쿠폰</div>
 				<div class="db_num">1</div>
 				<div class="db_discount">2000</div>
-				<div class="db_expiration">7일</div>
+				<div class="db_expiration">22.08.24~22.08.31</div>
+			</div>
+			
+			<div class="coupon_db">
+				<div class="db_cnum">123456</div>
+				<div class="db_name">생일빵쿠폰</div>
+				<div class="db_num">1</div>
+				<div class="db_discount">2000</div>
+				<div class="db_expiration">22.08.24~22.08.31</div>
 			</div>
 		</div>
 	</div>

@@ -321,76 +321,76 @@
 					<div class="card mb-4">
 						<div class="card-body">할인 쿠폰을 등록합니다.</div>
 					</div>
+					<div class="whole">
+						<div class="popup_wrapper">
+							<header>
+								<div class="coupon_title">
+									<h1>쿠폰</h1>
+								</div>
+							</header>
+							<div class="content_wrap">
+								<div class="popup_title_wrap">
+									<div class="popup_title">
+										<div class="popup_text">쿠폰명</div>
+										<div class="popup_inputbox">
+											<input type="text" placeholder="">
 
-					<div class="popup_wrapper">
-						<header>
-							<div class="coupon_title">
-								<h1>쿠폰</h1>
+										</div>
+									</div>
+
+									<div class="popup_title">
+										<div class="popup_text">쿠폰번호</div>
+										<div class="popup_inputbox">
+											<input type="text" placeholder="">
+										</div>
+									</div>
+								</div>
+
+								<div class="item_infor_wrap">
+									<div class="popup_title">
+										<div class="popup_text">할인금액</div>
+										<div class="popup_inputbox">
+											<input type="text" placeholder="">
+										</div>
+									</div>
+									<div class="popup_title">
+										<div class="popup_text">유효기간</div>
+										<div class="popup_inputbox_date">
+											<input type="date">
+										</div>
+
+										<div class="popup_inputbox_date2">
+											<input type="date">
+										</div>
+									</div>
+									<div class="popup_title">
+										<div class="popup_text">발급대상</div>
+										<div class="popup_inputbox">
+											<select class="item_level" id="item_level1"><option
+													value="0">전체</option>
+												<option value="1">신규가입</option>
+												<option value="2">생일</option>
+												<option value="3">리뷰</option>
+											</select>
+										</div>
+									</div>
+									<div class="popup_title">
+										<div class="popup_text">발급갯수</div>
+										<div class="popup_inputbox">
+											<input type="number" value="1">
+										</div>
+									</div>
+								</div>
 							</div>
-						</header>
-						<div class="content wrap">
-							<div class="popup_title_wrap">
-								<div class="popup_title">
-									<div class="popup_text">쿠폰명</div>
-									<div class="popup_inputbox">
-										<input type="text" placeholder="">
-
-									</div>
-								</div>
-
-								<div class="popup_title">
-									<div class="popup_text">쿠폰번호</div>
-									<div class="popup_inputbox">
-										<input type="text" placeholder="">
-									</div>
-								</div>
-							</div>
-
-							<div class="item_infor_wrap">
-								<div class="popup_title">
-									<div class="popup_text">할인금액</div>
-									<div class="popup_inputbox">
-										<input type="text" placeholder="">
-									</div>
-								</div>
-								<div class="popup_title">
-									<div class="popup_text">유효기간</div>
-									<div class="popup_inputbox_date">
-										<input type="date">
-									</div>
-
-									<div class="popup_inputbox_date2">
-										<input type="date">
-									</div>
-								</div>
-								<div class="popup_title">
-									<div class="popup_text">발급대상</div>
-									&nbsp;
-									<div class="popup_inputbox">
-										<select class="item_level" id="item_level1"><option
-												value="0">전체</option>
-											<option value="1">신규가입</option>
-											<option value="2">생일</option>
-											<option value="3">리뷰</option>
-										</select>
-									</div>
-								</div>
-								<div class="popup_title">
-									<div class="popup_text">발급갯수</div>
-									<div class="popup_inputbox">
-										<input type="number" value="1">
-									</div>
-								</div>
-							</div>
-						</div>
 
 
-						<div class="end">
-							<div class="popup_btn">
-								<a href="#">저장</a>
-							</div>
-							<div class="popup_btn">
-								<a href="#">취소</a>
+							<div class="end">
+								<div class="popup_btn">
+									<a href="#">저장</a>
+								</div>
+								<div class="popup_btn">
+									<a href="#">취소</a>
+								</div>
 							</div>
 						</div>
 					</div>

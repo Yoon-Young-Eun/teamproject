@@ -304,7 +304,7 @@
 									<a href="#">저장</a>
 								</div>
 								<div class="popup_btn">
-									<a href="#">취소</a>
+									<a href="promo.jsp">취소</a>
 								</div>
 							</div>
 						</div>

@@ -437,7 +437,7 @@
         </tbody>
     </table>
 <div class="flex">
-						<div> <input id="button" type="button" value="등록" /> </div>
+						<div> <input id="button" type="button" value="등록" onclick="window.location='/Team_Git/admin/promo_coupon_edit.jsp'"/> </div>
 						<div> <input  id="button" type="button"  value="수정" /> </div>
 						<div> <input id="button" type="button" value="삭제" /> </div>
 						

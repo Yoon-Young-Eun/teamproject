@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
-<link rel="stylesheet" href="css/login.css"/>
+<link rel="stylesheet" href="css/certificate.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -97,8 +97,8 @@
                <div>
                   <h4>어서오세야</h4>
                   <ul>
-                     <li><a href="#">인삿말</a></li>
-                     <li><a href="#">회사소개</a></li>
+                     <li><a href="company-info.jsp#hello">인삿말</a></li>
+                     <li><a href="company-info.jsp#info">회사소개</a></li>
                   </ul>
                </div>
             </div><!-- hrsub inner -->
@@ -156,41 +156,24 @@ $(function() {
 </script>
 </nav>
 
-<div class="page-container">
-        <div class="login-form-container shadow">
-            <div class="login-form-right-side" style = "background-image:url(image/loginimg.png);">
-                <div class="top-logo-wrap">
-                    
-                </div>
-                <h1>세탁의 모든것</h1>
-                <p></p>
-            </div>
-            <div class="login-form-left-side">
-                <div class="login-top-wrap">
-                </div>
-                <div class="login-input-container">
-                    <div class="login-input-wrap input-id">
-                        <i class="far fa-envelope"></i>
-                        <input placeholder="example@mail.com" type="text">
-                    </div>
-                    <div class="login-input-wrap input-password">
-                        <i class="fas fa-key"></i>
-                        <input placeholder="비밀번호"  type="password">
-                    </div>
-                </div>
-                <div class="login-btn-wrap">
-                    <button class="login-btn" onclick = "link.href='#'">로그인</button>
-                    <span>아직 회원이 아니십니까?&nbsp;&nbsp;<a href = "terms.jsp">회원가입</a></span>
-                    <span>비밀번호를 잊으셨나요? <a href="#" >&nbsp;&nbsp;비밀번호찾기</a></span>
-                </div>
-                <div class="social">
-                	<span>소셜 로그인</span>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class = "progress-bar">
+	<div class = "progress-img"><img src="image/progress-2.png"></div>
+	<div class = "progress-text">
+		<ul>
+			<li>이용약관</li>
+			<li><b>본인인증</b></li>
+			<li>회원정보</li>
+			<li>가입완료</li>
+		</ul>
+	</div>
+</div>
 
 
+
+<div class = "btn">
+   <a href="terms.jsp" class="action-button shadow animate blue">이전</a>
+   <a href="form.jsp" class="action-button shadow animate blue">다음</a>
+</div>
 
 <footer>
 	<div class = "bottom-menu">
@@ -210,4 +193,5 @@ $(function() {
 	</div>
 </footer>
 
+</body>
 </html>

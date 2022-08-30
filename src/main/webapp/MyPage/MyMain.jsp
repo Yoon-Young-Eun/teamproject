@@ -6,6 +6,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
+  <link rel="stylesheet" href="../css/footer.css">
   <link rel="stylesheet" href="../css/MyMain.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -178,7 +179,7 @@ $(function() {
 <div class="body_wrapper">
 <div class="margin_side">
 <div class="side_menu">
-<div class="side_menu_name"><a href="MyMain.jsp">으아아아</a></div>
+<div class="side_menu_name"><a href="MyMain.jsp">이름</a></div>
 <div class="side_menu_title">마이 페이지</div>
 <div class="side_menu_content"><a href="MyOrderlist.jsp">내 세탁물 관리</a></div>
 <div class="side_menu_content"><a href="#">내 주소지 관리</a></div>
@@ -199,17 +200,17 @@ $(function() {
 <div class="mypage_head">
 <div class="mypage_info_card">
 <div class="mypage_info_card_box_border">
-<div class="mypage_info_card_title">최근 주문 ></div>
+<div class="mypage_info_card_title"><a href="MyMain.jsp">최근 주문 ></a></div>
 
-<div class="mypage_info_card_content">3</div>
+<div class="mypage_info_card_content"><a href="MyMain.jsp">3</a></div>
 </div>
 <div class="mypage_info_card_box_border">
-<div class="mypage_info_card_title">진행 중 주문 ></div>
-<div class="mypage_info_card_content">1</div>
+<div class="mypage_info_card_title"><a href="MyCoupon.jsp">보유 쿠폰 ></a></div>
+<div class="mypage_info_card_content"><a href="MyCoupon.jsp">5</a></div>
 </div>
 <div class="mypage_info_card_box">
-<div class="mypage_info_card_title">보유 쿠폰 ></div>
-<div class="mypage_info_card_content">2</div>
+<div class="mypage_info_card_title"><a href="MyQnA.jsp">문의 내역 ></a></div>
+<div class="mypage_info_card_content"><a href="MyQnA.jsp">1</a></div>
 </div>
 </div>
 </div>
@@ -274,5 +275,28 @@ $(function() {
 </div>
 </div>
 
+
+<footer>
+   <div class = "bottom-menu">
+      <ul>
+         <li><a href="#">개인정보처리방침</a></li>
+         <li><a href="#">이용약관</a></li>
+         <li><a href="#">의류보관 이용약관</a></li>
+      </ul>
+   </div>
+   <div class = "bottom-info">
+      <h2>△■</h2>
+      <div class = "bottom-info-list">
+         <span>상호명 : 세탁의 모든것</span>
+         <span>대표전화 : 02-000-0000</span>
+         <span>사업자 번호 : no.00000000000</span>   
+      </div>
+   </div>
+</footer>
+
 </body>
+
+
+
+
 </html>

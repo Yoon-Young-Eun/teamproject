@@ -272,6 +272,7 @@ a {
    font-weight: bold;
 }
 .body_wrapper {
+	height: 2300px;
 	display: flex;
 	justify-content: center;
 	margin-top: 30px;
@@ -568,3 +569,4 @@ a {
 .pd_btm {
 	padding-bottom: 300px;
 }
+

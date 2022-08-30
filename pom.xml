@@ -22,15 +22,16 @@
 			<url>https://jitpack.io</url>
 		</repository>
 	</repositories>
-	
+
 	<dependencies>
-	<!-- 아임포트 검증2 -->
+		<!-- 아임포트 검증2 -->
 		<dependency>
 			<groupId>com.github.iamport</groupId>
 			<artifactId>iamport-rest-client-java</artifactId>
 			<version>0.2.14</version>
 		</dependency>
 		
+
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -74,9 +75,6 @@
 			<version>2.3.1</version>
 		</dependency>
 
-
-
-
 		<!-- XML로 변환 실행환경 -->
 		<!-- https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime -->
 		<dependency>
@@ -106,13 +104,19 @@
 			<version>5.3.20</version>
 		</dependency>
 
-
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>5.6.10.Final</version>
 		</dependency>
 
+
+		<!-- mysql connector 버전 주의 -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.28</version>
+		</dependency>
 
 
 		<!-- oracle driver -->
@@ -138,8 +142,6 @@
 
 
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
-
-
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
@@ -251,6 +253,7 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	
 	<build>
 		<plugins>
 			<plugin>

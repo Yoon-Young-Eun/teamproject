@@ -1,0 +1,421 @@
+@charset "UTF-8";
+
+html {
+   max-width:1920px;
+   width : 100%;
+}
+
+/*header*/
+header {
+   margin: 0;
+   padding: 0;
+   height: 100px;
+   width: 100%;
+   position : relative;
+   z-index: 9999;
+   top: 0;
+   left: 0;
+   background-color : white;
+   
+}
+
+
+header h1 {
+   line-height: 75px;
+   float: left;
+}
+
+li {
+   list-style: none;
+}
+
+a {
+   text-decoration: none;
+}
+
+.top-menu-wrapper {
+   width: 88%;
+   margin: 0 auto;
+}
+
+.top-list {
+   float: right;
+}
+
+.top-list li {
+   float: left;
+}
+
+.top-list a {
+   line-height: 68px;
+   color: black;
+   padding: 0 15px;
+   display: block;
+   font-size: 13px;
+} 
+
+.top-list a:hover {
+   font-weight: bold;
+}
+
+/*body*/
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+   zoom: 1;
+   /* position: relative; */
+   z-index: 1;
+   overflow-x:hidden;
+   -ms-overflow-y-style: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/*main menu*/
+a {
+   text-decoration: none
+}
+
+.cbp-hrmenu {
+   width: 100%;
+   /* margin-top: 100px; */
+   border-bottom: 4px solid #a9d3f0;
+   text-align: center;
+   position: relative;
+   z-index: 2;
+}
+
+/* general ul style */
+.cbp-hrmenu ul {
+   margin: 0;
+   padding: 0;
+   list-style-type: none;
+}
+
+/* first level ul style */
+.cbp-hrmenu>ul, .cbp-hrmenu .cbp-hrsub-inner {
+   width: 90%;
+   max-width: 70em;
+   margin: 0 auto;
+   padding: 0 1.875em;
+}
+
+.cbp-hrmenu>ul>li {
+   display: inline-block;
+}
+
+.cbp-hrmenu>ul>li>a {
+   font-weight: 700;
+   padding: 1em 2em;
+   color: black;
+   display: inline-block;
+}
+
+.cbp-hrmenu>ul>li>a:hover {
+   color: #63afe4;
+}
+
+.cbp-hrmenu>ul>li.cbp-hropen>a:hover {
+   font-weight: bold;
+   color: #63afe4;
+}
+
+/* sub-menu */
+.cbp-hrmenu .cbp-hrsub {
+   display: none;
+   position: absolute;
+   border-top: 4px solid #a9d3f0;
+   width: 100%;
+   left: 0;
+   width: 100%;
+}
+
+.cbp-hropen .cbp-hrsub {
+   display: block;
+   background: white;
+   padding-bottom: 35px;
+   padding-left: 150px;
+   padding-right: 150px;
+}
+
+.cbp-hrmenu .cbp-hrsub-inner>div {
+   width: 33%;
+   float: left;
+   padding: 0 2em 0;
+   text-align: left;
+}
+
+.cbp-hrmenu .cbp-hrsub-inner:before, .cbp-hrmenu .cbp-hrsub-inner:after
+   {
+   content: " ";
+   display: table;
+}
+
+.cbp-hrmenu .cbp-hrsub-inner:after {
+   clear: both;
+}
+
+.cbp-hrmenu .cbp-hrsub-inner>div a {
+   line-height: 2em;
+   color: black;
+}
+
+.cbp-hrmenu .cbp-hrsub-inner>div a:hover {
+   font-weight: bold;
+}
+
+.cbp-hrsub h4 {
+   color: #63afe4;
+   padding: 2em 0 0.6em;
+   margin: 0;
+   font-size: 160%;
+   font-weight: bold;
+}
+
+
+/* ----------------------------------------- */
+
+.main{
+  display: flex;
+}
+.space_left{
+  width: 240px;
+}
+.space_right{
+  width: 240px;
+}
+.paymainBox{
+  width: 1440px;
+}
+/* 결제시 유의사항 텍스트 css */
+
+.paymain_text{
+  font-size: 40px;
+  color: black;
+  text-align: center;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  margin-bottom: 25px;
+  margin-top: 30px;
+}
+.paymain_text1{
+  text-align: left;
+  font-size: 30px;
+  font-weight: bold;
+  margin-left: 45px;
+  height: 50px;
+  
+  display: flex;
+  align-items: center;
+  border-top: 1px solid grey;
+  
+  /* padding-left: 33px; */
+}
+.paymain_text2{
+  margin-left: 33px;
+  border-bottom: 1px solid grey;
+  height: 250px;
+  
+}
+.paymain_text2 >ol >li{
+  margin: 10px;
+  margin-left: 0px;
+  font-size: 22px;
+  list-style: circle;
+  
+}
+#ol1{
+  height: 250px;
+}
+
+#text_1 , #text_2,#text_3{
+  color: red;
+  font-weight: bold;
+}
+.paymain_text3{
+  text-align: left;
+  font-size: 30px;
+  font-weight: bold;
+  
+  height: 50px;
+  margin-left: 45px;
+  display: flex;
+  align-items: center;
+}
+.paymain_text4{
+  margin: 10px;
+  margin-left: 45px;
+  font-size: 22px;
+}
+.paymain_text5{
+  margin: 10px;
+  margin-left: 45px;
+  font-size: 22px;
+}
+#text_4{
+  color: red;
+  font-weight: 400;
+  font-weight: bold;
+}
+.paymain_link1{
+  margin-right: 10px;
+  margin-left: 33px;
+  font-size: 22px;
+  text-align: right;
+  font-weight: bold;
+  color: blue;
+  border-bottom: 1px solid grey;
+  height: 45px;
+}
+.paymain_text6{
+  height: 50px;
+  display: flex;
+  align-items: center;
+  
+  text-align: left;
+  font-size: 30px;
+  font-weight: bold;
+  margin-left: 45px;
+  
+  
+}
+.paymain_text7{
+  margin: 10px;
+  margin-left: 45px;
+  font-size: 22px;
+}
+.paymain_text8{
+  margin: 10px;
+  margin-left: 45px;
+  font-size: 22px;
+}
+.paymain_link2{
+  margin-right: 10px;
+  margin-left: 33px;
+  font-size: 22px;
+  text-align: right;
+  font-weight: bold;
+  color: blue;
+  height: 45px;
+  border-bottom: 1px solid grey;
+}
+#text_5{
+  color: red;
+  font-weight: 400;
+  font-weight: bold;
+}
+.paymain_text9{
+  margin-top: 30px;
+  text-align: center;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#span123{
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+#checkbox1{
+  width: 15px;
+  height: 15px;
+  
+  
+}
+#button1{
+  background-color:rgb(128,128,128,0.3) ;
+  width: 150px;
+  height: 40px;
+  box-shadow: 1px 4px 0 rgba(255, 255, 255, 0.5);
+  margin: 0px 10px;
+  border-style: none;
+  border-radius: 5px;
+  color: black;
+  font-weight: bold;
+ }
+ #button1:active{
+  box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+  position: relative;
+  top:2px;
+ }
+.paymain_button{
+  display: flex;
+  justify-content: center;
+  padding: 15px 0px;
+  padding-top: 30px;
+  
+}
+#button2{
+  background-color:rgb(128,128,128,0.3) ;
+  border-style: none;
+  border-radius: 5px;
+  font-weight: bold;
+  color:black;
+  width: 150px;
+  height: 40px;
+  box-shadow: 1px 4px 0 rgba(255, 255, 255, 0.5);
+  margin: 0px 10px;
+}
+#button2:active{
+  box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+  position: relative;
+  top:2px;
+}
+#a_link{
+  color: black;
+}
+#a_link2{
+  color: black;
+}
+#button1:hover{
+  background-color: #63afe4;
+}
+#button2:hover{
+  background-color: #63afe4;
+}
+
+
+/*------------------------------------------------*/
+
+/*footer*/
+
+footer {
+   margin-top : 30px;
+   border-top : 1px solid grey;
+   height : 200px;
+}
+
+.bottom-menu{
+   display : flex;
+   justify-content : center;
+}
+
+.bottom-menu li {
+   float : left;   
+   margin : 20px;
+   line-height : 20px;
+}
+
+.bottom-menu li a{
+   color : grey;
+}
+
+.bottom-info-list {
+   display : flex;
+   justify-content : center;
+}
+
+.bottom-info h2 {
+   float : right;
+   margin-right : 30px;
+}
+
+.bottom-info .bottom-info-list span{
+   text-align : center;
+   margin-right : 30px;
+}

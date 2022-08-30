@@ -176,6 +176,7 @@
 		<div class="MyQnA_body">
 			<div class="MyQnA_body_title">
 				<div class="title_num">번호</div>
+				<div class="title_group">분류</div>
 				<div class="title_subject">제목</div>
 				<div class="title_date">작성일</div>
 				<div class="title_answer">답변여부</div>
@@ -183,6 +184,7 @@
 
 			<div class="MyQnA_body_content">
 				<div class="content_num">1</div>
+				<div class="content_group">분류</div>
 				<div class="content_subject">왜케비싸요?</div>
 				<div class="content_date">2022-08-23</div>
 				<div class="content_answer">X</div>
@@ -190,9 +192,27 @@
 		</div>
 
 		<div class="end_btn">
-			<a href="#" class="action-button shadow animate blue">글쓰기</a>
+			<a href="MyQnA_write.jsp" class="action-button shadow animate blue">글쓰기</a>
 		</div>
 	</div>
 </div>
 </body>
+
+<footer>
+   <div class = "bottom-menu">
+      <ul>
+         <li><a href="#">개인정보처리방침</a></li>
+         <li><a href="#">이용약관</a></li>
+         <li><a href="#">의류보관 이용약관</a></li>
+      </ul>
+   </div>
+   <div class = "bottom-info">
+      <h2>△■</h2>
+      <div class = "bottom-info-list">
+         <span>상호명 : 세탁의 모든것</span>
+         <span>대표전화 : 02-000-0000</span>
+         <span>사업자 번호 : no.00000000000</span>   
+      </div>
+   </div>
+</footer>
 </html>

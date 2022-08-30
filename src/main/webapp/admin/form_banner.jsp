@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,32 +10,23 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>Dashboard - SEMO Admin</title>
-
-<!-- icon 버튼 css -->
-<link href="css/icon.css" rel="stylesheet" />
-
-<!--  테이블 필터(중요) -->
-<link href="css/filter.css" rel="stylesheet" />
-<script src="js/filter.js" crossorigin="anonymous"></script>
-
-<!-- 체크박스 js -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="./js/checkbox.js"></script>
-
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
 <link href="css/styles.css" rel="stylesheet" />
+<link href="css/form_banner.css" rel="stylesheet" />
+<script src="js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="js/fileupload.js"></script>
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
 	crossorigin="anonymous"></script>
 <script type="text/javascript" src="js/index_navbar_onclick.js"></script>
+
 </head>
 <body class="sb-nav-fixed">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 		<!-- Navbar Brand-->
-		<a class="navbar-brand ps-3" href="index.html">Start Bootstrap</a>
+		<a class="navbar-brand ps-3" href="index_dashboard.jsp">Start
+			Bootstrap</a>
 		<!-- Sidebar Toggle-->
 		<button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
 			id="sidebarToggle" href="#!">
@@ -67,7 +58,6 @@
 				</ul></li>
 		</ul>
 	</nav>
-
 	<div id="layoutSidenav">
 		<div id="layoutSidenav_nav">
 			<nav class="sb-sidenav accordion sb-sidenav-dark"
@@ -80,6 +70,7 @@
 								<i class="fas fa-tachometer-alt"></i>
 							</div> 대시보드
 						</a>
+
 
 						<div class="sb-sidenav-menu-heading">관리자 메뉴</div>
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -115,7 +106,7 @@
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
 								<a class="nav-link" href="order.jsp">주문/결제</a> <a
-									class="nav-link" href="estimate.jsp">견적상품</a>
+									class="nav-link" href="#">견적상품</a>
 							</nav>
 						</div>
 
@@ -184,7 +175,7 @@
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
 								<a class="nav-link" href="board_notice.jsp">공지사항</a> <a
-									class="nav-link" href="board_event.jsp">이벤트</a> <a class="nav-link" href="#">리뷰</a>
+									class="nav-link" href="#">이벤트</a> <a class="nav-link" href="#">리뷰</a>
 
 								<a class="nav-link" href="board_Q&A.jsp">QnA</a> <a
 									class="nav-link" href="board_FAQ.jsp">자주하는 질문</a>
@@ -231,6 +222,7 @@
 							</nav>
 						</div>
 
+
 						<div class="sb-sidenav-menu-heading">Interface</div>
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 							data-bs-target="#collapseLayouts" aria-expanded="false"
@@ -275,7 +267,7 @@
 									aria-labelledby="headingOne"
 									data-bs-parent="#sidenavAccordionPages">
 									<nav class="sb-sidenav-menu-nested nav">
-										<a class="nav-link" href="login.html">Login</a> <a
+										<a class="nav-link" href="login.jsp">Login</a> <a
 											class="nav-link" href="register.html">Register</a> <a
 											class="nav-link" href="password.html">Forgot Password</a>
 									</nav>
@@ -311,131 +303,95 @@
 						</a>
 					</div>
 				</div>
-				<div class="sb-sidenav-footer">
-					<div class="small">Logged in as:</div>
-					Start Bootstrap
-				</div>
+				<!--                     <div class="sb-sidenav-footer"> -->
+				<!--                         <div class="small">Logged in as:</div> -->
+				<!--                         Start Bootstrap -->
+				<!--                     </div> -->
 			</nav>
 		</div>
-		<div id="layoutSidenav_content">
+
+		<div id="layoutSidenav_content_wrapper">
 			<main>
 
 				<div class="container-fluid px-4">
-					<h1 class="mt-4">매니저관리</h1>
+						<h1 class="mt-4">배너관리</h1>
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
-						<li class="breadcrumb-item active">매니저관리</li>
+						<li class="breadcrumb-item active">배너관리</li>
 					</ol>
 					<div class="card mb-4">
 						<div class="card-body">
-							매니저관리 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
-							.
+							배너관리 페이지 입니다. <a target="_blank"
+								href="https://datatables.net/">아무링크</a> .
 						</div>
 					</div>
-					<div class="card mb-4">
-						<div class="card-header">
-							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 매니저에 대한 세부제목
-						</div>
-
-						<!--  여기부터 내용물 -->
 
 
 
-						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
-						<div class="flex">
-							<input type="button" id="btnExport" value="PDF" class="icon_pdf" />
-							<!-- pdf 버튼 -->
-							<button class="icon_excel"
-								onclick="exportToExcel('tblexportData', 'user-data')">Excel</button>
-							<!-- excel -->
-						</div>
+<div class="wrapper">
+
+<!---------- 본문내용 시작 ---------->
+
+<div class="wrapper">
+<div class="write_wrapper">
+<div class="write_form">
+<div class="write_title write_content">
+<h1>배너 등록</h1>
+</div>
+<div class="write_head">
+<div class="write_title_default">제목</div>
+<div class="write_content_default"><input type="text" class="write_input"></div>
+</div>
+<div class="write_content">
+<div class="write_title_default">내용</div>
+<div class="write_content_default">
+<textarea class="write_textarea"></textarea>
+</div>
+</div>
+<div class="write_body">
+
+<div class="filebox">
+	<label for="ex_filename">파일 선택</label> 
+	<input type="file" id="ex_filename" class="upload-hidden" name="upImgPath" accept="image/*" onchange="setThumbnail(event);"/> 
+	<input class="upload-name" value="" disabled="disabled">
+</div>
+
+<div id="image_container"></div>
+
+</div>
+<div class="write_end">
+<div class="write_title_default">공개여부</div>
+<div class="write_content_default radio_row">
+<div class="popup_radio">
+<input class="office_type" type="radio" name="office_type_radio" id="office_type1" checked="checked"><label for="office_type1">공개</label></div>
+<div class="popup_radio">
+<input class="office_type" type="radio" name="office_type_radio" id="office_type2"><label for="office_type2">비공개</label>
+</div>
+</div>
+</div>
+<div class="write_btn">
+
+	<div class="end">
+		<div class="end_btn" onclick="location.href='#'">저장</div>
+		<div class="end_btn" onclick="location.href='#'">취소</div>
+	</div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+<!---------- 본문내용 끝 ---------->
+
+</div>
 
 
 
-						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
-						<table id="datatablesSimple"
-							class="emp-table dataPerPage tblCustomers tblexportData table"
-							border="5">
-							<thead>
-								<tr>
-								<tr>
-									<th width="50" id="check_td"><input type="checkbox"
-										name="check" class="allcheck"></th>
-									<th width="140px;" col-index=2>매니저코드</th>
-									<th width="160px;" col-index=3>부서<select
-										class="table-filter" onchange="filter_rows()">
-											<option value="all"></option>
-									</select></th>
-									<th width="160px;" col-index=4>지급<select
-										class="table-filter" onchange="filter_rows()">
-											<option value="all"></option>
-									</select></th>
-									<th col-index=5>이름</th>
-									<th col-index=6>아이디</th>
-								<tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>대표이사</td>
-									<td>대표이사</td>
-									<td>기매링</td>
-									<td>merring</td>
-
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>002</td>
-									<td>영업부</td>
-									<td>상무</td>
-									<td>쵸리s</td>
-									<td>choris 맞나?</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>003</td>
-									<td>배달부</td>
-									<td>사원</td>
-									<td>최배민</td>
-									<td>we are!</td>
-								</tr>
-							</tbody>
-						</table>
-						<div class="flex">
-							<div>
-								<input id="button" type="button" value="등록" onclick="showPopup();"/>
-							</div>
-							<div>
-								<input id="button" type="button" value="수정" onclick="showpopup();"/>
-							</div>
-							<div>
-								<input id="button" type="button" value="삭제" />
-							</div>
-
-						</div>
 
 
-
-						<!-- 내용물 end -->
-						<div class="card-footer small text-muted">Updated yesterday
-							at 11:59 PM</div>
-					</div>
-
-				</div>
 			</main>
-			<footer class="py-4 bg-light mt-auto">
-				<div class="container-fluid px-4">
-					<div
-						class="d-flex align-items-center justify-content-between small">
-						<div class="text-muted">Copyright &copy; Your Website 2022</div>
-						<div>
-							<a href="#">Privacy Policy</a> &middot; <a href="#">Terms
-								&amp; Conditions</a>
-						</div>
-					</div>
-				</div>
-			</footer>
+
 		</div>
 	</div>
 	<script
@@ -450,35 +406,5 @@
 	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
 		crossorigin="anonymous"></script>
 	<script src="js/datatables-simple-demo.js"></script>
-	<script>
-		getUniqueValuesFromColumn()
-	</script>
-
-	<!-- pdf -->
-	<script type="text/javascript"
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	<script type="text/javascript"
-		src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
-	<script type="text/javascript"
-		src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-	<script src="js/pdf.js"></script>
-
-	<!-- excel -->
-	<script src="js/excel.js"></script>
-	<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
-	<!-- 팝업 -->
-	<script language="javascript">
-	var popupX = (document.body.offsetWidth / 2) - (360 / 2);
-	// 만들 팝업창 좌우 크기의 1/2 만큼 보정값으로 빼주었음
-
-	var popupY= (window.screen.height / 2) - (544 / 2);
-	// 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
-
-	function showPopup() {window.open('member_staff_insert.jsp', '매니저등록', 'status=no, height=544, width=360, left='+ popupX + ', top='+ popupY);}
-	function showpopup() {window.open('member_staff_edit.jsp', '매니저수정', 'status=no, height=544, width=360, left='+ popupX + ', top='+ popupY);}
-  </script>
-
 </body>
 </html>

@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
   <title>Document</title>
 
-
+  <script src="../js/jquery-3.6.0.min.js"></script>
   <script language="javascript">
    
     function agreeCheck(frm)
@@ -254,9 +254,6 @@ $(function() {
 		</div>
 	</div>
 	
-	<div class="end_btn">
-			<a href="#" class="action-button shadow animate blue">글쓰기</a>
-		</div>
 	</div>
 
 

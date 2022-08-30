@@ -50,11 +50,14 @@
 <!-- <div class="popup_img"><img src="image/gorae.jpg" width="60px" height="60px"><br><br></div> -->
 
 
-<div class="popup_btn">
 <div class="end">
-	<a href="#">저장</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">취소</a>
-</div>
-</div>
+			<div class="popup_btn">
+				<a href="#">저장</a>
+			</div>
+			<div class="popup_btn">
+				<a href="#" onclick="self.close();">취소</a>
+			</div>
+		</div>
 
 </div>
 

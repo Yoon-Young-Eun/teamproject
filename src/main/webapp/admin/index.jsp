@@ -13,7 +13,6 @@
         <link href="css/styles.css" rel="stylesheet" />
         <link href="css/main_info_card.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-        <script type="text/javascript" src="js/index_navbar_onclick.js"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -75,7 +74,7 @@
                             <div class="collapse" id="change_id_02" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="order.jsp">주문/결제</a>
-                                    <a class="nav-link" href="#">견적상품</a>
+                                    <a class="nav-link" href="estimate.jsp">견적상품</a>
                                 </nav>
                             </div>
                             
@@ -103,9 +102,9 @@
 <!--                                 </nav> -->
 <!--                             </div> -->
                             
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_05" aria-expanded="false" aria-controls="collapseLayouts">
+                            <a class="nav-link collapsed" href="store.jsp" data-bs-toggle="collapse" data-bs-target="#change_id_05" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                매장관리
+                                <span onclick="newPage2()">매장관리</span>
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
 <!--                             <div class="collapse" id="change_id_05" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
@@ -839,6 +838,7 @@
                 </footer>
             </div>
         </div>
+        <script type="text/javascript" src="js/index_navbar_onclick.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>

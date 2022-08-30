@@ -10,7 +10,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Dashboard - SB Admin</title>
+<title>Dashboard - SEMO Admin</title>
 
 <!-- icon 버튼 css -->
 <link href="/admin/css/icon.css" rel="stylesheet" />
@@ -83,6 +83,7 @@
 						</a>
 
 						<div class="sb-sidenav-menu-heading">관리자 메뉴</div>
+<<<<<<< HEAD
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 							data-bs-target="#change_id_01" aria-expanded="false"
 							aria-controls="collapseLayouts">
@@ -101,6 +102,79 @@
 									class="nav-link" href="memberstaff.jsp">매니저관리</a>
 							</nav>
 						</div>
+=======
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_01" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                회원관리
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="change_id_01" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="member.jsp">회원관리</a>
+                                    <a class="nav-link" href="member_black.jsp">블랙회원관리</a>
+                                    <a class="nav-link" href="memberstaff.jsp">매니저관리</a>
+                                </nav>
+                            </div>
+                            
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_02" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                주문/결제관리
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="change_id_02" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="order.jsp">주문/결제</a>
+                                    <a class="nav-link" href="estimate.jsp">견적상품</a>
+                                </nav>
+                            </div>
+                            
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_03" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                매출현황
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+<!--                             <div class="collapse" id="change_id_03" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
+<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
+<!--                                     <a class="nav-link" href="#">매출현황#1</a> -->
+<!--                                     <a class="nav-link" href="#">매출현황#2</a> -->
+<!--                                 </nav> -->
+<!--                             </div> -->
+                            
+                            <a class="nav-link collapsed" href="item.jsp" data-bs-toggle="collapse" data-bs-target="#change_id_04" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                <span onclick="newPage()">상품등록</span>
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+<!--                             <div class="collapse" id="change_id_04" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
+<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
+<!--                                     <a class="nav-link" href="#">상품등록#1</a> -->
+<!--                                     <a class="nav-link" href="#">상품등록#2</a> -->
+<!--                                 </nav> -->
+<!--                             </div> -->
+                            
+                            <a class="nav-link collapsed" href="store.jsp" data-bs-toggle="collapse" data-bs-target="#change_id_05" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                <span onclick="store()">매장관리</span>
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+<!--                             <div class="collapse" id="change_id_05" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
+<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
+<!--                                     <a class="nav-link" href="#">지점관리</a> -->
+<!--                                     <a class="nav-link" href="#">외주관리</a> -->
+<!--                                 </nav> -->
+<!--                             </div> -->
+                            
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_06" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                게시판
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="change_id_06" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="board_notice.jsp">공지사항</a>
+                                    <a class="nav-link" href="board_event.jsp">이벤트</a>
+                                    <a class="nav-link" href="#">리뷰</a>
+>>>>>>> main
 
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 							data-bs-target="#change_id_02" aria-expanded="false"
@@ -496,9 +570,6 @@
 							</c:if>
 						</div>
 						<div class="flex">
-							<div>
-								<input id="button" type="button" value="등록" />
-							</div>
 							<div>
 								<input id="button" type="button" value="수정" />
 							</div>

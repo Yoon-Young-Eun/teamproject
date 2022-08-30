@@ -1,0 +1,338 @@
+@charset "UTF-8";
+
+/* * {
+	border: 1px solid red;
+} */
+html {
+	width: 100%;
+	max-width: 1920px;
+}
+
+.wrapper {
+	width: auto;
+	margin: 30px 240px;
+	margin-left: 200px;
+}
+
+.coupon_title {
+	/* 	height: 85px; */
+	text-align: center;
+	border-bottom: 3px solid #ddd;
+}
+
+.title_box {
+	margin-top: 15px;
+	height: auto;
+	width: auto;
+	border: 3px solid black;
+}
+
+.usable {
+	height: 100px;
+	display: flex;
+	padding: 4px;
+	border-bottom: 1px solid black;
+}
+
+.usable_title {
+	padding-left: 5px;
+	font-size: 30px;
+	font-weight: bold;
+	width: 400px;
+}
+
+.usable_num {
+	font-size: 25px;
+	width: 100%;
+	padding-top: 65px;
+	padding-right: 15px;
+	text-align: right;
+}
+
+.attention {
+	display: flex;
+	padding: 4px;
+	width: auto;
+	/* height: auto; */
+	align-items: center;
+}
+
+.attention_title {
+	font-size: 20px;
+	width: 258px;
+	padding: 5px 5px;
+}
+
+.coupon_body {
+	height: 85px;
+	width: auto;
+	text-align: center;
+}
+
+.list_title {
+	display: flex;
+	justify-content: center;
+	margin-top: 50px;
+	padding: 4px;
+	font-size: 30px;
+}
+
+.coupon_list {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+	padding: 4px;
+	border-bottom: 2px solid black;
+	border-top: 2px solid black;
+}
+
+.list_cnum {
+	font-size: 20px;
+	width: 192px;
+}
+
+.list_name {
+	font-size: 20px;
+	width: 192px;
+}
+
+.list_num {
+	font-size: 20px;
+	width: 192px;
+}
+
+.list_discount {
+	font-size: 20px;
+	width: 192px;
+}
+
+.list_expiration {
+	font-size: 20px;
+	width: 192px;
+}
+
+.coupon_db {
+	display: flex;
+	justify-content: center;
+	border-bottom: 2px solid gray;
+	border-top: 2px solid gray;
+	height: 40px;
+	align-items: center;
+}
+
+.db_cnum {
+	font-size: 15px;
+	width: 192px;
+}
+
+.db_name {
+	font-size: 15px;
+	width: 192px;
+}
+
+.db_num {
+	font-size: 15px;
+	width: 192px;
+}
+
+.db_discount {
+	font-size: 15px;
+	width: 192px;
+}
+
+.db_expiration {
+	font-size: 15px;
+	width: 192px;
+}
+
+.popup_wrapper {
+	height: 100px;
+	width: auto;
+	border-left: 3px solid black;
+	border-bottom: 3px solid black;
+	border-right: 3px solid black;
+}
+
+.popup_wrapper>* {
+	font-size: 15px;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+#layer_content {
+	display: none;
+}
+
+#layer_btn {
+	border-radius: 5px;
+	font-weight: bold;
+	color: #bfbfbf;
+	text-decoration: none;
+}
+
+/* .popup_btn {
+	width: 150px;
+	font-size: 15px;
+	padding-top: 8px;
+} */
+
+/*header*/
+header {
+	margin: 0;
+	padding: 0;
+	height: 100px;
+	width: 100%;
+	position: relative;
+	z-index: 9999;
+	top: 0;
+	left: 0;
+	background-color: white;
+}
+
+header h1 {
+	line-height: 75px;
+	float: left;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+.top-menu-wrapper {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.top-list {
+	float: right;
+}
+
+.top-list li {
+	float: left;
+}
+
+.top-list a {
+	line-height: 68px;
+	color: black;
+	padding: 0 15px;
+	display: block;
+	font-size: 13px;
+}
+
+.top-list a:hover {
+	font-weight: bold;
+}
+
+.cbp-hrmenu {
+	width: 100%;
+	/* margin-top: 100px; */
+	border-bottom: 4px solid #a9d3f0;
+	text-align: center;
+	position: relative;
+	z-index: 2;
+}
+
+/* general ul style */
+.cbp-hrmenu ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+/* first level ul style */
+.cbp-hrmenu>ul, .cbp-hrmenu .cbp-hrsub-inner {
+	width: 90%;
+	max-width: 70em;
+	margin: 0 auto;
+	padding: 0 1.875em;
+}
+
+.cbp-hrmenu>ul>li {
+	display: inline-block;
+}
+
+.cbp-hrmenu>ul>li>a {
+	font-weight: 700;
+	padding: 1em 2em;
+	color: black;
+	display: inline-block;
+}
+
+.cbp-hrmenu>ul>li>a:hover {
+	font-weight: bold;
+	color: #63afe4;
+}
+
+.cbp-hrmenu>ul>li.cbp-hropen>a:hover {
+	font-weight: bold;
+	color: #63afe4;
+}
+
+/* sub-menu */
+.cbp-hrmenu .cbp-hrsub {
+	display: none;
+	position: absolute;
+	border-top: 4px solid #a9d3f0;
+	width: 100%;
+	left: 0;
+	width: 100%;
+}
+
+.cbp-hropen .cbp-hrsub {
+	display: block;
+	background: white;
+	padding-bottom: 35px;
+	padding-left: 150px;
+	padding-right: 150px;
+}
+
+.cbp-hrmenu .cbp-hrsub-inner>div {
+	width: 33%;
+	float: left;
+	padding: 0 2em 0;
+	text-align: left;
+}
+
+.cbp-hrmenu .cbp-hrsub-inner:before, .cbp-hrmenu .cbp-hrsub-inner:after
+	{
+	content: " ";
+	display: table;
+}
+
+.cbp-hrmenu .cbp-hrsub-inner:after {
+	clear: both;
+}
+
+.cbp-hrmenu .cbp-hrsub-inner>div a {
+	line-height: 2em;
+	color: black;
+}
+
+.cbp-hrmenu .cbp-hrsub-inner>div a:hover {
+	font-weight: bold;
+}
+
+.cbp-hrsub h4 {
+	color: #63afe4;
+	padding: 2em 0 0.6em;
+	margin: 0;
+	font-size: 160%;
+	font-weight: bold;
+}
+
+/*body*/
+body {
+	zoom: 1;
+	position: relative;
+	z-index: 1;
+	-ms-overflow-y-style: none;
+	overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}

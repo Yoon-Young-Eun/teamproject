@@ -9,7 +9,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Dashboard - SB Admin</title>
+<title>Dashboard - SEMO Admin</title>
 
 <!-- icon 버튼 css -->
 <link href="css/icon.css" rel="stylesheet"/>

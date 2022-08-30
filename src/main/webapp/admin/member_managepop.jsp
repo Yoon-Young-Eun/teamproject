@@ -58,12 +58,14 @@
 			<textarea></textarea>
 		</div>
 		
-		<div class="member_order"><a href="#">주문이력</a> &nbsp;<a href="#">문의내역</a></div>
+		<div class="member_order"><a href="#">주문이력</a></div>
 
-		<div class="popup_btn">
-			<div class="end">
-				<a href="#">저장</a>&nbsp;&nbsp;&nbsp;<a href="#">수정</a>
-				&nbsp;&nbsp;<a href="#">삭제</a>
+		<div class="end">
+			<div class="popup_btn">
+				<a href="#">저장</a>
+			</div>
+			<div class="popup_btn">
+				<a href="#" onclick="self.close();">취소</a>
 			</div>
 		</div>
 

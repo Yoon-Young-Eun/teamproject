@@ -11,7 +11,7 @@ import mymaven.spring.web.user.impl.UserDAO;
 @Controller
 public class LoginController {
 
-	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/login-origin.do", method = RequestMethod.GET)
 	public String loginView(UserVO vo) {
 		System.out.println("로그인 화면으로 이동");
 		vo.setId("test");
@@ -19,7 +19,7 @@ public class LoginController {
 		return "login.jsp";
 	}
 
-	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/login-origin.do", method = RequestMethod.POST)
 	public String login(UserVO vo, UserDAO userDAO, HttpSession session) {
         
 		//아이디를 입력하지 않고 로그인하면 오류 발생

@@ -326,17 +326,35 @@ a {
 	margin-top: 0px;
 }
 
-.orderlist_search {
-	display: flex;
-	justify-content: end;
-	margin-top: 15px;
-	margin-bottom: 4px;
+.orderlist_head {
+	margin: 15px 6px 4px 10px;
 	align-items: center;
 	height:30px;
+	display: flex;
+	justify-content: space-between;
+}
+.orderlist_count {
+	display: flex;
+}
+.orderlist_count_text {
+	display: flex;
+}
+.orderlist_search {
+	display: flex;
+	height: 40px;
+}
+.orderlist_count_text {
+	font-size: 18px;
+	margin: 0px 4px;
+}
+.orderlist_count_data {
+	font-size: 18px;
+	font-weight: bold;
 }
 
 .condition {
 	height: 34px;
+	margin-top: 2px;
 	margin-right: 5px;
 	font-size: 15px;
 	text-indent: 3px;
@@ -345,6 +363,7 @@ a {
 .search_input>input {
 	height: 30px;
 	width: 250px;
+	margin-top: 2px;
 	margin-right: 10px;
 	padding: 0px;
 	font-size: 15px;
@@ -400,22 +419,17 @@ a {
 }
 .title_num {
 	font-size: 19px;
-	width: 90px;
-	text-align: center;
-}
-.title_work {
-	font-size: 19px;
-	width: 90px;
+	width: 80px;
 	text-align: center;
 }
 .title_item {
 	font-size: 19px;
-	width: 240px;
+	width: 230px;
 	text-align: center;
 }
 .title_address {
 	font-size: 19px;
-	width: 240px;
+	width: 230px;
 	text-align: center;
 }
 .title_order_date {
@@ -428,19 +442,24 @@ a {
 	width: 150px;
 	text-align: center;
 }
-.content_num {
-	font-size: 18px;
-	width: 90px;
+.title_work {
+	font-size: 19px;
+	width: 80px;
 	text-align: center;
 }
-.content_work {
+.title_etc {
+	font-size: 19px;
+	width: 80px;
+	text-align: center;
+}
+.content_num {
 	font-size: 18px;
 	width: 90px;
 	text-align: center;
 }
 .content_item {
 	font-size: 18px;
-	width: 200px;
+	width: 210px;
 	padding: 0px 14px;
 	text-align: center;
 }
@@ -459,6 +478,17 @@ a {
 	font-size: 18px;
 	width: 150px;
 	text-align: center;
+}
+.content_work {
+	font-size: 18px;
+	width: 100px;
+	text-align: center;
+}
+.content_etc {
+	font-size: 18px;
+	width: 80px;
+	display: flex;
+	justify-content: center;
 }
 
 .orderlist_body_content {
@@ -486,3 +516,27 @@ a {
 	margin-top: 7px;
 }
 
+/*-------- 주문취소 버튼 시작 --------*/
+.content_etc>.action-button
+{
+/* 	position: relative; */
+	padding: 2px 4px;
+/*   margin: 150px 0px 100px 0px; */
+/*   float: left; */
+	border-radius: 10px;
+	font-size: 12px;
+	color: #FFF;
+	text-decoration: none;	
+}
+.red
+{
+	background-color: #E74C3C;
+	border-bottom: 5px solid #BD3E31;
+	text-shadow: 0px -2px #BD3E31;
+}
+.etc_blue {
+	background-color: #3498DB;
+	border-bottom: 5px solid #2980B9;
+	text-shadow: 0px -2px #2980B9;
+}
+/*-------- 주문취소 버튼 끝 --------*/

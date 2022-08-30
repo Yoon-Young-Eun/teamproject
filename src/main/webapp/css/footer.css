@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+/*footer*/
+
+footer {
+   margin-top : 30px;
+   border-top : 1px solid grey;
+   height : 200px;
+}
+
+.bottom-menu{
+   display : flex;
+   justify-content : center;
+}
+
+.bottom-menu li {
+   float : left;   
+   margin : 20px;
+   line-height : 20px;
+}
+
+.bottom-menu li a{
+   color : grey;
+}
+
+.bottom-info-list {
+   display : flex;
+   justify-content : center;
+}
+
+.bottom-info h2 {
+   float : right;
+   margin-right : 30px;
+}
+
+.bottom-info .bottom-info-list span{
+   text-align : center;
+   margin-right : 30px;
+}

@@ -8,8 +8,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LogoutController {
 	@RequestMapping("/logout.do")
 	public String logout(HttpSession session) {
+		System.out.println("로그아웃 처리");
 		session.invalidate();
 		return "login.jsp";
 	}
 }
 
+//public class LogoutController implements Controller {
+//@Override
+//public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) {
+//	System.out.println("로그아웃 처리");
+//	// 1. 브라우저와 연결된 세션 객체를 종료
+//	HttpSession session = request.getSession(false);
+//	session.invalidate();
+//	// 2. 세션 종료 후 메인 화면으로 이동
+//	ModelAndView mav = new ModelAndView();
+//	mav.setViewName("redirect:login.jsp");
+//	//mav.setViewName("login.jsp");
+//	return mav;
+//}
+//}

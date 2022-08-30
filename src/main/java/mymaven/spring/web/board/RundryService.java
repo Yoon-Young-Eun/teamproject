@@ -9,12 +9,12 @@ public interface RundryService {
 
 	void deleteBoard(MemberVO vo);
 
-	default int getArticleCount() {
-		int count=0;
-		return count;
-	}
+	int getArticleCount();
 	
 	MemberVO getBoard(MemberVO vo);
+	
+	List<MessageVO> getMessageList(MessageVO vo);
 
 	List<MemberVO> getBoardList(MemberVO vo);
+	
 }

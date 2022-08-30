@@ -18,6 +18,31 @@
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="1000000" />
 	</bean>
+	
+	<!-- 로그아우 후 뒤로 가기 방지  org.springframework.web.servlet.mvc 에서 제공하는 WebContentInterceptor가 일종의 filter 역할을 하며 mapping된 URL에서 cache 컨트롤을 합니다.
+   <mvc:interceptors>
+    <bean id="webContentInterceptor" class="org.springframework.web.servlet.mvc.WebContentInterceptor">
+        <property name="cacheSeconds" value="0" />
+        <property name="useExpiresHeader" value="true" />
+        <property name="useCacheControlHeader" value="true" />
+        <property name="useCacheControlNoStore" value="true" />
+    </bean>
+  </mvc:interceptors>  -->
+	
+		<!--ViewResovler 등록 -->
+	<!-- <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
+		<property name="prefix" value="/WEB-INF/board/"></property> <property name="suffix" 
+		value=".jsp"></property> </bean> -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	<!-- xml 예외처리 설정방법 : 현재는 어노테이션 방법으로 예외처리함(CommonExceptionHandler.java)
 	 <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"> 

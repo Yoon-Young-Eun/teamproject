@@ -9,7 +9,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Dashboard - SB Admin</title>
+<title>Dashboard - SEMO Admin</title>
 
 <!-- icon 버튼 css -->
 <link href="css/icon.css" rel="stylesheet"/>
@@ -102,7 +102,7 @@
                             <div class="collapse" id="change_id_02" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="order.jsp">주문/결제</a>
-                                    <a class="nav-link" href="#">견적상품</a>
+                                    <a class="nav-link" href="estimate.jsp">견적상품</a>
                                 </nav>
                             </div>
                             
@@ -150,7 +150,7 @@
                             <div class="collapse" id="change_id_06" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="board_notice.jsp">공지사항</a>
-                                    <a class="nav-link" href="#">이벤트</a>
+                                    <a class="nav-link" href="board_event.jsp">이벤트</a>
                                     <a class="nav-link" href="#">리뷰</a>
 
                                     <a class="nav-link" href="board_Q&A.jsp">QnA</a>

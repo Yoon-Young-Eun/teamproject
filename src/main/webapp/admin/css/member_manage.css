@@ -2,7 +2,7 @@
 
 .member_wrapper {
 	width: 430px;
-	height: 650px;
+	height: 660px;
 /* 	margin-top: 50px; */
 /* 	margin-left: 50px; */
 	border: 12px solid #eeeeee;
@@ -62,8 +62,9 @@
 
 .member_memo > textarea{
 	display : flex;
-	width : 300px;
+	width : 374px;
 	height: 100px;
+	resize: none;
 }
 
 .member_order{
@@ -71,32 +72,38 @@
 	font-size: 15px;
 }
 
-.popup_btn {
-/* 	display: flex; */
-/* 	justify-content: end; */
-	padding-right: 16px;
-	text-align: center;
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .end {
-	border-top: 1px solid #dddddd;
-/* 	background: white; */
 	width: 100%;
-	padding: 15px 0px;
-/* 	padding: 10px 10px 10px; */
+	padding: 5px;
+	display: flex;
+	text-align: center;
+	justify-content: center;
 }
 
-.end >a {
-	font-size: 14px;
-	border: 2px solid black;
-	background: #ffffff;
-	padding: 3px;
-	border-radius: 5px;
- 	font-weight: bold;
- 	letter-spacing: 2px;
+.end a {
+	color: #212529;
+	font-size: 16px;
+	/* border: 2px solid black; */
+	font-weight: bold;
+	letter-spacing: 3px;
+	text-decoration: none;
 }
 
-.end >a:hover {
-  font-weight : bold ;
-  text-decoration : none ;
+.end a:hover {
+	font-weight: bold;
+	text-decoration: underline;
+	color: white;
+}
+
+.popup_btn {
+	margin: 0px 12px;
+	padding: 8px;
+	border-radius: 10px;
+	background: #dee2e6;
 }

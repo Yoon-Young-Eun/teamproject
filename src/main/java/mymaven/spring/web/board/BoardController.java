@@ -35,8 +35,8 @@ public class BoardController {
 	@ModelAttribute("conditionMap")
 	public Map<String, String> searchConditionMap() {
 		Map<String, String> conditionMap = new HashMap<String, String>();
-		conditionMap.put("Á¦¸ñ", "member_address1");
-		conditionMap.put("³»¿ë", "member_name");
+		conditionMap.put("ì œëª©", "member_address1");
+		conditionMap.put("ë‚´ìš©", "member_name");
 		return conditionMap;
 	}
 	

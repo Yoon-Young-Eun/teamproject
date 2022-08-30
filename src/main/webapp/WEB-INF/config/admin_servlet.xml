@@ -7,7 +7,9 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-	<context:component-scan base-package="mymaven.spring.web"></context:component-scan>
+	<context:component-scan
+		base-package="mymaven.spring.web"></context:component-scan>
+		
 		
     <mvc:annotation-driven></mvc:annotation-driven>
     
@@ -16,6 +18,13 @@
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="1000000" />
 	</bean>
+
+
+	<!--ViewResovler 등록 -->
+<!-- <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<property name="prefix" value="/WEB-INF/spring/admin/"></property>
+<property name="suffix" value=".jsp"></property>
+</bean> -->
 
 	<!-- xml 예외처리 설정방법 : 현재는 어노테이션 방법으로 예외처리함(CommonExceptionHandler.java)
 	 <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"> 
@@ -40,9 +49,6 @@
 		<bean id="logout" class="mymaven.spring.web.user.LogoutController"></bean> -->
 
 
-	<!--ViewResovler 등록 -->
-	<!-- <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
-		<property name="prefix" value="/WEB-INF/board/"></property> <property name="suffix" 
-		value=".jsp"></property> </bean> -->
+
 
 </beans>

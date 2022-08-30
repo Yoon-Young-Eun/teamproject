@@ -18,7 +18,7 @@ public class LoginController {
 		return "login.jsp";
 	}
 
-	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/login-origin.do", method = RequestMethod.POST)
 	public String login(UserVO vo, UserDAO userDAO, HttpSession session) {
         
 	
@@ -33,7 +33,7 @@ public class LoginController {
 			session.setAttribute("userName", user.getName());
 			return "member.do";
 		} else {
-			return "login.jsp";
+			return "login-origin.jsp";
 		}
 	}
 }

@@ -12,10 +12,10 @@
 <title>Dashboard - SEMO Admin</title>
 
 <!-- icon 버튼 css -->
-<link href="css/icon.css" rel="stylesheet" />
+<link href="/admin/css/icon.css" rel="stylesheet" />
 
 <!--  테이블 필터(중요) -->
-<link href="css/filter.css" rel="stylesheet" />
+<link href="/admin/css/filter.css" rel="stylesheet" />
 <script src="js/filter.js" crossorigin="anonymous"></script>
 
 <!-- 체크박스 js -->

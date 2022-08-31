@@ -12,15 +12,16 @@
 <title>Dashboard - SEMO Admin</title>
 
 <!-- icon 버튼 css -->
-<link href="css/icon.css" rel="stylesheet"/>
+<link href="css/icon.css" rel="stylesheet" />
 
 <!--  테이블 필터(중요) -->
-<link href="css/filter.css"rel="stylesheet" />
-<script src="js/filter.js"crossorigin="anonymous"></script>
+<link href="css/filter.css" rel="stylesheet" />
+<script src="js/filter.js" crossorigin="anonymous"></script>
 
 <!-- 체크박스 js -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="./js/checkbox.js"></script>
 
 <link
@@ -82,302 +83,384 @@
 						</a>
 
 						<div class="sb-sidenav-menu-heading">관리자 메뉴</div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_01" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                회원관리
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="change_id_01" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="member.jsp">회원관리</a>
-                                    <a class="nav-link" href="member_black.jsp">블랙회원관리</a>
-                                    <a class="nav-link" href="memberstaff.jsp">매니저관리</a>
-                                </nav>
-                            </div>
-                            
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_02" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                주문/결제관리
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="change_id_02" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="order.jsp">주문/결제</a>
-                                    <a class="nav-link" href="estimate.jsp">견적상품</a>
-                                </nav>
-                            </div>
-                            
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_03" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                매출현황
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-<!--                             <div class="collapse" id="change_id_03" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
-<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
-<!--                                     <a class="nav-link" href="#">매출현황#1</a> -->
-<!--                                     <a class="nav-link" href="#">매출현황#2</a> -->
-<!--                                 </nav> -->
-<!--                             </div> -->
-                            
-                            <a class="nav-link collapsed" href="item.jsp" data-bs-toggle="collapse" data-bs-target="#change_id_04" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                <span onclick="newPage()">상품등록</span>
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-<!--                             <div class="collapse" id="change_id_04" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
-<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
-<!--                                     <a class="nav-link" href="#">상품등록#1</a> -->
-<!--                                     <a class="nav-link" href="#">상품등록#2</a> -->
-<!--                                 </nav> -->
-<!--                             </div> -->
-                            
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_05" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                매장관리
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-<!--                             <div class="collapse" id="change_id_05" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
-<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
-<!--                                     <a class="nav-link" href="#">지점관리</a> -->
-<!--                                     <a class="nav-link" href="#">외주관리</a> -->
-<!--                                 </nav> -->
-<!--                             </div> -->
-                            
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_06" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                게시판
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="change_id_06" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="board_notice.jsp">공지사항</a>
-                                    <a class="nav-link" href="board_event.jsp">이벤트</a>
-                                    <a class="nav-link" href="#">리뷰</a>
+						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+							data-bs-target="#change_id_01" aria-expanded="false"
+							aria-controls="collapseLayouts">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-columns"></i>
+							</div> 회원관리
+							<div class="sb-sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<div class="collapse" id="change_id_01"
+							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+							<nav class="sb-sidenav-menu-nested nav">
+								<a class="nav-link" href="member.jsp">회원관리</a> <a
+									class="nav-link" href="member_black.jsp">블랙회원관리</a> <a
+									class="nav-link" href="memberstaff.jsp">매니저관리</a>
+							</nav>
+						</div>
 
-                                    <a class="nav-link" href="board_Q&A.jsp">QnA</a>
-                                    <a class="nav-link" href="board_FAQ.jsp">자주하는 질문</a>
+						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+							data-bs-target="#change_id_02" aria-expanded="false"
+							aria-controls="collapseLayouts">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-columns"></i>
+							</div> 주문/결제관리
+							<div class="sb-sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<div class="collapse" id="change_id_02"
+							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+							<nav class="sb-sidenav-menu-nested nav">
+								<a class="nav-link" href="order.jsp">주문/결제</a> <a
+									class="nav-link" href="estimate.jsp">견적상품</a>
+							</nav>
+						</div>
 
-                                </nav>
-                            </div>
-                            
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_07" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                채팅관리
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="change_id_07" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">보류</a>
-                                    <a class="nav-link" href="#">할지말지</a>
-                                    <a class="nav-link" href="#">아직미정</a>
-                                </nav>
-                            </div>
-                            
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_08" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                사이트관리
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="change_id_08" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
+						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+							data-bs-target="#change_id_03" aria-expanded="false"
+							aria-controls="collapseLayouts">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-columns"></i>
+							</div> 매출현황
+							<div class="sb-sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<!--                             <div class="collapse" id="change_id_03" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
+						<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
+						<!--                                     <a class="nav-link" href="#">매출현황#1</a> -->
+						<!--                                     <a class="nav-link" href="#">매출현황#2</a> -->
+						<!--                                 </nav> -->
+						<!--                             </div> -->
 
-                                    <a class="nav-link" href="promo.jsp">쿠폰관리</a>
-                                    <a class="nav-link" href="supporbanner.jsp">배너관리</a>
-                                    <a class="nav-link" href="supporclause.jsp">약관관리</a>
+						<a class="nav-link collapsed" href="item.jsp"
+							data-bs-toggle="collapse" data-bs-target="#change_id_04"
+							aria-expanded="false" aria-controls="collapseLayouts">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-columns"></i>
+							</div> <span onclick="newPage()">상품등록</span>
+							<div class="sb-sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<!--                             <div class="collapse" id="change_id_04" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
+						<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
+						<!--                                     <a class="nav-link" href="#">상품등록#1</a> -->
+						<!--                                     <a class="nav-link" href="#">상품등록#2</a> -->
+						<!--                                 </nav> -->
+						<!--                             </div> -->
 
-                                </nav>
-                            </div>
-                            
-                            
-                           <div class="sb-sidenav-menu-heading">Interface</div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Layouts
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
-                                </nav>
-                            </div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Pages
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        Authentication
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="login.jsp">Login</a>
-                                            <a class="nav-link" href="register.html">Register</a>
-                                            <a class="nav-link" href="password.html">Forgot Password</a>
-                                        </nav>
-                                    </div>
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                        Error
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="401.html">401 Page</a>
-                                            <a class="nav-link" href="404.html">404 Page</a>
-                                            <a class="nav-link" href="500.html">500 Page</a>
-                                        </nav>
-                                    </div>
-                                </nav>
-                            </div>
-                            
-                            <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="charts.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
-                            </a>
-                            <a class="nav-link" href="tables-div.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
-                            </a>
-                        </div>
-                    </div>
-                    <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Start Bootstrap
-                    </div>
-                </nav>
-            </div>
+						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+							data-bs-target="#change_id_05" aria-expanded="false"
+							aria-controls="collapseLayouts">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-columns"></i>
+							</div> 매장관리
+							<div class="sb-sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<!--                             <div class="collapse" id="change_id_05" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
+						<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
+						<!--                                     <a class="nav-link" href="#">지점관리</a> -->
+						<!--                                     <a class="nav-link" href="#">외주관리</a> -->
+						<!--                                 </nav> -->
+						<!--                             </div> -->
+
+						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+							data-bs-target="#change_id_06" aria-expanded="false"
+							aria-controls="collapseLayouts">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-columns"></i>
+							</div> 게시판
+							<div class="sb-sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<div class="collapse" id="change_id_06"
+							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+							<nav class="sb-sidenav-menu-nested nav">
+								<a class="nav-link" href="board_notice.jsp">공지사항</a> <a
+									class="nav-link" href="board_event.jsp">이벤트</a> <a
+									class="nav-link" href="#">리뷰</a> <a class="nav-link"
+									href="board_Q&A.jsp">QnA</a> <a class="nav-link"
+									href="board_FAQ.jsp">자주하는 질문</a>
+
+							</nav>
+						</div>
+
+						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+							data-bs-target="#change_id_07" aria-expanded="false"
+							aria-controls="collapseLayouts">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-columns"></i>
+							</div> 채팅관리
+							<div class="sb-sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<div class="collapse" id="change_id_07"
+							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+							<nav class="sb-sidenav-menu-nested nav">
+								<a class="nav-link" href="#">보류</a> <a class="nav-link" href="#">할지말지</a>
+								<a class="nav-link" href="#">아직미정</a>
+							</nav>
+						</div>
+
+						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+							data-bs-target="#change_id_08" aria-expanded="false"
+							aria-controls="collapseLayouts">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-columns"></i>
+							</div> 사이트관리
+							<div class="sb-sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<div class="collapse" id="change_id_08"
+							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+							<nav class="sb-sidenav-menu-nested nav">
+
+								<a class="nav-link" href="promo.jsp">쿠폰관리</a> <a
+									class="nav-link" href="supporbanner.jsp">배너관리</a> <a
+									class="nav-link" href="supporclause.jsp">약관관리</a>
+
+							</nav>
+						</div>
+
+
+						<div class="sb-sidenav-menu-heading">Interface</div>
+						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+							data-bs-target="#collapseLayouts" aria-expanded="false"
+							aria-controls="collapseLayouts">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-columns"></i>
+							</div> Layouts
+							<div class="sb-sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<div class="collapse" id="collapseLayouts"
+							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+							<nav class="sb-sidenav-menu-nested nav">
+								<a class="nav-link" href="layout-static.html">Static
+									Navigation</a> <a class="nav-link" href="layout-sidenav-light.html">Light
+									Sidenav</a>
+							</nav>
+						</div>
+						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+							data-bs-target="#collapsePages" aria-expanded="false"
+							aria-controls="collapsePages">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-book-open"></i>
+							</div> Pages
+							<div class="sb-sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<div class="collapse" id="collapsePages"
+							aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+							<nav class="sb-sidenav-menu-nested nav accordion"
+								id="sidenavAccordionPages">
+								<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+									data-bs-target="#pagesCollapseAuth" aria-expanded="false"
+									aria-controls="pagesCollapseAuth"> Authentication
+									<div class="sb-sidenav-collapse-arrow">
+										<i class="fas fa-angle-down"></i>
+									</div>
+								</a>
+								<div class="collapse" id="pagesCollapseAuth"
+									aria-labelledby="headingOne"
+									data-bs-parent="#sidenavAccordionPages">
+									<nav class="sb-sidenav-menu-nested nav">
+										<a class="nav-link" href="login.jsp">Login</a> <a
+											class="nav-link" href="register.html">Register</a> <a
+											class="nav-link" href="password.html">Forgot Password</a>
+									</nav>
+								</div>
+								<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+									data-bs-target="#pagesCollapseError" aria-expanded="false"
+									aria-controls="pagesCollapseError"> Error
+									<div class="sb-sidenav-collapse-arrow">
+										<i class="fas fa-angle-down"></i>
+									</div>
+								</a>
+								<div class="collapse" id="pagesCollapseError"
+									aria-labelledby="headingOne"
+									data-bs-parent="#sidenavAccordionPages">
+									<nav class="sb-sidenav-menu-nested nav">
+										<a class="nav-link" href="401.html">401 Page</a> <a
+											class="nav-link" href="404.html">404 Page</a> <a
+											class="nav-link" href="500.html">500 Page</a>
+									</nav>
+								</div>
+							</nav>
+						</div>
+
+						<div class="sb-sidenav-menu-heading">Addons</div>
+						<a class="nav-link" href="charts.html">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-chart-area"></i>
+							</div> Charts
+						</a> <a class="nav-link" href="tables-div.html">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-table"></i>
+							</div> Tables
+						</a>
+					</div>
+				</div>
+				<div class="sb-sidenav-footer">
+					<div class="small">Logged in as:</div>
+					Start Bootstrap
+				</div>
+			</nav>
+		</div>
 		<div id="layoutSidenav_content">
 			<main>
 
 				<div class="container-fluid px-4">
-						<h1 class="mt-4">notice</h1>
+					<h1 class="mt-4">notice</h1>
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
 						<li class="breadcrumb-item active">notice</li>
 					</ol>
 					<div class="card mb-4">
 						<div class="card-body">
-							notice 페이지 입니다. <a target="_blank"
-								href="https://datatables.net/">아무링크</a> .
+							notice 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
+							.
 						</div>
 					</div>
 					<div class="card mb-4">
 						<div class="card-header">
-							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 notice에 대한 세부제목
+							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 notice에 대한
+							세부제목
 						</div>
-						
+
 						<!--  여기부터 내용물 -->
-					
 
-  
-     <!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
-     <div class="flex" > 
-      <input type="button" id="btnExport" value="PDF" class="icon_pdf"/><!-- pdf 버튼 -->
-	  <button class="icon_excel" onclick="exportToExcel('tblexportData', 'user-data')">Excel</button><!-- excel -->
-	 </div>
-	  
-	 
-	  
-	  <!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->  
-    <table id="datatablesSimple" class="emp-table dataPerPage tblCustomers tblexportData table" border="5">
-        <thead>
-        <tr>
-        <tr>
-            <th width="50" id="check_td"> <input type="checkbox" name="check" class="allcheck"></th>
-            <th col-index = 2>No</th>
-            <th col-index = 3>제목</th>
-            <th col-index = 4>작성자</th>
-            <th col-index = 5>작성일</th>
-            <th col-index = 6>조회</th>
-            <tr>
-        </thead>
-        <tbody>
-            <tr>
-            <td id="check_td"><input type="checkbox" name="check"></td>
-                <td>1</td>
-                <td>[공지]꽃게탕 만드는 레시피</td>
-                <td>disdiddms</td>
-                <td>2022-08-11</td>
-                <td>0</td>
-            </tr>
-            <tr>
-            <td id="check_td"><input type="checkbox" name="check"></td>
-                <td>2</td>
-                <td>[공지]갈비찜 만드는 레시피</td>
-                <td>disdiddms</td>
-                <td>2022-08-11</td>
-                <td>0</td>
-            </tr>
-                        <tr>
-            <td id="check_td"><input type="checkbox" name="check"></td>
-                <td>2</td>
-                <td>[공지]갈비찜 만드는 레시피</td>
-                <td>disdiddms</td>
-                <td>2022-08-11</td>
-                <td>0</td>
-            </tr>
-                        <tr>
-            <td id="check_td"><input type="checkbox" name="check"></td>
-                <td>2</td>
-                <td>[공지]갈비찜 만드는 레시피</td>
-                <td>disdiddms</td>
-                <td>2022-08-11</td>
-                <td>0</td>
-            </tr>
-                        <tr>
-            <td id="check_td"><input type="checkbox" name="check"></td>
-                <td>2</td>
-                <td>[공지]갈비찜 만드는 레시피</td>
-                <td>disdiddms</td>
-                <td>2022-08-11</td>
-                <td>0</td>
-            </tr>
-                        <tr>
-            <td id="check_td"><input type="checkbox" name="check"></td>
-                <td>2</td>
-                <td>[공지]갈비찜 만드는 레시피</td>
-                <td>disdiddms</td>
-                <td>2022-08-11</td>
-                <td>0</td>
-            </tr>
-                        <tr>
-            <td id="check_td"><input type="checkbox" name="check"></td>
-                <td>2</td>
-                <td>[공지]갈비찜 만드는 레시피</td>
-                <td>disdiddms</td>
-                <td>2022-08-11</td>
-                <td>0</td>
-            </tr>
-            
-            <tr>
-             <td id="check_td"><input type="checkbox" name="check"></td>
-                <td>3</td>
-                <td>[공지]공지공지공지공지공지공지공지공지</td>
-                <td>disdiddms</td>
-                <td>2022-08-11</td>
-                <td>0</td>
-            </tr>
-            <tr>
-             <td id="check_td"><input type="checkbox" name="check"></td>
-                <td>4</td>
-                <td>[공지]아아아아아아하하하하하핳</td>
-                <td>disdiddms</td>
-                <td>2022-08-11</td>
-                <td>0</td>
-            </tr>
-           
 
-        </tbody>
-    </table>
-<div class="flex">
-						<div> <input id="button" type="button" value="등록" onclick="window.location='/Team_Git/admin/board_notice_write.jsp'"/> </div>
-						<div> <input  id="button" type="button"  value="수정" /> </div>
-						<div> <input id="button" type="button" value="삭제" /> </div>
-						
+
+						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
+						<div class="flex">
+							<input type="button" id="btnExport" value="PDF" class="icon_pdf" />
+							<!-- pdf 버튼 -->
+							<button class="icon_excel"
+								onclick="exportToExcel('tblexportData', 'user-data')">Excel</button>
+							<!-- excel -->
+						</div>
+
+
+
+						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
+						<table id="datatablesSimple"
+							class="emp-table dataPerPage tblCustomers tblexportData table"
+							border="5">
+							<thead>
+								<tr>
+								<tr>
+									<th width="50" id="check_td"><input type="checkbox"
+										name="check" class="allcheck"></th>
+									<th col-index=2>No</th>
+									<th col-index=3>제목</th>
+									<th col-index=4>작성자</th>
+									<th col-index=5>작성일</th>
+									<th col-index=6>조회</th>
+								<tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td id="check_td"><input type="checkbox" name="check"></td>
+									<td>1</td>
+									<td>[공지]꽃게탕 만드는 레시피</td>
+									<td>disdiddms</td>
+									<td>2022-08-11</td>
+									<td>0</td>
+								</tr>
+								<tr>
+									<td id="check_td"><input type="checkbox" name="check"></td>
+									<td>2</td>
+									<td>[공지]갈비찜 만드는 레시피</td>
+									<td>disdiddms</td>
+									<td>2022-08-11</td>
+									<td>0</td>
+								</tr>
+								<tr>
+									<td id="check_td"><input type="checkbox" name="check"></td>
+									<td>2</td>
+									<td>[공지]갈비찜 만드는 레시피</td>
+									<td>disdiddms</td>
+									<td>2022-08-11</td>
+									<td>0</td>
+								</tr>
+								<tr>
+									<td id="check_td"><input type="checkbox" name="check"></td>
+									<td>2</td>
+									<td>[공지]갈비찜 만드는 레시피</td>
+									<td>disdiddms</td>
+									<td>2022-08-11</td>
+									<td>0</td>
+								</tr>
+								<tr>
+									<td id="check_td"><input type="checkbox" name="check"></td>
+									<td>2</td>
+									<td>[공지]갈비찜 만드는 레시피</td>
+									<td>disdiddms</td>
+									<td>2022-08-11</td>
+									<td>0</td>
+								</tr>
+								<tr>
+									<td id="check_td"><input type="checkbox" name="check"></td>
+									<td>2</td>
+									<td>[공지]갈비찜 만드는 레시피</td>
+									<td>disdiddms</td>
+									<td>2022-08-11</td>
+									<td>0</td>
+								</tr>
+								<tr>
+									<td id="check_td"><input type="checkbox" name="check"></td>
+									<td>2</td>
+									<td>[공지]갈비찜 만드는 레시피</td>
+									<td>disdiddms</td>
+									<td>2022-08-11</td>
+									<td>0</td>
+								</tr>
+
+								<tr>
+									<td id="check_td"><input type="checkbox" name="check"></td>
+									<td>3</td>
+									<td>[공지]공지공지공지공지공지공지공지공지</td>
+									<td>disdiddms</td>
+									<td>2022-08-11</td>
+									<td>0</td>
+								</tr>
+								<tr>
+									<td id="check_td"><input type="checkbox" name="check"></td>
+									<td>4</td>
+									<td>[공지]아아아아아아하하하하하핳</td>
+									<td>disdiddms</td>
+									<td>2022-08-11</td>
+									<td>0</td>
+								</tr>
+
+
+							</tbody>
+						</table>
+						<div class="flex">
+							<div>
+								<input id="button" type="button" value="등록"
+									onclick="window.location='/admin/board_notice_write.jsp'" />
+							</div>
+							<div>
+								<input id="button" type="button" value="수정" />
+							</div>
+							<div>
+								<input id="button" type="button" value="삭제" />
+							</div>
+
 						</div>
 
 
@@ -415,19 +498,23 @@
 	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
 		crossorigin="anonymous"></script>
 	<script src="js/datatables-simple-demo.js"></script>
-	    <script>
+	<script>
         getUniqueValuesFromColumn()
     </script>
-    
-    <!-- pdf -->
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-    <script src="js/pdf.js"></script>
-    
-    <!-- excel -->	
-    <script src="js/excel.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >	
-    	
+
+	<!-- pdf -->
+	<script type="text/javascript"
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+	<script src="js/pdf.js"></script>
+
+	<!-- excel -->
+	<script src="js/excel.js"></script>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
 </body>
 </html>

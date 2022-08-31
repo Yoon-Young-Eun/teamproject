@@ -8,6 +8,11 @@
 	content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
 <title>SEMO-MyPage</title>
 <link rel="stylesheet" href="../css/MyQnA.css" />
+
+<!-- 폰트 -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>

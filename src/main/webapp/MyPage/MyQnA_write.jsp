@@ -11,14 +11,17 @@
 <link rel="stylesheet" href="../css/MyQnA_write.css" />
 <link rel="stylesheet" href="../css/button.css" />
 <link rel="stylesheet" href="../css/sidebar.css" />
+
+<!-- 폰트 -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
-	href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
 	rel="stylesheet">
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-<script type="text/javascript" src="/admin/js/fileupload.js"></script>
+<!-- <script type="text/javascript" src="/js/fileupload.js"></script> -->
 
 </head>
 
@@ -237,13 +240,49 @@
 							</div>
 						</div>
 
-						<div class="main_text5">
-							<div class="type_title1">파일첨부</div>
-							<div class="name">
-								<input type="file" readonly id="textbar2">
+						<!-- 						<div class="main_text5"> -->
+						<!-- 							<div class="type_title1">파일첨부</div> -->
+						<!-- 							<div class="name"> -->
+						<!-- 								<input type="file" id="textbar2" style=“width:100px; display:inline-block;”> -->
+						<!-- 							</div> -->
+						<!-- 						</div> -->
+						<div class="file_wrap">
+							<input type="file" name="file" accept="*" id="bizFile" />
+							<div class="main_text3 mg">
+								<div class="type_title1">
+									<label for="bizFile" id="label1">파일 업로드</label>
+								</div>
+								<div class="name">
+									<span id="textbar1"
+										style="align-items: center; display: flex;">선택된
+										파일없음</span>
+								</div>
+
+							<script>
+									document
+											.getElementById("bizFile")
+											.addEventListener(
+													"change",
+													function() {
+														var filename = document
+																.getElementById("fileName");
+														if (this.files[0] == undefined) {
+															filename.innerText = "선택된 파일없음";
+															return;
+														}
+														var size = this.files[0].size;
+														if (size > 1024 * 1024 * 5) {
+															alert("첨부 파일은 5M를 초과 할 수 없습니다.");
+															return false;
+														}
+														filename.innerText = this.files[0].name;
+													});
+							</script>
 							</div>
 						</div>
 					</div>
+
+
 					<div class="end_btn">
 						<a href="#" class="action-button shadow animate blue">저장</a> <a
 							href="MyQnA.jsp" class="action-button shadow animate blue">목록</a>
@@ -256,7 +295,6 @@
 
 		</div>
 	</div>
-
 </body>
 
 <footer>

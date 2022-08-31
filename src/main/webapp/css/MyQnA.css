@@ -309,6 +309,7 @@ a {
 
 /*body*/
 body {
+	font-family: 'Noto Sans KR', sans-serif;
 	zoom: 1;
 	position: relative;
 	z-index: 1;

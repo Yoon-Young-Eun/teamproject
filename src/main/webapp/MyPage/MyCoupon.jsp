@@ -8,6 +8,11 @@
 <title>SEMO-MyPage</title>
 <meta name="author" content="www.twitter.com/cheeriottis">
 <link href="../css/MyCoupon.css" rel="stylesheet" />
+
+<!-- 폰트 -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" src="../js/coupon_spec.js"></script>
 </head>

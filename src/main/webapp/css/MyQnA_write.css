@@ -241,9 +241,13 @@ a {
 }
 
 .type_title1 {
-	width: 100px;
+	width: 150px;
 	text-align: center;
 }
+/* #label1{
+width: 150px;
+	text-align: center;	
+} */
 
 #textbar1 {
 	width: 600px;
@@ -263,6 +267,13 @@ a {
 	height: 25px;
 	display: flex;
 	align-items: center;
+}
+.main_text3 mg{
+	height: 200px;
+	width: 1000px;
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid grey;
 }
 
 .main_text4 {
@@ -291,12 +302,51 @@ a {
 	border-bottom: 1px solid grey;
 }
 
-.end_btn{
+.end_btn {
 	width: 1000px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	margin-top: 35px;
+}
+
+/* 파일업로드 */
+.file_wrap input[type="file"] {
+	display: none;
+}
+
+.file_wrap {
+	display: flex;
+	align-items: center;
+	height: 80px;
+}
+
+.main_text3 > div {
+	
+}
+
+/* .file_wrap>div>main_text3 { */
+/* 	white-space: nowrap; */
+/* 	width: calc(100% - 130px); */
+/* 	display: block; */
+/* 	overflow: hidden; */
+/* 	text-overflow: ellipsis; */
+/* 	text-align: center; */
+/* } */
+
+.fileBtn {
+	left: 0;
+	bottom: 0;
+	top: 0;
+	margin: auto;
+	height: 50px;
+	color: #333;
+	font-size: 15px;
+	border-radius: 5px;
+    width: 100px;
+    text-align: center;
+    align-items: center;
+    display: flex;
 }
 
 /*footer*/
@@ -325,6 +375,7 @@ footer {
 	display: flex;
 	justify-content: center;
 }
+
 
 .bottom-info h2 {
 	float: right;

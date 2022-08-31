@@ -314,82 +314,85 @@
 			<main>
 
 				<div class="container-fluid px-4">
-						<h1 class="mt-4">배너관리</h1>
+					<h1 class="mt-4">배너관리</h1>
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
 						<li class="breadcrumb-item active">배너관리</li>
 					</ol>
 					<div class="card mb-4">
 						<div class="card-body">
-							배너관리 페이지 입니다. <a target="_blank"
-								href="https://datatables.net/">아무링크</a> .
+							배너관리 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
+							.
 						</div>
 					</div>
 
 
 
-<div class="wrapper">
+					<div class="wrapper">
 
-<!---------- 본문내용 시작 ---------->
+						<!---------- 본문내용 시작 ---------->
 
-<div class="wrapper">
-<div class="write_wrapper">
-<div class="write_form">
-<div class="write_title write_content">
-<h1>배너 등록</h1>
-</div>
-<div class="write_head">
-<div class="write_title_default">제목</div>
-<div class="write_content_default"><input type="text" class="write_input"></div>
-</div>
-<div class="write_content">
-<div class="write_title_default">내용</div>
-<div class="write_content_default">
-<textarea class="write_textarea"></textarea>
-</div>
-</div>
-<div class="write_body">
+						<div class="wrapper">
+							<div class="write_wrapper">
+								<div class="write_form">
+									<div class="write_title write_content">
+										<h1>배너 등록</h1>
+									</div>
+									<div class="write_head">
+										<div class="write_title_default">제목</div>
+										<div class="write_content_default">
+											<input type="text" class="write_input">
+										</div>
+									</div>
+									<div class="write_content">
+										<div class="write_title_default">내용</div>
+										<div class="write_content_default">
+											<textarea class="write_textarea"></textarea>
+										</div>
+									</div>
+									<div class="write_body">
 
-<div class="filebox">
-	<label for="ex_filename">파일 선택</label> 
-	<input type="file" id="ex_filename" class="upload-hidden" name="upImgPath" accept="image/*" onchange="setThumbnail(event);"/> 
-	<input class="upload-name" value="" disabled="disabled">
-</div>
+										<div class="filebox">
+											<label for="ex_filename">파일 선택</label> <input type="file"
+												id="ex_filename" class="upload-hidden" name="upImgPath"
+												accept="image/*" onchange="setThumbnail(event);" /> <input
+												class="upload-name" value="" disabled="disabled">
+										</div>
 
-<div id="image_container"></div>
+										<div id="image_container"></div>
 
-</div>
-<div class="write_end">
-<div class="write_title_default">공개여부</div>
-<div class="write_content_default radio_row">
-<div class="popup_radio">
-<input class="office_type" type="radio" name="office_type_radio" id="office_type1" checked="checked"><label for="office_type1">공개</label></div>
-<div class="popup_radio">
-<input class="office_type" type="radio" name="office_type_radio" id="office_type2"><label for="office_type2">비공개</label>
-</div>
-</div>
-</div>
-<div class="write_btn">
-
-	<div class="end">
-		<div class="end_btn" onclick="location.href='#'">저장</div>
-		<div class="end_btn" onclick="location.href='#'">취소</div>
-	</div>
-
-</div>
-</div>
-</div>
-</div>
-
-
-<!---------- 본문내용 끝 ---------->
-
-</div>
-
-
-
+									</div>
+									<div class="write_end">
+										<div class="write_title_default">공개여부</div>
+										<div class="write_content_default radio_row">
+											<div class="popup_radio">
+												<input class="office_type" type="radio"
+													name="office_type_radio" id="office_type1"
+													checked="checked"><label for="office_type1">공개</label>
+											</div>
+											<div class="popup_radio">
+												<input class="office_type" type="radio"
+													name="office_type_radio" id="office_type2"><label
+													for="office_type2">비공개</label>
+											</div>
+										</div>
+									</div>
+									<div class="end">
+										<div class="board_btn">
+											<a href="#">저장</a>
+										</div>
+										<div class="board_btn">
+											<a href="#">취소</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 
 
+						<!---------- 본문내용 끝 ---------->
+
+					</div>
 			</main>
 
 		</div>

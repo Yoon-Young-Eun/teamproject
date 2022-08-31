@@ -14,7 +14,7 @@
 <script type="text/javascript" src="js/fileupload.js"></script>
 <script type="text/javascript" src="js/index_navbar_onclick.js"></script>
 <!-- <-게시판 css -->
-<link rel="stylesheet" href="./css/board.css" />
+<link rel="stylesheet" href="/admin/css/board.css" />
 
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"

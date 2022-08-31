@@ -1,19 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
-  <link rel="stylesheet" href="../css/pay1.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <title>Document</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
+<link rel="stylesheet" href="/common/css/button.css">
+<link rel="stylesheet" href="/css/pay1.css">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+	rel="stylesheet">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<title>[ì„¸ëª¨]ì„¸íƒì˜ ëª¨ë“ ê²ƒ</title>
 
 
-  <script language="javascript">
+<script type="text/javascript">
    
     function agreeCheck(frm)
     {
@@ -26,261 +33,100 @@
     }
     
     </script>
-  
+
 </head>
 <body>
 
-  <div class="wrap">
-    <div class="wrap1">
-<!-- haeder ½ÃÀÛ -->
-<header>
-   
-  <div class = "top-menu-wrapper">
-   
-     <h1>¡â¡á</h1>
-     <nav class = "top-menu">
-        <ul class = "top-list"> 
-           <li><a href = "#">·Î±×ÀÎ</a></li>
-           <li><a href = "#">È¸¿ø°¡ÀÔ</a></li>
-           <li><a href = "#">¸¶ÀÌÆäÀÌÁö</a></li>
-           <li><a href = "#">°í°´¼¾ÅÍ</a></li>
-        </ul>
-     </nav>
-  
-</div>
-</header>
-<!-- haeder ³¡ -->
-<nav id="cbp-hrmenu" class="cbp-hrmenu">
-<ul>
-   <li>
-      <a href="#">Ã³À½ÀÌ¼¼¾ß?</a>
-      <div class = "cbp-hrsub">
-         <div class="cbp-hrsub-inner">
-            <div>
-               <h4>ÀÌ¿ë¹æ¹ý</h4>
-               <ul>
-                  <li><a href="#">ÁÖ¹®¹æ¹ý</a></li>
-                  <li><a href="#">¼ö°Å¹æ¹ý</a></li>
-               </ul>
-            </div>
-         </div><!-- hrsub inner -->
-      </div><!-- hrsub -->
-   </li>
-   <li>
-      <a href="#">¼­ºñ½º Áö¿ª</a>
-      <div class = "cbp-hrsub">
-         <div class="cbp-hrsub-inner">
-            <div>
-               <h4>¼­ºñ½º Áö¿ª</h4>
-               <ul>
-                  <li><a href="#">¼­¿ï</a></li>
-               </ul>
-            </div>
-         </div><!-- hrsub inner -->
-      </div><!-- hrsub -->
-   </li>
-   <li>
-      <a href="#">¼¼Å¹¼­ºñ½º</a>
-      <div class = "cbp-hrsub">
-         <div class="cbp-hrsub-inner">
-            <div>
-               <h4>ÀÏ¹Ý Å¬¸®´×</h4>
-               <ul>
-                  <li><a href="#">ÀÏ¹ÝÀÇ·ù</a></li>
-                  <li><a href="#">¿ÍÀÌ¼ÅÃ÷</a></li>
-                  <li><a href="#">ÀÌºÒ</a></li>
-                  <li><a href="#">¿îµ¿È­</a></li>
-               </ul>
-               <h4>Æ¯¼ö Å¬¸®´×</h4>
-               <ul>
-                  <li><a href="#">ÀÏ¹Ý Å¬¸®´×</a></li>
-                  <li><a href="#">Æ¯¼ö Å¬¸®´×</a></li>
-               </ul>
-            </div>
-            <div>
-               <h4>¡¡</h4>
-               <ul>
-                  <li><a href="#">¾Æ¿ôµµ¾î</a></li>
-                  <li><a href="#">±³º¹</a></li>
-                  <li><a href="#">¸ðÀÚ/ÀÎÇü/°¡¹æ</a></li>
-               </ul>
-            </div>
-            
-         </div><!-- hrsub inner -->
-      </div><!-- hrsub -->
-   </li>
-   <li>
-      <a href="#">È¸»ç ¼Ò°³</a>
-      <div class = "cbp-hrsub">
-         <div class="cbp-hrsub-inner">
-            <div>
-               <h4>¾î¼­¿À¼¼¾ß</h4>
-               <ul>
-                  <li><a href="#">ÀÎ»ñ¸»</a></li>
-                  <li><a href="#">È¸»ç¼Ò°³</a></li>
-               </ul>
-            </div>
-         </div><!-- hrsub inner -->
-      </div><!-- hrsub -->
-   </li>
-</ul>
-<script>
-var cbpHorizontalMenu = (function() {
- 
- var $listItems = $( '#cbp-hrmenu > ul > li' ),
-     $menuItems = $listItems.children( 'a' ),
-     $body = $( 'body' ),
-     current = -1;
+	
 
- function init() {
-     $menuItems.on( 'click', open );
-     $listItems.on( 'click', function( event ) { event.stopPropagation(); } );
- }
+	<div class="wrap">
+		<div class="wrap1">
+			<!-- haeder ì‹œìž‘ -->
 
- function open( event ) {
+<jsp:include page="/common/header.jsp"></jsp:include>
 
-     if( current !== -1 ) {
-         $listItems.eq( current ).removeClass( 'cbp-hropen' );
-     }
+			<div class="main">
+				<div class="space_left"></div>
+				<div class="paymainBox">
+					<div class="paymain_text">ì„¸íƒ ì„œë¹„ìŠ¤ ì˜ˆì•½í•˜ê¸°</div>
 
-     var $item = $( event.currentTarget ).parent( 'li' ),
-         idx = $item.index();
+					<div class="paymain_text1">ìœ ì˜ì‚¬í•­</div>
+					<div class="paymain_text2">
 
-     if( current === idx ) {
-         $item.removeClass( 'cbp-hropen' );
-         current = -1;
-     }
-     else {
-         $item.addClass( 'cbp-hropen' );
-         current = idx;
-         $body.off( 'click' ).on( 'click', close );
-     }
+						ì„ íƒí•˜ì‹  <span id="text_1">ë‚ ì§œëŠ” ì„ íƒ ì´í›„ ë³€ë™ì´ ë¶ˆê°€ëŠ¥</span>í•©ë‹ˆë‹¤.<br> ì„ íƒí•˜ì‹ 
+						ìˆ˜ê±°ì¼ì— ë§žì¶° ê¸°ì‚¬ë‹˜ì´ ë°©ë¬¸í•˜ì‹œë‹ˆ <span id="text_2">ìžŠì§€ë§ê³  ì„¸íƒë¬¼ì„ ë‚´ë†“ì•„ì£¼ì„¸ìš”!</span> <br>
+						ì„¸íƒ ìƒí™©ì— ë”°ë¼ 1~2ì¼ ì¡°ê¸°ì— ë°°ì†¡ë˜ê±°ë‚˜ ì§€ì—°ë  ìˆ˜ ìžˆëŠ” ì  ì–‘í•´ë¶€íƒë“œë¦½ë‹ˆë‹¤. <br> ì£¼ë§ ë° ê³µíœ´ì¼ì—ëŠ”
+						ì„¸íƒì„œë¹„ìŠ¤ê°€ ìš´ì˜ë˜ì§€ ì•Šìœ¼ë©° , ìˆ˜ê±°,ë°°ì†¡ ì—…ë¬´ ë˜í•œ ì§„í–‰ë˜ì§€ ì•ŠëŠ” ì  ìœ ì˜ ë¶€íƒë“œë¦½ë‹ˆë‹¤. <br> ì„¸íƒë¬¼ì´
+						ìˆ˜ê±°ëœ ì´í›„ì—ëŠ” <span id="text_3">ì·¨ì†Œ/í™˜ë¶ˆ</span>ì´ ë¶ˆê°€ëŠ¥í•©ë‹ˆë‹¤.
 
-     return false;
+					</div>
 
- }
+					<div class="paymain_text3">íŠ¹ìˆ˜ì„¸íƒ</div>
+					<div class="paymain_text4">
+						íŠ¹ìˆ˜ì„¸íƒì´ëž€ ?<br> ë•€ì´ë‚˜ ì˜¤ì—¼ë¬¼ì§ˆë¡œ ì¸í•´ ëˆ„ë ‡ê²Œ ë³€í•œ ì–¼ë£© ë“œë¼ì´í¬ë¦¬ë‹ìœ¼ë¡œë„ ì œê±°ê°€ ì•ˆë˜ëŠ” ë•€ ì„±ë¶„<br>
+						ê³°íŒ¡ì´,í•ë¬¼,ìž‰í¬ ë“±ê³¼ ê°™ì´ ì¼ë°˜ì„¸íƒìœ¼ë¡œ ì‰½ê²Œ ë¹ ì§€ì§€ ì•ŠëŠ” ì˜¤ì—¼ë“¤ì„ íŠ¹ìˆ˜ìž‘ì—…ì„ í†µí•´ì„œ<br> ì œê±°í•´ ë“œë¦¬ëŠ”
+						ì„¸íƒ ì„œë¹„ìŠ¤ ìž…ë‹ˆë‹¤.
+					</div>
+					<div class="paymain_text5">
+						<span id="text_4">íŠ¹ìˆ˜ì„¸íƒì˜ ê²½ìš° ì¼ë°˜ì„¸íƒê³¼ ë‹¤ë¥´ê²Œ ì„¸íƒë¬¼ì„ ë¨¼ì € ìˆ˜ê±° í›„ ì„¸íƒìš”ê¸ˆì— ëŒ€í•œ
+							ê²¬ì ì„<br> ë°›ì•„ ë³´ì‹  í›„ ì„¸íƒì„ ì§„í–‰í•˜ì…”ì•¼ í•©ë‹ˆë‹¤.
+						</span>
+					</div>
+					<div class="paymain_link1">
+						<a href="#" id="a_link">[ìžì„¸ížˆ]</a>
+					</div>
 
- function close( event ) {
-     $listItems.eq( current ).removeClass( 'cbp-hropen' );
-     current = -1;
- }
+					<div class="paymain_text6">ì¼ë°˜ì„¸íƒ</div>
+					<div class="paymain_text7">
+						ì¼ë°˜ì„¸íƒì´ëž€ ?<br> ì†Œìž¬ ë° ì„¸íƒë°©ë²•ì— ë”°ë¼ ë¶„ë¥˜ í›„ ì˜¤ì—¼ì œê±° ë° ì„¸íƒë¬¼ ì†ìƒë³´í˜¸<br> ì„¸íƒë¬¼
+						ê±´ì¡° /ì˜¤ì—¼ì œê±°ì •ë„ ì²´í¬/ ë‹¤ë¦¼ì§ˆ ê³¼ì •ì„ ê±°ì¹˜ëŠ” ì„¸íƒì„œë¹„ìŠ¤ ìž…ë‹ˆë‹¤.
 
- return { init : init };
+					</div>
+					<div class="paymain_text8">
+						<span id="text_5">ì¼ë°˜ì„¸íƒì˜ ê²½ìš° ì†Œìž¬/ì„¸íƒë¬¼ì˜ ì¢…ë¥˜ì— ë”°ë¼ ì •í•´ì§„ ê¸ˆì•¡ì— ë§žì¶°ì„œ ê¸ˆì•¡ì´
+							ì±…ì •ë˜ë©° ,<br> íŠ¹ìˆ˜ì„¸íƒê³¼ ë‹¤ë¥´ê²Œ ê²¬ì ì„ ë°›ì§€ ì•Šìœ¼ì…”ë„ ë©ë‹ˆë‹¤.
+						</span>
+					</div>
+					<div class="paymain_link2">
+						<a href="#" id="a_link">[ìžì„¸ížˆ]</a>
+					</div>
 
-})();
+					<form name="form">
+						<div class="paymain_text9">
+							<input type="checkbox" id="checkbox1"
+								onClick="agreeCheck(this.form)"> <span id="span123">â€»ìœ ì˜ì‚¬í•­ì„
+								ìˆ™ì§€í•˜ì˜€ê³  ì„œë¹„ìŠ¤ë¥¼ ì§„í–‰í•©ë‹ˆë‹¤</span>
+						</div>
+						<div class="paymain_text10">
+							<span id="span1234">(ì²´í¬ë°•ìŠ¤ì— ì²´í¬ë¥¼ í•˜ì…”ì•¼ ë‹¤ìŒë‹¨ê³„ë¡œ ì§„í–‰ì´ ê°€ëŠ¥í•©ë‹ˆë‹¤.)</span>
+						</div>
 
-$(function() {
-         cbpHorizontalMenu.init();
-});
+						<div class="paymain_button">
+							<div class="paymain_button1">
+								<input type="button" id="button1" value="í™•ì¸" class="action-button shadow animate blue"
+									onclick="location.href='/pay/pay2.jsp'" disabled></input>
+							</div>
+							<div class="paymain_button1">
+								<input type="button" id="button2"
+									onclick="#" class="action-button shadow animate blue" value="ì·¨ì†Œ">
+							</div>
+						</div>
+					</form>
 
-</script>
-</nav>
-
-<div class="main">
-  <div class="space_left"></div>
-  <div class="paymainBox">
-    <div class="paymain_text">
-      ¼¼Å¹ ¼­ºñ½º ¿¹¾àÇÏ±â
-    </div>
-    
-    <div class="paymain_text1">
-      À¯ÀÇ»çÇ×
-    </div>
-    <div class="paymain_text2">
-      <ol id="ol1">
-        <li>¼±ÅÃÇÏ½Å <span id="text_1">³¯Â¥´Â ¼±ÅÃ ÀÌÈÄ º¯µ¿ÀÌ ºÒ°¡´É</span>ÇÕ´Ï´Ù.</li>
-        <li>¼±ÅÃÇÏ½Å ¼ö°ÅÀÏ¿¡ ¸ÂÃç ±â»ç´ÔÀÌ ¹æ¹®ÇÏ½Ã´Ï <span id="text_2">ÀØÁö¸»°í
-          ¼¼Å¹¹°À» ³»³õ¾ÆÁÖ¼¼¿ä!</span></li>
-        <li>¼¼Å¹ »óÈ²¿¡ µû¶ó 1~2ÀÏ Á¶±â¿¡ ¹è¼ÛµÇ°Å³ª Áö¿¬µÉ ¼ö ÀÖ´Â Á¡
-          ¾çÇØºÎÅ¹µå¸³´Ï´Ù.</li>
-        <li>ÁÖ¸» ¹× °øÈÞÀÏ¿¡´Â ¼¼Å¹¼­ºñ½º°¡ ¿î¿µµÇÁö ¾ÊÀ¸¸ç ,
-          ¼ö°Å,¹è¼Û ¾÷¹« ¶ÇÇÑ ÁøÇàµÇÁö ¾Ê´Â Á¡ À¯ÀÇ ºÎÅ¹µå¸³´Ï´Ù.</li>
-        <li>¼¼Å¹¹°ÀÌ ¼ö°ÅµÈ ÀÌÈÄ¿¡´Â <span id="text_3">Ãë¼Ò/È¯ºÒ</span>ÀÌ ºÒ°¡´ÉÇÕ´Ï´Ù.</li>
-        </ol>
-    </div>
-    
-    <div class="paymain_text3">
-      Æ¯¼ö¼¼Å¹
-    </div>
-    <div class="paymain_text4">
-      Æ¯¼ö¼¼Å¹ÀÌ¶õ ?<br>
-      ¶¡ÀÌ³ª ¿À¿°¹°Áú·Î ÀÎÇØ ´©·¸°Ô º¯ÇÑ ¾ó·è µå¶óÀÌÅ©¸®´×À¸·Îµµ Á¦°Å°¡ ¾ÈµÇ´Â ¶¡ ¼ººÐ<br>
-      °õÆÎÀÌ,ÇÍ¹°,À×Å© µî°ú °°ÀÌ ÀÏ¹Ý¼¼Å¹À¸·Î ½±°Ô ºüÁöÁö ¾Ê´Â ¿À¿°µéÀ» Æ¯¼öÀÛ¾÷À» ÅëÇØ¼­<br>
-      Á¦°ÅÇØ µå¸®´Â ¼¼Å¹ ¼­ºñ½º ÀÔ´Ï´Ù.
-    </div>
-    <div class="paymain_text5">
-      <span id="text_4">Æ¯¼ö¼¼Å¹ÀÇ °æ¿ì ÀÏ¹Ý¼¼Å¹°ú ´Ù¸£°Ô ¼¼Å¹¹°À» ¸ÕÀú ¼ö°Å ÈÄ ¼¼Å¹¿ä±Ý¿¡ ´ëÇÑ °ßÀûÀ»<br>
-      ¹Þ¾Æ º¸½Å ÈÄ ¼¼Å¹À» ÁøÇàÇÏ¼Å¾ß ÇÕ´Ï´Ù.</span>
-    </div>
-    <div class="paymain_link1">
-      <a href="#" id="a_link">[ÀÚ¼¼È÷]</a>
-    </div>
-    
-    <div class="paymain_text6">
-      ÀÏ¹Ý¼¼Å¹
-    </div>
-    <div class="paymain_text7">
-      ÀÏ¹Ý¼¼Å¹ÀÌ¶õ ?<br>
-      ¼ÒÀç ¹× ¼¼Å¹¹æ¹ý¿¡ µû¶ó ºÐ·ù ÈÄ ¿À¿°Á¦°Å ¹× ¼¼Å¹¹° ¼Õ»óº¸È£<br>
-      ¼¼Å¹¹° °ÇÁ¶ /¿À¿°Á¦°ÅÁ¤µµ Ã¼Å©/ ´Ù¸²Áú °úÁ¤À» °ÅÄ¡´Â ¼¼Å¹¼­ºñ½º ÀÔ´Ï´Ù.
-      
-    </div>
-    <div class="paymain_text8">
-      <span id="text_5">ÀÏ¹Ý¼¼Å¹ÀÇ °æ¿ì ¼ÒÀç/¼¼Å¹¹°ÀÇ Á¾·ù¿¡ µû¶ó Á¤ÇØÁø ±Ý¾×¿¡
-        ¸ÂÃç¼­ ±Ý¾×ÀÌ Ã¥Á¤µÇ¸ç ,<br>
-         Æ¯¼ö¼¼Å¹°ú ´Ù¸£°Ô °ßÀûÀ» ¹ÞÁö ¾ÊÀ¸¼Åµµ µË´Ï´Ù.
-      </span>
-    </div>
-    <div class="paymain_link2">
-      <a href="#" id="a_link">[ÀÚ¼¼È÷]</a>
-    </div>
-    
-    <form name="form">
-    <div class="paymain_text9">
-      <input type="checkbox" id="checkbox1" onClick="agreeCheck(this.form)">
-       <span id="span123">¡ØÀ¯ÀÇ»çÇ×À» ¼÷ÁöÇÏ¿´°í ¼­ºñ½º¸¦ ½ÅÃ»ÇÕ´Ï´Ù.</span>
-    </div>
-    
-    <div class="paymain_button">
-      <div class="paymain_button1">
-      <input type="button" id="button1" value="È®ÀÎ" onclick="location.href='pay2.html'" disabled></input>
-    </div>
-    <div class="paymain_button1">
-      <input type="button" id="button2" onclick="location.href='main.html'" value="Ãë¼Ò">
-    </div>
-    </div>
-  </form>
-  
-  </div>
-  <div class="space_right"></div>
-  </div> 
+				</div>
+				<div class="space_right"></div>
+			</div>
 
 
-</div>
-</div> 
+		</div>
+	</div>
 
 
-<!-- ÄÁÅÙÃ÷ ½ÃÀÛ -->
+	<!-- ì»¨í…ì¸  ì‹œìž‘ -->
 
 
 
 
 </body>
-<footer>
-   <div class = "bottom-menu">
-      <ul>
-         <li><a href="#">°³ÀÎÁ¤º¸Ã³¸®¹æÄ§</a></li>
-         <li><a href="#">ÀÌ¿ë¾à°ü</a></li>
-         <li><a href="#">ÀÇ·ùº¸°ü ÀÌ¿ë¾à°ü</a></li>
-      </ul>
-   </div>
-   <div class = "bottom-info">
-      <h2>¡â¡á</h2>
-      <div class = "bottom-info-list">
-         <span>»óÈ£¸í : ¼¼Å¹ÀÇ ¸ðµç°Í</span>
-         <span>´ëÇ¥ÀüÈ­ : 02-000-0000</span>
-         <span>»ç¾÷ÀÚ ¹øÈ£ : no.00000000000</span>   
-      </div>
-   </div>
-</footer>
+<jsp:include page="/common/footer.jsp" />
 </html>

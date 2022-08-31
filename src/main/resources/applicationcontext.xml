@@ -22,6 +22,17 @@
 		<property name="username" value="${jdbc.username}" />
 		<property name="password" value="${jdbc.password}" />
 	</bean>
+	
+<!--   mysql 설정
+      <bean id="dataSource"
+      class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+      <property name="driverClass" value="com.mysql.cj.jdbc.Driver" />
+      <property name="url" value="jdbc:mysql://localhost:3306/DB이름?characterEncoding=utf8&amp;serverTimezone=UTC" />
+      <property name="username" value="아이디" />
+      <property name="password" value="비밀번호" />
+    </bean> -->
+	
+	
 
 
 	<!-- 트랜잭션: 스프링에 제공하는 모둔 트랜잭션 관리자는 commit(), rollback()메서드를 가지고 있다. -->
@@ -51,8 +62,6 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean> -->
 
-
-
 	<!-- Spring - mybatis 연동설정 : SqlSessionFactoryBean 클래스를 Bean으로 등록해야 한다. -->
 	<bean id="sessionFactory"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -60,8 +69,6 @@
 		<property name="configLocation"
 			value="classpath:mybatis-config.xml" />
 	</bean>
-
-
 
 	<!-- – SqlSessionTemplate 클래스를 이용한 mybatis 설정 SqlSessionTemplate는 setter메서드가 
 		없어서 생성자 인젝션을 사용할 수 밖에 없다. -->

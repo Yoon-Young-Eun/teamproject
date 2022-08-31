@@ -35,7 +35,7 @@ public class LoginController {
 			session.setAttribute("userName", user.getName());
 			return "member.do";
 		} else {
-			return "login.jsp";
+			return "login-origin.jsp";
 		}
 	}
 }

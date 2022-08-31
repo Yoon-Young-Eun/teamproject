@@ -7,44 +7,44 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-<<<<<<< HEAD:src/main/webapp/WEB-INF/config/presentation-layer.xml
-	<context:component-scan base-package="mymaven.spring.web"></context:component-scan>
-		
-=======
-	<!-- Component 패키지 지정 -->
 	<context:component-scan
 		base-package="mymaven.spring.web"></context:component-scan>
-		
-	<!-- Annotation 활성화 -->	
->>>>>>> 898837182049a45d589ee833fe8d7d68fdcfa783:src/main/webapp/WEB-INF/spring/admin/admin-servlet.xml
-    <mvc:annotation-driven></mvc:annotation-driven>
-    
+
+
+	<mvc:annotation-driven></mvc:annotation-driven>
+
 	<!-- 파일 업로드 설정 -->
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="1000000" />
 	</bean>
 
-
+<!-- 	<mvc:interceptors>  로그아웃 후 뒤로 못가게 하는 것(보안적)
+		<bean id="webContentInterceptor"
+			class="org.springframework.web.servlet.mvc.WebContentInterceptor">
+			<property name="cacheSeconds" value="0" />
+			<property name="useExpiresHeader" value="true" />
+			<property name="useCacheControlHeader" value="true" />
+			<property name="useCacheControlNoStore" value="true" />
+		</bean>
+	</mvc:interceptors> -->
 
 	<!--ViewResovler 등록 -->
 	<!-- <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
-		<property name="prefix" value="/WEB-INF/board/"></property> <property name="suffix" 
-		value=".jsp"></property> </bean> -->
+		<property name="prefix" value="/WEB-INF/spring/user/"></property> <property 
+		name="suffix" value=".jsp"></property> </bean> -->
 
 
 
 
 
 
-
-
-	<!-- xml 예외처리 설정방법 : 현재는 어노테이션 방법으로 예외처리함(CommonExceptionHandler.java)
-	 <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"> 
+	<!-- xml 예외처리 설정방법 : 현재는 어노테이션 방법으로 예외처리함(CommonExceptionHandler.java) <bean 
+		id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"> 
 		<property name="exceptionMappings"> <props> <prop key="java.lang.ArithmeticException">common/arithmeticError.jsp</prop> 
 		<prop key="java.lang.NullPointerException">common/nullPointerError.jsp</prop> 
 		</props> </property> <property name="defaultErrorView" value="common/error.jsp"/> 
-	</bean> -->
+		</bean> -->
 
 	<!-- Controller 사용함으로 아래 사라짐 -->
 	<!-- <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"> 
@@ -60,6 +60,8 @@
 		<bean id="updateBoard" class="mymaven.spring.web.board.UpdateBoardController"></bean> 
 		<bean id="deleteBoard" class="mymaven.spring.web.board.DeleteBoardController"></bean> 
 		<bean id="logout" class="mymaven.spring.web.user.LogoutController"></bean> -->
+
+
 
 
 </beans>

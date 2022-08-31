@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	width: 100%;
+	max-width: 1920px;
+	scroll-behavior: smooth;
+}
+
+body {
+	zoom: 1;
+	position: relative;
+	z-index: 1;
+	-ms-overflow-y-style: none;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+/*side-menu*/
+
+/*SIDEBAR*/
+.sidebar {
+	margin-left:240px;
+    position: absolute;
+/* Change :absolute; to :fixed; to keep the sidebar in place when scolling. */
+    background: none;
+/* Sidebar Background */
+    width: 200px;
+/* Width of side bar. WARNING: If you change this, change .listItemA:width */
+    height: 100%;
+    padding-top: 10px;
+/* Padding above the sidebar image. */
+    font-family: helvetica;
+/* Font for the sidebar (Remove to keep the same font as the rest of the document) */
+}
+
+.sidebar a {
+    text-decoration: none;
+/* Removes the underline from links. */
+    color: black;
+/* Text color of the menu items */
+}
+
+.sidebar i {
+    margin-right: auto;
+    margin-left: 10px;
+    vertical-align: middle;
+    margin-top: -2px;
+    margin-right: 20px;
+    color : black;
+}
+
+.sidebar ul {
+    line-height: 40px;
+    overflow: hidden;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.sidebar ul li {
+    list-style-type: none;
+    background: none;
+/* Background colour of the menu items. */
+    color: #695D46;
+/* Text colour of the side bar titles. (Not the links). */
+}
+
+.listItemA {
+    height: 40px;
+    width: 240px;
+/* Alter this to be the .sidebar:width PLUS 40 */
+    transition: .3s;
+/* Speed of the hover animation */
+    position: relative;
+    left: -40px;
+}
+
+.listItemA:hover {
+    left: 0;
+}
+
+.listItemT {
+    text-align: center;
+}

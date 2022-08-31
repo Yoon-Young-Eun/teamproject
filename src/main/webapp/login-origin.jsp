@@ -25,11 +25,7 @@
 
 
 	<hr>
-<<<<<<< HEAD
-	<form action="/login-origin.do" method="post">
-=======
 	<form action="login-origin.do" method="post">
->>>>>>> 898837182049a45d589ee833fe8d7d68fdcfa783
 		<table border="1">
 			<tr>
 				<td>아이디</td>
@@ -38,8 +34,7 @@
 			</tr>
 			<tr>
 				<td>비밀번호</td>
-				<td><input type="password" name="password"
-					value="${userVO.password}"/></td>
+				<td><input type="password" name="password" value="${userVO.password}"/></td>
 				<!-- <td><input type="password" name="password" /></td> -->
 			</tr>
 			<tr>

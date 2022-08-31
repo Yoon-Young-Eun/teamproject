@@ -10,7 +10,7 @@
 <!-- font awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 <!-- resources -->
-<link rel="stylesheet" href="./css/header.css"/>
+<link rel="stylesheet" href="/common/css/header.css"/>
 <!-- JQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!-- fonts -->
@@ -28,7 +28,7 @@
             <li><a href = "main.jsp">메인으로</a></li>
             <li><a href = "terms.jsp">회원가입</a></li>
             <li><a href = "#">마이페이지</a></li>
-            <li><a href = "#">고객센터</a></li>
+            <li><a href = "/service/service1.jsp">고객센터</a></li>
          </ul>
       </nav>
    </div>

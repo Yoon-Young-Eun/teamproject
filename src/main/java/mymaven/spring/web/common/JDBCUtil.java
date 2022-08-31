@@ -9,9 +9,8 @@ public class JDBCUtil {
 	public static Connection getConnection() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-
-	//우철, 예린이꺼 return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", "mytest", "mytest");
-	  	    	 return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "hr", "hr");  //영은이꺼
+			    return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/XEPDB1", "mytest", "mytest");
+	  	    	// return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "hr", "hr");  
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

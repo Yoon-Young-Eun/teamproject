@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<!-- <html style="position:absolute; z-index:1;"> -->
 <html>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
+  <link rel="stylesheet" href="../css/footer.css">
   <link rel="stylesheet" href="../css/MyEstimate.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -178,7 +180,7 @@ $(function() {
 <div class="body_wrapper">
 <div class="margin_side">
 <div class="side_menu">
-<div class="side_menu_name"><a href="MyMain.jsp">으아아아</a></div>
+<div class="side_menu_name"><a href="MyMain.jsp">이름</a></div>
 <div class="side_menu_title">마이 페이지</div>
 <div class="side_menu_content"><a href="MyOrderlist.jsp">내 세탁물 관리</a></div>
 <div class="side_menu_content"><a href="#">내 주소지 관리</a></div>
@@ -257,6 +259,7 @@ $(function() {
 <div class="special_head_title pd_top">금액</div>
 <div class="special_head_content">10,000</div>
 </div>
+
 </div>
 </div>
 
@@ -266,7 +269,7 @@ $(function() {
 
 	<div class="end">
 		<div class="action-button shadow animate blue" onclick="location.href='#'">결제</div>
-		<div class="action-button shadow animate blue" onclick="location.href='MyOrderlist.jsp'">취소</div>
+		<div class="action-button shadow animate red" onclick="location.href='MyOrderlist.jsp'">취소</div>
 	</div>
 
 </div>
@@ -285,6 +288,25 @@ $(function() {
 
 </div>
 </div>
+
+
+<footer>
+   <div class = "bottom-menu">
+      <ul>
+         <li><a href="#">개인정보처리방침</a></li>
+         <li><a href="#">이용약관</a></li>
+         <li><a href="#">의류보관 이용약관</a></li>
+      </ul>
+   </div>
+   <div class = "bottom-info">
+      <h2>△■</h2>
+      <div class = "bottom-info-list">
+         <span>상호명 : 세탁의 모든것</span>
+         <span>대표전화 : 02-000-0000</span>
+         <span>사업자 번호 : no.00000000000</span>   
+      </div>
+   </div>
+</footer>
 
 </body>
 </html>

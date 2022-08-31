@@ -7,11 +7,16 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
+<<<<<<< HEAD:src/main/webapp/WEB-INF/config/presentation-layer.xml
+	<context:component-scan base-package="mymaven.spring.web"></context:component-scan>
+		
+=======
 	<!-- Component 패키지 지정 -->
 	<context:component-scan
 		base-package="mymaven.spring.web"></context:component-scan>
 		
 	<!-- Annotation 활성화 -->	
+>>>>>>> 898837182049a45d589ee833fe8d7d68fdcfa783:src/main/webapp/WEB-INF/spring/admin/admin-servlet.xml
     <mvc:annotation-driven></mvc:annotation-driven>
     
 	<!-- 파일 업로드 설정 -->

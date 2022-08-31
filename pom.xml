@@ -24,13 +24,30 @@
 	</repositories>
 
 	<dependencies>
+<<<<<<< HEAD
+	
+	<!-- 아임포트 검증2 -->
+=======
 		<!-- 아임포트 검증2 -->
+>>>>>>> 898837182049a45d589ee833fe8d7d68fdcfa783
 		<dependency>
 			<groupId>com.github.iamport</groupId>
 			<artifactId>iamport-rest-client-java</artifactId>
 			<version>0.2.14</version>
 		</dependency>
+<<<<<<< HEAD
+
+
+		<!-- lombok  -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.22</version>
+			<scope>provided</scope>
+		</dependency>
+=======
 		
+>>>>>>> 898837182049a45d589ee833fe8d7d68fdcfa783
 
 		<!-- Spring -->
 		<dependency>
@@ -51,7 +68,6 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 
-
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
 		<dependency> <!-- JSON 응답 바디로 변경할때 -->
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -59,7 +75,10 @@
 			<version>2.13.3</version>
 		</dependency>
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 898837182049a45d589ee833fe8d7d68fdcfa783
 		<!-- CoolSNS -->
 		<dependency>
 			<groupId>net.nurigo</groupId>
@@ -182,30 +201,6 @@
 			<version>${org.slf4j-version}</version>
 			<scope>runtime</scope>
 		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.15</version>
-			<exclusions>
-				<exclusion>
-					<groupId>javax.mail</groupId>
-					<artifactId>mail</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>javax.jms</groupId>
-					<artifactId>jms</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.sun.jdmk</groupId>
-					<artifactId>jmxtools</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.sun.jmx</groupId>
-					<artifactId>jmxri</artifactId>
-				</exclusion>
-			</exclusions>
-			<scope>runtime</scope>
-		</dependency>
 
 		<!-- @Inject -->
 		<dependency>
@@ -253,7 +248,10 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+<<<<<<< HEAD
+=======
 	
+>>>>>>> 898837182049a45d589ee833fe8d7d68fdcfa783
 	<build>
 		<plugins>
 			<plugin>

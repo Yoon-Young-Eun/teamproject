@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+/*
+	버튼 jsp class 이름 : 
+	<a href="#" class="action-button shadow animate blue">다음</a>
+*/
+ 
+.animate
+{
+	transition: all 0.1s;
+	-webkit-transition: all 0.1s;
+}
+
+.action-button
+{
+	position: relative;
+	padding: 10px 40px;
+  margin: 0px 10px 10px 0px;
+  float: left;
+	border-radius: 50px;
+	font-size: 20px;
+	color: #FFF;
+	text-decoration: none;	
+}
+
+.blue
+{
+	background-color: #63afe4;
+	border-bottom: 5px solid #2b92da;
+	text-shadow: 0px -2px #2b92da;
+}
+
+.action-button:active
+{
+	transform: translate(0px,5px);
+  -webkit-transform: translate(0px,5px);
+	border-bottom: 1px solid;
+}

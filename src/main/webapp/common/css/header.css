@@ -1,0 +1,173 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	width: 100%;
+	max-width: 1920px;
+	scroll-behavior: smooth;
+}
+
+body {
+	zoom: 1;
+	position: relative;
+	z-index: 1;
+	-ms-overflow-y-style: none;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+/*header*/
+header {
+	margin: 0;
+	padding: 0;
+	height: 100px;
+	width: 100%;
+	position: relative;
+	z-index: 9999;
+	top: 0;
+	left: 0;
+	background-color: white;
+}
+
+header h1 {
+	line-height: 75px;
+	float: left;
+}
+
+.top-menu-wrapper {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.top-list {
+	float: right;
+}
+
+.top-list li {
+	float: left;
+}
+
+.top-list a {
+	line-height: 68px;
+	color: black;
+	padding: 0 15px;
+	display: block;
+	font-size: 13px;
+}
+
+.top-list a:hover {
+	font-weight: bold;
+}
+
+/*main menu*/
+
+.cbp-hrmenu {
+	width: 100%;
+	/* margin-top: 100px; */
+	border-bottom: 4px solid #a9d3f0;
+	text-align: center;
+	position: relative;
+	z-index: 2;
+}
+
+/* general ul style */
+.cbp-hrmenu ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+/* first level ul style */
+.cbp-hrmenu>ul, .cbp-hrmenu .cbp-hrsub-inner {
+	width: 90%;
+	max-width: 70em;
+	margin: 0 auto;
+	padding: 0 1.875em;
+}
+
+.cbp-hrmenu>ul>li {
+	display: inline-block;
+}
+
+.cbp-hrmenu>ul>li>a {
+	font-weight: 700;
+	padding: 1em 2em;
+	color: black;
+	display: inline-block;
+}
+
+.cbp-hrmenu>ul>li>a:hover {
+	font-weight: bold;
+	color: #63afe4;
+}
+
+.cbp-hrmenu>ul>li.cbp-hropen>a:hover {
+	font-weight: bold;
+	color: #63afe4;
+}
+
+/* sub-menu */
+.cbp-hrmenu .cbp-hrsub {
+	display: none;
+	position: absolute;
+	border-top: 4px solid #a9d3f0;
+	width: 100%;
+	left: 0;
+	width: 100%;
+}
+
+.cbp-hropen .cbp-hrsub {
+	display: block;
+	background: white;
+	padding-bottom: 35px;
+	padding-left: 150px;
+	padding-right: 150px;
+}
+
+.cbp-hrmenu .cbp-hrsub-inner>div {
+	width: 33%;
+	float: left;
+	padding: 0 2em 0;
+	text-align: left;
+}
+
+.cbp-hrmenu .cbp-hrsub-inner:before, .cbp-hrmenu .cbp-hrsub-inner:after
+	{
+	content: " ";
+	display: table;
+}
+
+.cbp-hrmenu .cbp-hrsub-inner:after {
+	clear: both;
+}
+
+.cbp-hrmenu .cbp-hrsub-inner>div a {
+	line-height: 2em;
+	color: black;
+}
+
+.cbp-hrmenu .cbp-hrsub-inner>div a:hover {
+	font-weight: bold;
+}
+
+.cbp-hrsub h4 {
+	color: #63afe4;
+	padding: 2em 0 0.6em;
+	margin: 0;
+	font-size: 160%;
+	font-weight: bold;
+}

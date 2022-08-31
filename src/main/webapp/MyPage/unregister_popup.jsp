@@ -5,7 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../css/mypage_address_popup.css" />
+
+<link rel="stylesheet" href="/css/cancle_popup.css" />
+
 </head>
 <body>
 	<div class="wrap">

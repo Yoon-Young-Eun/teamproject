@@ -81,10 +81,13 @@
 
 /* 버튼 */
 .popup_btn {
-	/* 	display: flex; */
-	/* 	justify-content: end; */
-	padding-right: 16px;
+	border-radius: 3px;
+	margin-top: 1px; 
+	width: 100%;
+	padding: 15px;
 	text-align: center;
+	display: flex;
+	justify-content: center;
 }
 
 .estimate_btn {

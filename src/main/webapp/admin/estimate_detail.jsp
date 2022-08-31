@@ -5,9 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>estimate_detail</title>
-<link href="css/styles.css" rel="stylesheet" />
-<link href="css/estimate_detail.css" rel="stylesheet" />
-<link href="css/estimate_reply.css" rel="stylesheet" />
+<link href="/css/styles.css" rel="stylesheet" />
+<link href="/admin/css/estimate_detail.css" rel="stylesheet" />
+<link href="/admin/css/estimate_reply.css" rel="stylesheet" />
 <script src="js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="js/fileupload.js"></script>
 <script type="text/javascript" src="js/estimate.js"></script>

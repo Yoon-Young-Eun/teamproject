@@ -12,10 +12,10 @@
 <title>Dashboard - SEMO Admin</title>
 
 <!-- icon 버튼 css -->
-<link href="css/icon.css" rel="stylesheet"/>
+<link href="/admin/css/icon.css" rel="stylesheet"/>
 
 <!--  테이블 필터(중요) -->
-<link href="css/filter.css"rel="stylesheet" />
+<link href="/admin/css/filter.css"rel="stylesheet" />
 <script src="js/filter.js"crossorigin="anonymous"></script>
 
 <!-- 체크박스 js -->
@@ -26,7 +26,7 @@
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
-<link href="css/styles.css" rel="stylesheet" />
+<link href="/admin/css/styles.css" rel="stylesheet" />
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
 	crossorigin="anonymous"></script>
 <script type="text/javascript" src="js/index_navbar_onclick.js"></script>

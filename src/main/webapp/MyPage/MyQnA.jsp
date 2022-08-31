@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="/common/css/header.css" />
 <link rel="stylesheet" href="/common/css/footer.css" />
 <link rel="stylesheet" href="/common/css/button.css" />
-<link rel="stylesheet" href="/common/css/sidebar.css" />
+
 
 <!-- 폰트 -->
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,7 +30,7 @@
 	
 	<div class="whole-wrapper">
 		<div class="main">
-				<jsp:include page="/common/mypageSide.jsp" />
+				<jsp:include page="/common/mypageSide.jsp"/>
 
 			<div class="main_text">
 				<div class="MyQnA_title">

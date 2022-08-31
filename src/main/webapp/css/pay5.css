@@ -1,0 +1,130 @@
+@charset "UTF-8";
+html{
+font-family: 'Noto Sans KR', sans-serif;
+
+}
+
+body {
+	overflow-x: hidden;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+.payment_main{
+  display: flex;
+  
+}
+.payment_left{
+  width: 240px;
+}
+.payment_right{
+  width: 240px;
+}
+.payment_content{
+  width: 1440px;
+  margin-left: 165px;
+}
+.payment_text1{
+  
+  width: 1000px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  display: flex;
+  height: 100px;
+  align-items: center;
+  margin-top: 30px;
+}
+.payment_text2{
+	
+  width: 1000px;
+  text-align: center;
+  font-size: 20px;
+  padding-top: 50px;
+  font-weight: bold;
+  height: 50px;
+  border-bottom: 4px solid #63afe4;
+}
+.payment_text3{
+	margin-left:10px;
+  height: 200px;
+  display: flex;
+  
+  justify-content: center;
+  align-items: center;
+  width: 1000px;
+  font-size: 30px;
+  /* padding-top: 50px; */
+  text-align: center;
+}
+
+
+/* #general1{
+  font-size: 15px;
+  width: 200px;
+  height: 60px;
+  color: black;
+  font-weight: bold;
+  border-style: none;
+  border-radius: 5px;
+  background-color:rgb(128,128,128,0.3);
+  box-shadow: 1px 4px 0 rgba(255, 255, 255, 0.5);
+}
+#general1:active{
+  box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+  position: relative;
+  top:2px;
+  transition: 0.8s;
+}
+#special1{
+  font-size: 15px;
+  width: 200px;
+  height: 60px;
+  color: black;
+  font-weight: bold;
+  border-style: none;
+  border-radius: 5px;
+  background-color:rgb(128,128,128,0.3);
+  box-shadow: 1px 4px 0 rgba(255, 255, 255, 0.5);
+}
+#special1:active{
+  box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+  position: relative;
+  top:2px;
+  transition: 0.8s;
+}
+#general1:hover{
+  background-color: #63afe4;
+}
+#special1:hover{
+  background-color: #63afe4;
+} */
+
+.general{
+  margin: 20px;
+}
+.special{
+  margin: 20px;
+}
+
+#general1{
+	border-top: none;
+	border-left:none;
+	border-right:none;
+	border-bottom: 5px solid #2b92da;
+}
+#general1:active{
+	transform: translate(0px,5px);
+  -webkit-transform: translate(0px,5px);
+	border-bottom: 1px solid;
+}
+
+#special1{
+	border-top: none;
+	border-left:none;
+	border-right:none;
+	border-bottom: 5px solid #2b92da;
+}
+#spacial1:active{
+	transform: translate(0px,5px);
+  -webkit-transform: translate(0px,5px);
+	border-bottom: 1px solid;
+}

@@ -3,8 +3,6 @@
 .popup_wrapper {
 	width: 480px;
 	height: 650px;
-	/* 	margin-top: 50px; */
-	/* 	margin-left: 50px; */
 	border: 12px solid #eeeeee;
 	padding: 16px;
 }
@@ -80,38 +78,31 @@
 }
 
 /* 버튼 */
-.popup_btn {
-	border-radius: 3px;
-	margin-top: 1px; 
-	width: 100%;
+.end {
+	margin-top: 30px; 
 	padding: 15px;
-	text-align: center;
 	display: flex;
 	justify-content: center;
 }
 
-.estimate_btn {
-	border-top: 1px solid #dddddd;
-	/*    background: white; */
-	width: 100%;
-	margin-top: 30px;
-	padding: 30px 0px;
-	/*    padding: 10px 10px 10px; */
-	display: flex;
-	justify-content: center;
+.board_btn {
+	margin: 0px 12px;
+	padding: 10px;
+	border-radius: 10px;
+	background: #dee2e6;
 }
 
-.estimate_btn>a {
-	font-size: 14px;
-	border: 2px solid black;
-	background: #ffffff;
-	padding: 3px;
-	border-radius: 5px;
+.end a {
+	color : #212529;
+	font-size: 16px;
+	/* border: 2px solid black; */
 	font-weight: bold;
-	letter-spacing: 2px;
-}
-
-.estimate_btn>a:hover {
-	font-weight: bold;
+	letter-spacing: 3px;
 	text-decoration: none;
+}
+
+.end a:hover {
+	font-weight: bold;
+	text-decoration: underline;
+	color: white;
 }

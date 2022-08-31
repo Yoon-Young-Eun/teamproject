@@ -25,13 +25,13 @@
 </head>
 
 <body>
-	<div class="whole-wrapper">
 
-		<jsp:include page="/common/header.jsp"></jsp:include>
+	<jsp:include page="/common/header.jsp"></jsp:include>
+	
+	<div class="whole-wrapper">
 		<div class="main">
-			<div class="space_left">
-			<jsp:include page="/common/mypageSide.jsp" />
-			</div>
+				<jsp:include page="/common/mypageSide.jsp" />
+
 			<div class="main_text">
 				<div class="MyQnA_title">
 					<h1>내 문의 내역</h1>
@@ -49,7 +49,8 @@
 						<input type="text" onfocus="value=''" value="검색어를 입력해주세요">
 					</div>
 					<div class="search_btn">
-						<a href="#" class="action-button shadow animate blue" style="padding:5px 20px; margin-top:8px;">검색</a>
+						<a href="#" class="action-button shadow animate blue"
+							style="padding: 5px 20px; margin-top: 8px;">검색</a>
 					</div>
 				</div>
 
@@ -75,7 +76,6 @@
 					<a href="MyQnA_write.jsp" class="action-button shadow animate blue">글쓰기</a>
 				</div>
 			</div>
-			<div class="space_right"></div>
 		</div>
 
 	</div>

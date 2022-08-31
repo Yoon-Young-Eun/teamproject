@@ -35,13 +35,11 @@ a {
 /*SIDEBAR*/
 .sidebar {
 /* 	margin-left:240px; */
-    position: absolute;
 /* Change :absolute; to :fixed; to keep the sidebar in place when scolling. */
     background: none;
 /* Sidebar Background */
     width: 200px;
 /* Width of side bar. WARNING: If you change this, change .listItemA:width */
-    height: 100%;
     padding-top: 10px;
 /* Padding above the sidebar image. */
     font-family: helvetica;

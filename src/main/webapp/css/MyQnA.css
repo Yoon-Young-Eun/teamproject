@@ -1,12 +1,45 @@
 @charset "UTF-8";
 
 * {
-	font-family: 'Noto Sans KR', sans-serif;
+   margin: 0;
+   padding: 0;
+}
+
+html {
+   width: 100%;
+   max-width: 1920px;
+   scroll-behavior: smooth;
+}
+
+body {
+   zoom: 1;
+   position: relative;
+   z-index: 1;
+   -ms-overflow-y-style: none;
+}
+
+::-webkit-scrollbar {
+   display: none;
+}
+
+li {
+   list-style: none;
+}
+
+a {
+   text-decoration: none;
+}
+
+.whole-wrapper{
+	display: flex;
+	justify-content: center;
 }
 
 .main {
 	display: flex;
-	justify-content: center;
+	padding-left: 230px;
+	max-width: 1440px;
+	width: 100%;
 }
 
 .space_left, .space_right {

@@ -43,13 +43,12 @@ public class BoardController {
 	@ModelAttribute("conditionMap")
 	public Map<String, String> searchConditionMap() {
 		Map<String, String> conditionMap = new HashMap<String, String>();
-<<<<<<< HEAD
 		conditionMap.put("제목", "member_address1");
 		conditionMap.put("내용", "member_name");
-=======
+
 		conditionMap.put("�젣紐�", "member_address1");
 		conditionMap.put("�궡�슜", "member_name");
->>>>>>> 898837182049a45d589ee833fe8d7d68fdcfa783
+
 		return conditionMap;
 	}
 	

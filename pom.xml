@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>mymaven.spring</groupId>
 	<artifactId>Team_Git</artifactId>
-		<name>Team_Git</name>
 	<name>Team_Git</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
@@ -26,19 +24,43 @@
 	</repositories>
 
 	<dependencies>
-<<<<<<< HEAD
 	
 	<!-- 아임포트 검증2 -->
-=======
-		<!-- 아임포트 검증2 -->
->>>>>>> 898837182049a45d589ee833fe8d7d68fdcfa783
 		<dependency>
 			<groupId>com.github.iamport</groupId>
 			<artifactId>iamport-rest-client-java</artifactId>
 			<version>0.2.14</version>
 		</dependency>
-<<<<<<< HEAD
 
+
+		<!-- 스프링 security -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>5.7.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>5.7.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>5.7.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>5.2.2.RELEASE</version>
+		</dependency>
+		<!-- 테스트 코드 실행하기 위해 선언 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>5.3.20</version>
+		</dependency>
 
 		<!-- lombok  -->
 		<dependency>
@@ -47,9 +69,11 @@
 			<version>1.18.22</version>
 			<scope>provided</scope>
 		</dependency>
-=======
-		
->>>>>>> 898837182049a45d589ee833fe8d7d68fdcfa783
+
+
+
+
+	
 
 		<!-- Spring -->
 		<dependency>
@@ -70,6 +94,7 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 
+
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
 		<dependency> <!-- JSON 응답 바디로 변경할때 -->
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -77,10 +102,7 @@
 			<version>2.13.3</version>
 		</dependency>
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 898837182049a45d589ee833fe8d7d68fdcfa783
 		<!-- CoolSNS -->
 		<dependency>
 			<groupId>net.nurigo</groupId>
@@ -95,6 +117,9 @@
 			<artifactId>jaxb-api</artifactId>
 			<version>2.3.1</version>
 		</dependency>
+
+
+
 
 		<!-- XML로 변환 실행환경 -->
 		<!-- https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime -->
@@ -125,19 +150,13 @@
 			<version>5.3.20</version>
 		</dependency>
 
+
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>5.6.10.Final</version>
 		</dependency>
 
-
-		<!-- mysql connector 버전 주의 -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.28</version>
-		</dependency>
 
 
 		<!-- oracle driver -->
@@ -163,6 +182,8 @@
 
 
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
@@ -250,10 +271,6 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-<<<<<<< HEAD
-=======
-	
->>>>>>> 898837182049a45d589ee833fe8d7d68fdcfa783
 	<build>
 		<plugins>
 			<plugin>

@@ -10,7 +10,7 @@
 <!-- font awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 <!-- resources -->
-<link rel="stylesheet" href="./css/sidebar.css"/>
+<link rel="stylesheet" href="/common/css/sidebar.css"/>
 <!-- JQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!-- fonts -->
@@ -29,8 +29,8 @@
            <li class="listItemA"><a></a></li> 
            -->
            <li class="listItemT" style="left:0px; border-bottom: 2px solid #a9d3f0; color : #2b92da; font-weight:bold;">고객센터</li>
-           <li class="listItemA"><i class="far fa-question-circle"></i><a href="#">자주묻는 질문</a></li>
-           <li class="listItemA"><i class="fas fa-exclamation-circle"></i><a href="#">공지사항</a></li>
+           <li class="listItemA"><i class="far fa-question-circle"></i><a href="/service/service2.jsp">자주묻는 질문</a></li>
+           <li class="listItemA"><i class="fas fa-exclamation-circle"></i><a href="/service/service3.jsp">공지사항</a></li>
            <li class="listItemA"><i class="far fa-calendar-alt"></i><a href="#">이벤트</a></li>            
         </ul>
     </div>

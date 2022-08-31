@@ -10,8 +10,8 @@
 <!-- font awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 <!-- resources -->
-<link rel="stylesheet" href="./css/footer.css"/>
-<link rel="stylesheet" href="./css/button.css"/>
+<link rel="stylesheet" href="/common/css/footer.css"/>
+<link rel="stylesheet" href="/common/css/button.css"/>
 <!-- JQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!-- fonts -->

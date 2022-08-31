@@ -6,8 +6,9 @@ public class UserVO {
 	private String name;
 	private String role;
 
-// getter, setter Ãß°¡
-// Source -> Generate toString ... ¼±ÅÃ -> ¸ğµç ÇÊµå Ã¼Å© È®ÀÎ ¹× Generate Å¬¸¯
+	// getter, setter ì¶”ê°€
+	// Source -> Generate toString ... ì„ íƒ -> ëª¨ë“  í•„ë“œ ì²´í¬ í™•ì¸ ë° Generate í´ë¦­
+	
 	public String getId() {
 		return id;
 	}

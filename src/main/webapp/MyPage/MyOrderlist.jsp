@@ -6,12 +6,18 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
+  <link rel="stylesheet" href="../css/footer.css">
   <link rel="stylesheet" href="../css/MyOrderlist.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
   <title>Document</title>
 
+  <!-- 팝업 -->
+  <script language="javascript">
+  function showPopup() { window.open("cancle_popup.jsp", "취소확인", "width=350, height=200, left=570, top=300, resizeable=none"); }
+  </script>
+  
   <script src="../js/jquery-3.6.0.min.js"></script>
   <script language="javascript">
    
@@ -178,7 +184,7 @@ $(function() {
 <div class="body_wrapper">
 <div class="margin_side">
 <div class="side_menu">
-<div class="side_menu_name"><a href="MyMain.jsp">으아아아</a></div>
+<div class="side_menu_name"><a href="MyMain.jsp">이름</a></div>
 <div class="side_menu_title">마이 페이지</div>
 <div class="side_menu_content"><a href="MyOrderlist.jsp">내 세탁물 관리</a></div>
 <div class="side_menu_content"><a href="#">내 주소지 관리</a></div>
@@ -199,6 +205,10 @@ $(function() {
 		<h1>내 세탁물 관리</h1>
 	</div>
 
+<div class="orderlist_head">
+		<div class="orderlist_count">
+		<div class="orderlist_count_text">총</div><div class="orderlist_count_data">3</div><div class="orderlist_count_text">건 주문</div>
+		</div>
 	<div class="orderlist_search">
 		<div class="search_condition">
 			<select class="condition">
@@ -214,7 +224,9 @@ $(function() {
 			<a href="#" class="action-button shadow animate blue">검색</a>
 		</div>
 	</div>
-
+	</div>
+	
+	
 	<div class="orderlist_body">
 		<div class="orderlist_body_title">
 			<div class="title_num">주문번호</div>
@@ -223,6 +235,7 @@ $(function() {
 			<div class="title_order_date">주문일자</div>
 			<div class="title_pickup_date">픽업일자</div>
 			<div class="title_work">주문상태</div>
+			<div class="title_etc">비고</div>
 			
 		</div>
 		
@@ -233,6 +246,9 @@ $(function() {
 			<div class="content_order_date">2022.07.11(월)</div>
 			<div class="content_pickup_date">2022.07.15(금)</div>
 			<div class="content_work"><a href="MyEstimate.jsp">견적서보기</a></div>
+			<div class="content_etc">
+			<div class="action-button shadow animate red" onclick="showPopup();">주문취소</div>
+			</div>
 		</div>
 		
 		<div class="orderlist_body_content">
@@ -242,6 +258,9 @@ $(function() {
 			<div class="content_order_date">2022.07.11(월)</div>
 			<div class="content_pickup_date">2022.07.15(금)</div>
 			<div class="content_work">주문완료</div>
+			<div class="content_etc">
+			<div class="action-button shadow animate etc_blue">리뷰작성</div>
+			</div>
 		</div>
 		
 		<div class="orderlist_body_content">
@@ -251,6 +270,7 @@ $(function() {
 			<div class="content_order_date">2022.07.11(월)</div>
 			<div class="content_pickup_date">2022.07.15(금)</div>
 			<div class="content_work">주문완료</div>
+			<div class="content_etc"></div>
 		</div>
 	</div>
 	
@@ -268,6 +288,25 @@ $(function() {
 
 </div>
 </div>
+
+
+<footer>
+   <div class = "bottom-menu">
+      <ul>
+         <li><a href="#">개인정보처리방침</a></li>
+         <li><a href="#">이용약관</a></li>
+         <li><a href="#">의류보관 이용약관</a></li>
+      </ul>
+   </div>
+   <div class = "bottom-info">
+      <h2>△■</h2>
+      <div class = "bottom-info-list">
+         <span>상호명 : 세탁의 모든것</span>
+         <span>대표전화 : 02-000-0000</span>
+         <span>사업자 번호 : no.00000000000</span>   
+      </div>
+   </div>
+</footer>
 
 </body>
 </html>

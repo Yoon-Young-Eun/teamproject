@@ -360,7 +360,7 @@
         </tbody>
     </table>
 <div class="flex">
-						<div> <input id="button" type="button" value="등록" onclick="location.href='banner_new_form.jsp'" /> </div>
+						<div> <input id="button" type="button" value="등록" onclick="location.href='form_banner.jsp'" /> </div>
 						<div> <input  id="button" type="button"  value="수정" /> </div>
 						<div> <input id="button" type="button" value="삭제" /> </div>
 						

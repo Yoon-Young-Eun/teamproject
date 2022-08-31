@@ -11,6 +11,10 @@
 	margin-top: -12px;
 }
 
+.estimate_reply_conwrap{
+	
+}
+
 .estimate_reply {
 	display: flex;
 }
@@ -46,20 +50,14 @@
 
 /* 버튼 */
 #layer_reply_btn {
-	font-size: 14px;
-	border: 2px solid black;
-	background: #ffffff;
-	padding: 3px;
-	border-radius: 5px;
- 	font-weight: bold;
- 	letter-spacing: 2px;
+	margin: 0px 12px;
+	padding: 10px;
+	border-radius: 10px;
+	background: #dee2e6;
 }
 #layer_cancel_btn {
-	font-size: 14px;
-	border: 2px solid black;
-	background: #ffffff;
-	padding: 3px;
-	border-radius: 5px;
- 	font-weight: bold;
- 	letter-spacing: 2px;
+	margin: 0px 12px;
+	padding: 10px;
+	border-radius: 10px;
+	background: #dee2e6;
 }

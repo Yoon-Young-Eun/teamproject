@@ -3,7 +3,70 @@
 	xmlns="http://Java.sun.com/xml/ns/javaee"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	version="2.5">
+<<<<<<< HEAD
 	
+=======
+
+
+
+
+
+	<!-- 스프링 설정 정보를 읽기위해 선언 : ContextLoader와 ServletContextListener를 상속 -->
+	<!-- presentation-layer.xml 파일을 읽어서 스프링 컨테이너를 구동하면 Controller 객체들이 메모리에 생성된다. 
+	    하지만 Controller 객체들이 생성되기 전에 누군가 먼저 src/main/resources 폴더에 있는 applicationContext.xml 
+		파일을 읽어서 비즈니스 컴포넌트들을 메모리에 생성해야 한다. 이때 사용하는 클래스가 스프링에서 제공하는 ContextLoaderListener 이다. -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+
+
+
+	<!-- 스프링 프레임워크가 동작하기 위한 설정파일의 위치를 알려주는 파라미터 : contextConfigLocation / 설정파일읽어들여 필요한 객체등록하고 만들수있다. -->
+	<!-- ContextLoaderListener가 기본적으로 /WEB-INF/[서블릿 이름]-servlet.xml 파일을 읽어서 
+		스프링 컨테이너를 구동하기 때문에 위치설정 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:applicationcontext.xml</param-value>
+	</context-param>
+
+ <!-- Process application Users(사용자용).do로 찍히면 아래 xml 처리 -->
+	<servlet>
+		<servlet-name>user</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring/user/user-servlet.xml</param-value>
+		</init-param>
+		<load-on-startup>0</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>user</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+
+	<!-- Process application Admin(관리자용) .dmo로 찍히면 admin이라 부르고 admin이라 불리우면 아래DispatcherServlet를 생성하고 클래스가 생성될때 
+	 init-param으로 아래 /WEB-INF/config/경로의 admin-context.xml 파일을 읽어드린다. -->
+	<servlet>
+		<servlet-name>admin</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring/admin/admin-servlet.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>admin</servlet-name>
+		<url-pattern>*.dmo</url-pattern>
+	</servlet-mapping>
+
+
+
+
+>>>>>>> 898837182049a45d589ee833fe8d7d68fdcfa783
 	<!--filter 등록 : 인코딩 설정 -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>

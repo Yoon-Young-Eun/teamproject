@@ -14,10 +14,10 @@ import org.springframework.web.multipart.MultipartFile;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-@XmlAccessorType(XmlAccessType.FIELD) 
+@XmlAccessorType(XmlAccessType.FIELD) // @XmlAccessorType은 BoardVO 객체를 XML로 변환할 수 있다는 의미
 public class BoardDTO {
 	
-	@XmlAttribute 
+	@XmlAttribute  // 이는 seq를 속성으로 표현하라는 의미
 	private int seq;
 	
 	private String title;
@@ -26,7 +26,7 @@ public class BoardDTO {
 	private Date regDate;
 	private int cnt;
 	
-	@XmlTransient 
+	@XmlTransient //  XML 변환에서 제외하라는 의미 
 	private String searchCondition;
 	@XmlTransient
 	private String searchKeyword;
@@ -72,8 +72,8 @@ public class BoardDTO {
 		this.cnt = cnt;
 	}
 	
-	
-
+//	 @JsonIgnore를 추가하였다. @JsonIgnore는 자바 객체
+//	 를 JSON으로 변환할 때 특정 변수를 변환에서 제외시킨다. 주의할 점은 getter 메서드 위에 설정 해야한다는 점이다.
 	
 	@JsonIgnore
 	public String getSearchCondition() {

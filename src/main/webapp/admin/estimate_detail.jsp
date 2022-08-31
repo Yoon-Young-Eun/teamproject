@@ -5,9 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>estimate_detail</title>
-<link href="css/styles.css" rel="stylesheet" />
-<link href="css/estimate_detail.css" rel="stylesheet" />
-<link href="css/estimate_reply.css" rel="stylesheet" />
+<link href="/css/styles.css" rel="stylesheet" />
+<link href="/admin/css/estimate_detail.css" rel="stylesheet" />
+<link href="/admin/css/estimate_reply.css" rel="stylesheet" />
 <script src="js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="js/fileupload.js"></script>
 <script type="text/javascript" src="js/estimate.js"></script>
@@ -38,7 +38,8 @@
 			<div class="estimate_request">
 				<div class="estimate_request_title_row">작성자</div>
 				<div class="estimate_request_name">기맬</div>
-
+			</div>
+			<div class="estimate_request">
 				<div class="estimate_request_title_row">접수일자</div>
 				<div class="estimate_request_date">2022-08-10</div>
 			</div>
@@ -65,15 +66,12 @@
 						href="#">취소</a>
 				</div>
 			</div> -->
-			<div class="popup_btn">
-				<div class="estimate_btn">
-					<div id="layer_reply_btn">
-						<a href="#">답변</a>
-					</div>
-					&nbsp;&nbsp;&nbsp;&nbsp;
-					<div id="layer_cancel_btn">
-						<a href="estimate.jsp">목록</a>
-					</div>
+			<div class="end">
+				<div id="layer_reply_btn" class="board_btn">
+					<a href="#">답변</a>
+				</div>
+				<div id="layer_cancel_btn" class="board_btn">
+					<a href="estimate.jsp">목록</a>
 				</div>
 			</div>
 		</div>
@@ -85,34 +83,45 @@
 				<div class="estimate_reply_head">
 					<h2>견적서</h2>
 				</div>
-				<div class="estimate_reply">
-					<div class="estimate_reply_title">견적금액</div>
-					<div class="estimate_reply_title_body">
-						<input type="text" placeholder="                                  원">
+				<div class="estimate_reply_conwrap">
+					<div class="estimate_reply">
+						<div class="estimate_reply_title">견적금액</div>
+						<div class="estimate_reply_title_body">
+							<input type="text"
+								placeholder="                                  원">
+						</div>
 					</div>
-				</div>
-				<div class="estimate_reply">
-					<div class="estimate_reply_title">견적일자</div>
-					<div class="estimate_reply_date_body">2022-08-10</div>
-				</div>
-				<div class="estimate_reply">
-					<div class="estimate_reply_title">이유</div>
-					<div class="estimate_reply_content_body">
-						<select>
-						<option>특수세탁1단계</option>
-						<option>특수세탁2단계</option>
-						<option>특수세탁3단계</option>
-						<option>특수세탁4단계</option>
-					</select>
+					<div class="estimate_reply">
+						<div class="estimate_reply_title">견적일자</div>
+						<div class="estimate_reply_date_body">2022-08-10</div>
+					</div>
+					<div class="estimate_reply">
+						<div class="estimate_reply_title">이유</div>
+						<div class="estimate_reply_content_body">
+							<select>
+								<option>특수세탁1단계</option>
+								<option>특수세탁2단계</option>
+								<option>특수세탁3단계</option>
+								<option>특수세탁4단계</option>
+							</select>
+						</div>
 					</div>
 				</div>
 			</div>
 
-			<div class="popup_btn">
-				<div class="estimate_btn">
-					<a href="#">저장</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">취소</a>
-				</div>
+			<!-- 			<div class="popup_btn"> -->
+			<!-- 				<div class="estimate_btn"> -->
+			<!-- 					<a href="#">저장</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">취소</a> -->
+			<!-- 				</div> -->
 
+			<!-- 			</div> -->
+			<div class="end">
+				<div class="board_btn">
+					<a href="#">저장</a>
+				</div>
+				<div class="board_btn">
+					<a href="#">취소</a>
+				</div>
 			</div>
 		</div>
 	</div>

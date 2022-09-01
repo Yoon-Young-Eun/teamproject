@@ -39,6 +39,7 @@ public class BoardDAOMybatis{
 		public void insertBoard(MemberVO vo) {
 			System.out.println("---> MyBatis로 insertBoard() 기능 처리");
 		sqlSessionTemplate.insert("BoardDAO.insertBoard", vo);
+		
 		}
 		public void updateBoard(MemberVO vo) {
 			System.out.println("---> MyBatis로 updateBoard() 기능 처리");

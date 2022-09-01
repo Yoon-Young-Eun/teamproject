@@ -14,7 +14,17 @@
 	<context:property-placeholder location="classpath:config/database.properties" />
 
 	
-	<!-- DataSource 등록 -->
+<!-- mysql 설정	 -->
+    <bean id="dataSource"
+      class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+      <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+      <property name="url" value="jdbc:mysql://localhost:3306/mydatabase?characterEncoding=utf8&amp;serverTimezone=UTC" />
+      <property name="username" value="myproject" />
+      <property name="password" value="1234" />
+    </bean>
+    
+
+<!-- 	Oracle 등록 
 	<bean id="dataSource"
 		class="org.apache.commons.dbcp2.BasicDataSource"
 		destroy-method="close">
@@ -22,17 +32,7 @@
 		<property name="url" value="${jdbc.url}" />
 		<property name="username" value="${jdbc.username}" />
 		<property name="password" value="${jdbc.password}" />
-	</bean>
-	
-<!--   mysql 설정
-      <bean id="dataSource"
-      class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
-      <property name="driverClass" value="com.mysql.cj.jdbc.Driver" />
-      <property name="url" value="jdbc:mysql://localhost:3306/DB이름?characterEncoding=utf8&amp;serverTimezone=UTC" />
-      <property name="username" value="아이디" />
-      <property name="password" value="비밀번호" />
-    </bean> -->
-	
+	</bean> -->
 	
 
 

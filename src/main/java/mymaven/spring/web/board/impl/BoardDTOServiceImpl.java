@@ -17,6 +17,8 @@ public class BoardDTOServiceImpl implements RundryService {
 	//DAO 클래스가 변경되어도 클라이언트에 해당하는 BoardController는 수정할 필요가 없다.	
 	@Autowired
 	private BoardDAOMybatis boardDAO;
+	
+	
 
 	@Override
 	public void insertBoard(MemberVO vo) {

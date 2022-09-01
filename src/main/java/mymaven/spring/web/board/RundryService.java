@@ -17,4 +17,5 @@ public interface RundryService {
 
 	List<MemberVO> getBoardList(MemberVO vo);
 	
+	
 }

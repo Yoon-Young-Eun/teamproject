@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+
 import mymaven.spring.web.board.impl.BoardDAOMybatis;
+import mymaven.spring.web.common.CoolSms;
 import mymaven.spring.web.iamport.refund;
 import mymaven.spring.web.iamport.token;
 import net.nurigo.java_sdk.api.Message;
@@ -33,6 +35,9 @@ public class BoardController {
 
 	@Autowired
 	private BoardDAOMybatis myBatis;
+	
+	@Autowired
+	CoolSms coolsms;
 	
 //	@ModelAttribute
 //	1. Controller 메서드의 매개변수로 선언된 Command 객체의 이름을 변경할 때 사용. 
@@ -94,6 +99,7 @@ public class BoardController {
 	public String updateBoard(@ModelAttribute("board") MemberVO vo) {
 		System.out.println("湲� �닔�젙 湲곕뒫 泥섎━");
 		boardService.updateBoard(vo);
+		
 		return "member.do";
 		//return "getBoardList.do";
 	}
@@ -131,35 +137,9 @@ public class BoardController {
 	public String getBoardList(String [] tdArr, String message, String selectPage, String searchKeyword, String searchCondition, Model model, String pageNum, MessageVO vo) {
 		System.out.println("湲� 紐⑸줉 寃��깋 泥섎━");
 		
-		//Cool硫붿떊�� 
-		System.out.println(tdArr);
-	    System.out.println("message :"+ message);
-		if( tdArr != null && message != null ) {
-			System.out.println("�솕�굹?");
-			String [] sns = tdArr; 
-			  String api_key = "NCSK8KGKIZD54AMU";   //coolsns 가입후 받는 키
-			  String api_secret = "Z3E8MTR7D5HA5BFTR0FDJXETBQS6AIVU"; // //coolsns 가입후 받는 키  
-			  Message coolsms = new Message(api_key, api_secret);
-			  	
-			    HashMap<String, String> params = new HashMap<String, String>();
-			    for(int i = 0;i<tdArr.length; i++) {
-			    params.put("to", tdArr[i]);	 // 문자를 보낼 전화번호를 배열로 받음
-			    }
-			    params.put("from", "01031721622");	
-			    params.put("type", "SMS");
-			    params.put("text", message);
-			    System.out.println(message);
-			    params.put("app_version", "test app 1.2"); 
-			    // application name and version
-
-			    try {
-			      JSONObject obj = (JSONObject) coolsms.send(params);
-			      System.out.println(obj.toString());
-			    } catch (CoolsmsException e) {
-			      System.out.println(e.getMessage());
-			      System.out.println(e.getCode());
-			    }		
-		} //문자 코드 끝
+		
+		coolsms.sendMessage(tdArr, message);
+	
 		
 		// 페이징 처리
 	      if (pageNum == null) {
@@ -189,7 +169,8 @@ public class BoardController {
 	    	  
 	       }else {
 	    	   articleList=Collections.emptyList(); 
-	       }
+	       } //페이징 종료
+	             
 	       
 	      // System.out.println("articleList =" +  articleList);
 	       
@@ -211,14 +192,8 @@ public class BoardController {
 		//return "getBoardList.jsp";
 	}
 
-	
-	
-	
-	
-	
 	@RequestMapping("/import_payment.do")
 	public String getToken(token tk, Model model) throws Exception {
-		System.out.println("�넗�겙�쓣 泥섎━�븯�옄.");
 		model.addAttribute("token", tk);
 		System.out.println(token.getToken());
 		return "import_payment.jsp";

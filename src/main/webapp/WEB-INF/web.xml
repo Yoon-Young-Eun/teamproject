@@ -56,7 +56,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>admin</servlet-name>
-		<url-pattern>*.dmo</url-pattern>
+		<url-pattern>*.mdo</url-pattern>
 	</servlet-mapping>
 
 	<!--filter 등록 : 인코딩 설정 -->

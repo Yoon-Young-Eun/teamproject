@@ -62,7 +62,7 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="/admin/member.jsp">회원관리</a>
                                     <a class="nav-link" href="/admin/member_black.jsp">블랙회원관리</a>
-                                    <a class="nav-link" href="/admin/memberstaff.jsp">매니저관리</a>
+                                    <a class="nav-link" href="/staffList.mdo">매니저관리</a>
                                 </nav>
                             </div>
                             

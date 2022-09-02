@@ -9,4 +9,7 @@ public interface AdminService {
 	public AdminVO getAdmin(AdminVO vo); 
 	public void setAdmin(AdminVO vo);
 	public List<AdminVO> getAdminList();
+	public AdminVO getReadStaff(AdminVO vo);
+	public void updateStaff(AdminVO vo);
+	public void deleteStaff(AdminVO vo);
 }

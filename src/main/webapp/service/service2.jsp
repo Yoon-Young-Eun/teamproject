@@ -127,6 +127,7 @@
 	</div><!-- main -->
     </div>
     </div>
+    </div>
 
 	<script>
       $(".que").click(function() {

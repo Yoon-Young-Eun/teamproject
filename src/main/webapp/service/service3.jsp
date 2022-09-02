@@ -29,9 +29,7 @@
       <div class="main_text1">
          공지사항
       </div>
-      <div class="main_text2">
-         Notice
-      </div>
+      
       <div class="main_text3">
          <div class="main_textNumber">글번호</div>
          <div class="main_textType">타입</div>
@@ -82,6 +80,7 @@
 	
 	
 	</div><!-- main_box -->
+	<div class="space_right"></div>
 	</div><!-- main -->
     </div><!-- wrap1 -->
     </div><!-- wrap -->

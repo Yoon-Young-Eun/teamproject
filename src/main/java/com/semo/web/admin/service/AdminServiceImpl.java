@@ -1,5 +1,7 @@
 package com.semo.web.admin.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +16,20 @@ public class AdminServiceImpl implements AdminService {
 	AdminDAO admindao;
 	
 	@Override
-	public AdminVO getUser(AdminVO vo) {
-		return  admindao.getUser(vo);
+	public AdminVO getAdmin(AdminVO vo) {
+		return  admindao.getAdmin(vo);
 	}
+
+	@Override
+	public void setAdmin(AdminVO vo) {
+		admindao.setAdmin(vo);
+	}
+
+	@Override
+	public List<AdminVO> getAdminList() {
+		return admindao.getAdminList();
+	}
+	
+	
 
 }

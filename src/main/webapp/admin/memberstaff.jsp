@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,25 +13,25 @@
 <title>Dashboard - SEMO Admin</title>
 
 <!-- icon 버튼 css -->
-<link href="css/icon.css" rel="stylesheet" />
+<link href="/admin/css/icon.css" rel="stylesheet" />
 
 <!--  테이블 필터(중요) -->
-<link href="css/filter.css" rel="stylesheet" />
-<script src="js/filter.js" crossorigin="anonymous"></script>
+<link href="/admin/css/filter.css" rel="stylesheet" />
+<script src="/admin/js/filter.js" crossorigin="anonymous"></script>
 
 <!-- 체크박스 js -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="./js/checkbox.js"></script>
+<script src="/admin/js/checkbox.js"></script>
 
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
-<link href="css/styles.css" rel="stylesheet" />
+<link href="/admin/css/styles.css" rel="stylesheet" />
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
 	crossorigin="anonymous"></script>
-<script type="text/javascript" src="js/index_navbar_onclick.js"></script>
+<script type="text/javascript" src="/admin/js/index_navbar_onclick.js"></script>
 </head>
 <body class="sb-nav-fixed">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -75,7 +76,7 @@
 				<div class="sb-sidenav-menu">
 					<div class="nav">
 						<div class="sb-sidenav-menu-heading">Core</div>
-						<a class="nav-link" href="index.jsp">
+						<a class="nav-link" href="/admin/index.jsp">
 							<div class="sb-nav-link-icon">
 								<i class="fas fa-tachometer-alt"></i>
 							</div> 대시보드
@@ -95,9 +96,9 @@
 						<div class="collapse" id="change_id_01"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="member.jsp">회원관리</a> <a
-									class="nav-link" href="member_black.jsp">블랙회원관리</a> <a
-									class="nav-link" href="memberstaff.jsp">매니저관리</a>
+								<a class="nav-link" href="/admin/member.jsp">회원관리</a> <a
+									class="nav-link" href="/admin/member_black.jsp">블랙회원관리</a> <a
+									class="nav-link" href="/admin/memberstaff.jsp">매니저관리</a>
 							</nav>
 						</div>
 
@@ -114,8 +115,8 @@
 						<div class="collapse" id="change_id_02"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="order.jsp">주문/결제</a> <a
-									class="nav-link" href="estimate.jsp">견적상품</a>
+								<a class="nav-link" href="/admin/order.jsp">주문/결제</a> <a
+									class="nav-link" href="/admin/estimate.jsp">견적상품</a>
 							</nav>
 						</div>
 
@@ -136,7 +137,7 @@
 						<!--                                 </nav> -->
 						<!--                             </div> -->
 
-						<a class="nav-link collapsed" href="item.jsp"
+						<a class="nav-link collapsed" href="/admin/item.jsp"
 							data-bs-toggle="collapse" data-bs-target="#change_id_04"
 							aria-expanded="false" aria-controls="collapseLayouts">
 							<div class="sb-nav-link-icon">
@@ -183,11 +184,11 @@
 						<div class="collapse" id="change_id_06"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="board_notice.jsp">공지사항</a> <a
-									class="nav-link" href="board_event.jsp">이벤트</a> <a class="nav-link" href="#">리뷰</a>
+								<a class="nav-link" href="/admin/board_notice.jsp">공지사항</a> <a
+									class="nav-link" href="/admin/board_event.jsp">이벤트</a> <a class="nav-link" href="#">리뷰</a>
 
-								<a class="nav-link" href="board_Q&A.jsp">QnA</a> <a
-									class="nav-link" href="board_FAQ.jsp">자주하는 질문</a>
+								<a class="nav-link" href="/admin/board_Q&A.jsp">QnA</a> <a
+									class="nav-link" href="/admin/board_FAQ.jsp">자주하는 질문</a>
 
 							</nav>
 						</div>
@@ -224,9 +225,9 @@
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
 
-								<a class="nav-link" href="promo.jsp">쿠폰관리</a> <a
-									class="nav-link" href="supporbanner.jsp">배너관리</a> <a
-									class="nav-link" href="supporclause.jsp">약관관리</a>
+								<a class="nav-link" href="/admin/promo.jsp">쿠폰관리</a> <a
+									class="nav-link" href="/admin/supporbanner.jsp">배너관리</a> <a
+									class="nav-link" href="/admin/supporclause.jsp">약관관리</a>
 
 							</nav>
 						</div>
@@ -323,7 +324,7 @@
 				<div class="container-fluid px-4">
 					<h1 class="mt-4">매니저관리</h1>
 					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
+						<li class="breadcrumb-item"><a href="/admin/index.jsp">Dashboard</a></li>
 						<li class="breadcrumb-item active">매니저관리</li>
 					</ol>
 					<div class="card mb-4">
@@ -350,56 +351,38 @@
 							<!-- excel -->
 						</div>
 
-
-
-						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
-						<table id="datatablesSimple"
+				
+					<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
+						<table id=""
 							class="emp-table dataPerPage tblCustomers tblexportData table"
 							border="5">
 							<thead>
 								<tr>
-								<tr>
 									<th width="50" id="check_td"><input type="checkbox"
 										name="check" class="allcheck"></th>
-									<th width="140px;" col-index=2>매니저코드</th>
-									<th width="160px;" col-index=3>부서<select
-										class="table-filter" onchange="filter_rows()">
+									<th col-index=2>No</th>
+									<th col-index=3>아이디</th>
+									<th col-index=4>부서<select class="table-filter"
+										onchange="filter_rows()">
 											<option value="all"></option>
-									</select></th>
-									<th width="160px;" col-index=4>지급<select
-										class="table-filter" onchange="filter_rows()">
-											<option value="all"></option>
-									</select></th>
-									<th col-index=5>이름</th>
-									<th col-index=6>아이디</th>
-								<tr>
+									</select>
+									</th>
+									<th col-index=5>직급</th>
+									<th col-index=6>이름</th>
+								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>대표이사</td>
-									<td>대표이사</td>
-									<td>기매링</td>
-									<td>merring</td>
+								<c:forEach var="admin" items="${adminList}">
+									<tr>
+										<td id="check_td"><input type="checkbox" name="check"></td>
+										<td>${admin.admin_no}</td>
+										<td><a href="readStaff.mdo?admin_no=${admin.admin_no}">${admin.admin_id}</a></td>
+										<td>${admin.admin_position}</td>
+										<td>${admin.admin_title}</td>
+										<td>${admin.admin_name}</td>
+									</tr>
+								</c:forEach>
 
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>002</td>
-									<td>영업부</td>
-									<td>상무</td>
-									<td>쵸리s</td>
-									<td>choris 맞나?</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>003</td>
-									<td>배달부</td>
-									<td>사원</td>
-									<td>최배민</td>
-									<td>we are!</td>
-								</tr>
 							</tbody>
 						</table>
 						<div class="flex">
@@ -407,10 +390,7 @@
 								<input id="button" type="button" value="등록" onclick="showPopup();"/>
 							</div>
 							<div>
-								<input id="button" type="button" value="수정" onclick="showpopup();"/>
-							</div>
-							<div>
-								<input id="button" type="button" value="삭제" />
+								<input id="button" type="button" id="selectBtn" value="삭제" />
 							</div>
 
 						</div>
@@ -438,18 +418,59 @@
 			</footer>
 		</div>
 	</div>
+	
+	<!--체크박스 선택하여 삭제,, 아직 구현안됨 -->
+	<script>
+		// 상단 선택버튼 클릭시 체크된 Row의 값을 가져온다.
+		$("#selectBtn").click(function() {
+			console.log("1");
+			var rowData = new Array();
+			var tdArr = new Array();
+			var checkbox = $("tbody input[name=check]:checked");
+			checkbox.each(function(i) {
+				// checkbox.parent() : checkbox의 부모는 <td>이다.
+				// checkbox.parent().parent() : <td>의 부모이므로 <tr>이다.
+				var tr = checkbox.parent().parent().eq(i);
+				var td = tr.children();
+				rowData.push(tr.text());
+				// td.eq(0)은 체크박스 이므로  td.eq(2)=아이디 값을 가져온다.
+
+				var id = td.eq(2).text() + ",";
+				id = id.substring(0, phone.length - 1); //마지막 , 제거
+				// 가져온 값을 배열에 담는다.
+				tdArr.push(id);
+				//console.log("phone : " + phone);
+
+				$.ajax({
+					url : "deleteStaff.mdo",
+					type : "get",
+					traditional : true,
+					data : {
+						tdArr : tdArr
+					},
+					dataType : 'text',
+					success : function(data) {
+						console.log(data);
+					}
+				});
+
+			});
+		});
+	</script>
+	
+	
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
-	<script src="js/scripts.js"></script>
+	<script src="/admin/js/scripts.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
 		crossorigin="anonymous"></script>
-	<script src="assets/demo/chart-area-demo.js"></script>
-	<script src="assets/demo/chart-bar-demo.js"></script>
+	<script src="/admin/assets/demo/chart-area-demo.js"></script>
+	<script src="/admin/assets/demo/chart-bar-demo.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
 		crossorigin="anonymous"></script>
-	<script src="js/datatables-simple-demo.js"></script>
+	<script src="/admin/js/datatables-simple-demo.js"></script>
 	<script>
 		getUniqueValuesFromColumn()
 	</script>
@@ -476,8 +497,8 @@
 	var popupY= (window.screen.height / 2) - (544 / 2);
 	// 만들 팝업창 상하 크기의 1/2 만큼 보정값으로 빼주었음
 
-	function showPopup() {window.open('member_staff_insert.jsp', '매니저등록', 'status=no, height=544, width=360, left='+ popupX + ', top='+ popupY);}
-	function showpopup() {window.open('member_staff_edit.jsp', '매니저수정', 'status=no, height=544, width=360, left='+ popupX + ', top='+ popupY);}
+	function showPopup() {window.open('/admin/member_staff_insert.jsp', '매니저등록', 'status=no, height=544, width=360, left='+ popupX + ', top='+ popupY);}
+	function showpopup() {window.open('/admin/member_staff_edit.jsp', '매니저수정', 'status=no, height=544, width=360, left='+ popupX + ', top='+ popupY);}
   </script>
 
 </body>

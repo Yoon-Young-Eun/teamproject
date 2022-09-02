@@ -1,5 +1,7 @@
 package com.semo.web.admin.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,15 +19,16 @@ public class Ad_BoardController {
 	@RequestMapping("/getBoardList.mdo")
 	public String getBoardList(NoticeVO vo, Model model) {
 		System.out.println("글 목록 처리");
-		model.addAttribute("boardList", boardservice.getBoardList(vo));
-		return "board_notice.jsp";
+		List<NoticeVO> boardList = boardservice.getBoardList(vo);
+		model.addAttribute("boardList", boardList);
+		return "/admin/board_notice.jsp";
 	}
 
 	@RequestMapping("/getBoard.mdo")
 	public String getBoard(NoticeVO vo, Model model) {
 		System.out.println("글 상세 보기 처리");
 		model.addAttribute("board", boardservice.getBoard(vo));
-		return "getBoard.jsp";
+		return "/admin/getBoard_notice.jsp";
 	}
 
 	@RequestMapping("/insertBoard.mdo")

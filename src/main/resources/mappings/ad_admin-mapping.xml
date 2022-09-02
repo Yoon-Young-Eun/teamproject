@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="AdminDAO">
+  <select  id="getAdmin" parameterType="admin" resultType="admin">
+  <![CDATA[	select * from admin where admin_id = #{admin_id} and admin_passwd = #{admin_passwd}  ]]>
+  </select>
+  
+  <insert id="setAdmin" parameterType="admin">
+   insert into admin(ADMIN_ID, ADMIN_PASSWD, ADMIN_POSITION, ADMIN_TITLE, ADMIN_NAME) values(#{ADMIN_ID},#{ADMIN_PASSWD},#{ADMIN_POSITION},#{ADMIN_TITLE},#{ADMIN_NAME})
+  </insert>
+  
+  <select id="getAdminList" resultType="admin">
+   select * from admin
+  </select>
+  
+  
+ </mapper>

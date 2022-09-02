@@ -34,8 +34,7 @@
 			</tr>
 			<tr>
 				<td>비밀번호</td>
-				<td><input type="password" name="password"
-					value="${userVO.password}"/></td>
+				<td><input type="password" name="password" value="${userVO.password}"/></td>
 				<!-- <td><input type="password" name="password" /></td> -->
 			</tr>
 			<tr>

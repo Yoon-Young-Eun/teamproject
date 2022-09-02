@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,7 +83,7 @@
 						</a>
 
 						<div class="sb-sidenav-menu-heading">관리자 메뉴</div>
-<<<<<<< HEAD
+
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 							data-bs-target="#change_id_01" aria-expanded="false"
 							aria-controls="collapseLayouts">
@@ -102,7 +102,7 @@
 									class="nav-link" href="memberstaff.jsp">매니저관리</a>
 							</nav>
 						</div>
-=======
+
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_01" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 회원관리
@@ -174,7 +174,6 @@
                                     <a class="nav-link" href="board_notice.jsp">공지사항</a>
                                     <a class="nav-link" href="board_event.jsp">이벤트</a>
                                     <a class="nav-link" href="#">리뷰</a>
->>>>>>> main
 
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 							data-bs-target="#change_id_02" aria-expanded="false"
@@ -490,11 +489,6 @@
 								se_submit.click();
 							});
 						</script>
-
-
-
-
-
 
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
 						<table id=""

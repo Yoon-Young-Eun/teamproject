@@ -24,13 +24,27 @@
 	</repositories>
 
 	<dependencies>
+
 		<!-- 아임포트 검증2 -->
 		<dependency>
 			<groupId>com.github.iamport</groupId>
 			<artifactId>iamport-rest-client-java</artifactId>
 			<version>0.2.14</version>
 		</dependency>
-		
+
+
+		<!-- lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.22</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+
+
+
 
 		<!-- Spring -->
 		<dependency>
@@ -75,6 +89,9 @@
 			<version>2.3.1</version>
 		</dependency>
 
+
+
+
 		<!-- XML로 변환 실행환경 -->
 		<!-- https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime -->
 		<dependency>
@@ -104,6 +121,7 @@
 			<version>5.3.20</version>
 		</dependency>
 
+
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
@@ -111,7 +129,7 @@
 		</dependency>
 
 
-		<!-- mysql connector 버전 주의 -->
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -142,6 +160,8 @@
 
 
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
@@ -180,30 +200,6 @@
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>${org.slf4j-version}</version>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.15</version>
-			<exclusions>
-				<exclusion>
-					<groupId>javax.mail</groupId>
-					<artifactId>mail</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>javax.jms</groupId>
-					<artifactId>jms</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.sun.jdmk</groupId>
-					<artifactId>jmxtools</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>com.sun.jmx</groupId>
-					<artifactId>jmxri</artifactId>
-				</exclusion>
-			</exclusions>
 			<scope>runtime</scope>
 		</dependency>
 
@@ -253,7 +249,6 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	
 	<build>
 		<plugins>
 			<plugin>

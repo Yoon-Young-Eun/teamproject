@@ -47,8 +47,7 @@
 	 init-param으로 아래 /WEB-INF/config/경로의 admin-context.xml 파일을 읽어드린다. -->
 	<servlet>
 		<servlet-name>admin</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet
-		</servlet-class>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>/WEB-INF/spring/admin/admin-servlet.xml</param-value>
@@ -57,11 +56,8 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>admin</servlet-name>
-		<url-pattern>*.dmo</url-pattern>
+		<url-pattern>*.mdo</url-pattern>
 	</servlet-mapping>
-
-
-
 
 	<!--filter 등록 : 인코딩 설정 -->
 	<filter>
@@ -73,9 +69,9 @@
 			<param-value>UTF-8</param-value>
 		</init-param>
 	</filter>
-
 	<filter-mapping>
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+
 </web-app>

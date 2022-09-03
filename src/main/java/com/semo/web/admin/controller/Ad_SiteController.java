@@ -4,5 +4,5 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public class Ad_SiteController {
- // 쿠폰, 베너, 약관
+	 // 쿠폰, 베너, 약관
 }

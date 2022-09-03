@@ -16,23 +16,23 @@
 	<div class="popup_wrapper">
 		<div class="popup_head">
 			<h1>매니저 관리</h1>
-			<div class="popup_head_index">${adminList.admin_name}님 회원정보</div>
+			<div class="popup_head_index">${adminInfo.admin_name}님 회원정보</div>
 		</div>
 		<div class="popup_title">
 			이&nbsp;&nbsp;름&nbsp;&nbsp;<input type="text" placeholder=""
-				value="${adminList.admin_name}" disabled>
+				value="${adminInfo.admin_name}" disabled>
 		</div>
 		<div class="popup_index">
 			담&nbsp;&nbsp;당&nbsp;<input type="text" placeholder=""
-				value="${adminList.admin_position}" disabled>
+				value="${adminInfo.admin_position}" disabled>
 		</div>
 		<div class="popup_content">
 			직&nbsp;&nbsp;급&nbsp;<input type="text" placeholder=""
-				value="${adminList.admin_title}" disabled>
+				value="${adminInfo.admin_title}" disabled>
 		</div>
 		<div class="popup_content">
 			아&nbsp;이&nbsp;디&nbsp;<input type="text" placeholder=""
-				value="${adminList.admin_id}" disabled>
+				value="${adminInfo.admin_id}" disabled>
 		</div>
 
 
@@ -41,13 +41,13 @@
 
 		<div class="end">
 			<div class="popup_btn">
-			<a href="editPage.mdo?admin_no=${adminList.admin_no}">수정</a>
+			<a href="editPage.mdo?admin_no=${adminInfo.admin_no}">수정</a>
 			</div>
 			<div class="popup_btn">
-			<a href="deleteStaff.mdo?admin_no=${adminList.admin_no}">삭제</a>
+			<a href="deleteStaff.mdo?admin_no=${adminInfo.admin_no}">삭제</a>
 			</div>
 			<div class="popup_btn">
-				<a href="#" onclick="self.close();">취소</a>
+				<a href="/staffList.mdo" onclick="self.close();">취소</a>
 			</div>
 		</div>
 

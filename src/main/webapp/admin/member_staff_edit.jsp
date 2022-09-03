@@ -13,19 +13,20 @@
 
 <body>
 	<form action = "/updatestaff.mdo" method="get">
-		<input type="hidden" name="admin_no" value="${adminList.admin_no}">
+	 <%-- 히든으로 no 값을 보냄 다음 update할때 where admin_no =#{admin_no}를 해주기위해,, --%>
+		<input type="hidden" name="admin_no" value="${adminInfo.admin_no}">
 	<div class="popup_wrapper">
 		<div class="popup_head">
 			<h1>매니저 관리</h1>
 			<div class="popup_head_index">매니저 직급을 수정합니다</div>
 		</div>
 		<div class="popup_title">
-			이&nbsp;&nbsp;름&nbsp;&nbsp;<input type="text" value="${adminList.admin_name}" placeholder="" disabled >
+			이&nbsp;&nbsp;름&nbsp;&nbsp;<input type="text" value="${adminInfo.admin_name}" placeholder="" disabled >
 		</div>
 		<div class="popup_index">
 			담&nbsp;&nbsp;당&nbsp; 
 			<select  name="admin_position" class="manager_dept">
-			    <option value="0">${adminList.admin_position}</option>
+			    <option value="${adminInfo.admin_position}" selected>${adminInfo.admin_position}</option>
 				<option value="세탁">세탁</option>
 				<option value="배송" >배송</option>
 				<option value="웹페이지">웹페이지</option>
@@ -37,7 +38,7 @@
 		
 			직&nbsp;&nbsp;급&nbsp; 
 			<select name="admin_title" class="manager_level">
-				<option	value="0">${adminList.admin_title}</option>
+				<option	value="${adminInfo.admin_title}" selected>${adminInfo.admin_title}</option>
 				<option	value="사원">사원</option>
 				<option value="대리" >대리</option>
 				<option value="과장">과장</option>
@@ -48,7 +49,7 @@
 		<div class="popup_login">
 			<div class="popup_text1">아이디</div>
 			<div class="popup_inputbox">
-				<input type="text" placeholder="" value="${adminList.admin_id}" disabled>
+				<input type="text" placeholder="" value="${adminInfo.admin_id}" disabled>
 			</div>
 		</div>
 		<div class="popup_login">
@@ -73,7 +74,7 @@
 				<input type="submit" value="저장">
 			</div>
 			<div class="popup_btn">
-				<a href="#" onclick="self.close();">취소</a>
+				<a href="/staffList.mdo" onclick="self.close();">취소</a>
 			</div>
 		</div>
 	</div>

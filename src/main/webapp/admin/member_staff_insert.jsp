@@ -57,7 +57,7 @@
 				<input type="submit" value="저장">
 			</div>
 			<div class="popup_btn">
-				<a href="#" onclick="self.close();">취소</a>
+				<a href="/staffList.mdo" onclick="self.close();">취소</a>
 			</div>
 		</div>
 

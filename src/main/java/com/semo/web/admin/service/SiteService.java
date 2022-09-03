@@ -1,5 +1,7 @@
 package com.semo.web.admin.service;
 
-public interface SiteService {
+import com.semo.web.admin.vo.CouponVO;
 
+public interface SiteService {
+	void insertCoupon(CouponVO vo);
 }

@@ -8,12 +8,22 @@
   </select>
   
   <insert id="setAdmin" parameterType="admin">
-   insert into admin(ADMIN_ID, ADMIN_PASSWD, ADMIN_POSITION, ADMIN_TITLE, ADMIN_NAME) values(#{ADMIN_ID},#{ADMIN_PASSWD},#{ADMIN_POSITION},#{ADMIN_TITLE},#{ADMIN_NAME})
+   insert into admin(admin_id, admin_passwd, admin_position, admin_title, admin_name) values(#{admin_id},#{admin_passwd},#{admin_position},#{admin_title},#{admin_name})
   </insert>
   
   <select id="getAdminList" resultType="admin">
    select * from admin
   </select>
   
+  <select id="getReadStaff" resultType="admin">
+   <![CDATA[ select * from admin where admin_no = #{admin_no} ]]>
+  </select>
   
+  <update id="updateStaff" parameterType="admin">
+  	update admin set admin_passwd=#{admin_passwd}, admin_position=#{admin_position}, admin_title=#{admin_title} where admin_no = #{admin_no}
+  </update>
+  
+  <delete id="deleteStaff" parameterType="admin">
+   <![CDATA[ delete from admin where admin_no = #{admin_no} ]]>
+  </delete>
  </mapper>

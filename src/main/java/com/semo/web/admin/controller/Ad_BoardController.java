@@ -4,12 +4,16 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+<<<<<<< HEAD
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.semo.web.admin.service.BoardService;
 import com.semo.web.admin.vo.NoticeVO;
 
+=======
+//계시판 관련(Q&A, BOARD, 공지사항, 자주하는 질문)
+>>>>>>> main
 @Controller
 public class Ad_BoardController {
 

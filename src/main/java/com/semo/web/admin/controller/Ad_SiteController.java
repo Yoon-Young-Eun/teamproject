@@ -317,5 +317,9 @@ public class Ad_SiteController {
 		
 		return "insertCoupon.jsp";
 	}
+<<<<<<< HEAD
 >>>>>>> 59d6cf8ef38e3f393fac18529eea17d3fd303c5e
+=======
+>>>>>>> cdad325ddc8b25d497cbd58c99ce7ebaaa7a51f4
+>>>>>>> main
 }

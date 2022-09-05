@@ -25,12 +25,12 @@
 <script type="text/javascript" src="../js/coupon_spec.js"></script>
 </head>
 <body>
+
+<jsp:include page="/common/header.jsp"></jsp:include>
 	<div class="whole-wrapper">
-		<jsp:include page="/common/header.jsp"></jsp:include>
 		<div class="main">
-			<div class="space_left">
 				<jsp:include page="/common/mypageSide.jsp" />
-			</div>
+
 			<div class="main_text">
 				<div class="coupon_title">
 					<h1>할인쿠폰</h1>
@@ -81,7 +81,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="space_right"></div>
+
 		</div>
 	</div>
 </body>

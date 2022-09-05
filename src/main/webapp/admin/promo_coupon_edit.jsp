@@ -347,7 +347,11 @@
 										<div class="popup_text">쿠폰명</div>
 										<div class="popup_inputbox">
 											<input type="text" name="coupon_title" placeholder="">
+<<<<<<< HEAD
 >>>>>>> 59d6cf8ef38e3f393fac18529eea17d3fd303c5e
+=======
+>>>>>>> cdad325ddc8b25d497cbd58c99ce7ebaaa7a51f4
+>>>>>>> main
 
 											</div>
 										</div>
@@ -468,7 +472,11 @@
 									<a href="promo.jsp">취소</a>
 								</div>
 							</div>
+<<<<<<< HEAD
 >>>>>>> 59d6cf8ef38e3f393fac18529eea17d3fd303c5e
+=======
+>>>>>>> cdad325ddc8b25d497cbd58c99ce7ebaaa7a51f4
+>>>>>>> main
 							</form>
 						</div>
 					</div>

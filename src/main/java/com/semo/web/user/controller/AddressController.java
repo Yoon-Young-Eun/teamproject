@@ -45,7 +45,7 @@ public class AddressController {
 		model.addAttribute("AddressList", AddressList);
 		model.addAttribute("customer_no",vo.getCustomer_no());
 		System.out.println(AddressList);
-		return "/pay/pay3.jsp";
+		return "/pay/payAddressList.jsp";
 	}
 	
 	@RequestMapping(value="/getAddressList1.do" ,method = RequestMethod.GET)

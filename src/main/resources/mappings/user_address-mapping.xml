@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="AddressDAO">
+
+
+	<insert id="setAddress" parameterType="CM_ADDRESS">
+  <![CDATA[insert into cm_address(cm_address1,cm_address2,cm_address_name,cm_phone_number,cm_gate_passwd,customer_no)
+  values(#{cm_address1},#{cm_address2},#{cm_address_name},#{cm_phone_number},#{cm_gate_passwd},#{customer_no})]]>
+
+	</insert>
+	
+	<select id="getAddressList" parameterType="CUSTOMER" resultType="CM_ADDRESS">
+	<![CDATA[select * from cm_address WHERE customer_no =#{customer_no}]]>
+	
+	</select>
+	
+	
+	<delete id="deleteAddressList" parameterType="CM_ADDRESS" >
+	<![CDATA[delete from cm_address where cm_address_no=#{cm_address_no} ]]>
+	</delete>
+
+	<update id="updateAddressList" parameterType="CM_ADDRESS">
+	<![CDATA[update cm_address set cm_address_no=#{cm_address_no},cm_address1=#{cm_address1},cm_address2=#{cm_address2},
+	cm_address_name=#{cm_address_name},cm_phone_number=#{cm_phone_number},cm_gate_passwd=#{cm_gate_passwd},customer_no=#{customer_no} 
+	where cm_address_no=#{cm_address_no} ]]>
+	</update>
+	
+	<select id="sendAddressList" parameterType="CM_ADDRESS" resultType="CM_ADDRESS">
+	<![CDATA[select * from cm_address where cm_address_no=#{cm_address_no}]]>
+	
+	</select>
+	
+	<update id="updateCustomerAddress" parameterType="CM_ADDRESS">
+	<![CDATA[update customer set customer_address1=#{cm_address1} where customer_no=#{customer_no} ]]>
+	
+	</update>
+	
+	<select id="sendCustomer" parameterType="CUSTOMER" resultType="CUSTOMER">
+	<![CDATA[select * from customer where customer_no=#{customer_no}]]>
+	</select>
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

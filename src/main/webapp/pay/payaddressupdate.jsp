@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="/css/pay4.css">
+<link rel="stylesheet" href="/css/payaddressupdate.css">
 <link rel="stylesheet" href="/common/css/button.css">
 
 
@@ -74,12 +74,16 @@
     <div class="main_text1">
       배송지 추가
     </div>
+    
+    <form action="/updateAddressList.do" method="GET">
+    <input type="number" name="customer_no" value="${sendAddressList.customer_no}"  id="customnumber" style="display: none">
+    <input type="text" name="cm_address_no" value="${sendAddressList.cm_address_no} " style="display: none">
     <div class="main_text2">
       <div class="main_text3">
         <input type="text" value="주소이름" id="a1" readonly>
       </div>
       <div class="main_text4">
-        <input type="text" value="" id="b1" placeholder="집 / 회사 등"> 
+        <input type="text" value="${sendAddressList.cm_address_name }" id="b1" placeholder="집 / 회사 등" name="cm_address_name"> 
       </div>
     </div>
       <div class="main_text5">
@@ -88,7 +92,7 @@
          
         </div>
         <div class="main_text4">
-          <input type="text" value="" id="b2" placeholder="우편번호 찾기" readonly> 
+          <input type="text" value="${sendAddressList.cm_address1}" id="b2" placeholder="우편번호 찾기" readonly name="cm_address1"> 
           <input type="button" value="검색" id="search" onclick="sample6_execDaumPostcode()" readonly class="action-button shadow animate blue" style="padding: 0px; font-size: 15px; width: 70px; height: 35px;">
         </div>
      </div>
@@ -97,15 +101,15 @@
         <input type="text" value="나머지 주소" id="a4" readonly>
       </div>
       <div class="main_text4">
-        <input type="text" value="" id="b4" placeholder="나머지 주소 입력"> 
+        <input type="text" value="${sendAddressList.cm_address2}" id="b4" placeholder="나머지 주소 입력" name="cm_address2"> 
       </div>
    </div>
      <div class="main_text6">
       <div class="main_text3">
-        <input type="text" value="휴대폰 번호" id="a3" readonly>
+        <input type="text" value="휴대폰 번호" id="a3" readonly >
       </div>
       <div class="main_text4">
-        <input type="text" value="" id="b3" placeholder="휴대폰 번호"> 
+        <input type="text" value="${sendAddressList.cm_phone_number}" id="b3" placeholder="휴대폰 번호" name="cm_phone_number" > 
       </div>
      </div>
 
@@ -114,16 +118,23 @@
         <input type="text" value="현관비밀번호" id="a3" readonly>
       </div>
       <div class="main_text4">
-        <input type="text" value="" id="b3" placeholder="현관비밀번호 ex) 종 1234 , #1234"> 
+        <input type="text" value="${sendAddressList.cm_gate_passwd}" id="b3" placeholder="현관비밀번호 ex) 종 1234 , #1234" name="cm_gate_passwd">
       </div>
      </div>
+     
+     
 
      <div class="main_text8">
       <div class="button1">
-        <input type="button" value="추가하기" id="button1" class="action-button shadow animate blue" style="width: 100px; height: 35px; padding: 0px; margin-top: 5px; font-size: 17px;" >
-        <input type="button" value="이전으로" id="button2" class="action-button shadow animate blue" style="width: 100px; height: 35px; padding: 0px; margin-top: 5px; font-size: 17px;" onclick="location.href='/pay/pay3.jsp'">
+        <input type="submit" value="수정하기" id="button1" class="action-button shadow animate blue" style="width: 100px; height: 35px; padding: 0px; margin-top: 5px; font-size: 17px;" >
+        <input type="button" value="이전으로" id="button2" class="action-button shadow animate blue" style="width: 100px; height: 35px; padding: 0px; margin-top: 5px; font-size: 17px;" onclick="location.href='/getAddressList.do?customer_no='+cn";>
       </div>
      </div>
+     </form>
+    
+    <script>
+    var cn = Number(document.getElementById("customnumber").value);
+    </script>
     
   </div>
 	

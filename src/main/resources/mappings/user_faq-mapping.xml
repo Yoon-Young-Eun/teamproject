@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ 
+ 
+ <mapper namespace="FaqDAO">
+ 
+ <select id="getFaqList" parameterType="String" resultType="BOARD_FAQ">
+	<![CDATA[select * from board_faq where board_faq_type=#{de}]]>
+	</select>
+	<select id="getFaqList1" parameterType="String" resultType="BOARD_FAQ">
+	<![CDATA[select * from board_faq where board_faq_type=#{wa}]]>
+	</select>
+	
+	
+	
+	
+</mapper>

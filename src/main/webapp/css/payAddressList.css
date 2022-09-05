@@ -24,8 +24,10 @@ html {
 
 .address2 {
 	height: auto;
-	border: 1px solid gray;
+	
+	
 	font-size: 15px;
+	
 }
 
 #span1 {
@@ -37,13 +39,22 @@ html {
 	font-weight: bold;
 	display: flex;
 	height: 50px;
-	border-bottom: 1px solid grey;
+	border-bottom:1px solid grey;
 	align-items: center;
+	margin-top:10px;
 }
 
 .aa {
+	margin-top:10px;
 	width: 100px;
 	margin: 5px;
+	
+	
+}
+.line{
+	border:1px solid grey;
+	margin-bottom: 10px;
+	height: auto;
 }
 
 .button1 {
@@ -86,7 +97,7 @@ html {
 
 .address4, .first_address, .second_address, .address5 {
 	font-size: 15px;
-	height: 25px;
+	height: 45px;
 	display: flex;
 	margin-left: 5px;
 	align-items: center;
@@ -145,6 +156,7 @@ html {
 
 .address5 {
 	display: flex;
+	
 }
 
 .address_password {
@@ -195,7 +207,7 @@ html {
 	height: 20px;
 }
 
- #phone, #address1-1, #address1-2, #password {
+ #phone, #password {
 	background-color: none;
 	font-size: 15px;
 	border-style: none;
@@ -207,6 +219,16 @@ html {
 }
 #ad2:focus, #phone:focus, #address1-1:focus, #address1-2:focus, #password:focus{
 	outline: none;
+}
+#address1-1, #address1-2{
+	background-color: none;
+	font-size: 15px;
+	border-style: none;
+	width: 300px;
+	display: inline-block;
+	margin-top: 2px;
+	margin-left: 4px;
+	height: 20px;	
 }
 #button3{
 	border-top: none;
@@ -255,5 +277,6 @@ html {
   -webkit-transform: translate(0px,5px);
 	border-bottom: 1px solid;
 }
+
 
 

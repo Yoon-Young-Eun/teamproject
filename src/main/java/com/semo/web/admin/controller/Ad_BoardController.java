@@ -66,9 +66,7 @@ public class Ad_BoardController {
 		if(tdArr!=null) {
 			List<Integer> arr2 = new ArrayList<Integer>();
 			for(int a=0; a<tdArr.length; a++) {
-				System.out.println("dhsi");
 				arr2.add(Integer.parseInt(tdArr[a])) ;
-				System.out.println(arr2.get(a)+"tes");
 				vo.setNotice_no(arr2.get(a));
 				boardservice.deleteBoard(vo.getNotice_no());
 			}

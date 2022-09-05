@@ -18,7 +18,7 @@
 	<mappers>
 		<mapper resource="mappings/ad_admin-mapping.xml"/>
 		<!-- 아래 계속해서 추가 -->
-		<mapper resource="mappings/board-mapping.xml"/>
+		<mapper resource="mappings/ad_board-mapping.xml"/>
 	</mappers>
 </configuration>
  

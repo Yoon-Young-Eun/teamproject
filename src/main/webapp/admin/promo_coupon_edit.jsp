@@ -322,11 +322,13 @@
 
 					<div class="whole">
 						<div class="popup_wrapper">
+						<form action="/insertCoupon.do" method="post">
 							<header>
 								<div class="coupon_title">
 									<h1>쿠폰</h1>
 								</div>
 							</header>
+<<<<<<< HEAD
 							<form action = "/updateCoupon.mdo" method="get">
 								<div class="content_wrap">
 								
@@ -337,6 +339,15 @@
 											<div class="popup_text">쿠폰명</div>
 											<div class="popup_inputbox">
 												<input type="text" name="coupon_title" value="${CouponInfo.coupon_title}" placeholder="">
+=======
+							<div class="content_wrap">
+							
+								<div class="popup_title_wrap">
+									<div class="popup_title">
+										<div class="popup_text">쿠폰명</div>
+										<div class="popup_inputbox">
+											<input type="text" name="coupon_title" placeholder="">
+>>>>>>> 59d6cf8ef38e3f393fac18529eea17d3fd303c5e
 
 											</div>
 										</div>
@@ -349,6 +360,7 @@
 										<!-- 									</div> -->
 									</div>
 
+<<<<<<< HEAD
 									<div class="item_infor_wrap">
 										<div class="popup_title">
 											<div class="popup_text">할인금액</div>
@@ -399,6 +411,64 @@
 										<a href="/CouponList.mdo">취소</a>
 									</div>
 								</div>
+=======
+<!-- 									<div class="popup_title"> -->
+<!-- 										<div class="popup_text">쿠폰번호</div> -->
+<!-- 										<div class="popup_inputbox"> -->
+<!-- 											<input type="text" placeholder=""> -->
+<!-- 										</div> -->
+<!-- 									</div> -->
+								</div>
+
+								<div class="item_infor_wrap">
+									<div class="popup_title">
+										<div class="popup_text">할인금액</div>
+										<div class="popup_inputbox">
+											<input type="text" name="coupon_sale_price" placeholder="">
+										</div>
+									</div>
+									<div class="popup_title">
+										<div class="popup_text">유효기간</div>
+										<div class="popup_inputbox_date">
+											<input type="date" name="coupon_start_date">
+										</div>
+
+										<div class="popup_inputbox_date2">
+											<input type="date" name="coupon_end_date">
+										</div>
+									</div>
+									<div class="popup_title">
+										<div class="popup_text">발급대상</div>
+										<div class="popup_inputbox">
+											<select class="item_level" id="item_level1" name="coupon_type">
+												<option value="0">전체</option>
+												<option value="1">신규가입</option>
+												<option value="2">생일</option>
+												<option value="3">리뷰</option>
+											</select>
+										</div>
+									</div>
+<!-- 									<div class="popup_title"> -->
+<!-- 										<div class="popup_text">발급갯수</div> -->
+<!-- 										<div class="popup_inputbox"> -->
+<!-- 											<input type="number" value="1"> -->
+<!-- 										</div> -->
+<!-- 									</div> -->
+								</div>
+								
+							</div>
+
+
+							<div class="end">
+								<div class="popup_btn">
+										<input type="submit" value="저장" />
+<!-- 									<a href="#">저장</a> -->
+								</div>
+								<div class="popup_btn">
+									<a href="promo.jsp">취소</a>
+								</div>
+							</div>
+>>>>>>> 59d6cf8ef38e3f393fac18529eea17d3fd303c5e
 							</form>
 						</div>
 					</div>

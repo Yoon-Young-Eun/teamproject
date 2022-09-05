@@ -1,20 +1,28 @@
 package com.semo.web.admin.dao;
 
+<<<<<<< HEAD
 import java.util.List;
 
+=======
+>>>>>>> 59d6cf8ef38e3f393fac18529eea17d3fd303c5e
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+<<<<<<< HEAD
 import com.semo.web.admin.vo.BannerVO;
 import com.semo.web.admin.vo.CouponVO;
 import com.semo.web.admin.vo.TermsVO;
+=======
+import com.semo.web.admin.vo.CouponVO;
+>>>>>>> 59d6cf8ef38e3f393fac18529eea17d3fd303c5e
 
 @Repository
 public class SiteDAO {
 	@Autowired
 	private SqlSessionTemplate sql;
 	
+<<<<<<< HEAD
 	// ----------------- 쿠폰 ------------------------- //
 	public void insertCoupon(CouponVO vo) {
 		System.out.println("---> MyBatis로 insertCoupon() 기능 처리");
@@ -92,4 +100,13 @@ public class SiteDAO {
 		System.out.println("DAO.deleteTerms 실행");
 		sql.delete("SiteDAO.deleteTerms", vo);
 	}
+=======
+	public void insertCoupon(CouponVO vo) {
+		System.out.println("---> MyBatis로 insertCoupon() 기능 처리");
+		sql.insert("CouponVO.insertCoupon", vo);
+	}
+	
+	
+	
+>>>>>>> 59d6cf8ef38e3f393fac18529eea17d3fd303c5e
 }

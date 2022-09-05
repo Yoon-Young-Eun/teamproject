@@ -77,23 +77,29 @@
 }
 
 .popup_text {
-	width: 100px;
-	text-align: center;
+	width: 150px;
+	padding-left: 10px;
 }
-
+.popup_inputbox {
+	font-weight: bold;
+	width: 650px;
+	height: 30px;
+}
 .popup_inputbox >input {
 	width: 650px;
 	height: 30px;
 }
 
-.popup_inputbox_date>input {
-	width: 320px;
+.popup_inputbox_date {
+	font-weight: bold;
+	width: 110px;
 	height: 30px;
 	margin-right: 10px;
 }
 
-.popup_inputbox_date2 >input {
-	width: 320px;
+.popup_inputbox_date2 {
+	font-weight: bold;
+	width: 530px;
 	height: 30px;
 }
 

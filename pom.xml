@@ -240,6 +240,20 @@
 			<version>1.4</version>
 		</dependency>
 
+		<!-- 아마존 s3 파일업로드 서버 -->
+		<!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-s3 -->
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-s3</artifactId>
+		    <version>1.12.276</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.13</version>
+			<scope>runtime</scope>
+		</dependency>
+
 		<!-- Test -->
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>

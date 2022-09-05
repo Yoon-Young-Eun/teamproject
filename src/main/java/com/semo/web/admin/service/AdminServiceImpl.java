@@ -29,6 +29,22 @@ public class AdminServiceImpl implements AdminService {
 	public List<AdminVO> getAdminList() {
 		return admindao.getAdminList();
 	}
+
+	@Override
+	public AdminVO getReadStaff(AdminVO vo) {
+		return admindao.getReadStaff(vo);
+	}
+
+	@Override
+	public void updateStaff(AdminVO vo) {
+		admindao.updateStaff(vo);
+	}
+
+	@Override
+	public void deleteStaff(AdminVO vo) {
+		admindao.deleteStaff(vo);
+		
+	}
 	
 	
 

@@ -23,7 +23,11 @@
   text-decoration : none ;
 }
 
-
+.pop_flex {
+	display: flex;
+	justify-content: center;
+	margin-right: 200px;
+}
 .popup_wrapper {
 	width: 360px;
 	height: 624px;

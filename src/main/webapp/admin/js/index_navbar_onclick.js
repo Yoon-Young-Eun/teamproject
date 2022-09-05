@@ -1,5 +1,5 @@
 function newPage()  {
-    	  window.location.href = 'item.jsp'
+    	  window.location.href = '/ProductList.mdo'
     }
 
 

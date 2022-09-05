@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -99,9 +100,9 @@
 						<div class="collapse" id="change_id_01"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="member.jsp">회원관리</a> <a
-									class="nav-link" href="member_black.jsp">블랙회원관리</a> <a
-									class="nav-link" href="memberstaff.jsp">매니저관리</a>
+								<a class="nav-link" href="/admin/member.jsp">회원관리</a> <a
+									class="nav-link" href="/admin/member_black.jsp">블랙회원관리</a> <a
+									class="nav-link" href="/admin/memberstaff.jsp">매니저관리</a>
 							</nav>
 						</div>
 
@@ -118,8 +119,8 @@
 						<div class="collapse" id="change_id_02"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="order.jsp">주문/결제</a> <a
-									class="nav-link" href="#">견적상품</a>
+								<a class="nav-link" href="/admin/order.jsp">주문/결제</a> <a
+									class="nav-link" href="/admin/estimate.jsp">견적상품</a>
 							</nav>
 						</div>
 
@@ -140,7 +141,7 @@
 						<!--                                 </nav> -->
 						<!--                             </div> -->
 
-						<a class="nav-link collapsed" href="item.jsp"
+						<a class="nav-link collapsed" href="/admin/item.jsp"
 							data-bs-toggle="collapse" data-bs-target="#change_id_04"
 							aria-expanded="false" aria-controls="collapseLayouts">
 							<div class="sb-nav-link-icon">
@@ -187,11 +188,11 @@
 						<div class="collapse" id="change_id_06"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="board_notice.jsp">공지사항</a> <a
-									class="nav-link" href="board_event.jsp">이벤트</a> <a
+								<a class="nav-link" href="/getBoardList.mdo">공지사항</a> <a
+									class="nav-link" href="/admin/board_event.jsp">이벤트</a> <a
 									class="nav-link" href="#">리뷰</a> <a class="nav-link"
-									href="board_Q&A.jsp">QnA</a> <a class="nav-link"
-									href="board_FAQ.jsp">자주하는 질문</a>
+									href="/admin/board_Q&A.jsp">QnA</a> <a class="nav-link"
+									href="/admin/board_FAQ.jsp">자주하는 질문</a>
 
 							</nav>
 						</div>
@@ -228,9 +229,9 @@
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
 
-								<a class="nav-link" href="promo.jsp">쿠폰관리</a> <a
-									class="nav-link" href="supporbanner.jsp">배너관리</a> <a
-									class="nav-link" href="supporclause.jsp">약관관리</a>
+								<a class="nav-link" href="/admin/promo.jsp">쿠폰관리</a> <a
+									class="nav-link" href="/admin/supporbanner.jsp">배너관리</a> <a
+									class="nav-link" href="/admin/supporclause.jsp">약관관리</a>
 
 							</nav>
 						</div>
@@ -353,9 +354,11 @@
 								</div>
 
 							</header>
-							<div id="content_wrap">
-								<ul class="title_wrap">
-									<!-- <li><span class="title">게시판</span>
+							<form action="/insertBoard.mdo" method="post"
+								enctype="multipart/form-data">
+								<div id="content_wrap">
+									<ul class="title_wrap">
+										<!-- <li><span class="title">게시판</span>
 										<div class="board_select">
 											<select class="select" value="게시판선택">
 												<option selected disabled>게시판선택</option>
@@ -363,27 +366,27 @@
 												<option value="review">이벤트</option>
 											</select>
 										</div></li> -->
-									<!--
+										<!--
             <input type="checkBox" id="chkNotice1" name="chkB1">
             <label for="chkNotice1">공지사항으로 게시글쓰기</label>
             <input type="checkBox" id="chkNotice2" name="chkB2">
             <label for="chkNotice2">일반글로 게시글쓰기</label>
             -->
-									<li><span class="title">제목</span> <input type="text"
-										placeholder="게시글 제목을 입력하세요" value="[공지] " /></li>
-								</ul>
-								<div id="summer" class="writeWrap">
-									<textarea id="summernote" class="writeArea" name="editordata"></textarea>
-								</div>
-								<div class="configWrap">
-									<ul>
-										<li><span class="title">첨부파일</span>&nbsp;&nbsp;
-											<div class="filebox">
-												<label for="ex_filename">파일 선택</label> <input type="file"
-													id="ex_filename" class="upload-hidden"> <input
-													class="upload-name" value="" disabled="disabled">
-											</div></li>
-										<!-- <li class="tag">
+										<li><span class="title">제목</span> <input type="text"
+											name="notice_title" placeholder="게시글 제목을 입력하세요" value="[공지] " /></li>
+									</ul>
+									<div id="summer" class="writeWrap">
+										<textarea id="summernote" class="writeArea" name="notice_content"></textarea>
+									</div>
+									<div class="configWrap">
+										<ul>
+											<li><span class="title">첨부파일</span>&nbsp;&nbsp;
+												<div class="filebox">
+													<label for="ex_filename">파일 선택</label> <input type="file"
+														id="ex_filename" class="upload-hidden"> <input
+														class="upload-name" value="" disabled="disabled">
+												</div></li>
+											<!-- <li class="tag">
 											<div class="tag_di">
 												<div class="title">태그달기</div>
 												<div class="InputArea">
@@ -392,30 +395,29 @@
 												</div>
 											</div>
 										</li> -->
-										<div class="open_set">
-											<li><span class="title">공개설정</span>&nbsp; <input
-												type="radio" name="open" id="open_0"> <label
-												for="open_0">전체공개</label>&nbsp;&nbsp; <input type="radio"
-												name="open" id="open_1"> <label for="open_1">회원만
-													공개</label>&nbsp;&nbsp; <input type="radio" name="open" id="open_2">
-												<label for="open_2">비공개</label>
+											<div class="open_set">
+												<li><span class="title">공개설정</span>&nbsp; <input
+													type="radio" name="open" id="open_0"> <label
+													for="open_0">전체공개</label>&nbsp;&nbsp; <input type="radio"
+													name="open" id="open_2"> <label for="open_2">비공개</label>
+											</div>
+											</li>
+										</ul>
+									</div>
+									<div class="end">
+										<div class="board_btn">
+<!-- 											<a href="boardList.mdo">저장</a> -->
+											<input type="submit" value="저장">
 										</div>
-										</li>
-									</ul>
-								</div>
-								<div class="end">
-									<div class="board_btn">
-										<a href="#">저장</a>
+										<div class="board_btn">
+											<a href="/getBoardList.mdo">목록</a>
+										</div>
 									</div>
-									<div class="board_btn">
-										<a href="#">취소</a>
-									</div>
-									<!-- <a href="#">저장</a>&nbsp;&nbsp;<a href="#">취소</a> -->
-								</div>
 
-							</div>
+								</div>
+							</form>
 						</div>
-
+						<hr>
 						<!-- <div class="card-footer small text-muted">Updated yesterday
 							at 11:59 PM</div> -->
 					</div>

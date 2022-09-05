@@ -62,7 +62,7 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="/admin/member.jsp">회원관리</a>
                                     <a class="nav-link" href="/admin/member_black.jsp">블랙회원관리</a>
-                                    <a class="nav-link" href="/admin/memberstaff.jsp">매니저관리</a>
+                                    <a class="nav-link" href="/staffList.mdo">매니저관리</a>
                                 </nav>
                             </div>
                             
@@ -83,36 +83,36 @@
                                 매출현황
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-<!--                             <div class="collapse" id="change_id_03" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
-<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
-<!--                                     <a class="nav-link" href="#">매출현황#1</a> -->
+                            <div class="collapse" id="change_id_03" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="#">매출현황</a>
 <!--                                     <a class="nav-link" href="#">매출현황#2</a> -->
-<!--                                 </nav> -->
-<!--                             </div> -->
+                                </nav>
+                            </div>
                             
-                            <a class="nav-link collapsed" href="/admin/item.jsp" data-bs-toggle="collapse" data-bs-target="#change_id_04" aria-expanded="false" aria-controls="collapseLayouts">
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_04" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 <span onclick="newPage()">상품등록</span>
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-<!--                             <div class="collapse" id="change_id_04" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
-<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
-<!--                                     <a class="nav-link" href="#">상품등록#1</a> -->
+                            <div class="collapse" id="change_id_04" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="/ProductList.mdo">상품등록</a>
 <!--                                     <a class="nav-link" href="#">상품등록#2</a> -->
-<!--                                 </nav> -->
-<!--                             </div> -->
+                                </nav>
+                            </div>
                             
-                            <a class="nav-link collapsed" href="/admin/store.jsp" data-bs-toggle="collapse" data-bs-target="#change_id_05" aria-expanded="false" aria-controls="collapseLayouts">
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_05" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 <span onclick="newPage2()">매장관리</span>
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-<!--                             <div class="collapse" id="change_id_05" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
-<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
-<!--                                     <a class="nav-link" href="#">지점관리</a> -->
+                            <div class="collapse" id="change_id_05" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="/StoreList.mdo">매장관리</a>
 <!--                                     <a class="nav-link" href="#">외주관리</a> -->
-<!--                                 </nav> -->
-<!--                             </div> -->
+                                </nav>
+                            </div>
                             
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_06" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
@@ -121,7 +121,7 @@
                             </a>
                             <div class="collapse" id="change_id_06" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="/admin/board_notice.jsp">공지사항</a>
+                                    <a class="nav-link" href="/getBoardList.mdo">공지사항</a>
                                     <a class="nav-link" href="/admin/board_event.jsp">이벤트</a>
                                     <a class="nav-link" href="#">리뷰</a>
 
@@ -152,9 +152,9 @@
                             <div class="collapse" id="change_id_08" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
 
-                                    <a class="nav-link" href="/admin/promo.jsp">쿠폰관리</a>
-                                    <a class="nav-link" href="/admin/supporbanner.jsp">배너관리</a>
-                                    <a class="nav-link" href="/admin/supporclause.jsp">약관관리</a>
+                                    <a class="nav-link" href="/CouponList.mdo">쿠폰관리</a>
+                                    <a class="nav-link" href="/BannerList.mdo">배너관리</a>
+                                    <a class="nav-link" href="/TermsList.mdo">약관관리</a>
 
                                 </nav>
                             </div>
@@ -838,7 +838,7 @@
                 </footer>
             </div>
         </div>
-        <script type="text/javascript" src="/admin/js/index_navbar_onclick.js"></script>
+<!--         <script type="text/javascript" src="/admin/js/index_navbar_onclick.js"></script> -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="/admin/js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>

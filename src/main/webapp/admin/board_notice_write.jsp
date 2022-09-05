@@ -354,8 +354,8 @@
 								</div>
 
 							</header>
-							<form action="/insertBoard.mdo" method="post"
-								enctype="multipart/form-data">
+<!-- 							<form action="/insertBoard.mdo" method="post" enctype="multipart/form-data"> -->
+								<form action="/BoardUpload.mdo" method="post" enctype="multipart/form-data">
 								<div id="content_wrap">
 									<ul class="title_wrap">
 										<!-- <li><span class="title">게시판</span>
@@ -383,7 +383,7 @@
 											<li><span class="title">첨부파일</span>&nbsp;&nbsp;
 												<div class="filebox">
 													<label for="ex_filename">파일 선택</label> <input type="file"
-														id="ex_filename" class="upload-hidden"> <input
+														id="ex_filename" name="NoticeFile" class="upload-hidden"> <input
 														class="upload-name" value="" disabled="disabled">
 												</div></li>
 											<!-- <li class="tag">

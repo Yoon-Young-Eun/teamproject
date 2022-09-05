@@ -60,7 +60,7 @@
 	margin: 0px 0px 16px 0px;
 }
 .popup_text {
-	width: 80px;
+	width: 100px;
 }
 .popup_office_phone {
 	display: flex;
@@ -79,7 +79,13 @@
 	width: 200px;
 	height: 25px;
 }
+.popup_inputbox {
+	font-weight: bold;
+}
 
+#search {
+	width: 60px;
+}
 
 .popup_btn {
 	margin: 0px 14px;

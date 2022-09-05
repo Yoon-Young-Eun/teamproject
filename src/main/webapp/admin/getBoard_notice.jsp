@@ -366,9 +366,20 @@
 										<ul>
 											<li><span class="title">첨부파일</span>&nbsp;&nbsp;
 												<div class="filebox">
-													<label for="ex_filename">파일 선택</label> <input type="file"
-														id="ex_filename" class="upload-hidden"> <input
-														class="upload-name" value="" disabled="disabled">
+<!-- 													<label for="ex_filename">파일 선택</label> <input type="file" -->
+<!-- 														id="ex_filename" class="upload-hidden"> <input -->
+<!-- 														class="upload-name" value="" disabled="disabled"> -->
+												
+												<c:choose> 
+											<c:when test="${board.notice_filepath eq 'https://semoproject.s3.ap-northeast-2.amazonaws.com/board/'}">
+												파일없음
+											</c:when>  
+											<c:otherwise>
+												<a href="${board.notice_filepath}" target="_blank">파일보기</a>
+												<a href="${board.notice_filepath}" download>다운로드</a>
+											</c:otherwise> 
+										</c:choose> 
+												
 												</div></li>
 											<div class="open_set">
 												<li><span class="title">공개설정</span>&nbsp; <input

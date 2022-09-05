@@ -9,8 +9,8 @@
 	</select>
 
 	<insert id="insertBoard" parameterType="notice">
-		<![CDATA[ insert into notice(notice_title, notice_content) 
-		values (#{notice_title}, #{notice_content}) ]]>
+		<![CDATA[ insert into notice(notice_title, notice_content, notice_filepath) 
+		values (#{notice_title}, #{notice_content}, #{notice_filepath}) ]]>
 	</insert>
 
 	<update id="updateBoard" parameterType="notice">

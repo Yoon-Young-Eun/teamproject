@@ -328,50 +328,48 @@
 
 </div>
 <div class="popup_title">
-<div class="popup_text">매장명</div><div class="popup_inputbox"><input type="text" placeholder=""></div>
+<div class="popup_text">매장명</div><div class="popup_inputbox">
+${StoreInfo.store_name}
+</div>
 </div>
 <div class="popup_type">
 <div class="popup_text">구분</div>
-<div class="popup_select">
-<!-- <input class="office_type" type="radio" name="office_type_radio" id="office_type1" checked="checked"><label for="office_type1">직영</label></div> -->
-<!-- <div class="popup_radio"> -->
-<!-- <input class="office_type" type="radio" name="office_type_radio" id="office_type2"><label for="office_type2">외주</label> -->
-<select class="store_type">
-	<option value="직영">직영</option>
-	<option value="외주">외주</option>
-</select>
+<div class="popup_inputbox">
+${StoreInfo.store_type}
 </div>
 </div><!-- /popup_content -->
 <div class="popup_status">
-<div class="popup_text">매장상태</div><div class="popup_select">
-<select class="manager_level">
-	<option value="운영중">운영중</option>
-	<option value="휴점">휴점</option>
-	<option value="폐점">폐점</option>
-</select>
+<div class="popup_text">매장상태</div><div class="popup_inputbox">
+${StoreInfo.store_status}
 </div>
 </div>
 <div class="popup_office">
-<div class="popup_text">주소</div><div class="popup_inputbox"><input type="text" id="b2" placeholder="우편변호 검색"></div>
-<div class="popup_search"><button id="search" onclick="sample6_execDaumPostcode()">검색</button></div>
+<div class="popup_text">주소</div><div class="popup_inputbox">
+${StoreInfo.store_address1}
+</div>
+<div class="popup_search"></div>
 </div>
 
 <div class="popup_office">
-<div class="popup_text"></div><div class="popup_inputbox"><input type="text" placeholder="상세주소 입력"></div>
+<div class="popup_text"></div><div class="popup_inputbox">
+${StoreInfo.store_address2}
+</div>
 </div>
 <div class="popup_office_phone">
-<div class="popup_text">전화번호</div><div class="popup_inputbox"><input type="text" placeholder="010-1234-5678"></div>
+<div class="popup_text">전화번호</div><div class="popup_inputbox">
+${StoreInfo.store_phone}
+</div>
 </div>
 
 <div class="end">
 	<div class="popup_btn">
-		<a href="/CouponList.mdo">목록</a>
+		<a href="/StoreList.mdo">목록</a>
 	</div>
 	<div class="popup_btn">
-		<a href="updatePage.mdo?coupon_code=${CouponInfo.coupon_code}">수정</a>
+		<a href="updateStorePage.mdo?store_code=${StoreInfo.store_code}">수정</a>
 	</div>
 	<div class="popup_btn">
-		<a href="deleteCoupon.mdo?coupon_code=${CouponInfo.coupon_code}">삭제</a>
+		<a href="deleteStore.mdo?store_code=${StoreInfo.store_code}">삭제</a>
 	</div>
 </div>
 

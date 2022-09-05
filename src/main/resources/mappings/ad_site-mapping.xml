@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="CouponVO">
+	<insert id="insertCoupon" parameterType="coupon">
+ 		INSERT INTO coupon (
+ 			coupon_title, 
+ 			coupon_sale_price, 
+ 			coupon_type, 
+ 			coupon_start_date, 
+ 			coupon_end_date
+ 		) 
+ 		VALUES(
+ 			#{coupon_title}, 
+ 			#{coupon_sale_price}, 
+ 			#{coupon_type}, 
+ 			#{coupon_start_date}, 
+ 			#{coupon_end_date}
+ 		)
+ 		
+ 	</insert>
+</mapper>
+ 

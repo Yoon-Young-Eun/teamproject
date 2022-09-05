@@ -29,15 +29,14 @@
 
 <body>
 
-	<div class="wrap">
-		<div class="wrap1">
+
 			<jsp:include page="/common/header.jsp"></jsp:include>
 
 			<!-- -본문- -->
+			<div class="whole-wrapper">
 			<div class="main">
-				<div class="space_left">
 				<jsp:include page="/common/mypageSide.jsp" />
-				</div>
+
 				<div class="main_text">
 					<div class="main_text1">내 문의 내역</div>
 
@@ -154,12 +153,9 @@
 					</div>
 				</div>
 
-				<div class="space_right"></div>
-
 			</div>
 
 		</div>
-	</div>
 </body>
 
 <jsp:include page="/common/footer.jsp" />

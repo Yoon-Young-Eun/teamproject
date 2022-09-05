@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="ProductDAO">
+	<insert id="insertProduct" parameterType="product">
+ 		INSERT INTO product (
+ 			product_category_parent, 
+ 			product_category_median, 
+ 			product_name, 
+ 			product_detail,
+ 			product_price
+ 		) 
+ 		VALUES(
+ 			#{product_category_parent}, 
+ 			#{product_category_median}, 
+ 			#{product_name}, 
+ 			#{product_detail},
+ 			#{product_price}
+ 		)
+ 	</insert>
+ 	<select id="getProductList" resultType="product">
+ 	  select * from product
+ 	</select>
+ 	
+ 	<select id="getReadProduct" resultType="product">
+	<![CDATA[ select * from product where product_code=#{product_code} ]]>
+	</select>
+	
+	<update id="updateProduct" parameterType="product">
+  	update product set product_code=#{product_code}, product_category_parent=#{product_category_parent}, product_category_median=#{product_category_median}, product_name=#{product_name}, product_detail=#{product_detail}, product_price=#{product_price} where product_code=#{product_code}
+	</update>
+ 	
+ 	<delete id="deleteProduct" parameterType="product">
+	<![CDATA[ delete from product where product_code=#{product_code} ]]>
+	</delete>
+ 	
+</mapper>
+ 

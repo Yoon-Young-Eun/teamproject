@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +10,21 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Dashboard - SEMO Admin</title>
-<link href="/admin/css/promo_coupon_insert.css" rel="stylesheet" />
+<title>Dashboard - SB Admin</title>
+
+<!-- icon 버튼 css -->
+<link href="/admin/css/icon.css" rel="stylesheet" />
+
+<!--  테이블 필터(중요) -->
+<link href="/admin/css/filter.css" rel="stylesheet" />
+<script src="/admin/js/filter.js" crossorigin="anonymous"></script>
+
+<!-- 체크박스 js -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="./js/checkbox.js"></script>
+
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
@@ -22,8 +36,7 @@
 <body class="sb-nav-fixed">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 		<!-- Navbar Brand-->
-		<a class="navbar-brand ps-3" href="index_dashboard.jsp">Start
-			Bootstrap</a>
+		<a class="navbar-brand ps-3" href="index.html">Start Bootstrap</a>
 		<!-- Sidebar Toggle-->
 		<button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
 			id="sidebarToggle" href="#!">
@@ -55,6 +68,7 @@
 				</ul></li>
 		</ul>
 	</nav>
+
 	<div id="layoutSidenav">
 		<div id="layoutSidenav_nav">
 			<nav class="sb-sidenav accordion sb-sidenav-dark"
@@ -67,7 +81,6 @@
 								<i class="fas fa-tachometer-alt"></i>
 							</div> 대시보드
 						</a>
-
 
 						<div class="sb-sidenav-menu-heading">관리자 메뉴</div>
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -103,7 +116,7 @@
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
 								<a class="nav-link" href="order.jsp">주문/결제</a> <a
-									class="nav-link" href="#">견적상품</a>
+									class="nav-link" href="estimate.jsp">견적상품</a>
 							</nav>
 						</div>
 
@@ -219,7 +232,6 @@
 							</nav>
 						</div>
 
-
 						<div class="sb-sidenav-menu-heading">Interface</div>
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 							data-bs-target="#collapseLayouts" aria-expanded="false"
@@ -264,7 +276,7 @@
 									aria-labelledby="headingOne"
 									data-bs-parent="#sidenavAccordionPages">
 									<nav class="sb-sidenav-menu-nested nav">
-										<a class="nav-link" href="login.jsp">Login</a> <a
+										<a class="nav-link" href="login.html">Login</a> <a
 											class="nav-link" href="register.html">Register</a> <a
 											class="nav-link" href="password.html">Forgot Password</a>
 									</nav>
@@ -300,13 +312,12 @@
 						</a>
 					</div>
 				</div>
-				<!--                     <div class="sb-sidenav-footer"> -->
-				<!--                         <div class="small">Logged in as:</div> -->
-				<!--                         Start Bootstrap -->
-				<!--                     </div> -->
+				<div class="sb-sidenav-footer">
+					<div class="small">Logged in as:</div>
+					Start Bootstrap
+				</div>
 			</nav>
 		</div>
-
 		<div id="layoutSidenav_content">
 			<main>
 
@@ -314,98 +325,94 @@
 					<h1 class="mt-4">쿠폰관리</h1>
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
-						<li class="breadcrumb-item active">쿠폰등록</li>
+						<li class="breadcrumb-item active">쿠폰관리</li>
 					</ol>
 					<div class="card mb-4">
-						<div class="card-body">할인 쿠폰을 등록합니다.</div>
-					</div>
-
-					<div class="whole">
-						<div class="popup_wrapper">
-							<header>
-								<div class="coupon_title">
-									<h1>쿠폰</h1>
-								</div>
-							</header>
-
-							<form action = "/updateCoupon.mdo" method="get">
-								<div class="content_wrap">
-								
-						<input type="hidden" name="coupon_code" value="${CouponInfo.coupon_code}">
-									
-									<div class="popup_title_wrap">
-										<div class="popup_title">
-											<div class="popup_text">쿠폰명</div>
-											<div class="popup_inputbox">
-												<input type="text" name="coupon_title" value="${CouponInfo.coupon_title}" placeholder="">
-
-
-											</div>
-										</div>
-
-										<!-- 									<div class="popup_title"> -->
-										<!-- 										<div class="popup_text">쿠폰번호</div> -->
-										<!-- 										<div class="popup_inputbox"> -->
-										<!-- 											<input type="text" placeholder=""> -->
-										<!-- 										</div> -->
-										<!-- 									</div> -->
-									</div>
-
-
-									<div class="item_infor_wrap">
-										<div class="popup_title">
-											<div class="popup_text">할인금액</div>
-											<div class="popup_inputbox">
-												<input type="text" name="coupon_sale_price" value="${CouponInfo.coupon_sale_price}" placeholder="">
-											</div>
-										</div>
-										<div class="popup_title">
-											<div class="popup_text">유효기간</div>
-											<div class="popup_inputbox_date">
-												<input type="date" name="coupon_start_date" value="${CouponInfo.coupon_start_date}">
-											</div>
-
-											<div class="popup_inputbox_date2">
-												<input type="date" name="coupon_end_date" value="${CouponInfo.coupon_end_date}">
-											</div>
-										</div>
-										<div class="popup_title">
-											<div class="popup_text">발급대상</div>
-											<div class="popup_inputbox">
-												<select class="item_level" id="item_level1"
-													name="coupon_type">
-													<option value="${CouponInfo.coupon_type}" selected>${CouponInfo.coupon_type}</option>
-													<option value="전체">전체</option>
-													<option value="신규가입">신규가입</option>
-													<option value="생일">생일</option>
-													<option value="리뷰">리뷰</option>
-												</select>
-											</div>
-										</div>
-										<!-- 									<div class="popup_title"> -->
-										<!-- 										<div class="popup_text">발급갯수</div> -->
-										<!-- 										<div class="popup_inputbox"> -->
-										<!-- 											<input type="number" value="1"> -->
-										<!-- 										</div> -->
-										<!-- 									</div> -->
-									</div>
-
-								</div>
-
-
-								<div class="end">
-									<div class="popup_btn">
-										<input type="submit" value="저장">
-									</div>
-
-									<div class="popup_btn">
-										<a href="/CouponList.mdo">취소</a>
-									</div>
-								</div>
-
-							</form>
+						<div class="card-body">
+							쿠폰관리 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
+							.
 						</div>
 					</div>
+					<div class="card mb-4">
+						<div class="card-header">
+							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 게시판에 대한 세부제목
+						</div>
+
+						<!--  여기부터 내용물 -->
+
+
+
+						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
+						<div class="flex">
+							<input type="button" id="btnExport" value="PDF" class="icon_pdf" />
+							<!-- pdf 버튼 -->
+							<button class="icon_excel"
+								onclick="exportToExcel('tblexportData', 'user-data')">Excel</button>
+							<!-- excel -->
+						</div>
+
+
+
+
+						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
+						<table id=""
+							class="emp-table dataPerPage tblCustomers tblexportData table"
+							border="5">
+							<thead>
+								<tr>
+									<th width="50" id="check_td"><input type="checkbox"
+										name="check" class="allcheck"></th>
+									<th col-index=2>쿠폰번호</th>
+									<th col-index=3>쿠폰명</th>
+									<th col-index=4>할인금액</th>
+									<th col-index=5>발급대상<select class="table-filter"
+										onchange="filter_rows()">
+											<option value="all"></option>
+									</select></th>
+									<th col-index=6>시작일</th>
+									<th col-index=7>만료일</th>
+								</tr>
+							</thead>  
+							<tbody>
+								<!-- for문~(c:forEach)  이 for문의 id값은 "admin"으로 정함!-->
+								<c:forEach var="coupon" items="${CouponList}">
+									<!--  adminList은 컨트롤러에서 model에 저장한 "adminList" 이름임 -->
+									<tr>
+										<td id="check_td"><input type="checkbox" name="check"></td>
+										<td>${coupon.coupon_code}</td>
+										<!--for문의 id값.컬럼명으로 값을 불러옴 -->
+										<td><a href="readCoupon.mdo?coupon_code=${coupon.coupon_code}">${coupon.coupon_title}</a></td>
+										<td>${coupon.coupon_sale_price}</td>
+										<td>${coupon.coupon_type}</td>
+										<td>${coupon.coupon_start_date}</td>
+										<td>${coupon.coupon_end_date}</td>
+									</tr>
+								</c:forEach>
+
+							</tbody>
+						</table>
+						<div class="flex">
+							<div>
+								<input id="button" type="button" value="등록"
+									onclick="window.location='/admin/promo_coupon_insert.jsp'" />
+							</div>
+<!-- 							<div> -->
+<!-- 								<input id="button" type="button" value="수정" /> -->
+<!-- 							</div> -->
+<!-- 							<div> -->
+<!-- 								<input id="button" type="button" value="삭제" /> -->
+<!-- 							</div> -->
+
+						</div>
+
+
+
+						<!-- 내용물 end -->
+						<div class="card-footer small text-muted">Updated yesterday
+							at 11:59 PM</div>
+					</div>
+
+				</div>
 			</main>
 			<footer class="py-4 bg-light mt-auto">
 				<div class="container-fluid px-4">
@@ -433,5 +440,23 @@
 	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
 		crossorigin="anonymous"></script>
 	<script src="js/datatables-simple-demo.js"></script>
+	<script>
+		getUniqueValuesFromColumn()
+	</script>
+
+	<!-- pdf -->
+	<script type="text/javascript"
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+	<script src="js/pdf.js"></script>
+
+	<!-- excel -->
+	<script src="js/excel.js"></script>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
 </body>
 </html>

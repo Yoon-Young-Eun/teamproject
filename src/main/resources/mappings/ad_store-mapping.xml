@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="StoreDAO">
+	<insert id="insertStore" parameterType="store">
+ 		INSERT INTO store (
+ 			store_type, 
+ 			store_name, 
+ 			store_address1, 
+ 			store_address2,
+ 			store_zipcode,
+ 			store_phone,
+ 			store_status
+ 		) 
+ 		VALUES(
+ 			#{store_type}, 
+ 			#{store_name}, 
+ 			#{store_address1}, 
+ 			#{store_address2},
+ 			#{store_zipcode},
+ 			#{store_phone},
+ 			#{store_status}
+ 		)
+ 	</insert>
+ 	<select id="getStoreList" resultType="store">
+ 	  select * from store
+ 	</select>
+ 	
+ 	<select id="getReadStore" resultType="store">
+	<![CDATA[ select * from store where store_code=#{store_code} ]]>
+	</select>
+	
+	<update id="updateStore" parameterType="store">
+  	update store set 
+  		store_code=#{store_code}, 
+  		store_type=#{store_type}, 
+  		store_name=#{store_name}, 
+  		store_address1=#{store_address1},
+  		store_address2=#{store_address2}, 
+  		store_zipcode=#{store_zipcode},
+  		store_phone=#{store_phone},
+  		store_status=#{store_status}
+  	where store_code=#{store_code}
+	</update>
+ 	
+ 	<delete id="deleteStore" parameterType="store">
+	<![CDATA[ delete from store where store_code=#{store_code} ]]>
+	</delete>
+ 	
+</mapper>
+ 

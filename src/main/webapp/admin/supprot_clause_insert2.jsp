@@ -13,7 +13,7 @@
 <script src="js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="js/fileupload.js"></script>
 <!-- <-게시판 css -->
-<link rel="stylesheet" href="./css/support_clause2.css" />
+<link rel="stylesheet" href="/admin/css/support_clause2.css" />
 
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
@@ -347,9 +347,9 @@
 							</header>
 							<div id="content_wrap">
 								<ul class="title_wrap">
-									<li><span class="title">약관번호</span> <input class="title_wrap_input" type="text"
-										onfocus="value=''" value="약관번호를 입력"/>
-									</li>
+<!-- 									<li><span class="title">약관번호</span> <input class="title_wrap_input" type="text" -->
+<!-- 										onfocus="value=''" value="약관번호를 입력"/> -->
+<!-- 									</li> -->
 											<!--
             <input type="checkBox" id="chkNotice1" name="chkB1">
             <label for="chkNotice1">공지사항으로 게시글쓰기</label>
@@ -357,7 +357,7 @@
             <label for="chkNotice2">일반글로 게시글쓰기</label>
             -->
 									<li><span class="title">약관이름</span> <input class="title_wrap_input"  type="text"
-										onfocus="value=''" value="게시글 제목을 입력하세요"/>
+										onfocus="value=''" placeholder="게시글 제목을 입력하세요"/>
 									</li>
 									<div class="require">
 									<li><span class="title">필수여부</span>
@@ -372,16 +372,16 @@
 								<div class="writeWrap">
 									<textarea class="writeArea" value=""></textarea>
 								</div>
-								<div class="configWrap">
-									<ul>
+<!-- 								<div class="configWrap"> -->
+<!-- 									<ul> -->
 
-										<li><span class="title">공개설정</span>&nbsp; <input
-											type="radio" name="open" id="open_0"> <label
-											for="open_0">공개</label>&nbsp;&nbsp; <input type="radio"
-											name="open" id="open_1"> <label for="open_1">비공개</label>&nbsp;&nbsp;
+<!-- 										<li><span class="title">공개설정</span>&nbsp; <input -->
+<!-- 											type="radio" name="open" id="open_0"> <label -->
+<!-- 											for="open_0">공개</label>&nbsp;&nbsp; <input type="radio" -->
+<!-- 											name="open" id="open_1"> <label for="open_1">비공개</label>&nbsp;&nbsp; -->
 										
-									</ul>
-								</div>
+<!-- 									</ul> -->
+<!-- 								</div> -->
 								<div class="end">
 									<a href="#">저장</a>&nbsp;&nbsp;<a href="#">취소</a>
 								</div>

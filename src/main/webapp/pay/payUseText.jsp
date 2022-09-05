@@ -9,7 +9,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
 <link rel="stylesheet" href="/common/css/button.css">
-<link rel="stylesheet" href="/css/pay1.css">
+<link rel="stylesheet" href="/css/payUseText.css">
 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -48,8 +48,9 @@
 			<div class="main">
 				<div class="space_left"></div>
 				<div class="paymainBox">
+				<form action="/sendCustomer.do?" method="GET">
 					<div class="paymain_text">세탁 서비스 예약하기</div>
-
+					<input type="number" value="7" name="customer_no">
 					<div class="paymain_text1">유의사항</div>
 					<div class="paymain_text2">
 
@@ -91,7 +92,7 @@
 						<a href="#" id="a_link">[자세히]</a>
 					</div>
 
-					<form name="form">
+					
 						<div class="paymain_text9">
 							<input type="checkbox" id="checkbox1"
 								onClick="agreeCheck(this.form)"> <span id="span123">※유의사항을
@@ -103,8 +104,8 @@
 
 						<div class="paymain_button">
 							<div class="paymain_button1">
-								<input type="button" id="button1" value="확인" class="action-button shadow animate blue"
-									onclick="location.href='/pay/pay2.jsp'" disabled></input>
+								<input type="submit" id="button1" value="확인" class="action-button shadow animate blue"
+									 disabled></input>
 							</div>
 							<div class="paymain_button1">
 								<input type="button" id="button2"

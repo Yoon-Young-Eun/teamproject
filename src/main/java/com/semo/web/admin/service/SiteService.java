@@ -1,5 +1,6 @@
 package com.semo.web.admin.service;
 
+<<<<<<< HEAD
 import java.util.List;
 
 import com.semo.web.admin.vo.BannerVO;
@@ -28,4 +29,10 @@ public interface SiteService {
 	public TermsVO getReadTerms(TermsVO vo);
 	public void updateTerms(TermsVO vo);
 	public void deleteTerms(TermsVO vo);
+=======
+import com.semo.web.admin.vo.CouponVO;
+
+public interface SiteService {
+	void insertCoupon(CouponVO vo);
+>>>>>>> cdad325ddc8b25d497cbd58c99ce7ebaaa7a51f4
 }

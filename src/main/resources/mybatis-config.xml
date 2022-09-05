@@ -13,6 +13,7 @@
 		<typeAlias type="com.semo.web.admin.vo.PagingVO" alias="paging"/>
 		<typeAlias type="com.semo.web.admin.vo.CmOrderVO" alias="cm_order"/>
 		<!-- 아래 계속해서 추가 -->
+		<typeAlias alias="notice" type="com.semo.web.admin.vo.NoticeVO"/>
 	</typeAliases>
 
 	<!-- <mappers> 엘리먼트는 여러 <mapper>를 가질 수 있으며 이 <mapper>를 이용하여 SQL 명령어들이 저장된 
@@ -22,6 +23,7 @@
 		<mapper resource="mappings/ad_admin-mapping.xml"/>
 		<mapper resource="mappings/ad_member-mapping.xml"/>
 		<!-- 아래 계속해서 추가 -->
+		<mapper resource="mappings/board-mapping.xml"/>
 	</mappers>
 </configuration>
  

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,15 +14,16 @@
 <script src="js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="js/fileupload.js"></script>
 <script type="text/javascript" src="js/index_navbar_onclick.js"></script>
+
 <!-- <-게시판 css -->
-<link rel="stylesheet" href="./css/board.css" />
+<link rel="stylesheet" href="/admin/css/board.css" />
 
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
 
-<link href="css/styles.css" rel="stylesheet" />
-<link href="css/main_info_card.css" rel="stylesheet" />
+<link href="/admin/css/styles.css" rel="stylesheet" />
+<link href="/admin/css/main_info_card.css" rel="stylesheet" />
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
 	crossorigin="anonymous"></script>
 
@@ -329,9 +330,8 @@
 		</div>
 
 		<div id="layoutSidenav_content">
+
 			<main>
-
-
 
 				<div class="container-fluid px-4">
 					<h1 class="mt-4">게시판</h1>
@@ -346,37 +346,21 @@
 						<!-- <div class="card-header">
 							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 게시판에 대한 세부제목
 						</div> -->
-
 						<div id="wrap">
 							<header>
+
 								<div class="board_title">
 									<h1>공지사항</h1>
 								</div>
-
 							</header>
-							<form action="/insertBoard.mdo" method="post"
-								enctype="multipart/form-data">
+
 								<div id="content_wrap">
 									<ul class="title_wrap">
-										<!-- <li><span class="title">게시판</span>
-										<div class="board_select">
-											<select class="select" value="게시판선택">
-												<option selected disabled>게시판선택</option>
-												<option value="notice">공지</option>
-												<option value="review">이벤트</option>
-											</select>
-										</div></li> -->
-										<!--
-            <input type="checkBox" id="chkNotice1" name="chkB1">
-            <label for="chkNotice1">공지사항으로 게시글쓰기</label>
-            <input type="checkBox" id="chkNotice2" name="chkB2">
-            <label for="chkNotice2">일반글로 게시글쓰기</label>
-            -->
-										<li><span class="title">제목</span> <input type="text"
-											name="notice_title" placeholder="게시글 제목을 입력하세요" value="[공지] " /></li>
+										<li><span class="title">제목</span> ${board.notice_title }</li>
+
 									</ul>
 									<div id="summer" class="writeWrap">
-										<textarea id="summernote" class="writeArea" name="notice_content"></textarea>
+										<div id="summernote" class="writeArea" name="notice_content">${board.notice_content }</div>
 									</div>
 									<div class="configWrap">
 										<ul>
@@ -386,58 +370,46 @@
 														id="ex_filename" class="upload-hidden"> <input
 														class="upload-name" value="" disabled="disabled">
 												</div></li>
-											<!-- <li class="tag">
-											<div class="tag_di">
-												<div class="title">태그달기</div>
-												<div class="InputArea">
-													<input type="text" id="tagInput" nae="tagInput"
-														onfocus="value=''" value="태그와 태그는 쉼표로 구분하세요">
-												</div>
-											</div>
-										</li> -->
 											<div class="open_set">
 												<li><span class="title">공개설정</span>&nbsp; <input
 													type="radio" name="open" id="open_0"> <label
 													for="open_0">전체공개</label>&nbsp;&nbsp; <input type="radio"
 													name="open" id="open_2"> <label for="open_2">비공개</label>
+												</li>
 											</div>
-											</li>
 										</ul>
 									</div>
 									<div class="end">
 										<div class="board_btn">
-<!-- 											<a href="boardList.mdo">저장</a> -->
-											<input type="submit" value="저장">
+											<a href="/getUpdate.mdo?notice_no=${board.notice_no}">수정</a>
+										</div>
+										<div class="board_btn">
+											<a href="/deleteBoard.mdo?notice_no=${board.notice_no}">삭제</a>
 										</div>
 										<div class="board_btn">
 											<a href="/getBoardList.mdo">목록</a>
 										</div>
 									</div>
-
 								</div>
-							</form>
 						</div>
-						<hr>
-						<!-- <div class="card-footer small text-muted">Updated yesterday
-							at 11:59 PM</div> -->
 					</div>
-
+					<hr>
 				</div>
 			</main>
+		</div>
 
-			<footer class="py-4 bg-light mt-auto">
-				<div class="container-fluid px-4">
-					<div
-						class="d-flex align-items-center justify-content-between small">
-						<div class="text-muted">Copyright &copy; Your Website 2022</div>
-						<div>
-							<a href="#">Privacy Policy</a> &middot; <a href="#">Terms
-								&amp; Conditions</a>
-						</div>
+		<footer class="py-4 bg-light mt-auto">
+			<div class="container-fluid px-4">
+				<div class="d-flex align-items-center justify-content-between small">
+					<div class="text-muted">Copyright &copy; Your Website 2022</div>
+					<div>
+						<a href="#">Privacy Policy</a> &middot; <a href="#">Terms
+							&amp; Conditions</a>
 					</div>
 				</div>
-			</footer>
-		</div>
+			</div>
+		</footer>
+	</div>
 	</div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -451,5 +423,6 @@
 	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
 		crossorigin="anonymous"></script>
 	<script src="js/datatables-simple-demo.js"></script>
+
 </body>
 </html>

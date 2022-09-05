@@ -22,12 +22,9 @@
 	<mappers>
 		<mapper resource="mappings/ad_admin-mapping.xml"/>
 		<!-- 아래 계속해서 추가 -->
-<<<<<<< HEAD
 		<mapper resource="mappings/ad_site-mapping.xml"/>
 		<mapper resource="mappings/ad_product-mapping.xml"/>
-=======
 		<mapper resource="mappings/board-mapping.xml"/>
->>>>>>> 4f2b66822384990445384f69314360d385f2ce62
 	</mappers>
 </configuration>
  

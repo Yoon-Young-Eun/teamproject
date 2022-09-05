@@ -397,7 +397,7 @@
 										<a href="/CouponList.mdo">목록</a>
 									</div>
 									<div class="popup_btn">
-										<a href="updatePage.mdo?coupon_code=${CouponInfo.coupon_code}">수정</a>
+										<a href="updateCouponPage.mdo?coupon_code=${CouponInfo.coupon_code}">수정</a>
 									</div>
 									<div class="popup_btn">
 										<a href="deleteCoupon.mdo?coupon_code=${CouponInfo.coupon_code}">삭제</a>

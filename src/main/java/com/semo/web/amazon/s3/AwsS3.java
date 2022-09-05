@@ -3,8 +3,6 @@ package com.semo.web.amazon.s3;
 import java.io.File;
 import java.io.InputStream;
 
-import org.springframework.stereotype.Repository;
-
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.auth.AWSCredentials;

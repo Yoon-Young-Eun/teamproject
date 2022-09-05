@@ -19,7 +19,7 @@
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
-<link href="css/styles.css" rel="stylesheet" />
+<link href="/admin/css/styles.css" rel="stylesheet" />
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
 	crossorigin="anonymous"></script>
 <script type="text/javascript" src="js/index_navbar_onclick.js"></script>
@@ -320,13 +320,13 @@
 
 
 				<div class="container-fluid px-4">
-					<h1 class="mt-4">약관관리</h1>
+					<h1 class="mt-4">약관 수정</h1>
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
-						<li class="breadcrumb-item active">약관등록</li>
+						<li class="breadcrumb-item active">약관 수정</li>
 					</ol>
 					<div class="card mb-4">
-						<div class="card-body">약관을 등록해주세요.</div>
+						<div class="card-body">약관을 수정합니다</div>
 					</div>
 					<div class="dd">
 						<!-- <div class="card-header">
@@ -342,13 +342,13 @@
 											width=150px>
 									</div> -->
 									<div class="div3">
-										<h1>약관 등록</h1>
+										<h1>약관 수정</h1>
 									</div>
 								</div>
 							</header>
 							<div id="content_wrap">
 							
-							<form action="/insertTerms.mdo" method="GET">	
+							<form action = "/updateTerms.mdo" method="get">
 							
 								<ul class="title_wrap">
 <!-- 									<li><span class="title">약관번호</span> <input class="title_wrap_input" type="text" -->
@@ -360,20 +360,37 @@
             <input type="checkBox" id="chkNotice2" name="chkB2">
             <label for="chkNotice2">일반글로 게시글쓰기</label>
             -->
-									<li><span class="title">약관이름</span> <input class="title_wrap_input"  type="text" name="terms_title" placeholder="게시글 제목을 입력하세요"/>
+									
+									<input type="hidden" name="terms_no" value="${TermsInfo.terms_no}">
+									<input type="hidden" name="terms_reg_date" value="${TermsInfo.terms_reg_date}">
+									<li><span class="title">약관번호</span>
+									${TermsInfo.terms_no} 
+									</li>
+									<li><span class="title">약관이름</span> <input class="title_wrap_input"  type="text" name="terms_title" value="${TermsInfo.terms_title}" />
 									</li>
 									<div class="require">
 									<li><span class="title">필수여부</span>
 										<div class="clause_select">
 											<select name="terms_necessary" >
+												<c:choose> 
+											<c:when test="${TermsInfo.terms_necessary == true}">
 												<option value="TRUE">필수</option>
 												<option value="FALSE">선택</option>
+											</c:when>  
+											<c:otherwise>
+												<option value="FALSE">선택</option>
+												<option value="TRUE">필수</option>
+											</c:otherwise> 
+										</c:choose>
 											</select>
 										</div></li>
 									</div>
+									<li><span class="title">등록일</span>
+									${TermsInfo.terms_reg_date}
+									</li>
 								</ul>
 								<div class="writeWrap">
-									<textarea class="writeArea" name="terms_content"></textarea>
+									<textarea class="writeArea" name="terms_content">${TermsInfo.terms_content}</textarea>
 								</div>
 <!-- 								<div class="configWrap"> -->
 <!-- 									<ul> -->
@@ -386,7 +403,13 @@
 <!-- 									</ul> -->
 <!-- 								</div> -->
 								<div class="end">
-									<input type="submit" value="저장">&nbsp;&nbsp;<a href="#">취소</a>
+									<div class="popup_btn">
+										<input type="submit" value="저장">
+									</div>
+
+									<div class="popup_btn">
+										<a href="/TermsList.mdo">취소</a>
+									</div>
 								</div>
 							</form>
 							</div>

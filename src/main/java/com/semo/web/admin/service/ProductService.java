@@ -2,7 +2,6 @@ package com.semo.web.admin.service;
 
 import java.util.List;
 
-import com.semo.web.admin.vo.CouponVO;
 import com.semo.web.admin.vo.ProductVO;
 
 public interface ProductService {

@@ -1,34 +1,18 @@
 package com.semo.web.admin.service;
 
-<<<<<<< HEAD
 import java.util.List;
 
-=======
-<<<<<<< HEAD
->>>>>>> 59d6cf8ef38e3f393fac18529eea17d3fd303c5e
-=======
->>>>>>> cdad325ddc8b25d497cbd58c99ce7ebaaa7a51f4
->>>>>>> main
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.semo.web.admin.dao.SiteDAO;
-<<<<<<< HEAD
 import com.semo.web.admin.vo.BannerVO;
 import com.semo.web.admin.vo.CouponVO;
 import com.semo.web.admin.vo.TermsVO;
-=======
-import com.semo.web.admin.vo.CouponVO;
-<<<<<<< HEAD
->>>>>>> 59d6cf8ef38e3f393fac18529eea17d3fd303c5e
-=======
->>>>>>> cdad325ddc8b25d497cbd58c99ce7ebaaa7a51f4
->>>>>>> main
 
 @Service
 public class SiteServiceImpl implements SiteService {
 	@Autowired
-<<<<<<< HEAD
 	private SiteDAO SiteDAO;
 	
 	// ----------------- 쿠폰 ------------------------- //
@@ -115,16 +99,4 @@ public class SiteServiceImpl implements SiteService {
 		
 	}
 	
-=======
-	private SiteDAO CouponDAO;
-	
-	@Override
-	public void insertCoupon(CouponVO vo) {
-		CouponDAO.insertCoupon(vo);
-	}
-<<<<<<< HEAD
->>>>>>> 59d6cf8ef38e3f393fac18529eea17d3fd303c5e
-=======
->>>>>>> cdad325ddc8b25d497cbd58c99ce7ebaaa7a51f4
->>>>>>> main
 }

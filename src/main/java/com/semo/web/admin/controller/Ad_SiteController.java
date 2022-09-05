@@ -1,7 +1,6 @@
 package com.semo.web.admin.controller;
 
 import java.io.IOException;
-<<<<<<< HEAD
 import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.List;
@@ -60,9 +59,9 @@ public class Ad_SiteController {
 	}
 	
 	// 쿠폰 수정 페이지
-	@RequestMapping(value="/updatePage.mdo", method=RequestMethod.GET)
+	@RequestMapping(value="/updateCouponPage.mdo", method=RequestMethod.GET)
 	public String editPage(Model model, CouponVO vo) {	
-		System.out.println("updatePage()");
+		System.out.println("updateCouponPage()");
 		model.addAttribute("CouponInfo", SiteService.getReadCoupon(vo));
 		System.out.println(SiteService.getReadCoupon(vo));
 		return "/admin/promo_coupon_edit.jsp";
@@ -122,7 +121,6 @@ public class Ad_SiteController {
 	@RequestMapping(value="/BannerList.mdo", method=RequestMethod.GET)
 	public String getBannerList(Model model) {
 		System.out.println("admin BannerList()");
-		String result;
 		List<BannerVO> BannerList = SiteService.getBannerList();
 		model.addAttribute("BannerList", BannerList); // model에 저장해서 보내면 jsp에서 불러 사용할 수 있는데.
 		System.out.println(BannerList);              // for문에서는 for문 id이름.컬럼명 ${for문의id이름.컬럼명}
@@ -280,46 +278,4 @@ public class Ad_SiteController {
 			return "/TermsList.mdo";
 		}
 	
-=======
-import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.semo.web.admin.service.SiteService;
-import com.semo.web.admin.vo.CouponVO;
-
-@Controller
-public class Ad_SiteController {
-	 // 쿠폰, 베너, 약관
-	@Autowired
-	private SiteService CouponService;
-	
-	@RequestMapping("/insertCoupon.do")
-	public String insertCoupon(CouponVO vo) throws IOException {
-		System.out.println("쿠폰 등록 처리");
-		System.out.println(vo);
-		
-		
-		Date date = vo.getCoupon_start_date();
-		DateFormat format = new SimpleDateFormat("yyyy-MM-dd 00:00:00");
-		String dateString = format.format(date);
-        
-		
-		System.out.println(dateString);
-		
-
-		CouponService.insertCoupon(vo);
-		System.out.println();
-		
-		return "insertCoupon.jsp";
-	}
-<<<<<<< HEAD
->>>>>>> 59d6cf8ef38e3f393fac18529eea17d3fd303c5e
-=======
->>>>>>> cdad325ddc8b25d497cbd58c99ce7ebaaa7a51f4
->>>>>>> main
 }

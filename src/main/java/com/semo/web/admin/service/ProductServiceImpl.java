@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.semo.web.admin.dao.ProductDAO;
-import com.semo.web.admin.vo.CouponVO;
 import com.semo.web.admin.vo.ProductVO;
 
 @Service

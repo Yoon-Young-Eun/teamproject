@@ -4,33 +4,25 @@
 
 <mapper namespace="BoardDAO">
 
-	<resultMap type="notice" id="noticeResult">
-		<id property="notice_no" column="notice_no" />
-		<result property="notice_title" column="notice_title"/>
-		<result property="notice_content" column="notice_content"/>
-		<result property="notice_reg_date" column="notice_reg_date"/>
-	</resultMap>
-	
-	<select id="getBoardList" resultMap="noticeResult">
+	<select id="getBoardList" resultType="notice">
 		<![CDATA[ select * from notice ]]>
 	</select>
 
 	<insert id="insertBoard" parameterType="notice">
-		<![CDATA[ insert into notice(notice_title, notice_content, notice_reg_date, admin_id) 
-		values #{notice_title}, #{notice_content}, #{notice_reg_date}, #{admin_id} ]]>
+		<![CDATA[ insert into notice(notice_title, notice_content) 
+		values (#{notice_title}, #{notice_content}) ]]>
 	</insert>
 
 	<update id="updateBoard" parameterType="notice">
-		<![CDATA[ update notice set
-		notice_title=#{notice_title}, notice_content=#{notice_content} where noitce_no=#{notice_no} ]]>
+		<![CDATA[ update notice set	notice_title=#{notice_title}, notice_content=#{notice_content} where notice_no=#{notice_no} ]]>
 	</update>
 
 	<delete id="deleteBoard" parameterType="notice">
-		<![CDATA[ delete from notice where noitce_no=#{noitce_no} ]]>
+		<![CDATA[ delete from notice where notice_no=#{notice_no} ]]>
 	</delete>
 
-	<select id="getBoard" resultType="notice"> 
- 		<![CDATA[ select notice_title, notice_content, notice_reg_date from notice where noitce_no=#{noitce_no} ]]>
+	<select id="getBoard" parameterType="notice" resultType="notice"> 
+ 		<![CDATA[ select * from notice where notice_no=#{notice_no} ]]>
 	</select>
 
 	<!-- 기존 <select id="getBoardList" resultMap="boardResult"> select * from 

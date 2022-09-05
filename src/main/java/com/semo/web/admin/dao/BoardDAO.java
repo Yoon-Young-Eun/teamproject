@@ -33,6 +33,11 @@ public class BoardDAO {
 		sqltemplate.delete("BoardDAO.deleteBoard",vo);
 
 	}
+	
+	public void deleteBoard(int no) {
+		sqltemplate.delete("BoardDAO.deleteBoard",no);
+
+	}
 
 
 	public NoticeVO getBoard(NoticeVO vo) {

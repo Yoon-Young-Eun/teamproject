@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -185,7 +185,7 @@
 						<div class="collapse" id="change_id_06"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="/admin/board_notice.jsp">공지사항</a> <a
+								<a class="nav-link" href="/getBoardList.mdo">공지사항</a> <a
 									class="nav-link" href="/admin/board_event.jsp">이벤트</a> <a
 									class="nav-link" href="#">리뷰</a> <a class="nav-link"
 									href="/admin/board_Q&A.jsp">QnA</a> <a class="nav-link"
@@ -280,7 +280,8 @@
 									<nav class="sb-sidenav-menu-nested nav">
 										<a class="nav-link" href="/admin/login.jsp">Login</a> <a
 											class="nav-link" href="/admin/register.html">Register</a> <a
-											class="nav-link" href="/admin/password.html">Forgot Password</a>
+											class="nav-link" href="/admin/password.html">Forgot
+											Password</a>
 									</nav>
 								</div>
 								<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -356,8 +357,8 @@
 
 
 
-		
-											<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
+
+						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
 						<table id=""
 							class="emp-table dataPerPage tblCustomers tblexportData table"
 							border="5">
@@ -376,13 +377,13 @@
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach var="board" items="${BoardList}">
+								<c:forEach var="notice" items="${boardList}">
 									<tr>
 										<td id="check_td"><input type="checkbox" name="check"></td>
-										<td>${board.NOTICE_NO}</td>
-										<td><a href="getBoard.do?num=${board.NOTICE_NO}">${NOTICE_TITLE}</a></td>
-										<td>${board.NOTICE_CONTENT}</td>
-										<td>${board.NOTICE_REG_DATE}</td>
+										<td>${notice.notice_no}</td>
+										<td><a href="/getBoard.mdo?notice_no=${notice.notice_no}">${notice.notice_title}</a></td>
+										<td>${notice.notice_content}</td>
+										<td>${notice.notice_reg_date}</td>
 									</tr>
 								</c:forEach>
 
@@ -394,14 +395,60 @@
 									onclick="window.location='/admin/board_notice_write.jsp'" />
 							</div>
 							<div>
-								<input id="button" type="button" value="수정" />
+								<input id="delBtn" type="button" value="삭제" />
 							</div>
-							<div>
-								<input id="button" type="button" value="삭제" />
-							</div>
-
 						</div>
+						<script type="text/javascript">
+							//체크삭제
+							$("#delBtn")
+									.click(
+											function() {
+												console.log("1");
+												var rowData = new Array();
+												var tdArr = new Array();
+												var checkbox = $("tbody input[name=check]:checked");
 
+												// 체크된 체크박스 값을 가져온다
+												checkbox
+														.each(function(i) {
+															var tr = checkbox
+																	.parent()
+																	.parent()
+																	.eq(i);
+															var td = tr
+																	.children();
+															rowData.push(tr
+																	.text());
+															// td.eq(0)은 체크박스 이므로  td.eq(4)=전화번호 의 값을 가져온다.
+
+															var number = td.eq(
+																	1).text()
+																	+ ",";
+															number = number
+																	.substring(
+																			0,
+																			number.length - 1); //마지막 , 제거
+															// 가져온 값을 배열에 담는다.
+															tdArr.push(number);
+
+															$
+																	.ajax({
+																		url : "deleteBoard2.mdo",
+																		type : "get",
+																		traditional : true,
+																		data : {
+																			tdArr : tdArr,
+																		},
+																		dataType : 'text',
+																		success : function(data) {
+																			location.href = "getBoardList.mdo";
+																			console
+																					.log(data);
+																		}
+																	});
+														});
+											});
+						</script>
 
 
 						<!-- 내용물 end -->
@@ -438,8 +485,8 @@
 		crossorigin="anonymous"></script>
 	<script src="/admin/js/datatables-simple-demo.js"></script>
 	<script>
-        getUniqueValuesFromColumn()
-    </script>
+		getUniqueValuesFromColumn()
+	</script>
 
 	<!-- pdf -->
 	<script type="/admin/text/javascript"

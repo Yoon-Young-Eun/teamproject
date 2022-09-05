@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 .popup_wrapper {
-	width: 360px;
+	width: 560px;
 	height: 544px;
 /* 	margin-top: 50px; */
 /* 	margin-left: 50px; */
@@ -62,8 +62,19 @@
 .popup_text {
 	width: 80px;
 }
-
-
+.popup_office_phone {
+	display: flex;
+	margin: 0px 0px 16px 0px;
+}
+.popup_search {
+	font-size: 12px;
+	margin-left: 16px;
+	height: 25px;
+}
+.popup_office>div input {
+	width: 320px;
+	height: 25px;
+}
 .popup_inputbox>input{
 	width: 200px;
 	height: 25px;
@@ -72,7 +83,7 @@
 
 .popup_btn {
 	margin: 0px 14px;
-	padding: 10px;
+	padding: 2px 10px;
 	border-radius: 10px;
 	background: #dee2e6;
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +11,7 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>Dashboard - SEMO Admin</title>
-<link href="/admin/css/promo_coupon_insert.css" rel="stylesheet" />
+<link href="/admin/css/promo_coupon.css" rel="stylesheet" />
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
@@ -327,17 +328,15 @@
 									<h1>쿠폰</h1>
 								</div>
 							</header>
-							<form action = "/updateCoupon.mdo" method="get">
+							<form action="/insertCoupon.mdo" method="GET">
 								<div class="content_wrap">
-								
-						<input type="hidden" name="coupon_code" value="${CouponInfo.coupon_code}">
-									
+
 									<div class="popup_title_wrap">
 										<div class="popup_title">
 											<div class="popup_text">쿠폰명</div>
 											<div class="popup_inputbox">
-												<input type="text" name="coupon_title" value="${CouponInfo.coupon_title}" placeholder="">
-
+<!-- 												<input type="text" name="coupon_title" placeholder=""> -->
+												${CouponInfo.coupon_title}
 											</div>
 										</div>
 
@@ -353,30 +352,33 @@
 										<div class="popup_title">
 											<div class="popup_text">할인금액</div>
 											<div class="popup_inputbox">
-												<input type="text" name="coupon_sale_price" value="${CouponInfo.coupon_sale_price}" placeholder="">
+<!-- 												<input type="text" name="coupon_sale_price" placeholder=""> -->
+												${CouponInfo.coupon_sale_price}
 											</div>
 										</div>
 										<div class="popup_title">
 											<div class="popup_text">유효기간</div>
 											<div class="popup_inputbox_date">
-												<input type="date" name="coupon_start_date" value="${CouponInfo.coupon_start_date}">
+<!-- 												<input type="date" name="coupon_start_date"> -->
+												${CouponInfo.coupon_start_date} ~
 											</div>
 
 											<div class="popup_inputbox_date2">
-												<input type="date" name="coupon_end_date" value="${CouponInfo.coupon_end_date}">
+<!-- 												<input type="date" name="coupon_end_date"> -->
+												${CouponInfo.coupon_end_date}
 											</div>
 										</div>
 										<div class="popup_title">
 											<div class="popup_text">발급대상</div>
 											<div class="popup_inputbox">
-												<select class="item_level" id="item_level1"
-													name="coupon_type">
-													<option value="${CouponInfo.coupon_type}" selected>${CouponInfo.coupon_type}</option>
-													<option value="전체">전체</option>
-													<option value="신규가입">신규가입</option>
-													<option value="생일">생일</option>
-													<option value="리뷰">리뷰</option>
-												</select>
+<!-- 												<select class="item_level" id="item_level1" -->
+<!-- 													name="coupon_type"> -->
+<!-- 													<option value="0">전체</option> -->
+<!-- 													<option value="신규가입">신규가입</option> -->
+<!-- 													<option value="생일">생일</option> -->
+<!-- 													<option value="리뷰">리뷰</option> -->
+<!-- 												</select> -->
+												${CouponInfo.coupon_type}
 											</div>
 										</div>
 										<!-- 									<div class="popup_title"> -->
@@ -392,11 +394,13 @@
 
 								<div class="end">
 									<div class="popup_btn">
-										<input type="submit" value="저장">
+										<a href="/CouponList.mdo">목록</a>
 									</div>
-
 									<div class="popup_btn">
-										<a href="/CouponList.mdo">취소</a>
+										<a href="updatePage.mdo?coupon_code=${CouponInfo.coupon_code}">수정</a>
+									</div>
+									<div class="popup_btn">
+										<a href="deleteCoupon.mdo?coupon_code=${CouponInfo.coupon_code}">삭제</a>
 									</div>
 								</div>
 							</form>

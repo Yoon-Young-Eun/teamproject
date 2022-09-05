@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +11,7 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>Dashboard - SEMO Admin</title>
-<link href="/admin/css/promo_coupon_insert.css" rel="stylesheet" />
+<link href="/admin/css/store_edit.css" rel="stylesheet" />
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
@@ -311,97 +312,75 @@
 			<main>
 
 				<div class="container-fluid px-4">
-					<h1 class="mt-4">쿠폰관리</h1>
+					<h1 class="mt-4">매장 관리</h1>
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
-						<li class="breadcrumb-item active">쿠폰등록</li>
+						<li class="breadcrumb-item active">매장 등록</li>
 					</ol>
 					<div class="card mb-4">
-						<div class="card-body">할인 쿠폰을 등록합니다.</div>
+						<div class="card-body">새로운 매장을 등록합니다.</div>
 					</div>
 
-					<div class="whole">
-						<div class="popup_wrapper">
-							<header>
-								<div class="coupon_title">
-									<h1>쿠폰</h1>
-								</div>
-							</header>
-							<form action = "/updateCoupon.mdo" method="get">
-								<div class="content_wrap">
-								
-						<input type="hidden" name="coupon_code" value="${CouponInfo.coupon_code}">
-									
-									<div class="popup_title_wrap">
-										<div class="popup_title">
-											<div class="popup_text">쿠폰명</div>
-											<div class="popup_inputbox">
-												<input type="text" name="coupon_title" value="${CouponInfo.coupon_title}" placeholder="">
+<!-- ---------- 본문내용 시작 ---------- -->
 
-											</div>
-										</div>
+<div class="popup_wrapper">
+<div class="popup_head"><h1>매장</h1>
 
-										<!-- 									<div class="popup_title"> -->
-										<!-- 										<div class="popup_text">쿠폰번호</div> -->
-										<!-- 										<div class="popup_inputbox"> -->
-										<!-- 											<input type="text" placeholder=""> -->
-										<!-- 										</div> -->
-										<!-- 									</div> -->
-									</div>
+</div>
+<div class="popup_title">
+<div class="popup_text">매장명</div><div class="popup_inputbox"><input type="text" placeholder=""></div>
+</div>
+<div class="popup_type">
+<div class="popup_text">구분</div>
+<div class="popup_select">
+<!-- <input class="office_type" type="radio" name="office_type_radio" id="office_type1" checked="checked"><label for="office_type1">직영</label></div> -->
+<!-- <div class="popup_radio"> -->
+<!-- <input class="office_type" type="radio" name="office_type_radio" id="office_type2"><label for="office_type2">외주</label> -->
+<select class="store_type">
+	<option value="직영">직영</option>
+	<option value="외주">외주</option>
+</select>
+</div>
+</div><!-- /popup_content -->
+<div class="popup_status">
+<div class="popup_text">매장상태</div><div class="popup_select">
+<select class="manager_level">
+	<option value="운영중">운영중</option>
+	<option value="휴점">휴점</option>
+	<option value="폐점">폐점</option>
+</select>
+</div>
+</div>
+<div class="popup_office">
+<div class="popup_text">주소</div><div class="popup_inputbox"><input type="text" placeholder="우편변호 검색"></div>
+</div>
+<div class="popup_office">
+<div class="popup_text"></div><div class="popup_inputbox"><input type="text" placeholder="주소"></div>
+</div>
+<div class="popup_office">
+<div class="popup_text"></div><div class="popup_inputbox"><input type="text" placeholder="상세주소 입력"></div>
+</div>
+<div class="popup_office_phone">
+<div class="popup_text">전화번호</div><div class="popup_inputbox"><input type="text" placeholder="010-1234-5678"></div>
+</div>
 
-									<div class="item_infor_wrap">
-										<div class="popup_title">
-											<div class="popup_text">할인금액</div>
-											<div class="popup_inputbox">
-												<input type="text" name="coupon_sale_price" value="${CouponInfo.coupon_sale_price}" placeholder="">
-											</div>
-										</div>
-										<div class="popup_title">
-											<div class="popup_text">유효기간</div>
-											<div class="popup_inputbox_date">
-												<input type="date" name="coupon_start_date" value="${CouponInfo.coupon_start_date}">
-											</div>
+<div class="end">
+	<div class="popup_btn">
+		<a href="/CouponList.mdo">목록</a>
+	</div>
+	<div class="popup_btn">
+		<a href="updatePage.mdo?coupon_code=${CouponInfo.coupon_code}">수정</a>
+	</div>
+	<div class="popup_btn">
+		<a href="deleteCoupon.mdo?coupon_code=${CouponInfo.coupon_code}">삭제</a>
+	</div>
+</div>
 
-											<div class="popup_inputbox_date2">
-												<input type="date" name="coupon_end_date" value="${CouponInfo.coupon_end_date}">
-											</div>
-										</div>
-										<div class="popup_title">
-											<div class="popup_text">발급대상</div>
-											<div class="popup_inputbox">
-												<select class="item_level" id="item_level1"
-													name="coupon_type">
-													<option value="${CouponInfo.coupon_type}" selected>${CouponInfo.coupon_type}</option>
-													<option value="전체">전체</option>
-													<option value="신규가입">신규가입</option>
-													<option value="생일">생일</option>
-													<option value="리뷰">리뷰</option>
-												</select>
-											</div>
-										</div>
-										<!-- 									<div class="popup_title"> -->
-										<!-- 										<div class="popup_text">발급갯수</div> -->
-										<!-- 										<div class="popup_inputbox"> -->
-										<!-- 											<input type="number" value="1"> -->
-										<!-- 										</div> -->
-										<!-- 									</div> -->
-									</div>
+</div>
 
-								</div>
+<!-- ---------- 본문내용 끝 ---------- -->
 
-
-								<div class="end">
-									<div class="popup_btn">
-										<input type="submit" value="저장">
-									</div>
-
-									<div class="popup_btn">
-										<a href="/CouponList.mdo">취소</a>
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
+				</div>
 			</main>
 			<footer class="py-4 bg-light mt-auto">
 				<div class="container-fluid px-4">

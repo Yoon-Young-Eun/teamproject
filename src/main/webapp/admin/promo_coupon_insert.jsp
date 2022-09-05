@@ -327,16 +327,14 @@
 									<h1>쿠폰</h1>
 								</div>
 							</header>
-							<form action = "/updateCoupon.mdo" method="get">
+							<form action="/insertCoupon.mdo" method="GET">
 								<div class="content_wrap">
-								
-						<input type="hidden" name="coupon_code" value="${CouponInfo.coupon_code}">
-									
+
 									<div class="popup_title_wrap">
 										<div class="popup_title">
 											<div class="popup_text">쿠폰명</div>
 											<div class="popup_inputbox">
-												<input type="text" name="coupon_title" value="${CouponInfo.coupon_title}" placeholder="">
+												<input type="text" name="coupon_title" placeholder="">
 
 											</div>
 										</div>
@@ -353,17 +351,17 @@
 										<div class="popup_title">
 											<div class="popup_text">할인금액</div>
 											<div class="popup_inputbox">
-												<input type="text" name="coupon_sale_price" value="${CouponInfo.coupon_sale_price}" placeholder="">
+												<input type="text" name="coupon_sale_price" placeholder="">
 											</div>
 										</div>
 										<div class="popup_title">
 											<div class="popup_text">유효기간</div>
 											<div class="popup_inputbox_date">
-												<input type="date" name="coupon_start_date" value="${CouponInfo.coupon_start_date}">
+												<input type="date" name="coupon_start_date">
 											</div>
 
 											<div class="popup_inputbox_date2">
-												<input type="date" name="coupon_end_date" value="${CouponInfo.coupon_end_date}">
+												<input type="date" name="coupon_end_date">
 											</div>
 										</div>
 										<div class="popup_title">
@@ -371,7 +369,6 @@
 											<div class="popup_inputbox">
 												<select class="item_level" id="item_level1"
 													name="coupon_type">
-													<option value="${CouponInfo.coupon_type}" selected>${CouponInfo.coupon_type}</option>
 													<option value="전체">전체</option>
 													<option value="신규가입">신규가입</option>
 													<option value="생일">생일</option>

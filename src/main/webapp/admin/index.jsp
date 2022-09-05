@@ -59,10 +59,12 @@
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="change_id_01" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="/admin/member.jsp">회원관리</a>
+                                <nav class="sb-sidenav-men
+                                u-nested nav">
+                                    <a class="nav-link" href="/member.mdo">회원관리</a>
                                     <a class="nav-link" href="/admin/member_black.jsp">블랙회원관리</a>
                                     <a class="nav-link" href="/staffList.mdo">매니저관리</a>
+                                    <a class="nav-link" href="/memberorderList.mdo">회원주문이력</a>
                                 </nav>
                             </div>
                             

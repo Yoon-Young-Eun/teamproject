@@ -1,27 +1,37 @@
 package com.semo.web.admin.vo;
 
 public class MessageVO {
-
-	 private String title;
-	 private String content;
-	 
-	public String getTitle() {
-		return title;
+	
+	 private int message_no;
+	 private String message_title;
+	 private String message_content;
+	             
+	public int getMessage_no() {
+		return message_no;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setMessage_no(int message_no) {
+		this.message_no = message_no;
 	}
-	public String getContent() {
-		return content;
+	public String getMessage_title() {
+		return message_title;
 	}
-	public void setContent(String cotent) {
-		this.content = cotent;
+	public void setMessage_title(String message_title) {
+		this.message_title = message_title;
+	}
+	public String getMessage_content() {
+		return message_content;
+	}
+	public void setMessage_content(String message_content) {
+		this.message_content = message_content;
 	}
 	
 	@Override
 	public String toString() {
-		return "Message [title=" + title + ", content=" + content + "]";
+		return "MessageVO [message_no=" + message_no + ", message_title=" + message_title + ", message_content="
+				+ message_content + "]";
 	}
+	 
+	
 	 
 	 
 }

@@ -8,6 +8,10 @@
 		이를 통해 SQL Mapper 파일의 크기를 줄여주고 설정을 간단히 처리할 수 있도록 해 준다. -->
 	<typeAliases>
 		<typeAlias type="com.semo.web.admin.vo.AdminVO" alias="admin" />
+		<typeAlias type="com.semo.web.admin.vo.CustomerVO" alias="customer"/>
+		<typeAlias type="com.semo.web.admin.vo.MessageVO" alias="message" />
+		<typeAlias type="com.semo.web.admin.vo.PagingVO" alias="paging"/>
+		<typeAlias type="com.semo.web.admin.vo.CmOrderVO" alias="cm_order"/>
 		<!-- 아래 계속해서 추가 -->
 	</typeAliases>
 
@@ -16,6 +20,7 @@
 		
 	<mappers>
 		<mapper resource="mappings/ad_admin-mapping.xml"/>
+		<mapper resource="mappings/ad_member-mapping.xml"/>
 		<!-- 아래 계속해서 추가 -->
 	</mappers>
 </configuration>

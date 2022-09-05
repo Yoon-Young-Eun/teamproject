@@ -1,5 +1,51 @@
 package com.semo.web.admin.service;
 
-public interface MemberServiceImpl {
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.semo.web.admin.dao.MemberDAO;
+import com.semo.web.admin.vo.CmOrderVO;
+import com.semo.web.admin.vo.CustomerVO;
+import com.semo.web.admin.vo.MessageVO;
+import com.semo.web.admin.vo.PagingVO;
+
+@Service
+public class MemberServiceImpl implements MemberService {
+	
+	@Autowired
+	MemberDAO memberDao;
+
+	@Override
+	public int getArticleCount() {
+		return memberDao.getArticleCount();
+	}
+
+	@Override
+	public List<CustomerVO> getBoardList() {
+		return memberDao.getBoardList();
+	}
+
+	@Override
+	public List<CustomerVO> getBoardList(PagingVO pvo) {
+		return memberDao.getBoardList(pvo);
+	}
+
+	@Override
+	public List<MessageVO> getMessageList(MessageVO vo) {
+		return memberDao.getMessageList(vo);
+	}
+
+	@Override
+	public CustomerVO getRead(CustomerVO vo) {
+		return memberDao.getRead(vo);
+	}
+
+	@Override
+	public List<CmOrderVO> getUserOrderList(PagingVO pvo) {
+		return memberDao.getUserOrderList(pvo);
+	}
 
 }

@@ -96,7 +96,6 @@
                                     <a class="nav-link" href="/member.mdo">회원관리</a>
                                     <a class="nav-link" href="/admin/member_black.jsp">블랙회원관리</a>
                                     <a class="nav-link" href="/staffList.mdo">매니저관리</a>
-                                    <a class="nav-link" href="/memberorderList.mdo">회원주문이력</a>
                                 </nav>
                             </div>
                             
@@ -387,30 +386,33 @@
 								<tr>
 									<th width="50" id="check_td"><input type="checkbox"
 										name="check" class="allcheck"></th>
-									<th col-index=2>회원코드</th>
-									<th col-index=3>아이디(이메일)</th>
-									<th col-index=4>이름</th>
-									<th col-index=5>핸드폰</th>
-									<th col-index=6>주소1</th>
-									<th col-index=7>SMS수신</th>
+									<th col-index=2>주문번호</th>
+									<th col-index=3>회원이름(이메일)</th>
+									<th col-index=4>상품코드</th>
+									<th col-index=5>대분류</th>
+									<th col-index=6>중분류</th>
+									<th col-index=7>상품명</th>
 									<th style="padding: 0px 5px;" col-index=8>회원상태<br><select class="table-filter"
 										onchange="filter_rows()">
 											<option value="all"></option>
 									</select>
 									</th>
+									<th col-index=8>가격</th>
+									<th col-index=9>주문일자</th>
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach var="board" items="${articleList}">
+								<c:forEach var="orderList" items="${userOrdeList}">
 									<tr>
 										<td id="check_td"><input type="checkbox" name="check"></td>
-										<td>${board.customer_no}</td>
-										<td><a href="/getBoard.mdo?customer_no=${board.customer_no}">${board.customer_id}</a></td>
-										<td>${board.customer_name }</td>
-										<td>${board.customer_phone}</td>
-										<td>${board.customer_address1}</td>
-										<td>${board.customer_sms_permit}</td>
-										<td>${board.customer_status}</td>
+										<td>${orderList.order_no}</td>
+										<td>${orderList.customer_name}</a></td>
+										<td>${orderList.product_code}</td>
+										<td>${orderList.order_mt_category1}</td>
+										<td>${orderList.order_mt_category2}</td>
+										<td>${orderList.order_mt_product}</td>
+										<td>${orderList.order_mt_price}</td>
+										<td>${orderList.order_mt_date}</td>
 									</tr>
 								</c:forEach>
 							</tbody>

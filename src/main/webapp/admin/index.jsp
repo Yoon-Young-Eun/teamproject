@@ -109,7 +109,7 @@
                             </a>
                             <div class="collapse" id="change_id_05" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">매장관리</a>
+                                    <a class="nav-link" href="/StoreList.mdo">매장관리</a>
 <!--                                     <a class="nav-link" href="#">외주관리</a> -->
                                 </nav>
                             </div>

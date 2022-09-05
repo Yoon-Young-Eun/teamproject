@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -305,76 +306,48 @@
 	  <!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->  
     <table id="datatablesSimple" class="emp-table dataPerPage tblCustomers tblexportData table" border="5">
         <thead>
-        <tr>
-        <tr>
-            <th width="50" id="check_td"> <input type="checkbox" name="check" class="allcheck"></th>
-            <th width="120"col-index = 2>관리코드</th>
-            <th width="120"col-index = 3>구분
-                <select class="table-filter" onchange="filter_rows()">
-                    <option value="all"></option>
-                </select>
-            </th>
-            <th width="220" col-index = 4>매장명</th>
-            <th width="220"col-index = 5>주소</th>
-            <th width="120"col-index = 6>대표전화<tr>
-        </thead>
-        <tbody>
-            <tr>
-            <td id="check_td"><input type="checkbox" name="check"></td>
-                <td>101</td>
-                <td>직영</td>
-                <td>세탁의 모든것 강북지점 </td>
-                <td>서울 송파구</td>
-                <td>02-981-1111</td>
-            </tr>
-            <tr>
-            <td id="check_td"><input type="checkbox" name="check"></td>
-                <td>102</td>
-                <td>외주</td>
-                <td>런드리공 </td>
-                <td>서울 송파구</td>
-                <td>02-981-1111</td>
-            </tr>
-            <tr>
-             <td id="check_td"><input type="checkbox" name="check"></td>
-                <td>103</td>
-                <td>외주</td>
-                <td>클린또피아 </td>
-                <td>서울 서초구</td>
-                <td>02-981-1111</td>
-            </tr>
-            <tr>
-             <td id="check_td"><input type="checkbox" name="check"></td>
-                   <td>101</td>
-                <td>직영</td>
-                <td>세탁의 모든것 도봉지점 </td>
-                <td>서울 동작구</td>
-                <td>02-981-1111</td>
-            </tr>
-            <tr>
-             <td id="check_td"><input type="checkbox" name="check"></td>
-                <td>101</td>
-                <td>직영</td>
-                <td>세탁의 모든것 동작지점 </td>
-                <td>서울 송파구</td>
-                <td>02-981-1111</td>
-            </tr>
-            <tr>
-            <td id="check_td"><input type="checkbox" name="check"></td>
-                   <td>101</td>
-                <td>외주</td>
-                <td>매일세탁 </td>
-                <td>서울 송파구</td>
-                <td>02-981-1111</td>
-            </tr>
-     
+			<tr>
+				<th width="50" id="check_td"><input type="checkbox"
+					name="check" class="allcheck"></th>
+				<th col-index=2>매장코드</th>
+				<th col-index=3>매장명</th>
+				<th col-index=4>매장종류<select class="table-filter"
+					onchange="filter_rows()">
+						<option value="all"></option>
+				</select></th>
+				<th col-index=5>주소</th>
+				<th col-index=6>상세주소</th>
+				<th col-index=7>전화번호</th>
+				<th col-index=8>상태<select class="table-filter"
+					onchange="filter_rows()">
+						<option value="all"></option>
+				</select></th>
+			</tr>
+		</thead>  
+		<tbody>
+			<!-- for문~(c:forEach)  이 for문의 id값은 "admin"으로 정함!-->
+			<c:forEach var="store" items="${StoreList}">
+				<!--  adminList은 컨트롤러에서 model에 저장한 "adminList" 이름임 -->
+				<tr>
+					<td id="check_td"><input type="checkbox" name="check"></td>
+					<td>${store.store_code}</td>
+					<!--for문의 id값.컬럼명으로 값을 불러옴 -->
+					<td><a href="readStore.mdo?store_code=${store.store_code}">${store.store_name}</a></td>
+					<td>${store.store_type}</td>
+					<td>${store.store_address1}</td>
+					<td>${store.store_address2}</td>
+					<td>${store.store_phone}</td>
+					<td>${store.store_status}</td>
+				</tr>
+			</c:forEach>
 
-        </tbody>
-    </table>
+		</tbody>
+	</table>
 <div class="flex">
-						<div> <input id="button" type="button" value="등록" /> </div>
-						<div> <input  id="button" type="button"  value="수정" /> </div>
-						<div> <input id="button" type="button" value="삭제" /> </div>
+						<div> <input id="button" type="button" value="등록" 
+						onclick="window.location='/admin/store_store_insert.jsp'" /> </div>
+<!-- 						<div> <input  id="button" type="button"  value="수정" /> </div> -->
+<!-- 						<div> <input id="button" type="button" value="삭제" /> </div> -->
 						
 						</div>
 

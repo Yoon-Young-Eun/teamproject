@@ -11,6 +11,7 @@
 		<typeAlias type="com.semo.web.admin.vo.BannerVO" alias="banner" />
 		<typeAlias type="com.semo.web.admin.vo.CouponVO" alias="coupon" />
 		<typeAlias type="com.semo.web.admin.vo.ProductVO" alias="product" />
+		<typeAlias type="com.semo.web.admin.vo.StoreVO" alias="store" />
 		<typeAlias type="com.semo.web.admin.vo.TermsVO" alias="terms" />
 		<!-- 아래 계속해서 추가 -->
 		<typeAlias alias="notice" type="com.semo.web.admin.vo.NoticeVO"/>
@@ -23,6 +24,7 @@
 		<mapper resource="mappings/ad_admin-mapping.xml"/>
 		<!-- 아래 계속해서 추가 -->
 		<mapper resource="mappings/ad_site-mapping.xml"/>
+		<mapper resource="mappings/ad_store-mapping.xml"/>
 		<mapper resource="mappings/ad_product-mapping.xml"/>
 		<mapper resource="mappings/board-mapping.xml"/>
 	</mappers>

@@ -8,6 +8,10 @@
 		이를 통해 SQL Mapper 파일의 크기를 줄여주고 설정을 간단히 처리할 수 있도록 해 준다. -->
 	<typeAliases>
 		<typeAlias type="com.semo.web.admin.vo.AdminVO" alias="admin" />
+		<typeAlias type="com.semo.web.admin.vo.CustomerVO" alias="customer0"/>
+		<typeAlias type="com.semo.web.admin.vo.MessageVO" alias="message" />
+		<typeAlias type="com.semo.web.admin.vo.PagingVO" alias="paging"/>
+		<typeAlias type="com.semo.web.admin.vo.CmOrderVO" alias="cm_order"/>
 
 		<typeAlias type="com.semo.web.user.vo.AddressListVO" alias="CM_ADDRESS" />
 		<typeAlias type="com.semo.web.user.vo.FaqVO" alias="BOARD_FAQ"/>	
@@ -20,11 +24,8 @@
 		<typeAlias type="com.semo.web.admin.vo.StoreVO" alias="store" />
 		<typeAlias type="com.semo.web.admin.vo.TermsVO" alias="terms" />
 		
-		
-	
-
-		<!-- 아래 계속해서 추가 -->
 		<typeAlias alias="notice" type="com.semo.web.admin.vo.NoticeVO"/>
+				<!-- 아래 계속해서 추가 -->
 	</typeAliases>
 
 	<!-- <mappers> 엘리먼트는 여러 <mapper>를 가질 수 있으며 이 <mapper>를 이용하여 SQL 명령어들이 저장된 
@@ -32,13 +33,18 @@
 		
 	<mappers>
 		<mapper resource="mappings/ad_admin-mapping.xml"/>
+
+		<mapper resource="mappings/ad_member-mapping.xml"/>
+		<mapper resource="mappings/ad_order-mapping.xml"/>
+
 		<mapper resource="mappings/user_address-mapping.xml"/>
 		<mapper resource="mappings/user_faq-mapping.xml"/>
-		<!-- 아래 계속해서 추가 -->
+
 		<mapper resource="mappings/ad_site-mapping.xml"/>
 		<mapper resource="mappings/ad_store-mapping.xml"/>
 		<mapper resource="mappings/ad_product-mapping.xml"/>
 		<mapper resource="mappings/board-mapping.xml"/>
+				<!-- 아래 계속해서 추가 -->
 	</mappers>
 </configuration>
  

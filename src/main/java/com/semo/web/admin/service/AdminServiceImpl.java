@@ -45,7 +45,9 @@ public class AdminServiceImpl implements AdminService {
 		admindao.deleteStaff(vo);
 		
 	}
-	
-	
+	@Override
+	public void selectedDelete(int num) {
+		admindao.selectedDelete(num);
+	}
 
 }

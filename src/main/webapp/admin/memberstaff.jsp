@@ -96,9 +96,9 @@
 						<div class="collapse" id="change_id_01"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="/admin/member.jsp">회원관리</a> <a
-									class="nav-link" href="/admin/member_black.jsp">블랙회원관리</a> <a
-									class="nav-link" href="/admin/memberstaff.jsp">매니저관리</a>
+                                    <a class="nav-link" href="/member.mdo">회원관리</a>
+                                    <a class="nav-link" href="/blackmember.mdo">블랙회원관리</a>
+                                    <a class="nav-link" href="/staffList.mdo">매니저관리</a>
 							</nav>
 						</div>
 
@@ -112,30 +112,23 @@
 								<i class="fas fa-angle-down"></i>
 							</div>
 						</a>
-						<div class="collapse" id="change_id_02"
-							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="/admin/order.jsp">주문/결제</a> <a
-									class="nav-link" href="/admin/estimate.jsp">견적상품</a>
-							</nav>
-						</div>
-
-						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-							data-bs-target="#change_id_03" aria-expanded="false"
-							aria-controls="collapseLayouts">
-							<div class="sb-nav-link-icon">
-								<i class="fas fa-columns"></i>
-							</div> 매출현황
-							<div class="sb-sidenav-collapse-arrow">
-								<i class="fas fa-angle-down"></i>
-							</div>
-						</a>
-						<!--                             <div class="collapse" id="change_id_03" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
-						<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
-						<!--                                     <a class="nav-link" href="#">매출현황#1</a> -->
-						<!--                                     <a class="nav-link" href="#">매출현황#2</a> -->
-						<!--                                 </nav> -->
-						<!--                             </div> -->
+						                           <div class="collapse" id="change_id_02" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="/adminOrderList.mdo">주문/결제</a>
+									<a class="nav-link" href="/estimateList.mdo">견적주문</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_03" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                매출현황
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="change_id_03" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+										<a class="nav-link" href="/salseStatus.mdo">매출현황</a>
+										<a class="nav-link" href="/memberorderList.mdo">개별회원이력</a>
+                                </nav>
+                            </div> 
 
 						<a class="nav-link collapsed" href="/admin/item.jsp"
 							data-bs-toggle="collapse" data-bs-target="#change_id_04"
@@ -362,11 +355,7 @@
 										name="check" class="allcheck"></th>
 									<th col-index=2>No</th>
 									<th col-index=3>아이디</th>
-									<th col-index=4>부서<select class="table-filter"
-										onchange="filter_rows()">
-											<option value="all"></option>
-									</select>
-									</th>
+									<th col-index=4>부서</th>
 									<th col-index=5>직급</th>
 									<th col-index=6>이름</th>
 								</tr>
@@ -390,7 +379,7 @@
 								<input id="button" type="button" value="등록" onclick="showPopup();"/>
 							</div>
 							<div>
-								<input id="button" type="button" id="selectBtn" value="삭제" />
+								<input id="delBtn" type="button" value="삭제" />
 							</div>
 
 						</div>
@@ -419,44 +408,45 @@
 		</div>
 	</div>
 	
-	<!--체크박스 선택하여 삭제,, 아직 구현안됨 -->
-	<script>
-		// 상단 선택버튼 클릭시 체크된 Row의 값을 가져온다.
-		$("#selectBtn").click(function() {
+
+
+	<script type="text/javascript">
+		//체크삭제
+		$("#delBtn").click(function() {
 			console.log("1");
 			var rowData = new Array();
-			var tdArr = new Array();
+			var num = new Array();
 			var checkbox = $("tbody input[name=check]:checked");
+
+			// 체크된 체크박스 값을 가져온다
 			checkbox.each(function(i) {
-				// checkbox.parent() : checkbox의 부모는 <td>이다.
-				// checkbox.parent().parent() : <td>의 부모이므로 <tr>이다.
 				var tr = checkbox.parent().parent().eq(i);
 				var td = tr.children();
 				rowData.push(tr.text());
-				// td.eq(0)은 체크박스 이므로  td.eq(2)=아이디 값을 가져온다.
+				// td.eq(0)은 체크박스 이므로  td.eq(4)=전화번호 의 값을 가져온다.
 
-				var id = td.eq(2).text() + ",";
-				id = id.substring(0, phone.length - 1); //마지막 , 제거
+				var number = td.eq(1).text() + ",";
+				number = number.substring(0, number.length - 1); //마지막 , 제거
 				// 가져온 값을 배열에 담는다.
-				tdArr.push(id);
-				//console.log("phone : " + phone);
+				num.push(number);
 
 				$.ajax({
-					url : "deleteStaff.mdo",
+					url : "selectDelete.mdo",
 					type : "get",
 					traditional : true,
 					data : {
-						tdArr : tdArr
+						num : num,
 					},
 					dataType : 'text',
 					success : function(data) {
+						location.href = "staffList.mdo";
 						console.log(data);
 					}
 				});
-
 			});
 		});
 	</script>
+
 	
 	
 	<script

@@ -89,9 +89,9 @@
                             </a>
                             <div class="collapse" id="change_id_01" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="member.jsp">회원관리</a>
-                                    <a class="nav-link" href="member_black.jsp">블랙회원관리</a>
-                                    <a class="nav-link" href="memberstaff.jsp">매니저관리</a>
+                                    <a class="nav-link" href="/member.mdo">회원관리</a>
+                                    <a class="nav-link" href="/blackmember.mdo">블랙회원관리</a>
+                                    <a class="nav-link" href="/staffList.mdo">매니저관리</a>
                                 </nav>
                             </div>
                             
@@ -102,22 +102,21 @@
                             </a>
                             <div class="collapse" id="change_id_02" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="order.jsp">주문/결제</a>
-                                    <a class="nav-link" href="estimate.jsp">견적상품</a>
+                                    <a class="nav-link" href="/adminOrderList.mdo">주문/결제</a>
+									<a class="nav-link" href="/estimateList.mdo">견적주문</a>
                                 </nav>
                             </div>
-                            
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_03" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 매출현황
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-<!--                             <div class="collapse" id="change_id_03" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
-<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
-<!--                                     <a class="nav-link" href="#">매출현황#1</a> -->
-<!--                                     <a class="nav-link" href="#">매출현황#2</a> -->
-<!--                                 </nav> -->
-<!--                             </div> -->
+                            <div class="collapse" id="change_id_03" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+										<a class="nav-link" href="/salseStatus.mdo">매출현황</a>
+										<a class="nav-link" href="/memberorderList.mdo">개별회원이력</a>
+                                </nav>
+                            </div> 
                             
                             <a class="nav-link collapsed" href="item.jsp" data-bs-toggle="collapse" data-bs-target="#change_id_04" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>

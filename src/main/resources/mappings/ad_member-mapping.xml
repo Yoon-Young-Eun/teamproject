@@ -17,7 +17,7 @@
 	</select>
 	
 
-	<select id="getBoardList" resultType="customer">
+	<select id="getBoardList" resultType="customer0">
 		select * from customer
 	</select>
 
@@ -25,8 +25,8 @@
 		select * from message
 	</select>
 
-	<select id="getRead" parameterType="customer"
-		resultType="customer">
+	<select id="getRead" parameterType="customer0"
+		resultType="customer0">
 		select * from customer where customer_no=#{customer_no}
 	</select>
 
@@ -34,7 +34,7 @@
 
    <!-- 블랙회원 회원 조회 (검색기능 포함)-->
 	<select id="getBlackList" parameterType="paging"
-		resultType="customer">
+		resultType="customer0">
     	     <![CDATA[ select * from (select @rownum := @rownum+1 as rnum, customer_no, customer_name,customer_passwd, customer_id, customer_phone, customer_join_date, customer_sms_permit, customer_zipcode, customer_address1, customer_address2, customer_birth, customer_status from customer, (select @rownum :=0) as rowcolum where]]>
 			<if test="searchCondition=='customer_id'">
     			<![CDATA[customer_id like concat('%', #{searchKeyword}, '%') and]]></if>
@@ -46,7 +46,7 @@
 
     <!-- 블랙회원을 제외한 정상회원 조회 (검색기능 포함)-->
 	<select id="getArticeList" parameterType="paging"
-		resultType="customer">
+		resultType="customer0">
   
     <![CDATA[ select * from (select @rownum := @rownum+1 as rnum, customer_no, customer_name,customer_passwd, customer_id, customer_phone, customer_join_date, customer_sms_permit, customer_zipcode, customer_address1, customer_address2, customer_birth, customer_status from customer, (select @rownum :=0) as rowcolum where ]]>
 			<if test="searchCondition=='customer_address1'">

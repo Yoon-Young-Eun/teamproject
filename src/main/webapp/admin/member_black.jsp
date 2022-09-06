@@ -105,6 +105,7 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="/adminOrderList.mdo">주문/결제</a>
 									<a class="nav-link" href="/estimateList.mdo">견적주문</a>
+									<a class="nav-link" href="/memberorderList.mdo">개별조회</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_03" aria-expanded="false" aria-controls="collapseLayouts">
@@ -114,8 +115,9 @@
                             </a>
                             <div class="collapse" id="change_id_03" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-										<a class="nav-link" href="/salseStatus.mdo">매출현황</a>
-										<a class="nav-link" href="/memberorderList.mdo">개별회원이력</a>
+								<a class="nav-link" href="/salesStoreList.mdo">지점매출</a> 
+								<a class="nav-link" href="/salesProductList.mdo">상품매출</a>
+										
                                 </nav>
                             </div> 
                             

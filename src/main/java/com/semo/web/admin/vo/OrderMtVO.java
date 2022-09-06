@@ -1,6 +1,6 @@
 package com.semo.web.admin.vo;
 
-public class CmOrderVO {
+public class OrderMtVO {
 
 	private int order_mt_no;
 	private int customer_no;

@@ -116,6 +116,7 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="/adminOrderList.mdo">주문/결제</a>
 									<a class="nav-link" href="/estimateList.mdo">견적주문</a>
+									<a class="nav-link" href="/memberorderList.mdo">개별조회</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_03" aria-expanded="false" aria-controls="collapseLayouts">
@@ -125,8 +126,8 @@
                             </a>
                             <div class="collapse" id="change_id_03" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-										<a class="nav-link" href="/salseStatus.mdo">매출현황</a>
-										<a class="nav-link" href="/memberorderList.mdo">개별회원이력</a>
+								<a class="nav-link" href="/salesStoreList.mdo">지점매출</a> 
+								<a class="nav-link" href="/salesProductList.mdo">상품매출</a>
                                 </nav>
                             </div> 
 
@@ -343,6 +344,60 @@
 								onclick="exportToExcel('tblexportData', 'user-data')">Excel</button>
 							<!-- excel -->
 						</div>
+						
+						
+							
+						<div class="b_button">
+							<!-- 테이블 행 필터 -->
+							<form name="selectname" action="staffList.mdo" method="get">
+								<div col-index=8>
+									<select name="selectPage" onchange="this.form.submit()">
+										<option value="">선택</option>
+										<option value="5">5</option>
+										<option value="10">10</option>
+										<option value="20">20</option>
+										<option value="50">50</option>
+									</select> entries per page
+								</div>
+							</form>
+						
+							<div class="icon_flex">
+						<!-- 검색기능 -->
+							<div>
+								<form action="staffList.mdo" method="get">
+									<div class="icon_flex">
+
+										<td><select name="searchCondition">
+												<c:forEach items="${conditionMap}" var="option">
+													<div>
+														<option value="${option.value}">${option.key}</option>
+													</div>
+												</c:forEach>
+										</select> <input type="text" id="se_input" name="searchKeyword" />
+											<div>
+												<input type="submit" id="se_submit" value="검색" />
+											</div>
+											<div></div> <input type="button" id="se_reset" value="초기화" />
+									</div>
+								</form>
+							</div>
+							</div>
+							
+						</div>
+						
+						<!-- 검색 초기화 버튼 js -->
+						<script type="text/javascript">
+							const se_reset = document
+									.querySelector("#se_reset");
+							se_reset.addEventListener("click", function() {
+								const se_input = document
+										.querySelector("#se_input");
+								se_input.value = '';
+								const se_submit = document
+										.querySelector("#se_submit");
+								se_submit.click();
+							});
+						</script>
 
 				
 					<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
@@ -371,7 +426,6 @@
 										<td>${admin.admin_name}</td>
 									</tr>
 								</c:forEach>
-
 							</tbody>
 						</table>
 						<div class="flex">
@@ -384,6 +438,33 @@
 
 						</div>
 
+	<!-- pagaing 처리 -->
+						<div >					
+							<c:if test="${count > 0}">
+								<c:set var="imsi" value="${count%pageSize==0? 0 : 1}" />
+								<c:set var="pageCount" value="${count / pageSize+imsi}" />
+								<c:set var="pageBlock" value="${5}" />
+								<fmt:parseNumber var="result" value="${(currentPage-1) / pageBlock}" integerOnly="true" />
+								<c:set var="startPage" value="${result * pageBlock+1}" />
+								<c:set var="endPage" value="${startPage + pageBlock-1}" />
+								<c:if test="${endPage > pageCount}">
+									<c:set var="endPage" value="${pageCount}" />
+								</c:if>
+								<c:if test="${startPage > pageBlock}">
+									<a href="staffList.mdo?pageNum=${startPage-pageBlock}"><div class="pageging2">이전</div></a>
+								</c:if>
+								<div class="icon_flex">
+								<c:forEach var="i" begin="${startPage}" end="${endPage}">
+										<a href="staffList.mdo?pageNum=${i}"><div class="pageging">${i}</div></a>
+								</c:forEach>
+								</div>							
+								<div class="icon_flex">
+								<c:if test="${endPage < pageCount -1}">
+									<a href="staffList.mdo?pageNum=${startPage + pageBlock}"><div class="pageging2">다음</div></a>
+								</c:if>
+								</div>
+							</c:if>
+						</div><!-- 페이징 종료 -->
 
 
 						<!-- 내용물 end -->

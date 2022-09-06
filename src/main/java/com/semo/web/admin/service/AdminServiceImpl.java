@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.semo.web.admin.dao.AdminDAO;
 import com.semo.web.admin.vo.AdminVO;
+import com.semo.web.admin.vo.PagingVO;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -26,8 +27,8 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public List<AdminVO> getAdminList() {
-		return admindao.getAdminList();
+	public List<AdminVO> getAdminList(PagingVO pvo) {
+		return admindao.getAdminList(pvo);
 	}
 
 	@Override
@@ -48,6 +49,11 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public void selectedDelete(int num) {
 		admindao.selectedDelete(num);
+	}
+
+	@Override
+	public int getArticleCount(PagingVO pvo) {
+		return admindao.getArticleCount(pvo);
 	}
 
 }

@@ -1,0 +1,149 @@
+@charset "UTF-8";
+
+body {
+	overflow-x: hidden;
+	
+}
+html{
+	font-family: 'Noto Sans KR', sans-serif;
+}
+.main{
+	display: flex;
+}
+.space_left{
+	margin-top:60px;
+	width: 440px;
+}
+.main_box{
+	margin-top:20px;
+	width: 1040px;
+}
+.space_right{
+	width:240px;
+}
+
+
+
+.main_text{
+   width: 800px;
+   margin-left: 30px;
+}
+#file-upload-button{
+   width: 200px;
+   height: 100px;
+}
+.main_text1{
+   margin-top: 30px;
+   display: flex;
+  align-items: center;
+  height: 100px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  border-bottom: 3px solid #a9d3f0;
+}
+/* .main_text2{
+   
+   display: flex;
+   height: 50px;
+   font-size: 20px;
+   align-items: flex-end;
+   font-weight: bold;
+   border-bottom: 3px solid #a9d3f0;
+} */
+.main_text3{
+   display: flex;
+   border-bottom: 1px solid rgb(128,128,128,0.5);
+}
+.main_textNumber{
+   width: 100px;
+   /* border: 1px solid black; */
+   text-align: center;
+
+}
+.main_textType{
+   width: 100px;
+   /* border: 1px solid black; */
+   text-align: center;
+}
+.main_textTitle{
+   width: 500px;
+   /* border: 1px solid black; */
+   text-align: center;
+}
+.main_textWriter{
+   width: 100px;
+   /* border: 1px solid black; */
+   text-align: center;
+}
+.main_textDate{
+   width: 200px;
+   /* border: 1px solid black; */
+   text-align: center;
+}
+
+/* -------------- */
+
+.main_text4{
+	width:800px;
+   display: flex;
+   align-items: center;
+   border-bottom:1px solid rgb(128,128,128,0.5) ;
+}
+
+.main_text5{
+   
+   justify-content: center;
+   display: flex;
+   align-items: center;
+   width: 80px;
+   /* border: 1px solid black; */
+   text-align: left;
+   height: 50px;
+}
+.main_text6{
+	width:80px;
+   justify-content: center;
+   display: flex;
+   align-items: center;
+   
+   /* border: 1px solid black; */
+   text-align: center;
+   height: 50px;
+}
+.main_text7{
+	width:400px;
+   justify-content: center;
+   display: flex;
+   align-items: center;
+   
+   /* border: 1px solid black; */
+   text-align: center;
+   height: 50px;
+}
+.main_text8{
+   width:80px;
+   justify-content: center;
+   display: flex;
+   align-items: center;
+   
+   /* border: 1px solid black; */
+   text-align: center;
+   height: 50px;
+}
+.main_text9{
+	width:150px;
+   display: flex;
+   align-items: center;
+   
+   /* border: 1px solid black; */
+   text-align: right;
+   height: 50px;
+   justify-content: center;
+}
+#a_list{
+   display: flex;
+}
+#a_list:visited{
+   color: black;
+}

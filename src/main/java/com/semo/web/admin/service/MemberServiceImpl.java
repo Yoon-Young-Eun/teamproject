@@ -43,9 +43,15 @@ public class MemberServiceImpl implements MemberService {
 		return memberDao.getRead(vo);
 	}
 
+
+
 	@Override
-	public List<CmOrderVO> getUserOrderList(PagingVO pvo) {
-		return memberDao.getUserOrderList(pvo);
+	public List<CustomerVO> getBlackList(PagingVO pvo) {
+		return memberDao.getBlackList(pvo);
 	}
+
+
+		
+
 
 }

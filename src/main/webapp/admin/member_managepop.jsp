@@ -55,7 +55,7 @@
 		</div> -->
 
 		<div class="member_order">
-			<a href="/getUserOrderList.mdo?customer_no=${customer_no}">주문이력</a>
+			<a href="/memberorderList.mdo?customer_no=${user.customer_no}">주문이력</a>
 		</div>
 
 		<div class="end">

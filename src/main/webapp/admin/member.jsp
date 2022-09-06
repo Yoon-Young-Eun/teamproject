@@ -391,7 +391,7 @@
 									<th col-index=3>아이디(이메일)</th>
 									<th col-index=4>이름</th>
 									<th col-index=5>핸드폰</th>
-									<th col-index=6>주소1</th>
+									<th col-index=6>주소</th>
 									<th col-index=7>SMS수신</th>
 									<th style="padding: 0px 5px;" col-index=8>회원상태<br><select class="table-filter"
 										onchange="filter_rows()">
@@ -405,10 +405,10 @@
 									<tr>
 										<td id="check_td"><input type="checkbox" name="check"></td>
 										<td>${board.customer_no}</td>
-										<td><a href="/getBoard.mdo?customer_no=${board.customer_no}">${board.customer_id}</a></td>
+										<td><a href="/getMemberBoard.mdo?customer_no=${board.customer_no}">${board.customer_id}</a></td>
 										<td>${board.customer_name }</td>
 										<td>${board.customer_phone}</td>
-										<td>${board.customer_address1}</td>
+										<td>${board.customer_address1} ${board.customer_address2}</td>
 										<td>${board.customer_sms_permit}</td>
 										<td>${board.customer_status}</td>
 									</tr>
@@ -513,7 +513,7 @@
 				//console.log("phone : " + phone);
 
 				$.ajax({
-					url : "member.mdo",
+					url : "message.mdo",
 					type : "get",
 					traditional : true,
 					data : {

@@ -312,7 +312,7 @@
 
 						<div class="b_button">
 							<!-- 테이블 행 필터 -->
-							<form name="selectname" action="member.mdo" method="get">
+							<form name="selectname" action="memberorderList.mdo" method="get">
 								<div col-index=8>
 									<select name="selectPage" onchange="this.form.submit()">
 										<option value="">선택</option>
@@ -328,22 +328,10 @@
 							
 							<div class="icon_flex">
 							
-							<!-- 문자 발송 -->
-							<div>
-							<select name="text" id="selectOption">
-								<c:forEach var="message" items="${messageList}">
-									<div>
-										<option style="padding:1px;" value="${message.message_content}">${message.message_title }</option>
-									</div>
-								</c:forEach>
-							</select>
-							</div>
-							<div><input style="margin-right: 5px;" type="button" id="selectBtn" value="문자발송" /></div>
-							
 
 							<!-- 검색기능 -->
 							<div>
-								<form action="member.mdo" method="get">
+								<form action="memberorderList.mdo" method="get">
 									<div class="icon_flex">
 
 										<td><select name="searchCondition">
@@ -392,17 +380,12 @@
 									<th col-index=5>대분류</th>
 									<th col-index=6>중분류</th>
 									<th col-index=7>상품명</th>
-									<th style="padding: 0px 5px;" col-index=8>회원상태<br><select class="table-filter"
-										onchange="filter_rows()">
-											<option value="all"></option>
-									</select>
-									</th>
 									<th col-index=8>가격</th>
 									<th col-index=9>주문일자</th>
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach var="orderList" items="${userOrdeList}">
+								<c:forEach var="orderList" items="${userOrderList}">
 									<tr>
 										<td id="check_td"><input type="checkbox" name="check"></td>
 										<td>${orderList.order_no}</td>
@@ -432,16 +415,16 @@
 									<c:set var="endPage" value="${pageCount}" />
 								</c:if>
 								<c:if test="${startPage > pageBlock}">
-									<a href="member.mdo?pageNum=${startPage-pageBlock}"><div class="pageging2">이전</div></a>
+									<a href="memberorderList.mdo?pageNum=${startPage-pageBlock}"><div class="pageging2">이전</div></a>
 								</c:if>
 								<div class="icon_flex">
 								<c:forEach var="i" begin="${startPage}" end="${endPage}">
-										<a href="member.mdo?pageNum=${i}"><div class="pageging">${i}</div></a>
+										<a href="memberorderList.mdo?pageNum=${i}"><div class="pageging">${i}</div></a>
 								</c:forEach>
 								</div>							
 								<div class="icon_flex">
 								<c:if test="${endPage < pageCount -1}">
-									<a href="member.mdo?pageNum=${startPage + pageBlock}"><div class="pageging2">다음</div></a>
+									<a href="memberorderList.mdo?pageNum=${startPage + pageBlock}"><div class="pageging2">다음</div></a>
 								</c:if>
 								</div>
 							</c:if>
@@ -486,50 +469,6 @@
 	<script src="/admin/js/datatables-simple-demo.js"></script>
 	<script>
 		getUniqueValuesFromColumn()
-	</script>
-
-
-	<!--체크박스 문자전송용 -->
-	<script>
-		// 상단 선택버튼 클릭시 체크된 Row의 값을 가져온다.
-		$("#selectBtn").click(function() {
-			console.log("1");
-			var rowData = new Array();
-			var tdArr = new Array();
-			var checkbox = $("tbody input[name=check]:checked");
-			var message = $("#selectOption option:selected").val();
-			/* var message = $("select[name='text' option:selected").val(); */
-			// 체크된 체크박스 값을 가져온다
-			checkbox.each(function(i) {
-				// checkbox.parent() : checkbox의 부모는 <td>이다.
-				// checkbox.parent().parent() : <td>의 부모이므로 <tr>이다.
-				var tr = checkbox.parent().parent().eq(i);
-				var td = tr.children();
-				rowData.push(tr.text());
-				// td.eq(0)은 체크박스 이므로  td.eq(4)=전화번호 의 값을 가져온다.
-
-				var phone = td.eq(4).text() + ",";
-				phone = phone.substring(0, phone.length - 1); //마지막 , 제거
-				// 가져온 값을 배열에 담는다.
-				tdArr.push(phone);
-				//console.log("phone : " + phone);
-
-				$.ajax({
-					url : "member.mdo",
-					type : "get",
-					traditional : true,
-					data : {
-						tdArr : tdArr,
-						message : message
-					},
-					dataType : 'text',
-					success : function(data) {
-						console.log(data);
-					}
-				});
-			});
-			$("#ex3_Result2").html(tdArr);
-		});
 	</script>
 
 

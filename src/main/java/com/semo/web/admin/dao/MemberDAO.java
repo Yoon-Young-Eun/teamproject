@@ -43,8 +43,9 @@ public class MemberDAO {
 		return sqlTemplate.selectOne("MemberDAO.getRead", vo);
 	}
 	
-	public List<CmOrderVO> getUserOrderList(PagingVO pvo){
-		System.out.println("DAO.getUserOrderList() 실행");
-		return sqlTemplate.selectList("MemberDAO.getUserOrderList", pvo);
+	public List<CustomerVO> getBlackList(PagingVO pvo){
+		System.out.println("DAO.getBlackList() 실행");
+		return sqlTemplate.selectList("MemberDAO.getBlackList", pvo);
 	}
+
 }

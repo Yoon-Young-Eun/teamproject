@@ -22,6 +22,7 @@
 	<mappers>
 		<mapper resource="mappings/ad_admin-mapping.xml"/>
 		<mapper resource="mappings/ad_member-mapping.xml"/>
+		<mapper resource="mappings/ad_order-mapping.xml"/>
 		<!-- 아래 계속해서 추가 -->
 		<mapper resource="mappings/board-mapping.xml"/>
 	</mappers>

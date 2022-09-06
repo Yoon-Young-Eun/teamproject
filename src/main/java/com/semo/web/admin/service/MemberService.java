@@ -14,5 +14,6 @@ public interface MemberService {
 	public List<CustomerVO> getBoardList(PagingVO pvo);
 	public List<MessageVO> getMessageList(MessageVO vo);
 	public CustomerVO getRead(CustomerVO vo);
-	public List<CmOrderVO> getUserOrderList(PagingVO pvo);
+	public List<CustomerVO> getBlackList(PagingVO pvo);
+
 }

@@ -362,11 +362,7 @@
 										name="check" class="allcheck"></th>
 									<th col-index=2>No</th>
 									<th col-index=3>아이디</th>
-									<th col-index=4>부서<select class="table-filter"
-										onchange="filter_rows()">
-											<option value="all"></option>
-									</select>
-									</th>
+									<th col-index=4>부서</th>
 									<th col-index=5>직급</th>
 									<th col-index=6>이름</th>
 								</tr>
@@ -390,7 +386,7 @@
 								<input id="button" type="button" value="등록" onclick="showPopup();"/>
 							</div>
 							<div>
-								<input id="button" type="button" id="selectBtn" value="삭제" />
+								<input id="delBtn" type="button" value="삭제" />
 							</div>
 
 						</div>
@@ -419,44 +415,45 @@
 		</div>
 	</div>
 	
-	<!--체크박스 선택하여 삭제,, 아직 구현안됨 -->
-	<script>
-		// 상단 선택버튼 클릭시 체크된 Row의 값을 가져온다.
-		$("#selectBtn").click(function() {
+
+
+	<script type="text/javascript">
+		//체크삭제
+		$("#delBtn").click(function() {
 			console.log("1");
 			var rowData = new Array();
-			var tdArr = new Array();
+			var num = new Array();
 			var checkbox = $("tbody input[name=check]:checked");
+
+			// 체크된 체크박스 값을 가져온다
 			checkbox.each(function(i) {
-				// checkbox.parent() : checkbox의 부모는 <td>이다.
-				// checkbox.parent().parent() : <td>의 부모이므로 <tr>이다.
 				var tr = checkbox.parent().parent().eq(i);
 				var td = tr.children();
 				rowData.push(tr.text());
-				// td.eq(0)은 체크박스 이므로  td.eq(2)=아이디 값을 가져온다.
+				// td.eq(0)은 체크박스 이므로  td.eq(4)=전화번호 의 값을 가져온다.
 
-				var id = td.eq(2).text() + ",";
-				id = id.substring(0, phone.length - 1); //마지막 , 제거
+				var number = td.eq(1).text() + ",";
+				number = number.substring(0, number.length - 1); //마지막 , 제거
 				// 가져온 값을 배열에 담는다.
-				tdArr.push(id);
-				//console.log("phone : " + phone);
+				num.push(number);
 
 				$.ajax({
-					url : "deleteStaff.mdo",
+					url : "selectDelete.mdo",
 					type : "get",
 					traditional : true,
 					data : {
-						tdArr : tdArr
+						num : num,
 					},
 					dataType : 'text',
 					success : function(data) {
+						location.href = "staffList.mdo";
 						console.log(data);
 					}
 				});
-
 			});
 		});
 	</script>
+
 	
 	
 	<script

@@ -2,6 +2,7 @@ package com.semo.web.admin.controller;
 
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.semo.web.admin.service.AdminService;
 import com.semo.web.admin.vo.AdminVO;
+import com.semo.web.admin.vo.CustomerVO;
 
 @Controller
 public class AdminController {
@@ -106,4 +108,23 @@ public class AdminController {
 		return "/staffList.mdo";
 	}
 	
+	// 테이블 selected된 행을 삭제하는 컨트롤러
+	@RequestMapping("/selectDelete.mdo")
+	public String selectedBoard(String[] num, AdminVO vo) {
+		System.out.println(num[0]);
+		System.out.println("selected 삭제 처리");
+
+		if(num!=null) {
+			List<Integer> arr = new ArrayList<Integer>();
+			for(int a=0; a<num.length; a++) {
+				System.out.println("글삭제 for문 실행");
+				arr.add(Integer.parseInt(num[a])) ;
+				System.out.println(arr.get(a)+"for문 int");
+				vo.setAdmin_no(arr.get(a));
+				adminservice.selectedDelete(vo.getAdmin_no());
+				System.out.println(vo.getAdmin_no());
+			}
+		}
+		return "staffList.mdo";
+	}	
 }

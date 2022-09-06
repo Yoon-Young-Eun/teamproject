@@ -9,12 +9,12 @@
 	</select>
 
 	<insert id="insertBoard" parameterType="notice">
-		<![CDATA[ insert into notice(notice_title, notice_content) 
-		values (#{notice_title}, #{notice_content}) ]]>
+		<![CDATA[ insert into notice(notice_title, notice_content, notice_filepath) 
+		values (#{notice_title}, #{notice_content}, #{notice_filepath}) ]]>
 	</insert>
 
 	<update id="updateBoard" parameterType="notice">
-		<![CDATA[ update notice set	notice_title=#{notice_title}, notice_content=#{notice_content} where notice_no=#{notice_no} ]]>
+		<![CDATA[ update notice set	notice_title=#{notice_title}, notice_content=#{notice_content}, notice_filepath=#{notice_filepath} where notice_no=#{notice_no} ]]>
 	</update>
 
 	<delete id="deleteBoard" parameterType="notice">
@@ -24,30 +24,6 @@
 	<select id="getBoard" parameterType="notice" resultType="notice"> 
  		<![CDATA[ select * from notice where notice_no=#{notice_no} ]]>
 	</select>
-
-	<!-- 기존 <select id="getBoardList" resultMap="boardResult"> select * from 
-		myboard where title like '%'||#{searchKeyword}||'%' order by num desc </select> 
-		수정 ↓↓↓↓ -->
-
-	<!-- Dynamic SQL -->
-	<!-- <select id="getBoardList" resultMap="boardResult"> select * from tb_member 
-		where 1=1 <if test="searchCondition=='member_address1'"> AND member_address1 
-		like '%'||#{searchKeyword}||'%' order by num desc </if> <if test="searchCondition=='member_name'"> 
-		AND member_name like '%'||#{searchKeyword}||'%' order by num desc </if> </select> 
-		<select id="getArticleList2" parameterType="Map" resultType="Map"> <![CDATA[ 
-		select * from(select rownum rnum, num, member_email,member_name, member_phone, 
-		member_address1, member_address2,sns_approval, member_zipcode from (select 
-		* from tb_member order by num))where rnum >= #{startRow} and rnum <= #{endRow}]]> 
-		</select> <select id="getArticleList" parameterType="Map" resultType="Map"> 
-		<![CDATA[ select * from(select rownum rnum, num, member_email,member_name, 
-		member_phone, member_address1, member_address2,sns_approval, member_zipcode 
-		from (select * from tb_member order by num )]]> <if test="searchCondition==null"> 
-		<![CDATA[ )where rnum >= #{startRow} and rnum <= #{endRow} ]]> </if> <if 
-		test="searchCondition=='member_address1'"> <![CDATA[where member_address1 
-		like'%'||#{searchKeyword}||'%') where rnum >= #{startRow} and rnum <= #{endRow}]]> 
-		</if> <if test="searchCondition=='member_name'"> <![CDATA[where member_name 
-		like '%'||#{searchKeyword}||'%') where rnum >= #{startRow} and rnum <= #{endRow}]]> 
-		</if> </select> -->
 
 </mapper>
  

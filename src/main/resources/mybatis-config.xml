@@ -14,7 +14,7 @@
 		<typeAlias type="com.semo.web.admin.vo.StoreVO" alias="store" />
 		<typeAlias type="com.semo.web.admin.vo.TermsVO" alias="terms" />
 		<!-- 아래 계속해서 추가 -->
-		<typeAlias alias="notice" type="com.semo.web.admin.vo.NoticeVO"/>
+		<typeAlias type="com.semo.web.admin.vo.NoticeVO" alias="notice"/>
 	</typeAliases>
 
 	<!-- <mappers> 엘리먼트는 여러 <mapper>를 가질 수 있으며 이 <mapper>를 이용하여 SQL 명령어들이 저장된 
@@ -23,14 +23,11 @@
 	<mappers>
 		<mapper resource="mappings/ad_admin-mapping.xml"/>
 		<!-- 아래 계속해서 추가 -->
-<<<<<<< HEAD
 		<mapper resource="mappings/ad_board-mapping.xml"/>
-=======
 		<mapper resource="mappings/ad_site-mapping.xml"/>
 		<mapper resource="mappings/ad_store-mapping.xml"/>
 		<mapper resource="mappings/ad_product-mapping.xml"/>
-		<mapper resource="mappings/board-mapping.xml"/>
->>>>>>> main
+
 	</mappers>
 </configuration>
  

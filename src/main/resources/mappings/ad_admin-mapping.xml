@@ -26,4 +26,8 @@
   <delete id="deleteStaff" parameterType="admin">
    <![CDATA[ delete from admin where admin_no = #{admin_no} ]]>
   </delete>
+  
+  <delete id="selectedDelete" parameterType="int" >
+   <![CDATA[delete from admin where admin_no=#{admin_no} ]]>
+  </delete>
  </mapper>

@@ -10,7 +10,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Dashboard - SB Admin</title>
+<title>Dashboard - SEMO Admin</title>
 
 <!-- icon 버튼 css -->
 <link href="/admin/css/icon.css" rel="stylesheet" />
@@ -76,20 +76,23 @@
 				<div class="sb-sidenav-menu">
 					<div class="nav">
 						<div class="sb-sidenav-menu-heading">Core</div>
-						<a class="nav-link" href="/admin/index.jsp">
+						<a class="nav-link" href="index.jsp">
 							<div class="sb-nav-link-icon">
 								<i class="fas fa-tachometer-alt"></i>
 							</div> 대시보드
 						</a>
 
-						<div class="sb-sidenav-menu-heading">관리자 메뉴</div>
+						
+                            
+                            <div class="sb-sidenav-menu-heading">관리자 메뉴</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_01" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 회원관리
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="change_id_01" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
+                                <nav class="sb-sidenav-men
+                                u-nested nav">
                                     <a class="nav-link" href="/member.mdo">회원관리</a>
                                     <a class="nav-link" href="/blackmember.mdo">블랙회원관리</a>
                                     <a class="nav-link" href="/staffList.mdo">매니저관리</a>
@@ -101,7 +104,7 @@
                                 주문/결제관리
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                                                      <div class="collapse" id="change_id_02" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                                       <div class="collapse" id="change_id_02" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="/adminOrderList.mdo">주문/결제</a>
 									<a class="nav-link" href="/estimateList.mdo">견적주문</a>
@@ -119,7 +122,7 @@
                                 </nav>
                             </div> 
                             
-                            <a class="nav-link collapsed" href="item.jsp" data-bs-toggle="collapse" data-bs-target="#change_id_04" aria-expanded="false" aria-controls="collapseLayouts">
+                            <a class="nav-link collapsed" href="/admin/item.jsp" data-bs-toggle="collapse" data-bs-target="#change_id_04" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 <span onclick="newPage()">상품등록</span>
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -131,9 +134,9 @@
 <!--                                 </nav> -->
 <!--                             </div> -->
                             
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_05" aria-expanded="false" aria-controls="collapseLayouts">
+                            <a class="nav-link collapsed" href="/admin/store.jsp" data-bs-toggle="collapse" data-bs-target="#change_id_05" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                매장관리
+                                <span onclick="newPage2()">매장관리</span>
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
 <!--                             <div class="collapse" id="change_id_05" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
@@ -150,12 +153,12 @@
                             </a>
                             <div class="collapse" id="change_id_06" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="board_notice.jsp">공지사항</a>
-                                    <a class="nav-link" href="board_event.jsp">이벤트</a>
+                                    <a class="nav-link" href="/admin/board_notice.jsp">공지사항</a>
+                                    <a class="nav-link" href="/admin/board_event.jsp">이벤트</a>
                                     <a class="nav-link" href="#">리뷰</a>
 
-                                    <a class="nav-link" href="board_Q&A.jsp">QnA</a>
-                                    <a class="nav-link" href="board_FAQ.jsp">자주하는 질문</a>
+                                    <a class="nav-link" href="/admin/board_Q&A.jsp">QnA</a>
+                                    <a class="nav-link" href="/admin/board_FAQ.jsp">자주하는 질문</a>
 
                                 </nav>
                             </div>
@@ -181,12 +184,13 @@
                             <div class="collapse" id="change_id_08" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
 
-                                    <a class="nav-link" href="promo.jsp">쿠폰관리</a>
-                                    <a class="nav-link" href="supporbanner.jsp">배너관리</a>
-                                    <a class="nav-link" href="supporclause.jsp">약관관리</a>
+                                    <a class="nav-link" href="/admin/promo.jsp">쿠폰관리</a>
+                                    <a class="nav-link" href="/admin/supporbanner.jsp">배너관리</a>
+                                    <a class="nav-link" href="/admin/supporclause.jsp">약관관리</a>
 
                                 </nav>
                             </div>
+                            
 
 						<div class="sb-sidenav-menu-heading">Interface</div>
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -278,20 +282,19 @@
 			<main>
 
 				<div class="container-fluid px-4">
-					<h1 class="mt-4">정지회원</h1>
+					<h1 class="mt-4">회원관리111</h1>
 					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item"><a href="/admin/index.jsp">Dashboard</a></li>
-						<li class="breadcrumb-item active">정지회원</li>
+						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
+						<li class="breadcrumb-item active">회원관리</li>
 					</ol>
 					<div class="card mb-4">
 						<div class="card-body">
-							정지회원 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
-							.
+							회원관리 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
 						</div>
 					</div>
 					<div class="card mb-4">
 						<div class="card-header">
-							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 정지회원에 대한 세부제목
+							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 게시판에 대한 세부제목
 						</div>
 
 						<!--  여기부터 내용물 -->
@@ -308,7 +311,7 @@
 
 						<div class="b_button">
 							<!-- 테이블 행 필터 -->
-							<form name="selectname" action="member.mdo" method="get">
+							<form name="selectname" action="memberorderList.mdo" method="get">
 								<div col-index=8>
 									<select name="selectPage" onchange="this.form.submit()">
 										<option value="">선택</option>
@@ -324,22 +327,10 @@
 							
 							<div class="icon_flex">
 							
-							<!-- 문자 발송 -->
-							<div>
-							<select name="text" id="selectOption">
-								<c:forEach var="message" items="${messageList}">
-									<div>
-										<option style="padding:1px;" value="${message.message_content}">${message.message_title }</option>
-									</div>
-								</c:forEach>
-							</select>
-							</div>
-							<div><input style="margin-right: 5px;" type="button" id="selectBtn" value="문자발송" /></div>
-							
 
 							<!-- 검색기능 -->
 							<div>
-								<form action="blackmember.mdo" method="get">
+								<form action="memberorderList.mdo" method="get">
 									<div class="icon_flex">
 
 										<td><select name="searchCondition">
@@ -374,7 +365,6 @@
 							});
 						</script>
 
-
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
 						<table id=""
 							class="emp-table dataPerPage tblCustomers tblexportData table"
@@ -383,29 +373,28 @@
 								<tr>
 									<th width="50" id="check_td"><input type="checkbox"
 										name="check" class="allcheck"></th>
-									<th col-index=2>회원코드</th>
-									<th col-index=3>아이디(이메일)</th>
-									<th col-index=4>이름</th>
-									<th col-index=5>헨드폰</th>
-									<th col-index=6>주소</th>
-									<th col-index=7>SMS수신</th>
-									<th col-index=8>회원상태<select class="table-filter"
-										onchange="filter_rows()">
-											<option value="all"></option>
-									</select></th>
+									<th col-index=2>주문번호</th>
+									<th col-index=3>회원이름(이메일)</th>
+									<th col-index=4>상품코드</th>
+									<th col-index=5>대분류</th>
+									<th col-index=6>중분류</th>
+									<th col-index=7>상품명</th>
+									<th col-index=8>가격</th>
+									<th col-index=9>주문일자</th>
 								</tr>
 							</thead>
 							<tbody>
-							<!-- for문~(c:forEach)  이 for문의 id값은 "admin"으로 정함!-->  
-								<c:forEach var="black" items="${blackList}">   <!--  blackList은 컨트롤러에서 model에 저장한 "blackList" 이름임 -->									<tr>
+								<c:forEach var="orderList" items="${userOrderList}">
+									<tr>
 										<td id="check_td"><input type="checkbox" name="check"></td>
-										<td>${black.customer_no}</td>  <!--for문의 id값.컬럼명으로 값을 불러옴 -->
-										<td>${black.customer_id}</a></td>
-										<td>${black.customer_name}</a></td>
-										<td>${black.customer_phone}</td>
-										<td>${black.customer_address1} </td>
-										<td>${black.customer_sms_permit}</td>
-										<td>${black.customer_status}</td>
+										<td>${orderList.order_no}</td>
+										<td>${orderList.customer_name}</a></td>
+										<td>${orderList.product_code}</td>
+										<td>${orderList.order_mt_category1}</td>
+										<td>${orderList.order_mt_category2}</td>
+										<td>${orderList.order_mt_product}</td>
+										<td>${orderList.order_mt_price}</td>
+										<td>${orderList.order_mt_date}</td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -425,20 +414,22 @@
 									<c:set var="endPage" value="${pageCount}" />
 								</c:if>
 								<c:if test="${startPage > pageBlock}">
-									<a href="blackmember.mdo?pageNum=${startPage-pageBlock}"><div class="pageging2">이전</div></a>
+									<a href="memberorderList.mdo?pageNum=${startPage-pageBlock}"><div class="pageging2">이전</div></a>
 								</c:if>
 								<div class="icon_flex">
 								<c:forEach var="i" begin="${startPage}" end="${endPage}">
-										<a href="blackmember.mdo?pageNum=${i}"><div class="pageging">${i}</div></a>
+										<a href="memberorderList.mdo?pageNum=${i}"><div class="pageging">${i}</div></a>
 								</c:forEach>
 								</div>							
 								<div class="icon_flex">
 								<c:if test="${endPage < pageCount -1}">
-									<a href="blackmember.mdo?pageNum=${startPage + pageBlock}"><div class="pageging2">다음</div></a>
+									<a href="memberorderList.mdo?pageNum=${startPage + pageBlock}"><div class="pageging2">다음</div></a>
 								</c:if>
 								</div>
 							</c:if>
 						</div><!-- 페이징 종료 -->
+						
+
 
 
 
@@ -477,50 +468,6 @@
 	<script src="/admin/js/datatables-simple-demo.js"></script>
 	<script>
 		getUniqueValuesFromColumn()
-	</script>
-
-
-	<!--체크박스 문자전송용 -->
-	<script>
-		// 상단 선택버튼 클릭시 체크된 Row의 값을 가져온다.
-		$("#selectBtn").click(function() {
-			console.log("1");
-			var rowData = new Array();
-			var tdArr = new Array();
-			var checkbox = $("tbody input[name=check]:checked");
-			var message = $("#selectOption option:selected").val();
-			/* var message = $("select[name='text' option:selected").val(); */
-			// 체크된 체크박스 값을 가져온다
-			checkbox.each(function(i) {
-				// checkbox.parent() : checkbox의 부모는 <td>이다.
-				// checkbox.parent().parent() : <td>의 부모이므로 <tr>이다.
-				var tr = checkbox.parent().parent().eq(i);
-				var td = tr.children();
-				rowData.push(tr.text());
-				// td.eq(0)은 체크박스 이므로  td.eq(4)=전화번호 의 값을 가져온다.
-
-				var phone = td.eq(4).text() + ",";
-				phone = phone.substring(0, phone.length - 1); //마지막 , 제거
-				// 가져온 값을 배열에 담는다.
-				tdArr.push(phone);
-				//console.log("phone : " + phone);
-
-				$.ajax({
-					url : "message.mdo",
-					type : "get",
-					traditional : true,
-					data : {
-						tdArr : tdArr,
-						message : message
-					},
-					dataType : 'text',
-					success : function(data) {
-						console.log(data);
-					}
-				});
-			});
-			$("#ex3_Result2").html(tdArr);
-		});
 	</script>
 
 

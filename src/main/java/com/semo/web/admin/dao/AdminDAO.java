@@ -44,5 +44,10 @@ public class AdminDAO {
 		sqltemplate.delete("AdminDAO.deleteStaff", vo);
 	}
 	
+	public void selectedDelete(int num) {
+		System.out.println("DAO.seletedDelete() 메서드 실행");
+		sqltemplate.delete("AdminDAO.selectedDelete", num);
+	}
+	
 	
 }

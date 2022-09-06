@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,25 +13,25 @@
 <title>Dashboard - SB Admin</title>
 
 <!-- icon 버튼 css -->
-<link href="css/icon.css" rel="stylesheet" />
+<link href="/admin/css/icon.css" rel="stylesheet" />
 
 <!--  테이블 필터(중요) -->
-<link href="css/filter.css" rel="stylesheet" />
-<script src="js/filter.js" crossorigin="anonymous"></script>
+<link href="/admin/css/filter.css" rel="stylesheet" />
+<script src="/admin/js/filter.js" crossorigin="anonymous"></script>
 
 <!-- 체크박스 js -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="./js/checkbox.js"></script>
+<script src="/admin/js/checkbox.js"></script>
 
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
-<link href="css/styles.css" rel="stylesheet" />
+<link href="/admin/css/styles.css" rel="stylesheet" />
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
 	crossorigin="anonymous"></script>
-<script type="text/javascript" src="js/index_navbar_onclick.js"></script>
+<script type="text/javascript" src="/admin/js/index_navbar_onclick.js"></script>
 </head>
 <body class="sb-nav-fixed">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -81,14 +82,17 @@
 							</div> 대시보드
 						</a>
 
-						<div class="sb-sidenav-menu-heading">관리자 메뉴</div>
+						
+                            
+                            <div class="sb-sidenav-menu-heading">관리자 메뉴</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_01" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 회원관리
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="change_id_01" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
+                                <nav class="sb-sidenav-men
+                                u-nested nav">
                                     <a class="nav-link" href="/member.mdo">회원관리</a>
                                     <a class="nav-link" href="/blackmember.mdo">블랙회원관리</a>
                                     <a class="nav-link" href="/staffList.mdo">매니저관리</a>
@@ -104,6 +108,7 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="/adminOrderList.mdo">주문/결제</a>
 									<a class="nav-link" href="/estimateList.mdo">견적주문</a>
+										<a class="nav-link" href="/memberorderList.mdo">개별조회</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_03" aria-expanded="false" aria-controls="collapseLayouts">
@@ -113,12 +118,12 @@
                             </a>
                             <div class="collapse" id="change_id_03" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-										<a class="nav-link" href="/salseStatus.mdo">매출현황</a>
-										<a class="nav-link" href="/memberorderList.mdo">개별회원이력</a>
+								<a class="nav-link" href="/salesStoreList.mdo">지점매출</a> 
+								<a class="nav-link" href="/salesProductList.mdo">상품매출</a>
                                 </nav>
                             </div> 
                             
-                            <a class="nav-link collapsed" href="item.jsp" data-bs-toggle="collapse" data-bs-target="#change_id_04" aria-expanded="false" aria-controls="collapseLayouts">
+                            <a class="nav-link collapsed" href="/admin/item.jsp" data-bs-toggle="collapse" data-bs-target="#change_id_04" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 <span onclick="newPage()">상품등록</span>
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -130,9 +135,9 @@
 <!--                                 </nav> -->
 <!--                             </div> -->
                             
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_05" aria-expanded="false" aria-controls="collapseLayouts">
+                            <a class="nav-link collapsed" href="/admin/store.jsp" data-bs-toggle="collapse" data-bs-target="#change_id_05" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                매장관리
+                                <span onclick="newPage2()">매장관리</span>
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
 <!--                             <div class="collapse" id="change_id_05" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
@@ -149,12 +154,12 @@
                             </a>
                             <div class="collapse" id="change_id_06" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="board_notice.jsp">공지사항</a>
-                                    <a class="nav-link" href="board_event.jsp">이벤트</a>
+                                    <a class="nav-link" href="/admin/board_notice.jsp">공지사항</a>
+                                    <a class="nav-link" href="/admin/board_event.jsp">이벤트</a>
                                     <a class="nav-link" href="#">리뷰</a>
 
-                                    <a class="nav-link" href="board_Q&A.jsp">QnA</a>
-                                    <a class="nav-link" href="board_FAQ.jsp">자주하는 질문</a>
+                                    <a class="nav-link" href="/admin/board_Q&A.jsp">QnA</a>
+                                    <a class="nav-link" href="/admin/board_FAQ.jsp">자주하는 질문</a>
 
                                 </nav>
                             </div>
@@ -180,12 +185,13 @@
                             <div class="collapse" id="change_id_08" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
 
-                                    <a class="nav-link" href="promo.jsp">쿠폰관리</a>
-                                    <a class="nav-link" href="supporbanner.jsp">배너관리</a>
-                                    <a class="nav-link" href="supporclause.jsp">약관관리</a>
+                                    <a class="nav-link" href="/admin/promo.jsp">쿠폰관리</a>
+                                    <a class="nav-link" href="/admin/supporbanner.jsp">배너관리</a>
+                                    <a class="nav-link" href="/admin/supporclause.jsp">약관관리</a>
 
                                 </nav>
                             </div>
+                            
 
 						<div class="sb-sidenav-menu-heading">Interface</div>
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -279,7 +285,7 @@
 				<div class="container-fluid px-4">
 					<h1 class="mt-4">주문/결제</h1>
 					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
+						<li class="breadcrumb-item"><a href="/admin/index.jsp">Dashboard</a></li>
 						<li class="breadcrumb-item active">주문/결제</li>
 					</ol>
 					<div class="card mb-4">
@@ -304,171 +310,158 @@
 								onclick="exportToExcel('tblexportData', 'user-data')">Excel</button>
 							<!-- excel -->
 						</div>
+						<div class="b_button">
+							<!-- 테이블 행 필터 -->
+							<form name="selectname" action="adminOrderList.mdo" method="get">
+								<div col-index=8>
+									<select name="selectPage" onchange="this.form.submit()">
+										<option value="">선택</option>
+										<option value="5">5</option>
+										<option value="10">10</option>
+										<option value="20">20</option>
+										<option value="50">50</option>
+									</select> entries per page
+								</div>
+							</form>
 
 
+							
+							<div class="icon_flex">
+							
+							<!-- 문자 발송 -->
+							<div>
+							<select name="text" id="selectOption">
+								<c:forEach var="message" items="${messageList}">
+									<div>
+										<option style="padding:1px;" value="${message.message_content}">${message.message_title }</option>
+									</div>
+								</c:forEach>
+							</select>
+							</div>
+							<div><input style="margin-right: 5px;" type="button" id="selectBtn" value="문자발송" /></div>
+							
 
-						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
-						<table id="datatablesSimple"
+							<!-- 검색기능 -->
+							<div>
+								<form action="adminOrderList.mdo" method="get">
+									<div class="icon_flex">
+
+										<td><select name="searchCondition">
+												<c:forEach items="${conditionMap}" var="option">
+													<div>
+														<option value="${option.value}">${option.key}</option>
+													</div>
+												</c:forEach>
+										</select> <input type="text" id="se_input" name="searchKeyword" />
+											<div>
+												<input type="submit" id="se_submit" value="검색" />
+											</div>
+											<div></div> <input type="button" id="se_reset" value="초기화" />
+									</div>
+								</form>
+							</div>
+							</div>
+							
+						</div>
+						
+						<!-- 검색 초기화 버튼 js -->
+						<script type="text/javascript">
+							const se_reset = document
+									.querySelector("#se_reset");
+							se_reset.addEventListener("click", function() {
+								const se_input = document
+										.querySelector("#se_input");
+								se_input.value = '';
+								const se_submit = document
+										.querySelector("#se_submit");
+								se_submit.click();
+							});
+						</script>
+
+			<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
+						<table id=""
 							class="emp-table dataPerPage tblCustomers tblexportData table"
 							border="5">
 							<thead>
 								<tr>
-								<tr>
 									<th width="50" id="check_td"><input type="checkbox"
 										name="check" class="allcheck"></th>
-									<th width="100px;" col-index=2>주문코드</th>
-									<th width="130px;" col-index=3>지점<select
-										class="table-filter" onchange="filter_rows()">
+									<th col-index=2>주문코드</th>
+									<th col-index=3>고객이름</th>
+									<th col-index=4>핸드폰</th>
+									<th col-index=5>주소</th>
+									<th col-index=6>주문일자</th>
+									<th col-index=7>픽업일자</th>
+									<th col-index=8>배송예정일자</th>
+									<th col-index=9>주문내용</th>
+									<th col-index=10>쿠폰사용</th>
+									<th col-index=11>배송금액</th>
+									<th col-index=12>결제금액</th>									
+									<th style="padding: 0px 5px;" col-index=13>결제상태<br><select class="table-filter"
+										onchange="filter_rows()">
 											<option value="all"></option>
-									</select></th>
-									<th width="220px;" col-index=4>주소</th>
-									<th width="100px;" col-index=5>주문일자</th>
-									<th width="100px;" col-index=6>픽업일자</th>
-									<th width="160px;" col-index=7>주문내용</th>
-									<th width="120px;" col-index=8>결제금</th>
-									<th width="150px;" col-index=9>주문상태<select
-										class="table-filter" onchange="filter_rows()">
+									</select>
+									</th>
+									<th col-index=14>담당지점</th>
+									<th style="padding: 0px 5px;" col-index=15>주문상태<br><select class="table-filter"
+										onchange="filter_rows()">
 											<option value="all"></option>
-									</select></th>
-								<tr>
+									</select>
+									</th>
+								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>직영</td>
-									<td>서울시 강북구 수유</td>
-									<td>2022-08-06</td>
-									<td>2022-08-11</td>
-									<td>하의3, 상의2 외 15EA</td>
-									<td>26000</td>
-									<td>결제완료</td>
-
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>002</td>
-									<td>외주</td>
-									<td>서울시 강북구 수유</td>
-									<td>2022-08-06</td>
-									<td>2022-08-11</td>
-									<td>하의3, 상의2 외 15EA</td>
-									<td>26000</td>
-									<td>주문취소</td>
-
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>003</td>
-									<td>직영</td>
-									<td>서울시 강북구 수유</td>
-									<td>2022-08-06</td>
-									<td>2022-08-11</td>
-									<td>하의3, 상의2 외 15EA</td>
-									<td>26000</td>
-									<td>배송중</td>
-
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>004</td>
-									<td>외주</td>
-									<td>서울시 강북구 수유</td>
-									<td>2022-08-06</td>
-									<td>2022-08-11</td>
-									<td>하의3, 상의2 외 15EA</td>
-									<td>26000</td>
-									<td>배송완료</td>
-
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>005</td>
-									<td>외주</td>
-									<td>서울시 강북구 수유</td>
-									<td>2022-08-06</td>
-									<td>2022-08-11</td>
-									<td>하의3, 상의2 외 15EA</td>
-									<td>26000</td>
-									<td>구매확정</td>
-
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>006</td>
-									<td>직영</td>
-									<td>서울시 강북구 수유</td>
-									<td>2022-08-06</td>
-									<td>2022-08-11</td>
-									<td>하의3, 상의2 외 15EA</td>
-									<td>26000</td>
-									<td>결제완료</td>
-
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>007</td>
-									<td>직영</td>
-									<td>서울시 강북구 수유</td>
-									<td>2022-08-06</td>
-									<td>2022-08-11</td>
-									<td>하의3, 상의2 외 15EA</td>
-									<td>26000</td>
-									<td>주문취소</td>
-
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>008</td>
-									<td>외주</td>
-									<td>서울시 강북구 수유</td>
-									<td>2022-08-06</td>
-									<td>2022-08-11</td>
-									<td>하의3, 상의2 외 15EA</td>
-									<td>26000</td>
-									<td>결제완료</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>009</td>
-									<td>직영</td>
-									<td>서울시 강북구 수유</td>
-									<td>2022-08-06</td>
-									<td>2022-08-11</td>
-									<td>하의3, 상의2 외 15EA</td>
-									<td>26000</td>
-									<td>결제완료</td>
-
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>010</td>
-									<td>외주</td>
-									<td>서울시 강북구 수유</td>
-									<td>2022-08-06</td>
-									<td>2022-08-11</td>
-									<td>하의3, 상의2 외 15EA</td>
-									<td>26000</td>
-									<td>배송중</td>
-
-								</tr>
-
+								<c:forEach var="order" items="${adminOrderList}">
+									<tr>
+										<td id="check_td"><input type="checkbox" name="check"></td>
+										<td>${order.order_no}</td>
+										<td><a href="/getMemberBoard.mdo?customer_no=${order.order_no}">${order.order_customer_name}</a></td>
+										<td>${order.order_customer_phone}</td>
+										<td>${order.order_address1} ${order.order_address2}</td>
+										<td>${order.order_date}</td>
+										<td>${order.order_pickup_date}</td>
+										<td>${order.order_expected_date}</td>
+										<td>${order.order_product}</td>
+										<td>${order.order_use_coupon_price}</td>
+										<td>${order.order_delivery_price}</td>
+										<td>${order.order_price}</td>		
+										<td>${order.order_price_status}</td>
+										<td>${order.order_store_name}</td>
+										<td>${order.order_status}</td>
+									</tr>
+								</c:forEach>
 							</tbody>
 						</table>
-						<div class="flex">
-							<div>
-								<input id="button" type="button" value="등록" />
-							</div>
-							<div>
-								<input id="button" type="button" value="수정" />
-							</div>
-							<div>
-								<input id="button" type="button" value="삭제" />
-							</div>
-
-						</div>
-
-
+						
+						
+						<!-- pagaing 처리 -->
+						<div >					
+							<c:if test="${count > 0}">
+								<c:set var="imsi" value="${count%pageSize==0? 0 : 1}" />
+								<c:set var="pageCount" value="${count / pageSize+imsi}" />
+								<c:set var="pageBlock" value="${5}" />
+								<fmt:parseNumber var="result" value="${(currentPage-1) / pageBlock}" integerOnly="true" />
+								<c:set var="startPage" value="${result * pageBlock+1}" />
+								<c:set var="endPage" value="${startPage + pageBlock-1}" />
+								<c:if test="${endPage > pageCount}">
+									<c:set var="endPage" value="${pageCount}" />
+								</c:if>
+								<c:if test="${startPage > pageBlock}">
+									<a href="adminOrderList.mdo?pageNum=${startPage-pageBlock}"><div class="pageging2">이전</div></a>
+								</c:if>
+								<div class="icon_flex">
+								<c:forEach var="i" begin="${startPage}" end="${endPage}">
+										<a href="adminOrderList.mdo?pageNum=${i}"><div class="pageging">${i}</div></a>
+								</c:forEach>
+								</div>							
+								<div class="icon_flex">
+								<c:if test="${endPage < pageCount -1}">
+									<a href="adminOrderList.mdo?pageNum=${startPage + pageBlock}"><div class="pageging2">다음</div></a>
+								</c:if>
+								</div>
+							</c:if>
+						</div><!-- 페이징 종료 -->
+					
 
 						<!-- 내용물 end -->
 						<div class="card-footer small text-muted">Updated yesterday
@@ -494,18 +487,65 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
-	<script src="js/scripts.js"></script>
+	<script src="/admin/js/scripts.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
 		crossorigin="anonymous"></script>
-	<script src="assets/demo/chart-area-demo.js"></script>
-	<script src="assets/demo/chart-bar-demo.js"></script>
+	<script src="/admin/assets/demo/chart-area-demo.js"></script>
+	<script src="/admin/assets/demo/chart-bar-demo.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
 		crossorigin="anonymous"></script>
-	<script src="js/datatables-simple-demo.js"></script>
+	<script src="/admin/js/datatables-simple-demo.js"></script>
 	<script>
 		getUniqueValuesFromColumn()
 	</script>
+
+
+	<!--체크박스 문자전송용 -->
+	<script>
+		// 상단 선택버튼 클릭시 체크된 Row의 값을 가져온다.
+		$("#selectBtn").click(function() {
+			console.log("1");
+			var rowData = new Array();
+			var tdArr = new Array();
+			var checkbox = $("tbody input[name=check]:checked");
+			var message = $("#selectOption option:selected").val();
+			/* var message = $("select[name='text' option:selected").val(); */
+			// 체크된 체크박스 값을 가져온다
+			checkbox.each(function(i) {
+				// checkbox.parent() : checkbox의 부모는 <td>이다.
+				// checkbox.parent().parent() : <td>의 부모이므로 <tr>이다.
+				var tr = checkbox.parent().parent().eq(i);
+				var td = tr.children();
+				rowData.push(tr.text());
+				// td.eq(0)은 체크박스 이므로  td.eq(4)=전화번호 의 값을 가져온다.
+
+				var phone = td.eq(3).text() + ",";
+				phone = phone.substring(0, phone.length - 1); //마지막 , 제거
+				// 가져온 값을 배열에 담는다.
+				tdArr.push(phone);
+				//console.log("phone : " + phone);
+
+				$.ajax({
+					url : "message.mdo",
+					type : "get",
+					traditional : true,
+					data : {
+						tdArr : tdArr,
+						message : message
+					},
+					dataType : 'text',
+					success : function(data) {
+						console.log(data);
+					}
+				});
+			});
+			$("#ex3_Result2").html(tdArr);
+		});
+	</script>
+
+
+
 
 	<!-- pdf -->
 	<script type="text/javascript"
@@ -514,12 +554,11 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
 	<script type="text/javascript"
 		src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-	<script src="js/pdf.js"></script>
+	<script src="/admin/js/pdf.js"></script>
 
 	<!-- excel -->
-	<script src="js/excel.js"></script>
-	<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="/admin/js/excel.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
 </body>
 </html>

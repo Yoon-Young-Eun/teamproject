@@ -3,7 +3,10 @@ package com.semo.web.admin.controller;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -16,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.semo.web.admin.service.AdminService;
 import com.semo.web.admin.vo.AdminVO;
 import com.semo.web.admin.vo.CustomerVO;
+import com.semo.web.admin.vo.MessageVO;
+import com.semo.web.admin.vo.PagingVO;
 
 @Controller
 public class AdminController {
@@ -47,15 +52,70 @@ public class AdminController {
 		}	
 	}
 	
-	// 로그인 후 좌측 메뉴에서 화원관리 -> 메니저 관리 클릭시 (staffList.mdo)실행 
-	@RequestMapping(value="/staffList.mdo", method=RequestMethod.GET)
-	public String getMemberList(Model model, AdminVO vo) {
-		System.out.println("어드민 memberList() 까꿍! ");
-		List<AdminVO> adminList = adminservice.getAdminList(); // 결과값이 여러 행이기 때문에 리턴값이 List<AdminVO> 이어야 함
-		model.addAttribute("adminList", adminList); // model에 저장해서 보내면 jsp에서 불러 사용할 수 있는데.
-		System.out.println(adminList);              // for문에서는 for문 id이름.컬럼명 ${for문의id이름.컬럼명}
-		return "/admin/memberstaff.jsp";            // 그냥 불러올때는 model의 키 이름.컬럼명 = ${adminList.컬럼명}
-	}
+
+	
+	//매니저 조회 리스트 (staffList.mdo)실행 
+		@RequestMapping(value="/staffList.mdo", method = RequestMethod.GET)
+		public String getMemberList(PagingVO pvo, AdminVO vo, Model model) {
+			System.out.println("매니저 리스트");
+			
+			System.out.println(pvo);
+			// 페이징 처리
+		      if (pvo.getPageNum() == null) {
+		    	  pvo.setPageNum("1");
+		       }
+		      
+		      System.out.println(pvo.getSelectPage());
+		      if (pvo.getSelectPage()==null ) {
+		    	  pvo.setSelectPage("5");
+		      }
+		       int pageSize = Integer.parseInt(pvo.getSelectPage());
+		       int currentPage = Integer.parseInt(pvo.getPageNum()); 
+		       pvo.setStartRow((currentPage -1)* pageSize +1);
+		       pvo.setEndRow(currentPage * pageSize);
+		       int count =0; 	
+		       int number = 0;  
+		      
+		       count = adminservice.getArticleCount(pvo);
+		       List<AdminVO> adminList = null;
+		       if(count >0) {
+		    	   adminList= adminservice.getAdminList(pvo);
+		    	  
+		       }else {
+		    	   adminList=Collections.emptyList(); 
+		       }
+
+		       
+				Map<String, String> conditionMap = new HashMap<String, String>();
+				conditionMap.put("이름", "admin_name");
+				/* conditionMap.put("회원상태", "customer_status"); */
+				
+		       model.addAttribute("conditionMap", conditionMap);
+		       model.addAttribute("pageNum", pvo.getPageNum());
+		       model.addAttribute("pageSize", pageSize);
+		       model.addAttribute("currentPage", currentPage);
+		       model.addAttribute("endRow", pvo.getEndRow());
+		       model.addAttribute("count", count);
+		       model.addAttribute("number", number);
+		       model.addAttribute("adminList", adminList);
+		       model.addAttribute("number", number);
+		       System.out.println("어드민 목록 리스트"+adminList);
+		       
+		       
+			return "/admin/memberstaff.jsp";
+		}	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	// 매니저화면(memberstaff.jsp) 에서 우측 하단 등록버튼을 누른 후 입력값을 넣고 저장을 누르면(insertAdmin.mdo) 실행

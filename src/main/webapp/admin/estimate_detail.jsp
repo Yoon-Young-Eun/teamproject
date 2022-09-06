@@ -22,7 +22,7 @@
 		</div>
 		<div class="estimate_wrapper">
 			<div class="estimate_request">
-				<div class="estimate_request_title">주문번호</div>
+				<div class="estimate_request_title">견적코드</div>
 				<div class="estimate_request_num">sb635</div>
 			</div>
 			<div class="estimate_request">

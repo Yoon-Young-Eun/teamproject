@@ -3,173 +3,174 @@ package com.semo.web.user.vo;
 import java.util.Date;
 
 public class OrderVO {
-	private int ORDER_NO;
-	private String ORDER_TYPE;
-	private String ORDER_PRODUCT;
-	private int STORE_CODE;
-	private Date ORDER_DATE;
-	private Date ORDER_PICKUP_DATE;
-	private String CM_GATE_PASSWD;
-	private String ORDER_REQUEST1;
-	private String ORDER_REQUEST2;
-	private int ORDER_PRICE;
-	private String ORDER_USE_COUPON_PRICE;
-	private String ORDER_STATUS;
-	private String ORDER_PRICE_STATUS;
-	private String ORDER_PRICE_METHOD;
-	private int CUSTOMER_NO;
-	private String ORDER_CUTOMER_NAME;
-	private String ORDER_STORE_NAME;
-	private Date ORDER_EXPECTED_DATE;
-	private String ORDER_CUSTOMER_PHONE;
-	private String ORDER_ADDRESS1;
-	private String ORDER_ADDRESS2;
-	private int ORDER_DELIVERY_PRICE;
-	public int getORDER_NO() {
-		return ORDER_NO;
+	private int order_no;
+	private String order_type;
+	private String order_product;
+	private int store_code;
+	private Date order_date;
+	private Date order_pickup_date;
+	private String cm_gate_passwd;
+	private String order_request1;
+	private String order_request2;
+	private int order_price;
+	private String order_use_coupon_price;
+	private String order_status;
+	private String order_price_status;
+	private String order_price_method;
+	private int customer_no;
+	private String order_customer_name;
+	private String order_store_name;
+	private Date order_expected_date;
+	private String order_customer_phone;
+	private String order_address1;
+	private String order_address2;
+	private int order_delivery_price;
+	public int getOrder_no() {
+		return order_no;
 	}
-	public void setORDER_NO(int oRDER_NO) {
-		ORDER_NO = oRDER_NO;
+	public void setOrder_no(int order_no) {
+		this.order_no = order_no;
 	}
-	public String getORDER_TYPE() {
-		return ORDER_TYPE;
+	public String getOrder_type() {
+		return order_type;
 	}
-	public void setORDER_TYPE(String oRDER_TYPE) {
-		ORDER_TYPE = oRDER_TYPE;
+	public void setOrder_type(String order_type) {
+		this.order_type = order_type;
 	}
-	public String getORDER_PRODUCT() {
-		return ORDER_PRODUCT;
+	public String getOrder_product() {
+		return order_product;
 	}
-	public void setORDER_PRODUCT(String oRDER_PRODUCT) {
-		ORDER_PRODUCT = oRDER_PRODUCT;
+	public void setOrder_product(String order_product) {
+		this.order_product = order_product;
 	}
-	public int getSTORE_CODE() {
-		return STORE_CODE;
+	public int getStore_code() {
+		return store_code;
 	}
-	public void setSTORE_CODE(int sTORE_CODE) {
-		STORE_CODE = sTORE_CODE;
+	public void setStore_code(int store_code) {
+		this.store_code = store_code;
 	}
-	public Date getORDER_DATE() {
-		return ORDER_DATE;
+	public Date getOrder_date() {
+		return order_date;
 	}
-	public void setORDER_DATE(Date oRDER_DATE) {
-		ORDER_DATE = oRDER_DATE;
+	public void setOrder_date(Date order_date) {
+		this.order_date = order_date;
 	}
-	public Date getORDER_PICKUP_DATE() {
-		return ORDER_PICKUP_DATE;
+	public Date getOrder_pickup_date() {
+		return order_pickup_date;
 	}
-	public void setORDER_PICKUP_DATE(Date oRDER_PICKUP_DATE) {
-		ORDER_PICKUP_DATE = oRDER_PICKUP_DATE;
+	public void setOrder_pickup_date(Date order_pickup_date) {
+		this.order_pickup_date = order_pickup_date;
 	}
-	public String getCM_GATE_PASSWD() {
-		return CM_GATE_PASSWD;
+	public String getCm_gate_passwd() {
+		return cm_gate_passwd;
 	}
-	public void setCM_GATE_PASSWD(String cM_GATE_PASSWD) {
-		CM_GATE_PASSWD = cM_GATE_PASSWD;
+	public void setCm_gate_passwd(String cm_gate_passwd) {
+		this.cm_gate_passwd = cm_gate_passwd;
 	}
-	public String getORDER_REQUEST1() {
-		return ORDER_REQUEST1;
+	public String getOrder_request1() {
+		return order_request1;
 	}
-	public void setORDER_REQUEST1(String oRDER_REQUEST1) {
-		ORDER_REQUEST1 = oRDER_REQUEST1;
+	public void setOrder_request1(String order_request1) {
+		this.order_request1 = order_request1;
 	}
-	public String getORDER_REQUEST2() {
-		return ORDER_REQUEST2;
+	public String getOrder_request2() {
+		return order_request2;
 	}
-	public void setORDER_REQUEST2(String oRDER_REQUEST2) {
-		ORDER_REQUEST2 = oRDER_REQUEST2;
+	public void setOrder_request2(String order_request2) {
+		this.order_request2 = order_request2;
 	}
-	public int getORDER_PRICE() {
-		return ORDER_PRICE;
+	public int getOrder_price() {
+		return order_price;
 	}
-	public void setORDER_PRICE(int oRDER_PRICE) {
-		ORDER_PRICE = oRDER_PRICE;
+	public void setOrder_price(int order_price) {
+		this.order_price = order_price;
 	}
-	public String getORDER_USE_COUPON_PRICE() {
-		return ORDER_USE_COUPON_PRICE;
+	public String getOrder_use_coupon_price() {
+		return order_use_coupon_price;
 	}
-	public void setORDER_USE_COUPON_PRICE(String oRDER_USE_COUPON_PRICE) {
-		ORDER_USE_COUPON_PRICE = oRDER_USE_COUPON_PRICE;
+	public void setOrder_use_coupon_price(String order_use_coupon_price) {
+		this.order_use_coupon_price = order_use_coupon_price;
 	}
-	public String getORDER_STATUS() {
-		return ORDER_STATUS;
+	public String getOrder_status() {
+		return order_status;
 	}
-	public void setORDER_STATUS(String oRDER_STATUS) {
-		ORDER_STATUS = oRDER_STATUS;
+	public void setOrder_status(String order_status) {
+		this.order_status = order_status;
 	}
-	public String getORDER_PRICE_STATUS() {
-		return ORDER_PRICE_STATUS;
+	public String getOrder_price_status() {
+		return order_price_status;
 	}
-	public void setORDER_PRICE_STATUS(String oRDER_PRICE_STATUS) {
-		ORDER_PRICE_STATUS = oRDER_PRICE_STATUS;
+	public void setOrder_price_status(String order_price_status) {
+		this.order_price_status = order_price_status;
 	}
-	public String getORDER_PRICE_METHOD() {
-		return ORDER_PRICE_METHOD;
+	public String getOrder_price_method() {
+		return order_price_method;
 	}
-	public void setORDER_PRICE_METHOD(String oRDER_PRICE_METHOD) {
-		ORDER_PRICE_METHOD = oRDER_PRICE_METHOD;
+	public void setOrder_price_method(String order_price_method) {
+		this.order_price_method = order_price_method;
 	}
-	public int getCUSTOMER_NO() {
-		return CUSTOMER_NO;
+	public int getCustomer_no() {
+		return customer_no;
 	}
-	public void setCUSTOMER_NO(int cUSTOMER_NO) {
-		CUSTOMER_NO = cUSTOMER_NO;
+	public void setCustomer_no(int customer_no) {
+		this.customer_no = customer_no;
 	}
-	public String getORDER_CUTOMER_NAME() {
-		return ORDER_CUTOMER_NAME;
+	public String getOrder_customer_name() {
+		return order_customer_name;
 	}
-	public void setORDER_CUTOMER_NAME(String oRDER_CUTOMER_NAME) {
-		ORDER_CUTOMER_NAME = oRDER_CUTOMER_NAME;
+	public void setOrder_customer_name(String order_customer_name) {
+		this.order_customer_name = order_customer_name;
 	}
-	public String getORDER_STORE_NAME() {
-		return ORDER_STORE_NAME;
+	public String getOrder_store_name() {
+		return order_store_name;
 	}
-	public void setORDER_STORE_NAME(String oRDER_STORE_NAME) {
-		ORDER_STORE_NAME = oRDER_STORE_NAME;
+	public void setOrder_store_name(String order_store_name) {
+		this.order_store_name = order_store_name;
 	}
-	public Date getORDER_EXPECTED_DATE() {
-		return ORDER_EXPECTED_DATE;
+	public Date getOrder_expected_date() {
+		return order_expected_date;
 	}
-	public void setORDER_EXPECTED_DATE(Date oRDER_EXPECTED_DATE) {
-		ORDER_EXPECTED_DATE = oRDER_EXPECTED_DATE;
+	public void setOrder_expected_date(Date order_expected_date) {
+		this.order_expected_date = order_expected_date;
 	}
-	public String getORDER_CUSTOMER_PHONE() {
-		return ORDER_CUSTOMER_PHONE;
+	public String getOrder_customer_phone() {
+		return order_customer_phone;
 	}
-	public void setORDER_CUSTOMER_PHONE(String oRDER_CUSTOMER_PHONE) {
-		ORDER_CUSTOMER_PHONE = oRDER_CUSTOMER_PHONE;
+	public void setOrder_customer_phone(String order_customer_phone) {
+		this.order_customer_phone = order_customer_phone;
 	}
-	public String getORDER_ADDRESS1() {
-		return ORDER_ADDRESS1;
+	public String getOrder_address1() {
+		return order_address1;
 	}
-	public void setORDER_ADDRESS1(String oRDER_ADDRESS1) {
-		ORDER_ADDRESS1 = oRDER_ADDRESS1;
+	public void setOrder_address1(String order_address1) {
+		this.order_address1 = order_address1;
 	}
-	public String getORDER_ADDRESS2() {
-		return ORDER_ADDRESS2;
+	public String getOrder_address2() {
+		return order_address2;
 	}
-	public void setORDER_ADDRESS2(String oRDER_ADDRESS2) {
-		ORDER_ADDRESS2 = oRDER_ADDRESS2;
+	public void setOrder_address2(String order_address2) {
+		this.order_address2 = order_address2;
 	}
-	public int getORDER_DELIVERY_PRICE() {
-		return ORDER_DELIVERY_PRICE;
+	public int getOrder_delivery_price() {
+		return order_delivery_price;
 	}
-	public void setORDER_DELIVERY_PRICE(int oRDER_DELIVERY_PRICE) {
-		ORDER_DELIVERY_PRICE = oRDER_DELIVERY_PRICE;
+	public void setOrder_delivery_price(int order_delivery_price) {
+		this.order_delivery_price = order_delivery_price;
 	}
 	@Override
 	public String toString() {
-		return "OrderVO [ORDER_NO=" + ORDER_NO + ", ORDER_TYPE=" + ORDER_TYPE + ", ORDER_PRODUCT=" + ORDER_PRODUCT
-				+ ", STORE_CODE=" + STORE_CODE + ", ORDER_DATE=" + ORDER_DATE + ", ORDER_PICKUP_DATE="
-				+ ORDER_PICKUP_DATE + ", CM_GATE_PASSWD=" + CM_GATE_PASSWD + ", ORDER_REQUEST1=" + ORDER_REQUEST1
-				+ ", ORDER_REQUEST2=" + ORDER_REQUEST2 + ", ORDER_PRICE=" + ORDER_PRICE + ", ORDER_USE_COUPON_PRICE="
-				+ ORDER_USE_COUPON_PRICE + ", ORDER_STATUS=" + ORDER_STATUS + ", ORDER_PRICE_STATUS="
-				+ ORDER_PRICE_STATUS + ", ORDER_PRICE_METHOD=" + ORDER_PRICE_METHOD + ", CUSTOMER_NO=" + CUSTOMER_NO
-				+ ", ORDER_CUTOMER_NAME=" + ORDER_CUTOMER_NAME + ", ORDER_STORE_NAME=" + ORDER_STORE_NAME
-				+ ", ORDER_EXPECTED_DATE=" + ORDER_EXPECTED_DATE + ", ORDER_CUSTOMER_PHONE=" + ORDER_CUSTOMER_PHONE
-				+ ", ORDER_ADDRESS1=" + ORDER_ADDRESS1 + ", ORDER_ADDRESS2=" + ORDER_ADDRESS2
-				+ ", ORDER_DELIVERY_PRICE=" + ORDER_DELIVERY_PRICE + "]";
+		return "OrderVO [order_no=" + order_no + ", order_type=" + order_type + ", order_product=" + order_product
+				+ ", store_code=" + store_code + ", order_date=" + order_date + ", order_pickup_date="
+				+ order_pickup_date + ", cm_gate_passwd=" + cm_gate_passwd + ", order_request1=" + order_request1
+				+ ", order_request2=" + order_request2 + ", order_price=" + order_price + ", order_use_coupon_price="
+				+ order_use_coupon_price + ", order_status=" + order_status + ", order_price_status="
+				+ order_price_status + ", order_price_method=" + order_price_method + ", customer_no=" + customer_no
+				+ ", order_customer_name=" + order_customer_name + ", order_store_name=" + order_store_name
+				+ ", order_expected_date=" + order_expected_date + ", order_customer_phone=" + order_customer_phone
+				+ ", order_address1=" + order_address1 + ", order_address2=" + order_address2
+				+ ", order_delivery_price=" + order_delivery_price + "]";
 	}
+	
 	
 	
 	

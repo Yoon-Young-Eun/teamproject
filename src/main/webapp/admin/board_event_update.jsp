@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +14,6 @@
 <script src="js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="js/fileupload.js"></script>
 <script type="text/javascript" src="js/index_navbar_onclick.js"></script>
-
 <!-- <-게시판 css -->
 <link rel="stylesheet" href="/admin/css/board.css" />
 
@@ -28,10 +27,10 @@
 	crossorigin="anonymous"></script>
 
 <!-- summernote -->
-<script src="js/summernote/summernote-lite.js"></script>
-<script src="js/summernote/lang/summernote-ko-KR.js"></script>
+<script src="/admin/js/summernote/summernote-lite.js"></script>
+<script src="/admin/js/summernote/lang/summernote-ko-KR.js"></script>
 
-<link rel="stylesheet" href="css/summernote/summernote-lite.css">
+<link rel="stylesheet" href="/admin/css/summernote/summernote-lite.css">
 
 </head>
 <body class="sb-nav-fixed">
@@ -334,83 +333,99 @@
 			<main>
 
 				<div class="container-fluid px-4">
-					<h1 class="mt-4">게시판</h1>
+					<h1 class="mt-4">이벤트</h1>
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
-						<li class="breadcrumb-item active">공지사항</li>
+						<li class="breadcrumb-item active">이벤트</li>
 					</ol>
 					<div class="card mb-4">
-						<div class="card-body">공지사항 게시판입니다</div>
-					</div>
-					<div class="dd">
-						<!-- <div class="card-header">
-							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 게시판에 대한 세부제목
-						</div> -->
-						<div id="wrap">
-							<header>
-
-								<div class="board_title">
-									<h1>공지사항</h1>
-								</div>
-							</header>
-
-							<div id="content_wrap">
-								<ul class="title_wrap">
-									<li><span class="title">제목</span> ${board.notice_title }</li>
-
-								</ul>
-								<div id="summer" class="writeWrap">
-									<div id="summernote" class="writeArea" name="notice_content">${board.notice_content }</div>
-								</div>
-								<div class="configWrap">
-									<ul>
-										<li><span class="title">첨부파일</span>&nbsp;&nbsp;
-											<div class="filebox">
-												<c:choose>
-													<c:when
-														test="${board.notice_filepath eq 'https://semoproject.s3.ap-northeast-2.amazonaws.com/board/'}">
-                                    파일없음
-                                 </c:when>
-													<c:otherwise>
-														<a href="${board.notice_filepath}" target="_blank">파일보기(${filename})</a>
-													</c:otherwise>
-												</c:choose>
-											</div></li>
-										
-									</ul>
-								</div>
-								<div class="end">
-									<div class="board_btn">
-										<a href="/getUpdate.mdo?notice_no=${board.notice_no}">수정</a>
-									</div>
-									<div class="board_btn">
-										<a href="/deleteBoard.mdo?notice_no=${board.notice_no}">삭제</a>
-									</div>
-									<div class="board_btn">
-										<a href="/getBoardList.mdo">목록</a>
-									</div>
-								</div>
-							</div>
+						<div class="card-body">
+							이벤트 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
 						</div>
 					</div>
-					<hr>
+					<div class="card mb-4">
+						<div class="card-body">이벤트 게시판입니다</div>
+					</div>
+					<div class="dd">
+						<div id="wrap">
+							<header>
+								<div class="board_title">
+									<h1>이벤트</h1>
+								</div>
+
+							</header>
+							<form action="/updateEvent.mdo" method="post"
+								enctype="multipart/form-data">
+								<div id="content_wrap">
+									<ul class="title_wrap">
+										<li><span class="title">제목</span> <input type="text"
+											name="board_event_title" value="${event.board_event_title }" /></li>
+									</ul>
+									<div id="summer" class="writeWrap">
+										<textarea id="summernote" class="writeArea"
+											name="board_event_content">${event.board_event_content}</textarea>
+									</div>
+									<div class="configWrap">
+										<ul>
+											<li><span class="title">배너번호</span>&nbsp; <input
+												type="text" value="${event.banner_no}" name="banner_no"
+												class="ban" /></li>
+
+											<li style="display: flex; margin-top: 15px;"><span
+												class="title">첨부파일</span>&nbsp;&nbsp;
+												<div class="filebox">
+													<label for="ex_filename">파일 선택</label> <input type="file"
+														id="ex_filename" name="uploadImg" class="upload-hidden">
+													<input class="upload-name" value="" disabled="disabled">
+												</div></li>
+
+											<div class="open_set">
+												<li><span class="title">공개설정</span>&nbsp; <input
+													type="radio" name="open" id="open_0"> <label
+													for="open_0">전체공개</label>&nbsp;&nbsp; <input type="radio"
+													name="open" id="open_1"> <label for="open_1">회원만
+														공개</label>&nbsp;&nbsp; <input type="radio" name="open" id="open_2">
+													<label for="open_2">비공개</label>
+											</div>
+											</li>
+										</ul>
+									</div>
+									<div class="end">
+										<div class="board_btn">
+											<input type="submit" value="저장">
+										</div>
+										<div class="board_btn">
+											<a
+												href="/deleteEvent.mdo?board_event_no=${event.board_event_no}">삭제</a>
+										</div>
+										<div class="board_btn">
+											<a href="/getEventList.mdo">목록</a>
+										</div>
+									</div>
+
+								</div>
+							</form>
+						</div>
+
+					</div>
+
 				</div>
 			</main>
-		</div>
 
-		<footer class="py-4 bg-light mt-auto">
-			<div class="container-fluid px-4">
-				<div class="d-flex align-items-center justify-content-between small">
-					<div class="text-muted">Copyright &copy; Your Website 2022</div>
-					<div>
-						<a href="#">Privacy Policy</a> &middot; <a href="#">Terms
-							&amp; Conditions</a>
+			<footer class="py-4 bg-light mt-auto">
+				<div class="container-fluid px-4">
+					<div
+						class="d-flex align-items-center justify-content-between small">
+						<div class="text-muted">Copyright &copy; Your Website 2022</div>
+						<div>
+							<a href="#">Privacy Policy</a> &middot; <a href="#">Terms
+								&amp; Conditions</a>
+						</div>
 					</div>
 				</div>
-			</div>
-		</footer>
+			</footer>
+		</div>
 	</div>
-
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
@@ -423,6 +438,5 @@
 	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
 		crossorigin="anonymous"></script>
 	<script src="js/datatables-simple-demo.js"></script>
-
 </body>
 </html>

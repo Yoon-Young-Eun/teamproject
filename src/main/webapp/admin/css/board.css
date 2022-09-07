@@ -60,7 +60,7 @@ header {
 
 #content_wrap ul li:nth-child(2) {
 	margin-bottom: 5px;
-	margin-top: 15px;
+	margin-top: 10px;
 }
 
 #content_wrap .title {
@@ -97,6 +97,10 @@ header {
 	padding: 10px;
 }
 
+.ban{
+	width : 230px;
+}
+
 /* .configWrap .tag .InputArea input {
 	width: 500px;
 	margin-left: 10px;
@@ -119,15 +123,33 @@ header {
 	padding: 10px;
 	border-radius: 10px;
 	background: #dee2e6;
+	display: flex;
+	align-items: center;
+	width : 70px;
+	justify-content: center;
+}
+
+.board_btn input{
+	font-size: 18px;
+	/* border: 2px solid black; */
+	font-weight: bold;
+	border : none;
+	background-color: #dee2e6;
+}
+
+.board_btn input:hover {
+	font-weight: bold;
+	text-decoration: underline;
+	color: white;
 }
 
 .end a {
 	color : #212529;
-	font-size: 16px;
-	/* border: 2px solid black; */
+	font-size: 18px;
 	font-weight: bold;
 	letter-spacing: 3px;
 	text-decoration: none;
+	border: none;
 }
 
 .end a:hover {
@@ -191,6 +213,7 @@ header {
 	-webkit-appearance: none; /* 네이티브 외형 감추기 */
 	-moz-appearance: none;
 	appearance: none;
+	width : 736px;
 }
 
 .title_wrap {
@@ -206,7 +229,7 @@ header {
 #summer {
 	background-color: white;
 	resize: none;
-	border: 1px solid #dddddd;
+	border: 1px solid #bfbfbf;
 	min-height: 400px;
 }
 

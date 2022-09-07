@@ -346,7 +346,7 @@
 								</div>
 
 							</header>
-							<form action="/updateBoard.mdo" enctype="multipart/form-data">
+							<form action="/updateBoard.mdo" method="post" enctype="multipart/form-data">
 								<div id="content_wrap">
 									<ul class="title_wrap">
 
@@ -361,28 +361,13 @@
 									</div>
 									<div class="configWrap">
 										<ul> 	
-											<li><span class="title">첨부파일</span>&nbsp;&nbsp;
+											<li style="display: flex; align-items: center;"><span class="title">첨부파일</span>&nbsp;&nbsp;
 												<div class="filebox">
 													<label for="ex_filename">파일 선택</label> <input type="file"
-														id="ex_filename" class="upload-hidden"> <input
-														class="upload-name" value="" disabled="disabled">
+														id="ex_filename" name="uploadImg" class="upload-hidden"> <input
+														class="upload-name" value="${filename}" disabled="disabled">
 												</div></li>
-											<!-- <li class="tag">
-											<div class="tag_di">
-												<div class="title">태그달기</div>
-												<div class="InputArea">
-													<input type="text" id="tagInput" nae="tagInput"
-														onfocus="value=''" value="태그와 태그는 쉼표로 구분하세요">
-												</div>
-											</div>
-										</li> -->
-											<div class="open_set">
-												<li><span class="title">공개설정</span>&nbsp; <input
-													type="radio" name="open" id="open_0"> <label
-													for="open_0">전체공개</label>&nbsp;&nbsp; <input type="radio"
-													name="open" id="open_2"> <label for="open_2">비공개</label>
-												</li>
-											</div>
+											
 										</ul>
 									</div>
 									<div class="end">

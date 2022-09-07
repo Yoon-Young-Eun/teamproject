@@ -181,6 +181,11 @@
 	color: white;
 }
 #image_container {
+	font-weight: bold;
 	margin: 6px;
 	height: 268px;	
+}
+#image_container>span {
+	font-weight: bold;
+	margin-left: 6px;
 }

@@ -13,6 +13,7 @@ public interface SiteService {
 	public List<CouponVO> getCouponList();
 	public CouponVO getReadCoupon(CouponVO vo);
 	public void updateCoupon(CouponVO vo);
+	public void deleteCoupon(int no);
 	public void deleteCoupon(CouponVO vo);
 	
 	// 배너
@@ -20,6 +21,7 @@ public interface SiteService {
 	public List<BannerVO> getBannerList();
 	public BannerVO getReadBanner(BannerVO vo);
 	public void updateBanner(BannerVO vo);
+	public void deleteBanner(int no);
 	public void deleteBanner(BannerVO vo);
 	
 	// 약관
@@ -27,5 +29,6 @@ public interface SiteService {
 	public List<TermsVO> getTermsList();
 	public TermsVO getReadTerms(TermsVO vo);
 	public void updateTerms(TermsVO vo);
+	public void deleteTerms(int no);
 	public void deleteTerms(TermsVO vo);
 }

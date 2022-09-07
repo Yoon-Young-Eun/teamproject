@@ -14,7 +14,7 @@
 	</insert>
 
 	<update id="updateBoard" parameterType="notice">
-		<![CDATA[ update notice set	notice_title=#{notice_title}, notice_content=#{notice_content} where notice_no=#{notice_no} ]]>
+		<![CDATA[ update notice set	notice_title=#{notice_title}, notice_content=#{notice_content}, notice_filepath=#{notice_filepath} where notice_no=#{notice_no} ]]>
 	</update>
 
 	<delete id="deleteBoard" parameterType="notice">

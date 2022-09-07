@@ -23,7 +23,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="./js/checkbox.js"></script>
+<script src="/admin/js/checkbox.js"></script>
 
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
@@ -399,12 +399,61 @@
 <!-- 							<div> -->
 <!-- 								<input id="button" type="button" value="수정" /> -->
 <!-- 							</div> -->
-<!-- 							<div> -->
-<!-- 								<input id="button" type="button" value="삭제" /> -->
-<!-- 							</div> -->
+							<div>
+								<input id="delBtn" type="button" value="삭제" />
+							</div>
 
 						</div>
+<script type="text/javascript">
+	//체크삭제
+	$("#delBtn")
+			.click(
+					function() {
+						console.log("1");
+						var rowData = new Array();
+						var tdArr = new Array();
+						var checkbox = $("tbody input[name=check]:checked");
 
+						// 체크된 체크박스 값을 가져온다
+						checkbox
+								.each(function(i) {
+									var tr = checkbox
+											.parent()
+											.parent()
+											.eq(i);
+									var td = tr
+											.children();
+									rowData.push(tr
+											.text());
+									// td.eq(0)은 체크박스 이므로  td.eq(4)=전화번호 의 값을 가져온다.
+
+									var number = td.eq(
+											1).text()
+											+ ",";
+									number = number
+											.substring(
+													0,
+													number.length - 1); //마지막 , 제거
+									// 가져온 값을 배열에 담는다.
+									tdArr.push(number);
+
+									$
+											.ajax({
+												url : "deleteCouponCheck.mdo",
+												type : "get",
+												traditional : true,
+												data : {
+													tdArr : tdArr,
+												},
+												dataType : 'text',
+												success : function(data) {
+													location.href = "/CouponList.mdo";
+													console.log(data);
+												}
+											});
+								});
+					});
+</script>
 
 
 						<!-- 내용물 end -->

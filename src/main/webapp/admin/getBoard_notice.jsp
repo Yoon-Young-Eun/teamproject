@@ -375,8 +375,9 @@
 												파일없음
 											</c:when>  
 											<c:otherwise>
-												<a href="${board.notice_filepath}" target="_blank">파일보기</a>
-												<a href="${board.notice_filepath}" download>다운로드</a>
+												<a href="${board.notice_filepath}" target="_blank">파일보기(${filename})</a>
+<%-- 												<a href="${board.notice_filepath}" download="">다운로드</a> --%>
+<%-- 												<a href="${board.notice_filepath}">파일명: ${board.notice_filepath}</a> --%>
 											</c:otherwise> 
 										</c:choose> 
 												

@@ -41,6 +41,11 @@ public class SiteServiceImpl implements SiteService {
 		SiteDAO.deleteCoupon(vo);
 	}
 	
+	@Override
+	public void deleteCoupon(int no) {
+		SiteDAO.deleteCoupon(no);
+	}
+	
 	
 	// ----------------- 배너 ------------------------- //
 	@Override
@@ -66,8 +71,12 @@ public class SiteServiceImpl implements SiteService {
 
 	@Override
 	public void deleteBanner(BannerVO vo) {
-		SiteDAO.deleteBanner(vo);
-		
+		SiteDAO.deleteBanner(vo);	
+	}
+	
+	@Override
+	public void deleteBanner(int no) {
+		SiteDAO.deleteBanner(no);	
 	}
 
 	
@@ -98,5 +107,10 @@ public class SiteServiceImpl implements SiteService {
 		SiteDAO.deleteTerms(vo);
 		
 	}
-	
+
+	@Override
+	public void deleteTerms(int no) {
+		SiteDAO.deleteTerms(no);
+	}
+
 }

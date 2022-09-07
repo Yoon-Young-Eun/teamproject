@@ -324,6 +324,11 @@
 <!-- ---------- 본문내용 시작 ---------- -->
 
 <div class="popup_wrapper">
+
+<form action="/updateStore.mdo" method="get">
+							
+<input type="hidden" name="store_code" value="${StoreInfo.store_code}">
+
 <div class="popup_head"><h1>매장</h1>
 
 </div>
@@ -333,9 +338,9 @@
 <div class="popup_type">
 <div class="popup_text">구분</div>
 <div class="popup_select">
-<select class="store_type">
+<select class="store_type" name="store_type">
 <c:choose> 
-	<c:when test="${BannerInfo.store_type eq '직영'}">
+	<c:when test="${StoreInfo.store_type eq '직영'}">
 		<option value="직영">직영</option>
 		<option value="와주">외주</option>
 	</c:when>  
@@ -350,9 +355,24 @@
 <div class="popup_status">
 <div class="popup_text">매장상태</div><div class="popup_select">
 <select class="manager_level" name="store_status">
-	<option value="운영중">운영중</option>
-	<option value="휴점">휴점</option>
-	<option value="폐점">폐점</option>
+<c:choose> 
+	<c:when test="${StoreInfo.store_status eq '운영중'}">
+		<option value="운영중">운영중</option>
+		<option value="휴점">휴점</option>
+		<option value="폐점">폐점</option>
+	</c:when>  
+	<c:when test="${StoreInfo.store_status eq '휴점'}">
+		<option value="휴점">휴점</option>
+		<option value="운영중">운영중</option>
+		<option value="폐점">폐점</option>
+	</c:when>  
+	<c:otherwise>
+		<option value="폐점">폐점</option>
+		<option value="운영중">운영중</option>
+		<option value="휴점">휴점</option>
+		
+	</c:otherwise> 
+</c:choose>
 </select>
 </div>
 </div>
@@ -370,16 +390,14 @@
 
 <div class="end">
 	<div class="popup_btn">
-		<a href="/CouponList.mdo">목록</a>
+		<input type="submit" value="저장">
 	</div>
+
 	<div class="popup_btn">
-		<a href="updatePage.mdo?coupon_code=${CouponInfo.coupon_code}">수정</a>
-	</div>
-	<div class="popup_btn">
-		<a href="deleteCoupon.mdo?coupon_code=${CouponInfo.coupon_code}">삭제</a>
+		<a href="/StoreList.mdo">취소</a>
 	</div>
 </div>
-
+</form>
 </div>
 
 <!-- ---------- 본문내용 끝 ---------- -->

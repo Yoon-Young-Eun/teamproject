@@ -22,7 +22,7 @@
 <!-- 체크박스 js -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="./js/checkbox.js"></script>
+<script src="/admin/js/checkbox.js"></script>
 
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
@@ -335,9 +335,9 @@
 										<td id="check_td"><input type="checkbox" name="check"></td>
 										<td>${product.product_code}</td>
 										<!--for문의 id값.컬럼명으로 값을 불러옴 -->
-										<td>${product.product_category_parent}</a></td>
+										<td>${product.product_category_parent}</td>
 										<td>${product.product_category_median}</td>
-										<td><a href="readProduct.mdo?Product_code=${product.product_code}">${product.product_name}</td>
+										<td><a href="readProduct.mdo?product_code=${product.product_code}">${product.product_name}</a></td>
 										<td>${product.product_detail}</td>
 										<td>${product.product_reg_date}</td>
 										<td>${product.product_price}</td>
@@ -348,13 +348,62 @@
 						</table>
 						
 <div class="flex">
-						<div> <input id="button" type="button" value="등록" onclick="window.location='/admin/item_insert.jsp'"/> </div>
+						<div> <input id="button" type="button" value="등록" onclick="window.location='/admin/product_product_insert.jsp'"/> </div>
 <!-- 						<div> <input  id="button" type="button"  value="수정" /> </div> -->
-<!-- 						<div> <input id="button" type="button" value="삭제" /> </div> -->
+						<div> <input id="delBtn" type="button" value="삭제" /> </div>
 						
 						</div>
 
+<script type="text/javascript">
+	//체크삭제
+	$("#delBtn")
+			.click(
+					function() {
+						console.log("1");
+						var rowData = new Array();
+						var tdArr = new Array();
+						var checkbox = $("tbody input[name=check]:checked");
 
+						// 체크된 체크박스 값을 가져온다
+						checkbox
+								.each(function(i) {
+									var tr = checkbox
+											.parent()
+											.parent()
+											.eq(i);
+									var td = tr
+											.children();
+									rowData.push(tr
+											.text());
+									// td.eq(0)은 체크박스 이므로  td.eq(4)=전화번호 의 값을 가져온다.
+
+									var number = td.eq(
+											1).text()
+											+ ",";
+									number = number
+											.substring(
+													0,
+													number.length - 1); //마지막 , 제거
+									// 가져온 값을 배열에 담는다.
+									tdArr.push(number);
+
+									$
+											.ajax({
+												url : "deleteProductCheck.mdo",
+												type : "get",
+												traditional : true,
+												data : {
+													tdArr : tdArr,
+												},
+												dataType : 'text',
+												success : function(data) {
+													location.href = "/ProductList.mdo";
+													console.log(data);
+												}
+											});
+								});
+					});
+</script>
 
 						<!-- 내용물 end -->
 						<div class="card-footer small text-muted">Updated yesterday

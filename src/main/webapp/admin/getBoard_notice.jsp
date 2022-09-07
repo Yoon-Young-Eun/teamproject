@@ -366,9 +366,6 @@
 									<ul>
 										<li><span class="title">첨부파일</span>&nbsp;&nbsp;
 											<div class="filebox">
-												<!-- 													<label for="ex_filename">파일 선택</label> <input type="file" -->
-												<!-- 														id="ex_filename" class="upload-hidden"> <input -->
-												<!-- 														class="upload-name" value="" disabled="disabled"> -->
 												<c:choose>
 													<c:when
 														test="${board.notice_filepath eq 'https://semoproject.s3.ap-northeast-2.amazonaws.com/board/'}">
@@ -379,13 +376,7 @@
 													</c:otherwise>
 												</c:choose>
 											</div></li>
-										<div class="open_set">
-											<li><span class="title">공개설정</span>&nbsp; <input
-												type="radio" name="open" id="open_0"> <label
-												for="open_0">전체공개</label>&nbsp;&nbsp; <input type="radio"
-												name="open" id="open_2"> <label for="open_2">비공개</label>
-											</li>
-										</div>
+										
 									</ul>
 								</div>
 								<div class="end">
@@ -419,7 +410,7 @@
 			</div>
 		</footer>
 	</div>
-	</div>
+
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>

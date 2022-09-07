@@ -11,9 +11,9 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>Dashboard - SEMO Admin</title>
-<script src="js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="js/fileupload.js"></script>
-<script type="text/javascript" src="js/index_navbar_onclick.js"></script>
+<script src="/admin/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/admin/js/fileupload.js"></script>
+<script type="text/javascript" src="/admin/js/index_navbar_onclick.js"></script>
 
 <!-- <-게시판 css -->
 <link rel="stylesheet" href="/admin/css/board.css" />
@@ -27,11 +27,11 @@
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
 	crossorigin="anonymous"></script>
 
-<!-- summernote -->
+<!-- <!-- summernote -->
 <script src="js/summernote/summernote-lite.js"></script>
 <script src="js/summernote/lang/summernote-ko-KR.js"></script>
 
-<link rel="stylesheet" href="css/summernote/summernote-lite.css">
+<link rel="stylesheet" href="css/summernote/summernote-lite.css"> -->
 
 </head>
 <body class="sb-nav-fixed">
@@ -364,7 +364,7 @@
 										<li><span class="title">배너번호</span>&nbsp;
 											${event.banner_no}</li>
 
-										<li><span class="title">첨부파일</span>&nbsp;&nbsp;
+										<li style="display: flex; margin-top: 5px;"><span class="title">첨부파일</span>&nbsp;&nbsp;
 											<div class="filebox">
 												<c:choose>
 													<c:when

@@ -367,7 +367,8 @@
 									</div>
 									<div class="configWrap">
 										<ul>
-											<li><span class="title">첨부파일</span>&nbsp;&nbsp;
+											<li style="display: flex; align-items: center;"><span
+												class="title">첨부파일</span>&nbsp;&nbsp;
 												<div class="filebox">
 													<label for="ex_filename">파일 선택</label> <input type="file"
 														id="ex_filename" name="NoticeFile" class="upload-hidden">
@@ -375,15 +376,7 @@
 												</div></li>
 
 
-											<li>
-												<div class="open_set">
-													<span class="title">공개설정</span>&nbsp; <input type="radio"
-														name="open" id="open_0"> <label for="open_0">전체공개</label>&nbsp;&nbsp;
-													<input type="radio" name="open" id="open_2"> <label
-														for="open_2">비공개</label>
-
-												</div>
-											</li>
+											<li></li>
 										</ul>
 									</div>
 									<div class="end">

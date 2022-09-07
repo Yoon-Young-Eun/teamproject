@@ -19,7 +19,7 @@ import com.semo.web.amazon.s3.AwsS3;
 
 @Controller
 public class Ad_EventController {
-	
+
 	@Autowired
 	private BoardService boardservice;
 	public AwsS3 awss3 = AwsS3.getInstance();
@@ -33,16 +33,16 @@ public class Ad_EventController {
 	}
 
 	@RequestMapping("/getEvent.mdo")
-	   public String getEvent(EventVO vo, Model model) {
-	      System.out.println("글 상세 보기 처리");
-	      String event_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/event/";
-	      EventVO vos=boardservice.getEvent(vo);
-	         String filename = vos.getBoard_event_filepath().replace(event_filepath, "");
-	         System.out.println(vos);
-	      model.addAttribute("event", vos);
-	      model.addAttribute("filename", filename);
-	      return "/admin/getBoard_event.jsp";
-	   }
+	public String getEvent(EventVO vo, Model model) {
+		System.out.println("글 상세 보기 처리");
+		String event_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/event/";
+		EventVO vos=boardservice.getEvent(vo);
+		String filename = vos.getBoard_event_filepath().replace(event_filepath, "");
+		System.out.println(vos);
+		model.addAttribute("event", vos);
+		model.addAttribute("filename", filename);
+		return "/admin/getBoard_event.jsp";
+	}
 
 	@RequestMapping(value="/insertEvent.mdo", method=RequestMethod.GET)
 	public String insertEvent(EventVO vo) {
@@ -118,7 +118,7 @@ public class Ad_EventController {
 
 
 	@RequestMapping("/deleteEvent2.mdo")
-	public String deleteEvent2(String[] tdArr, EventVO vo) {
+	public String deleteEvent2(String[] tdArr, EventVO vo) throws IOException, SQLException{
 		System.out.println(tdArr[0]);
 		System.out.println("글 삭제 처리");
 
@@ -127,6 +127,13 @@ public class Ad_EventController {
 			for(int a=0; a<tdArr.length; a++) {
 				arr2.add(Integer.parseInt(tdArr[a])) ;
 				vo.setBoard_event_no(arr2.get(a));
+
+				EventVO bringData = boardservice.getEvent(vo);
+
+				int index = bringData.getBoard_event_filepath().indexOf("/", 20);
+				String key = bringData.getBoard_event_filepath().substring(index+1);
+				awss3.delete(key);
+
 				boardservice.deleteEvent(vo.getBoard_event_no());
 			}
 		}
@@ -135,8 +142,17 @@ public class Ad_EventController {
 
 
 	@RequestMapping("/deleteEvent.mdo") 
-	public String deleteEvent(EventVO vo) {
+	public String deleteEvent(EventVO vo) throws IOException, SQLException{
+
+		EventVO bringData = boardservice.getEvent(vo);
+
+		int index = bringData.getBoard_event_filepath().indexOf("/", 20);
+		String key = bringData.getBoard_event_filepath().substring(index+1);
+		awss3.delete(key);
+
 		System.out.println("글 삭제 처리"); 
-		boardservice.deleteEvent(vo); 
-		return "getEventList.mdo"; }
+		boardservice.deleteEvent(bringData); 
+
+		return "redirect:/getEventList.mdo";
+	}
 }

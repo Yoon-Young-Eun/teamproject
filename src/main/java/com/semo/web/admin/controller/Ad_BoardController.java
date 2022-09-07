@@ -36,16 +36,16 @@ public class Ad_BoardController {
 	}
 
 	@RequestMapping("/getBoard.mdo")
-	   public String getBoard(NoticeVO vo, Model model) {
-	      System.out.println("글 상세 보기 처리");
-	      String notice_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/board/";
-	         NoticeVO vos=boardservice.getBoard(vo);
-	         String filename = vos.getNotice_filepath().replace(notice_filepath, "");
-	         System.out.println(vos);
-	      model.addAttribute("board", vos);
-	      model.addAttribute("filename", filename);
-	      return "/admin/getBoard_notice.jsp";
-	   }
+	public String getBoard(NoticeVO vo, Model model) {
+		System.out.println("글 상세 보기 처리");
+		String notice_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/board/";
+		NoticeVO vos=boardservice.getBoard(vo);
+		String filename = vos.getNotice_filepath().replace(notice_filepath, "");
+		System.out.println(vos);
+		model.addAttribute("board", vos);
+		model.addAttribute("filename", filename);
+		return "/admin/getBoard_notice.jsp";
+	}
 
 	@RequestMapping(value="/insertBoard.mdo", method=RequestMethod.GET)
 	public String insertBoard(NoticeVO vo) {
@@ -117,7 +117,12 @@ public class Ad_BoardController {
 	@RequestMapping("/getUpdate.mdo")
 	public String getUpdate(NoticeVO vo, Model model) {
 		System.out.println("글 수정정보 보기 처리");
-		model.addAttribute("board", boardservice.getBoard(vo));
+		String notice_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/board/";
+		NoticeVO vos=boardservice.getBoard(vo);
+		String filename = vos.getNotice_filepath().replace(notice_filepath, "");
+		System.out.println(vos);
+		model.addAttribute("board", vos);
+		model.addAttribute("filename", filename);
 		return "/admin/board_notice_update.jsp";
 	}
 
@@ -130,18 +135,35 @@ public class Ad_BoardController {
 		if(tdArr!=null) {
 			List<Integer> arr2 = new ArrayList<Integer>();
 			for(int a=0; a<tdArr.length; a++) {
+				System.out.println("dhsi");
 				arr2.add(Integer.parseInt(tdArr[a])) ;
+				System.out.println(arr2.get(a)+"tes");
 				vo.setNotice_no(arr2.get(a));
+
+				NoticeVO bringData = boardservice.getBoard(vo);
+
+				int index = bringData.getNotice_filepath().indexOf("/", 20);
+				String key = bringData.getNotice_filepath().substring(index+1);
+				awss3.delete(key);
+
 				boardservice.deleteBoard(vo.getNotice_no());
 			}
 		}
 		return "getBoardList.mdo";
 	}
 
+	// 삭제
+	@RequestMapping("/deleteBoard.mdo")
+	public String deleteBoard(NoticeVO vo) throws IOException, SQLException{
 
-	@RequestMapping("/deleteBoard.mdo") 
-	public String deleteBoard(NoticeVO vo) {
-		System.out.println("글 삭제 처리"); 
-		boardservice.deleteBoard(vo); 
-		return "getBoardList.mdo"; }
+		NoticeVO bringData = boardservice.getBoard(vo);
+
+		int index = bringData.getNotice_filepath().indexOf("/", 20);
+		String key = bringData.getNotice_filepath().substring(index+1);
+		awss3.delete(key);
+
+		boardservice.deleteBoard(bringData);
+
+		return "redirect:/getBoardList.mdo";
+	}
 }

@@ -32,15 +32,23 @@
 	
 	</select>
 	
-	<update id="updateCustomerAddress" parameterType="CM_ADDRESS">
-	<![CDATA[update customer set customer_address1=#{cm_address1} where customer_no=#{customer_no} ]]>
 	
-	</update>
 	
 	<select id="sendCustomer" parameterType="CUSTOMER" resultType="CUSTOMER">
 	<![CDATA[select * from customer where customer_no=#{customer_no}]]>
 	</select>
 
+	<select id="selectCustomerAddress" parameterType="CM_ADDRESS" resultType="CM_ADDRESS">
+	<![CDATA[select * from cm_address where cm_address_no=#{cm_address_no}]]>
+	</select>
+
+
+	<update id="updateCustomerAddress" parameterType="CM_ADDRESS">
+	<![CDATA[update customer set customer_address1=#{cm_address1},customer_address2=#{cm_address2},customer_phone=#{cm_phone_number} where customer_no=#{customer_no}]]>
+	</update>
+	
+	
+	
 
 
 

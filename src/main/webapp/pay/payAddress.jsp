@@ -98,6 +98,7 @@
 </div>
 	
 	
+	<div id="chse">1</div>
 </div>
 </div>
 
@@ -139,6 +140,15 @@
    })
    
    </script>
+   <script>
+$("#chse").on("DOMSubtreeModified",function(){
+	console.log("d1");
+	setTimeout(() => {
+		console.log("d2");
+		location.reload();}, 700);
+	
+})
+</script>
 
 </body>
 

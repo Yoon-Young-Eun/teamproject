@@ -10,9 +10,9 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>Dashboard - SEMO Admin</title>
-<script src="js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="js/fileupload.js"></script>
-<script type="text/javascript" src="js/index_navbar_onclick.js"></script>
+<script src="/admin/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/admin/js/fileupload.js"></script>
+<script type="text/javascript" src="/admin/js/index_navbar_onclick.js"></script>
 <!-- <-게시판 css -->
 <link rel="stylesheet" href="/admin/css/board.css" />
 
@@ -20,16 +20,16 @@
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
 
-<link href="css/styles.css" rel="stylesheet" />
-<link href="css/main_info_card.css" rel="stylesheet" />
+<link href="/admin/css/styles.css" rel="stylesheet" />
+<link href="/admin/css/main_info_card.css" rel="stylesheet" />
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
 	crossorigin="anonymous"></script>
 
 <!-- summernote -->
-<script src="js/summernote/summernote-lite.js"></script>
-<script src="js/summernote/lang/summernote-ko-KR.js"></script>
+<script src="/admin/js/summernote/summernote-lite.js"></script>
+<script src="/admin/js/summernote/lang/summernote-ko-KR.js"></script>
 
-<link rel="stylesheet" href="css/summernote/summernote-lite.css">
+<link rel="stylesheet" href="/admin/css/summernote/summernote-lite.css">
 
 </head>
 <body class="sb-nav-fixed">
@@ -187,8 +187,8 @@
 						<div class="collapse" id="change_id_06"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="board_notice.jsp">공지사항</a> <a
-									class="nav-link" href="board_event.jsp">이벤트</a> <a
+								<a class="nav-link" href="/getBoardList.mdo">공지사항</a> <a
+									class="nav-link" href="/getEventList.mdo">이벤트</a> <a
 									class="nav-link" href="#">리뷰</a> <a class="nav-link"
 									href="board_Q&A.jsp">QnA</a> <a class="nav-link"
 									href="board_FAQ.jsp">자주하는 질문</a>
@@ -353,67 +353,54 @@
 								</div>
 
 							</header>
-							<div id="content_wrap">
-								<ul class="title_wrap">
-									<!-- <li><span class="title">게시판</span>
-										<div class="board_select">
-											<select class="select" value="게시판선택">
-												<option selected disabled>게시판선택</option>
-												<option value="notice">공지</option>
-												<option value="review">이벤트</option>
-											</select>
-										</div></li> -->
-									<!--
-            <input type="checkBox" id="chkNotice1" name="chkB1">
-            <label for="chkNotice1">공지사항으로 게시글쓰기</label>
-            <input type="checkBox" id="chkNotice2" name="chkB2">
-            <label for="chkNotice2">일반글로 게시글쓰기</label>
-            -->
-									<li><span class="title">제목</span> <input type="text"
-										placeholder="게시글 제목을 입력하세요" value="[이벤트] " /></li>
-								</ul>
-								<div id="summer" class="writeWrap">
-									<textarea id="summernote" class="writeArea" name="editordata"></textarea>
-								</div>
-								<div class="configWrap">
-									<ul>
-										<li><span class="title">첨부파일</span>&nbsp;&nbsp;
-											<div class="filebox">
-												<label for="ex_filename">파일 선택</label> <input type="file"
-													id="ex_filename" class="upload-hidden"> <input
-													class="upload-name" value="" disabled="disabled">
-											</div></li>
-										<!-- <li class="tag">
-											<div class="tag_di">
-												<div class="title">태그달기</div>
-												<div class="InputArea">
-													<input type="text" id="tagInput" nae="tagInput"
-														onfocus="value=''" value="태그와 태그는 쉼표로 구분하세요">
-												</div>
-											</div>
-										</li> -->
-										<div class="open_set">
-											<li><span class="title">공개설정</span>&nbsp; <input
-												type="radio" name="open" id="open_0"> <label
-												for="open_0">전체공개</label>&nbsp;&nbsp; <input type="radio"
-												name="open" id="open_1"> <label for="open_1">회원만
-													공개</label>&nbsp;&nbsp; <input type="radio" name="open" id="open_2">
-												<label for="open_2">비공개</label>
-										</div>
-										</li>
+							<form action="/EventUpload.mdo" method="post"
+								enctype="multipart/form-data">
+								<div id="content_wrap">
+									<ul class="title_wrap">
+										<li><span class="title">제목</span> <input type="text"
+											name="board_event_title" placeholder="게시글 제목을 입력하세요"
+											value="[이벤트] " /></li>
 									</ul>
-								</div>
-								<div class="end">
-									<div class="board_btn">
-										<a href="#">저장</a>
+									<div id="summer" class="writeWrap">
+										<textarea id="summernote" class="writeArea"
+											name="board_event_content"></textarea>
 									</div>
-									<div class="board_btn">
-										<a href="#">취소</a>
-									</div>
-									<!-- <a href="#">저장</a>&nbsp;&nbsp;<a href="#">취소</a> -->
-								</div>
+									<div class="configWrap">
+										<ul>
+											<li><span class="title">배너번호</span>&nbsp; <input type="text"
+												placeholder="배너번호를 입력해주세요" value=" " name="banner_no"
+												class="ban" /></li>
 
-							</div>
+											<li style="display: flex; margin-top: 15px;"><span
+												class="title">첨부파일</span>&nbsp;&nbsp;
+												<div class="filebox">
+													<label for="ex_filename">파일 선택</label> <input type="file"
+														id="ex_filename" name="EventFile" class="upload-hidden">
+													<input class="upload-name" value="" disabled="disabled">
+												</div></li>
+
+											<div class="open_set">
+												<li><span class="title">공개설정</span>&nbsp; <input
+													type="radio" name="open" id="open_0"> <label
+													for="open_0">전체공개</label>&nbsp;&nbsp; <input type="radio"
+													name="open" id="open_1"> <label for="open_1">회원만
+														공개</label>&nbsp;&nbsp; <input type="radio" name="open" id="open_2">
+													<label for="open_2">비공개</label>
+											</div>
+											</li>
+										</ul>
+									</div>
+									<div class="end">
+										<div class="board_btn">
+											<input type="submit" value="저장">
+										</div>
+										<div class="board_btn">
+											<a href="/getEventList.mdo">목록</a>
+										</div>
+									</div>
+
+								</div>
+							</form>
 						</div>
 
 						<!-- <div class="card-footer small text-muted">Updated yesterday

@@ -186,7 +186,7 @@
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
 								<a class="nav-link" href="/getBoardList.mdo">공지사항</a> <a
-									class="nav-link" href="/admin/board_event.jsp">이벤트</a> <a
+									class="nav-link" href="/getEventList.mdo">이벤트</a> <a
 									class="nav-link" href="#">리뷰</a> <a class="nav-link"
 									href="/admin/board_Q&A.jsp">QnA</a> <a class="nav-link"
 									href="/admin/board_FAQ.jsp">자주하는 질문</a>

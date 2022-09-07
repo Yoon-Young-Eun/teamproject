@@ -190,7 +190,7 @@
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
 								<a class="nav-link" href="/getBoardList.mdo">공지사항</a> <a
-									class="nav-link" href="/admin/board_event.jsp">이벤트</a> <a
+									class="nav-link" href="/getEventList.mdo">이벤트</a> <a
 									class="nav-link" href="#">리뷰</a> <a class="nav-link"
 									href="/admin/board_Q&A.jsp">QnA</a> <a class="nav-link"
 									href="/admin/board_FAQ.jsp">자주하는 질문</a>
@@ -370,11 +370,12 @@
 												<!-- 														id="ex_filename" class="upload-hidden"> <input -->
 												<!-- 														class="upload-name" value="" disabled="disabled"> -->
 												<c:choose>
-													<c:when test="${board.notice_filepath eq 'https://semoproject.s3.ap-northeast-2.amazonaws.com/board/'}">
-                                    					파일없음
-                                 					</c:when>
+													<c:when
+														test="${board.notice_filepath eq 'https://semoproject.s3.ap-northeast-2.amazonaws.com/board/'}">
+                                    파일없음
+                                 </c:when>
 													<c:otherwise>
-														<a href="${board.notice_filepath}" target="_blank">파일보기</a>
+														<a href="${board.notice_filepath}" target="_blank">파일보기(${filename})</a>
 													</c:otherwise>
 												</c:choose>
 											</div></li>

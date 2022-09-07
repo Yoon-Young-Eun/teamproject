@@ -4,6 +4,7 @@
 
 <mapper namespace="BoardDAO">
 
+<!-- 공지사항 -->
 	<select id="getBoardList" resultType="notice">
 		<![CDATA[ select * from notice ]]>
 	</select>
@@ -24,6 +25,28 @@
 	<select id="getBoard" parameterType="notice" resultType="notice"> 
  		<![CDATA[ select * from notice where notice_no=#{notice_no} ]]>
 	</select>
+	
+<!-- 이벤트 -->
+	<select id="getEventList" resultType="board_event">
+		<![CDATA[ select * from board_event ]]>
+	</select>
 
+	<insert id="insertEvent" parameterType="board_event">
+		<![CDATA[ insert into board_event(board_event_title, board_event_content, banner_no, board_event_filepath) 
+		values (#{board_event_title}, #{board_event_content}, #{banner_no}, #{board_event_filepath}) ]]>
+	</insert>
+
+	<update id="updateEvent" parameterType="board_event">
+		<![CDATA[ update board_event set board_event_title=#{board_event_title}, board_event_content=#{board_event_content}, board_event_filepath=#{board_event_filepath} where board_event_no=#{board_event_no} ]]>
+	</update>
+
+	<delete id="deleteEvent" parameterType="board_event">
+		<![CDATA[ delete from board_event where board_event_no=#{board_event_no} ]]>
+	</delete>
+
+	<select id="getEvent" parameterType="board_event" resultType="board_event"> 
+ 		<![CDATA[ select * from board_event where board_event_no=#{board_event_no} ]]>
+	</select>
+	
 </mapper>
  

@@ -36,11 +36,16 @@ public class Ad_BoardController {
 	}
 
 	@RequestMapping("/getBoard.mdo")
-	public String getBoard(NoticeVO vo, Model model) {
-		System.out.println("글 상세 보기 처리");
-		model.addAttribute("board", boardservice.getBoard(vo));
-		return "/admin/getBoard_notice.jsp";
-	}
+	   public String getBoard(NoticeVO vo, Model model) {
+	      System.out.println("글 상세 보기 처리");
+	      String notice_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/board/";
+	         NoticeVO vos=boardservice.getBoard(vo);
+	         String filename = vos.getNotice_filepath().replace(notice_filepath, "");
+	         System.out.println(vos);
+	      model.addAttribute("board", vos);
+	      model.addAttribute("filename", filename);
+	      return "/admin/getBoard_notice.jsp";
+	   }
 
 	@RequestMapping(value="/insertBoard.mdo", method=RequestMethod.GET)
 	public String insertBoard(NoticeVO vo) {

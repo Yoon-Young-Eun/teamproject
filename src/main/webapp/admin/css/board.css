@@ -60,7 +60,7 @@ header {
 
 #content_wrap ul li:nth-child(2) {
 	margin-bottom: 5px;
-	margin-top: 15px;
+	margin-top: 10px;
 }
 
 #content_wrap .title {
@@ -95,6 +95,10 @@ header {
 	margin: 0px;
 	background: #ffffff;
 	padding: 10px;
+}
+
+.ban{
+	width : 230px;
 }
 
 /* .configWrap .tag .InputArea input {

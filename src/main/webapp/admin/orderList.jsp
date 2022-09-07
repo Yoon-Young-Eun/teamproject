@@ -10,7 +10,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Dashboard - SEMO Admin</title>
+<title>Dashboard - SB Admin</title>
 
 <!-- icon 버튼 css -->
 <link href="/admin/css/icon.css" rel="stylesheet" />
@@ -108,7 +108,7 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="/adminOrderList.mdo">주문/결제</a>
 									<a class="nav-link" href="/estimateList.mdo">견적주문</a>
-									<a class="nav-link" href="/memberorderList.mdo">개별조회</a>
+										<a class="nav-link" href="/memberorderList.mdo">개별조회</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_03" aria-expanded="false" aria-controls="collapseLayouts">
@@ -283,22 +283,24 @@
 			<main>
 
 				<div class="container-fluid px-4">
-					<h1 class="mt-4">회원관리111</h1>
+					<h1 class="mt-4">주문/결제</h1>
 					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
-						<li class="breadcrumb-item active">회원관리</li>
+						<li class="breadcrumb-item"><a href="/admin/index.jsp">Dashboard</a></li>
+						<li class="breadcrumb-item active">주문/결제</li>
 					</ol>
 					<div class="card mb-4">
 						<div class="card-body">
-							회원관리 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
+							주문/결제 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
 						</div>
 					</div>
 					<div class="card mb-4">
 						<div class="card-header">
-							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 게시판에 대한 세부제목
+							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 주문/결제에 대한 세부제목
 						</div>
 
 						<!--  여기부터 내용물 -->
+
+
 
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
 						<div class="flex">
@@ -308,11 +310,9 @@
 								onclick="exportToExcel('tblexportData', 'user-data')">Excel</button>
 							<!-- excel -->
 						</div>
-
-
 						<div class="b_button">
 							<!-- 테이블 행 필터 -->
-							<form name="selectname" action="member.mdo" method="get">
+							<form name="selectname" action="adminOrderList.mdo" method="get">
 								<div col-index=8>
 									<select name="selectPage" onchange="this.form.submit()">
 										<option value="">선택</option>
@@ -343,7 +343,7 @@
 
 							<!-- 검색기능 -->
 							<div>
-								<form action="member.mdo" method="get">
+								<form action="adminOrderList.mdo" method="get">
 									<div class="icon_flex">
 
 										<td><select name="searchCondition">
@@ -378,7 +378,7 @@
 							});
 						</script>
 
-						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
+			<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
 						<table id=""
 							class="emp-table dataPerPage tblCustomers tblexportData table"
 							border="5">
@@ -386,13 +386,24 @@
 								<tr>
 									<th width="50" id="check_td"><input type="checkbox"
 										name="check" class="allcheck"></th>
-									<th col-index=2>회원코드</th>
-									<th col-index=3>아이디(이메일)</th>
-									<th col-index=4>이름</th>
-									<th col-index=5>핸드폰</th>
-									<th col-index=6>주소</th>
-									<th col-index=7>SMS수신</th>
-									<th style="padding: 0px 5px;" col-index=8>회원상태<br><select class="table-filter"
+									<th col-index=2>주문코드</th>
+									<th col-index=3>고객이름</th>
+									<th col-index=4>핸드폰</th>
+									<th col-index=5>주소</th>
+									<th col-index=6>주문일자</th>
+									<th col-index=7>픽업일자</th>
+									<th col-index=8>배송예정일자</th>
+									<th col-index=9>주문내용</th>
+									<th col-index=10>쿠폰사용</th>
+									<th col-index=11>배송금액</th>
+									<th col-index=12>결제금액</th>									
+									<th style="padding: 0px 5px;" col-index=13>결제상태<br><select class="table-filter"
+										onchange="filter_rows()">
+											<option value="all"></option>
+									</select>
+									</th>
+									<th col-index=14>담당지점</th>
+									<th style="padding: 0px 5px;" col-index=15>주문상태<br><select class="table-filter"
 										onchange="filter_rows()">
 											<option value="all"></option>
 									</select>
@@ -400,16 +411,23 @@
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach var="board" items="${articleList}">
+								<c:forEach var="order" items="${adminOrderList}">
 									<tr>
 										<td id="check_td"><input type="checkbox" name="check"></td>
-										<td>${board.customer_no}</td>
-										<td><a href="/getMemberBoard.mdo?customer_no=${board.customer_no}">${board.customer_id}</a></td>
-										<td>${board.customer_name }</td>
-										<td>${board.customer_phone}</td>
-										<td>${board.customer_address1} ${board.customer_address2}</td>
-										<td>${board.customer_sms_permit}</td>
-										<td>${board.customer_status}</td>
+										<td>${order.order_no}</td>
+										<td><a href="/getMemberBoard.mdo?customer_no=${order.order_no}">${order.order_customer_name}</a></td>
+										<td>${order.order_customer_phone}</td>
+										<td>${order.order_address1} ${order.order_address2}</td>
+										<td>${order.order_date}</td>
+										<td>${order.order_pickup_date}</td>
+										<td>${order.order_expected_date}</td>
+										<td>${order.order_product}</td>
+										<td>${order.order_use_coupon_price}</td>
+										<td>${order.order_delivery_price}</td>
+										<td>${order.order_price}</td>		
+										<td>${order.order_price_status}</td>
+										<td>${order.order_store_name}</td>
+										<td>${order.order_status}</td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -429,24 +447,21 @@
 									<c:set var="endPage" value="${pageCount}" />
 								</c:if>
 								<c:if test="${startPage > pageBlock}">
-									<a href="member.mdo?pageNum=${startPage-pageBlock}"><div class="pageging2">이전</div></a>
+									<a href="adminOrderList.mdo?pageNum=${startPage-pageBlock}"><div class="pageging2">이전</div></a>
 								</c:if>
 								<div class="icon_flex">
 								<c:forEach var="i" begin="${startPage}" end="${endPage}">
-										<a href="member.mdo?pageNum=${i}"><div class="pageging">${i}</div></a>
+										<a href="adminOrderList.mdo?pageNum=${i}"><div class="pageging">${i}</div></a>
 								</c:forEach>
 								</div>							
 								<div class="icon_flex">
 								<c:if test="${endPage < pageCount -1}">
-									<a href="member.mdo?pageNum=${startPage + pageBlock}"><div class="pageging2">다음</div></a>
+									<a href="adminOrderList.mdo?pageNum=${startPage + pageBlock}"><div class="pageging2">다음</div></a>
 								</c:if>
 								</div>
 							</c:if>
 						</div><!-- 페이징 종료 -->
-						
-
-
-
+					
 
 						<!-- 내용물 end -->
 						<div class="card-footer small text-muted">Updated yesterday
@@ -505,7 +520,7 @@
 				rowData.push(tr.text());
 				// td.eq(0)은 체크박스 이므로  td.eq(4)=전화번호 의 값을 가져온다.
 
-				var phone = td.eq(4).text() + ",";
+				var phone = td.eq(3).text() + ",";
 				phone = phone.substring(0, phone.length - 1); //마지막 , 제거
 				// 가져온 값을 배열에 담는다.
 				tdArr.push(phone);
@@ -530,6 +545,8 @@
 	</script>
 
 
+
+
 	<!-- pdf -->
 	<script type="text/javascript"
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -541,8 +558,7 @@
 
 	<!-- excel -->
 	<script src="/admin/js/excel.js"></script>
-	<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
 </body>
 </html>

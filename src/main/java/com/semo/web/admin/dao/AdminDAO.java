@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.semo.web.admin.vo.AdminVO;
+import com.semo.web.admin.vo.PagingVO;
 
 @Repository
 public class AdminDAO {
@@ -24,9 +25,13 @@ public class AdminDAO {
 		sqltemplate.insert("AdminDAO.setAdmin", vo);
 	}
 	
-	public List<AdminVO> getAdminList(){
+	public int getArticleCount(PagingVO pvo) {
+		return sqltemplate.selectOne("AdminDAO.getArticleCount", pvo);
+	}
+	
+	public List<AdminVO> getAdminList(PagingVO pvo){
 		System.out.println("DAO.getAdminList 실행");
-		return sqltemplate.selectList("AdminDAO.getAdminList");
+		return sqltemplate.selectList("AdminDAO.getAdminList", pvo);
 	}
 	
 	public AdminVO getReadStaff(AdminVO vo) {
@@ -43,6 +48,13 @@ public class AdminDAO {
 		System.out.println("DAO.deleteStaff 실행");
 		sqltemplate.delete("AdminDAO.deleteStaff", vo);
 	}
+	
+	public void selectedDelete(int num) {
+		System.out.println("DAO.seletedDelete() 메서드 실행");
+		sqltemplate.delete("AdminDAO.selectedDelete", num);
+	}
+	
+
 	
 	
 }

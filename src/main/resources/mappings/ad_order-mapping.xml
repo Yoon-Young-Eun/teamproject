@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="OrderDAO">
+
+    <!-- Order_Manegement아래 쿼리문의 조건에 맞는 게시문 갯수를 구하는 쿼리문-->
+	<select id="getMemberArticleCount" parameterType="paging" resultType="int">
+	<if test="customer_no != 0">
+        	     <![CDATA[ select count(*) from (select @rownum := @rownum+1 as rnum, order_mt_no, customer_no ,customer_name, product_code, order_mt_category1, order_mt_category2, order_mt_product, order_mt_price, order_mt_date, order_no from order_management, (select @rownum :=0) as rowcolum where]]>
+			
+				<if test="searchCondition=='order_no'">
+    			<![CDATA[order_no like concat('%', #{searchKeyword}, '%') and]]></if>
+				<if test="searchCondition=='customer_no'">	
+    			<![CDATA[customer_no like concat('%', #{searchKeyword}, '%') and]]></if>
+    			<if test="searchCondition=='order_status'">
+    			<![CDATA[order_status like concat('%', #{searchKeyword}, '%') and]]></if>
+				<if test="searchCondition=='order_price_status'">	
+    			<![CDATA[order_price_status like concat('%', #{searchKeyword}, '%') and]]></if>
+				
+   			<![CDATA[customer_no = #{customer_no} order by customer_no desc) as rownum_table]]>
+		</if>
+
+		<if test="customer_no ==0">
+        	     <![CDATA[ select count(*) from (select @rownum := @rownum+1 as rnum, order_mt_no, customer_no ,customer_name, product_code, order_mt_category1, order_mt_category2, order_mt_product, order_mt_price, order_mt_date, order_no from order_management, (select @rownum :=0) as rowcolum ]]>
+			<trim prefix="where" >
+				<if test="searchCondition=='order_mt_product'">
+    			<![CDATA[order_mt_product like concat('%', #{searchKeyword}, '%') ]]></if>
+				<if test="searchCondition=='customer_no'">	
+    			<![CDATA[customer_no like concat('%', #{searchKeyword}, '%') ]]></if>
+    			<if test="searchCondition=='order_status'">
+    			<![CDATA[order_status like concat('%', #{searchKeyword}, '%') and]]></if>
+				<if test="searchCondition=='order_price_status'">	
+    			<![CDATA[order_price_status like concat('%', #{searchKeyword}, '%') and]]></if>
+			</trim>
+    <![CDATA[order by customer_no desc) as rownum_table]]></if>
+	</select>
+
+
+    <!-- 회원 개인별 주문이력 페이징과 검색 조건을 포함한 쿼리문 + 회원메뉴에서 개인회원 상세보기에서 주문이력을 누르면 해당 인원의 주문이력 화면으로 이동함-->
+	<select id="getUserOrderList" parameterType="paging"
+		resultType="orderManagement">
+
+		<if test="customer_no != 0">
+        	     <![CDATA[ select * from (select @rownum := @rownum+1 as rnum, order_mt_no, customer_no ,customer_name, product_code, order_mt_category1, order_mt_category2, order_mt_product, order_mt_price, order_mt_date, order_no from order_management, (select @rownum :=0) as rowcolum where]]>
+			
+				<if test="searchCondition=='order_no'">
+    			<![CDATA[order_no like concat('%', #{searchKeyword}, '%') and]]></if>
+				<if test="searchCondition=='customer_no'">	
+    			<![CDATA[customer_no like concat('%', #{searchKeyword}, '%') and]]></if>
+				
+   			<![CDATA[customer_no = #{customer_no} order by customer_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]>
+		</if>
+
+		<if test="customer_no ==0">
+        	     <![CDATA[ select * from (select @rownum := @rownum+1 as rnum, order_mt_no, customer_no ,customer_name, product_code, order_mt_category1, order_mt_category2, order_mt_product, order_mt_price, order_mt_date, order_no from order_management, (select @rownum :=0) as rowcolum ]]>
+			<trim prefix="where" >
+				<if test="searchCondition=='order_no'">
+    			<![CDATA[order_no like concat('%', #{searchKeyword}, '%') ]]></if>
+				<if test="searchCondition=='customer_no'">	
+    			<![CDATA[customer_no like concat('%', #{searchKeyword}, '%') ]]></if>
+			</trim>
+    <![CDATA[order by customer_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]></if>
+	</select>
+
+
+
+    <!-- OrderList -->
+	<select id="getArticleCount"  resultType="int">
+	<if test="customer_no != 0">
+        	  <![CDATA[ select count(*) from (select @rownum := @rownum+1 as rnum, order_no, order_type, order_product, store_code, order_date, order_pickup_date, cm_gate_passwd, order_request1, order_request2, order_price, order_use_coupon_price, order_status, order_price_method, customer_no, order_customer_name, order_store_name, order_expected_date, order_customer_phone, order_address1, order_address2, order_delivery_price from order_cm, (select @rownum :=0) as rowcolum ]]>
+			  <trim prefix="where">
+				<if test="searchCondition=='order_no'">
+    			<![CDATA[order_no like concat('%', #{searchKeyword}, '%') ]]></if>
+    			<if test="searchCondition=='order_status'">
+    			<![CDATA[order_status like concat('%', #{searchKeyword}, '%') ]]></if>
+				<if test="searchCondition=='order_price_status'">	
+    			<![CDATA[order_price_status like concat('%', #{searchKeyword}, '%') ]]></if>
+				</trim>
+   			<![CDATA[order by customer_no desc) as rownum_table]]>
+		</if>
+	</select>
+
+   <!-- 주문 이력 조회 (검색 및 페이징 기능 포함) -->
+   	<select id="getAdminOrderList" parameterType="paging" resultType="ORDER">
+       	    <![CDATA[ select * from (select @rownum := @rownum+1 as rnum, order_no, order_type, order_product, store_code, order_date, order_pickup_date, cm_gate_passwd, order_request1, order_request2, order_price, order_use_coupon_price, order_status, order_price_method, customer_no, order_customer_name, order_store_name, order_expected_date, order_customer_phone, order_address1, order_address2, order_delivery_price from order_cm, (select @rownum :=0) as rowcolum]]>
+			<trim prefix="where" >
+				<if test="searchCondition=='order_no'">
+    			<![CDATA[order_no like concat('%', #{searchKeyword}, '%') ]]></if>
+    			<if test="searchCondition=='order_status'">
+    			<![CDATA[order_status like concat('%', #{searchKeyword}, '%') ]]></if>
+				<if test="searchCondition=='order_price_status'">	
+    			<![CDATA[order_price_status like concat('%', #{searchKeyword}, '%') ]]></if>
+			</trim>
+   			<![CDATA[order by order_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]>
+	</select>
+   
+  
+
+</mapper>

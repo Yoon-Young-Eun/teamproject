@@ -9,6 +9,7 @@ public class AdminVO {
 	private String admin_title;
 	private String admin_name;
 	
+	
 	public int getAdmin_no() {
 		return admin_no;
 	}

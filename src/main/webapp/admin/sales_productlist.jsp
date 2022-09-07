@@ -13,25 +13,25 @@
 <title>Dashboard - SEMO Admin</title>
 
 <!-- icon 버튼 css -->
-<link href="css/icon.css" rel="stylesheet" />
+<link href="/admin/css/icon.css" rel="stylesheet" />
 
 <!--  테이블 필터(중요) -->
-<link href="css/filter.css" rel="stylesheet" />
-<script src="js/filter.js" crossorigin="anonymous"></script>
+<link href="/admin/css/filter.css" rel="stylesheet" />
+<script src="/admin/js/filter.js" crossorigin="anonymous"></script>
 
 <!-- 체크박스 js -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="./js/checkbox.js"></script>
+<script src="/admin/js/checkbox.js"></script>
 
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
-<link href="css/styles.css" rel="stylesheet" />
+<link href="/admin/css/styles.css" rel="stylesheet" />
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
 	crossorigin="anonymous"></script>
-<script type="text/javascript" src="js/index_navbar_onclick.js"></script>
+<script type="text/javascript" src="/admin/js/index_navbar_onclick.js"></script>
 </head>
 <body class="sb-nav-fixed">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -82,6 +82,8 @@
 							</div> 대시보드
 						</a>
 
+
+
 						<div class="sb-sidenav-menu-heading">관리자 메뉴</div>
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 							data-bs-target="#change_id_01" aria-expanded="false"
@@ -95,7 +97,9 @@
 						</a>
 						<div class="collapse" id="change_id_01"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-							<nav class="sb-sidenav-menu-nested nav">
+							<nav
+								class="sb-sidenav-men
+                                u-nested nav">
 								<a class="nav-link" href="/member.mdo">회원관리</a> <a
 									class="nav-link" href="/blackmember.mdo">블랙회원관리</a> <a
 									class="nav-link" href="/staffList.mdo">매니저관리</a>
@@ -120,7 +124,6 @@
 									class="nav-link" href="/memberorderList.mdo">개별조회</a>
 							</nav>
 						</div>
-
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 							data-bs-target="#change_id_03" aria-expanded="false"
 							aria-controls="collapseLayouts">
@@ -139,7 +142,7 @@
 							</nav>
 						</div>
 
-						<a class="nav-link collapsed" href="item.jsp"
+						<a class="nav-link collapsed" href="/admin/item.jsp"
 							data-bs-toggle="collapse" data-bs-target="#change_id_04"
 							aria-expanded="false" aria-controls="collapseLayouts">
 							<div class="sb-nav-link-icon">
@@ -156,12 +159,12 @@
 						<!--                                 </nav> -->
 						<!--                             </div> -->
 
-						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-							data-bs-target="#change_id_05" aria-expanded="false"
-							aria-controls="collapseLayouts">
+						<a class="nav-link collapsed" href="/admin/store.jsp"
+							data-bs-toggle="collapse" data-bs-target="#change_id_05"
+							aria-expanded="false" aria-controls="collapseLayouts">
 							<div class="sb-nav-link-icon">
 								<i class="fas fa-columns"></i>
-							</div> 매장관리
+							</div> <span onclick="newPage2()">매장관리</span>
 							<div class="sb-sidenav-collapse-arrow">
 								<i class="fas fa-angle-down"></i>
 							</div>
@@ -186,11 +189,11 @@
 						<div class="collapse" id="change_id_06"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="board_notice.jsp">공지사항</a> <a
-									class="nav-link" href="board_event.jsp">이벤트</a> <a
+								<a class="nav-link" href="/admin/board_notice.jsp">공지사항</a> <a
+									class="nav-link" href="/admin/board_event.jsp">이벤트</a> <a
 									class="nav-link" href="#">리뷰</a> <a class="nav-link"
-									href="board_Q&A.jsp">QnA</a> <a class="nav-link"
-									href="board_FAQ.jsp">자주하는 질문</a>
+									href="/admin/board_Q&A.jsp">QnA</a> <a class="nav-link"
+									href="/admin/board_FAQ.jsp">자주하는 질문</a>
 
 							</nav>
 						</div>
@@ -227,12 +230,13 @@
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
 
-								<a class="nav-link" href="promo.jsp">쿠폰관리</a> <a
-									class="nav-link" href="supporbanner.jsp">배너관리</a> <a
-									class="nav-link" href="supporclause.jsp">약관관리</a>
+								<a class="nav-link" href="/admin/promo.jsp">쿠폰관리</a> <a
+									class="nav-link" href="/admin/supporbanner.jsp">배너관리</a> <a
+									class="nav-link" href="/admin/supporclause.jsp">약관관리</a>
 
 							</nav>
 						</div>
+
 
 						<div class="sb-sidenav-menu-heading">Interface</div>
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -324,24 +328,24 @@
 			<main>
 
 				<div class="container-fluid px-4">
-					<h1 class="mt-4">주문/결제</h1>
+					<h1 class="mt-4">매출현황</h1>
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
-						<li class="breadcrumb-item active">견적상품</li>
+						<li class="breadcrumb-item active">상품별 매출현황</li>
 					</ol>
 					<div class="card mb-4">
 						<div class="card-body">
-							견적상품 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
+							상품별 매출현황 페이지 입니다. <a target="_blank"
+								href="https://datatables.net/">아무링크</a>
 						</div>
 					</div>
 					<div class="card mb-4">
 						<div class="card-header">
-							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 견적상품에 대한 세부제목
+							<i class="fas fa-chart-area me-1"></i> 여기는 상품별 매출현황 현황에 대한 차트와
+							표데이터
 						</div>
 
 						<!--  여기부터 내용물 -->
-
-
 
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
 						<div class="flex">
@@ -353,39 +357,95 @@
 						</div>
 
 
+						<div class="b_button">
+							<!-- 테이블 행 필터 -->
+							<form name="selectname" action="salesList.mdo" method="get">
+								<div col-index=8>
+									<select name="selectPage" onchange="this.form.submit()">
+										<option value="">선택</option>
+										<option value="5">5</option>
+										<option value="10">10</option>
+										<option value="20">20</option>
+										<option value="50">50</option>
+									</select> entries per page
+								</div>
+							</form>
+						</div>
+
 
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
-						<table id="datatablesSimple"
-							class="emp-table dataPerPage tblCustomers tblexportData table"
+						<table id="" class="emp-table dataPerPage tblCustomers tblexportData table"
 							border="5">
 							<thead>
 								<tr>
-									<th width="50" id="check_td"><input type="checkbox"
-										name="check" class="allcheck"></th>
-									<th width="100px;" col-index=2>견적코드</th>
-									<th width="100px;" col-index=3>세탁종류</th>
-									<th width="100px;" col-index=4>작성자</th>
-									<th width="100px;" col-index=5>접수일자</th>
-									<th width="250px;" col-index=6>주소</th>
-									<th width="150px;" col-index=7>견적상태</th>
-								<tr>
+									<th col-index=1>주문일자</th>
+									<th class="emp-table" col-index=2>대분류
+									<select class="table-filter" onchange="filter_rows()">
+											<option value="all"></option>
+									</select>
+									</th>
+									<th class="emp-table" col-index=3>중분류
+									<select class="table-filter" onchange="filter_rows()">
+											<option value="all"></option>
+									</select>
+									</th>
+									<th class="emp-table" col-index=4>상품명
+									<select class="table-filter" onchange="filter_rows()">
+											<option value="all"></option>
+									</select>
+									</th>
+									<th col-index=5>결제금액</th>
+								</tr>
 							</thead>
 							<tbody>
-								<c:forEach var="board" items="${articleList}">
+								<c:forEach var="sales" items="${productSalesList}">
 									<tr>
-										<td id="check_td"><input type="checkbox" name="check"></td>
-										<td>${board.customer_no}</td>
-										<td><a
-											href="/getMemberBoard.mdo?customer_no=${board.customer_no}">${board.customer_id}</a></td>
-										<td>${board.customer_name }</td>
-										<td>${board.customer_phone}</td>
-										<td>${board.customer_address1}${board.customer_address2}</td>
-										<td>${board.customer_sms_permit}</td>
-										<td>${board.customer_status}</td>
+										<td>${sales.order_mt_date}</td>
+										<td>${sales.order_mt_category1}</a></td>
+										<td>${sales.order_mt_category2}</td>
+										<td>${sales.order_mt_product}</td>
+										<td>${sales.order_mt_price}</td>
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
+
+
+						<!-- pagaing 처리 -->
+						<div>
+							<c:if test="${count > 0}">
+								<c:set var="imsi" value="${count%pageSize==0? 0 : 1}" />
+								<c:set var="pageCount" value="${count / pageSize+imsi}" />
+								<c:set var="pageBlock" value="${5}" />
+								<fmt:parseNumber var="result"
+									value="${(currentPage-1) / pageBlock}" integerOnly="true" />
+								<c:set var="startPage" value="${result * pageBlock+1}" />
+								<c:set var="endPage" value="${startPage + pageBlock-1}" />
+								<c:if test="${endPage > pageCount}">
+									<c:set var="endPage" value="${pageCount}" />
+								</c:if>
+								<c:if test="${startPage > pageBlock}">
+									<a href="salesList.mdo?pageNum=${startPage-pageBlock}"><div
+											class="pageging2">이전</div></a>
+								</c:if>
+								<div class="icon_flex">
+									<c:forEach var="i" begin="${startPage}" end="${endPage}">
+										<a href="salesList.mdo?pageNum=${i}"><div class="pageging">${i}</div></a>
+									</c:forEach>
+								</div>
+								<div class="icon_flex">
+									<c:if test="${endPage < pageCount -1}">
+										<a href="salesList.mdo?pageNum=${startPage + pageBlock}"><div
+												class="pageging2">다음</div></a>
+									</c:if>
+								</div>
+							</c:if>
+						</div>
+						<!-- 페이징 종료 -->
+
+
+
+
 
 						<!-- 내용물 end -->
 						<div class="card-footer small text-muted">Updated yesterday
@@ -411,18 +471,22 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
-	<script src="js/scripts.js"></script>
+	<script src="/admin/js/scripts.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
 		crossorigin="anonymous"></script>
-	<script src="assets/demo/chart-area-demo.js"></script>
-	<script src="assets/demo/chart-bar-demo.js"></script>
+	<script src="/admin/assets/demo/chart-area-demo.js"></script>
+	<script src="/admin/assets/demo/chart-bar-demo.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
 		crossorigin="anonymous"></script>
-	<script src="js/datatables-simple-demo.js"></script>
+	<script src="/admin/js/datatables-simple-demo.js"></script>
 	<script>
 		getUniqueValuesFromColumn()
 	</script>
+
+
+
+
 
 	<!-- pdf -->
 	<script type="text/javascript"
@@ -431,10 +495,10 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
 	<script type="text/javascript"
 		src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-	<script src="js/pdf.js"></script>
+	<script src="/admin/js/pdf.js"></script>
 
 	<!-- excel -->
-	<script src="js/excel.js"></script>
+	<script src="/admin/js/excel.js"></script>
 	<link rel="stylesheet"
 		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 

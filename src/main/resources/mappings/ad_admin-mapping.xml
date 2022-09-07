@@ -3,6 +3,18 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
  <mapper namespace="AdminDAO">
+ 
+   <!-- 어드민리스트 검색조건 포함한 게시물 갯수 구하는 쿼리 -->
+  <select id="getArticleCount" resultType="int">
+  <![CDATA[ select count(*) from (select @rownum:= @rownum+1 as rnum, admin_no, admin_id, admin_passwd, admin_position, admin_title, admin_name from admin, (select @rownum :=0)as rowcolum   ]]>
+  <trim prefix="where">
+     <if test="searchCondition=='admin_name'">
+     	<![CDATA[ admin_name like concat('%', #{searchKeyword}, '%')]]></if>
+     	</trim>
+  <![CDATA[order by admin_no desc) as rownum_table ]]>
+   </select>
+ 
+  <!-- 로그인 확인 -->
   <select  id="getAdmin" parameterType="admin" resultType="admin">
   <![CDATA[	select * from admin where admin_id = #{admin_id} and admin_passwd = #{admin_passwd}  ]]>
   </select>
@@ -11,10 +23,17 @@
    insert into admin(admin_id, admin_passwd, admin_position, admin_title, admin_name) values(#{admin_id},#{admin_passwd},#{admin_position},#{admin_title},#{admin_name})
   </insert>
   
-  <select id="getAdminList" resultType="admin">
-   select * from admin
+  <!-- 어드민 리스트 조회 -->
+  <select id="getAdminList" parameterType="paging" resultType="admin"> 
+   <![CDATA[select * from (select @rownum := @rownum+1 as rnum, admin_no, admin_id, admin_passwd, admin_position, admin_title, admin_name from admin, (select @rownum :=0)as rowcolum]]>
+			<trim prefix="where" >
+				<if test="searchCondition=='admin_name'">
+    			<![CDATA[ admin_name like concat('%', #{searchKeyword}, '%') ]]></if>
+			</trim>
+    <![CDATA[order by admin_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]>
   </select>
-  
+ 
+  <!-- 어드민 상세정보 확인(아이디 클릭시,) -->
   <select id="getReadStaff" resultType="admin">
    <![CDATA[ select * from admin where admin_no = #{admin_no} ]]>
   </select>
@@ -25,5 +44,10 @@
   
   <delete id="deleteStaff" parameterType="admin">
    <![CDATA[ delete from admin where admin_no = #{admin_no} ]]>
+  </delete>
+  
+  <!-- 선택박스를 활용하여 다중 삭제하는 쿼리문 -->
+  <delete id="selectedDelete" parameterType="int" >
+   <![CDATA[delete from admin where admin_no=#{admin_no} ]]>
   </delete>
  </mapper>

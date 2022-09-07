@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,25 +13,25 @@
 <title>Dashboard - SB Admin</title>
 
 <!-- icon 버튼 css -->
-<link href="css/icon.css" rel="stylesheet" />
+<link href="/admin/css/icon.css" rel="stylesheet" />
 
 <!--  테이블 필터(중요) -->
-<link href="css/filter.css" rel="stylesheet" />
-<script src="js/filter.js" crossorigin="anonymous"></script>
+<link href="/admin/css/filter.css" rel="stylesheet" />
+<script src="/admin/js/filter.js" crossorigin="anonymous"></script>
 
 <!-- 체크박스 js -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="./js/checkbox.js"></script>
+<script src="/admin/js/checkbox.js"></script>
 
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
-<link href="css/styles.css" rel="stylesheet" />
+<link href="/admin/css/styles.css" rel="stylesheet" />
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
 	crossorigin="anonymous"></script>
-<script type="text/javascript" src="js/index_navbar_onclick.js"></script>
+<script type="text/javascript" src="/admin/js/index_navbar_onclick.js"></script>
 </head>
 <body class="sb-nav-fixed">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -75,7 +76,7 @@
 				<div class="sb-sidenav-menu">
 					<div class="nav">
 						<div class="sb-sidenav-menu-heading">Core</div>
-						<a class="nav-link" href="index.jsp">
+						<a class="nav-link" href="/admin/index.jsp">
 							<div class="sb-nav-link-icon">
 								<i class="fas fa-tachometer-alt"></i>
 							</div> 대시보드
@@ -89,9 +90,9 @@
                             </a>
                             <div class="collapse" id="change_id_01" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="member.jsp">회원관리</a>
-                                    <a class="nav-link" href="member_black.jsp">블랙회원관리</a>
-                                    <a class="nav-link" href="memberstaff.jsp">매니저관리</a>
+                                    <a class="nav-link" href="/member.mdo">회원관리</a>
+                                    <a class="nav-link" href="/blackmember.mdo">블랙회원관리</a>
+                                    <a class="nav-link" href="/staffList.mdo">매니저관리</a>
                                 </nav>
                             </div>
                             
@@ -100,24 +101,25 @@
                                 주문/결제관리
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="change_id_02" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                                      <div class="collapse" id="change_id_02" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="order.jsp">주문/결제</a>
-                                    <a class="nav-link" href="estimate.jsp">견적상품</a>
+                                    <a class="nav-link" href="/adminOrderList.mdo">주문/결제</a>
+									<a class="nav-link" href="/estimateList.mdo">견적주문</a>
+									<a class="nav-link" href="/memberorderList.mdo">개별조회</a>
                                 </nav>
                             </div>
-                            
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_03" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 매출현황
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-<!--                             <div class="collapse" id="change_id_03" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
-<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
-<!--                                     <a class="nav-link" href="#">매출현황#1</a> -->
-<!--                                     <a class="nav-link" href="#">매출현황#2</a> -->
-<!--                                 </nav> -->
-<!--                             </div> -->
+                            <div class="collapse" id="change_id_03" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+								<a class="nav-link" href="/salesStoreList.mdo">지점매출</a> 
+								<a class="nav-link" href="/salesProductList.mdo">상품매출</a>
+										
+                                </nav>
+                            </div> 
                             
                             <a class="nav-link collapsed" href="item.jsp" data-bs-toggle="collapse" data-bs-target="#change_id_04" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
@@ -280,7 +282,7 @@
 				<div class="container-fluid px-4">
 					<h1 class="mt-4">정지회원</h1>
 					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
+						<li class="breadcrumb-item"><a href="/admin/index.jsp">Dashboard</a></li>
 						<li class="breadcrumb-item active">정지회원</li>
 					</ol>
 					<div class="card mb-4">
@@ -296,8 +298,6 @@
 
 						<!--  여기부터 내용물 -->
 
-
-
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
 						<div class="flex">
 							<input type="button" id="btnExport" value="PDF" class="icon_pdf" />
@@ -308,157 +308,139 @@
 						</div>
 
 
+						<div class="b_button">
+							<!-- 테이블 행 필터 -->
+							<form name="selectname" action="member.mdo" method="get">
+								<div col-index=8>
+									<select name="selectPage" onchange="this.form.submit()">
+										<option value="">선택</option>
+										<option value="5">5</option>
+										<option value="10">10</option>
+										<option value="20">20</option>
+										<option value="50">50</option>
+									</select> entries per page
+								</div>
+							</form>
+
+
+							
+							<div class="icon_flex">
+							
+							<!-- 문자 발송 -->
+							<div>
+							<select name="text" id="selectOption">
+								<c:forEach var="message" items="${messageList}">
+									<div>
+										<option style="padding:1px;" value="${message.message_content}">${message.message_title }</option>
+									</div>
+								</c:forEach>
+							</select>
+							</div>
+							<div><input style="margin-right: 5px;" type="button" id="selectBtn" value="문자발송" /></div>
+							
+
+							<!-- 검색기능 -->
+							<div>
+								<form action="blackmember.mdo" method="get">
+									<div class="icon_flex">
+
+										<td><select name="searchCondition">
+												<c:forEach items="${conditionMap}" var="option">
+													<div>
+														<option value="${option.value}">${option.key}</option>
+													</div>
+												</c:forEach>
+										</select> <input type="text" id="se_input" name="searchKeyword" />
+											<div>
+												<input type="submit" id="se_submit" value="검색" />
+											</div>
+											<div></div> <input type="button" id="se_reset" value="초기화" />
+									</div>
+								</form>
+							</div>
+							</div>
+							
+						</div>
+						
+						<!-- 검색 초기화 버튼 js -->
+						<script type="text/javascript">
+							const se_reset = document
+									.querySelector("#se_reset");
+							se_reset.addEventListener("click", function() {
+								const se_input = document
+										.querySelector("#se_input");
+								se_input.value = '';
+								const se_submit = document
+										.querySelector("#se_submit");
+								se_submit.click();
+							});
+						</script>
+
 
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
-						<table id="datatablesSimple"
+						<table id=""
 							class="emp-table dataPerPage tblCustomers tblexportData table"
 							border="5">
 							<thead>
-								<tr>
 								<tr>
 									<th width="50" id="check_td"><input type="checkbox"
 										name="check" class="allcheck"></th>
 									<th col-index=2>회원코드</th>
 									<th col-index=3>아이디(이메일)</th>
-									<th col-index=3>이름</th>
-									<th col-index=4>내용(사유)</th>
-									<th col-index=5>SMS수신<select class="table-filter"
+									<th col-index=4>이름</th>
+									<th col-index=5>헨드폰</th>
+									<th col-index=6>주소</th>
+									<th col-index=7>SMS수신</th>
+									<th col-index=8>회원상태<select class="table-filter"
 										onchange="filter_rows()">
 											<option value="all"></option>
-									</select>
-									</th>
-									<th col-index=8>계정상태<select class="table-filter"
-										onchange="filter_rows()">
-											<option value="all"></option>
-									</select>
-									</th>
-								<tr>
+									</select></th>
+								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>001</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>못됬음</td>
-									<td>false</td>
-									<td>블랙회원</td>
-
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>002</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>그냥 싫음</td>
-									<td>true</td>
-									<td>블랙회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>003</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>5회연속 컴플레인(세탁문제 아님)</td>
-									<td>true</td>
-									<td>블랙회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>004</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>3달간 미접속자</td>
-									<td>true</td>
-									<td>휴면회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>005</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>ㅇㅇㅇㅇㅇㅇㅇㅇㅇ</td>
-									<td>true</td>
-									<td>탈퇴회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>006</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>배송기사에게 자꾸 심부름 시킴(나갈때 쓰레기 버려주세요)</td>
-									<td>false</td>
-									<td>블랙회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>007</td>
-									<td>disdiddms@naver.com</td>
-									<td>3달간 미접속자</td>
-									<td>false</td>
-									<td>휴면회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>007</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>으므민ㅇㅁ;ㄻ;ㅡ1!#@!#%!!%!%%</td>
-									<td>true</td>
-									<td>블랙회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>009</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>블랙!</td>
-									<td>false</td>
-									<td>블랙회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>010</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>졸림</td>
-									<td>true</td>
-									<td>휴면회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>011</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ</td>
-									<td>false</td>
-									<td>블랙회원</td>
-								</tr>
-								<tr>
-									<td id="check_td"><input type="checkbox" name="check"></td>
-									<td>012</td>
-									<td>disdiddms@naver.com</td>
-									<td>윤영은</td>
-									<td>ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ</td>
-									<td>true</td>
-									<td>블랙회원</td>
-								</tr>
-
-
+							<!-- for문~(c:forEach)  이 for문의 id값은 "admin"으로 정함!-->  
+								<c:forEach var="black" items="${blackList}">   <!--  blackList은 컨트롤러에서 model에 저장한 "blackList" 이름임 -->									<tr>
+										<td id="check_td"><input type="checkbox" name="check"></td>
+										<td>${black.customer_no}</td>  <!--for문의 id값.컬럼명으로 값을 불러옴 -->
+										<td>${black.customer_id}</a></td>
+										<td>${black.customer_name}</a></td>
+										<td>${black.customer_phone}</td>
+										<td>${black.customer_address1} </td>
+										<td>${black.customer_sms_permit}</td>
+										<td>${black.customer_status}</td>
+									</tr>
+								</c:forEach>
 							</tbody>
 						</table>
-						<div class="flex">
-							<div>
-								<input id="button" type="button" value="등록" />
-							</div>
-							<div>
-								<input id="button" type="button" value="수정" />
-							</div>
-							<div>
-								<input id="button" type="button" value="삭제" />
-							</div>
-
-						</div>
+						
+						
+						<!-- pagaing 처리 -->
+						<div >					
+							<c:if test="${count > 0}">
+								<c:set var="imsi" value="${count%pageSize==0? 0 : 1}" />
+								<c:set var="pageCount" value="${count / pageSize+imsi}" />
+								<c:set var="pageBlock" value="${5}" />
+								<fmt:parseNumber var="result" value="${(currentPage-1) / pageBlock}" integerOnly="true" />
+								<c:set var="startPage" value="${result * pageBlock+1}" />
+								<c:set var="endPage" value="${startPage + pageBlock-1}" />
+								<c:if test="${endPage > pageCount}">
+									<c:set var="endPage" value="${pageCount}" />
+								</c:if>
+								<c:if test="${startPage > pageBlock}">
+									<a href="blackmember.mdo?pageNum=${startPage-pageBlock}"><div class="pageging2">이전</div></a>
+								</c:if>
+								<div class="icon_flex">
+								<c:forEach var="i" begin="${startPage}" end="${endPage}">
+										<a href="blackmember.mdo?pageNum=${i}"><div class="pageging">${i}</div></a>
+								</c:forEach>
+								</div>							
+								<div class="icon_flex">
+								<c:if test="${endPage < pageCount -1}">
+									<a href="blackmember.mdo?pageNum=${startPage + pageBlock}"><div class="pageging2">다음</div></a>
+								</c:if>
+								</div>
+							</c:if>
+						</div><!-- 페이징 종료 -->
 
 
 
@@ -486,18 +468,63 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
-	<script src="js/scripts.js"></script>
+	<script src="/admin/js/scripts.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
 		crossorigin="anonymous"></script>
-	<script src="assets/demo/chart-area-demo.js"></script>
-	<script src="assets/demo/chart-bar-demo.js"></script>
+	<script src="/admin/assets/demo/chart-area-demo.js"></script>
+	<script src="/admin/assets/demo/chart-bar-demo.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
 		crossorigin="anonymous"></script>
-	<script src="js/datatables-simple-demo.js"></script>
+	<script src="/admin/js/datatables-simple-demo.js"></script>
 	<script>
 		getUniqueValuesFromColumn()
 	</script>
+
+
+	<!--체크박스 문자전송용 -->
+	<script>
+		// 상단 선택버튼 클릭시 체크된 Row의 값을 가져온다.
+		$("#selectBtn").click(function() {
+			console.log("1");
+			var rowData = new Array();
+			var tdArr = new Array();
+			var checkbox = $("tbody input[name=check]:checked");
+			var message = $("#selectOption option:selected").val();
+			/* var message = $("select[name='text' option:selected").val(); */
+			// 체크된 체크박스 값을 가져온다
+			checkbox.each(function(i) {
+				// checkbox.parent() : checkbox의 부모는 <td>이다.
+				// checkbox.parent().parent() : <td>의 부모이므로 <tr>이다.
+				var tr = checkbox.parent().parent().eq(i);
+				var td = tr.children();
+				rowData.push(tr.text());
+				// td.eq(0)은 체크박스 이므로  td.eq(4)=전화번호 의 값을 가져온다.
+
+				var phone = td.eq(4).text() + ",";
+				phone = phone.substring(0, phone.length - 1); //마지막 , 제거
+				// 가져온 값을 배열에 담는다.
+				tdArr.push(phone);
+				//console.log("phone : " + phone);
+
+				$.ajax({
+					url : "message.mdo",
+					type : "get",
+					traditional : true,
+					data : {
+						tdArr : tdArr,
+						message : message
+					},
+					dataType : 'text',
+					success : function(data) {
+						console.log(data);
+					}
+				});
+			});
+			$("#ex3_Result2").html(tdArr);
+		});
+	</script>
+
 
 	<!-- pdf -->
 	<script type="text/javascript"
@@ -506,10 +533,10 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
 	<script type="text/javascript"
 		src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-	<script src="js/pdf.js"></script>
+	<script src="/admin/js/pdf.js"></script>
 
 	<!-- excel -->
-	<script src="js/excel.js"></script>
+	<script src="/admin/js/excel.js"></script>
 	<link rel="stylesheet"
 		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 

@@ -15,7 +15,6 @@
 <title>Insert title here</title>
 
 </head>
-<<<<<<< HEAD
 <style>
 #t_code, #t_invoice {
 	width: 500px;

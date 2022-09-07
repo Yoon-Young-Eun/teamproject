@@ -190,7 +190,7 @@
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
 								<a class="nav-link" href="/getBoardList.mdo">공지사항</a> <a
-									class="nav-link" href="/admin/board_event.jsp">이벤트</a> <a
+									class="nav-link" href="/getEventList.mdo">이벤트</a> <a
 									class="nav-link" href="#">리뷰</a> <a class="nav-link"
 									href="/admin/board_Q&A.jsp">QnA</a> <a class="nav-link"
 									href="/admin/board_FAQ.jsp">자주하는 질문</a>
@@ -354,14 +354,36 @@
 								</div>
 							</header>
 
-								<div id="content_wrap">
-									<ul class="title_wrap">
-										<li><span class="title">제목</span> ${board.notice_title }</li>
+							<div id="content_wrap">
+								<ul class="title_wrap">
+									<li><span class="title">제목</span> ${board.notice_title }</li>
 
+								</ul>
+								<div id="summer" class="writeWrap">
+									<div id="summernote" class="writeArea" name="notice_content">${board.notice_content }</div>
+								</div>
+								<div class="configWrap">
+									<ul>
+										<li><span class="title">첨부파일</span>&nbsp;&nbsp;
+											<div class="filebox">
+												<c:choose>
+													<c:when
+														test="${board.notice_filepath eq 'https://semoproject.s3.ap-northeast-2.amazonaws.com/board/'}">
+                                    파일없음
+                                 </c:when>
+													<c:otherwise>
+														<a href="${board.notice_filepath}" target="_blank">파일보기(${filename})</a>
+													</c:otherwise>
+												</c:choose>
+											</div></li>
+										
 									</ul>
-									<div id="summer" class="writeWrap">
-										<div id="summernote" class="writeArea" name="notice_content">${board.notice_content }</div>
+								</div>
+								<div class="end">
+									<div class="board_btn">
+										<a href="/getUpdate.mdo?notice_no=${board.notice_no}">수정</a>
 									</div>
+<<<<<<< HEAD
 									<div class="configWrap">
 										<ul>
 											<li><span class="title">첨부파일</span>&nbsp;&nbsp;
@@ -390,19 +412,16 @@
 												</li>
 											</div>
 										</ul>
+=======
+									<div class="board_btn">
+										<a href="/deleteBoard.mdo?notice_no=${board.notice_no}">삭제</a>
+>>>>>>> main
 									</div>
-									<div class="end">
-										<div class="board_btn">
-											<a href="/getUpdate.mdo?notice_no=${board.notice_no}">수정</a>
-										</div>
-										<div class="board_btn">
-											<a href="/deleteBoard.mdo?notice_no=${board.notice_no}">삭제</a>
-										</div>
-										<div class="board_btn">
-											<a href="/getBoardList.mdo">목록</a>
-										</div>
+									<div class="board_btn">
+										<a href="/getBoardList.mdo">목록</a>
 									</div>
 								</div>
+							</div>
 						</div>
 					</div>
 					<hr>
@@ -422,7 +441,7 @@
 			</div>
 		</footer>
 	</div>
-	</div>
+
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>

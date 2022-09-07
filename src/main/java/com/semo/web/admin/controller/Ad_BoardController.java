@@ -41,9 +41,15 @@ public class Ad_BoardController {
 	public String getBoard(NoticeVO vo, Model model) {
 		System.out.println("글 상세 보기 처리");
 		String notice_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/board/";
+<<<<<<< HEAD
 			NoticeVO vos=boardservice.getBoard(vo);
 			String filename = vos.getNotice_filepath().replace(notice_filepath, "");
 			System.out.println(vos);
+=======
+		NoticeVO vos=boardservice.getBoard(vo);
+		String filename = vos.getNotice_filepath().replace(notice_filepath, "");
+		System.out.println(vos);
+>>>>>>> main
 		model.addAttribute("board", vos);
 		model.addAttribute("filename", filename);
 		return "/admin/getBoard_notice.jsp";
@@ -51,9 +57,18 @@ public class Ad_BoardController {
 
 	@RequestMapping(value="/insertBoard.mdo", method=RequestMethod.GET)
 	public String insertBoard(NoticeVO vo) {
+<<<<<<< HEAD
 		return "/admin/board_notice_write.jsp";
 	}
 	
+=======
+		System.out.println("글 등록 처리");
+		//		boardservice.insertBoard(vo);
+		//		return "redirect:/getBoardList.mdo";
+		return "/admin/board_notice_write.jsp";
+	}
+
+>>>>>>> main
 	@RequestMapping("/BoardUpload.mdo")
 	public String BoardUpload(NoticeVO vo, MultipartFile NoticeFile) throws IOException, SQLException {
 		// aws s3 파일 업로드 처리 */
@@ -61,6 +76,7 @@ public class Ad_BoardController {
 		String key = NoticeFile.getOriginalFilename();
 		String contentType = NoticeFile.getContentType();
 		long contentLength = NoticeFile.getSize();
+<<<<<<< HEAD
 		
 		String bucket = "semoproject/board";
 		
@@ -98,6 +114,43 @@ public class Ad_BoardController {
 				
 				awss3.upload(is, uploadKey, contentType, contentLength, bucket);
 				
+=======
+
+		String bucket = "semoproject/board";
+
+		awss3.upload(is, key, contentType, contentLength, bucket);
+		String notice_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/board/" + key;
+		vo.setNotice_filepath(notice_filepath);
+
+		boardservice.insertBoard(vo);
+
+		return "redirect:/getBoardList.mdo";
+	}
+
+	@RequestMapping(value="/updateBoard.mdo")
+	public String updateBoard(NoticeVO vo, MultipartFile uploadImg) throws SQLException, IOException{
+		System.out.print(vo);
+		System.out.println(uploadImg);
+		System.out.println("글 수정 기능 처리");
+		NoticeVO bringData = boardservice.getBoard(vo);
+
+		int index = bringData.getNotice_filepath().indexOf("/", 20);
+		String key = bringData.getNotice_filepath().substring(index+1);
+
+		if(!uploadImg.getOriginalFilename().equals("")) {
+			if(!key.equals("board/" + uploadImg)) {
+				awss3.delete(key);
+
+				InputStream is = uploadImg.getInputStream();
+				String uploadKey = uploadImg.getOriginalFilename();
+				String contentType = uploadImg.getContentType();
+				long contentLength = uploadImg.getSize();
+
+				String bucket = "semoproject/board";
+
+				awss3.upload(is, uploadKey, contentType, contentLength, bucket);
+
+>>>>>>> main
 				String notice_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/board/" + uploadKey;
 				bringData.setNotice_filepath(notice_filepath);
 			}else {
@@ -109,6 +162,7 @@ public class Ad_BoardController {
 		bringData.setNotice_title(vo.getNotice_title());
 		bringData.setNotice_content(vo.getNotice_content());
 		boardservice.updateBoard(bringData);
+<<<<<<< HEAD
 		String gof = uploadImg.getOriginalFilename();
 		if(gof == null) {
 			filename = "파일없음";
@@ -118,8 +172,13 @@ public class Ad_BoardController {
 		}
 		model.addAttribute("filename", uploadKey);
 		System.out.println(filename);
+=======
+
+>>>>>>> main
 		return "redirect:/getBoardList.mdo";
 	}
+
+
 
 	@RequestMapping("/getUpdate.mdo")
 	public String getUpdate(NoticeVO vo, Model model) {
@@ -128,8 +187,13 @@ public class Ad_BoardController {
 		NoticeVO vos=boardservice.getBoard(vo);
 		String filename = vos.getNotice_filepath().replace(notice_filepath, "");
 		System.out.println(vos);
+<<<<<<< HEAD
 	model.addAttribute("board", vos);
 	model.addAttribute("filename", filename);
+=======
+		model.addAttribute("board", vos);
+		model.addAttribute("filename", filename);
+>>>>>>> main
 		return "/admin/board_notice_update.jsp";
 	}
 
@@ -146,6 +210,7 @@ public class Ad_BoardController {
 				arr2.add(Integer.parseInt(tdArr[a])) ;
 				System.out.println(arr2.get(a)+"tes");
 				vo.setNotice_no(arr2.get(a));
+<<<<<<< HEAD
 				
 				NoticeVO bringData = boardservice.getBoard(vo);
 				
@@ -153,6 +218,15 @@ public class Ad_BoardController {
 				String key = bringData.getNotice_filepath().substring(index+1);
 				awss3.delete(key);
 				
+=======
+
+				NoticeVO bringData = boardservice.getBoard(vo);
+
+				int index = bringData.getNotice_filepath().indexOf("/", 20);
+				String key = bringData.getNotice_filepath().substring(index+1);
+				awss3.delete(key);
+
+>>>>>>> main
 				boardservice.deleteBoard(vo.getNotice_no());
 			}
 		}
@@ -162,6 +236,7 @@ public class Ad_BoardController {
 	// 삭제
 	@RequestMapping("/deleteBoard.mdo")
 	public String deleteBoard(NoticeVO vo) throws IOException, SQLException{
+<<<<<<< HEAD
 		
 		NoticeVO bringData = boardservice.getBoard(vo);
 		
@@ -171,6 +246,17 @@ public class Ad_BoardController {
 		
 		boardservice.deleteBoard(bringData);
 		
+=======
+
+		NoticeVO bringData = boardservice.getBoard(vo);
+
+		int index = bringData.getNotice_filepath().indexOf("/", 20);
+		String key = bringData.getNotice_filepath().substring(index+1);
+		awss3.delete(key);
+
+		boardservice.deleteBoard(bringData);
+
+>>>>>>> main
 		return "redirect:/getBoardList.mdo";
 	}
 }

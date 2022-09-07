@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BoardDAO">
+
+<!-- 공지사항 -->
+	<select id="getBoardList" resultType="notice">
+		<![CDATA[ select * from notice ]]>
+	</select>
+
+	<insert id="insertBoard" parameterType="notice">
+		<![CDATA[ insert into notice(notice_title, notice_content, notice_filepath) 
+		values (#{notice_title}, #{notice_content}, #{notice_filepath}) ]]>
+	</insert>
+
+	<update id="updateBoard" parameterType="notice">
+		<![CDATA[ update notice set	notice_title=#{notice_title}, notice_content=#{notice_content}, notice_filepath=#{notice_filepath} where notice_no=#{notice_no} ]]>
+	</update>
+
+	<delete id="deleteBoard" parameterType="notice">
+		<![CDATA[ delete from notice where notice_no=#{notice_no} ]]>
+	</delete>
+
+	<select id="getBoard" parameterType="notice" resultType="notice"> 
+ 		<![CDATA[ select * from notice where notice_no=#{notice_no} ]]>
+	</select>
+	
+<!-- 이벤트 -->
+	<select id="getEventList" resultType="board_event">
+		<![CDATA[ select * from board_event ]]>
+	</select>
+
+	<insert id="insertEvent" parameterType="board_event">
+		<![CDATA[ insert into board_event(board_event_title, board_event_content, banner_no, board_event_filepath) 
+		values (#{board_event_title}, #{board_event_content}, #{banner_no}, #{board_event_filepath}) ]]>
+	</insert>
+
+	<update id="updateEvent" parameterType="board_event">
+		<![CDATA[ update board_event set board_event_title=#{board_event_title}, board_event_content=#{board_event_content}, board_event_filepath=#{board_event_filepath} where board_event_no=#{board_event_no} ]]>
+	</update>
+
+	<delete id="deleteEvent" parameterType="board_event">
+		<![CDATA[ delete from board_event where board_event_no=#{board_event_no} ]]>
+	</delete>
+
+	<select id="getEvent" parameterType="board_event" resultType="board_event"> 
+ 		<![CDATA[ select * from board_event where board_event_no=#{board_event_no} ]]>
+	</select>
+	
+</mapper>
+ 

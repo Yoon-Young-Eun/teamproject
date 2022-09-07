@@ -345,6 +345,7 @@
                            <h1>공지사항</h1>
                         </div>
 
+<<<<<<< HEAD
                      </header>
                      <form action="/updateBoard.mdo" method="post" enctype="multipart/form-data">
                         <div id="content_wrap">
@@ -366,6 +367,45 @@
                                        <label for="ex_filename">파일 선택</label> <input type="file"
                                           id="ex_filename" name="uploadImg" class="upload-hidden"> <input
                                           class="upload-name" value="${filename}" disabled="disabled">
+=======
+							</header>
+							<form action="/updateBoard.mdo" method="post" enctype="multipart/form-data">
+								<div id="content_wrap">
+									<ul class="title_wrap">
+
+										<li><span class="title" >제목</span>
+											<input type="text"
+												name="notice_title" value="${board.notice_title }"/>
+												<input type="hidden" name="notice_no"
+											value="${board.notice_no }"></li>
+									</ul>
+									<div id="summer" class="writeWrap">
+										<textarea id="summernote" class="writeArea" name="notice_content" >${board.notice_content }</textarea>
+									</div>
+									<div class="configWrap">
+										<ul> 	
+											<li style="display: flex; align-items: center;"><span class="title">첨부파일</span>&nbsp;&nbsp;
+												<div class="filebox">
+													<label for="ex_filename">파일 선택</label> <input type="file"
+														id="ex_filename" name="uploadImg" class="upload-hidden"> <input
+														class="upload-name" value="${filename}" disabled="disabled">
+												</div></li>
+											
+										</ul>
+									</div>
+									<div class="end">
+										<div class="board_btn">
+											<input type="submit" value="저장">
+										</div>
+										<div class="board_btn">
+											<a href="/deleteBoard.mdo?notice_no=${board.notice_no}">삭제</a>
+										</div>
+										<div class="board_btn">
+											<a href="/getBoardList.mdo">목록</a>
+										</div>
+										<!-- <a href="#">저장</a>&nbsp;&nbsp;<a href="#">취소</a> -->
+									</div>
+>>>>>>> main
 
 
                                     </div></li>

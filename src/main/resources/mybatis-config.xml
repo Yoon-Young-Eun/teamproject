@@ -33,7 +33,6 @@
 		
 	<mappers>
 		<mapper resource="mappings/ad_admin-mapping.xml"/>
-<<<<<<< HEAD
 
 		<!-- 아래 계속해서 추가 -->
 		<mapper resource="mappings/ad_board-mapping.xml"/>
@@ -41,19 +40,14 @@
 		<mapper resource="mappings/ad_store-mapping.xml"/>
 		<mapper resource="mappings/ad_product-mapping.xml"/>
 
-=======
 		<mapper resource="mappings/ad_util-mapping.xml"/>
->>>>>>> main
+
 		<mapper resource="mappings/ad_member-mapping.xml"/>
 		<mapper resource="mappings/ad_order-mapping.xml"/>
 		<mapper resource="mappings/ad_sales-mapping.xml"/>
                               
 		<mapper resource="mappings/user_address-mapping.xml"/>
 		<mapper resource="mappings/user_faq-mapping.xml"/>
-
-		<mapper resource="mappings/ad_site-mapping.xml"/>
-		<mapper resource="mappings/ad_store-mapping.xml"/>
-		<mapper resource="mappings/ad_product-mapping.xml"/>
 
 	</mappers>
 </configuration>

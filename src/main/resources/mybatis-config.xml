@@ -11,7 +11,7 @@
 		<typeAlias type="com.semo.web.admin.vo.CustomerVO" alias="customer0"/>
 		<typeAlias type="com.semo.web.admin.vo.MessageVO" alias="message" />
 		<typeAlias type="com.semo.web.admin.vo.PagingVO" alias="paging"/>
-		<typeAlias type="com.semo.web.admin.vo.CmOrderVO" alias="cm_order"/>
+		<typeAlias type="com.semo.web.admin.vo.OrderMtVO" alias="orderManagement"/>
 
 		<typeAlias type="com.semo.web.user.vo.AddressListVO" alias="CM_ADDRESS" />
 		<typeAlias type="com.semo.web.user.vo.FaqVO" alias="BOARD_FAQ"/>	
@@ -33,6 +33,7 @@
 		
 	<mappers>
 		<mapper resource="mappings/ad_admin-mapping.xml"/>
+<<<<<<< HEAD
 
 		<!-- 아래 계속해서 추가 -->
 		<mapper resource="mappings/ad_board-mapping.xml"/>
@@ -40,9 +41,13 @@
 		<mapper resource="mappings/ad_store-mapping.xml"/>
 		<mapper resource="mappings/ad_product-mapping.xml"/>
 
+=======
+		<mapper resource="mappings/ad_util-mapping.xml"/>
+>>>>>>> main
 		<mapper resource="mappings/ad_member-mapping.xml"/>
 		<mapper resource="mappings/ad_order-mapping.xml"/>
-
+		<mapper resource="mappings/ad_sales-mapping.xml"/>
+                              
 		<mapper resource="mappings/user_address-mapping.xml"/>
 		<mapper resource="mappings/user_faq-mapping.xml"/>
 

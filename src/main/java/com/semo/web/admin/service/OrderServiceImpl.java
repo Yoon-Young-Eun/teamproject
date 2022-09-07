@@ -6,9 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.semo.web.admin.dao.OrderDAO;
-import com.semo.web.admin.vo.CmOrderVO;
+import com.semo.web.admin.vo.OrderMtVO;
 import com.semo.web.admin.vo.CustomerVO;
 import com.semo.web.admin.vo.PagingVO;
+import com.semo.web.user.vo.OrderVO;
 
 
 
@@ -20,13 +21,23 @@ public class OrderServiceImpl implements OrderService {
 	OrderDAO orderDao;
 	
 	@Override
-	public List<CmOrderVO> getUserOrderList(PagingVO pvo) {
+	public List<OrderMtVO> getUserOrderList(PagingVO pvo) {
 		return orderDao.getUserOrderList(pvo);
 	}
 	
 	@Override
-	public int getArticleCount(PagingVO pvo) {
-		return orderDao.getArticleCount(pvo);
+	public int getArticleCount() {
+		return orderDao.getArticleCount();
+	}
+
+	@Override
+	public List<OrderVO> getAdminOrderList(PagingVO pvo) {
+		return orderDao.getAdminOrderList(pvo);
+	}
+
+	@Override
+	public int getMemberArticleCount(PagingVO pvo) {
+		return orderDao.getMemberArticleCount(pvo);
 	}
 	
 }

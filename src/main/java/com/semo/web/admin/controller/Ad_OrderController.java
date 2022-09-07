@@ -11,13 +11,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.semo.web.admin.service.MemberService;
 import com.semo.web.admin.service.OrderService;
+import com.semo.web.admin.service.UtilService;
 import com.semo.web.admin.util.CoolSms;
-import com.semo.web.admin.vo.CmOrderVO;
 import com.semo.web.admin.vo.CustomerVO;
 import com.semo.web.admin.vo.MessageVO;
+import com.semo.web.admin.vo.OrderMtVO;
 import com.semo.web.admin.vo.PagingVO;
+import com.semo.web.user.vo.OrderVO;
 
 @Controller
 public class Ad_OrderController {
@@ -26,8 +27,8 @@ public class Ad_OrderController {
 	@Autowired
 	OrderService orderserivce;
 	
-	@Autowired//문자 메서드 사용하기위해
-	MemberService memberService;
+	@Autowired //문자 서비스
+	UtilService utilservice;
 	
 	@Autowired
 	CoolSms coolsms;
@@ -40,15 +41,73 @@ public class Ad_OrderController {
 		System.out.println(message);
 		
 		 coolsms.sendMessage(tdArr, message); 
-		 return "/orderList.mdo";
+		 return "/adminOrderList.mdo";
+	}
+	
+	// 주문이력
+	@RequestMapping("/adminOrderList.mdo")
+	public String getOrderList(OrderVO vo, PagingVO pvo, Model model, MessageVO mvo) {
+		System.out.println("getOrderList() 실행");
+		
+
+		// 페이징 처리
+	      if (pvo.getPageNum() == null) {
+	    	  pvo.setPageNum("1");
+	       }
+	      
+	      System.out.println(pvo.getSelectPage());
+	      if (pvo.getSelectPage()==null ) {
+	    	  pvo.setSelectPage("5");
+	      }
+	       int pageSize = Integer.parseInt(pvo.getSelectPage());
+	       int currentPage = Integer.parseInt(pvo.getPageNum()); 
+	       pvo.setStartRow((currentPage -1)* pageSize +1);
+	       pvo.setEndRow(currentPage * pageSize);
+	       int count =0; 	
+	       int number = 0;  
+	      
+	       count = orderserivce.getArticleCount();
+	       List<OrderVO> adminOrderList = null;
+	       if(count >0) {
+	    	   adminOrderList= orderserivce.getAdminOrderList(pvo);
+	   
+	       }else {
+	    	   adminOrderList=Collections.emptyList(); 
+	       }
+	       
+			Map<String, String> conditionMap = new HashMap<String, String>();
+			conditionMap.put("주문번호", "order_no");
+			conditionMap.put("주문상태", "order_status");
+			conditionMap.put("결제상태", "order_price_status");
+			
+	       model.addAttribute("conditionMap", conditionMap);
+	       model.addAttribute("pageNum", pvo.getPageNum());
+	       model.addAttribute("pageSize", pageSize);
+	       model.addAttribute("currentPage", currentPage);
+	       model.addAttribute("endRow", pvo.getEndRow());
+	       model.addAttribute("count", count);
+	       model.addAttribute("number", number);
+	       model.addAttribute("adminOrderList", adminOrderList);
+	       model.addAttribute("number", number);
+	       System.out.println("회원 주문이력"+adminOrderList);
+	       
+	       
+	       List<MessageVO> messageList = utilservice.getMessageList(mvo);
+	       System.out.println(messageList);
+	       model.addAttribute("messageList", messageList);
+	       System.out.println("메시지 리스트"+ messageList);
+		
+		return "admin/orderList.jsp";
 	}
 	
 	
 	
-	   //회원 구매이력
+	
+	
+	   //회원 개인 구매이력
 	   @RequestMapping(value="/memberorderList.mdo", method = RequestMethod.GET)
-		public String getUserOrderList(CmOrderVO cvo, PagingVO pvo, CustomerVO vo, Model model, MessageVO mvo) {
-			System.out.println("글 목록 검색 처리");
+		public String getUserOrderList(OrderMtVO cvo, PagingVO pvo, CustomerVO vo, Model model, MessageVO mvo) {
+			System.out.println("회원 개인 구매 이력");
 			
 			System.out.println(pvo);
 
@@ -68,8 +127,8 @@ public class Ad_OrderController {
 		       int count =0; 	
 		       int number = 0;  
 		      
-		       count = orderserivce.getArticleCount(pvo);
-		       List<CmOrderVO> userOrderList = null;
+		       count = orderserivce.getMemberArticleCount(pvo);
+		       List<OrderMtVO> userOrderList = null;
 		       if(count >0) {
 		    	   userOrderList= orderserivce.getUserOrderList(pvo);
 		   
@@ -78,8 +137,9 @@ public class Ad_OrderController {
 		       }
 		       
 				Map<String, String> conditionMap = new HashMap<String, String>();
-				conditionMap.put("상품명", "order_mt_product");
+				conditionMap.put("회원코드", "customer_no");
 				conditionMap.put("주문번호", "order_no");
+
 				
 		       model.addAttribute("conditionMap", conditionMap);
 		       model.addAttribute("pageNum", pvo.getPageNum());
@@ -93,7 +153,7 @@ public class Ad_OrderController {
 		       System.out.println("회원 주문이력"+userOrderList);
 		       
 		       
-		       List<MessageVO> messageList = memberService.getMessageList(mvo);
+		       List<MessageVO> messageList = utilservice.getMessageList(mvo);
 		       System.out.println(messageList);
 		       model.addAttribute("messageList", messageList);
 		       System.out.println("메시지 리스트"+ messageList);

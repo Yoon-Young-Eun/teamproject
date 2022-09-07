@@ -1,29 +1,22 @@
 package com.semo.web.admin.controller;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.semo.web.admin.service.MemberService;
+import com.semo.web.admin.service.UtilService;
 import com.semo.web.admin.util.CoolSms;
-import com.semo.web.admin.vo.CmOrderVO;
 import com.semo.web.admin.vo.CustomerVO;
 import com.semo.web.admin.vo.MessageVO;
-import com.semo.web.admin.vo.NoticeVO;
 import com.semo.web.admin.vo.PagingVO;
-
-import net.nurigo.java_sdk.api.Message;
-import net.nurigo.java_sdk.exceptions.CoolsmsException;
 
 @Controller
 public class Ad_CustomerController {
@@ -31,6 +24,9 @@ public class Ad_CustomerController {
 	
 	@Autowired
 	MemberService memberService;
+	
+	@Autowired
+	UtilService utilservice;
 	
 	@Autowired
 	CoolSms coolsms;
@@ -94,7 +90,7 @@ public class Ad_CustomerController {
 	       
 			Map<String, String> conditionMap = new HashMap<String, String>();
 			conditionMap.put("아이디", "customer_id");
-			conditionMap.put("주소", "customer_address1");
+			conditionMap.put("회원상태", "customer_status");
 			
 	       model.addAttribute("conditionMap", conditionMap);
 	       model.addAttribute("pageNum", pvo.getPageNum());
@@ -107,7 +103,7 @@ public class Ad_CustomerController {
 	       model.addAttribute("number", number);
 	       System.out.println("회원 목록 리스트"+articleList);
 	       
-	       List<MessageVO> messageList = memberService.getMessageList(mvo);
+	       List<MessageVO> messageList = utilservice.getMessageList(mvo);
 	       System.out.println(messageList);
 	       model.addAttribute("messageList", messageList);
 	       System.out.println("메시지 리스트"+ messageList);
@@ -163,7 +159,7 @@ public class Ad_CustomerController {
 	       model.addAttribute("number", number);
 	       System.out.println("블랙 회원 목록 리스트"+blackList);
 	       
-	       List<MessageVO> messageList = memberService.getMessageList(mvo);
+	       List<MessageVO> messageList = utilservice.getMessageList(mvo);
 	       System.out.println(messageList);
 	       model.addAttribute("messageList", messageList);
 	       System.out.println("메시지 리스트"+ messageList);

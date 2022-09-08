@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	width: 100%;
+	max-width: 1920px;
+	scroll-behavior: smooth;
+}
+
+body {
+	zoom: 1;
+	position: relative;
+	z-index: 1;
+	-ms-overflow-y-style: none;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+/*progress bar*/
+.progress-bar {
+	margin-top: 60px;
+}
+
+.progress-img {
+	display: flex;
+	justify-content: center;
+}
+
+.progress-text {
+	display: flex;
+	justify-content: center;
+	margin-right: 72px;
+}
+
+.progress-text li {
+	float: left;
+	margin-left: 71px;
+}
+
+.btn {
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 30px;
+}

@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+.img img{
+	max-width:1920px;
+	width : 100%;
+}
+.map-wrapper {
+	display : flex;
+	justify-content : center;
+	height : 600px;
+}
+
+#map {
+	width:600px; height:500px;
+}

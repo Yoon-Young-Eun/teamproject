@@ -3,13 +3,13 @@ package com.semo.web.user.service;
 import java.util.List;
 
 import com.semo.web.user.vo.AddressListVO;
-import com.semo.web.user.vo.CustomerVO2;
+import com.semo.web.user.vo.CustomerVO;
 
 public interface AddressService {
 
 	void setAddress(AddressListVO vo);
 	
-	List<AddressListVO> getAddressList(CustomerVO2 vo);
+	List<AddressListVO> getAddressList(CustomerVO vo);
 	
 	
 	
@@ -21,6 +21,6 @@ public interface AddressService {
 	
 	void updateCustomerAddress(AddressListVO vo1);
 	
-	CustomerVO2 sendCustomer(CustomerVO2 vo);
+	CustomerVO sendCustomer(CustomerVO vo);
 	
 }

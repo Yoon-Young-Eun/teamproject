@@ -1,0 +1,162 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	width: 100%;
+	max-width: 1920px;
+	scroll-behavior: smooth;
+}
+
+body {
+	zoom: 1;
+	position: relative;
+	z-index: 1;
+	-ms-overflow-y-style: none;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+.whole-wrapper {
+	display: flex;
+   justify-content: center;
+}
+.main {
+  	display:flex;
+ 	padding-left : 230px;
+   max-width: 1440px;
+   width:100%
+}
+
+/* .space_left, .space_right {
+   width: 200px;
+} */
+
+.main_text {
+   padding: 40px;
+/*    height: 500px; */
+/*    margin-left: 165px; */
+}
+
+.MyQnA_title {
+   text-align: center;
+   border-bottom: 1px solid #ddd;
+}
+
+.MyQnA_search {
+   display: flex;
+   justify-content: end;
+   margin-top: 80px;
+   margin-bottom: 4px;
+   align-items: center;
+   height: 30px;
+}
+
+.condition {
+   height: 34px;
+   margin-right: 5px;
+   font-size: 15px;
+   text-indent: 3px;
+}
+
+.search_input>input {
+   height: 30px;
+   width: 250px;
+   margin-right: 10px;
+   padding: 0px;
+   font-size: 15px;
+   text-indent: 5px;
+}
+
+.MyQnA_body {
+   height: 85px;
+   width: auto;
+   text-align: center;
+}
+
+.MyQnA_body_title {
+   display: flex;
+   justify-content: center;
+   margin-top: 20px;
+   padding: 4px;
+   border-bottom: 4px solid black;
+   border-top: 2px solid black;
+}
+
+.title_num {
+   font-size: 20px;
+   width: 50px;
+}
+
+.title_group {
+   font-size: 20px;
+   width: 100px;
+}
+
+.title_subject {
+   font-size: 20px;
+   width: 470px;
+}
+
+.title_date {
+   font-size: 20px;
+   width: 240px;
+}
+
+.title_answer {
+   font-size: 20px;
+   width: 100px;
+}
+
+.MyQnA_body_content {
+   display: flex;
+   justify-content: center;
+   border-bottom: 2px solid gray;
+   /*    border-top: 2px solid gray; */
+   height: 40px;
+   align-items: center;
+}
+
+.content_num {
+   font-size: 15px;
+   width: 50px;
+}
+
+.content_group {
+   font-size: 15px;
+   width: 100px;
+}
+
+.content_subject {
+   font-size: 15px;
+   width: 470px;
+}
+
+.content_date {
+   font-size: 15px;
+   width: 240px;
+}
+
+.content_answer {
+   font-size: 15px;
+   width: 100px;
+}
+
+.end_btn {
+   display: flex;
+   justify-content: end;
+   margin-top: 7px;
+}

@@ -10,14 +10,7 @@ public class NoticeVO {
 	private Date notice_reg_date;
 	private String notice_filepath;
 	private String admin_id;
-	private String notice_filepath;
 
-	public String getNotice_filepath() {
-		return notice_filepath;
-	}
-	public void setNotice_filepath(String notice_filepath) {
-		this.notice_filepath = notice_filepath;
-	}
 	public int getNotice_no() {
 		return notice_no;
 	}
@@ -60,13 +53,9 @@ public class NoticeVO {
 	@Override
 	public String toString() {
 		return "NoticeVO [notice_no=" + notice_no + ", notice_title=" + notice_title + ", notice_content="
-<<<<<<< HEAD
-				+ notice_content + ", notice_reg_date=" + notice_reg_date + ", admin_id=" + admin_id
-				+ ", notice_filepath=" + notice_filepath + "]";
-=======
 				+ notice_content + ", notice_reg_date=" + notice_reg_date + ", notice_filepath=" + notice_filepath
 				+ ", admin_id=" + admin_id + "]";
->>>>>>> main
+
 	}
 	
 	

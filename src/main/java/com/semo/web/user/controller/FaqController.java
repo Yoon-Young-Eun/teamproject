@@ -9,8 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.semo.web.admin.vo.FAQVO;
 import com.semo.web.user.service.FaqService;
-import com.semo.web.user.vo.FaqVO;
 
 @Controller
 public class FaqController {
@@ -20,18 +20,18 @@ public class FaqController {
 
 	
 	@RequestMapping(value="/getFaqList.do", method = RequestMethod.GET)
-	public String getFaqList(FaqVO vo,HttpSession session) {
+	public String getFaqList(FAQVO vo,HttpSession session) {
 		
 		String de = "배송";
-		String wa = "세탁서비스";
+		String wa = "세탁";
 		System.out.println(vo);
 		System.out.println("getFaqList 메서드 실행");
-		List<FaqVO> faqList = faqService.getFaqList(de);
+		List<FAQVO> faqList = faqService.getFaqList(de);
 		session.setAttribute("faqList", faqList);
-		List<FaqVO> faqList1 = faqService.getFaqList1(wa);
+		List<FAQVO> faqList1 = faqService.getFaqList1(wa);
 		session.setAttribute("faqList1", faqList1);
-		System.out.println(faqList);
-		
-		return "/service/service2.jsp";
+		System.out.println("aaaa"+faqList);
+		System.out.println("bbbb"+faqList1);
+		return "/service/serviceFAQ.jsp";
 	}
 }

@@ -354,13 +354,10 @@
 								</div>
 
 							</header>
-<<<<<<< HEAD
-<!-- 							<form action="/insertBoard.mdo" method="post" enctype="multipart/form-data"> -->
-								<form action="/BoardUpload.mdo" method="post" enctype="multipart/form-data">
-=======
+
 							<form action="/BoardUpload.mdo" method="post"
 								enctype="multipart/form-data">
->>>>>>> main
+
 								<div id="content_wrap">
 									<ul class="title_wrap">
 										<li><span class="title">제목</span> <input type="text"
@@ -375,14 +372,9 @@
 											<li style="display: flex; align-items: center;"><span
 												class="title">첨부파일</span>&nbsp;&nbsp;
 												<div class="filebox">
-													<label for="ex_filename">파일 선택</label> <input type="file"
-<<<<<<< HEAD
-														id="ex_filename" name="NoticeFile" class="upload-hidden"> <input
-														class="upload-name" value="" disabled="disabled">
-=======
-														id="ex_filename" name="NoticeFile" class="upload-hidden">
+													<label for="ex_filename">파일 선택</label> <input type="file" id="ex_filename" name="NoticeFile" class="upload-hidden">
 													<input class="upload-name" value="" disabled="disabled">
->>>>>>> main
+
 												</div></li>
 
 

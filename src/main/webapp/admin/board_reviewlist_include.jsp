@@ -11,33 +11,33 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>Dashboard - SEMO Admin</title>
-<script src="js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="js/fileupload.js"></script>
-<script type="text/javascript" src="js/index_navbar_onclick.js"></script>
 
-<!-- <-게시판 css -->
-<link rel="stylesheet" href="/admin/css/board.css" />
+<!-- icon 버튼 css -->
+<link href="/admin/css/icon.css" rel="stylesheet" />
+
+<!--  테이블 필터(중요) -->
+<link href="/admin/css/filter.css" rel="stylesheet" />
+<script src="/admin/js/filter.js" crossorigin="anonymous"></script>
+
+<!-- 체크박스 js -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/admin/js/checkbox.js"></script>
 
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
-
 <link href="/admin/css/styles.css" rel="stylesheet" />
 <link href="/admin/css/main_info_card.css" rel="stylesheet" />
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
 	crossorigin="anonymous"></script>
-
-<!-- summernote -->
-<script src="js/summernote/summernote-lite.js"></script>
-<script src="js/summernote/lang/summernote-ko-KR.js"></script>
-
-<link rel="stylesheet" href="css/summernote/summernote-lite.css">
-
+<script type="text/javascript" src="/admin/js/index_navbar_onclick.js"></script>
 </head>
 <body class="sb-nav-fixed">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 		<!-- Navbar Brand-->
-		<a class="navbar-brand ps-3" href="index.jsp">Start Bootstrap</a>
+		<a class="navbar-brand ps-3" href="index.html">Start Bootstrap</a>
 		<!-- Sidebar Toggle-->
 		<button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
 			id="sidebarToggle" href="#!">
@@ -82,10 +82,6 @@
 								<i class="fas fa-tachometer-alt"></i>
 							</div> 대시보드
 						</a>
-
-
-
-
 
 						<div class="sb-sidenav-menu-heading">관리자 메뉴</div>
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -238,9 +234,6 @@
 						</div>
 
 
-
-
-
 						<div class="sb-sidenav-menu-heading">Interface</div>
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 							data-bs-target="#collapseLayouts" aria-expanded="false"
@@ -285,9 +278,10 @@
 									aria-labelledby="headingOne"
 									data-bs-parent="#sidenavAccordionPages">
 									<nav class="sb-sidenav-menu-nested nav">
-										<a class="nav-link" href="login.jsp">Login</a> <a
-											class="nav-link" href="register.html">Register</a> <a
-											class="nav-link" href="password.html">Forgot Password</a>
+										<a class="nav-link" href="/admin/login.jsp">Login</a> <a
+											class="nav-link" href="/admin/register.html">Register</a> <a
+											class="nav-link" href="/admin/password.html">Forgot
+											Password</a>
 									</nav>
 								</div>
 								<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -309,7 +303,6 @@
 							</nav>
 						</div>
 
-
 						<div class="sb-sidenav-menu-heading">Addons</div>
 						<a class="nav-link" href="charts.html">
 							<div class="sb-nav-link-icon">
@@ -328,103 +321,223 @@
 				</div>
 			</nav>
 		</div>
-
 		<div id="layoutSidenav_content">
-
 			<main>
 
 				<div class="container-fluid px-4">
-					<h1 class="mt-4">게시판</h1>
+					<h1 class="mt-4">notice</h1>
 					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
-						<li class="breadcrumb-item active">공지사항</li>
+						<li class="breadcrumb-item"><a href="/admin/index.jsp">Dashboard</a></li>
+						<li class="breadcrumb-item active">notice</li>
 					</ol>
 					<div class="card mb-4">
-						<div class="card-body">공지사항 게시판입니다</div>
-					</div>
-					<div class="dd">
-						<!-- <div class="card-header">
-							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 게시판에 대한 세부제목
-						</div> -->
-						<div id="wrap">
-							<header>
-
-								<div class="board_title">
-									<h1>공지사항</h1>
-								</div>
-							</header>
-
-							<div id="content_wrap">
-								<ul class="title_wrap">
-									<li><span class="title">제목</span> ${board.notice_title }</li>
-
-								</ul>
-								<div id="summer" class="writeWrap">
-									<div id="summernote" class="writeArea" name="notice_content">${board.notice_content }</div>
-								</div>
-								<div class="configWrap">
-									<ul>
-										<li><span class="title">첨부파일</span>&nbsp;&nbsp;
-											<div class="filebox">
-												<c:choose>
-													<c:when
-														test="${board.notice_filepath eq 'https://semoproject.s3.ap-northeast-2.amazonaws.com/board/'}">
-                                    파일없음
-                                 </c:when>
-													<c:otherwise>
-														<a href="${board.notice_filepath}" target="_blank">파일보기(${filename})</a>
-													</c:otherwise>
-												</c:choose>
-											</div></li>
-										
-									</ul>
-								</div>
-								<div class="end">
-									<div class="board_btn">
-										<a href="/getUpdate.mdo?notice_no=${board.notice_no}">수정</a>
-									</div>
-
-									<div class="board_btn">
-										<a href="/deleteBoard.mdo?notice_no=${board.notice_no}">삭제</a>
-
-									</div>
-									<div class="board_btn">
-										<a href="/getBoardList.mdo">목록</a>
-									</div>
-								</div>
-							</div>
+						<div class="card-body">
+							notice 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
+							.
 						</div>
 					</div>
-					<hr>
+					<div class="card mb-4">
+						<div class="card-header">
+							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 notice에 대한
+							세부제목
+						</div>
+
+						<!--  여기부터 내용물 -->
+
+
+
+						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
+						<div class="flex">
+							<input type="button" id="btnExport" value="PDF" class="icon_pdf" />
+							<!-- pdf 버튼 -->
+							<button class="icon_excel"
+								onclick="exportToExcel('tblexportData', 'user-data')">Excel</button>
+							<!-- excel -->
+						</div>
+
+
+
+
+						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
+						<table id=""
+							class="emp-table dataPerPage tblCustomers tblexportData table"
+							border="5">
+							<thead>
+								<tr>
+									<th width="50" id="check_td"><input type="checkbox"
+										name="check" class="allcheck"></th>
+									<th col-index=2>No</th>
+									<th col-index=3>평점<select class="table-filter"
+										onchange="filter_rows()">
+											<option value="all"></option>
+									</select></th>
+									<th col-index=4>작성자</th>
+									<th col-index=5>제목
+									</th>
+									<th col-index=6>내용</th>
+									<th col-index=7>작성일</th>
+									<th col-index=8>상태<select class="table-filter"
+										onchange="filter_rows()">
+											<option value="all"></option>
+									</select></th>
+									
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="review" items="${ReviewList}">
+									<tr>
+										<td id="check_td"><input type="checkbox" name="check"></td>
+										<td>${review.board_review_no}</td>
+										<td>
+										<c:choose>
+											<c:when test="${review.board_review_rating eq 5}">
+										★ ★ ★ ★ ★
+										    </c:when>
+											<c:when test="${review.board_review_rating eq 4}">
+										★ ★ ★ ★ ☆
+										    </c:when>
+										    <c:when test="${review.board_review_rating eq 3}">
+										★ ★ ★ ☆ ☆
+										    </c:when>
+										    <c:when test="${review.board_review_rating eq 2}">
+										★ ★ ☆ ☆ ☆
+										    </c:when>
+											<c:otherwise>
+												★ ☆ ☆ ☆ ☆
+											</c:otherwise>
+										</c:choose>    ${review.board_review_rating}
+										</td>
+										<td>${review.board_review_name}</td>  
+										<td><a href="readReviewBoard.mdo?board_review_no=${review.board_review_no}">${review.board_review_title}</a></td>
+										<td><a href="readReviewBoard.mdo?board_review_no=${review.board_review_no}">${review.board_review_content}</a></td>
+										<td>${review.board_review_reg_date}</td>
+										<td>
+										<c:choose> 
+											<c:when test="${review.board_review_status eq 1}">
+												활성
+											</c:when>  
+											<c:otherwise>
+												비활성
+											</c:otherwise> 
+										</c:choose> 
+										</td>
+									</tr>
+								</c:forEach>
+
+							</tbody>
+						</table>
+						<div class="flex">
+<!-- 							<div> -->
+<!-- 								<input id="button" type="button" value="등록" -->
+<!-- 									onclick="window.location='/admin/board_review_insert.jsp'" /> -->
+<!-- 							</div> -->
+							<div>
+								<input id="delBtn" type="button" value="삭제" />
+							</div>
+						</div>
+						<script type="text/javascript">
+							//체크삭제
+							$("#delBtn")
+									.click(
+											function() {
+												console.log("1");
+												var rowData = new Array();
+												var tdArr = new Array();
+												var checkbox = $("tbody input[name=check]:checked");
+
+												// 체크된 체크박스 값을 가져온다
+												checkbox
+														.each(function(i) {
+															var tr = checkbox
+																	.parent()
+																	.parent()
+																	.eq(i);
+															var td = tr
+																	.children();
+															rowData.push(tr
+																	.text());
+															// td.eq(0)은 체크박스 이므로  td.eq(4)=전화번호 의 값을 가져온다.
+
+															var number = td.eq(
+																	1).text()
+																	+ ",";
+															number = number
+																	.substring(
+																			0,
+																			number.length - 1); //마지막 , 제거
+															// 가져온 값을 배열에 담는다.
+															tdArr.push(number);
+
+															$
+																	.ajax({
+																		url : "deleteReviewBoardCheck.mdo",
+																		type : "get",
+																		traditional : true,
+																		data : {
+																			tdArr : tdArr,
+																		},
+																		dataType : 'text',
+																		success : function(data) {
+																			location.href = "ReviewBoardList.mdo";
+																			console
+																					.log(data);
+																		}
+																	});
+														});
+											});
+						</script>
+
+
+						<!-- 내용물 end -->
+						<div class="card-footer small text-muted">Updated yesterday
+							at 11:59 PM</div>
+					</div>
+
 				</div>
 			</main>
-		</div>
-
-		<footer class="py-4 bg-light mt-auto">
-			<div class="container-fluid px-4">
-				<div class="d-flex align-items-center justify-content-between small">
-					<div class="text-muted">Copyright &copy; Your Website 2022</div>
-					<div>
-						<a href="#">Privacy Policy</a> &middot; <a href="#">Terms
-							&amp; Conditions</a>
+			<footer class="py-4 bg-light mt-auto">
+				<div class="container-fluid px-4">
+					<div
+						class="d-flex align-items-center justify-content-between small">
+						<div class="text-muted">Copyright &copy; Your Website 2022</div>
+						<div>
+							<a href="#">Privacy Policy</a> &middot; <a href="#">Terms
+								&amp; Conditions</a>
+						</div>
 					</div>
 				</div>
-			</div>
-		</footer>
+			</footer>
+		</div>
 	</div>
-
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
-	<script src="js/scripts.js"></script>
+	<script src="/admin/js/scripts.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
 		crossorigin="anonymous"></script>
-	<script src="assets/demo/chart-area-demo.js"></script>
-	<script src="assets/demo/chart-bar-demo.js"></script>
+	<script src="/admin/assets/demo/chart-area-demo.js"></script>
+	<script src="/admin/assets/demo/chart-bar-demo.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
 		crossorigin="anonymous"></script>
-	<script src="js/datatables-simple-demo.js"></script>
+	<script src="/admin/js/datatables-simple-demo.js"></script>
+	<script>
+		getUniqueValuesFromColumn()
+	</script>
+
+	<!-- pdf -->
+	<script type="/admin/text/javascript"
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script type="/admin/text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+	<script type="/admin/text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+	<script src="/admin/js/pdf.js"></script>
+
+	<!-- excel -->
+	<script src="/admin/js/excel.js"></script>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
 </body>
 </html>

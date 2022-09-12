@@ -34,8 +34,6 @@
          <div class="main_que">
           <div id="Accordion_wrap">
            
-           
-           
            <c:forEach var="FaqList1" items="${faqList1}">
             <div class="que">
              <span>${FaqList1.board_faq_title}</span>
@@ -45,8 +43,6 @@
             </div>
             </c:forEach>
             
-
-
        </div>
        
        

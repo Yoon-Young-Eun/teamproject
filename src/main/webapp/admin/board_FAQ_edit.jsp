@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +14,6 @@
 <script src="js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="js/fileupload.js"></script>
 <script type="text/javascript" src="js/index_navbar_onclick.js"></script>
-
 <!-- <-게시판 css -->
 <link rel="stylesheet" href="/admin/css/board.css" />
 
@@ -23,15 +22,14 @@
 	rel="stylesheet" />
 
 <link href="/admin/css/styles.css" rel="stylesheet" />
-<link href="/admin/css/main_info_card.css" rel="stylesheet" />
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
 	crossorigin="anonymous"></script>
 
 <!-- summernote -->
-<script src="js/summernote/summernote-lite.js"></script>
-<script src="js/summernote/lang/summernote-ko-KR.js"></script>
+<script src="/admin/js/summernote/summernote-lite.js"></script>
+<script src="/admin/js/summernote/lang/summernote-ko-KR.js"></script>
 
-<link rel="stylesheet" href="css/summernote/summernote-lite.css">
+<link rel="stylesheet" href="/admin/css/summernote/summernote-lite.css">
 
 </head>
 <body class="sb-nav-fixed">
@@ -101,9 +99,9 @@
 						<div class="collapse" id="change_id_01"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="/admin/member.jsp">회원관리</a> <a
-									class="nav-link" href="/admin/member_black.jsp">블랙회원관리</a> <a
-									class="nav-link" href="/admin/memberstaff.jsp">매니저관리</a>
+								<a class="nav-link" href="member.jsp">회원관리</a> <a
+									class="nav-link" href="member_black.jsp">블랙회원관리</a> <a
+									class="nav-link" href="memberstaff.jsp">매니저관리</a>
 							</nav>
 						</div>
 
@@ -120,8 +118,8 @@
 						<div class="collapse" id="change_id_02"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="/admin/order.jsp">주문/결제</a> <a
-									class="nav-link" href="/admin/estimate.jsp">견적상품</a>
+								<a class="nav-link" href="order.jsp">주문/결제</a> <a
+									class="nav-link" href="#">견적상품</a>
 							</nav>
 						</div>
 
@@ -142,7 +140,7 @@
 						<!--                                 </nav> -->
 						<!--                             </div> -->
 
-						<a class="nav-link collapsed" href="/admin/item.jsp"
+						<a class="nav-link collapsed" href="item.jsp"
 							data-bs-toggle="collapse" data-bs-target="#change_id_04"
 							aria-expanded="false" aria-controls="collapseLayouts">
 							<div class="sb-nav-link-icon">
@@ -189,11 +187,11 @@
 						<div class="collapse" id="change_id_06"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="/getBoardList.mdo">공지사항</a> <a
-									class="nav-link" href="/getEventList.mdo">이벤트</a> <a
+								<a class="nav-link" href="board_notice.jsp">공지사항</a> <a
+									class="nav-link" href="board_event.jsp">이벤트</a> <a
 									class="nav-link" href="#">리뷰</a> <a class="nav-link"
-									href="/admin/board_Q&A.jsp">QnA</a> <a class="nav-link"
-									href="/admin/board_FAQ.jsp">자주하는 질문</a>
+									href="board_Q&A.jsp">QnA</a> <a class="nav-link"
+									href="board_FAQ.jsp">자주하는 질문</a>
 
 							</nav>
 						</div>
@@ -230,9 +228,9 @@
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
 
-								<a class="nav-link" href="/admin/promo.jsp">쿠폰관리</a> <a
-									class="nav-link" href="/admin/supporbanner.jsp">배너관리</a> <a
-									class="nav-link" href="/admin/supporclause.jsp">약관관리</a>
+								<a class="nav-link" href="promo.jsp">쿠폰관리</a> <a
+									class="nav-link" href="supporbanner.jsp">배너관리</a> <a
+									class="nav-link" href="supporclause.jsp">약관관리</a>
 
 							</nav>
 						</div>
@@ -330,89 +328,118 @@
 		</div>
 
 		<div id="layoutSidenav_content">
-
 			<main>
+
+
 
 				<div class="container-fluid px-4">
 					<h1 class="mt-4">게시판</h1>
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
-						<li class="breadcrumb-item active">공지사항</li>
+						<li class="breadcrumb-item active">자주묻는질문</li>
 					</ol>
 					<div class="card mb-4">
-						<div class="card-body">공지사항 게시판입니다</div>
+						<div class="card-body">자주묻는질문 게시판입니다</div>
 					</div>
 					<div class="dd">
 						<!-- <div class="card-header">
 							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 게시판에 대한 세부제목
 						</div> -->
+
 						<div id="wrap">
 							<header>
-
 								<div class="board_title">
-									<h1>공지사항</h1>
+									<h1>자주묻는질문</h1>
 								</div>
-							</header>
 
+							</header>
+							
+							<form action="/updateFAQ.mdo" method="GET">	
+							
+						<input type="hidden" name="board_faq_no" value="${FAQInfo.board_faq_no}">
+							
 							<div id="content_wrap">
 								<ul class="title_wrap">
-									<li><span class="title">제목</span> ${board.notice_title }</li>
-
+									 <li><span class="title">분류</span>
+										<div class="board_select">
+											<select class="select" name="board_faq_type">
+											
+											<c:choose> 
+	<c:when test="${FAQInfo.board_faq_type eq '세탁'}">
+		<option value="세탁">세탁</option>
+		<option value="주문">주문</option>
+		<option value="배송">배송</option>
+		<option value="결제">결제</option>
+	</c:when>  
+	<c:when test="${FAQInfo.board_faq_type eq '주문'}">
+		<option value="주문">주문</option>
+		<option value="세탁">세탁</option>
+		<option value="배송">배송</option>
+		<option value="결제">결제</option>
+	</c:when>  
+	<c:when test="${FAQInfo.board_faq_type eq '배송'}">
+		<option value="배송">배송</option>
+		<option value="주문">주문</option>
+		<option value="세탁">세탁</option>
+		<option value="결제">결제</option>
+	</c:when> 
+	<c:otherwise>
+		<option value="결제">결제</option>
+		<option value="배송">배송</option>
+		<option value="주문">주문</option>
+		<option value="세탁">세탁</option>
+		
+	</c:otherwise> 
+</c:choose>
+											
+											</select>
+										</div></li>
+									<!--
+            <input type="checkBox" id="chkNotice1" name="chkB1">
+            <label for="chkNotice1">공지사항으로 게시글쓰기</label>
+            <input type="checkBox" id="chkNotice2" name="chkB2">
+            <label for="chkNotice2">일반글로 게시글쓰기</label>
+            -->
+            
+									<li><span class="title">제목</span> <input type="text"
+										name="board_faq_title" value="${FAQInfo.board_faq_title}" /></li>
 								</ul>
 								<div id="summer" class="writeWrap">
-									<div id="summernote" class="writeArea" name="notice_content">${board.notice_content }</div>
-								</div>
-								<div class="configWrap">
-									<ul>
-										<li><span class="title">첨부파일</span>&nbsp;&nbsp;
-											<div class="filebox">
-												<c:choose>
-													<c:when
-														test="${board.notice_filepath eq 'https://semoproject.s3.ap-northeast-2.amazonaws.com/board/'}">
-                                    파일없음
-                                 </c:when>
-													<c:otherwise>
-														<a href="${board.notice_filepath}" target="_blank">파일보기(${filename})</a>
-													</c:otherwise>
-												</c:choose>
-											</div></li>
-										
-									</ul>
+									<textarea id="summernote" class="writeArea" name="board_faq_content">${FAQInfo.board_faq_content}</textarea>
 								</div>
 								<div class="end">
 									<div class="board_btn">
-										<a href="/getUpdate.mdo?notice_no=${board.notice_no}">수정</a>
-									</div>
-
-									<div class="board_btn">
-										<a href="/deleteBoard.mdo?notice_no=${board.notice_no}">삭제</a>
-
+										<input type="submit" value="저장">
 									</div>
 									<div class="board_btn">
-										<a href="/getBoardList.mdo">목록</a>
+										<a href="/FAQList.mdo">취소</a>
 									</div>
+									<!-- <a href="#">저장</a>&nbsp;&nbsp;<a href="#">취소</a> -->
 								</div>
+
 							</div>
+							</form>
 						</div>
+
 					</div>
-					<hr>
+
 				</div>
 			</main>
-		</div>
 
-		<footer class="py-4 bg-light mt-auto">
-			<div class="container-fluid px-4">
-				<div class="d-flex align-items-center justify-content-between small">
-					<div class="text-muted">Copyright &copy; Your Website 2022</div>
-					<div>
-						<a href="#">Privacy Policy</a> &middot; <a href="#">Terms
-							&amp; Conditions</a>
+			<footer class="py-4 bg-light mt-auto">
+				<div class="container-fluid px-4">
+					<div
+						class="d-flex align-items-center justify-content-between small">
+						<div class="text-muted">Copyright &copy; Your Website 2022</div>
+						<div>
+							<a href="#">Privacy Policy</a> &middot; <a href="#">Terms
+								&amp; Conditions</a>
+						</div>
 					</div>
 				</div>
-			</div>
-		</footer>
+			</footer>
+		</div>
 	</div>
-
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
@@ -425,6 +452,5 @@
 	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
 		crossorigin="anonymous"></script>
 	<script src="js/datatables-simple-demo.js"></script>
-
 </body>
 </html>

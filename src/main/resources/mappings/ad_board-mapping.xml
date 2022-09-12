@@ -48,5 +48,62 @@
  		<![CDATA[ select * from board_event where board_event_no=#{board_event_no} ]]>
 	</select>
 	
+<!-- 리뷰 -->
+	<select id="getReviewBoardList" resultType="board_review">
+		<![CDATA[ select * from board_review ]]>
+	</select>
+
+	<delete id="deleteReviewBoard" parameterType="board_review">
+		<![CDATA[ delete from board_review where board_review_no=#{board_review_no} ]]>
+	</delete>
+
+	<select id="getReadReviewBoard" parameterType="board_review" resultType="board_review"> 
+ 		<![CDATA[ select * from board_review where board_review_no=#{board_review_no} ]]>
+	</select>
+	
+	<update id="updateReviewBoard" parameterType="board_review">
+		<![CDATA[ update board_review set board_review_status=#{board_review_status} where board_review_no=#{board_review_no} ]]>
+	</update>
+
+<!-- FAQ -->
+	<insert id="insertFAQ" parameterType="FAQ">
+ 		INSERT INTO board_faq (
+ 			board_faq_type, 
+ 			board_faq_title, 
+ 			board_faq_content
+ 		) 
+ 		VALUES(
+ 			#{board_faq_type}, 
+ 			#{board_faq_title}, 
+ 			#{board_faq_content}
+ 		)
+ 	</insert>
+ 	<select id="getFAQList" resultType="FAQ">
+ 	  select * from board_faq
+ 	</select>
+ 	<select id="getReadFAQ" resultType="FAQ">
+	<![CDATA[ select * from board_faq where board_faq_no=#{board_faq_no} ]]>
+	</select>
+	<update id="updateFAQ" parameterType="FAQ">
+  	update board_faq set board_faq_no=#{board_faq_no}, board_faq_type=#{board_faq_type}, board_faq_title=#{board_faq_title}, board_faq_content=#{board_faq_content} where board_faq_no=#{board_faq_no}
+	</update>
+	<delete id="deleteFAQ" parameterType="FAQ">
+	<![CDATA[ delete from board_faq where board_faq_no=#{board_faq_no} ]]>
+	</delete>
+
+<!-- QnA -->
+	<insert id="insertQnA_ad" parameterType="Ad_QnA">
+  		INSERT INTO BOARD_QnA_ADMIN(
+  			BOARD_QnA_NO,
+  			ADMIN_QnA_TITLE, 
+  			ADMIN_QnA_CONTENT
+		)
+  		VALUES (
+  			#{BOARD_QnA_NO},
+  			#{ADMIN_QnA_TITLE}, 
+  			#{ADMIN_QnA_CONTENT}
+  		)
+  	</insert>
+
 </mapper>
  

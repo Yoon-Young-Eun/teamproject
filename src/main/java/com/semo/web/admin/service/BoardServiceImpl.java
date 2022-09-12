@@ -6,8 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.semo.web.admin.dao.BoardDAO;
+import com.semo.web.admin.vo.Ad_QnAVO;
 import com.semo.web.admin.vo.EventVO;
+import com.semo.web.admin.vo.FAQVO;
 import com.semo.web.admin.vo.NoticeVO;
+import com.semo.web.admin.vo.ReviewVO;
+import com.semo.web.user.vo.Cm_QnAVO;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -77,6 +81,101 @@ public class BoardServiceImpl implements BoardService {
 	public List<EventVO> getEventList(EventVO vo) {
 		return boardDAO.getEventList(vo);
 	}
+//----------------------------------------------
+	
+// 리뷰	
+	@Override
+	public void deleteReviewBoard(int no) {
+		boardDAO.deleteReviewBoard(no);
+		
+	}
+
+	@Override
+	public void deleteReviewBoard(ReviewVO vo) {
+		boardDAO.deleteReviewBoard(vo);
+		
+	}
+
+	@Override
+	public ReviewVO getReadReviewBoard(ReviewVO vo) {
+		return boardDAO.getReadReviewBoard(vo);
+	}
+
+	@Override
+	public List<ReviewVO> getReviewBoardList(ReviewVO vo) {
+		return boardDAO.getReviewBoardList(vo);
+	}
+
+	@Override
+	public void updateReviewBoard(ReviewVO vo) {
+		boardDAO.updateReviewBoard(vo);
+		
+	}
+//----------------------------------------------
+
+// FAQ	
+	@Override
+	public void insertFAQ(FAQVO vo) {
+		boardDAO.insertFAQ(vo);
+	}
+
+	@Override
+	public List<FAQVO> getFAQList() {
+		return boardDAO.getFAQList();
+	}
+
+	@Override
+	public FAQVO getReadFAQ(FAQVO vo) {
+		return boardDAO.getReadFAQ(vo);
+	}
+
+	@Override
+	public void updateFAQ(FAQVO vo) {
+		boardDAO.updateFAQ(vo);
+	}
+
+	@Override
+	public void deleteFAQ(int no) {
+		boardDAO.deleteFAQ(no);
+	}
+
+	@Override
+	public void deleteFAQ(FAQVO vo) {
+		boardDAO.deleteFAQ(vo);
+	}
+//----------------------------------------------
+	
+// QnA
+	@Override
+	public List<Cm_QnAVO> getQnAList0() {
+		return boardDAO.getQnAList0();
+	}
+	@Override
+	public List<Cm_QnAVO> getQnAList1() {
+		return boardDAO.getQnAList1();
+	}
+
+	@Override
+	public Cm_QnAVO getReadQnA_q(Cm_QnAVO vo) {
+		return boardDAO.getReadQnA_q(vo);
+	}
+	
+	@Override
+	public Cm_QnAVO getReadQnA_a(Cm_QnAVO vo) {
+		return boardDAO.getReadQnA_a(vo);
+	}
+
+	@Override
+	public void insertQnA_ad(Ad_QnAVO vo) {
+		boardDAO.insertQnA_ad(vo);
+	}
+
+	@Override
+	public void updateQnA_cm(Cm_QnAVO vo) {
+		boardDAO.updateQnA_cm(vo);
+	}
+
 	
 
+	
 }

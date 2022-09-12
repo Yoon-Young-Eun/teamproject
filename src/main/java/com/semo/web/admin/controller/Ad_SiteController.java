@@ -16,7 +16,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.semo.web.admin.service.SiteService;
 import com.semo.web.admin.vo.BannerVO;
 import com.semo.web.admin.vo.CouponVO;
-import com.semo.web.admin.vo.NoticeVO;
 import com.semo.web.admin.vo.TermsVO;
 import com.semo.web.amazon.s3.AwsS3;
 

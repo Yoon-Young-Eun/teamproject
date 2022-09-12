@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,33 +11,24 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>Dashboard - SEMO Admin</title>
-<script src="js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="js/fileupload.js"></script>
-<script type="text/javascript" src="js/index_navbar_onclick.js"></script>
-
-<!-- <-게시판 css -->
-<link rel="stylesheet" href="/admin/css/board.css" />
-
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
-
 <link href="/admin/css/styles.css" rel="stylesheet" />
-<link href="/admin/css/main_info_card.css" rel="stylesheet" />
+<link href="/admin/css/board_QnA.css" rel="stylesheet" />
+<script src="/admin/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/admin/js/estimate.js"></script>
+<script type="text/javascript" src="js/fileupload.js"></script>
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
 	crossorigin="anonymous"></script>
-
-<!-- summernote -->
-<script src="js/summernote/summernote-lite.js"></script>
-<script src="js/summernote/lang/summernote-ko-KR.js"></script>
-
-<link rel="stylesheet" href="css/summernote/summernote-lite.css">
+<script type="text/javascript" src="js/index_navbar_onclick.js"></script>
 
 </head>
 <body class="sb-nav-fixed">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 		<!-- Navbar Brand-->
-		<a class="navbar-brand ps-3" href="index.jsp">Start Bootstrap</a>
+		<a class="navbar-brand ps-3" href="index_dashboard.jsp">Start
+			Bootstrap</a>
 		<!-- Sidebar Toggle-->
 		<button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
 			id="sidebarToggle" href="#!">
@@ -69,7 +60,6 @@
 				</ul></li>
 		</ul>
 	</nav>
-
 	<div id="layoutSidenav">
 		<div id="layoutSidenav_nav">
 			<nav class="sb-sidenav accordion sb-sidenav-dark"
@@ -82,9 +72,6 @@
 								<i class="fas fa-tachometer-alt"></i>
 							</div> 대시보드
 						</a>
-
-
-
 
 
 						<div class="sb-sidenav-menu-heading">관리자 메뉴</div>
@@ -101,9 +88,9 @@
 						<div class="collapse" id="change_id_01"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="/admin/member.jsp">회원관리</a> <a
-									class="nav-link" href="/admin/member_black.jsp">블랙회원관리</a> <a
-									class="nav-link" href="/admin/memberstaff.jsp">매니저관리</a>
+								<a class="nav-link" href="member.jsp">회원관리</a> <a
+									class="nav-link" href="member_black.jsp">블랙회원관리</a> <a
+									class="nav-link" href="memberstaff.jsp">매니저관리</a>
 							</nav>
 						</div>
 
@@ -120,8 +107,8 @@
 						<div class="collapse" id="change_id_02"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="/admin/order.jsp">주문/결제</a> <a
-									class="nav-link" href="/admin/estimate.jsp">견적상품</a>
+								<a class="nav-link" href="order.jsp">주문/결제</a> <a
+									class="nav-link" href="#">견적상품</a>
 							</nav>
 						</div>
 
@@ -142,7 +129,7 @@
 						<!--                                 </nav> -->
 						<!--                             </div> -->
 
-						<a class="nav-link collapsed" href="/admin/item.jsp"
+						<a class="nav-link collapsed" href="item.jsp"
 							data-bs-toggle="collapse" data-bs-target="#change_id_04"
 							aria-expanded="false" aria-controls="collapseLayouts">
 							<div class="sb-nav-link-icon">
@@ -189,11 +176,11 @@
 						<div class="collapse" id="change_id_06"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="/getBoardList.mdo">공지사항</a> <a
-									class="nav-link" href="/getEventList.mdo">이벤트</a> <a
-									class="nav-link" href="#">리뷰</a> <a class="nav-link"
-									href="/admin/board_Q&A.jsp">QnA</a> <a class="nav-link"
-									href="/admin/board_FAQ.jsp">자주하는 질문</a>
+								<a class="nav-link" href="board_notice.jsp">공지사항</a> <a
+									class="nav-link" href="#">이벤트</a> <a class="nav-link" href="#">리뷰</a>
+
+								<a class="nav-link" href="board_Q&A.jsp">QnA</a> <a
+									class="nav-link" href="board_FAQ.jsp">자주하는 질문</a>
 
 							</nav>
 						</div>
@@ -230,15 +217,12 @@
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
 
-								<a class="nav-link" href="/admin/promo.jsp">쿠폰관리</a> <a
-									class="nav-link" href="/admin/supporbanner.jsp">배너관리</a> <a
-									class="nav-link" href="/admin/supporclause.jsp">약관관리</a>
+								<a class="nav-link" href="promo.jsp">쿠폰관리</a> <a
+									class="nav-link" href="supporbanner.jsp">배너관리</a> <a
+									class="nav-link" href="supporclause.jsp">약관관리</a>
 
 							</nav>
 						</div>
-
-
-
 
 
 						<div class="sb-sidenav-menu-heading">Interface</div>
@@ -309,7 +293,6 @@
 							</nav>
 						</div>
 
-
 						<div class="sb-sidenav-menu-heading">Addons</div>
 						<a class="nav-link" href="charts.html">
 							<div class="sb-nav-link-icon">
@@ -322,97 +305,103 @@
 						</a>
 					</div>
 				</div>
-				<div class="sb-sidenav-footer">
-					<div class="small">Logged in as:</div>
-					Start Bootstrap
-				</div>
+				<!--                     <div class="sb-sidenav-footer"> -->
+				<!--                         <div class="small">Logged in as:</div> -->
+				<!--                         Start Bootstrap -->
+				<!--                     </div> -->
 			</nav>
 		</div>
 
-		<div id="layoutSidenav_content">
-
+		<div id="layoutSidenav_content_wrapper">
 			<main>
 
 				<div class="container-fluid px-4">
-					<h1 class="mt-4">게시판</h1>
+						<h1 class="mt-4">Q&A관리</h1>
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
-						<li class="breadcrumb-item active">공지사항</li>
+						<li class="breadcrumb-item active">Q&A관리</li>
 					</ol>
 					<div class="card mb-4">
-						<div class="card-body">공지사항 게시판입니다</div>
-					</div>
-					<div class="dd">
-						<!-- <div class="card-header">
-							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 게시판에 대한 세부제목
-						</div> -->
-						<div id="wrap">
-							<header>
-
-								<div class="board_title">
-									<h1>공지사항</h1>
-								</div>
-							</header>
-
-							<div id="content_wrap">
-								<ul class="title_wrap">
-									<li><span class="title">제목</span> ${board.notice_title }</li>
-
-								</ul>
-								<div id="summer" class="writeWrap">
-									<div id="summernote" class="writeArea" name="notice_content">${board.notice_content }</div>
-								</div>
-								<div class="configWrap">
-									<ul>
-										<li><span class="title">첨부파일</span>&nbsp;&nbsp;
-											<div class="filebox">
-												<c:choose>
-													<c:when
-														test="${board.notice_filepath eq 'https://semoproject.s3.ap-northeast-2.amazonaws.com/board/'}">
-                                    파일없음
-                                 </c:when>
-													<c:otherwise>
-														<a href="${board.notice_filepath}" target="_blank">파일보기(${filename})</a>
-													</c:otherwise>
-												</c:choose>
-											</div></li>
-										
-									</ul>
-								</div>
-								<div class="end">
-									<div class="board_btn">
-										<a href="/getUpdate.mdo?notice_no=${board.notice_no}">수정</a>
-									</div>
-
-									<div class="board_btn">
-										<a href="/deleteBoard.mdo?notice_no=${board.notice_no}">삭제</a>
-
-									</div>
-									<div class="board_btn">
-										<a href="/getBoardList.mdo">목록</a>
-									</div>
-								</div>
-							</div>
+						<div class="card-body">
+							Q&A관리 페이지 입니다. <a target="_blank"
+								href="https://datatables.net/">아무링크</a> .
 						</div>
 					</div>
-					<hr>
-				</div>
-			</main>
-		</div>
 
-		<footer class="py-4 bg-light mt-auto">
-			<div class="container-fluid px-4">
-				<div class="d-flex align-items-center justify-content-between small">
-					<div class="text-muted">Copyright &copy; Your Website 2022</div>
-					<div>
-						<a href="#">Privacy Policy</a> &middot; <a href="#">Terms
-							&amp; Conditions</a>
-					</div>
-				</div>
-			</div>
-		</footer>
+
+
+<div class="wrapper">
+
+<!---------- 본문내용 시작 ---------->
+
+<div class="popup_reply_wrapper">
+<div class="customer_reply_wrapper">
+<div class="popup_title"><h1>답변</h1>
+</div>
+<div class="customer_reply mg_top mg_btm">
+<div class="customer_reply_title">제목</div><div class="customer_reply_title_body">${QnAInfo_a.ADMIN_QnA_TITLE}</div>
+</div>
+<div class="customer_reply mg_btm">
+<div class="customer_reply_title">내용</div><div class="customer_reply_content_body">${QnAInfo_a.ADMIN_QnA_CONTENT}</div>
+</div>
+</div>
+<div class="end">
+	<div class="board_btn">
+		<a href="/QnAList.mdo">목록</a>
 	</div>
+</div>								
+</div>
 
+
+<div class="popup_wrapper">
+
+<div class="popup_title"><h1>1:1문의</h1>
+</div>
+<div class="customer_question_wrapper">
+<div class="customer_question">
+<div class="customer_question_title">제목</div>
+<div class="customer_question_title_body">${QnAInfo_a.BOARD_QnA_TITLE}</div>
+</div>
+<div class="customer_question">
+<div class="customer_question_title_row">작성자</div>
+<div class="customer_question_name_body">${QnAInfo_a.CUSTOMER_ID}</div>
+<!-- </div> -->
+<!-- <div class="customer_question"> -->
+<div class="customer_question_title_row">작성일</div>
+<div class="customer_question_date_body">${QnAInfo_a.BOARD_QnA_REG_DATE}</div>
+</div>
+<div class="customer_question">
+<div class="customer_question_title">내용</div>
+<div class="customer_question_content_body">
+${QnAInfo_a.BOARD_QnA_CONTENT}
+</div>
+</div>
+<div class="customer_question">
+<div class="customer_question_title">첨부파일</div>
+<div class="customer_question_file_body"><img src="${QnAInfo_a.BOARD_QnA_FILEPATH}"></div>
+</div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+<!---------- 본문내용 끝 ---------->
+
+</div>
+
+
+
+
+
+			</main>
+
+		</div>
+	</div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
@@ -425,6 +414,5 @@
 	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
 		crossorigin="anonymous"></script>
 	<script src="js/datatables-simple-demo.js"></script>
-
 </body>
 </html>

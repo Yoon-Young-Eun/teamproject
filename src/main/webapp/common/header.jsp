@@ -28,7 +28,7 @@
             <li><a href = "main.jsp">메인으로</a></li>
             <li><a href = "terms.jsp">회원가입</a></li>
             <li><a href = "#">마이페이지</a></li>
-            <li><a href = "/service/service1.jsp">고객센터</a></li>
+            <li><a href = "/service/serviceMain.jsp">고객센터</a></li>
          </ul>
       </nav>
    </div>

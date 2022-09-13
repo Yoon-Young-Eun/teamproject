@@ -375,7 +375,7 @@ ${QnAInfo_q.BOARD_QnA_CONTENT}
 
 </div>
 
-<form action="/insertQnA.mdo" onsubmit="return confirm('정말로 입력하시겠습니까?');" method="GET">
+<form action="/insertQnA.mdo" method="GET">
 <input type="hidden" name="BOARD_QnA_NO" value="${QnAInfo_q.BOARD_QnA_NO}">
 <div class="popup_reply_wrapper" id="layer_reply">
 <div class="customer_reply_wrapper">

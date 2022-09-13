@@ -10,7 +10,7 @@
 <body>
 	<div class="wrap">
 		<div class="pop_btn">
-			<div class="cont">정말로 탈퇴하시겠습니까?</div>
+			<div class="cont">정말로 발송하시겠습니까?</div>
 			<div class="end">
 				<div class="board_btn">
 					<a onclick="pop()">네</a>

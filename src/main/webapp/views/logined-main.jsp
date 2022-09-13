@@ -23,7 +23,13 @@
 </head>
 <body>
 
-<jsp:include page="/common/header.jsp"/> 
+<div id = "header">
+<script>
+$(function(){
+	 $('#header').load("/common/logined-header.jsp");
+});
+</script>
+</div>
 
 <div class="section">
 	<input type="radio" name="slide" id="slide01" checked>

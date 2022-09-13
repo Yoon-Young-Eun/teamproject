@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,8 +24,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-
-<jsp:include page="/common/header.jsp"/> 
+<div id = "header">
+<script>
+$(function(){
+	 $('#header').load("/common/header.jsp");
+});
+</script>
+</div>
 
 <div class="section">
 	<input type="radio" name="slide" id="slide01" checked>
@@ -81,12 +88,12 @@
 
 <div class = "button">
 	<div class = "botton-list">
-		<div class = "btn" onclick = "location.href='login.jsp'">
+		<div id = "booking" class = "btn" onclick = "location.href='/views/login.jsp'">
 			<span class = "btn-title">예약하기</span><br>
 			<span class = "btn-text">당신의 세탁물, <br> 지금 세모에게 맡기세요!</span><br>
 			<span class = "btn-icon"><i class="far fa-calendar-check fa-5x"></i></span>
 		</div>
-		<div class = "btn" onclick = "location.href='login.jsp'">
+		<div id = "tracking" class = "btn" onclick = "location.href='/views/login.jsp'">
 			<span class = "btn-title">세탁현황</span><br>
 			<span class = "btn-text">맡기신 세탁물, <br>진행상황이 궁금하세요?</span><br>
 			<span class = "btn-icon"><i class="fas fa-truck fa-5x"></i></span>
@@ -94,7 +101,7 @@
 	</div>
 </div>
 
-<div class="rbd-core-ui" style = "background-image:url(./resources/img/review-back.png);">
+<div class="rbd-core-ui" style = "background-image:url(/views/resources/img/review-back.png);">
 	<div class="rbd-review-slider" style = "padding : 50px;">
 	<h2 style = "text-align:center; line-height:60px; padding : 20px; color:black;">후★기</h2>
 		<div class="rbd-review-container">
@@ -183,6 +190,5 @@
 </div>
 
 <jsp:include page="/common/footer.jsp"/> 
-
 </body>
 </html>

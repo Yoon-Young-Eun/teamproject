@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.semo.web.admin.dao.AdminDAO;
+import com.semo.web.admin.vo.Ad_EstimateVO;
 import com.semo.web.admin.vo.AdminVO;
 import com.semo.web.admin.vo.PagingVO;
+import com.semo.web.user.vo.EstimateVO;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -54,6 +56,13 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public int getArticleCount(PagingVO pvo) {
 		return admindao.getArticleCount(pvo);
+	}
+
+	
+	//삭제
+	@Override
+	public Ad_EstimateVO getEstimate(int num) {
+		return admindao.getEstimate(num);
 	}
 
 }

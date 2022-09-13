@@ -1,53 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
- 
- <mapper namespace="AdminDAO">
- 
-   <!-- 어드민리스트 검색조건 포함한 게시물 갯수 구하는 쿼리 -->
-  <select id="getArticleCount" resultType="int">
-  <![CDATA[ select count(*) from (select @rownum:= @rownum+1 as rnum, admin_no, admin_id, admin_passwd, admin_position, admin_title, admin_name from admin, (select @rownum :=0)as rowcolum   ]]>
-  <trim prefix="where">
-     <if test="searchCondition=='admin_name'">
-     	<![CDATA[ admin_name like concat('%', #{searchKeyword}, '%')]]></if>
-     	</trim>
-  <![CDATA[order by admin_no desc) as rownum_table ]]>
-   </select>
- 
-  <!-- 로그인 확인 -->
-  <select  id="getAdmin" parameterType="admin" resultType="admin">
+
+<mapper namespace="AdminDAO">
+
+	<!-- 어드민리스트 count -->
+	<select id="getArticleCount" parameterType="paging" resultType="int">
+    <![CDATA[ select count(*) from admin  ]]>
+		<if test="searchCondition=='admin_name'">
+     	<![CDATA[ where admin_name like concat('%', #{searchKeyword}, '%')]]></if> 
+     	 <if test="searchCondition=='admin_id'">
+    	<![CDATA[where admin_id like concat('%', #{searchKeyword}, '%') ]]></if>
+	</select>
+
+
+
+	<!-- 로그인 확인 -->
+	<select id="getAdmin" parameterType="admin" resultType="admin">
   <![CDATA[	select * from admin where admin_id = #{admin_id} and admin_passwd = #{admin_passwd}  ]]>
-  </select>
-  
-  <insert id="setAdmin" parameterType="admin">
-   insert into admin(admin_id, admin_passwd, admin_position, admin_title, admin_name) values(#{admin_id},#{admin_passwd},#{admin_position},#{admin_title},#{admin_name})
-  </insert>
-  
-  <!-- 어드민 리스트 조회 -->
-  <select id="getAdminList" parameterType="paging" resultType="admin"> 
+	</select>
+
+	<insert id="setAdmin" parameterType="admin">
+		insert into admin(admin_id, admin_passwd, admin_position, admin_title,
+		admin_name)
+		values(#{admin_id},#{admin_passwd},#{admin_position},#{admin_title},#{admin_name})
+	</insert>
+
+	<!-- 어드민 리스트 조회 -->
+	<select id="getAdminList" parameterType="paging"
+		resultType="admin"> 
    <![CDATA[select * from (select @rownum := @rownum+1 as rnum, admin_no, admin_id, admin_passwd, admin_position, admin_title, admin_name from admin, (select @rownum :=0)as rowcolum]]>
-			<trim prefix="where" >
-				<if test="searchCondition=='admin_name'">
-    			<![CDATA[ admin_name like concat('%', #{searchKeyword}, '%') ]]></if>
-			</trim>
+			<if test="searchCondition=='admin_name'">
+    		<![CDATA[where admin_name like concat('%', #{searchKeyword}, '%') ]]></if>
+    		<if test="searchCondition=='admin_id'">
+    		<![CDATA[where admin_id like concat('%', #{searchKeyword}, '%') ]]></if>
     <![CDATA[order by admin_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]>
-  </select>
- 
-  <!-- 어드민 상세정보 확인(아이디 클릭시,) -->
-  <select id="getReadStaff" resultType="admin">
+	</select>
+
+	<!-- 어드민 상세정보 확인(아이디 클릭시,) -->
+	<select id="getReadStaff" resultType="admin">
    <![CDATA[ select * from admin where admin_no = #{admin_no} ]]>
-  </select>
-  
-  <update id="updateStaff" parameterType="admin">
-  	update admin set admin_passwd=#{admin_passwd}, admin_position=#{admin_position}, admin_title=#{admin_title} where admin_no = #{admin_no}
-  </update>
-  
-  <delete id="deleteStaff" parameterType="admin">
+	</select>
+
+	<update id="updateStaff" parameterType="admin">
+		update admin set admin_passwd=#{admin_passwd},
+		admin_position=#{admin_position}, admin_title=#{admin_title} where
+		admin_no = #{admin_no}
+	</update>
+
+	<delete id="deleteStaff" parameterType="admin">
    <![CDATA[ delete from admin where admin_no = #{admin_no} ]]>
-  </delete>
-  
-  <!-- 선택박스를 활용하여 다중 삭제하는 쿼리문 -->
-  <delete id="selectedDelete" parameterType="int" >
+	</delete>
+
+	<!-- 선택박스를 활용하여 다중 삭제하는 쿼리문 -->
+	<delete id="selectedDelete" parameterType="int">
    <![CDATA[delete from admin where admin_no=#{admin_no} ]]>
-  </delete>
- </mapper>
+	</delete>
+
+
+
+
+
+	<resultMap id="Joinvo" type="ad_estimate">
+		<result column="estimate_ad_no" property="estimate_ad_no" />
+		<result column="estimate_cm_no" property="estimate_cm_no" />
+		<result column="estimate_price" property="estimate_price" />
+		<result column="estimate_reply_date" property="estimate_reply_date" />
+		<result column="estimate_reply_type" property="estimate_reply_type" />
+		<result column="estimate_type_content" property="estimate_type_content" />
+		<collection resultMap="t_vo" property="estiType" />
+	</resultMap>
+
+	<resultMap id="t_vo" type="estimate_type">
+		<result column="estimate_type_no" property="estimate_type_no" />
+		<result column="estimate_type_title" property="estimate_type_title" />
+		<result column="estimate_type_content" property="estimate_type_content" />
+	</resultMap>
+
+
+
+<select id="getAd_Estimate" parameterType="int" resultMap="Joinvo">
+  <![CDATA[ select a.estimate_type_content, b.estimate_type_title from estimate_ad as a, estimate_type as b where a.estimate_type_content = b.estimate_type_content and estimate_cm_no=#{estimate_cm_no}]]>
+</select>
+
+
+
+<!-- 	<select id="getAd_Estimate" parameterType="int"
+		resultType="ad_estimate">
+  <![CDATA[ select estimate_type.estimate_type_title, estimate_ad.estimate_type_content 
+  from estimate_ad left outer join estimate_type on estimate_ad.estimate_type_content = estimate_type.estimate_type_content where estimate_cm_no=#{estimate_cm_no}]]>
+	</select>
+ -->
+
+
+
+
+</mapper>

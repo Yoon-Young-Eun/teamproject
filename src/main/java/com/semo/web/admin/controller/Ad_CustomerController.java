@@ -62,6 +62,9 @@ public class Ad_CustomerController {
 		System.out.println("회원 목록 검색 처리");
 		
 		System.out.println(pvo);
+			 model.addAttribute("search",pvo);
+		
+		
 		// 페이징 처리
 	      if (pvo.getPageNum() == null) {
 	    	  pvo.setPageNum("1");
@@ -78,7 +81,7 @@ public class Ad_CustomerController {
 	       int count =0; 	
 	       int number = 0;  
 	      
-	       count = memberService.getArticleCount();
+	       count = memberService.getArticleCount(pvo);
 	       List<CustomerVO> articleList = null;
 	       if(count >0) {
 	    	   articleList= memberService.getBoardList(pvo);
@@ -117,6 +120,8 @@ public class Ad_CustomerController {
 		System.out.println("블랙 목록 검색 처리");
 		
 		System.out.println(pvo);
+			model.addAttribute("search",pvo);
+	
 		
 		// 페이징 처리
 	      if (pvo.getPageNum() == null) {
@@ -134,7 +139,7 @@ public class Ad_CustomerController {
 	       int count =0; 	
 	       int number = 0;  
 	      
-	       count = memberService.getArticleCount();
+	       count = memberService.getBlackCount(pvo);
 	       List<CustomerVO> blackList = null;
 	       if(count >0) {
 	    	   blackList= memberService.getBlackList(pvo);  	  

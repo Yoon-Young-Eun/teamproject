@@ -2,8 +2,10 @@ package com.semo.web.admin.service;
 
 import java.util.List;
 
+import com.semo.web.admin.vo.Ad_EstimateVO;
 import com.semo.web.admin.vo.AdminVO;
 import com.semo.web.admin.vo.PagingVO;
+import com.semo.web.user.vo.EstimateVO;
 
 public interface AdminService {
 //
@@ -16,5 +18,6 @@ public interface AdminService {
 	public void selectedDelete(int num);
 	public int getArticleCount(PagingVO pvo);
 	
-	//
+	
+	
 }

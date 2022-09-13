@@ -359,12 +359,7 @@
 
 						<div class="b_button">
 							<!-- 테이블 행 필터 -->
-							<form name="selectname" action="salesProductList.mdo" method="get">
-							   <input type="hidden" name="searchKeyword1" value="${search.searchKeyword1}"/>
-							   <input type="hidden" name="searchKeyword2" value="${search.searchKeyword2}"/>
-							   <input type="hidden" name="searchKeyword3" value="${search.searchKeyword3}"/>
-							   <input type="hidden" name="startDate" value="${search.startDate}"/>
-							   <input type="hidden" name="endDate" value="${search.endDate}"/>						   
+							<form name="selectname" action="salesList.mdo" method="get">
 								<div col-index=8>
 									<select name="selectPage" onchange="this.form.submit()">
 										<option value="">선택</option>
@@ -381,63 +376,74 @@
 							<div>
 								<form action="salesProductList.mdo" method="get">
 									<div class="icon_flex">
-										<div>
-											날짜 선택 : <input type="date" name="startDate" />
-										</div>
-										<div>
-											<input type="date" name="endDate" />
-										</div>
-									
 
 										<div>
-											<div class="searchBtn">
-											   <input type="text" id="se_input" name="searchKeyword1" placeholder="대분류"/>
-											</div>
-										</div>
-										<div>
-											<div class="searchBtn">
-											   <input type="text" id="se_input" name="searchKeyword2" placeholder="중분류" />
-											</div>
-										</div>
-										<div>
-											<div class="searchBtn">
-											   <input type="text" id="se_input" name="searchKeyword3" placeholder="상품명" />
+											<div class="searchBtn" col-index=2>
+												<select name="searchKeyword1" class="table-filter" onchange="filter_rows()">
+													<option name="searchKeyword1" value="all">대분류</option>
+												</select>
 											</div>
 										</div>
 
+										<div>
+											<div class="searchBtn" col-index=3>
+												<select name="searchKeyword2" class="table-filter" onchange="filter_rows()">
+													<option name="searchKeyword2" value="all">중분류</option>
+												</select>
+											</div>
+										</div>
+										<div>
+											<div class="searchBtn" col-index=4>
+												<select name="searchKeyword3" class="table-filter" onchange="filter_rows()">
+													<option name="searchKeyword3" value="all">상품명</option>
+												</select>
+											</div>
+										</div>
 										<div>
 											<input type="submit" id="se_submit" value="검색" />
 										</div>
-										<div> 
-										<input type="reset" id="se_reset" value="초기화" /></div>
+										<div>
+											<input type="button" id="se_reset" value="초기화" />
+										</div>
 									</div>
 								</form>
-							</div> 
-    					</div>
+							</div> <!--  검색end -->
+							
+						</div>
 
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
 						<table id=""
-							class="tblCustomers tblexportData table"
+							class="emp-table dataPerPage tblCustomers tblexportData table"
 							border="5">
 							<thead>
 								<tr>
 									<th col-index=1>주문일자</th>
-									<th>대분류</th>
-									<th>중분류</th>
-									<th>상품명</th>
-									<th>수량</th>
-									<th>결제금액</th>
+									<th class="emp-table" col-index=2>대분류 <select
+										class="table-filter" onchange="filter_rows()">
+											<option value="all"></option>
+									</select>
+									</th>
+									<th class="emp-table" col-index=3>중분류 <select
+										class="table-filter" onchange="filter_rows()">
+											<option value="all"></option>
+									</select>
+									</th>
+									<th class="emp-table" col-index=4>상품명 <select
+										class="table-filter" onchange="filter_rows()">
+											<option value="all"></option>
+									</select>
+									</th>
+									<th col-index=5>수량</th>
+									<th col-index=6>결제금액</th>
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach var="sales" items="${productSalesList}">
+								<c:forEach var="sales" items="${join}">
 									<tr>
-										<td>${sales.order_mt_date}</td>
-										<td>${sales.order_mt_category1}</a></td>
-										<td>${sales.order_mt_category2}</td>
-										<td>${sales.order_mt_product}</td>
-										<td>${sales.order_mt_count}</td>
-										<td>${sales.order_mt_price}</td>
+			
+										<td>${sales.estimate_type_content}</a></td>
+										<td>${sales.estiType.estimate_type_title}</td>
+															
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -458,18 +464,18 @@
 									<c:set var="endPage" value="${pageCount}" />
 								</c:if>
 								<c:if test="${startPage > pageBlock}">
-									<a href="salesProductList.mdo?pageNum=${startPage-pageBlock}&endDate=${search.endDate}&startDate=${search.startDate}&selectPage=${search.selectPage}&searchKeyword1=${search.searchKeyword1}&searchKeyword2=${search.searchKeyword2}&searchKeyword3=${search.searchKeyword3}"><div
+									<a href="salesList.mdo?pageNum=${startPage-pageBlock}"><div
 											class="pageging2">이전</div></a>
 								</c:if>
 								<div class="icon_flex">
 									<c:forEach var="i" begin="${startPage}" end="${endPage}">
-										<a href="salesProductList.mdo?pageNum=${i}&endDate=${search.endDate}&startDate=${search.startDate}&selectPage=${search.selectPage}&searchKeyword1=${search.searchKeyword1}&searchKeyword2=${search.searchKeyword2}&searchKeyword3=${search.searchKeyword3}"><div class="pageging">${i}</div></a>
+										<a href="salesList.mdo?pageNum=${i}"><div class="pageging">${i}</div></a>
 									</c:forEach>
 								</div>
 								<div class="icon_flex">
 									<c:if test="${endPage < pageCount -1}">
-										<a href="salesProductList.mdo?pageNum=${startPage + pageBlock}&endDate=${search.endDate}&startDate=${search.startDate}&selectPage=${search.selectPage}&searchKeyword1=${search.searchKeyword1}&searchKeyword2=${search.searchKeyword2}&searchKeyword3=${search.searchKeyword3}"><div
-												class="pageging2">다음</div></a>               
+										<a href="salesList.mdo?pageNum=${startPage + pageBlock}"><div
+												class="pageging2">다음</div></a>
 									</c:if>
 								</div>
 							</c:if>

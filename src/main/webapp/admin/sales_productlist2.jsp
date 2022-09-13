@@ -137,8 +137,8 @@
 						<div class="collapse" id="change_id_03"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="/salesStoreList.mdo">지점매출</a> <a
-									class="nav-link" href="/salesProductList.mdo">상품매출</a>
+								<a class="nav-link" href="/salesStoreList.mdo">지점매출</a> 
+								<a class="nav-link" href="/salesProductList.mdo">상품매출</a>
 							</nav>
 						</div>
 
@@ -359,12 +359,7 @@
 
 						<div class="b_button">
 							<!-- 테이블 행 필터 -->
-							<form name="selectname" action="salesProductList.mdo" method="get">
-							   <input type="hidden" name="searchKeyword1" value="${search.searchKeyword1}"/>
-							   <input type="hidden" name="searchKeyword2" value="${search.searchKeyword2}"/>
-							   <input type="hidden" name="searchKeyword3" value="${search.searchKeyword3}"/>
-							   <input type="hidden" name="startDate" value="${search.startDate}"/>
-							   <input type="hidden" name="endDate" value="${search.endDate}"/>						   
+							<form name="selectname" action="salesList.mdo" method="get">
 								<div col-index=8>
 									<select name="selectPage" onchange="this.form.submit()">
 										<option value="">선택</option>
@@ -375,58 +370,51 @@
 									</select> entries per page
 								</div>
 							</form>
-
-
-							<!-- 검색기능 -->
+						
+						
+													<!-- 검색기능 -->
 							<div>
-								<form action="salesProductList.mdo" method="get">
+								<form action="adminOrderList.mdo" method="get">
 									<div class="icon_flex">
-										<div>
-											날짜 선택 : <input type="date" name="startDate" />
-										</div>
-										<div>
-											<input type="date" name="endDate" />
-										</div>
-									
 
-										<div>
-											<div class="searchBtn">
-											   <input type="text" id="se_input" name="searchKeyword1" placeholder="대분류"/>
+										<div><select name="searchCondition">
+												<c:forEach items="${conditionMap}" var="option">
+													<div>
+														<option value="${option.value}">${option.key}</option>
+													</div>
+												</c:forEach>
+										</select> <input type="text" id="se_input" name="searchKeyword" /></div>
+											<div>
+												<input type="submit" id="se_submit" value="검색" />
 											</div>
-										</div>
-										<div>
-											<div class="searchBtn">
-											   <input type="text" id="se_input" name="searchKeyword2" placeholder="중분류" />
-											</div>
-										</div>
-										<div>
-											<div class="searchBtn">
-											   <input type="text" id="se_input" name="searchKeyword3" placeholder="상품명" />
-											</div>
-										</div>
-
-										<div>
-											<input type="submit" id="se_submit" value="검색" />
-										</div>
-										<div> 
-										<input type="reset" id="se_reset" value="초기화" /></div>
+											<div> <input type="button" id="se_reset" value="초기화" /></div>
 									</div>
 								</form>
-							</div> 
-    					</div>
-
+							</div>
+						</div>
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
-						<table id=""
-							class="tblCustomers tblexportData table"
+						<table id="" class="emp-table dataPerPage tblCustomers tblexportData table"
 							border="5">
 							<thead>
 								<tr>
 									<th col-index=1>주문일자</th>
-									<th>대분류</th>
-									<th>중분류</th>
-									<th>상품명</th>
-									<th>수량</th>
-									<th>결제금액</th>
+									<th class="emp-table" col-index=2>대분류
+									<select class="table-filter" onchange="filter_rows()">
+											<option value="all"></option>
+									</select>
+									</th>
+									<th class="emp-table" col-index=3>중분류
+									<select class="table-filter" onchange="filter_rows()">
+											<option value="all"></option>
+									</select>
+									</th>
+									<th class="emp-table" col-index=4>상품명
+									<select class="table-filter" onchange="filter_rows()">
+											<option value="all"></option>
+									</select>
+									</th>
+									<th col-index=5>수량</th>
+									<th col-index=6>결제금액</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -458,18 +446,18 @@
 									<c:set var="endPage" value="${pageCount}" />
 								</c:if>
 								<c:if test="${startPage > pageBlock}">
-									<a href="salesProductList.mdo?pageNum=${startPage-pageBlock}&endDate=${search.endDate}&startDate=${search.startDate}&selectPage=${search.selectPage}&searchKeyword1=${search.searchKeyword1}&searchKeyword2=${search.searchKeyword2}&searchKeyword3=${search.searchKeyword3}"><div
+									<a href="salesList.mdo?pageNum=${startPage-pageBlock}"><div
 											class="pageging2">이전</div></a>
 								</c:if>
 								<div class="icon_flex">
 									<c:forEach var="i" begin="${startPage}" end="${endPage}">
-										<a href="salesProductList.mdo?pageNum=${i}&endDate=${search.endDate}&startDate=${search.startDate}&selectPage=${search.selectPage}&searchKeyword1=${search.searchKeyword1}&searchKeyword2=${search.searchKeyword2}&searchKeyword3=${search.searchKeyword3}"><div class="pageging">${i}</div></a>
+										<a href="salesList.mdo?pageNum=${i}"><div class="pageging">${i}</div></a>
 									</c:forEach>
 								</div>
 								<div class="icon_flex">
 									<c:if test="${endPage < pageCount -1}">
-										<a href="salesProductList.mdo?pageNum=${startPage + pageBlock}&endDate=${search.endDate}&startDate=${search.startDate}&selectPage=${search.selectPage}&searchKeyword1=${search.searchKeyword1}&searchKeyword2=${search.searchKeyword2}&searchKeyword3=${search.searchKeyword3}"><div
-												class="pageging2">다음</div></a>               
+										<a href="salesList.mdo?pageNum=${startPage + pageBlock}"><div
+												class="pageging2">다음</div></a>
 									</c:if>
 								</div>
 							</c:if>
@@ -484,6 +472,7 @@
 						<div class="card-footer small text-muted">Updated yesterday
 							at 11:59 PM</div>
 					</div>
+
 				</div>
 			</main>
 			<footer class="py-4 bg-light mt-auto">

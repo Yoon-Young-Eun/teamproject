@@ -11,13 +11,16 @@
 		<typeAlias type="com.semo.web.admin.vo.CustomerVO" alias="customer0"/>
 		<typeAlias type="com.semo.web.admin.vo.MessageVO" alias="message" />
 		<typeAlias type="com.semo.web.admin.vo.PagingVO" alias="paging"/>
-		<typeAlias type="com.semo.web.admin.vo.OrderMtVO" alias="orderManagement"/>
+		
+		<!-- 삭제 -->
+		<typeAlias type="com.semo.web.admin.vo.Ad_EstimateVO" alias="ad_estimate"/>
 
 		<typeAlias type="com.semo.web.user.vo.AddressListVO" alias="CM_ADDRESS" />
 		<typeAlias type="com.semo.web.user.vo.FaqVO" alias="BOARD_FAQ"/>	
 		<typeAlias type="com.semo.web.user.vo.OrderVO" alias="ORDER" />
 		<typeAlias type="com.semo.web.user.vo.CustomerVO2" alias="CUSTOMER"/>
-
+		<typeAlias type="com.semo.web.user.vo.OrderMtVO" alias="orderManagement"/>
+		
 		<typeAlias type="com.semo.web.admin.vo.BannerVO" alias="banner" />
 		<typeAlias type="com.semo.web.admin.vo.CouponVO" alias="coupon" />
 		<typeAlias type="com.semo.web.admin.vo.ProductVO" alias="product" />

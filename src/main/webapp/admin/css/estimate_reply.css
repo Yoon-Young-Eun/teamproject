@@ -4,11 +4,12 @@
 	display: none;
 }
 .popup_wrapper2 {
-	width: 480px;
-	height: 360px;
-	border: 12px solid #eeeeee;
+	width: 500px;
+	height: 800px;
+	border-top : 12px solid #eeeeee;
+	border-right : 12px solid #eeeeee;
+	border-bottom : 12px solid #eeeeee;
 	padding: 16px;
-	margin-top: -12px;
 }
 
 .estimate_reply_conwrap{
@@ -17,10 +18,11 @@
 
 .estimate_reply {
 	display: flex;
+	margin-top: 5px;
+	align-items: center;
 }
 .estimate_reply_head {
 	padding-bottom: 2px;
-	margin-top: 12px;
 	margin-bottom: 12px;
 	border-bottom: 1px solid #dddddd;
 }
@@ -29,23 +31,24 @@
 	margin: 6px 10px 6px 0px;
 	font-size: 20px;
 }
-.estimate_reply_title_body {
+.estimate_reply_body {
 	margin: 6px 0px;
+	display: flex;
+	align-items: center;
 }
-.estimate_reply_date_body {
-	margin: 10px 0px 0px 0px;
-}
-.estimate_reply_content_body {
-	margin: 6px 0px;
-}
-.estimate_reply_title_body>input {
+
+.estimate_reply_body > input {
 	padding : 0px 0px 0px 4px;
 	width: 240px;
 	height: 30px;
 }
-.estimate_reply_content_body>select {
+.estimate_reply_body > select {
 	width: 240px;
 	height: 30px;
+}
+
+.estimate_reply_content_body {
+	
 }
 
 /* 버튼 */
@@ -60,4 +63,17 @@
 	padding: 10px;
 	border-radius: 10px;
 	background: #dee2e6;
+}
+
+.board_btn input{
+	font-size: 16px;
+	font-weight: bold;
+	border : none;
+	background-color: #dee2e6;
+}
+
+.board_btn input:hover {
+	font-weight: bold;
+	text-decoration: underline;
+	color: white;
 }

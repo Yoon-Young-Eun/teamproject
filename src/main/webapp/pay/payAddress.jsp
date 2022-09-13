@@ -33,11 +33,12 @@
     <div class="main_text1">
       수거주소 선택하기
     </div>
+    <form action="/OrderAddress.do">
     <div class="main_text2">
       <div class="address1">주소지관리</div>
       <div class="address2">
         
-        <input type="text" name="customer_no" value="${sendCustomer.customer_no }" style="display: none" id="customnumber">
+        <input type="text" name="customer_no" value="${sendCustomer.customer_no }"  id="customnumber">
         <div class="address3">
           <div class="aa" >
         <input type="hidden" value="기본주소" id="ad1" readonly class="address_name">
@@ -77,11 +78,12 @@
       </div>
       </div>
       <div class="address5">
-       <input type="hidden" id="password" value="" placeholder="#1234 , 종1234" class="password"> 
+       <input type="hidden" id="password" value="${gatepswd.cm_gate_passwd }" placeholder="#1234 , 종1234" class="password" name="cm_gate_passwd"> 
         <div class="address_pass" style="display: flex">
-        <div class="address_pass1">출입비밀번호:</div>
-        <div class="address_pass2" id="z5"></div>
+        <div class="address_pass1" >출입비밀번호:</div>
         
+        <div class="address_pass2" id="z5" ></div>
+        <input type="hidden" value="${sendCustomer.customer_name }" name="customer_name">
         
         </div>
       </div>
@@ -91,8 +93,10 @@
     </div> 
 
     <div class="add_button">
-      <input type="button" id="add_button1" value="선택완료" onclick="location.href='/pay/pay5.jsp'" class="action-button shadow animate blue" style="font-size: 20px; width: 200px; height: 50px; margin: 0px;">
+      <input type="submit" id="add_button1" value="선택완료"  class="action-button shadow animate blue" style="font-size: 20px; width: 200px; height: 50px; margin: 0px;">
     </div>
+    </form>
+    
   </div>
   <div class="space_right"></div>
 </div>

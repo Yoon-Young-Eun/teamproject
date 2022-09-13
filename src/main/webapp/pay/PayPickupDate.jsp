@@ -31,6 +31,7 @@
     <div class="main">
     <div class="space_left"></div>
     <div class="main_box">
+    
      <div class="main_content">
      <div class="main_text">
       수거일 선택하기
@@ -39,10 +40,10 @@
      <div class="main_text2">
       수거를 원하는 날짜를 선택하세요
      </div>
-
+	<form action="/OrderAddressTime.do">
      <div class="main_text3">
       <div class="main_text4">
-        <input type="date" id="datepicker">
+        <input type="date" id="datepicker" name="order_pickup_date">
       </div>
      </div>
      <div class="main_time">
@@ -51,25 +52,34 @@
       </div>
       <div class="main_time2">
         <div class="main_time3">
-        <input type="radio" name="timeselect" id="radio1" onclick="#">
-        <label id="label1">오전</label>
+        <input type="radio" name="order_pickup_time" id="radio1" onclick="#" value="08:00 ~ 14:00">08:00 ~ 14:00
+        
       </div>
         <div class="main_time4">
-        <input type="radio" name="timeselect" id="radio1" onclick="#">
-        <label id="label1">오후</label>
+        <input type="radio" name="order_pickup_time" id="radio1" onclick="#" value="14:00 ~ 18:00">14:00 ~ 18:00
+        
       
     </div>
+    
       </div>
      </div>
 
      <div class="main_text5">
-      <form action="#" id="form1">
-      <input type="button" value="다음단계" id="button1" onclick="location.href='address.html'" class="action-button shadow animate blue" >
+      
+      <input type="submit" value="다음단계" id="button1" onclick="location.href='/OrderAddressTime.do'" class="action-button shadow animate blue" >
       <input type="button" value="이전으로" id="button2" onclick="location.href='paymain.html'" class="action-button shadow animate blue" >
-    </form>
+      <input type="hidden" value="${OrderAddress.customer_no}" name="customer_no">
+    <input type="hidden" value="${OrderAddress.customer_address1 }" name="order_address1">
+    <input type="hidden" value="${OrderAddress.customer_address2}" name="order_address2">
+    <input type="hidden" value="${OrderAddress.customer_phone }" name="order_customer_phone">
+    <input type="hidden" value="${OrderAddress.customer_name }" name="order_customer_name">
+    <input type="hidden" value="${gatepswd.cm_gate_passwd }" name="cm_gate_passwd">
   </div>
+  </form>
+  
     
     </div>
+   
     
     
     

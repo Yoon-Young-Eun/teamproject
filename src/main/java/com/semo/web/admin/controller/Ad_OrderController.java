@@ -16,8 +16,8 @@ import com.semo.web.admin.service.UtilService;
 import com.semo.web.admin.util.CoolSms;
 import com.semo.web.admin.vo.CustomerVO;
 import com.semo.web.admin.vo.MessageVO;
-import com.semo.web.admin.vo.OrderMtVO;
 import com.semo.web.admin.vo.PagingVO;
+import com.semo.web.user.vo.OrderMtVO;
 import com.semo.web.user.vo.OrderVO;
 
 @Controller

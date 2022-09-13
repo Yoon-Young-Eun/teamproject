@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.semo.web.admin.service.SalesService;
 import com.semo.web.admin.vo.MessageVO;
-import com.semo.web.admin.vo.OrderMtVO;
 import com.semo.web.admin.vo.PagingVO;
+import com.semo.web.user.vo.OrderMtVO;
 import com.semo.web.user.vo.OrderVO;
 
 @Controller

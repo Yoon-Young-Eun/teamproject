@@ -13,6 +13,7 @@ public class CustomerVO2 {
 	private String customer_address1;
 	private String customer_address2;
 	private String customer_birth;
+	private String customer_gate_password;
 	private int customer_status;
 	public int getCustomer_no() {
 		return customer_no;
@@ -80,6 +81,12 @@ public class CustomerVO2 {
 	public void setCustomer_birth(String customer_birth) {
 		this.customer_birth = customer_birth;
 	}
+	public String getCustomer_gate_password() {
+		return customer_gate_password;
+	}
+	public void setCustomer_gate_password(String customer_gate_password) {
+		this.customer_gate_password = customer_gate_password;
+	}
 	public int getCustomer_status() {
 		return customer_status;
 	}
@@ -93,7 +100,7 @@ public class CustomerVO2 {
 				+ ", customer_join_date=" + customer_join_date + ", customer_sms_permit=" + customer_sms_permit
 				+ ", customer_zipcode=" + customer_zipcode + ", customer_address1=" + customer_address1
 				+ ", customer_address2=" + customer_address2 + ", customer_birth=" + customer_birth
-				+ ", customer_status=" + customer_status + "]";
+				+ ", customer_gate_password=" + customer_gate_password + ", customer_status=" + customer_status + "]";
 	}
 	
 	

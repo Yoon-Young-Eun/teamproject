@@ -1,16 +1,14 @@
-<<<<<<< HEAD
-=======
 package com.semo.web.user.vo;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class OrderVO {
 	private int order_no;
 	private String order_type;
-	private String order_product;
 	private int store_code;
 	private Date order_date;
 	private Date order_pickup_date;
+	private String order_pickup_time;
 	private String cm_gate_passwd;
 	private String order_request1;
 	private String order_request2;
@@ -39,12 +37,6 @@ public class OrderVO {
 	public void setOrder_type(String order_type) {
 		this.order_type = order_type;
 	}
-	public String getOrder_product() {
-		return order_product;
-	}
-	public void setOrder_product(String order_product) {
-		this.order_product = order_product;
-	}
 	public int getStore_code() {
 		return store_code;
 	}
@@ -62,6 +54,12 @@ public class OrderVO {
 	}
 	public void setOrder_pickup_date(Date order_pickup_date) {
 		this.order_pickup_date = order_pickup_date;
+	}
+	public String getOrder_pickup_time() {
+		return order_pickup_time;
+	}
+	public void setOrder_pickup_time(String order_pickup_time) {
+		this.order_pickup_time = order_pickup_time;
 	}
 	public String getCm_gate_passwd() {
 		return cm_gate_passwd;
@@ -161,9 +159,9 @@ public class OrderVO {
 	}
 	@Override
 	public String toString() {
-		return "OrderVO [order_no=" + order_no + ", order_type=" + order_type + ", order_product=" + order_product
-				+ ", store_code=" + store_code + ", order_date=" + order_date + ", order_pickup_date="
-				+ order_pickup_date + ", cm_gate_passwd=" + cm_gate_passwd + ", order_request1=" + order_request1
+		return "OrderVO [order_no=" + order_no + ", order_type=" + order_type + ", store_code=" + store_code
+				+ ", order_date=" + order_date + ", order_pickup_date=" + order_pickup_date + ", order_pickup_time="
+				+ order_pickup_time + ", cm_gate_passwd=" + cm_gate_passwd + ", order_request1=" + order_request1
 				+ ", order_request2=" + order_request2 + ", order_price=" + order_price + ", order_use_coupon_price="
 				+ order_use_coupon_price + ", order_status=" + order_status + ", order_price_status="
 				+ order_price_status + ", order_price_method=" + order_price_method + ", customer_no=" + customer_no
@@ -175,7 +173,5 @@ public class OrderVO {
 	
 	
 	
-	
-	
 }
->>>>>>> main
+

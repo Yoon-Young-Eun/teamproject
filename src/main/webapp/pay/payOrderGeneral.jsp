@@ -173,7 +173,7 @@
 										<div class="main_text4">
 											<div class="main_text9">
 											<input type="hidden" value="${Top.product_code }" name="product_Array_code">
-			<input type="text" value="${Top.product_category_parent }"name="order_mtArray_category1"> 
+			<input type="hidden" value="${Top.product_category_parent }"name="order_mtArray_category1"> 
 	        <input type="text" value="${Top.product_category_median }" id="median" readonly name="order_mtArray_category2">
 
 											</div>
@@ -457,6 +457,7 @@
 								value="${OrderData.order_pickup_time }" name="order_pickup_time">
 							<input type="hidden" value="${OrderData.order_type}"
 								name="order_type">
+							<input type="hidden" value="${OrderData.order_use_coupon_price }" name="order_use_coupon_price">
 
 							<div class="main_text10">
 								<input type="submit" value="주문하기" id="pay"

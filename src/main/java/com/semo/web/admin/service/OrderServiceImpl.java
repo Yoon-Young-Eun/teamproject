@@ -6,19 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.semo.web.admin.dao.OrderDAO;
-<<<<<<< HEAD
-=======
-import com.semo.web.admin.vo.OrderMtVO;
 import com.semo.web.admin.vo.Ad_EstimateVO;
->>>>>>> main
-import com.semo.web.admin.vo.CustomerVO;
 import com.semo.web.admin.vo.Estimate_T_VO;
 import com.semo.web.admin.vo.PagingVO;
-<<<<<<< HEAD
-import com.semo.web.user.vo.OrderMtVO;
-=======
 import com.semo.web.user.vo.EstimateVO;
->>>>>>> main
+import com.semo.web.user.vo.OrderMtVO;
 import com.semo.web.user.vo.OrderVO;
 
 

@@ -13,7 +13,7 @@ import com.semo.web.admin.vo.ProductVO;
 import com.semo.web.admin.vo.TermsVO;
 import com.semo.web.user.service.OrderService;
 import com.semo.web.user.vo.CouponListVO;
-import com.semo.web.user.vo.CustomerVO2;
+import com.semo.web.user.vo.CustomerVO;
 import com.semo.web.user.vo.DataSendVO;
 import com.semo.web.user.vo.OrderMtArrayVO;
 import com.semo.web.user.vo.OrderMtVO;
@@ -27,7 +27,7 @@ public class OrderController {
 	OrderService orderservice;
 
 	@RequestMapping(value = "/OrderAddress.do", method = RequestMethod.GET)
-	public String OrderAddress(CustomerVO2 vo, OrderVO vo1, Model model) {
+	public String OrderAddress(CustomerVO vo, OrderVO vo1, Model model) {
 		System.out.println(vo);
 		System.out.println(vo1);
 
@@ -128,7 +128,8 @@ public class OrderController {
 		}else {
 			vo.setOrder_delivery_price(3500);
 		}
-		
+		int price = vo.getOrder_price() + vo.getOrder_delivery_price();
+		model.addAttribute("price",price);
 		System.out.println(vo.getOrder_delivery_price());
 		
 		
@@ -136,19 +137,20 @@ public class OrderController {
 		List<TermsVO> terms = orderservice.selectTerms();
 		model.addAttribute("terms",terms);
 		System.out.println(terms);
+		int price1 = vo.getOrder_price();
+		model.addAttribute("price1",price1);
 		
 	
 		return "/pay/payOrderGeneralCheck.jsp";
 	}
 	
-	@RequestMapping(value="/OrderPay.do",method=RequestMethod.GET)
-	public String OrderPay(OrderVO vo,OrderMtVO vo1) {
-		System.out.println(vo);
-		System.out.println(vo1);
-		
-		return "/pay/payGeneralComplete.jsp";
-	}
-
+	/*
+	 * @RequestMapping(value="/OrderPay.do",method=RequestMethod.GET) public String
+	 * OrderPay(OrderVO vo,OrderMtVO vo1) { System.out.println(vo);
+	 * System.out.println(vo1);
+	 * 
+	 * return "/pay/payGeneralComplete.jsp"; }
+	 */
 	
 	@RequestMapping(value="/OrderCoupon.do" ,method=RequestMethod.GET)
 	public String OrderCoupon(OrderVO vo,Model model,CouponListVO cvo) {

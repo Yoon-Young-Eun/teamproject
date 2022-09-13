@@ -40,24 +40,18 @@ public class AddressImpl implements AddressService {
 	}
 
 	@Override
-<<<<<<< HEAD
-	public CustomerVO2 sendCustomer(CustomerVO2 vo) {
 
-=======
 	public CustomerVO sendCustomer(CustomerVO vo) {
 		
->>>>>>> main
+
 		return addressdao.sendCustomer(vo);
 	}
 
 	@Override
-<<<<<<< HEAD
-	public List<AddressListVO> getAddressList(CustomerVO2 vo) {
 
-=======
 	public List<AddressListVO> getAddressList(CustomerVO vo) {
 		
->>>>>>> main
+
 		return addressdao.getAddressList(vo);
 	}
 	
@@ -73,5 +67,7 @@ public class AddressImpl implements AddressService {
 		return addressdao.selectCustomerAddress(vo);
 		
 	}
+
+
 
 }

@@ -98,7 +98,7 @@
           
         </div>
         <div class="price2">
-          <input type="text" value="${OrderData.order_price }"id="price_text1" readonly>
+          <input type="text" value="${price1}"id="price_text1" readonly>
           <input type="text" value="원" id="price_text1" readonly style="width:30px;">
         </div>
       </div>
@@ -164,7 +164,7 @@
             <input type="text" value="세탁비용 : " id="price_text" readonly>
           </div>
           <div class="price2" id="price2">
-            <input type="text" value="${OrderData.order_price }" id="price_text1" readonly>
+            <input type="text" value="${price1}" id="price_text1" readonly>
             <input type="text" value="원" id="price_text1" readonly style="width:30px;">
           </div>
         </div>
@@ -174,8 +174,8 @@
           <input type="text" value="쿠폰할인 : " readonly id="cou22">
         </div>
         <div class="pay7" style="display:flex">
-          <input type="hidden" value="" id="cou111" readonly name="order_use_coupon_price">
-          <div id="q1" style="width:150px; text-align:right;font-size:20px;padding-right:3px;" >0</div>
+          <input type="hidden" value="${OrderData.order_use_coupon_price }" id="cou111" readonly name="order_use_coupon_price">
+          <div id="q1" style="width:150px; text-align:right;font-size:20px;padding-right:3px;" ></div>
           <input type="text" value="원" id="cou11" readonly style="width:30px;">
         </div>
         
@@ -197,7 +197,7 @@
         <div class="total1" style="display: flex">
           <input type="text" value="최종금액 :" class="total_price1" id="cou33" readonly>
           <input type="hidden" value="" id="cou444" readonly  name="order_price">
-          <div id="q2" style="width:150px; text-align:right;font-size:20px;padding-right:3px;" ></div>
+          <div id="q2" style="width:150px; text-align:right;font-size:20px;padding-right:3px;" >${price}</div>
           <input type="text" value="원" id="cou44" readonly style="width:30px;">
         </div> 
        
@@ -254,23 +254,26 @@
 
 
 
-
       <div class="bt1" style="width:1000px;">
         <input type="submit" id="but1" value="결제하기" onclick="order()" class="action-button shadow animate blue">
         <input type="button" id="but2" value="취소하기" class="action-button shadow animate blue" >
       </div>
+    
+      
+
+      
+      
+      
+      
       <script>
         document.getElementById("but1").addEventListener("click",function order(){
           var money1 = document.getElementById("price_text1").value;
           var abc = /[^0-9]/g;
           var totalpay = Number(money1.replace(abc,""));
 			
-          if(totalpay >= 15000){
-            location.href='/pay/pay12.jsp';
-          }else{
-            alert("최소주문 금액은 15000원 입니다.");
-          }
-
+        /*   if(totalpay > 15000){
+            location.href='/OrderInsert.do';
+          } */
 
         })
 

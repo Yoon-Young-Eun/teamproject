@@ -19,13 +19,9 @@ public class AddressDAO {
 		System.out.println("setAddressDAO 메서드 실행");
 		sqltemplate.insert("AddressDAO.setAddress", vo);
 	}
-<<<<<<< HEAD
 
-	public List<AddressListVO> getAddressList(CustomerVO2 vo) {
-=======
-	
 	public List<AddressListVO> getAddressList(CustomerVO vo) {
->>>>>>> main
+
 		System.out.println("getAddressDAO 메서드 실행");
 		return sqltemplate.selectList("AddressDAO.getAddressList", vo);
 
@@ -45,19 +41,16 @@ public class AddressDAO {
 		System.out.println("sendAddressDAO 메서드 실행");
 		return sqltemplate.selectOne("AddressDAO.sendAddressList", vo);
 	}
-<<<<<<< HEAD
 
-	public CustomerVO2 sendCustomer(CustomerVO2 vo) {
-=======
 	public CustomerVO sendCustomer(CustomerVO vo) {
->>>>>>> main
+
 		System.out.println("sendCustomerDAO 메서드 실행");
 		return sqltemplate.selectOne("AddressDAO.sendCustomer", vo);
 	}
-	
+
 	public AddressListVO selectCustomerAddress(AddressListVO vo) {
 		System.out.println("selectCustomerAddressDAO 메서드 실행");
-		return sqltemplate.selectOne("AddressDAO.selectCustomerAddress",vo);
+		return sqltemplate.selectOne("AddressDAO.selectCustomerAddress", vo);
 	}
 
 	public void updateCustomerAddress(AddressListVO vo) {

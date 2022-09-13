@@ -2,16 +2,11 @@ package com.semo.web.admin.service;
 
 import java.util.List;
 
-<<<<<<< HEAD
-import com.semo.web.admin.vo.PagingVO;
-import com.semo.web.user.vo.OrderMtVO;
-=======
 import com.semo.web.admin.vo.Ad_EstimateVO;
 import com.semo.web.admin.vo.Estimate_T_VO;
-import com.semo.web.admin.vo.OrderMtVO;
 import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.user.vo.EstimateVO;
->>>>>>> main
+import com.semo.web.user.vo.OrderMtVO;
 import com.semo.web.user.vo.OrderVO;
 
 public interface OrderService {

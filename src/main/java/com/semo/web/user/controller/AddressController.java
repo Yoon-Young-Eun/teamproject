@@ -12,11 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.semo.web.user.service.AddressService;
 import com.semo.web.user.vo.AddressListVO;
-<<<<<<< HEAD
-import com.semo.web.user.vo.CustomerVO2;
-=======
 import com.semo.web.user.vo.CustomerVO;
->>>>>>> main
+
 
 @Controller
 public class AddressController {
@@ -32,17 +29,14 @@ public class AddressController {
 		return "/getAddressList.do";
 
 	}
-<<<<<<< HEAD
 
-	@RequestMapping(value = "/getAddressList.do", method = RequestMethod.GET)
-	public String getAddressList(AddressListVO avo, Model model, CustomerVO2 vo) {
 
-=======
+
 	
 	@RequestMapping(value="/getAddressList.do" ,method = RequestMethod.GET)
 	public String getAddressList(AddressListVO avo, Model model, CustomerVO vo) {
 		
->>>>>>> main
+
 		System.out.println(vo);
 		System.out.println("getAddress 메서드 실행");
 
@@ -94,25 +88,18 @@ public class AddressController {
 		model.addAttribute("vo", vo);
 		return "/pay/payaddressupdate.jsp";
 	}
-<<<<<<< HEAD
-
-	@RequestMapping(value = "/sendCustomer.do", method = RequestMethod.GET)
-	public String sendCustomer(CustomerVO2 vo, Model model) {
-=======
 	
-	
-	@RequestMapping(value="/updateCustomerAddress.do",method=RequestMethod.GET)
-	public String updateCustomerAddress(AddressListVO vo1, Model model) {
-		
-		System.out.println(vo1);
-		System.out.println("updateCustomerAddress메서드 실행");
-		addressservice.updateCustomerAddress(vo1);
-		return "/pay/payAddress.jsp";
-	}
+	/*
+	 * @RequestMapping(value="/updateCustomerAddress.do",method=RequestMethod.GET)
+	 * public String updateCustomerAddress(AddressListVO vo1, Model model) {
+	 * 
+	 * System.out.println(vo1); System.out.println("updateCustomerAddress메서드 실행");
+	 * addressservice.updateCustomerAddress(vo1); return "/pay/payAddress.jsp"; }
+	 */
 	
 	@RequestMapping(value="/sendCustomer.do", method=RequestMethod.GET)
 	public String sendCustomer(CustomerVO vo,Model model) {
->>>>>>> main
+
 		System.out.println(vo);
 		System.out.println("sendCustomer 메서드 실행");
 
@@ -124,7 +111,7 @@ public class AddressController {
 	}
 	
 	@RequestMapping(value="/updateCustomerAddress.do",method = RequestMethod.GET)
-	public String updateCustomerAddress(AddressListVO vo,CustomerVO2 vo1,Model model) {
+	public String updateCustomerAddress(AddressListVO vo,CustomerVO vo1,Model model) {
 		System.out.println(vo);
 		
 		vo = addressservice.selectCustomerAddress(vo);

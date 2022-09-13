@@ -19,11 +19,8 @@ import com.semo.web.admin.vo.CustomerVO;
 import com.semo.web.admin.vo.Estimate_T_VO;
 import com.semo.web.admin.vo.MessageVO;
 import com.semo.web.admin.vo.PagingVO;
-<<<<<<< HEAD
-import com.semo.web.user.vo.OrderMtVO;
-=======
 import com.semo.web.user.vo.EstimateVO;
->>>>>>> main
+import com.semo.web.user.vo.OrderMtVO;
 import com.semo.web.user.vo.OrderVO;
 
 @Controller

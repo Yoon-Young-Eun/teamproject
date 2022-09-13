@@ -10,7 +10,7 @@
 <!-- font awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 <!-- resources -->
-<link rel="stylesheet" href="./css/header.css"/>
+<link rel="stylesheet" href="/common/css/header.css"/>
 <!-- JQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!-- fonts -->
@@ -20,21 +20,23 @@
 
 </head>
 
-<header>
+<body>
+
+<form action="/logout.do" method = "post">
+<header id = "header">
    <div class = "top-menu-wrapper" >
       <h1>△■</h1>
       <nav class = "top-menu">
          <ul class = "top-list">
-         	<li style = "line-height : 68px; padding-right:30px;">반갑습니다, <b>김애링</b>님!</li>
-            <li><a href = "main.jsp">로그아웃</a></li>
+         	<li style = "line-height : 68px; padding-right:30px;">반갑습니다, <b>${CustomerVO.customer_name}</b>님!</li>
+            <li><input class = "logout" type="submit" value="로그아웃"/></li>
             <li><a href = "#">마이페이지</a></li>
-            <li><a href = "#">고객센터</a></li>
+            <li><a href = "/service/serviceMain.jsp">고객센터</a></li>
          </ul>
       </nav>
    </div>
 </header>
-
-<body>
+</form>
 
 <nav id="cbp-hrmenu" class="cbp-hrmenu">
    <ul>
@@ -59,7 +61,7 @@
                <div>
                   <h4>서비스 지역</h4>
                   <ul>
-                     <li><a href="#">서울</a></li>
+                     <li><a href="/views/service-location.jsp">서울</a></li>
                   </ul>
                </div>
             </div><!-- hrsub inner -->
@@ -102,8 +104,8 @@
                <div>
                   <h4>어서오세야</h4>
                   <ul>
-                     <li><a href="company-info.jsp#hello">인삿말</a></li>
-                     <li><a href="company-info.jsp#info">회사소개</a></li>
+                     <li><a href="/views/company-info.jsp#hello">인삿말</a></li>
+                     <li><a href="/views/company-info.jsp#info">회사소개</a></li>
                   </ul>
                </div>
             </div><!-- hrsub inner -->
@@ -160,5 +162,7 @@ $(function() {
 });
 </script>
 </nav>
+
 </body>
+
 </html>

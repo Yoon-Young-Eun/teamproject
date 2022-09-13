@@ -4,7 +4,7 @@ import com.semo.web.user.vo.CustomerVO;
 
 public interface CustomerService {
 	
-	// 회원 정보 수집
+	// 회원 정보 수집, 로그인
 	public CustomerVO getMember(CustomerVO vo);
 
 	// 아이디 중복 체크

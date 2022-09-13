@@ -31,23 +31,28 @@ public class CustomerController {
 		CustomerVO vo2 = userservice.getMember(vo);
 		System.out.println(userservice.getMember(vo));
 		model.addAttribute("user", vo2);
+		model.addAttribute("id", vo2);
 		System.out.println(vo2);
 		if (vo2 != null) {
 			System.out.println("로그인!");
 
 			session.setAttribute("user_name", vo2.getCustomer_name());
+			session.setAttribute("id", vo2.getCustomer_id());
 			return "/views/logined-main.jsp";
 
 		} else {
 			System.out.println("로그인 실패");
 			return "/views/login.jsp";
 		}
+		
+		
 	}
-	
 
 	// 로그아웃
-	@RequestMapping(value = "/logout.do", method = RequestMethod.GET)
-	public String logout(HttpSession session) {
+	@RequestMapping(value = "/logout.do", method = RequestMethod.POST)
+	public String logout(HttpSession session, Model model) {
+		session.invalidate();
+		System.out.println("정상적인 로그아웃");
 		return "/views/main.jsp";
 	}
 
@@ -63,9 +68,10 @@ public class CustomerController {
 
 		return result;
 	}
+	
 
-	// 회원가입
-	@RequestMapping(value = "/complete.do", method = RequestMethod.POST)
+	// 회원가입 완료 페이지 이동
+	@RequestMapping(value = "/complete.do", method = RequestMethod.GET)
 	public String join(CustomerVO vo, HttpSession session, Model model) {
 		System.out.println(vo);
 		System.out.println("join check");
@@ -74,5 +80,8 @@ public class CustomerController {
 		System.out.println(vo.getCustomer_name());
 		return "/views/complete.jsp";
 	}
+	
+	
+	
 
 }

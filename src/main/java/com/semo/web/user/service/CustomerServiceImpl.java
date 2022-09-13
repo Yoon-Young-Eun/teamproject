@@ -13,7 +13,7 @@ public class CustomerServiceImpl implements CustomerService{
 	CustomerDAO dao;
 	
 
-	// 회원 정보 수집
+	// 회원 정보 수집, 로그인
 	@Override
 	public CustomerVO getMember(CustomerVO vo) {
 		return dao.getUser(vo);
@@ -25,7 +25,8 @@ public class CustomerServiceImpl implements CustomerService{
 		return dao.idCheck(id);
 		
 	}
-
+	
+	// 회원가입
 	@Override
 	public void insertMember(CustomerVO vo) {
 		dao.insertUser(vo);

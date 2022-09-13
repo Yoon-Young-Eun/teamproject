@@ -23,7 +23,24 @@
 </head>
 <body>
 
-<jsp:include page="../common/header.jsp"/> 
+<form action="/login.do">
+<div id = "header">
+<script>
+$(function(){
+	
+	var id = "${id}";
+	
+	if (id == ""){
+		$('#header').load("/common/header.jsp");
+	} else {
+		$('#header').load("/common/logined-header.jsp");
+	}
+	
+
+});
+</script>
+</div>
+</form>
 
 <jsp:include page="../common/footer.jsp"/> 
 

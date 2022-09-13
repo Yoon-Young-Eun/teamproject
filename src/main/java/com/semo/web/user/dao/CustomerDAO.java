@@ -11,7 +11,7 @@ public class CustomerDAO {
 	@Autowired
 	private SqlSessionTemplate sql;
 	
-	//회원 정보 수집
+	//회원 정보 수집, 로그인
 	public CustomerVO getUser(CustomerVO vo){
 		System.out.println("CustoemrDAO ");
 		CustomerVO vo1 = sql.selectOne("CustomerVO.getMember", vo);
@@ -30,5 +30,6 @@ public class CustomerDAO {
 		System.out.println("CustomerDAO");
 	 sql.insert("CustomerVO.insertMember", vo);
 	}
+	
 
 }

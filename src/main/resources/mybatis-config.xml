@@ -13,6 +13,10 @@
       <typeAlias type="com.semo.web.admin.vo.PagingVO" alias="paging"/>
       <typeAlias type="com.semo.web.admin.vo.OrderMtVO" alias="orderManagement"/>
 
+		<typeAlias type="com.semo.web.admin.vo.ReviewVO" alias="board_review"/>
+		<typeAlias type="com.semo.web.admin.vo.FAQVO" alias="FAQ"/>
+		<typeAlias type="com.semo.web.admin.vo.Ad_QnAVO" alias="Ad_QnA"/>
+
       <typeAlias type="com.semo.web.user.vo.AddressListVO" alias="CM_ADDRESS" />
       <typeAlias type="com.semo.web.user.vo.FaqVO" alias="BOARD_FAQ"/>   
       <typeAlias type="com.semo.web.user.vo.OrderVO" alias="ORDER" />
@@ -35,6 +39,7 @@
       
    </typeAliases>
 
+
    <!-- <mappers> 엘리먼트는 여러 <mapper>를 가질 수 있으며 이 <mapper>를 이용하여 SQL 명령어들이 저장된 
       SQL 파일을 등록할 수 있다. -->
       
@@ -53,6 +58,13 @@
       <mapper resource="mappings/ad_order-mapping.xml"/>
       <mapper resource="mappings/ad_sales-mapping.xml"/>
                               
+<<<<<<< HEAD
+		<mapper resource="mappings/user_address-mapping.xml"/>
+		<mapper resource="mappings/user_faq-mapping.xml"/>
+		<mapper resource="mappings/user_qna-mapping.xml"/>
+		
+	</mappers>
+=======
       <mapper resource="mappings/user_address-mapping.xml"/>
       <mapper resource="mappings/user_faq-mapping.xml"/>
       
@@ -63,5 +75,6 @@
       <mapper resource="mappings/user-customer-mapping.xml" /> 
 
    </mappers>
+>>>>>>> main
 </configuration>
  

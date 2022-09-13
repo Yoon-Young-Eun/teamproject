@@ -383,8 +383,10 @@
 									<div class="board_btn">
 										<a href="/getUpdate.mdo?notice_no=${board.notice_no}">수정</a>
 									</div>
+
 									<div class="board_btn">
 										<a href="/deleteBoard.mdo?notice_no=${board.notice_no}">삭제</a>
+
 									</div>
 									<div class="board_btn">
 										<a href="/getBoardList.mdo">목록</a>

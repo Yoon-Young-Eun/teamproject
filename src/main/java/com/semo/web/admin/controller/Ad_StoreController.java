@@ -1,5 +1,6 @@
 package com.semo.web.admin.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.semo.web.admin.service.SiteService;
 import com.semo.web.admin.service.StoreService;
 import com.semo.web.admin.vo.StoreVO;
+import com.semo.web.admin.vo.TermsVO;
 
 @Controller
 public class Ad_StoreController {
@@ -69,13 +71,32 @@ public class Ad_StoreController {
 		return "/StoreList.mdo"; // 완료후 다시 어드민목록으로 가야되기 때문에 StoreList.mdo로 보내서 
 	}
 	
-	// 매장 삭제 (아직 체크박스를 눌러 삭제하는 기능은 구현 못함)
+	// 매장 삭제
 	@RequestMapping(value="/deleteStore.mdo", method=RequestMethod.GET)
 	public String deleteStore(StoreVO vo, Model model) {
 		System.out.println(vo);
 		System.out.println("deleteStore 메서드 실행");
 		StoreService.deleteStore(vo);
 		System.out.println("완료!");
+		return "/StoreList.mdo";
+	}
+	
+	// 매장 삭제 (체크박스)
+	@RequestMapping("/deleteStoreCheck.mdo")
+	public String deleteTermsCheck(String[] tdArr, StoreVO vo) {
+		System.out.println(tdArr[0]);
+		System.out.println("글 삭제 처리");
+
+		if(tdArr!=null) {
+			List<Integer> arr2 = new ArrayList<Integer>();
+			for(int a=0; a<tdArr.length; a++) {
+				System.out.println("dhsi");
+				arr2.add(Integer.parseInt(tdArr[a])) ;
+				System.out.println(arr2.get(a)+"tes");
+				vo.setStore_code(arr2.get(a));
+				StoreService.deleteStore(vo.getStore_code());
+			}
+		}
 		return "/StoreList.mdo";
 	}
 }

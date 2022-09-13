@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.semo.web.admin.vo.FAQVO;
 import com.semo.web.user.dao.FaqDAO;
-import com.semo.web.user.vo.FaqVO;
 
 @Service
 public class FaqServiceImpl implements FaqService {
@@ -15,13 +15,13 @@ public class FaqServiceImpl implements FaqService {
 	FaqDAO faqdao;
 
 	@Override
-	public List<FaqVO> getFaqList(String de) {
+	public List<FAQVO> getFaqList(String de) {
 		
 		return faqdao.getFaqList(de);
 	}
 
 	@Override
-	public List<FaqVO> getFaqList1(String wa) {
+	public List<FAQVO> getFaqList1(String wa) {
 		
 		return faqdao.getFaqList1(wa);
 	}

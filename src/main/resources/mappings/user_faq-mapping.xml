@@ -6,14 +6,12 @@
  
  <mapper namespace="FaqDAO">
  
- <select id="getFaqList" parameterType="String" resultType="BOARD_FAQ">
+ <select id="getFaqList" parameterType="String" resultType="FAQ">
 	<![CDATA[select * from board_faq where board_faq_type=#{de}]]>
 	</select>
-	<select id="getFaqList1" parameterType="String" resultType="BOARD_FAQ">
+	<select id="getFaqList1" parameterType="String" resultType="FAQ">
 	<![CDATA[select * from board_faq where board_faq_type=#{wa}]]>
 	</select>
 	
-	
-	
-	
+
 </mapper>

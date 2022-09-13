@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.semo.web.admin.vo.BannerVO;
 import com.semo.web.admin.vo.CouponVO;
+import com.semo.web.admin.vo.NoticeVO;
 import com.semo.web.admin.vo.TermsVO;
 
 @Repository
@@ -41,6 +42,11 @@ public class SiteDAO {
 		sql.delete("SiteDAO.deleteCoupon", vo);
 	}
 	
+	public void deleteCoupon(int no) {
+		System.out.println("DAO.deleteCoupon 실행");
+		sql.delete("SiteDAO.deleteCoupon",no);
+	}
+	
 	// ----------------- 배너 ------------------------- //
 	public void insertBanner(BannerVO vo) {
 		System.out.println("---> MyBatis로 insertBanner() 기능 처리");
@@ -67,6 +73,11 @@ public class SiteDAO {
 		sql.delete("SiteDAO.deleteBanner", vo);
 	}
 	
+	public void deleteBanner(int no) {
+		System.out.println("DAO.deleteBanner 실행");
+		sql.delete("SiteDAO.deleteBanner", no);
+	}
+	
 	// ----------------- 약관 ------------------------- //
 	public void insertTerms(TermsVO vo) {
 		System.out.println("---> MyBatis로 insertTerms() 기능 처리");
@@ -91,5 +102,10 @@ public class SiteDAO {
 	public void deleteTerms(TermsVO vo) {
 		System.out.println("DAO.deleteTerms 실행");
 		sql.delete("SiteDAO.deleteTerms", vo);
+	}
+	
+	public void deleteTerms(int no) {
+		System.out.println("DAO.deleteTerms 실행");
+		sql.delete("SiteDAO.deleteTerms", no);
 	}
 }

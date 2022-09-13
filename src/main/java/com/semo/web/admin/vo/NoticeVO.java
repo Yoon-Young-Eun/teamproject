@@ -55,6 +55,7 @@ public class NoticeVO {
 		return "NoticeVO [notice_no=" + notice_no + ", notice_title=" + notice_title + ", notice_content="
 				+ notice_content + ", notice_reg_date=" + notice_reg_date + ", notice_filepath=" + notice_filepath
 				+ ", admin_id=" + admin_id + "]";
+
 	}
 	
 	

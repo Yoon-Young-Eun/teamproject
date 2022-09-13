@@ -352,7 +352,8 @@
 									</div>
 									<div class="write_body">
 
-										<div id="image_container"><img src="${BannerInfo.banner_filepath}" width="915px", height="268px"></div>
+										<div id="image_container"><img src="${BannerInfo.banner_filepath}" width="915px", height="268px"><br>
+										<span>${filename}</span></div>
 
 									</div>
 									<div class="write_end">

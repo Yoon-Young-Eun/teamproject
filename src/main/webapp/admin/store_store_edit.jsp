@@ -324,57 +324,80 @@
 <!-- ---------- 본문내용 시작 ---------- -->
 
 <div class="popup_wrapper">
+
+<form action="/updateStore.mdo" method="get">
+							
+<input type="hidden" name="store_code" value="${StoreInfo.store_code}">
+
 <div class="popup_head"><h1>매장</h1>
 
 </div>
 <div class="popup_title">
-<div class="popup_text">매장명</div><div class="popup_inputbox"><input type="text" placeholder=""></div>
+<div class="popup_text">매장명</div><div class="popup_inputbox"><input type="text" name="store_name" value="${StoreInfo.store_name}"></div>
 </div>
 <div class="popup_type">
 <div class="popup_text">구분</div>
 <div class="popup_select">
-<!-- <input class="office_type" type="radio" name="office_type_radio" id="office_type1" checked="checked"><label for="office_type1">직영</label></div> -->
-<!-- <div class="popup_radio"> -->
-<!-- <input class="office_type" type="radio" name="office_type_radio" id="office_type2"><label for="office_type2">외주</label> -->
-<select class="store_type">
-	<option value="직영">직영</option>
-	<option value="외주">외주</option>
+<select class="store_type" name="store_type">
+<c:choose> 
+	<c:when test="${StoreInfo.store_type eq '직영'}">
+		<option value="직영">직영</option>
+		<option value="와주">외주</option>
+	</c:when>  
+	<c:otherwise>
+		<option value="외주">외주</option>
+		<option value="직영">직영</option>
+	</c:otherwise> 
+</c:choose>
 </select>
 </div>
 </div><!-- /popup_content -->
 <div class="popup_status">
 <div class="popup_text">매장상태</div><div class="popup_select">
-<select class="manager_level">
-	<option value="운영중">운영중</option>
-	<option value="휴점">휴점</option>
-	<option value="폐점">폐점</option>
+<select class="manager_level" name="store_status">
+<c:choose> 
+	<c:when test="${StoreInfo.store_status eq '운영중'}">
+		<option value="운영중">운영중</option>
+		<option value="휴점">휴점</option>
+		<option value="폐점">폐점</option>
+	</c:when>  
+	<c:when test="${StoreInfo.store_status eq '휴점'}">
+		<option value="휴점">휴점</option>
+		<option value="운영중">운영중</option>
+		<option value="폐점">폐점</option>
+	</c:when>  
+	<c:otherwise>
+		<option value="폐점">폐점</option>
+		<option value="운영중">운영중</option>
+		<option value="휴점">휴점</option>
+		
+	</c:otherwise> 
+</c:choose>
 </select>
 </div>
 </div>
 <div class="popup_office">
-<div class="popup_text">주소</div><div class="popup_inputbox"><input type="text" id="b2" placeholder="우편변호 검색"></div>
-<div class="popup_search"><button id="search" onclick="sample6_execDaumPostcode()">검색</button></div>
+<div class="popup_text">주소</div><div class="popup_inputbox"><input type="text" id="b2" name="store_address1" value="${StoreInfo.store_address1}"></div>
+<div class="popup_search"><input type="button" value="검색" id="search" onclick="sample6_execDaumPostcode()"></div>
 </div>
 
 <div class="popup_office">
-<div class="popup_text"></div><div class="popup_inputbox"><input type="text" placeholder="상세주소 입력"></div>
+<div class="popup_text"></div><div class="popup_inputbox"><input type="text" name="store_address2" value="${StoreInfo.store_address2}"></div>
 </div>
 <div class="popup_office_phone">
-<div class="popup_text">전화번호</div><div class="popup_inputbox"><input type="text" placeholder="010-1234-5678"></div>
+<div class="popup_text">전화번호</div><div class="popup_inputbox"><input type="text" name="store_phone" value="${StoreInfo.store_phone}"></div>
 </div>
 
 <div class="end">
 	<div class="popup_btn">
-		<a href="/CouponList.mdo">목록</a>
+		<input type="submit" value="저장">
 	</div>
+
 	<div class="popup_btn">
-		<a href="updatePage.mdo?coupon_code=${CouponInfo.coupon_code}">수정</a>
-	</div>
-	<div class="popup_btn">
-		<a href="deleteCoupon.mdo?coupon_code=${CouponInfo.coupon_code}">삭제</a>
+		<a href="/StoreList.mdo">취소</a>
 	</div>
 </div>
-
+</form>
 </div>
 
 <!-- ---------- 본문내용 끝 ---------- -->

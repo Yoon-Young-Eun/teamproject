@@ -20,15 +20,15 @@
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
 
-<link href="css/styles.css" rel="stylesheet" />
+<link href="/admin/css/styles.css" rel="stylesheet" />
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
 	crossorigin="anonymous"></script>
 
 <!-- summernote -->
-<script src="js/summernote/summernote-lite.js"></script>
-<script src="js/summernote/lang/summernote-ko-KR.js"></script>
+<script src="/admin/js/summernote/summernote-lite.js"></script>
+<script src="/admin/js/summernote/lang/summernote-ko-KR.js"></script>
 
-<link rel="stylesheet" href="css/summernote/summernote-lite.css">
+<link rel="stylesheet" href="/admin/css/summernote/summernote-lite.css">
 
 </head>
 <body class="sb-nav-fixed">
@@ -352,16 +352,19 @@
 								</div>
 
 							</header>
+							
+							<form action="/insertFAQ.mdo" method="POST">	
+							
 							<div id="content_wrap">
 								<ul class="title_wrap">
 									 <li><span class="title">분류</span>
 										<div class="board_select">
-											<select class="select" value="분류">
+											<select class="select" name="board_faq_type">
 												<option selected disabled>분류</option>
-												<option value="wash">세탁관리</option>
-												<option value="order">주문관리</option>
-												<option value="shipping">배송관리</option>
-												<option value="payment">결제관리</option>
+												<option value="세탁">세탁관리</option>
+												<option value="주문">주문관리</option>
+												<option value="배송">배송관리</option>
+												<option value="결제">결제관리</option>
 											</select>
 										</div></li>
 									<!--
@@ -372,54 +375,25 @@
             -->
             
 									<li><span class="title">제목</span> <input type="text"
-										placeholder="게시글 제목을 입력하세요" /></li>
+										name="board_faq_title" placeholder="게시글 제목을 입력하세요" /></li>
 								</ul>
 								<div id="summer" class="writeWrap">
-									<textarea id="summernote" class="writeArea" name="editordata"></textarea>
-								</div>
-								<div class="configWrap">
-									<ul>
-										<li><span class="title">첨부파일</span>&nbsp;&nbsp;
-											<div class="filebox">
-												<label for="ex_filename">파일 선택</label> <input type="file"
-													id="ex_filename" class="upload-hidden"> <input
-													class="upload-name" value="" disabled="disabled">
-											</div></li>
-										<!-- <li class="tag">
-											<div class="tag_di">
-												<div class="title">태그달기</div>
-												<div class="InputArea">
-													<input type="text" id="tagInput" nae="tagInput"
-														onfocus="value=''" value="태그와 태그는 쉼표로 구분하세요">
-												</div>
-											</div>
-										</li> -->
-										<div class="open_set">
-											<li><span class="title">공개설정</span>&nbsp; <input
-												type="radio" name="open" id="open_0"> <label
-												for="open_0">전체공개</label>&nbsp;&nbsp; <input type="radio"
-												name="open" id="open_1"> <label for="open_1">회원만
-													공개</label>&nbsp;&nbsp; <input type="radio" name="open" id="open_2">
-												<label for="open_2">비공개</label>
-										</div>
-										</li>
-									</ul>
+									<textarea id="summernote" class="writeArea" name="board_faq_content"></textarea>
 								</div>
 								<div class="end">
 									<div class="board_btn">
-										<a href="#">저장</a>
+										<input type="submit" value="저장">
 									</div>
 									<div class="board_btn">
-										<a href="#">취소</a>
+										<a href="/FAQList.mdo">취소</a>
 									</div>
 									<!-- <a href="#">저장</a>&nbsp;&nbsp;<a href="#">취소</a> -->
 								</div>
 
 							</div>
+							</form>
 						</div>
 
-						<!-- <div class="card-footer small text-muted">Updated yesterday
-							at 11:59 PM</div> -->
 					</div>
 
 				</div>

@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.semo.web.user.service.AddressService;
 import com.semo.web.user.vo.AddressListVO;
-import com.semo.web.user.vo.CustomerVO2;
-
-import oracle.net.jdbc.TNSAddress.AddressList;
+import com.semo.web.user.vo.CustomerVO;
 
 @Controller
 public class AddressController {
@@ -35,7 +33,7 @@ public class AddressController {
 	}
 	
 	@RequestMapping(value="/getAddressList.do" ,method = RequestMethod.GET)
-	public String getAddressList(AddressListVO avo, Model model, CustomerVO2 vo) {
+	public String getAddressList(AddressListVO avo, Model model, CustomerVO vo) {
 		
 		System.out.println(vo);
 		System.out.println("getAddress 메서드 실행");
@@ -104,7 +102,7 @@ public class AddressController {
 	}
 	
 	@RequestMapping(value="/sendCustomer.do", method=RequestMethod.GET)
-	public String sendCustomer(CustomerVO2 vo,Model model) {
+	public String sendCustomer(CustomerVO vo,Model model) {
 		System.out.println(vo);
 		System.out.println("sendCustomer 메서드 실행");
 		

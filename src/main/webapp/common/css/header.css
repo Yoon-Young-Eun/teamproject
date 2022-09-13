@@ -61,7 +61,13 @@ header h1 {
 	float: left;
 }
 
-.top-list a {
+.top-list input.logout{
+	border : none;
+	background : none;
+	padding-top: 1px;
+}
+
+.top-list a, .top-list input.logout {
 	line-height: 68px;
 	color: black;
 	padding: 0 15px;
@@ -69,7 +75,7 @@ header h1 {
 	font-size: 13px;
 }
 
-.top-list a:hover {
+.top-list a:hover, .top-list input.logout:hover {
 	font-weight: bold;
 }
 

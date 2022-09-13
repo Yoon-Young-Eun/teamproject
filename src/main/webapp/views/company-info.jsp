@@ -25,13 +25,32 @@
 </head>
 <body>
 
-<jsp:include page="/common/logined-header.jsp"/> 
+<%-- <jsp:include page="/common/logined-header.jsp"/> --%>
+
+<form action="/login.do">
+<div id = "header">
+<script>
+$(function(){
+	
+	var id = "${id}";
+	
+	if (id == ""){
+		$('#header').load("/common/header.jsp");
+	} else {
+		$('#header').load("/common/logined-header.jsp");
+	}
+	
+
+});
+</script>
+</div>
+</form>
 
 <div id = "hello">
-<img alt="" src="./resources/img/info-1.png" style = "width : 100%;">
+<img alt="" src="/views/resources/img/info-1.png" style = "width : 100%;">
 </div>
 <div id = "info">
-<img alt="" src="./resources/img/info-2.png" style = "width : 100%;">
+<img alt="" src="/views/resources/img/info-2.png" style = "width : 100%;">
 <div class = "map-wrapper" style = "display:flex; justify-content:center;">
 <div id="map" style="width:1000px;height:500px;"></div>
 </div>
@@ -58,7 +77,7 @@ marker.setMap(map);
 // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
 // marker.setMap(null);    
 </script>
-<img alt="" src="./resources/img/info-3.png" style = "width : 100%;">
+<img alt="" src="/views/resources/img/info-3.png" style = "width : 100%;">
 </div>
 
 <jsp:include page="/common/footer.jsp"/> 

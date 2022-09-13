@@ -49,7 +49,7 @@
 		</div>
 	</div>
 
-	<form action="/complete.do" method="POST" name = "joinForm"  id = "joinForm" onsubmit="return joinCorrection()">
+	<form action="/complete.do" method="GET" name = "joinForm"  id = "joinForm" onsubmit="return joinCorrection()">
 		<div class="wrapper">
 			<div class="sectionInner container">
 				<div class="content">

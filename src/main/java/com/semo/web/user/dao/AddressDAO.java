@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.semo.web.user.vo.AddressListVO;
-import com.semo.web.user.vo.CustomerVO2;
+import com.semo.web.user.vo.CustomerVO;
 
 @Repository
 public class AddressDAO {
@@ -20,7 +20,7 @@ public class AddressDAO {
 		sqltemplate.insert("AddressDAO.setAddress",vo);
 	}
 	
-	public List<AddressListVO> getAddressList(CustomerVO2 vo) {
+	public List<AddressListVO> getAddressList(CustomerVO vo) {
 		System.out.println("getAddressDAO 메서드 실행");
 		return sqltemplate.selectList("AddressDAO.getAddressList",vo);
 		 
@@ -42,7 +42,7 @@ public class AddressDAO {
 		System.out.println("updateCustomerAddressDAO 메서드 실행");
 		sqltemplate.update("AddressDAO.updateCustomerAddress",vo);
 	}
-	public CustomerVO2 sendCustomer(CustomerVO2 vo) {
+	public CustomerVO sendCustomer(CustomerVO vo) {
 		System.out.println("sendCustomerDAO 메서드 실행");
 		return sqltemplate.selectOne("AddressDAO.sendCustomer",vo);
 	}

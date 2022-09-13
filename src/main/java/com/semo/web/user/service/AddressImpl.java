@@ -7,15 +7,13 @@ import org.springframework.stereotype.Service;
 
 import com.semo.web.user.dao.AddressDAO;
 import com.semo.web.user.vo.AddressListVO;
-import com.semo.web.user.vo.CustomerVO2;
+import com.semo.web.user.vo.CustomerVO;
 
 @Service
 public class AddressImpl implements AddressService {
-	
+
 	@Autowired
 	AddressDAO addressdao;
-	
-	
 
 	@Override
 	public void setAddress(AddressListVO vo) {
@@ -23,64 +21,52 @@ public class AddressImpl implements AddressService {
 
 	}
 
-
-
-	
-
-
-
 	@Override
 	public void deleteAddressList(AddressListVO vo) {
-		
+
 		addressdao.deleteAddressList(vo);
 	}
-
-
 
 	@Override
 	public void updateAddressList(AddressListVO vo) {
 		addressdao.updateAddressList(vo);
-		
+
 	}
-
-
 
 	@Override
 	public AddressListVO sendAddressList(AddressListVO vo) {
-		
+
 		return addressdao.sendAddressList(vo);
 	}
 
-
-
 	@Override
-	public void updateCustomerAddress(AddressListVO vo1) {
-		addressdao.updateCustomerAddress(vo1);
+
+	public CustomerVO sendCustomer(CustomerVO vo) {
 		
-	}
 
-
-
-	@Override
-	public CustomerVO2 sendCustomer(CustomerVO2 vo) {
-		
 		return addressdao.sendCustomer(vo);
 	}
 
-
-
-
-
-
-
 	@Override
-	public List<AddressListVO> getAddressList(CustomerVO2 vo) {
+
+	public List<AddressListVO> getAddressList(CustomerVO vo) {
 		
+
 		return addressdao.getAddressList(vo);
 	}
 	
 	
 
+	@Override
+	public void updateCustomerAddress(AddressListVO vo) {
+		addressdao.updateCustomerAddress(vo);
+	}
+
+	@Override
+	public AddressListVO selectCustomerAddress(AddressListVO vo) {
+		return addressdao.selectCustomerAddress(vo);
+		
+	}
 
 
 

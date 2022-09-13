@@ -1,7 +1,7 @@
 @charset "UTF-8";
 body {
 	overflow-x: hidden;
-	
+
 }
 html{
 	font-family: 'Noto Sans KR', sans-serif;
@@ -30,7 +30,7 @@ html{
   border-bottom: 1px solid grey;
 }
 .main_text1{
-   width: 1000px;
+   width: 1050px;
 }
 .main_text2{
   display: flex;
@@ -524,4 +524,40 @@ width: 150px;
 	margin-bottom: 40px;
   margin-top: 10px;
   font-size: 15px;
+}
+#checkbox{
+	font-family: 'Noto Sans KR', sans-serif;
+	border-style:none;
+	width:700px;
+	height:30px;
+	font-size:15px;
+	margin-bottom:5px;
+}
+#checkbox:focus{
+	outline:none;
+}
+#checkbox1{
+	font-family: 'Noto Sans KR', sans-serif;
+	width:1000px;
+	height:100px;
+	font-size:15px;
+	margin-top:10px;
+	
+}
+#checkbox1:focus{
+	outline:none;
+}
+#product{
+	text-align:center;
+	
+	border-style:none;
+	height:30px;
+	font-size:15px;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+#product:focus{
+	outline:none;
+}
+#terms:focus{
+	outline:none;
 }

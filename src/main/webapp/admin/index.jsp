@@ -75,7 +75,7 @@
                             <div class="collapse" id="change_id_02" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="/adminOrderList.mdo">주문/결제</a>
-									<a class="nav-link" href="/estimateList.mdo">견적주문</a>
+									<a class="nav-link" href="/getEstimateList.mdo">견적주문</a>
 									<a class="nav-link" href="/memberorderList.mdo">개별조회</a>
                                 </nav>
                             </div>
@@ -124,10 +124,10 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="/getBoardList.mdo">공지사항</a>
                                     <a class="nav-link" href="/admin/board_event.jsp">이벤트</a>
-                                    <a class="nav-link" href="#">리뷰</a>
+                                    <a class="nav-link" href="/ReviewBoardList.mdo">리뷰</a>
 
-                                    <a class="nav-link" href="/admin/board_Q&A.jsp">QnA</a>
-                                    <a class="nav-link" href="/admin/board_FAQ.jsp">자주하는 질문</a>
+                                    <a class="nav-link" href="/QnAList.mdo">QnA</a>
+                                    <a class="nav-link" href="/FAQList.mdo">자주하는 질문</a>
 
                                 </nav>
                             </div>

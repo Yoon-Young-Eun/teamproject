@@ -22,7 +22,7 @@
 <!-- 체크박스 js -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="./js/checkbox.js"></script>
+<script src="/admin/js/checkbox.js"></script>
 
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
@@ -312,35 +312,29 @@
 			<tr>
 				<th width="50" id="check_td"><input type="checkbox"
 					name="check" class="allcheck"></th>
-				<th col-index=2>상품번호</th>
-				<th col-index=3>대분류<select class="table-filter"
+				<th col-index=2>번호</th>
+				<th col-index=3>분류<select class="table-filter"
 					onchange="filter_rows()">
 						<option value="all"></option>
 				</select></th>
-				<th col-index=4>소분류<select class="table-filter"
-					onchange="filter_rows()">
-						<option value="all"></option>
-				</select></th>
-				<th col-index=5>상품명</th>
-				<th col-index=6>상세설명</th>
-				<th col-index=7>등록일</th>
-				<th col-index=8>가격</th>
+				<th col-index=4>제목</th>
+				<th col-index=5>내용</th>
+				<th col-index=6>등록일</th>
+
 			</tr>
         </thead>
             <tbody>
 								<!-- for문~(c:forEach)  이 for문의 id값은 "admin"으로 정함!-->
-								<c:forEach var="product" items="${ProductList}">
+								<c:forEach var="FAQ" items="${FAQList}">
 									<!--  adminList은 컨트롤러에서 model에 저장한 "adminList" 이름임 -->
 									<tr>
 										<td id="check_td"><input type="checkbox" name="check"></td>
-										<td>${product.product_code}</td>
+										<td>${FAQ.board_faq_no}</td>
 										<!--for문의 id값.컬럼명으로 값을 불러옴 -->
-										<td>${product.product_category_parent}</a></td>
-										<td>${product.product_category_median}</td>
-										<td><a href="readProduct.mdo?Product_code=${product.product_code}">${product.product_name}</td>
-										<td>${product.product_detail}</td>
-										<td>${product.product_reg_date}</td>
-										<td>${product.product_price}</td>
+										<td>${FAQ.board_faq_type}</td>
+										<td><a href="readFAQ.mdo?board_faq_no=${FAQ.board_faq_no}">${FAQ.board_faq_title}</a></td>
+										<td><a href="readFAQ.mdo?board_faq_no=${FAQ.board_faq_no}">${FAQ.board_faq_content}</a></td>
+										<td>${FAQ.board_faq_reg_date}</td>
 									</tr>
 								</c:forEach>
 
@@ -348,13 +342,62 @@
 						</table>
 						
 <div class="flex">
-						<div> <input id="button" type="button" value="등록" onclick="window.location='/admin/item_insert.jsp'"/> </div>
+						<div> <input id="button" type="button" value="등록" onclick="window.location='/admin/board_FAQ_insert.jsp'"/> </div>
 <!-- 						<div> <input  id="button" type="button"  value="수정" /> </div> -->
-<!-- 						<div> <input id="button" type="button" value="삭제" /> </div> -->
+						<div> <input id="delBtn" type="button" value="삭제" /> </div>
 						
 						</div>
 
+<script type="text/javascript">
+	//체크삭제
+	$("#delBtn")
+			.click(
+					function() {
+						console.log("1");
+						var rowData = new Array();
+						var tdArr = new Array();
+						var checkbox = $("tbody input[name=check]:checked");
 
+						// 체크된 체크박스 값을 가져온다
+						checkbox
+								.each(function(i) {
+									var tr = checkbox
+											.parent()
+											.parent()
+											.eq(i);
+									var td = tr
+											.children();
+									rowData.push(tr
+											.text());
+									// td.eq(0)은 체크박스 이므로  td.eq(4)=전화번호 의 값을 가져온다.
+
+									var number = td.eq(
+											1).text()
+											+ ",";
+									number = number
+											.substring(
+													0,
+													number.length - 1); //마지막 , 제거
+									// 가져온 값을 배열에 담는다.
+									tdArr.push(number);
+
+									$
+											.ajax({
+												url : "deleteFAQCheck.mdo",
+												type : "get",
+												traditional : true,
+												data : {
+													tdArr : tdArr,
+												},
+												dataType : 'text',
+												success : function(data) {
+													location.href = "/FAQList.mdo";
+													console.log(data);
+												}
+											});
+								});
+					});
+</script>
 
 						<!-- 내용물 end -->
 						<div class="card-footer small text-muted">Updated yesterday

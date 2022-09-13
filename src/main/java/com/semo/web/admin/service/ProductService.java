@@ -11,4 +11,5 @@ public interface ProductService {
 	public ProductVO getReadProduct(ProductVO vo);
 	public void updateProduct(ProductVO vo);
 	public void deleteProduct(ProductVO vo);
+	public void deleteProduct(int no);
 }

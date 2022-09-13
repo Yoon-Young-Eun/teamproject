@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,20 +10,31 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>Dashboard - SEMO Admin</title>
-<link href="/admin/css/item_product.css" rel="stylesheet" />
+<script src="js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="js/fileupload.js"></script>
+<script type="text/javascript" src="js/index_navbar_onclick.js"></script>
+<!-- <-게시판 css -->
+<link rel="stylesheet" href="/admin/css/board.css" />
+
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
+
 <link href="/admin/css/styles.css" rel="stylesheet" />
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
 	crossorigin="anonymous"></script>
-<script type="text/javascript" src="/admin/js/index_navbar_onclick.js"></script>
+
+<!-- summernote -->
+<script src="/admin/js/summernote/summernote-lite.js"></script>
+<script src="/admin/js/summernote/lang/summernote-ko-KR.js"></script>
+
+<link rel="stylesheet" href="/admin/css/summernote/summernote-lite.css">
+
 </head>
 <body class="sb-nav-fixed">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 		<!-- Navbar Brand-->
-		<a class="navbar-brand ps-3" href="index_dashboard.jsp">Start
-			Bootstrap</a>
+		<a class="navbar-brand ps-3" href="index.jsp">Start Bootstrap</a>
 		<!-- Sidebar Toggle-->
 		<button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
 			id="sidebarToggle" href="#!">
@@ -56,6 +66,7 @@
 				</ul></li>
 		</ul>
 	</nav>
+
 	<div id="layoutSidenav">
 		<div id="layoutSidenav_nav">
 			<nav class="sb-sidenav accordion sb-sidenav-dark"
@@ -68,6 +79,9 @@
 								<i class="fas fa-tachometer-alt"></i>
 							</div> 대시보드
 						</a>
+
+
+
 
 
 						<div class="sb-sidenav-menu-heading">관리자 메뉴</div>
@@ -221,6 +235,9 @@
 						</div>
 
 
+
+
+
 						<div class="sb-sidenav-menu-heading">Interface</div>
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 							data-bs-target="#collapseLayouts" aria-expanded="false"
@@ -289,6 +306,7 @@
 							</nav>
 						</div>
 
+
 						<div class="sb-sidenav-menu-heading">Addons</div>
 						<a class="nav-link" href="charts.html">
 							<div class="sb-nav-link-icon">
@@ -301,97 +319,86 @@
 						</a>
 					</div>
 				</div>
-				<!--                     <div class="sb-sidenav-footer"> -->
-				<!--                         <div class="small">Logged in as:</div> -->
-				<!--                         Start Bootstrap -->
-				<!--                     </div> -->
+				<div class="sb-sidenav-footer">
+					<div class="small">Logged in as:</div>
+					Start Bootstrap
+				</div>
 			</nav>
 		</div>
 
 		<div id="layoutSidenav_content">
 			<main>
 
+
+
 				<div class="container-fluid px-4">
-					<h1 class="mt-4">상품 조회</h1>
+					<h1 class="mt-4">게시판</h1>
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
-						<li class="breadcrumb-item active">상품 조회</li>
+						<li class="breadcrumb-item active">자주묻는질문</li>
 					</ol>
 					<div class="card mb-4">
-						<div class="card-body">상품을 조회합니다.</div>
+						<div class="card-body">자주묻는질문 게시판입니다</div>
 					</div>
-					
-					
-<!-- <form action="/insertProduct.mdo" method="GET">			 -->
-<div class="pop_flex">
-<div class="popup_wrapper">
-<!-- <div class="popup_head"><h1>상품 조회</h1> -->
+					<div class="dd">
+						<!-- <div class="card-header">
+							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 게시판에 대한 세부제목
+						</div> -->
 
-<!-- </div> -->
+						<div id="wrap">
+							<header>
+								<div class="board_title">
+									<h1>자주묻는질문</h1>
+								</div>
 
+							</header>
+							
+							<form action="/insertFAQ.mdo" method="POST">	
+							
+							<div id="content_wrap">
+								<ul class="title_wrap">
+									 <li><span class="title">분류</span>
+										<div class="board_select">
+											<select class="select" name="board_faq_type">
+												<option selected disabled>분류</option>
+												<option value="세탁">세탁관리</option>
+												<option value="주문">주문관리</option>
+												<option value="배송">배송관리</option>
+												<option value="결제">결제관리</option>
+											</select>
+										</div></li>
+									<!--
+            <input type="checkBox" id="chkNotice1" name="chkB1">
+            <label for="chkNotice1">공지사항으로 게시글쓰기</label>
+            <input type="checkBox" id="chkNotice2" name="chkB2">
+            <label for="chkNotice2">일반글로 게시글쓰기</label>
+            -->
+            
+									<li><span class="title">제목</span> <input type="text"
+										name="board_faq_title" placeholder="게시글 제목을 입력하세요" /></li>
+								</ul>
+								<div id="summer" class="writeWrap">
+									<textarea id="summernote" class="writeArea" name="board_faq_content"></textarea>
+								</div>
+								<div class="end">
+									<div class="board_btn">
+										<input type="submit" value="저장">
+									</div>
+									<div class="board_btn">
+										<a href="/FAQList.mdo">취소</a>
+									</div>
+									<!-- <a href="#">저장</a>&nbsp;&nbsp;<a href="#">취소</a> -->
+								</div>
 
+							</div>
+							</form>
+						</div>
 
-<div class="popup_title_wrap">
-<div class="popup_title">
-<div class="popup_title_text">
-대분류
-</div>
-<div class="popup_title_select">
-${ProductInfo.product_category_parent}
-</div>
-</div>
+					</div>
 
-<div class="popup_title">
-<div class="popup_title_text">
-소분류
-</div>
-<div class="popup_title_select">
-${ProductInfo.product_category_median}
-</div>
-</div>
-</div>
+				</div>
+			</main>
 
-
-
-<div class="item_infor_wrap">
-<div class="item_infor">
-<div class="popup_text">상품명</div>&nbsp;<div class="popup_inputbox">
-${ProductInfo.product_name}</div>
-</div>
-<div class="item_infor">
-<div class="popup_text">디테일</div>&nbsp;<div class="popup_inputbox">
-${ProductInfo.product_detail}</div>
-</div>
-<div class="item_infor">
-<div class="popup_text">등록일</div>&nbsp;<div class="popup_inputbox">
-${ProductInfo.product_reg_date}</div>
-</div>
-<div class="item_infor">
-<div class="popup_text">가격</div>&nbsp;<div class="popup_inputbox">
-${ProductInfo.product_price}</div>
-</div>
-
-</div>
-
-
-
-<div class="end">
-	<div class="popup_btn">
-		<a href="/ProductList.mdo">목록</a>
-	</div>
-	<div class="popup_btn">
-		<a href="updateProductPage.mdo?product_code=${ProductInfo.product_code}">수정</a>
-	</div>
-	<div class="popup_btn">
-		<a href="deleteProduct.mdo?product_code=${ProductInfo.product_code}">삭제</a>
-	</div>
-</div>
-
-</div>
-</div>
-<!-- </form> -->
-
-</main>
 			<footer class="py-4 bg-light mt-auto">
 				<div class="container-fluid px-4">
 					<div

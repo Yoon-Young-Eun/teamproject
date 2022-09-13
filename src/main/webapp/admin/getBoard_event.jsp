@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +11,10 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>Dashboard - SEMO Admin</title>
-<script src="js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="js/fileupload.js"></script>
-<script type="text/javascript" src="js/index_navbar_onclick.js"></script>
+<script src="/admin/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/admin/js/fileupload.js"></script>
+<script type="text/javascript" src="/admin/js/index_navbar_onclick.js"></script>
+
 <!-- <-게시판 css -->
 <link rel="stylesheet" href="/admin/css/board.css" />
 
@@ -20,15 +22,16 @@
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
 
-<link href="css/styles.css" rel="stylesheet" />
+<link href="/admin/css/styles.css" rel="stylesheet" />
+<link href="/admin/css/main_info_card.css" rel="stylesheet" />
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
 	crossorigin="anonymous"></script>
 
-<!-- summernote -->
+<!-- <!-- summernote -->
 <script src="js/summernote/summernote-lite.js"></script>
 <script src="js/summernote/lang/summernote-ko-KR.js"></script>
 
-<link rel="stylesheet" href="css/summernote/summernote-lite.css">
+<link rel="stylesheet" href="css/summernote/summernote-lite.css"> -->
 
 </head>
 <body class="sb-nav-fixed">
@@ -98,9 +101,9 @@
 						<div class="collapse" id="change_id_01"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="member.jsp">회원관리</a> <a
-									class="nav-link" href="member_black.jsp">블랙회원관리</a> <a
-									class="nav-link" href="memberstaff.jsp">매니저관리</a>
+								<a class="nav-link" href="/admin/member.jsp">회원관리</a> <a
+									class="nav-link" href="/admin/member_black.jsp">블랙회원관리</a> <a
+									class="nav-link" href="/admin/memberstaff.jsp">매니저관리</a>
 							</nav>
 						</div>
 
@@ -117,8 +120,8 @@
 						<div class="collapse" id="change_id_02"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="order.jsp">주문/결제</a> <a
-									class="nav-link" href="#">견적상품</a>
+								<a class="nav-link" href="/admin/order.jsp">주문/결제</a> <a
+									class="nav-link" href="/admin/estimate.jsp">견적상품</a>
 							</nav>
 						</div>
 
@@ -139,7 +142,7 @@
 						<!--                                 </nav> -->
 						<!--                             </div> -->
 
-						<a class="nav-link collapsed" href="item.jsp"
+						<a class="nav-link collapsed" href="/admin/item.jsp"
 							data-bs-toggle="collapse" data-bs-target="#change_id_04"
 							aria-expanded="false" aria-controls="collapseLayouts">
 							<div class="sb-nav-link-icon">
@@ -186,11 +189,11 @@
 						<div class="collapse" id="change_id_06"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="board_notice.jsp">공지사항</a> <a
-									class="nav-link" href="board_event.jsp">이벤트</a> <a
+								<a class="nav-link" href="/getBoardList.mdo">공지사항</a> <a
+									class="nav-link" href="/getEventList.mdo">이벤트</a> <a
 									class="nav-link" href="#">리뷰</a> <a class="nav-link"
-									href="board_Q&A.jsp">QnA</a> <a class="nav-link"
-									href="board_FAQ.jsp">자주하는 질문</a>
+									href="/admin/board_Q&A.jsp">QnA</a> <a class="nav-link"
+									href="/admin/board_FAQ.jsp">자주하는 질문</a>
 
 							</nav>
 						</div>
@@ -227,9 +230,9 @@
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
 
-								<a class="nav-link" href="promo.jsp">쿠폰관리</a> <a
-									class="nav-link" href="supporbanner.jsp">배너관리</a> <a
-									class="nav-link" href="supporclause.jsp">약관관리</a>
+								<a class="nav-link" href="/admin/promo.jsp">쿠폰관리</a> <a
+									class="nav-link" href="/admin/supporbanner.jsp">배너관리</a> <a
+									class="nav-link" href="/admin/supporclause.jsp">약관관리</a>
 
 							</nav>
 						</div>
@@ -327,94 +330,77 @@
 		</div>
 
 		<div id="layoutSidenav_content">
+
 			<main>
 
-
-
 				<div class="container-fluid px-4">
-					<h1 class="mt-4">게시판</h1>
+					<h1 class="mt-4">이벤트</h1>
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
-						<li class="breadcrumb-item active">자주묻는질문</li>
+						<li class="breadcrumb-item active">이벤트</li>
 					</ol>
 					<div class="card mb-4">
-						<div class="card-body">자주묻는질문 게시판입니다</div>
+						<div class="card-body">이벤트 페이지 입니다.</div>
 					</div>
 					<div class="dd">
 						<!-- <div class="card-header">
 							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 게시판에 대한 세부제목
 						</div> -->
-
 						<div id="wrap">
 							<header>
 								<div class="board_title">
-									<h1>자주묻는질문</h1>
+									<h1>이벤트</h1>
 								</div>
 
 							</header>
+
 							<div id="content_wrap">
 								<ul class="title_wrap">
-									 <li><span class="title">분류</span>
-										<div class="board_select">
-											<select class="select" value="분류">
-												<option selected disabled>분류</option>
-												<option value="wash">세탁관리</option>
-												<option value="order">주문관리</option>
-												<option value="shipping">배송관리</option>
-												<option value="payment">결제관리</option>
-											</select>
-										</div></li>
-									<!--
-            <input type="checkBox" id="chkNotice1" name="chkB1">
-            <label for="chkNotice1">공지사항으로 게시글쓰기</label>
-            <input type="checkBox" id="chkNotice2" name="chkB2">
-            <label for="chkNotice2">일반글로 게시글쓰기</label>
-            -->
-            
-									<li><span class="title">제목</span> <input type="text"
-										placeholder="게시글 제목을 입력하세요" /></li>
+									<li><span class="title">제목</span>${event.board_event_title }</li>
 								</ul>
-								<div id="summer" class="writeWrap">
-									<textarea id="summernote" class="writeArea" name="editordata"></textarea>
-								</div>
+								<div id="summer" class="writeWrap" name="board_event_content">${event.board_event_content}</div>
 								<div class="configWrap">
 									<ul>
-										<li><span class="title">첨부파일</span>&nbsp;&nbsp;
+										<li><span class="title">배너번호</span>&nbsp;
+											${event.banner_no}</li>
+
+										<li style="display: flex; margin-top: 5px;"><span class="title">첨부파일</span>&nbsp;&nbsp;
 											<div class="filebox">
-												<label for="ex_filename">파일 선택</label> <input type="file"
-													id="ex_filename" class="upload-hidden"> <input
-													class="upload-name" value="" disabled="disabled">
+												<c:choose>
+													<c:when
+														test="${event.board_event_filepath eq 'https://semoproject.s3.ap-northeast-2.amazonaws.com/event/'}">
+                                    파일없음
+                                 </c:when>
+													<c:otherwise>
+														<a href="${event.board_event_filepath}" target="_blank">파일보기(${filename})</a>
+													</c:otherwise>
+												</c:choose>
 											</div></li>
-										<!-- <li class="tag">
-											<div class="tag_di">
-												<div class="title">태그달기</div>
-												<div class="InputArea">
-													<input type="text" id="tagInput" nae="tagInput"
-														onfocus="value=''" value="태그와 태그는 쉼표로 구분하세요">
-												</div>
+
+										<li>
+											<div class="open_set">
+												<span class="title">공개설정</span>&nbsp; <input type="radio"
+													name="open" id="open_0"> <label for="open_0">전체공개</label>&nbsp;&nbsp;
+												<input type="radio" name="open" id="open_1"> <label
+													for="open_1">회원만 공개</label>&nbsp;&nbsp; <input type="radio"
+													name="open" id="open_2"> <label for="open_2">비공개</label>
 											</div>
-										</li> -->
-										<div class="open_set">
-											<li><span class="title">공개설정</span>&nbsp; <input
-												type="radio" name="open" id="open_0"> <label
-												for="open_0">전체공개</label>&nbsp;&nbsp; <input type="radio"
-												name="open" id="open_1"> <label for="open_1">회원만
-													공개</label>&nbsp;&nbsp; <input type="radio" name="open" id="open_2">
-												<label for="open_2">비공개</label>
-										</div>
 										</li>
 									</ul>
 								</div>
 								<div class="end">
 									<div class="board_btn">
-										<a href="#">저장</a>
+										<a
+											href="/getUpdateEvent.mdo?board_event_no=${event.board_event_no}">수정</a>
 									</div>
 									<div class="board_btn">
-										<a href="#">취소</a>
+										<a
+											href="/deleteEvent.mdo?board_event_no=${event.board_event_no}">삭제</a>
 									</div>
-									<!-- <a href="#">저장</a>&nbsp;&nbsp;<a href="#">취소</a> -->
+									<div class="board_btn">
+										<a href="/getEventList.mdo">목록</a>
+									</div>
 								</div>
-
 							</div>
 						</div>
 

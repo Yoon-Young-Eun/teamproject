@@ -11,4 +11,5 @@ public interface StoreService {
 	public StoreVO getReadStore(StoreVO vo);
 	public void updateStore(StoreVO vo);
 	public void deleteStore(StoreVO vo);
+	public void deleteStore(int no);
 }

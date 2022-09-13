@@ -3,6 +3,7 @@ package com.semo.web.admin.controller;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,13 +79,32 @@ public class Ad_SiteController {
 		return "/CouponList.mdo"; // 완료후 다시 어드민목록으로 가야되기 때문에 CouponList.mdo로 보내서 
 	}
 	
-	// 쿠폰 삭제 (아직 체크박스를 눌러 삭제하는 기능은 구현 못함)
+	// 쿠폰 삭제
 	@RequestMapping(value="/deleteCoupon.mdo", method=RequestMethod.GET)
 	public String deleteCoupon(CouponVO vo, Model model) {
 		System.out.println(vo);
 		System.out.println("deleteCoupon 메서드 실행");
 		SiteService.deleteCoupon(vo);
 		System.out.println("완료!");
+		return "/CouponList.mdo";
+	}
+	
+	// 쿠폰 삭제 (체크박스)
+	@RequestMapping("/deleteCouponCheck.mdo")
+	public String deleteCouponCheck(String[] tdArr, CouponVO vo) {
+		System.out.println(tdArr[0]);
+		System.out.println("글 삭제 처리");
+
+		if(tdArr!=null) {
+			List<Integer> arr2 = new ArrayList<Integer>();
+			for(int a=0; a<tdArr.length; a++) {
+				System.out.println("dhsi");
+				arr2.add(Integer.parseInt(tdArr[a])) ;
+				System.out.println(arr2.get(a)+"tes");
+				vo.setCoupon_code(arr2.get(a));
+				SiteService.deleteCoupon(vo.getCoupon_code());
+			}
+		}
 		return "/CouponList.mdo";
 	}
 	
@@ -106,10 +126,10 @@ public class Ad_SiteController {
 		String contentType = banner.getContentType();
 		long contentLength = banner.getSize();
 		
-		String bucket = "semoproject/img/banner";
+		String bucket = "semoproject/banner";
 		
 		awss3.upload(is, key, contentType, contentLength, bucket);
-		String banner_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/img/banner/" + key;
+		String banner_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/banner/" + key;
 		vo.setBanner_filepath(banner_filepath);
 		
 		SiteService.insertBanner(vo);
@@ -131,19 +151,28 @@ public class Ad_SiteController {
 	@RequestMapping(value="/readBanner.mdo", method=RequestMethod.GET)
 	public String getReadBanner(Model model, BannerVO vo) {	
 		System.out.println("admin readBanner()");
-		BannerVO ba = SiteService.getReadBanner(vo);
+		
+		String banner_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/banner/";
 		String result;
-			model.addAttribute("BannerInfo", ba);
-			if(ba.isBanner_usable() == true) {
-				result = "공개";
-			}
-			else {
-				result = "비공개";
-			}
-			System.out.println(ba);
-			System.out.println(result);
-			model.addAttribute("result", result);
-			return "/admin/promo_banner.jsp"; // <- 이페이지에 데이터를 들고가서 출력함
+		
+		BannerVO ba = SiteService.getReadBanner(vo);
+		
+		String filename = ba.getBanner_filepath().replace(banner_filepath, "");
+		System.out.println(ba);
+		model.addAttribute("BannerInfo", ba);
+		model.addAttribute("filename", filename);
+		
+		if(ba.isBanner_usable() == true) {
+			result = "공개";
+		}
+		else {
+			result = "비공개";
+		}
+		System.out.println(ba);
+		System.out.println(result);
+		model.addAttribute("result", result);
+		
+		return "/admin/promo_banner.jsp"; // <- 이페이지에 데이터를 들고가서 출력함
 		}
 	
 	// 배너 수정 페이지
@@ -159,7 +188,7 @@ public class Ad_SiteController {
 	// 배너 수정
 	@RequestMapping(value="/updateBanner.mdo")
 	public String updateBanner(BannerVO vo, MultipartFile uploadImg) throws SQLException, IOException {
-		System.out.print(vo);
+		System.out.println(vo);
 		System.out.println(uploadImg);
 		BannerVO bringData = SiteService.getReadBanner(vo);
 		
@@ -175,11 +204,11 @@ public class Ad_SiteController {
 				String contentType = uploadImg.getContentType();
 				long contentLength = uploadImg.getSize();
 				
-				String bucket = "semoproject/img/banner";
+				String bucket = "semoproject/banner";
 				
 				awss3.upload(is, uploadKey, contentType, contentLength, bucket);
 				
-				String banner_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/img/banner/" + uploadKey;
+				String banner_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/banner/" + uploadKey;
 				bringData.setBanner_filepath(banner_filepath);
 			}else {
 				bringData.setBanner_filepath(bringData.getBanner_filepath());
@@ -195,13 +224,55 @@ public class Ad_SiteController {
 		return "redirect:/BannerList.mdo";
 	}
 	
-	// 배너 삭제 (아직 체크박스를 눌러 삭제하는 기능은 구현 못함)
-	@RequestMapping(value="/deleteBanner.mdo", method=RequestMethod.GET)
-	public String deleteDelete(BannerVO vo, Model model) {
-		System.out.println(vo);
-		System.out.println("deleteBanner 메서드 실행");
-		SiteService.deleteBanner(vo);
-		System.out.println("완료!");
+//	// 배너 삭제
+//	@RequestMapping(value="/deleteBanner.mdo", method=RequestMethod.GET)
+//	public String deleteDelete(BannerVO vo, Model model) {
+//		System.out.println(vo);
+//		System.out.println("deleteBanner 메서드 실행");
+//		SiteService.deleteBanner(vo);
+//		System.out.println("완료!");
+//		return "/BannerList.mdo";
+//	}
+	
+	// --------------------------------------------------------------------------------------------//	
+	// 배너 삭제
+	@RequestMapping("/deleteBanner.mdo")
+	public String deleteDelete(BannerVO vo) throws IOException, SQLException{
+		
+		BannerVO bringData = SiteService.getReadBanner(vo);
+		
+		int index = bringData.getBanner_filepath().indexOf("/", 20);
+		String key = bringData.getBanner_filepath().substring(index+1);
+		awss3.delete(key);
+		
+		SiteService.deleteBanner(bringData);
+		
+		return "redirect:/BannerList.mdo";
+	}
+	// --------------------------------------------------------------------------------------------//
+	
+	// 배너 삭제 (체크박스)
+	@RequestMapping("/deleteBannerCheck.mdo")
+	public String deleteBannerCheck(String[] tdArr, BannerVO vo) {
+		System.out.println(tdArr[0]);
+		System.out.println("글 삭제 처리");
+
+		if(tdArr!=null) {
+			List<Integer> arr2 = new ArrayList<Integer>();
+			for(int a=0; a<tdArr.length; a++) {
+				System.out.println("dhsi");
+				arr2.add(Integer.parseInt(tdArr[a])) ;
+				System.out.println(arr2.get(a)+"tes");
+				vo.setBanner_no(arr2.get(a));
+				BannerVO bringData = SiteService.getReadBanner(vo);
+				
+				int index = bringData.getBanner_filepath().indexOf("/", 20);
+				String key = bringData.getBanner_filepath().substring(index+1);
+				awss3.delete(key);
+				
+				SiteService.deleteBanner(vo.getBanner_no());
+			}
+		}
 		return "/BannerList.mdo";
 	}
 	
@@ -268,14 +339,32 @@ public class Ad_SiteController {
 		return "/TermsList.mdo"; // 완료후 다시 어드민목록으로 가야되기 때문에 xxxxList.mdo로 보내서 
 	}
 	
-	// 약관 삭제 (아직 체크박스를 눌러 삭제하는 기능은 구현 못함)
-		@RequestMapping(value="/deleteTerms.mdo", method=RequestMethod.GET)
-		public String deleteDelete(TermsVO vo, Model model) {
-			System.out.println(vo);
-			System.out.println("deleteTerms 메서드 실행");
-			SiteService.deleteTerms(vo);
-			System.out.println("완료!");
-			return "/TermsList.mdo";
-		}
+	// 약관 삭제
+	@RequestMapping(value="/deleteTerms.mdo", method=RequestMethod.GET)
+	public String deleteDelete(TermsVO vo, Model model) {
+		System.out.println(vo);
+		System.out.println("deleteTerms 메서드 실행");
+		SiteService.deleteTerms(vo);
+		System.out.println("완료!");
+		return "/TermsList.mdo";
+	}
 	
+	// 약관 삭제 (체크박스)
+	@RequestMapping("/deleteTermsCheck.mdo")
+	public String deleteTermsCheck(String[] tdArr, TermsVO vo) {
+		System.out.println(tdArr[0]);
+		System.out.println("글 삭제 처리");
+
+		if(tdArr!=null) {
+			List<Integer> arr2 = new ArrayList<Integer>();
+			for(int a=0; a<tdArr.length; a++) {
+				System.out.println("dhsi");
+				arr2.add(Integer.parseInt(tdArr[a])) ;
+				System.out.println(arr2.get(a)+"tes");
+				vo.setTerms_no(arr2.get(a));
+				SiteService.deleteTerms(vo.getTerms_no());
+			}
+		}
+		return "/TermsList.mdo";
+	}
 }

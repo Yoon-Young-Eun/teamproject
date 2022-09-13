@@ -13,30 +13,30 @@
 <title>Dashboard - SEMO Admin</title>
 
 <!-- icon 버튼 css -->
-<link href="css/icon.css" rel="stylesheet" />
+<link href="/admin/css/icon.css" rel="stylesheet" />
 
 <!--  테이블 필터(중요) -->
-<link href="css/filter.css" rel="stylesheet" />
-<script src="js/filter.js" crossorigin="anonymous"></script>
+<link href="/admin/css/filter.css" rel="stylesheet" />
+<script src="/admin/js/filter.js" crossorigin="anonymous"></script>
 
 <!-- 체크박스 js -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="./js/checkbox.js"></script>
+<script src="/admin/js/checkbox.js"></script>
 
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
-<link href="css/styles.css" rel="stylesheet" />
+<link href="/admin/css/styles.css" rel="stylesheet" />
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
 	crossorigin="anonymous"></script>
-<script type="text/javascript" src="js/index_navbar_onclick.js"></script>
+<script type="text/javascript" src="/admin/js/index_navbar_onclick.js"></script>
 </head>
 <body class="sb-nav-fixed">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 		<!-- Navbar Brand-->
-		<a class="navbar-brand ps-3" href="index.html">Start Bootstrap</a>
+		<a class="navbar-brand ps-3" href="index.jsp">Start Bootstrap</a>
 		<!-- Sidebar Toggle-->
 		<button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
 			id="sidebarToggle" href="#!">
@@ -116,7 +116,7 @@
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
 								<a class="nav-link" href="/adminOrderList.mdo">주문/결제</a> <a
-									class="nav-link" href="/estimateList.mdo">견적주문</a> <a
+									class="nav-link" href="/getEstimateList.mdo">견적주문</a> <a
 									class="nav-link" href="/memberorderList.mdo">개별조회</a>
 							</nav>
 						</div>
@@ -134,8 +134,8 @@
 						<div class="collapse" id="change_id_03"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="/salesStoreList.mdo">지점매출</a> 
-								<a class="nav-link" href="/salesProductList.mdo">상품매출</a>
+								<a class="nav-link" href="/salesStoreList.mdo">지점매출</a> <a
+									class="nav-link" href="/salesProductList.mdo">상품매출</a>
 							</nav>
 						</div>
 
@@ -186,8 +186,8 @@
 						<div class="collapse" id="change_id_06"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="board_notice.jsp">공지사항</a> <a
-									class="nav-link" href="board_event.jsp">이벤트</a> <a
+								<a class="nav-link" href="/getBoardList.mdo">공지사항</a> <a
+									class="nav-link" href="/getEventList.mdo">이벤트</a> <a
 									class="nav-link" href="#">리뷰</a> <a class="nav-link"
 									href="board_Q&A.jsp">QnA</a> <a class="nav-link"
 									href="board_FAQ.jsp">자주하는 질문</a>
@@ -371,17 +371,22 @@
 								<tr>
 							</thead>
 							<tbody>
-								<c:forEach var="board" items="${articleList}">
+								<c:forEach var="est" items="${estimateList}">
 									<tr>
 										<td id="check_td"><input type="checkbox" name="check"></td>
-										<td>${board.customer_no}</td>
-										<td><a
-											href="/getMemberBoard.mdo?customer_no=${board.customer_no}">${board.customer_id}</a></td>
-										<td>${board.customer_name }</td>
-										<td>${board.customer_phone}</td>
-										<td>${board.customer_address1}${board.customer_address2}</td>
-										<td>${board.customer_sms_permit}</td>
-										<td>${board.customer_status}</td>
+										<td>${est.estimate_cm_no}</td>
+										<td>${est.estimate_type}</td>
+										<td>${est.customer_name}</td>
+										<td>${est.estimate_date}</td>
+										<td>${est.customer_address1}${est.customer_address2}</td>
+										<td><c:choose>
+												<c:when test="${est.estimate_status eq '견적대기'}">
+													<a href="/getEstimate.mdo?estimate_cm_no=${est.estimate_cm_no }">${est.estimate_status}</a>
+												</c:when>
+												<c:otherwise>
+													<a href="/getAd_Estimate.mdo?estimate_cm_no=${est.estimate_cm_no }">${est.estimate_status}</a>
+												</c:otherwise>
+											</c:choose></td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -411,7 +416,7 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
-	<script src="js/scripts.js"></script>
+	<script src="/admin/js/scripts.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
 		crossorigin="anonymous"></script>
@@ -419,7 +424,7 @@
 	<script src="assets/demo/chart-bar-demo.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
 		crossorigin="anonymous"></script>
-	<script src="js/datatables-simple-demo.js"></script>
+	<script src="/admin/js/datatables-simple-demo.js"></script>
 	<script>
 		getUniqueValuesFromColumn()
 	</script>
@@ -431,10 +436,10 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
 	<script type="text/javascript"
 		src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-	<script src="js/pdf.js"></script>
+	<script src="/admin/js/pdf.js"></script>
 
 	<!-- excel -->
-	<script src="js/excel.js"></script>
+	<script src="/admin/js/excel.js"></script>
 	<link rel="stylesheet"
 		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 

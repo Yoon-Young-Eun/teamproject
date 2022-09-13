@@ -38,4 +38,9 @@ public class StoreDAO {
 		System.out.println("DAO.deleteStore 실행");
 		sql.delete("StoreDAO.deleteStore", vo);
 	}
+	
+	public void deleteStore(int no) {
+		System.out.println("DAO.deleteStore 실행");
+		sql.delete("StoreDAO.deleteStore", no);
+	}
 }

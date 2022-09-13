@@ -39,4 +39,9 @@ public class ProductDAO {
 		System.out.println("DAO.deleteProduct 실행");
 		sql.delete("ProductDAO.deleteProduct", vo);
 	}
+	
+	public void deleteProduct(int no) {
+		System.out.println("DAO.deleteProduct 실행");
+		sql.delete("ProductDAO.deleteProduct", no);
+	}
 }

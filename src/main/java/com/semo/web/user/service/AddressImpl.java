@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.semo.web.user.dao.AddressDAO;
 import com.semo.web.user.vo.AddressListVO;
-import com.semo.web.user.vo.CustomerVO2;
+import com.semo.web.user.vo.CustomerVO;
 
 @Service
 public class AddressImpl implements AddressService {
@@ -40,14 +40,24 @@ public class AddressImpl implements AddressService {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public CustomerVO2 sendCustomer(CustomerVO2 vo) {
 
+=======
+	public CustomerVO sendCustomer(CustomerVO vo) {
+		
+>>>>>>> main
 		return addressdao.sendCustomer(vo);
 	}
 
 	@Override
+<<<<<<< HEAD
 	public List<AddressListVO> getAddressList(CustomerVO2 vo) {
 
+=======
+	public List<AddressListVO> getAddressList(CustomerVO vo) {
+		
+>>>>>>> main
 		return addressdao.getAddressList(vo);
 	}
 	

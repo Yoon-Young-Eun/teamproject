@@ -34,7 +34,7 @@
 	
 	
 	
-	<select id="sendCustomer" parameterType="CUSTOMER" resultType="CUSTOMER">
+	<select id="sendCustomer" parameterType="customer" resultType="customer">
 	<![CDATA[select * from customer where customer_no=#{customer_no}]]>
 	</select>
 

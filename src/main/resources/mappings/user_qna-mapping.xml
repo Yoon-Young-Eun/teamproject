@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cm_BoardDAO">
+
+<!-- QnA -->
+ 	<select id="getQnAList0" resultType="QnA">
+ 	<![CDATA[ select * from BOARD_QnA_CM where BOARD_QnA_STATUS=0 ]]>
+ 	</select>
+ 	<select id="getQnAList1" resultType="QnA">
+ 	<![CDATA[ select * from BOARD_QnA_CM where BOARD_QnA_STATUS=1 ]]>
+ 	</select>
+ 	<select id="getReadQnA_q" resultType="QnA">
+	<![CDATA[ select * from BOARD_QnA_CM where BOARD_QnA_NO=#{BOARD_QnA_NO} ]]>
+	</select>
+ 	<select id="getReadQnA_a" resultType="QnA">
+ 	<![CDATA[  select
+					a.ADMIN_QnA_TITLE,
+					a.ADMIN_QnA_CONTENT,
+					a.ADMIN_QnA_REG_DATE,
+					c.BOARD_QnA_NO,
+					c.BOARD_QnA_TYPE,
+					c.BOARD_QnA_TITLE,
+					c.BOARD_QnA_CONTENT,
+					c.BOARD_QnA_FILEPATH,
+					c.BOARD_QnA_REG_DATE,
+					c.CUSTOMER_ID
+				from
+					BOARD_QnA_ADMIN as a,
+					BOARD_QnA_CM as c
+				where
+					c.BOARD_QnA_NO=#{BOARD_QnA_NO}
+				and
+					a.BOARD_QnA_NO=#{BOARD_QnA_NO}	 ]]>
+	</select>
+	<update id="updateQnA_cm" parameterType="QnA">
+  		update BOARD_QnA_CM set BOARD_QnA_NO=#{BOARD_QnA_NO}, BOARD_QnA_STATUS=1 where BOARD_QnA_NO=#{BOARD_QnA_NO}
+  	</update>
+
+</mapper>
+ 

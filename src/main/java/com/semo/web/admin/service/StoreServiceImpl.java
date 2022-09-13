@@ -39,4 +39,9 @@ public class StoreServiceImpl implements StoreService {
 		
 	}
 
+	@Override
+	public void deleteStore(int no) {
+		StoreDAO.deleteStore(no);
+	}
+
 }

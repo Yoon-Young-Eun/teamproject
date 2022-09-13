@@ -1,8 +1,13 @@
 @charset "UTF-8";
 
+.bodt {
+	display: flex;
+	justify-content: center;
+}
+
 .wrap {
 	width: auto;
-	height:150px;
+	height:230px;
 	display: flex;
 	justify-content: center;
 	border: 2px solid #ddd;
@@ -16,10 +21,7 @@
 }
 
 .end {
-	margin-top: 1px; 
-	background: white;
-	width: 100%;
-	padding: 15px;
+	margin-top: 30px; 
 	text-align: center;
 	display: flex;
 	justify-content: center;
@@ -49,4 +51,5 @@
 	font-weight: bold;
 	text-decoration: underline;
 	color: white;
+	cursor: pointer;
 }

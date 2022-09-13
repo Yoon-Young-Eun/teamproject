@@ -22,7 +22,7 @@
 <!-- 체크박스 js -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="./js/checkbox.js"></script>
+<script src="/admin/js/checkbox.js"></script>
 
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
@@ -347,11 +347,60 @@
 						<div> <input id="button" type="button" value="등록" 
 						onclick="window.location='/admin/store_store_insert.jsp'" /> </div>
 <!-- 						<div> <input  id="button" type="button"  value="수정" /> </div> -->
-<!-- 						<div> <input id="button" type="button" value="삭제" /> </div> -->
+						<div> <input id="delBtn" type="button" value="삭제" /> </div>
 						
 						</div>
 
+<script type="text/javascript">
+//체크삭제
+$("#delBtn")
+		.click(
+				function() {
+					console.log("1");
+					var rowData = new Array();
+					var tdArr = new Array();
+					var checkbox = $("tbody input[name=check]:checked");
 
+					// 체크된 체크박스 값을 가져온다
+					checkbox
+							.each(function(i) {
+								var tr = checkbox
+										.parent()
+										.parent()
+										.eq(i);
+								var td = tr
+										.children();
+								rowData.push(tr
+										.text());
+								// td.eq(0)은 체크박스 이므로  td.eq(4)=전화번호 의 값을 가져온다.
+
+								var number = td.eq(
+										1).text()
+										+ ",";
+								number = number
+										.substring(
+												0,
+												number.length - 1); //마지막 , 제거
+								// 가져온 값을 배열에 담는다.
+								tdArr.push(number);
+
+								$
+										.ajax({
+											url : "deleteStoreCheck.mdo",
+											type : "get",
+											traditional : true,
+											data : {
+												tdArr : tdArr,
+											},
+											dataType : 'text',
+											success : function(data) {
+												location.href = "/StoreList.mdo";
+												console.log(data);
+											}
+										});
+							});
+				});
+</script>
 
 						<!-- 내용물 end -->
 						<div class="card-footer small text-muted">Updated yesterday
@@ -377,7 +426,7 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
-	<script src="/admin/js/scripts.js"></script>
+	<script src="js/scripts.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
 		crossorigin="anonymous"></script>
@@ -385,7 +434,7 @@
 	<script src="assets/demo/chart-bar-demo.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
 		crossorigin="anonymous"></script>
-	<script src="/admin/js/datatables-simple-demo.js"></script>
+	<script src="js/datatables-simple-demo.js"></script>
 	    <script>
         getUniqueValuesFromColumn()
     </script>
@@ -394,10 +443,10 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-    <script src="/admin/js/pdf.js"></script>
+    <script src="js/pdf.js"></script>
     
     <!-- excel -->	
-    <script src="/admin/js/excel.js"></script>
+    <script src="js/excel.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >	
     	
 </body>

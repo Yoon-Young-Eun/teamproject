@@ -329,8 +329,6 @@
 
 <!-- </div> -->
 
-
-
 <div class="popup_title_wrap">
 <div class="popup_title">
 <div class="popup_title_text">

@@ -20,7 +20,7 @@
       <typeAlias type="com.semo.web.user.vo.AddressListVO" alias="CM_ADDRESS" />
       <typeAlias type="com.semo.web.user.vo.FaqVO" alias="BOARD_FAQ"/>   
       <typeAlias type="com.semo.web.user.vo.OrderVO" alias="ORDER" />
-      <typeAlias type="com.semo.web.user.vo.CustomerVO2" alias="CUSTOMER"/>
+<!--       <typeAlias type="com.semo.web.user.vo.CustomerVO2" alias="CUSTOMER"/> -->
       <typeAlias type="com.semo.web.user.vo.EstimateVO" alias="estimate"/>
 
       <typeAlias type="com.semo.web.admin.vo.BannerVO" alias="banner" />
@@ -36,6 +36,7 @@
       
       <!-- user -->
       <typeAlias type="com.semo.web.user.vo.CustomerVO" alias="customer" /> 
+      <typeAlias type="com.semo.web.user.vo.Cm_QnAVO" alias="QnA" /> 
       
    </typeAliases>
 
@@ -56,25 +57,17 @@
 
       <mapper resource="mappings/ad_member-mapping.xml"/>
       <mapper resource="mappings/ad_order-mapping.xml"/>
-      <mapper resource="mappings/ad_sales-mapping.xml"/>
-                              
-<<<<<<< HEAD
-		<mapper resource="mappings/user_address-mapping.xml"/>
-		<mapper resource="mappings/user_faq-mapping.xml"/>
-		<mapper resource="mappings/user_qna-mapping.xml"/>
+      <mapper resource="mappings/ad_sales-mapping.xml"/>                          
 		
-	</mappers>
-=======
-      <mapper resource="mappings/user_address-mapping.xml"/>
-      <mapper resource="mappings/user_faq-mapping.xml"/>
-      
+		
+
       <!-- user -->                      
       <mapper resource="mappings/user_address-mapping.xml"/>
       <mapper resource="mappings/user_faq-mapping.xml"/>
-      
+      <mapper resource="mappings/user_qna-mapping.xml"/>
       <mapper resource="mappings/user-customer-mapping.xml" /> 
 
    </mappers>
->>>>>>> main
+
 </configuration>
  

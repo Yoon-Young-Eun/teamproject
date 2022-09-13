@@ -1,8 +1,13 @@
 @charset "UTF-8";
 
+.whole {
+	display: flex;
+	justify-content: center;
+}
+
 .popup_wrapper {
-	width: 480px;
-	height: 650px;
+	width: 550px;
+	height: 800px;
 	border: 12px solid #eeeeee;
 	padding: 16px;
 }
@@ -14,14 +19,10 @@
 	margin-bottom: 12px;
 }
 
-.estimate_request_title_row {
-	margin: 6px 0px;
-	width: 90px;
-	font-size: 20px;
-}
-
 .estimate_request {
 	display: flex;
+	margin-top: 5px;
+	align-items: center;
 }
 
 .estimate_request_title {
@@ -30,56 +31,30 @@
 	font-size: 20px;
 }
 
-.estimate_request_num {
+.estimate_request_value {
 	width: 330px;
-	margin: 8px 0px 0px 0px;
-}
-
-.estimate_request_name {
-	width: 121px;
-	margin: 8px 0px 0px 0px;
-}
-
-.estimate_request_type {
-	width: 121px;
-	margin: 8px 0px 0px 0px;
-}
-
-.estimate_request_type>select {
-	width: 240px;
-	height: 30px;
-}
-
-.estimate_request_date {
-	width: 121px;
-	margin: 8px 0px 0px 0px;
-}
-
-.estimate_request_address {
-	width: 121px;
-	margin: 8px 0px 0px 0px;
 }
 
 .estimate_request_content {
 	width: 330px;
 	height: 80px;
-	margin: 8px 0px 8px 0px;
 	overflow: auto;
+	display: flex;
+	align-items: center;
 }
 
 .estimate_request_file {
-	width: 330px;
-	height: 160px;
-	margin: 8px 0px 0px 0px;
+	width: 250px;
+	height: 250px;
 }
 
-.estimate_request_file>img {
-	max-height: 100%;
+.estimate_request_file > img {
+	height: 100%;
 }
 
 /* 버튼 */
 .end {
-	margin-top: 30px; 
+	margin-top: 20px; 
 	padding: 15px;
 	display: flex;
 	justify-content: center;
@@ -90,12 +65,14 @@
 	padding: 10px;
 	border-radius: 10px;
 	background: #dee2e6;
+	width : 60px;
+	display: flex;
+	justify-content: center;
 }
 
 .end a {
 	color : #212529;
 	font-size: 16px;
-	/* border: 2px solid black; */
 	font-weight: bold;
 	letter-spacing: 3px;
 	text-decoration: none;

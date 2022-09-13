@@ -54,9 +54,15 @@
 						</div>
 						<div class="button1">
 							<input type="button" value="주소지선택" id="button2"
-								onclick="setParentText(this); location.href='/updateCustomerAddress.do?'"
+								onclick="setParentText(this);"
 								class="action-button shadow animate blue"
 								style="width: 100px; height: 30px; margin: 0px; padding: 0px; font-size: 15px;">
+								<input type="button" value="기본주소지등록" id="button5" onclick="F5(${address.cm_address_no},${address.customer_no},this)"
+								class="action-button shadow animate blue" 
+								style="width: 150px; height: 30px; margin: 0px; padding: 0px; font-size: 15px; margin-left:5px;"
+								>
+							
+								
 						</div>
 					</div>
 					<div class="address4">
@@ -84,6 +90,15 @@
 					
 			</div>
 			</div>
+	
+			 <script>
+
+      
+      </script>
+     
+    
+     
+			
 			
 			</c:forEach>
 		
@@ -98,10 +113,10 @@
 			class="action-button shadow animate blue"
 			style="margin: 0px; font-size: 25px; height: 60px; width: 300px;">
 			
-			
+		
 	</div>
 	
-	</div>
+	
 	<script type="text/javascript">
         function setParentText(e){
         	console.log(e.parentNode.parentNode.parentNode.childNodes[9].childNodes[1]);
@@ -114,9 +129,24 @@
           window.close();
         }
       </script>
-      <script>
-      var cn = Number(document.getElementById("customNumber").value);
-      </script>
+    
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script>
+    function F5(cm_address_no,customer_no,e){
+    	console.log(cm_address_no,customer_no);
+    	console.log($(e));
+    	opener.document.getElementById("chse").innerText=Number(opener.document.getElementById("chse").innerText)+1;
+    	location.href=`/updateCustomerAddress.do?cm_address_no=`+cm_address_no+`&customer_no=${customer_no}`;
+    	
+    	//window.opener.location.reload();
+    	
+    	
+    }
+   
+    
+    </script>
+    
+      		
 </body>
 
 

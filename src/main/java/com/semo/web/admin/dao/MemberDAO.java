@@ -6,10 +6,10 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.semo.web.admin.vo.OrderMtVO;
 import com.semo.web.admin.vo.CustomerVO;
 import com.semo.web.admin.vo.MessageVO;
 import com.semo.web.admin.vo.PagingVO;
+import com.semo.web.user.vo.OrderMtVO;
 
 @Repository
 public class MemberDAO {

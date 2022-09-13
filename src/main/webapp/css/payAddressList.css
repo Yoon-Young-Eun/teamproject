@@ -277,6 +277,17 @@ html {
   -webkit-transform: translate(0px,5px);
 	border-bottom: 1px solid;
 }
+#button5{
+	border-top: none;
+	border-left:none;
+	border-right:none;
+	border-bottom: 5px solid #2b92da;
+}
+#button5:active{
+	transform: translate(0px,5px);
+  -webkit-transform: translate(0px,5px);
+	border-bottom: 1px solid;
+}
 
 
 

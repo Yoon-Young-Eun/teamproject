@@ -6,8 +6,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.semo.web.admin.vo.OrderMtVO;
 import com.semo.web.admin.vo.PagingVO;
+import com.semo.web.user.vo.OrderMtVO;
 import com.semo.web.user.vo.OrderVO;
 
 @Repository

@@ -1,18 +1,20 @@
-package com.semo.web.admin.vo;
+package com.semo.web.user.vo;
+
+import java.sql.Date;
 
 public class OrderMtVO {
 
 	private int order_mt_no;
 	private int customer_no;
 	private String customer_name;
-	private String product_code;
+	private int product_code;
 	private String order_mt_category1;
 	private String order_mt_category2;
-	private String order_mt_product;	
-	private String order_mt_price;
-	private String order_mt_date;
-	private String order_no;
-	
+	private String order_mt_product;
+	private int order_mt_count;
+	private int order_mt_price;
+	private Date order_mt_date;
+	private int order_no;
 	public int getOrder_mt_no() {
 		return order_mt_no;
 	}
@@ -31,10 +33,10 @@ public class OrderMtVO {
 	public void setCustomer_name(String customer_name) {
 		this.customer_name = customer_name;
 	}
-	public String getProduct_code() {
+	public int getProduct_code() {
 		return product_code;
 	}
-	public void setProduct_code(String product_code) {
+	public void setProduct_code(int product_code) {
 		this.product_code = product_code;
 	}
 	public String getOrder_mt_category1() {
@@ -55,31 +57,37 @@ public class OrderMtVO {
 	public void setOrder_mt_product(String order_mt_product) {
 		this.order_mt_product = order_mt_product;
 	}
-	public String getOrder_mt_price() {
+	public int getOrder_mt_count() {
+		return order_mt_count;
+	}
+	public void setOrder_mt_count(int order_mt_count) {
+		this.order_mt_count = order_mt_count;
+	}
+	public int getOrder_mt_price() {
 		return order_mt_price;
 	}
-	public void setOrder_mt_price(String order_mt_price) {
+	public void setOrder_mt_price(int order_mt_price) {
 		this.order_mt_price = order_mt_price;
 	}
-	public String getOrder_mt_date() {
+	public Date getOrder_mt_date() {
 		return order_mt_date;
 	}
-	public void setOrder_mt_date(String order_mt_date) {
+	public void setOrder_mt_date(Date order_mt_date) {
 		this.order_mt_date = order_mt_date;
 	}
-	public String getOrder_no() {
+	public int getOrder_no() {
 		return order_no;
 	}
-	public void setOrder_no(String order_no) {
+	public void setOrder_no(int order_no) {
 		this.order_no = order_no;
 	}
 	@Override
 	public String toString() {
-		return "CmOrderVO [order_mt_no=" + order_mt_no + ", customer_no=" + customer_no + ", customer_name="
+		return "OrderMtVO [order_mt_no=" + order_mt_no + ", customer_no=" + customer_no + ", customer_name="
 				+ customer_name + ", product_code=" + product_code + ", order_mt_category1=" + order_mt_category1
 				+ ", order_mt_category2=" + order_mt_category2 + ", order_mt_product=" + order_mt_product
-				+ ", order_mt_price=" + order_mt_price + ", order_mt_date=" + order_mt_date + ", order_no=" + order_no
-				+ "]";
+				+ ", order_mt_count=" + order_mt_count + ", order_mt_price=" + order_mt_price + ", order_mt_date="
+				+ order_mt_date + ", order_no=" + order_no + "]";
 	}
 	
 	

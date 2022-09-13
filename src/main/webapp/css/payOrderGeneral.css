@@ -1,5 +1,14 @@
 @charset "UTF-8";
-
+label {
+	font-family: 'Noto Sans KR', sans-serif;
+	font-size:15px;
+}
+textarea{
+	font-family: 'Noto Sans KR', sans-serif;
+}
+input{
+	font-family: 'Noto Sans KR', sans-serif;
+}
 body {
 	overflow-x: hidden;
 }
@@ -48,6 +57,7 @@ html {
 }
 
 .main_text4 {
+	width:990px;
 	display: flex;
 	border: 1px solid rgb(128, 128, 128, 0.6);
 	padding-top: 20px;
@@ -59,7 +69,7 @@ html {
 .main_text5 {
 	display: flex;
 	align-items: center;
-	width: 200px;
+	width: 150px;
 	justify-content: center;
 }
 
@@ -72,7 +82,7 @@ html {
 
 .price {
 	display: flex;
-	width: 150px;
+	width: 100px;
 	justify-content: center;
 	align-items: center;
 }
@@ -91,6 +101,7 @@ html {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	text-align:center;
 }
 
 .main_text6 {
@@ -159,8 +170,9 @@ html {
 .main_text9 {
 	width: 1000px;
 	display: flex;
-	justify-content: flex-end;
+	justify-content: center;
 	margin-top: 20px;
+	margin-right:0px;
 }
 
 /* #pay{
@@ -403,3 +415,50 @@ html {
 	font-size: 15px;
 	color: black;
 }
+
+#median{
+	width:100px;
+	border-style:none;
+	font-size:15px;
+}
+#median:focus{
+	outline: none;
+}
+#product_name{
+	border-style:none;
+	font-size:15px;
+}
+#product_name:focus{
+	outline: none;
+}
+.main_text9{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	width: 150px;
+	display: flex;
+	margin:0px;
+}
+.product_price{
+	width:50px;
+	border-style:none;
+	font-size:15px;
+}
+.product_price:focus{
+	outline:none;
+}
+#won{
+	width:50px;
+	border-style:none;
+	font-size:15px;
+}
+#won:focus{
+	outline: none;
+}
+.main_text10{
+	width:1000px;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+

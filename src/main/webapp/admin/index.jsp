@@ -75,7 +75,7 @@
                             <div class="collapse" id="change_id_02" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="/adminOrderList.mdo">주문/결제</a>
-									<a class="nav-link" href="/estimateList.mdo">견적주문</a>
+									<a class="nav-link" href="/getEstimateList.mdo">견적주문</a>
 									<a class="nav-link" href="/memberorderList.mdo">개별조회</a>
                                 </nav>
                             </div>

@@ -377,7 +377,7 @@
 						</div>
 					</div>
 
-					<form id="insert" action="/insertEstimate.mdo">
+					<form id="insert" action="/insertEstimate.mdo" method="post">
 						<div class="layer" id="layer_reply">
 							<div class="popup_wrapper2">
 

@@ -96,5 +96,31 @@
 	</select>
    
   
+  
+ <!--  견적서 -->
+ 	<select id="getEstimateList" parameterType="estimate" resultType="estimate">
+ 		<![CDATA[ select * from estimate_cm ]]>
+ 	</select>
+ 
+ 	<select id="getEstimate" parameterType="estimate" resultType="estimate">
+ 		<![CDATA[ select * from estimate_cm where estimate_cm_no=#{estimate_cm_no} ]]>
+ 	</select>
 
+	<insert id="insertEstimate" parameterType="Ad_estimate">
+		<![CDATA[ insert into estimate_ad(estimate_cm_no, estimate_price, estimate_type_title, estimate_type_content) 
+		values (#{estimate_cm_no}, #{estimate_price}, #{estimate_type_title}, #{estimate_type_content}) ]]>
+	</insert>
+	
+	<select id="getAd_Estimate" parameterType="Ad_estimate" resultType="Ad_estimate">
+		<![CDATA[ select ad.estimate_ad_no, ad.estimate_cm_no, ad.estimate_price, ad.estimate_reply_date, t.estimate_type_title, ad.estimate_type_content from estimate_ad ad, estimate_type t where ad.estimate_cm_no=#{estimate_cm_no} and ad.estimate_type_content = t.estimate_type_content; ]]>
+	</select>
+	
+	<update id="updateEstimate" parameterType="Ad_estimate">
+		<![CDATA[ update estimate_cm set estimate_status='견적발송' where estimate_cm_no=#{estimate_cm_no} ]]>
+	</update>
+	
+	
+	<select id="getEstimateType" resultType="estimatetype">
+		<![CDATA[ select * from estimate_type ]]>
+	</select>
 </mapper>

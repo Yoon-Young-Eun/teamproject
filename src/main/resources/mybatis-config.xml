@@ -1,51 +1,13 @@
-<<<<<<< HEAD
-=======
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-config.dtd">
  
 <configuration>
+   <typeAliases>
    <!-- <typeAliases> 엘리먼트는 <typeAlias>를 여러 개 가질 수 있으며 <typeAlias>를 이용하여 특정 
       클래스의 별칭(Alias)을 선언할 수 있다. 이 Alias는 SQL 명령어들이 저장되는 SQL Mapper에서 사용할 수 있으며 
       이를 통해 SQL Mapper 파일의 크기를 줄여주고 설정을 간단히 처리할 수 있도록 해 준다. -->
-   <typeAliases>
-<<<<<<< HEAD
-      <typeAlias type="com.semo.web.admin.vo.AdminVO" alias="admin" />
-      <typeAlias type="com.semo.web.admin.vo.CustomerVO" alias="customer0" />
-      <typeAlias type="com.semo.web.admin.vo.MessageVO" alias="message" />
-      <typeAlias type="com.semo.web.admin.vo.PagingVO" alias="paging" />
-      <typeAlias type="com.semo.web.admin.vo.OrderMtVO" alias="orderManagement" />
-
-      <typeAlias type="com.semo.web.admin.vo.ReviewVO" alias="board_review" />
-      <typeAlias type="com.semo.web.admin.vo.FAQVO" alias="FAQ" />
-      <typeAlias type="com.semo.web.admin.vo.Ad_QnAVO" alias="Ad_QnA" />
-
-      <typeAlias type="com.semo.web.user.vo.AddressListVO" alias="CM_ADDRESS" />
-      <typeAlias type="com.semo.web.user.vo.FaqVO" alias="BOARD_FAQ" />
-      <typeAlias type="com.semo.web.user.vo.OrderVO" alias="ORDER" />
-      <!-- <typeAlias type="com.semo.web.user.vo.CustomerVO2" alias="CUSTOMER" 
-         /> -->
-      <typeAlias type="com.semo.web.user.vo.EstimateVO" alias="estimate" />
-
-      <typeAlias type="com.semo.web.admin.vo.BannerVO" alias="banner" />
-      <typeAlias type="com.semo.web.admin.vo.CouponVO" alias="coupon" />
-      <typeAlias type="com.semo.web.admin.vo.ProductVO" alias="product" />
-      <typeAlias type="com.semo.web.admin.vo.StoreVO" alias="store" />
-      <typeAlias type="com.semo.web.admin.vo.TermsVO" alias="terms" />
-
-      <typeAlias type="com.semo.web.admin.vo.NoticeVO" alias="notice" />
-      <typeAlias type="com.semo.web.admin.vo.EventVO" alias="board_event" />
-      <typeAlias type="com.semo.web.admin.vo.Ad_EstimateVO" alias="Ad_estimate" />
-      <typeAlias type="com.semo.web.admin.vo.Estimate_T_VO" alias="estimatetype" />
-
-      <!-- user -->
-      <typeAlias type="com.semo.web.user.vo.CustomerVO" alias="customer" />
-      <typeAlias type="com.semo.web.user.vo.Cm_QnAVO" alias="QnA" />
-
-   </typeAliases>
-=======
-
       <typeAlias type="com.semo.web.admin.vo.AdminVO" alias="admin" />
       <typeAlias type="com.semo.web.admin.vo.MessageVO" alias="message" />
       <typeAlias type="com.semo.web.admin.vo.PagingVO" alias="paging"/>
@@ -85,26 +47,6 @@
 
    <mappers>
       <mapper resource="mappings/ad_admin-mapping.xml" />
->>>>>>> main
-
-      <!-- 아래 계속해서 추가 -->
-      <mapper resource="mappings/ad_board-mapping.xml" />
-      <mapper resource="mappings/ad_site-mapping.xml" />
-      <mapper resource="mappings/ad_store-mapping.xml" />
-      <mapper resource="mappings/ad_product-mapping.xml" />
-      <mapper resource="mappings/user_qna-mapping.xml" />
-      
-      <mapper resource="mappings/ad_util-mapping.xml" />
-      <mapper resource="mappings/ad_order-mapping.xml" />
-      <mapper resource="mappings/ad_member-mapping.xml" />
-      <mapper resource="mappings/ad_sales-mapping.xml" />
-
-<<<<<<< HEAD
-   <!-- <mappers> 엘리먼트는 여러 <mapper>를 가질 수 있으며 이 <mapper>를 이용하여 SQL 명령어들이 저장된 
-      SQL 파일을 등록할 수 있다. -->
-
-   <mappers>
-      <mapper resource="mappings/ad_admin-mapping.xml" />
 
       <!-- 아래 계속해서 추가 -->
       <mapper resource="mappings/ad_board-mapping.xml" />
@@ -120,18 +62,7 @@
 
       <mapper resource="mappings/user_address-mapping.xml" />
       <mapper resource="mappings/user_qna-mapping.xml" />
-
-
-      <!-- user -->
-      <mapper resource="mappings/user_faq-mapping.xml" />
-
-      <mapper resource="mappings/user-customer-mapping.xml" />
-
-   </mappers>
-
-</configuration>
  
-=======
       <!-- user -->
       <mapper resource="mappings/user_address-mapping.xml" />
       <mapper resource="mappings/user_faq-mapping.xml" />
@@ -141,5 +72,3 @@
    </mappers>
 
 </configuration>
->>>>>>> main
->>>>>>> main

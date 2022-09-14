@@ -22,21 +22,37 @@
 
 <body>
 
-<form action="/logout.do" method = "post">
+
 <header id = "header">
    <div class = "top-menu-wrapper" >
-      <h1>△■</h1>
+      <h1><a href = "/views/main.jsp">△■</a></h1>
+      <form action="/logout.do" name = "logoutForm" method = "post">
       <nav class = "top-menu">
          <ul class = "top-list">
-         	<li style = "line-height : 68px; padding-right:30px;">반갑습니다, <b>${CustomerVO.customer_name}</b>님!</li>
-            <li><input class = "logout" type="submit" value="로그아웃"/></li>
-            <li><a href = "#">마이페이지</a></li>
+         	<li><a href = "/views/main.jsp">메인으로</a></li>
+            <li><button id = "logout" class = "logout" type="submit">로그아웃</button></li>
+            <li><a href = "/views-mypage/MyMain.jsp">마이페이지</a></li>
             <li><a href = "/service/serviceMain.jsp">고객센터</a></li>
          </ul>
       </nav>
+      </form>
    </div>
+   <script>
+   		$(document).ready(function(){
+   			$('#logout').click(function(){
+   				var result = confirm("로그아웃 하시겠습니까?");
+   				var logoutForm = document.logoutForm;
+   				
+   				if(result){
+   					logoutForm.submit();
+   				} else{
+   					
+   				}
+   			});
+   			
+   		});
+   </script>
 </header>
-</form>
 
 <nav id="cbp-hrmenu" class="cbp-hrmenu">
    <ul>

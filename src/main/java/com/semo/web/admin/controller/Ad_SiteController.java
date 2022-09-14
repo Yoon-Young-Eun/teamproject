@@ -129,6 +129,7 @@ public class Ad_SiteController {
 	public String bannerUpload(BannerVO vo, MultipartFile banner) throws IOException, SQLException {
 		// aws s3 파일 업로드 처리 */
 		InputStream is = banner.getInputStream();
+		System.out.println(is);
 		String key = banner.getOriginalFilename();
 		String contentType = banner.getContentType();
 		long contentLength = banner.getSize();

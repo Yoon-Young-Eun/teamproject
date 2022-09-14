@@ -10,6 +10,7 @@ import com.semo.web.admin.vo.Ad_QnAVO;
 import com.semo.web.admin.vo.EventVO;
 import com.semo.web.admin.vo.FAQVO;
 import com.semo.web.admin.vo.NoticeVO;
+import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.ReviewVO;
 import com.semo.web.user.vo.Cm_QnAVO;
 
@@ -111,9 +112,13 @@ public class BoardDAO {
 		sqltemplate.insert("BoardDAO.insertFAQ", vo);
 	}
 	
-	public List<FAQVO> getFAQList(){
+	public int getArticleCount(PagingVO pvo) {
+		return sqltemplate.selectOne("BoardDAO.getArticleCount", pvo);
+	}
+
+	public List<FAQVO> getFAQList(PagingVO pvo){
 		System.out.println("DAO.getFAQList 실행");
-		return sqltemplate.selectList("BoardDAO.getFAQList");
+		return sqltemplate.selectList("BoardDAO.getFAQList", pvo);
 	}
 	
 	public FAQVO getReadFAQ(FAQVO vo) {

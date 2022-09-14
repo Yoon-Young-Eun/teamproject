@@ -78,9 +78,9 @@
  			#{board_faq_content}
  		)
  	</insert>
- 	<select id="getFAQList" resultType="FAQ">
- 	  select * from board_faq
- 	</select>
+<!--  	<select id="getFAQList" resultType="FAQ"> -->
+<!--  	  select * from board_faq -->
+<!--  	</select> -->
  	<select id="getReadFAQ" resultType="FAQ">
 	<![CDATA[ select * from board_faq where board_faq_no=#{board_faq_no} ]]>
 	</select>
@@ -90,6 +90,26 @@
 	<delete id="deleteFAQ" parameterType="FAQ">
 	<![CDATA[ delete from board_faq where board_faq_no=#{board_faq_no} ]]>
 	</delete>
+	
+	<!-- 어드민 리스트 조회 -->
+	<select id="getFAQList" parameterType="paging"
+		resultType="FAQ"> 
+   <![CDATA[select * from (select @rownum := @rownum+1 as rnum, board_faq_no, board_faq_type, board_faq_title, board_faq_content, board_faq_reg_date from board_faq, (select @rownum :=0)as rowcolum]]>
+			<if test="searchCondition=='board_faq_title'">
+    		<![CDATA[where board_faq_title like concat('%', #{searchKeyword}, '%') ]]></if>
+    		<if test="searchCondition=='board_faq_content'">
+    		<![CDATA[where board_faq_content like concat('%', #{searchKeyword}, '%') ]]></if>
+    <![CDATA[order by board_faq_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]>
+	</select>
+	
+	<!-- 어드민리스트 count -->
+	<select id="getArticleCount" parameterType="paging" resultType="int">
+	   <![CDATA[ select count(*) from board_faq  ]]>
+		<if test="searchCondition=='board_faq_title'">
+	    	<![CDATA[ where board_faq_title like concat('%', #{searchKeyword}, '%')]]></if> 
+	    	 <if test="searchCondition=='board_faq_content'">
+	   	<![CDATA[where board_faq_content like concat('%', #{searchKeyword}, '%') ]]></if>
+	</select>
 
 <!-- QnA -->
 	<insert id="insertQnA_ad" parameterType="Ad_QnA">

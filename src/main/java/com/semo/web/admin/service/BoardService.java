@@ -6,6 +6,7 @@ import com.semo.web.admin.vo.Ad_QnAVO;
 import com.semo.web.admin.vo.EventVO;
 import com.semo.web.admin.vo.FAQVO;
 import com.semo.web.admin.vo.NoticeVO;
+import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.ReviewVO;
 import com.semo.web.user.vo.Cm_QnAVO;
 
@@ -36,11 +37,12 @@ public interface BoardService {
 
 // FAQ
 	public void insertFAQ(FAQVO vo);
-	public List<FAQVO> getFAQList();
+	public List<FAQVO> getFAQList(PagingVO pvo);
 	public FAQVO getReadFAQ(FAQVO vo);
 	public void updateFAQ(FAQVO vo);
 	public void deleteFAQ(int no);
 	public void deleteFAQ(FAQVO vo);
+	public int getArticleCount(PagingVO pvo);
 
 // QnA
 	public void insertQnA_ad(Ad_QnAVO vo);

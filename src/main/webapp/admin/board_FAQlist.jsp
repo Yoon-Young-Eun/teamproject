@@ -304,22 +304,60 @@
 	  <button class="icon_excel" onclick="exportToExcel('tblexportData', 'user-data')">Excel</button><!-- excel -->
 	 </div>
 	  
-	 
 	  
-	  <!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->  
-    <table id="datatablesSimple" class="emp-table dataPerPage tblCustomers tblexportData table" border="5">
+	  <div class="b_button">
+							<!-- 테이블 행 필터 -->
+							<form name="selectname" action="FAQList.mdo" method="get">
+							   <input type="hidden" name="searchCondition" value="${search.searchCondition}"/>
+							   <input type="hidden" name="searchKeyword" value="${search.searchKeyword}"/>
+						
+								<div col-index=8>
+									<select name="selectPage" onchange="this.form.submit()">
+										<option value="">선택</option>
+										<option value="5">5</option>
+										<option value="10">10</option>
+										<option value="20">20</option>
+										<option value="50">50</option>
+									</select> entries per page
+								</div>
+							</form>
+						
+							<div class="icon_flex">
+						<!-- 검색기능 -->
+							<div>
+								<form action="FAQList.mdo" method="get">
+									<div class="icon_flex">
+										<td><select name="searchCondition">
+												<c:forEach items="${conditionMap}" var="option">
+													<div>
+														<option value="${option.value}">${option.key}</option>
+													</div>
+												</c:forEach>
+										</select> <input type="text" name="searchKeyword" />
+											<div>
+												<input type="submit" value="검색" />
+											</div>
+											<div></div> <input type="reset"  value="초기화" />
+									</div>
+								</form>
+							</div>
+							</div>
+							
+						</div>
+	  
+	 
+	  <!-- id지우기 -->
+	  <!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색<-얘네 삭제 / tblCustomers pdf 다운   -->  
+    <table id="" class="tblCustomers tblexportData table" border="5">
        <thead>
 			<tr>
 				<th width="50" id="check_td"><input type="checkbox"
 					name="check" class="allcheck"></th>
-				<th col-index=2>번호</th>
-				<th col-index=3>분류<select class="table-filter"
-					onchange="filter_rows()">
-						<option value="all"></option>
-				</select></th>
-				<th col-index=4>제목</th>
-				<th col-index=5>내용</th>
-				<th col-index=6>등록일</th>
+				<th>번호</th>
+				<th>분류</th>
+				<th>제목</th>
+				<th>내용</th>
+				<th>등록일</th>
 
 			</tr>
         </thead>
@@ -347,6 +385,38 @@
 						<div> <input id="delBtn" type="button" value="삭제" /> </div>
 						
 						</div>
+
+
+<!-- pagaing 처리 -->
+						<div >					(currentPage-1) / pageBlock)* pageBlock+1
+							<c:if test="${count > 0}"> <!-- 조회된 데이터 개수가 0보다 크면 if문 실행 -->
+								<c:set var="imsi" value="${count % pageSize==0? 0 : 1}" /> <!-- 전체 페이지 게시물을 pageSize로 나눴을때 오류를 대비한 나머지구하는식 -->
+								<c:set var="pageCount" value="${count / pageSize+imsi}" /> <!-- 페이징 넘버 개수~ -->
+								<c:set var="pageBlock" value="${5}" /> <!-- 노출시킬 마지막 페이징 번호 단위(5개씩 끊어 보여줌) -->
+								<fmt:parseNumber var="result" value="${(currentPage-1) / pageBlock}" integerOnly="true" /> <!-- int타입으로 형변환 -->
+								<c:set var="startPage" value="${result * pageBlock+1}" /> <!--  현재 보이는 페이징 시작번호 -->
+								<c:set var="endPage" value="${startPage + pageBlock-1}" /> <!-- 현재 보이는 페이징 끝번호 -->
+								<c:if test="${endPage > pageCount}"> <!--  끝번호가 전체 페이징 개수보다 크면 안되기 때문에 변경해줌  -->
+									<c:set var="endPage" value="${pageCount}" />
+								</c:if>
+								<c:if test="${startPage > pageBlock}"> <!-- 시작번호가 5보다 크면, 앞에 '이전'을 붙여줌 -->
+									<a href="FAQList.mdo?pageNum=${startPage-pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="pageging2">이전</div></a>
+								</c:if>
+								<div class="icon_flex">
+								<c:forEach var="i" begin="${startPage}" end="${endPage}">
+										<a href="FAQList.mdo?pageNum=${i}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="pageging">${i}</div></a>
+								</c:forEach>
+								</div>							
+								<div class="icon_flex">
+								<c:if test="${endPage < pageCount}">
+									<a href="FAQList.mdo?pageNum=${startPage + pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="pageging2">다음</div></a>
+								</c:if>
+								</div>
+							</c:if>
+						</div><!-- 페이징 종료 -->
+
+
+
 
 <script type="text/javascript">
 	//체크삭제

@@ -11,8 +11,8 @@
 				<trim prefix ="where">
 				<if test="searchCondition=='order_no'">
     			<![CDATA[order_no like concat(#{searchKeyword}) and]]></if>
-				<if test="searchCondition=='customer_id'">	
-    			<![CDATA[customer_id like concat('%', #{searchKeyword}, '%') and]]></if>
+				<if test="searchCondition=='customer_no'">	
+    			<![CDATA[customer_no like concat('%', #{searchKeyword}, '%') and]]></if>
 				<if test="customer_no !=0">
    			    <![CDATA[customer_no = #{customer_no}]]></if>
    			    </trim>
@@ -22,8 +22,8 @@
         	   <![CDATA[ select count(*) from  order_management]]>
 				<if test="searchCondition=='order_no'">
     			<![CDATA[where order_no like concat(#{searchKeyword}) ]]></if>
-				<if test="searchCondition=='customer_id'">	
-    			<![CDATA[where customer_id like concat('%', #{searchKeyword}, '%') ]]></if>
+				<if test="searchCondition=='customer_no'">	
+    			<![CDATA[where customer_no like concat('%', #{searchKeyword}, '%') ]]></if>
 		</if>
 	</select>
 
@@ -37,8 +37,8 @@
 			
 				<if test="searchCondition=='order_no'">
     			<![CDATA[order_no like concat(#{searchKeyword}) and]]></if>
-				<if test="searchCondition=='customer_id'">	
-    			<![CDATA[customer_id like concat('%', #{searchKeyword}, '%') and]]></if>
+				<if test="searchCondition=='customer_no'">	
+    			<![CDATA[customer_no like concat('%', #{searchKeyword}, '%') and]]></if>
    			<![CDATA[customer_no = #{customer_no} order by customer_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]>
 		</if>
 		<if test="customer_no == 0">
@@ -46,8 +46,8 @@
 			<trim prefix="where" >
 				<if test="searchCondition=='order_no'">
     			<![CDATA[order_no like concat(#{searchKeyword})]]></if>
-				<if test="searchCondition=='customer_id'">	
-    			<![CDATA[customer_id like concat('%', #{searchKeyword},'%')]]></if>
+				<if test="searchCondition=='customer_no'">	
+    			<![CDATA[customer_no like concat('%', #{searchKeyword},'%')]]></if>
 			</trim>
            <![CDATA[order by customer_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]></if>
 	</select>

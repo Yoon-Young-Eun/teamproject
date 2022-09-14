@@ -15,7 +15,6 @@ public class OrderMtVO {
    private int order_mt_price;
    private Date order_mt_date;
    private int order_no;
-   private String customer_id;
 public int getOrder_mt_no() {
 	return order_mt_no;
 }
@@ -82,21 +81,14 @@ public int getOrder_no() {
 public void setOrder_no(int order_no) {
 	this.order_no = order_no;
 }
-public String getCustomer_id() {
-	return customer_id;
-}
-public void setCustomer_id(String customer_id) {
-	this.customer_id = customer_id;
-}
 @Override
 public String toString() {
 	return "OrderMtVO [order_mt_no=" + order_mt_no + ", customer_no=" + customer_no + ", customer_name=" + customer_name
 			+ ", product_code=" + product_code + ", order_mt_category1=" + order_mt_category1 + ", order_mt_category2="
 			+ order_mt_category2 + ", order_mt_product=" + order_mt_product + ", order_mt_count=" + order_mt_count
 			+ ", order_mt_price=" + order_mt_price + ", order_mt_date=" + order_mt_date + ", order_no=" + order_no
-			+ ", customer_id=" + customer_id + "]";
+			+ "]";
 }
-   
    
    
 }

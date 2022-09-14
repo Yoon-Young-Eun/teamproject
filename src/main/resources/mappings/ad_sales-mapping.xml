@@ -4,7 +4,7 @@
 
 <mapper namespace="SalesDAO">
 
-    <!-- 상품별 매출 현황  테이블 카운트-->  <!-- !!!!손봐야함 문제있는 쿼리!!!! -->
+    <!-- 상품별 매출 현황  테이블 카운트--> 
 	<select id="getProductArticleCount" parameterType="paging" resultType="int">
 		  <![CDATA[ select count(*) from order_management]]>
 			<trim prefix="where" prefixOverrides="and | or">
@@ -20,7 +20,7 @@
 	</select>
 
 
-    <!-- 지점별 매출 현황 테이블 카운트-->  <!-- !!!!손봐야함 문제있는 쿼리!!!! -->
+    <!-- 지점별 매출 현황 테이블 카운트-->  
 	<select id="getStoreArticleCount" parameterType="paging" resultType="int">
 		  <![CDATA[ select count(*) from order_cm]]>
 			<trim prefix="where" prefixOverrides="and | or">

@@ -37,6 +37,13 @@ public class Ad_SiteController {
 		SiteService.insertCoupon(vo);
 		System.out.println();
 		
+//		List<CustomerVO> customer_no = SiteService.insertBirthCoupon();
+//		customer.getCustomer_id();
+//		
+//		for(int i=0; i<customer.getCustomerId().lengnth; i++) {
+//			SiteService.insertBirthCoupontoNo(customer.getCustomer(i));
+//		}
+		
 		return "/CouponList.mdo";
 	}
 	      

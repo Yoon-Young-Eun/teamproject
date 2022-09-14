@@ -85,5 +85,6 @@
   	<delete id="deleteTerms" parameterType="terms">
 	<![CDATA[ delete from terms where terms_no=#{terms_no} ]]>
 	</delete>
+	
 </mapper>
  

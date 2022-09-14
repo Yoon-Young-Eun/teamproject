@@ -84,6 +84,10 @@ $(function(){
 	
 </div>
 
+<c:forEach var="banner" items="${BannerList}">
+		<img src="${banner.banner_filepath}" width="340px", height="100px">
+		</c:forEach>
+
 <div class = "img-banner"><img src="/views/resources/img/aal banner.png"></div>
 
 <div class = "button">

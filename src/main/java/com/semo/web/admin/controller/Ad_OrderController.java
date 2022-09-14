@@ -147,7 +147,7 @@ public class Ad_OrderController {
 			       }
 			       
 					Map<String, String> conditionMap = new HashMap<String, String>();
-					conditionMap.put("아이디", "customer_id");
+					conditionMap.put("회원번호", "customer_no");
 					conditionMap.put("주문번호", "order_no");
 
 					

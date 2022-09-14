@@ -40,7 +40,7 @@
 
     <!-- 회원 계정상태 수정 -->
     <update id="getMemberUpdate" parameterType="customer" >
-     update customer set customer_status =#{customer_status}
+     update customer set customer_status =#{customer_status} where customer_no=#{customer_no}
     </update>
     
     

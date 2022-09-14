@@ -50,7 +50,8 @@ public class CustomerController {
 
 	// 로그아웃
 	@RequestMapping(value = "/logout.do", method = RequestMethod.POST)
-	public String logout(HttpSession session, Model model) {
+	public String logout(HttpSession session, Model model, CustomerVO vo) {
+
 		session.invalidate();
 		System.out.println("정상적인 로그아웃");
 		return "/views/main.jsp";

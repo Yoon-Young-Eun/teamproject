@@ -32,9 +32,9 @@ public class OrderDAO {
 		return sqlTemplate.selectList("OrderDAO.getUserOrderList", pvo);
 	}
 	
-	public int getArticleCount() {
+	public int getArticleCount(PagingVO pvo) {
 		System.out.println("DAO.getArticleCount()실행");
-		return sqlTemplate.selectOne("OrderDAO.getArticleCount");
+		return sqlTemplate.selectOne("OrderDAO.getArticleCount",pvo);
 	}
 	
 

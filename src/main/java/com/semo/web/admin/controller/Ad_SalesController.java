@@ -1,5 +1,6 @@
 package com.semo.web.admin.controller;
 
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -11,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.semo.web.admin.service.SalesService;
-import com.semo.web.admin.vo.MessageVO;
 import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.user.vo.OrderMtVO;
 import com.semo.web.user.vo.OrderVO;
@@ -24,8 +24,10 @@ public class Ad_SalesController {
 	SalesService salseService;
 	
 	@RequestMapping(value="/salesStoreList.mdo")
-	public String getSalesStoreList(PagingVO pvo, OrderVO vo, Model model) {
+	public String getSalesStoreList(PagingVO pvo, OrderVO vo, Model model){
 		System.out.println("매출 메서드 실행");
+		System.out.println(pvo);
+		 model.addAttribute("search",pvo);
 		// 페이징 처리
 	      if (pvo.getPageNum() == null) {
 	    	  pvo.setPageNum("1");
@@ -40,9 +42,9 @@ public class Ad_SalesController {
 	       pvo.setStartRow((currentPage -1)* pageSize +1);
 	       pvo.setEndRow(currentPage * pageSize);
 	       int count =0; 	
-	       int number = 0;  
 
-	       count = salseService.getArticleCount();
+	       count = salseService.getStoreArticleCount(pvo);
+	       System.out.println("페이징 count : "+count);
 	       List<OrderVO> storeSalesList = null;
 	       if(count >0) {
 	    	   storeSalesList= salseService.getStoreSalesList(pvo);
@@ -50,15 +52,34 @@ public class Ad_SalesController {
 	       }else {
 	    	   storeSalesList=Collections.emptyList(); 
 	       }
+	       
+	       if(count >0) {
+		    	  int pageBlock =5;
+		    	  int imsi =count % pageSize ==0 ?0:1;
+		    	  int pageCount = count/pageSize +imsi;
+		    	  int startPage =(int)((currentPage-1)/pageBlock)*pageBlock +1;
+		    	  int endPage = startPage + pageBlock -1;
+		    	  
+		    	  // 추가 if문 : endPage(예:10)이 pageCount(예:9)보다 클경우 endPage의 값은 9로 한다!
+		    	  if(endPage > pageCount) {
+		    		  endPage = pageCount;
+		    	  }
+		    	  
+		    	  model.addAttribute("pageCount",pageCount);
+		    	  model.addAttribute("startPage",startPage);
+		    	  model.addAttribute("endPage",endPage);
+		    	  model.addAttribute("pageBlock",pageBlock);
+		          model.addAttribute("count", count);
+		    	  }
+	       
+	       
+			Map<String, String> conditionMap = new HashMap<String, String>();
+			conditionMap.put("세탁구분", "order_no");
+			conditionMap.put("매장명", "order_status");
+			conditionMap.put("지역", "order_price_status");
 			
-	       model.addAttribute("pageNum", pvo.getPageNum());
-	       model.addAttribute("pageSize", pageSize);
-	       model.addAttribute("currentPage", currentPage);
-	       model.addAttribute("endRow", pvo.getEndRow());
-	       model.addAttribute("count", count);
-	       model.addAttribute("number", number);
+		   model.addAttribute("conditionMap", conditionMap);
 	       model.addAttribute("storeSalesList", storeSalesList);
-	       model.addAttribute("number", number);
 	       System.out.println("매출 DB 결과"+storeSalesList);
 
 		return"admin/sales_storelist.jsp";
@@ -68,6 +89,9 @@ public class Ad_SalesController {
 	@RequestMapping(value="/salesProductList.mdo")
 	public String getSalesProductList(PagingVO pvo, OrderMtVO vo, Model model) {
 		System.out.println("매출 메서드 실행");
+		System.out.println("PagingVO"+ pvo);
+
+		 model.addAttribute("search",pvo);
 		// 페이징 처리
 	      if (pvo.getPageNum() == null) {
 	    	  pvo.setPageNum("1");
@@ -82,9 +106,8 @@ public class Ad_SalesController {
 	       pvo.setStartRow((currentPage -1)* pageSize +1);
 	       pvo.setEndRow(currentPage * pageSize);
 	       int count =0; 	
-	       int number = 0;  
 
-	       count = salseService.getArticleCount();
+	       count = salseService.getProductArticleCount(pvo);
 	       List<OrderMtVO> productSalesList = null;
 	       if(count >0) {
 	    	   productSalesList= salseService.getProductSalesList(pvo);
@@ -92,19 +115,37 @@ public class Ad_SalesController {
 	       }else {
 	    	   productSalesList=Collections.emptyList(); 
 	       }
+	       
+	       if(count >0) {
+		    	  int pageBlock =5;
+		    	  int imsi =count % pageSize ==0 ?0:1;
+		    	  int pageCount = count/pageSize +imsi;
+		    	  int startPage =(int)((currentPage-1)/pageBlock)*pageBlock +1;
+		    	  int endPage = startPage + pageBlock -1;
+		    	  
+		    	  // 추가 if문 : endPage(예:10)이 pageCount(예:9)보다 클경우 endPage의 값은 9로 한다!
+		    	  if(endPage > pageCount) {
+		    		  endPage = pageCount;
+		    	  }
+		    	  
+		    	  model.addAttribute("pageCount",pageCount);
+		    	  model.addAttribute("startPage",startPage);
+		    	  model.addAttribute("endPage",endPage);
+		    	  model.addAttribute("pageBlock",pageBlock);
+		          model.addAttribute("count", count);
+		    	  }
 			
-	       model.addAttribute("pageNum", pvo.getPageNum());
-	       model.addAttribute("pageSize", pageSize);
-	       model.addAttribute("currentPage", currentPage);
-	       model.addAttribute("endRow", pvo.getEndRow());
-	       model.addAttribute("count", count);
-	       model.addAttribute("number", number);
+	       
+			Map<String, String> conditionMap = new HashMap<String, String>();
+			conditionMap.put("주문번호", "order_no");
+			conditionMap.put("주문상태", "order_status");
+			conditionMap.put("결제상태", "order_price_status");
+				
+		   model.addAttribute("conditionMap", conditionMap);
 	       model.addAttribute("productSalesList", productSalesList);
-	       model.addAttribute("number", number);
 	       System.out.println("매출 DB 결과"+productSalesList);
 
 		return"admin/sales_productlist.jsp";
 	}
-	
-	
+
 }

@@ -66,6 +66,14 @@
 		</dependency>
 
 
+
+		<!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
 		<dependency> <!-- JSON 응답 바디로 변경할때 -->
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -243,9 +251,9 @@
 		<!-- 아마존 s3 파일업로드 서버 -->
 		<!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-s3 -->
 		<dependency>
-		    <groupId>com.amazonaws</groupId>
-		    <artifactId>aws-java-sdk-s3</artifactId>
-		    <version>1.12.276</version>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk-s3</artifactId>
+			<version>1.12.276</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>

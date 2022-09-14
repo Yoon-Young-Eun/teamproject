@@ -17,10 +17,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.semo.web.admin.service.AdminService;
+import com.semo.web.admin.vo.Ad_EstimateVO;
 import com.semo.web.admin.vo.AdminVO;
-import com.semo.web.admin.vo.CustomerVO;
-import com.semo.web.admin.vo.MessageVO;
+import com.semo.web.admin.vo.Estimate_T_VO;
 import com.semo.web.admin.vo.PagingVO;
+import com.semo.web.user.vo.EstimateVO;
 
 @Controller
 public class AdminController {
@@ -60,47 +61,75 @@ public class AdminController {
 			System.out.println("매니저 리스트");
 			
 			System.out.println(pvo);
+			
+			//검색조건을 가지고 페이지 이동을 하기 위한 장치
+			//페이징 버튼에  href = &searchKeyword=${search.searchKeyword} 등을 하기위함 
+
+				model.addAttribute("search",pvo);
+
+			
+			
 			// 페이징 처리
-		      if (pvo.getPageNum() == null) {
-		    	  pvo.setPageNum("1");
+		      if (pvo.getPageNum() == null) { //처음엔 값이 없으니 null
+		    	  pvo.setPageNum("1"); //1번으로 설정
 		       }
 		      
 		      System.out.println(pvo.getSelectPage());
-		      if (pvo.getSelectPage()==null ) {
-		    	  pvo.setSelectPage("5");
+		      if (pvo.getSelectPage()==null ) {  
+		    	  pvo.setSelectPage("5"); //게시글 보이는 개수를 설정을 안하면 5(테이블에서 조회개수 변경을 위한 작업)
 		      }
-		       int pageSize = Integer.parseInt(pvo.getSelectPage());
-		       int currentPage = Integer.parseInt(pvo.getPageNum()); 
-		       pvo.setStartRow((currentPage -1)* pageSize +1);
-		       pvo.setEndRow(currentPage * pageSize);
-		       int count =0; 	
-		       int number = 0;  
+		      //pageNum 지금내가 몇 페이지에 이는지 확인하기
+		      //curruntPage 현재 내가 위치하고있는 페이지
+		      //startRow 현재 화면에서의 첫번째 게시물 
+		      //endRow현재 화면에서의 마지막 게시물 행
+		      //count 전체 게시글 수
+		 
+		       int pageSize = Integer.parseInt(pvo.getSelectPage()); //int로 형변환
+		       int currentPage = Integer.parseInt(pvo.getPageNum()); // 현재 내가 위치하고있는 페이지
+		       pvo.setStartRow((currentPage -1)* pageSize +1); //현재 화면에서의 첫번째 게시물
+		       pvo.setEndRow(currentPage * pageSize); //현재 화면에서의 마지막 게시물 행
+		       int count =0; 	 
 		      
-		       count = adminservice.getArticleCount(pvo);
-		       List<AdminVO> adminList = null;
-		       if(count >0) {
+		       count = adminservice.getArticleCount(pvo); // 조회 개수 (여러 검색 조건등이 포함되어야함)
+		       System.out.println("count"+count);
+		       List<AdminVO> adminList = null; //조회 데이터를 담을 List 객체
+		       if(count >0) { //조회할 데이터가 하나라도 있다면 메서드 실행
 		    	   adminList= adminservice.getAdminList(pvo);
+		    	   System.out.println("adminList"+adminList);
 		    	  
-		       }else {
+		       }else { //없으면 빵
 		    	   adminList=Collections.emptyList(); 
 		       }
-
 		       
+				  if(count >0) { //조회된 데이터 개수가 0보다 크면 if문 실행
+			    	  int pageBlock =5;
+			    	  int imsi =count % pageSize ==0 ?0:1; //전체 페이지 게시물을 pageSize로 나눴을때 오류를 대비한 나머지구하는식
+			    	  int pageCount = count/pageSize +imsi; //페이징 넘버 개수
+			    	  int startPage =(int)((currentPage-1)/pageBlock)*pageBlock +1; //현재 보이는 페이징 시작번호 
+			    	  int endPage = startPage + pageBlock -1; //현재 보이는 페이징 끝번호
+			    	  
+			    	  // 추가 if문 : endPage(예:10)이 pageCount(예:9)보다 클경우 endPage의 값은 9로 한다!
+			    	  if(endPage > pageCount) {
+			    		  endPage = pageCount;
+			    	  }
+			    	  
+			    	  model.addAttribute("pageCount",pageCount);
+			    	  model.addAttribute("startPage",startPage);
+			    	  model.addAttribute("endPage",endPage);
+			    	  model.addAttribute("pageBlock",pageBlock);
+			          model.addAttribute("count", count);
+			    	  }
+		       
+		       //검색을 적용할 타이틀을 정하는 제목(jsp에서 받아서 작업할거임)
 				Map<String, String> conditionMap = new HashMap<String, String>();
 				conditionMap.put("이름", "admin_name");
+				conditionMap.put("아이디", "admin_id");
 				/* conditionMap.put("회원상태", "customer_status"); */
 				
+			   //위에서 얻은 데이터를 model에 담아 보낸다~
 		       model.addAttribute("conditionMap", conditionMap);
-		       model.addAttribute("pageNum", pvo.getPageNum());
-		       model.addAttribute("pageSize", pageSize);
-		       model.addAttribute("currentPage", currentPage);
-		       model.addAttribute("endRow", pvo.getEndRow());
-		       model.addAttribute("count", count);
-		       model.addAttribute("number", number);
 		       model.addAttribute("adminList", adminList);
-		       model.addAttribute("number", number);
-		       System.out.println("어드민 목록 리스트"+adminList);
-		       
+		       System.out.println("어드민 목록 리스트"+adminList);	       
 		       
 			return "/admin/memberstaff.jsp";
 		}	
@@ -187,4 +216,12 @@ public class AdminController {
 		}
 		return "staffList.mdo";
 	}	
+	
+	
+	
+	
+	
+	
+	
+	
 }

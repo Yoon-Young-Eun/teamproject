@@ -10,6 +10,7 @@ import com.semo.web.admin.vo.Ad_QnAVO;
 import com.semo.web.admin.vo.EventVO;
 import com.semo.web.admin.vo.FAQVO;
 import com.semo.web.admin.vo.NoticeVO;
+import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.ReviewVO;
 import com.semo.web.user.vo.Cm_QnAVO;
 
@@ -44,11 +45,19 @@ public class BoardServiceImpl implements BoardService {
 	public NoticeVO getBoard(NoticeVO vo) {
 		return boardDAO.getBoard(vo);
 	}
+	
+	@Override
+	public List<NoticeVO> getBoardList(PagingVO pvo) {
+		return boardDAO.getBoardList(pvo);
+	}
 
 	@Override
-	public List<NoticeVO> getBoardList(NoticeVO vo) {
-		return boardDAO.getBoardList(vo);
+	public int getBoardCount(PagingVO pvo) {
+		return boardDAO.getBoardCount(pvo);
 	}
+
+	
+	
 //----------------------------------------------
 
 //	이벤트
@@ -174,8 +183,5 @@ public class BoardServiceImpl implements BoardService {
 	public void updateQnA_cm(Cm_QnAVO vo) {
 		boardDAO.updateQnA_cm(vo);
 	}
-
-	
-
 	
 }

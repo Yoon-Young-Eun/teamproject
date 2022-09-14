@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.semo.web.admin.vo.AdminVO;
 import com.semo.web.admin.vo.PagingVO;
+import com.semo.web.user.vo.CustomerVO;
 
 public interface AdminService {
 //
@@ -15,6 +16,9 @@ public interface AdminService {
 	public void deleteStaff(AdminVO vo);
 	public void selectedDelete(int num);
 	public int getArticleCount(PagingVO pvo);
+
 	
-	//
+	
+	
+	
 }

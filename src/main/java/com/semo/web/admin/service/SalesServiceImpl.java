@@ -17,8 +17,8 @@ public class SalesServiceImpl implements SalesService {
 	SalesDAO salesDao;
 	
 	@Override
-	public int getArticleCount() {
-		return salesDao.getArticleCount();
+	public int getStoreArticleCount(PagingVO pvo) {
+		return salesDao.getStoreArticleCount(pvo);
 	}
 
 	@Override
@@ -31,5 +31,19 @@ public class SalesServiceImpl implements SalesService {
 		return salesDao.getProductSalesList(pvo);
 	}
 
+	@Override
+	public int getProductArticleCount(PagingVO pvo) {
+		return salesDao.getProductArticleCount(pvo);
+	}
+
+	@Override
+	public List<OrderMtVO> getDoughnutChart(PagingVO pvo) {
+		return salesDao.getDoughnutChart(pvo);
+	}
+
+	@Override
+	public List<OrderVO> getBarChart(PagingVO pvo) {
+		return salesDao.getBarChart(pvo);
+	}
 	
 }

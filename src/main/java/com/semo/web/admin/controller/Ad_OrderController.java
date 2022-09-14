@@ -68,8 +68,7 @@ public class Ad_OrderController {
 		       int currentPage = Integer.parseInt(pvo.getPageNum()); 
 		       pvo.setStartRow((currentPage -1)* pageSize +1);
 		       pvo.setEndRow(currentPage * pageSize);
-		       int count =0; 	
-		       int number = 0;  
+		       int count =0; 	 
 		      
 		       count = orderserivce.getArticleCount(pvo);
 		       List<OrderVO> adminOrderList = null;
@@ -80,20 +79,32 @@ public class Ad_OrderController {
 		    	   adminOrderList=Collections.emptyList(); 
 		       }
 		       
+		       if(count >0) {
+			    	  int pageBlock =5;
+			    	  int imsi =count % pageSize ==0 ?0:1;
+			    	  int pageCount = count/pageSize +imsi;
+			    	  int startPage =(int)((currentPage-1)/pageBlock)*pageBlock +1;
+			    	  int endPage = startPage + pageBlock -1;
+			    	  
+			    	  // 추가 if문 : endPage(예:10)이 pageCount(예:9)보다 클경우 endPage의 값은 9로 한다!
+			    	  if(endPage > pageCount) {
+			    		  endPage = pageCount;
+			    	  }
+			    	  
+			    	  model.addAttribute("pageCount",pageCount);
+			    	  model.addAttribute("startPage",startPage);
+			    	  model.addAttribute("endPage",endPage);
+			    	  model.addAttribute("pageBlock",pageBlock);
+			          model.addAttribute("count", count);
+			    	  }
+
 				Map<String, String> conditionMap = new HashMap<String, String>();
 				conditionMap.put("주문번호", "order_no");
 				conditionMap.put("주문상태", "order_status");
 				conditionMap.put("결제상태", "order_price_status");
 				
 		       model.addAttribute("conditionMap", conditionMap);
-		       model.addAttribute("pageNum", pvo.getPageNum());
-		       model.addAttribute("pageSize", pageSize);
-		       model.addAttribute("currentPage", currentPage);
-		       model.addAttribute("endRow", pvo.getEndRow());
-		       model.addAttribute("count", count);
-		       model.addAttribute("number", number);
 		       model.addAttribute("adminOrderList", adminOrderList);
-		       model.addAttribute("number", number);
 		       System.out.println("회원 주문이력"+adminOrderList);
 		       
 		       
@@ -134,7 +145,6 @@ public class Ad_OrderController {
 			       pvo.setStartRow((currentPage -1)* pageSize +1);
 			       pvo.setEndRow(currentPage * pageSize);
 			       int count =0; 	
-			       int number = 0;  
 			      
 			       count = orderserivce.getMemberArticleCount(pvo);
 			       System.out.println("count"+count);
@@ -146,24 +156,33 @@ public class Ad_OrderController {
 			    	   userOrderList=Collections.emptyList(); 
 			       }
 			       
+			       
+			       if(count >0) {
+				    	  int pageBlock =5;
+				    	  int imsi =count % pageSize ==0 ?0:1;
+				    	  int pageCount = count/pageSize +imsi;
+				    	  int startPage =(int)((currentPage-1)/pageBlock)*pageBlock +1;
+				    	  int endPage = startPage + pageBlock -1;
+				    	  
+				    	  // 추가 if문 : endPage(예:10)이 pageCount(예:9)보다 클경우 endPage의 값은 9로 한다!
+				    	  if(endPage > pageCount) {
+				    		  endPage = pageCount;
+				    	  }
+				    	  
+				    	  model.addAttribute("pageCount",pageCount);
+				    	  model.addAttribute("startPage",startPage);
+				    	  model.addAttribute("endPage",endPage);
+				    	  model.addAttribute("pageBlock",pageBlock);
+				          model.addAttribute("count", count);
+				    	  }
+			       
 					Map<String, String> conditionMap = new HashMap<String, String>();
 					conditionMap.put("회원번호", "customer_no");
 					conditionMap.put("주문번호", "order_no");
-
 					
 			       model.addAttribute("conditionMap", conditionMap);
-			       model.addAttribute("pageNum", pvo.getPageNum());
-			       model.addAttribute("pageSize", pageSize);
-			       model.addAttribute("currentPage", currentPage);
-			       model.addAttribute("endRow", pvo.getEndRow());
-			       model.addAttribute("count", count);
-			       model.addAttribute("number", number);
 			       model.addAttribute("userOrderList", userOrderList);
-			       model.addAttribute("number", number);
-			       model.addAttribute("user",pvo);
-			       System.out.println(pvo);
 			       System.out.println("회원 주문이력"+userOrderList);
-			       
 			       
 			       List<MessageVO> messageList = utilservice.getMessageList(mvo);
 			       System.out.println(messageList);

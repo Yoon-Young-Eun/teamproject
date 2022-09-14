@@ -45,6 +45,10 @@ public class MemberServiceImpl implements MemberService {
 		return memberDao.getBlackList(pvo);
 	}
 
+	@Override
+	public void getMemberUpdate(CustomerVO vo) {
+		memberDao.getMemberUpdate(vo);
+	}
 
 		
 

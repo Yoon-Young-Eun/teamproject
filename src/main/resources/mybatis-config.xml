@@ -49,6 +49,7 @@
 		<typeAlias type="com.semo.web.user.vo.OrderMtVO" alias="orderManagement"/>
 		<typeAlias type="com.semo.web.user.vo.CouponListVO" alias="CouponList"/>
 		<typeAlias type="com.semo.web.user.vo.EstimateVO" alias="estimate" />
+		<typeAlias type="com.semo.web.user.vo.Estimate_ImageVO" alias="estimate_image"/>
 
 	</typeAliases>
 

@@ -83,7 +83,7 @@
         <input type="text" value="주소이름" id="a1" readonly>
       </div>
       <div class="main_text4">
-        <input type="text" value="${sendAddressList.cm_address_name }" id="b1" placeholder="집 / 회사 등" name="cm_address_name"> 
+        <input type="text" value="${sendAddressList.cm_address_name }" id="b1" placeholder="집 / 회사 등" name="cm_address_name" required> 
       </div>
     </div>
       <div class="main_text5">
@@ -92,16 +92,16 @@
          
         </div>
         <div class="main_text4">
-          <input type="text" value="${sendAddressList.cm_address1}" id="b2" placeholder="우편번호 찾기" readonly name="cm_address1"> 
+          <input type="text" value="${sendAddressList.cm_address1}" id="b2" placeholder="우편번호 찾기" readonly name="cm_address1" required> 
           <input type="button" value="검색" id="search" onclick="sample6_execDaumPostcode()" readonly class="action-button shadow animate blue" style="padding: 0px; font-size: 15px; width: 70px; height: 35px;">
         </div>
      </div>
      <div class="main_text7">
       <div class="main_text3">
-        <input type="text" value="나머지 주소" id="a4" readonly>
+        <input type="text" value="나머지 주소" id="a4" readonly >
       </div>
       <div class="main_text4">
-        <input type="text" value="${sendAddressList.cm_address2}" id="b4" placeholder="나머지 주소 입력" name="cm_address2"> 
+        <input type="text" value="${sendAddressList.cm_address2}" id="b4" placeholder="나머지 주소 입력" name="cm_address2" required>  
       </div>
    </div>
      <div class="main_text6">
@@ -109,7 +109,8 @@
         <input type="text" value="휴대폰 번호" id="a3" readonly >
       </div>
       <div class="main_text4">
-        <input type="text" value="${sendAddressList.cm_phone_number}" id="b3" placeholder="휴대폰 번호" name="cm_phone_number" > 
+        
+        <input type="tel"  value="${sendAddressList.cm_phone_number}"  name="cm_phone_number" id="b3" required pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}" maxlength="13" placeholder="예) 010-1234-5678" />
       </div>
      </div>
 
@@ -136,6 +137,71 @@
     var cn = Number(document.getElementById("customnumber").value);
     </script>
     
+    
+     <script>
+											function autoHypenTel(str) {
+												str = str.replace(/[^0-9]/g, '');
+												var tmp = '';
+
+												if (str.substring(0, 2) == 02) {
+													// 서울 전화번호일 경우 10자리까지만 나타나고 그 이상의 자리수는 자동삭제
+													if (str.length < 3) {
+														return str;
+													} else if (str.length < 6) {
+														tmp += str.substr(0, 2);
+														tmp += '-';
+														tmp += str.substr(2);
+														return tmp;
+													} else if (str.length < 10) {
+														tmp += str.substr(0, 2);
+														tmp += '-';
+														tmp += str.substr(2, 3);
+														tmp += '-';
+														tmp += str.substr(5);
+														return tmp;
+													} else {
+														tmp += str.substr(0, 2);
+														tmp += '-';
+														tmp += str.substr(2, 4);
+														tmp += '-';
+														tmp += str.substr(6, 4);
+														return tmp;
+													}
+												} else {
+													// 핸드폰 및 다른 지역 전화번호 일 경우
+													if (str.length < 4) {
+														return str;
+													} else if (str.length < 7) {
+														tmp += str.substr(0, 3);
+														tmp += '-';
+														tmp += str.substr(3);
+														return tmp;
+													} else if (str.length < 11) {
+														tmp += str.substr(0, 3);
+														tmp += '-';
+														tmp += str.substr(3, 3);
+														tmp += '-';
+														tmp += str.substr(6);
+														return tmp;
+													} else {
+														tmp += str.substr(0, 3);
+														tmp += '-';
+														tmp += str.substr(3, 4);
+														tmp += '-';
+														tmp += str.substr(7);
+														return tmp;
+													}
+												}
+											};
+
+											$('#b3')
+													.keyup(
+															function(event) {
+																event = event || window.event;
+																var _val = this.value.trim();
+																this.value = autoHypenTel(_val);
+															});
+										</script>
   </div>
 	
 

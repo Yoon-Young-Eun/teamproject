@@ -43,7 +43,7 @@
 	<form action="/OrderAddressTime.do">
      <div class="main_text3">
       <div class="main_text4">
-        <input type="date" id="datepicker" name="order_pickup_date">
+        <input type="date" id="datepicker" name="order_pickup_date" required>
       </div>
      </div>
      <div class="main_time">
@@ -52,11 +52,11 @@
       </div>
       <div class="main_time2">
         <div class="main_time3">
-        <input type="radio" name="order_pickup_time" id="radio1" onclick="#" value="08:00 ~ 14:00">08:00 ~ 14:00
+        <input type="radio" name="order_pickup_time" id="radio1" onclick="#" value="08:00 ~ 14:00" required>08:00 ~ 14:00
         
       </div>
         <div class="main_time4">
-        <input type="radio" name="order_pickup_time" id="radio1" onclick="#" value="14:00 ~ 18:00">14:00 ~ 18:00
+        <input type="radio" name="order_pickup_time" id="radio1" onclick="#" value="14:00 ~ 18:00" required>14:00 ~ 18:00
         
       
     </div>
@@ -66,7 +66,7 @@
 
      <div class="main_text5">
       
-      <input type="submit" value="다음단계" id="button1" onclick="location.href='/OrderAddressTime.do'" class="action-button shadow animate blue" >
+      <input type="submit" value="다음단계" id="button1"  class="action-button shadow animate blue" >
       <input type="button" value="이전으로" id="button2" onclick="location.href='paymain.html'" class="action-button shadow animate blue" >
       <input type="hidden" value="${OrderAddress.customer_no}" name="customer_no">
     <input type="hidden" value="${OrderAddress.customer_address1 }" name="order_address1">

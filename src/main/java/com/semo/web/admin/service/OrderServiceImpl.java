@@ -28,8 +28,8 @@ public class OrderServiceImpl implements OrderService {
 	}
 	
 	@Override
-	public int getArticleCount() {
-		return orderDao.getArticleCount();
+	public int getArticleCount(PagingVO pvo) {
+		return orderDao.getArticleCount(pvo);
 	}
 
 	@Override

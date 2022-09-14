@@ -1,5 +1,6 @@
 package com.semo.web.admin.controller;
 
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -11,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.semo.web.admin.service.SalesService;
-import com.semo.web.admin.vo.MessageVO;
 import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.user.vo.OrderMtVO;
 import com.semo.web.user.vo.OrderVO;
@@ -24,8 +24,10 @@ public class Ad_SalesController {
 	SalesService salseService;
 	
 	@RequestMapping(value="/salesStoreList.mdo")
-	public String getSalesStoreList(PagingVO pvo, OrderVO vo, Model model) {
+	public String getSalesStoreList(PagingVO pvo, OrderVO vo, Model model){
 		System.out.println("매출 메서드 실행");
+		System.out.println(pvo);
+		 model.addAttribute("search",pvo);
 		// 페이징 처리
 	      if (pvo.getPageNum() == null) {
 	    	  pvo.setPageNum("1");
@@ -42,7 +44,8 @@ public class Ad_SalesController {
 	       int count =0; 	
 	       int number = 0;  
 
-	       count = salseService.getArticleCount();
+	       count = salseService.getStoreArticleCount(pvo);
+	       System.out.println("페이징 count : "+count);
 	       List<OrderVO> storeSalesList = null;
 	       if(count >0) {
 	    	   storeSalesList= salseService.getStoreSalesList(pvo);
@@ -50,7 +53,13 @@ public class Ad_SalesController {
 	       }else {
 	    	   storeSalesList=Collections.emptyList(); 
 	       }
+	       
+			Map<String, String> conditionMap = new HashMap<String, String>();
+			conditionMap.put("세탁구분", "order_no");
+			conditionMap.put("매장명", "order_status");
+			conditionMap.put("지역", "order_price_status");
 			
+		   model.addAttribute("conditionMap", conditionMap);
 	       model.addAttribute("pageNum", pvo.getPageNum());
 	       model.addAttribute("pageSize", pageSize);
 	       model.addAttribute("currentPage", currentPage);
@@ -68,6 +77,9 @@ public class Ad_SalesController {
 	@RequestMapping(value="/salesProductList.mdo")
 	public String getSalesProductList(PagingVO pvo, OrderMtVO vo, Model model) {
 		System.out.println("매출 메서드 실행");
+		System.out.println("PagingVO"+ pvo);
+
+		 model.addAttribute("search",pvo);
 		// 페이징 처리
 	      if (pvo.getPageNum() == null) {
 	    	  pvo.setPageNum("1");
@@ -84,7 +96,7 @@ public class Ad_SalesController {
 	       int count =0; 	
 	       int number = 0;  
 
-	       count = salseService.getArticleCount();
+	       count = salseService.getProductArticleCount(pvo);
 	       List<OrderMtVO> productSalesList = null;
 	       if(count >0) {
 	    	   productSalesList= salseService.getProductSalesList(pvo);
@@ -93,6 +105,13 @@ public class Ad_SalesController {
 	    	   productSalesList=Collections.emptyList(); 
 	       }
 			
+	       
+			Map<String, String> conditionMap = new HashMap<String, String>();
+			conditionMap.put("주문번호", "order_no");
+			conditionMap.put("주문상태", "order_status");
+			conditionMap.put("결제상태", "order_price_status");
+				
+		   model.addAttribute("conditionMap", conditionMap);
 	       model.addAttribute("pageNum", pvo.getPageNum());
 	       model.addAttribute("pageSize", pageSize);
 	       model.addAttribute("currentPage", currentPage);
@@ -105,6 +124,5 @@ public class Ad_SalesController {
 
 		return"admin/sales_productlist.jsp";
 	}
-	
-	
+
 }

@@ -11,7 +11,7 @@ import com.semo.web.user.vo.OrderVO;
 
 public interface OrderService {
 	public List<OrderMtVO> getUserOrderList(PagingVO pvo);
-	public int getArticleCount();
+	public int getArticleCount(PagingVO pvo);
 	public List<OrderVO> getAdminOrderList(PagingVO pvo);
 	public int getMemberArticleCount(PagingVO pvo);
 	

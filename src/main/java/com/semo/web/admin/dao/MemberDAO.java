@@ -6,10 +6,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.semo.web.admin.vo.CustomerVO;
-import com.semo.web.admin.vo.MessageVO;
 import com.semo.web.admin.vo.PagingVO;
-import com.semo.web.user.vo.OrderMtVO;
+import com.semo.web.user.vo.CustomerVO;
 
 @Repository
 public class MemberDAO {
@@ -17,10 +15,16 @@ public class MemberDAO {
 	@Autowired
 	SqlSessionTemplate sqlTemplate;
 	
-	public int getArticleCount() {
+	public int getArticleCount(PagingVO pvo) {
 		System.out.println("DAO.getArticleCount()실행");
-		return sqlTemplate.selectOne("MemberDAO.getArticleCount");
+		return sqlTemplate.selectOne("MemberDAO.getArticleCount", pvo);
 	}
+	
+	public int getBlackCount(PagingVO pvo) {
+		System.out.println("DAO.getBlackCount()실행");
+		return sqlTemplate.selectOne("MemberDAO.getBlackCount", pvo);
+	}
+	
 	
 	public List<CustomerVO> getBoardList(){
 		System.out.println("DAO.getBoardList()실행");

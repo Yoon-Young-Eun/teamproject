@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.semo.web.admin.vo.Ad_EstimateVO;
 import com.semo.web.admin.vo.AdminVO;
 import com.semo.web.admin.vo.PagingVO;
 
@@ -54,6 +55,11 @@ public class AdminDAO {
 		sqltemplate.delete("AdminDAO.selectedDelete", num);
 	}
 	
+	//삭제
+	public Ad_EstimateVO getEstimate(int num) {
+		System.out.println("getEstimate()메서드 실행");
+		return sqltemplate.selectOne("AdminDAO.getAd_Estimate", num);
+	}
 
 	
 	

@@ -4,23 +4,115 @@
 
 <mapper namespace="SalesDAO">
 
-    <!-- 매출 테이블 카운트(검색조건 없음)-->
-	<select id="getArticleCount"  resultType="int">
-		select count(*) from order_cm
+    <!-- 상품별 매출 현황  테이블 카운트-->  <!-- !!!!손봐야함 문제있는 쿼리!!!! -->
+	<select id="getProductArticleCount" parameterType="paging" resultType="int">
+		  <![CDATA[ select count(*) from order_management]]>
+			<trim prefix="where" prefixOverrides="and | or">
+				<if test="startDate != null and endDate != null and startDate != '' and endDate != ''">
+    			<![CDATA[and order_mt_date >= #{startDate} and order_mt_date < #{endDate} ]]></if>
+				<if test="searchKeyword1 != null">
+    			<![CDATA[and order_mt_category1 like concat('%', #{searchKeyword1}, '%')]]></if>
+				<if test="searchKeyword2 != null">	
+    			<![CDATA[and order_mt_category2 like concat('%', #{searchKeyword2}, '%')]]></if>
+    			<if test="searchKeyword3 != null">
+    			<![CDATA[and order_mt_product like concat('%', #{searchKeyword3}, '%')]]></if>
+			</trim>
 	</select>
 
 
+    <!-- 지점별 매출 현황 테이블 카운트-->  <!-- !!!!손봐야함 문제있는 쿼리!!!! -->
+	<select id="getStoreArticleCount" parameterType="paging" resultType="int">
+		  <![CDATA[ select count(*) from order_cm]]>
+			<trim prefix="where" prefixOverrides="and | or">
+			    <if test="startDate != null and endDate != null and startDate != '' and endDate != ''">
+    			<![CDATA[and order_date >= #{startDate} and order_date < #{endDate} ]]></if>
+				<if test="searchKeyword1 != null">
+    			<![CDATA[and order_type like concat('%', #{searchKeyword1}, '%')]]></if>
+				<if test="searchKeyword2 != null">	
+    			<![CDATA[and order_store_name like concat('%', #{searchKeyword2}, '%')]]></if>
+    			<if test="searchKeyword3 != null">
+    			<![CDATA[and order_address1 like concat('%', #{searchKeyword3}, '%')]]></if>
+			</trim>
+ 
+	</select>
+    
+
+ 
     <!-- 매출 조회를 위한 order_cm 테이블 페이징 쿼리-->
 	<select id="getStoreSalesList" parameterType="paging" resultType="order">
-        <![CDATA[ select * from (select @rownum := @rownum+1 as rnum, order_no, order_type, order_product, store_code, order_date, order_pickup_date, cm_gate_passwd, order_request1, order_request2, order_price, order_use_coupon_price, order_status, order_price_method, customer_no, order_customer_name, order_store_name, order_expected_date, order_customer_phone, order_address1, order_address2, order_delivery_price from order_cm, (select @rownum :=0) as rowcolum order by order_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]>
+		  <![CDATA[ select * from (select @rownum := @rownum+1 as rnum, order_no, order_type, store_code, order_date, order_pickup_date, order_pickup_time, cm_gate_passwd, order_request1, order_request2, order_price, order_use_coupon_price, order_status, order_price_method, customer_no, order_customer_name, order_store_name, order_expected_date, order_customer_phone, order_address1, order_address2, order_delivery_price from order_cm, (select @rownum :=0) as rowcolum]]>
+			<trim prefix="where" prefixOverrides="and | or">
+			    <if test="startDate != null and endDate != null and startDate != '' and endDate != ''">
+    			<![CDATA[and order_date >= #{startDate} and order_date < #{endDate} ]]></if>
+				<if test="searchKeyword1 != null">
+    			<![CDATA[and order_type like concat('%', #{searchKeyword1}, '%')]]></if>
+				<if test="searchKeyword2 != null">	
+    			<![CDATA[and order_store_name like concat('%', #{searchKeyword2}, '%')]]></if>
+    			<if test="searchKeyword3 != null">
+    			<![CDATA[and order_address1 like concat('%', #{searchKeyword3}, '%')]]></if>
+			</trim>
+    <![CDATA[order by order_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]>
 	</select>
 
-    <!-- 매출 조회를 위한 order_cm 테이블 페이징 쿼리-->
-	<select id="getProductSalesList" parameterType="paging" resultType="orderManagement">
-        <![CDATA[ select * from (select @rownum := @rownum+1 as rnum, customer_no, customer_name, product_code, order_mt_category1, order_mt_category2, order_mt_product, order_mt_price, order_mt_date, order_no from order_management, (select @rownum :=0) as rowcolum order by order_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]>
+    <!-- 매출 조회를 위한 order_management 테이블 페이징 쿼리-->
+		<select id="getProductSalesList" parameterType="paging" resultType="orderManagement">
+		  <![CDATA[ select * from (select @rownum := @rownum+1 as rnum, order_mt_no, customer_no, customer_name, product_code, order_mt_category1, order_mt_category2, order_mt_product, order_mt_count, order_mt_price, order_mt_date, order_no from order_management, (select @rownum :=0) as rowcolum]]>
+			<trim prefix="where" prefixOverrides="and | or">
+				<if test="startDate != null and endDate != null and startDate != '' and endDate != ''">
+    			<![CDATA[and order_mt_date >= #{startDate} and order_mt_date < #{endDate} ]]></if>
+				<if test="searchKeyword1 !=null">
+    			<![CDATA[and order_mt_category1 like concat('%', #{searchKeyword1}, '%')]]></if>
+				<if test="searchKeyword2 !=null">	
+    			<![CDATA[and order_mt_category2 like concat('%', #{searchKeyword2}, '%')]]></if>
+    			<if test="searchKeyword3 !=null">
+    			<![CDATA[and order_mt_product like concat('%', #{searchKeyword3}, '%')]]></if>
+			</trim>
+    <![CDATA[order by order_mt_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow}]]>
 	</select>
+	
 
-   
-  
+	
+	<!-- 도넛차트 조건별 조회 쿼리 -->
+	<select id="getDoughnutChart" parameterType="paging" resultType="orderManagement">
+	 <![CDATA[ select order_mt_category1, sum(order_mt_price) as order_mt_price from order_management]]>
+				<if test="chartDate == 'today'">
+				<![CDATA[where order_mt_date > date_add(now(),interval -1 day ) group by order_mt_category1]]></if>
+				<if test="chartDate == 'thisweek'">
+				<![CDATA[where order_mt_date > date_add(now(),interval -7 day) group by order_mt_category1]]></if>
+				<if test="chartDate == 'thismonth'">
+				<![CDATA[where order_mt_date > date_add(now(),interval -1 month ) group by order_mt_category1]]></if>
+				<if test="chartDate == 'thisyear'">
+				<![CDATA[where order_mt_date > date_add(now(),interval -1 year ) group by order_mt_category1]]></if>
+				<if test="chartDate == '검색'">
+	            <![CDATA[group by order_mt_category1 ]]></if>
+	</select>
+	
+
+	<!-- 바차트 조건별 조회 쿼리  -->	
+	<select id="getBarChart" parameterType="paging" resultType="order">
+	  <![CDATA[ select order_store_name, sum(order_price) as order_price from order_cm]]>
+	  			<if test="startDate != null and endDate != null and startDate != '' and endDate != ''">
+    			<![CDATA[where order_date >= #{startDate} and order_date < #{endDate} ]]></if>
+	            <![CDATA[group by order_store_name ]]>
+	</select>
+	
+	
+<!-- 	
+		<select id="getBarChart" parameterType="paging" resultType="order">
+	  <![CDATA[ select order_store_name, sum(order_price) as order_price from order_cm]]>
+	  			<if test="chartDate == 'day'">
+				<![CDATA[where order_date > date_add(now(),interval -1 day ) group by order_store_name]]></if>
+				<if test="chartDate == 'week'">
+				<![CDATA[where order_date > date_add(now(),interval -7 day) group by order_store_name]]></if>
+				<if test="chartDate == 'month'">
+				<![CDATA[where order_date > date_add(now(),interval -1 month ) group by order_store_name]]></if>
+				<if test="chartDate == 'year'">
+				<![CDATA[where order_date > date_add(now(),interval -1 year ) group by order_store_name]]></if>
+				<if test="chartDate == '검색'">
+	            <![CDATA[group by order_store_name ]]></if>
+	</select> -->
+	
+
+	
 
 </mapper>

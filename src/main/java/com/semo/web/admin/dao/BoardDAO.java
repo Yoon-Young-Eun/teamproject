@@ -10,6 +10,7 @@ import com.semo.web.admin.vo.Ad_QnAVO;
 import com.semo.web.admin.vo.EventVO;
 import com.semo.web.admin.vo.FAQVO;
 import com.semo.web.admin.vo.NoticeVO;
+import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.ReviewVO;
 import com.semo.web.user.vo.Cm_QnAVO;
 
@@ -47,8 +48,12 @@ public class BoardDAO {
 		return sqltemplate.selectOne("BoardDAO.getBoard",vo);
 	}
 
-	public List<NoticeVO> getBoardList(NoticeVO vo) {
-		return sqltemplate.selectList("BoardDAO.getBoardList",vo);
+	public List<NoticeVO> getBoardList(PagingVO pvo) {
+		return sqltemplate.selectList("BoardDAO.getBoardList",pvo);
+	}
+	
+	public int getBoardCount(PagingVO pvo) {
+		return sqltemplate.selectOne("BoardDAO.getBoardCount", pvo);
 	}
 
 //이벤트

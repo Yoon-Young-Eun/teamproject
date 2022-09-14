@@ -6,6 +6,7 @@ import com.semo.web.admin.vo.Ad_QnAVO;
 import com.semo.web.admin.vo.EventVO;
 import com.semo.web.admin.vo.FAQVO;
 import com.semo.web.admin.vo.NoticeVO;
+import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.ReviewVO;
 import com.semo.web.user.vo.Cm_QnAVO;
 
@@ -17,7 +18,8 @@ public interface BoardService {
 	void deleteBoard(int no);
 	void deleteBoard(NoticeVO vo);
 	NoticeVO getBoard(NoticeVO vo);
-	List<NoticeVO> getBoardList(NoticeVO vo);
+	List<NoticeVO> getBoardList(PagingVO pvo);
+	int getBoardCount(PagingVO pvo);
 	
 // 이벤트
 	void insertEvent(EventVO vo);

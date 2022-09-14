@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +17,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.semo.web.admin.service.BoardService;
 import com.semo.web.admin.vo.NoticeVO;
+import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.amazon.s3.AwsS3;
+
+import edu.emory.mathcs.backport.java.util.Collections;
 
 
 //계시판 관련(Q&A, BOARD, 공지사항, 자주하는 질문)
@@ -28,9 +33,60 @@ public class Ad_BoardController {
    public AwsS3 awss3 = AwsS3.getInstance();
 
    @RequestMapping(value="/getBoardList.mdo", method = RequestMethod.GET)
-   public String getBoardList(NoticeVO vo, Model model) {
+   public String getBoardList(PagingVO pvo, NoticeVO vo, Model model) {
       System.out.println("글 목록 처리");
-      List<NoticeVO> boardList = boardservice.getBoardList(vo);
+      System.out.println(pvo);
+      
+      model.addAttribute("search",pvo);
+      
+      //페이징
+      if (pvo.getPageNum() == null) {
+    	  pvo.setPageNum("1");
+      }
+      System.out.println(pvo.getSelectPage());
+      if (pvo.getSelectPage()==null) {
+    	  pvo.setSelectPage("5");
+      }
+      
+      int pageSize = Integer.parseInt(pvo.getSelectPage());
+      int currentPage = Integer.parseInt(pvo.getPageNum());
+      System.out.println("paagenum"+currentPage);
+      pvo.setStartRow((currentPage - 1)*pageSize+1);
+      pvo.setEndRow(currentPage * pageSize);
+      int count=0;
+      
+      count=boardservice.getBoardCount(pvo);
+      System.out.println(count);
+      List<NoticeVO> boardList = null;
+      if(count >0) {
+    	  boardList = boardservice.getBoardList(pvo);
+      }else {
+    	  boardList =Collections.emptyList();
+      }
+      
+      if(count >0) {
+    	  int pageBlock =5;
+    	  int imsi =count % pageSize ==0 ?0:1;
+    	  int pageCount = count/pageSize +imsi;
+    	  int startPage =(int)((currentPage-1)/pageBlock)*pageBlock +1;
+    	  int endPage = startPage + pageBlock -1;
+    	  
+    	  
+    	  model.addAttribute("pageCount",pageCount);
+    	  model.addAttribute("startPage",startPage);
+    	  model.addAttribute("endPage",endPage);
+    	  model.addAttribute("pageBlock",pageBlock);
+    	  }
+      
+      Map<String, String> condition = new HashMap<String, String>();
+      condition.put("제목", "notice_title");
+      condition.put("내용", "notice_content");
+      
+      model.addAttribute("condition", condition);
+     
+      model.addAttribute("pageSize", pageSize);
+      model.addAttribute("currentPage", currentPage);
+      model.addAttribute("count", count);
       model.addAttribute("boardList", boardList);
       return "/admin/board_notice.jsp";
    }

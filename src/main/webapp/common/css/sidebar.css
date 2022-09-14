@@ -53,6 +53,10 @@ a {
 /* Text color of the menu items */
 }
 
+.sidebar a:hover {
+	font-weight : normal;
+}
+
 .sidebar i {
     margin-right: auto;
     margin-left: 10px;
@@ -71,10 +75,6 @@ a {
 
 .sidebar ul li {
     list-style-type: none;
-    background: none;
-/* Background colour of the menu items. */
-    color: #695D46;
-/* Text colour of the side bar titles. (Not the links). */
 }
 
 .listItemA {

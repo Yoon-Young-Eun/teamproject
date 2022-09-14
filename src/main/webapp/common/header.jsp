@@ -22,12 +22,12 @@
 
 <header id = "header">
    <div class = "top-menu-wrapper">
-      <h1>△■</h1>
+      <h1><a href = "/views/main.jsp">△■</a></h1>
       <nav class = "top-menu">
          <ul class = "top-list">
             <li id = "login"><a href = "/views/login.jsp">로그인</a></li>
             <li id = "join"><a href = "/views/terms.jsp">회원가입</a></li>
-            <li><a href = "#">마이페이지</a></li>
+            <li><a href = "/views/login.jsp">마이페이지</a></li>
             <li><a href = "/service/serviceMain.jsp">고객센터</a></li>
          </ul>
       </nav>

@@ -79,6 +79,18 @@ header h1 {
 	font-weight: bold;
 }
 
+.logout {
+	border : none;
+	background : none;
+	line-height : 68px;
+	cursor : pointer;
+	padding: 0 15px;
+}
+
+.logout:hover {
+	font-weight : bold;
+}
+
 /*main menu*/
 
 .cbp-hrmenu {
@@ -177,3 +189,5 @@ header h1 {
 	font-size: 160%;
 	font-weight: bold;
 }
+
+

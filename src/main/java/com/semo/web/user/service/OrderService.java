@@ -1,9 +1,28 @@
 package com.semo.web.user.service;
 
-import com.semo.web.user.vo.AddressListVO;
+import java.util.List;
+
+import com.semo.web.admin.vo.ProductVO;
+import com.semo.web.admin.vo.TermsVO;
+import com.semo.web.user.vo.CouponListVO;
+import com.semo.web.user.vo.OrderMtVO;
+import com.semo.web.user.vo.OrderVO;
 
 public interface OrderService {
+	/*
+	 * void OrderAddress(CustomerVO2 vo);
+	 */
 	
-	AddressListVO setOrderAddress(AddressListVO vo);
-
+	List<ProductVO> getProductTop();
+	List<ProductVO> getProductBottom();
+	List<ProductVO> getProductOuter();
+	List<ProductVO> getProductETC();
+	List<ProductVO> getProductShoes();
+	List<ProductVO> getProductBedding();
+	List<CouponListVO> OrderCoupon(OrderVO vo);
+	List<TermsVO> selectTerms();
+	
+	void OrderInsert(OrderVO vo);
+	void OrderInsert1(OrderMtVO vo1);
+	int OrderSelect(OrderVO vo);
 }

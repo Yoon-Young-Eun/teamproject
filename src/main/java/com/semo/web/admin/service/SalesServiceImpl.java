@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.semo.web.admin.dao.SalesDAO;
-import com.semo.web.admin.vo.OrderMtVO;
 import com.semo.web.admin.vo.PagingVO;
+import com.semo.web.user.vo.OrderMtVO;
 import com.semo.web.user.vo.OrderVO;
 
 @Service
@@ -17,8 +17,8 @@ public class SalesServiceImpl implements SalesService {
 	SalesDAO salesDao;
 	
 	@Override
-	public int getArticleCount() {
-		return salesDao.getArticleCount();
+	public int getStoreArticleCount(PagingVO pvo) {
+		return salesDao.getStoreArticleCount(pvo);
 	}
 
 	@Override
@@ -31,5 +31,19 @@ public class SalesServiceImpl implements SalesService {
 		return salesDao.getProductSalesList(pvo);
 	}
 
+	@Override
+	public int getProductArticleCount(PagingVO pvo) {
+		return salesDao.getProductArticleCount(pvo);
+	}
+
+	@Override
+	public List<OrderMtVO> getDoughnutChart(PagingVO pvo) {
+		return salesDao.getDoughnutChart(pvo);
+	}
+
+	@Override
+	public List<OrderVO> getBarChart(PagingVO pvo) {
+		return salesDao.getBarChart(pvo);
+	}
 	
 }

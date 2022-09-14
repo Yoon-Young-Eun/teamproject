@@ -12,6 +12,11 @@
 <meta name="author" content="" />
 <title>Dashboard - SEMO Admin</title>
 
+
+
+<!-- chart css -->
+<link href="/admin/css/chart.css" rel="stylesheet" />
+
 <!-- icon 버튼 css -->
 <link href="/admin/css/icon.css" rel="stylesheet" />
 
@@ -68,6 +73,7 @@
 				</ul></li>
 		</ul>
 	</nav>
+
 
 	<div id="layoutSidenav">
 		<div id="layoutSidenav_nav">
@@ -137,8 +143,8 @@
 						<div class="collapse" id="change_id_03"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="/salesStoreList.mdo">지점매출</a> 
-								<a class="nav-link" href="/salesProductList.mdo">상품매출</a>
+								<a class="nav-link" href="/salesStoreList.mdo">지점매출</a> <a
+									class="nav-link" href="/salesProductList.mdo">상품매출</a>
 							</nav>
 						</div>
 
@@ -337,6 +343,55 @@
 						<div class="card-body">
 							지점별 매출현황 페이지 입니다. <a target="_blank"
 								href="https://datatables.net/">아무링크</a>
+
+
+							<!-- 도넛 Chart -->
+									<div>
+									<form id="barChart" >
+										<div class="icon_flex">
+											<div>
+											    <input type="date" name="startDate" />
+											</div>
+											<div>
+												<input type="date" name="endDate" />
+											</div>
+											<div>
+												<input type="button" value="검색" onClick="getGraph()" />
+											</div>
+										</div>
+									</form>
+									<div>
+									<select id="barChart" name="chartDate" onChange="getGraph()">
+										<option >검색</option>
+										<option value="day">일일</option>
+										<option value="week">주간</option>
+										<option value="month">월간</option>
+										<option value="year">년간</option>
+									</select>  
+									</div>
+							<div class="chartparent">
+								<div class="chart">
+									<canvas id="bar-chart" width="650" height="400"></canvas>
+									
+
+								</div>
+								<div class="chart">
+									<div id="donutchart" style="width: 550px; height: 400px;"></div>
+									<select id="doughnutChart" name="chartDate"
+										onChange="drawChart()">
+										<option>검색</option>
+										<option value="today">오늘</option>
+										<option value="thisweek">최근일주일</option>
+										<option value="thismonth">최근한달</option>
+										<option value="thisyear">최근일년</option>
+									</select>
+								</div>
+							</div>
+
+
+
+
+
 						</div>
 					</div>
 					<div class="card mb-4">
@@ -356,10 +411,14 @@
 							<!-- excel -->
 						</div>
 
-
 						<div class="b_button">
 							<!-- 테이블 행 필터 -->
-							<form name="selectname" action="salesList.mdo" method="get">
+							<form name="selectname" action="salesStoreList.mdo" method="get">
+							   <input type="hidden" name="searchKeyword1" value="${search.searchKeyword1}"/>
+							   <input type="hidden" name="searchKeyword2" value="${search.searchKeyword2}"/>
+							   <input type="hidden" name="searchKeyword3" value="${search.searchKeyword3}"/>
+							   <input type="hidden" name="startDate" value="${search.startDate}"/>
+							   <input type="hidden" name="endDate" value="${search.endDate}"/>
 								<div col-index=8>
 									<select name="selectPage" onchange="this.form.submit()">
 										<option value="">선택</option>
@@ -370,41 +429,60 @@
 									</select> entries per page
 								</div>
 							</form>
+
+							<!-- 검색기능 -->
+							<div>
+								<form action="salesStoreList.mdo" method="get">
+									<div class="icon_flex">
+										<div>
+											날짜 선택 : <input type="date" name="startDate" />
+										</div>
+										<div>
+											<input type="date" name="endDate" />
+										</div>
+										<div>
+											<div class="searchBtn">
+												<input type="text" id="se_input" name="searchKeyword1"
+													placeholder="구분" />
+											</div>
+										</div>
+										<div>
+											<div class="searchBtn">
+												<input type="text" id="se_input" name="searchKeyword2"
+													placeholder="매장명" />
+											</div>
+										</div>
+										<div>
+											<div class="searchBtn">
+												<input type="text" id="se_input" name="searchKeyword3"
+													placeholder="지역" />
+											</div>
+										</div>
+
+										<div>
+											<input type="submit" id="se_submit" value="검색" />
+										</div>
+										<div>
+											<input type="reset" id="se_reset" value="초기화" />
+										</div>
+									</div>
+								</form>
+							</div>
+
 						</div>
 
-
-
-
-
-
-
-
-						
-
-
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
-						<table id="" class="emp-table dataPerPage tblCustomers tblexportData table"
+						<table id=""
+							class="emp-table dataPerPage tblCustomers tblexportData table"
 							border="5">
 							<thead>
 								<tr>
-									<th col-index=1>주문일자</th>
-									<th class="emp-table" col-index=2>구분
-									<select class="table-filter" onchange="filter_rows()">
-											<option value="all"></option>
-									</select>
-									</th>
-									<th class="emp-table" col-index=3>매장명
-									<select class="table-filter" onchange="filter_rows()">
-											<option value="all"></option>
-									</select>
-									</th>
-									<th class="emp-table" col-index=4>지역
-									<select class="table-filter" onchange="filter_rows()">
-											<option value="all"></option>
-									</select>
-									</th>
-									<th col-index=5>결제방식</th>
-									<th col-index=6>결제금액</th>
+									<th>주문일자</th>
+									<th>구분</th>
+									<th>매장명</th>
+									<th>지역</th>
+									<th>결제방식</th>
+									<th>결제금액</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -436,17 +514,18 @@
 									<c:set var="endPage" value="${pageCount}" />
 								</c:if>
 								<c:if test="${startPage > pageBlock}">
-									<a href="salesList.mdo?pageNum=${startPage-pageBlock}"><div
+									<a href="salesStoreList.mdo?pageNum=${startPage-pageBlock}&endDate=${search.endDate}&startDate=${search.startDate}&selectPage=${search.selectPage}&searchKeyword1=${search.searchKeyword1}&searchKeyword2=${search.searchKeyword2}&searchKeyword3=${search.searchKeyword3}"><div
 											class="pageging2">이전</div></a>
 								</c:if>
 								<div class="icon_flex">
 									<c:forEach var="i" begin="${startPage}" end="${endPage}">
-										<a href="salesList.mdo?pageNum=${i}"><div class="pageging">${i}</div></a>
+										<a href="salesStoreList.mdo?pageNum=${i}&endDate=${search.endDate}&startDate=${search.startDate}&selectPage=${search.selectPage}&searchKeyword1=${search.searchKeyword1}&searchKeyword2=${search.searchKeyword2}&searchKeyword3=${search.searchKeyword3}"><div
+												class="pageging">${i}</div></a>
 									</c:forEach>
 								</div>
 								<div class="icon_flex">
 									<c:if test="${endPage < pageCount -1}">
-										<a href="salesList.mdo?pageNum=${startPage + pageBlock}"><div
+										<a href="salesStoreList.mdo?pageNum=${startPage + pageBlock}&endDate=${search.endDate}&startDate=${search.startDate}&selectPage=${search.selectPage}&searchKeyword1=${search.searchKeyword1}&searchKeyword2=${search.searchKeyword2}&searchKeyword3=${search.searchKeyword3}"><div
 												class="pageging2">다음</div></a>
 									</c:if>
 								</div>
@@ -479,21 +558,41 @@
 			</footer>
 		</div>
 	</div>
+
+
+
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
 	<script src="/admin/js/scripts.js"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
-		crossorigin="anonymous"></script>
-	<script src="/admin/assets/demo/chart-area-demo.js"></script>
-	<script src="/admin/assets/demo/chart-bar-demo.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
 		crossorigin="anonymous"></script>
 	<script src="/admin/js/datatables-simple-demo.js"></script>
 	<script>
 		getUniqueValuesFromColumn()
 	</script>
+
+
+
+
+
+
+
+	<!-- chart -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+	<script src="/admin/js/chart.js"></script>
+
+	<!-- 구글차트 -->
+	<script type="text/javascript"
+		src="https://www.gstatic.com/charts/loader.js"></script>
+	<script>
+		google.charts.load("current", {
+			packages : [ "corechart" ]
+		});
+		google.charts.setOnLoadCallback(drawChart);
+	</script>
+
 
 
 

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +22,7 @@
     <div class="main">
   <div class="space_left"></div>
   <div class="main_content">
+  <form action="/OrderInsert.do">
     <div class="main_text">
       주문내역 확인
     </div>
@@ -28,7 +30,13 @@
       세탁시 요청사항
     </div>
     <div class="service1">
-      <input type="text" value="깨끗하게 해줘요" readonly id="service_text1">
+      <input type="text" value="${checkbox.data1}" readonly id="checkbox" name="order_request1">
+    </div>
+    <div class="service1">
+      <input type="text" value="${checkbox.data2}" readonly id="checkbox" name="order_request1">
+    </div>
+    <div class="service1">
+      <input type="text" value="${checkbox.data3}" readonly id="checkbox1" name="order_request1">
     </div>
 
 
@@ -36,7 +44,16 @@
       기사님께 요청사항
     </div>
     <div class="service3">
-      <input type="text" value="안전배송" readonly id="service_text2">
+      <input type="text" value="${checkbox.data4}" readonly id="checkbox" name="order_request2">
+    </div>
+    <div class="service3">
+      <input type="text" value="${checkbox.data5}" readonly id="checkbox" name="order_request2">
+    </div>
+    <div class="service3">
+      <input type="text" value="${checkbox.data6}" readonly id="checkbox" name="order_request2">
+    </div>
+    <div class="service3">
+      <input type="text" value="${checkbox.data7}" readonly id="checkbox1" name="order_request2">
     </div>
 
 
@@ -44,89 +61,45 @@
 
 
     <div class="main_text1">
+    
       <div class="main_text2">
         세탁물 종류
       </div>
-      <div class="main_text3">
-        <div class="main_text3-1">
-          와이셔츠
+      <div style="border:1px solid grey; width:1000px;">
+      
+      <div style="display:flex; width:1000px; justify-content: center; align-items: center;" >
+       <input type="text" value="분류" name="" id="product" style="width: 100px; background-color:#a9d3f0; font-weight: bold;" readonly>
+          <input type="text" value="성별" name="" id="product" style="width: 100px; background-color:#a9d3f0; font-weight: bold; " readonly>
+          <input type="text" value="상품명" name="" id="product" style="width:400px; background-color:#a9d3f0; font-weight: bold;" readonly>
+          <input type="text" value="수량" name="" id="product" style="width: 100px; background-color:#a9d3f0; font-weight: bold; " readonly>
+          <input type="text" value="금액" id="product" style="width:150px; background-color:#a9d3f0; font-weight: bold;" readonly>
+          <input type="text" value="합계" id="product" style="width:150px; background-color:#a9d3f0; font-weight: bold;" readonly>
+       </div>
+      <c:forEach var="orderproduct" items="${OrderProduct}">
+        <div style="display:flex; width:1000px; justify-content: center; align-items: center;" >
+          <input type="hidden" value="${OrderDate.customer_no }" name="customer_Array_no">
+          <input type="hidden" value="${OrderData.order_customer_name}" name="customer_Array_name">
+          <input type="hidden" value="${orderproduct.product_Array_code }" name="product_Array_code">
+          <input type="text" value="${orderproduct.order_mtArray_category1 }" name="order_mtArray_category1" id="product" style="width: 100px;" readonly>
+          <input type="text" value="${orderproduct.order_mtArray_category2 }" name="order_mtArray_category2" id="product" style="width: 100px;" readonly>
+          <input type="text" value="${orderproduct.order_mtArray_product }" name="order_mtArray_product" id="product" style="width:400px;" readonly>
+          <input type="text" value="${orderproduct.order_mtArray_count }" name="order_mtArray_count" id="product" style="width: 100px;" readonly>
+          <input type="text" value="${orderproduct.order_mtArray_price }" name="order_mtArray_price" id="product" style="width:150px;" readonly>
+          <input type="text" value="${orderproduct.order_mtArray_sumPrice }" name="order_mtArray_sumPrice" id="product" style="width:150px;" readonly>
+          
         </div>
-        <div class="main_text3-4">
-          1500원
-        </div>
-        <div class="main_text3-2">
-          5개
-        </div>
-        <div class="main_text3-3">
-          6000원
-        </div>
+        </c:forEach>
       </div>
+      
 
-      <div class="main_text3">
-        <div class="main_text3-1">
-          티셔츠
-        </div>
-        <div class="main_text3-4">
-          1500원
-        </div>
-        <div class="main_text3-2">
-          5개
-        </div>
-        <div class="main_text3-3">
-          7000원
-        </div>
-      </div>
-
-      <div class="main_text3">
-        <div class="main_text3-1">
-          청바지
-        </div>
-        <div class="main_text3-4">
-          1500원
-        </div>
-        <div class="main_text3-2">
-          3개
-        </div>
-        <div class="main_text3-3">
-          9000원
-        </div>
-      </div>
-
-      <div class="main_text3">
-        <div class="main_text3-1">
-          코트
-        </div>
-        <div class="main_text3-4">
-          1500원
-        </div>
-        <div class="main_text3-2">
-          5개
-        </div>
-        <div class="main_text3-3">
-          20000원
-        </div>
-      </div>
-
-      <div class="main_text3">
-        <div class="main_text3-1">
-          이불
-        </div>
-        <div class="main_text3-4">
-          1500원
-        </div>
-        <div class="main_text3-2">
-          5개
-        </div>
-        <div class="main_text3-3">
-        36000원
-        </div>
-      </div>
-      <div class="price">
+      <div class="price" style="width:1000px;">
         <div class="price1">
           <input type="text" value="세탁비용 : " id="price_text" readonly>
+          
         </div>
         <div class="price2">
-          <input type="text" value=" 16000원" id="price_text1" readonly>
+          <input type="text" value="${price1}"id="price_text1" readonly>
+          <input type="text" value="원" id="price_text1" readonly style="width:30px;">
         </div>
       </div>
 
@@ -143,7 +116,7 @@
       </div>
         
       </div>
-      <div class="coupon_text">
+      <div class="coupon_text" style="width:1000px;">
         <div class="coupon_text1" >
           <input type="text" value="" id="id1">
           
@@ -169,9 +142,19 @@
         
   
       </div>
-      
+     
+      <input type="hidden" value="${OrderData.customer_no}"	name="customer_no"> 
+	  <input type="hidden"value="${OrderData.order_address1 }" name="order_address1">
+	  <input type="hidden" value="${OrderData.order_address2}" name="order_address2"> 
+	  <input type="hidden"value="${OrderData.order_customer_name}" name="order_customer_name"> 
+	  <input type="hidden"value="${OrderData.order_customer_phone }" name="order_customer_phone"> 
+      <input type="hidden"value="${OrderData.cm_gate_passwd }" name="cm_gate_passwd">
+	  <input type="hidden" value="${OrderData.order_pickup_date }" name="order_pickup_date">
+	  <input type="hidden" value="${OrderData.order_pickup_time }" name="order_pickup_time">
+	  <input type="hidden" value="${OrderData.order_type}" name="order_type">
+	  
 
-      <div class="pay">
+      <div class="pay" style="width:1000px;">
        <div class="pay1">
         결제금액
        </div>
@@ -181,7 +164,8 @@
             <input type="text" value="세탁비용 : " id="price_text" readonly>
           </div>
           <div class="price2" id="price2">
-            <input type="text" value=" 16000원" id="price_text1" readonly>
+            <input type="text" value="${price1}" id="price_text1" readonly>
+            <input type="text" value="원" id="price_text1" readonly style="width:30px;">
           </div>
         </div>
       </div>
@@ -189,8 +173,10 @@
         <div class="pay6">
           <input type="text" value="쿠폰할인 : " readonly id="cou22">
         </div>
-        <div class="pay7">
-          <input type="text" value="0원" id="cou11" readonly>
+        <div class="pay7" style="display:flex">
+          <input type="hidden" value="${OrderData.order_use_coupon_price }" id="cou111" readonly name="order_use_coupon_price">
+          <div id="q1" style="width:150px; text-align:right;font-size:20px;padding-right:3px;" ></div>
+          <input type="text" value="원" id="cou11" readonly style="width:30px;">
         </div>
         
       </div>
@@ -198,113 +184,45 @@
       <div class="del_pay">
         <div class="del_pay1">
           <input type="text" value="배송비 : " readonly id="cou55">
+          
         </div>
         <div class="del_pay2">
-          <input type="text" value="" id="cou66" readonly>
+          <input type="text" value="${OrderData.order_delivery_price }" id="cou66" readonly name="order_delivery_price">
+          <input type="text" value="원" readonly id="cou66" style="width:30px;">
         </div>
         
       </div>
 
       <div class="total">
-        <div class="total1">
+        <div class="total1" style="display: flex">
           <input type="text" value="최종금액 :" class="total_price1" id="cou33" readonly>
+          <input type="hidden" value="" id="cou444" readonly  name="order_price">
+          <div id="q2" style="width:150px; text-align:right;font-size:20px;padding-right:3px;" >${price}</div>
+          <input type="text" value="원" id="cou44" readonly style="width:30px;">
         </div> 
-        <div class="total2">
-          <input type="text" value="" id="cou44" readonly>
-        </div>
+       
       </div>
       </div>
 
-      <div class="yak">
+      <div class="yak" style="width:1000px;">
+      <c:forEach var="Terms" items="${terms}">
         <div class="yak1">
-          <div class="yak2">서비스이용 약관동의 
+          <div class="yak2">
+          <input type="text" id="terms" value="${Terms.terms_title }" readonly style="font-size:15px; color:white; background-color:#63afe4; border-style:none; text-align:center;" > 
             <input type="button" value="▼" onclick="showYak(this)" id="yakk33">
           </div>
           <div class="yak33" id="yak3">
-            I'm ready for action
-            Light, Signal, Action
-            Light, Signal
-            Light, Action!
-            Sign a light on me
-            좀 더 환하게 비춰줘 Much brighter
-            360도 빈틈 하나도 없이
-            내가 스며들 수 있게
-            한순간도 놓치지 마
-            그 모든 순간에
-            좀 미묘하게 달라졌던 온도 속 날
-            바라봐 직접 Straight into my eyes
-            날카롭던 눈빛 Oh focus on me baby
-            어지럽게 난 뒤섞여있던
-            감정들이 하나 둘 자릴 잡으면
+            ${Terms.terms_content }
           </div>
         </div>
+		</c:forEach>
+       
 
-        <div class="yak1">
-          <div class="yak2">운영정책 및 보상정책에 대한 동의
-            <input type="button" value="▼" onclick="showYak(this)" id="yakk33">
-          </div>
-          <div class="yak33" id="yak3">
-          뿌옇던 안개 속에
-          조금씩 드러나게 돼
-          Light, Signal, Action
-          Take a flash 나를 비추면
-          You 레이더 안에 Boom
-          새롭게 그려진 다음
-          빛을 머금고
-          Now re-flash 반짝거렸던
-          Splash 터진 빛 방울에
-          준비가 끝났어 난
-          (Are you ready?)
-          I’m ready for action
-          Light, Signal, Action
-          Light, Signal, Action (Action)
-          Light, Signal, Action
-          I’m ready for action
-          Light, Signal, Action
-          Light, Signal, Action
-          Light, Signal, Action
-          I’m ready for action
-          </div>
-        </div>
-
-        <div class="yak1">
-          <div class="yak2">개인정보 수집 및 동의
-            <input type="button" value="▼" onclick="showYak(this)" id="yakk33">
-          </div>
-          <div class="yak33" id="yak3">
-            Ready now 말해봐
-            그려왔던 내 모습이 어땠는지 Yeah
-            빨리 다음으로 널 데려가
-            상상했던 것들로
-            가득 채운 Spotlight (Spotlight)
-            투명하게 비춰지던
-            네 안에 새겨진
-            좀 미묘하게 달라졌던 이야기 속 날
-            바라봐 직접 Straight into my eyes
-            날카롭던 눈빛
-            Oh focus on me baby (Baby)
-            어지럽게 난 뒤섞여있던
-            감정들이 하나 둘 자릴 잡으면
-            뿌옇던 안개 속에
-            조금씩 드러나게 돼
-            Take a flash 나를 비추면
-            You 레이더 안에 Boom
-            새롭게 그려진 다음
-            빛을 머금고
-            Now re-flash 반짝거렸던
-            Splash 터진 빛 방울에
-            준비가 끝났어 난
-            I’m ready for action
-            섬광 속에 떨어진 Black out
-            두 눈이 멀어도 볼 수 있어 난
-            흐릿한 그림자 위 실루엣처럼
-            (Are you ready?)
-          </div>
-        </div>
+        
       
       </div>
 
-      <div class="order_min">
+      <div class="order_min" style="width:1000px;">
         ◈ 최소 주문금액은 15000원 입니다.
       </div>
       <div class="order_min1">
@@ -336,53 +254,64 @@
 
 
 
-
-      <div class="bt1">
-        <input type="button" id="but1" value="결제하기" onclick="order()" class="action-button shadow animate blue">
+      <div class="bt1" style="width:1000px;">
+        <input type="submit" id="but1" value="결제하기" onclick="order()" class="action-button shadow animate blue">
         <input type="button" id="but2" value="취소하기" class="action-button shadow animate blue" >
       </div>
+    
+      
+
+      
+      
+      
+      
       <script>
         document.getElementById("but1").addEventListener("click",function order(){
           var money1 = document.getElementById("price_text1").value;
           var abc = /[^0-9]/g;
           var totalpay = Number(money1.replace(abc,""));
 			
-          if(totalpay >= 15000){
-            location.href='/pay/pay12.jsp';
-          }else{
-            alert("최소주문 금액은 15000원 입니다.");
-          }
-
+        /*   if(totalpay > 15000){
+            location.href='/OrderInsert.do';
+          } */
 
         })
 
         
       </script>
+<script>
+$("#q1").on("DOMSubtreeModified",function(){
+	   console.log("q1");
+	   
+	   $("#cou111").val($("#q1").text().trim())  ;
+})
+
+$("#q2").on("DOMSubtreeModified",function(){
+	   console.log("q2");
+	   
+	   $("#cou444").val($("#q2").text().trim())  ;
+})
+
+
+</script>
 
 
 
 
-
-
-
-
-      <script language="javascript">
+      <script type="text/javascript">
         
         
         function showPopup() { 
         window.name = "parentForm";
-        var url="/pay/pay11.jsp";
+        var url="/OrderCoupon.do?customer_no="+${OrderData.customer_no};
          openwin = window.open(url, "", "width=710, height=850");
         
         }
 
-        
-        
-        
-        
-      
+
         </script>
     </div>
+    </form>
   </div>
   <div class="space_right"></div>
 </div>

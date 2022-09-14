@@ -434,23 +434,6 @@
 		
 						<div>
 							<c:if test="${count > 0}"> <!-- 조회된 데이터 개수가 0보다 크면 if문 실행 -->
-					<%-- 			<c:set var="imsi" value="${count % pageSize==0? 0 : 1}" /> <!-- 전체 페이지 게시물을 pageSize로 나눴을때 오류를 대비한 나머지구하는식 -->
-								<c:set var="pageCount" value="${count / pageSize+imsi}" /> <!-- 페이징 넘버 개수~ -->
-								<c:set var="pageBlock" value="${5}" /> <!-- 노출시킬 마지막 페이징 번호 단위(5개씩 끊어 보여줌) -->
-								
-								<c:set var="result" value="${(currentPage-1) / pageBlock}" /> <!-- int타입으로 형변환 -->
-								<fmt:parseNumber var="result2" value="${result }"integerOnly="true"/>
-								 ${result2 }
-							
-								
-								<c:set var="startPage" value="${result2 * pageBlock+1}" /> <!--  현재 보이는 페이징 시작번호 -->
-				
-								 ${startPage}
-								<c:set var="endPage" value="${startPage + pageBlock-1}" /> <!-- 현재 보이는 페이징 끝번호 -->
-								 --%>
-								<c:if test="${endPage > pageCount}"> <!--  끝번호가 전체 페이징 개수보다 크면 안되기 때문에 변경해줌  -->
-									<c:set var="endPage" value="${pageCount}" />
-								</c:if>
 								<div class="icon_flex">
 								<div>
 								<c:if test="${startPage > pageBlock}"> <!-- 시작번호가 5보다 크면, 앞에 '이전'을 붙여줌 -->

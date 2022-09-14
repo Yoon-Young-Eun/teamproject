@@ -71,7 +71,11 @@ public class Ad_BoardController {
     	  int startPage =(int)((currentPage-1)/pageBlock)*pageBlock +1;
     	  int endPage = startPage + pageBlock -1;
     	  
+    	  if(endPage > pageCount) {
+    		  endPage = pageCount;
+    	  }
     	  
+          model.addAttribute("count", count);
     	  model.addAttribute("pageCount",pageCount);
     	  model.addAttribute("startPage",startPage);
     	  model.addAttribute("endPage",endPage);
@@ -83,10 +87,6 @@ public class Ad_BoardController {
       condition.put("내용", "notice_content");
       
       model.addAttribute("condition", condition);
-     
-      model.addAttribute("pageSize", pageSize);
-      model.addAttribute("currentPage", currentPage);
-      model.addAttribute("count", count);
       model.addAttribute("boardList", boardList);
       return "/admin/board_notice.jsp";
    }

@@ -16,5 +16,6 @@ public interface AdminService {
 	public void selectedDelete(int num);
 	public int getArticleCount(PagingVO pvo);
 	
-	//
+	
+	
 }

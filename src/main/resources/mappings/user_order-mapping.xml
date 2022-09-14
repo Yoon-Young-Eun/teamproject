@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="OrderDAOuser">
+
+	<select id="getProductTop" resultType="product">
+	<![CDATA[select * from product where product_category_parent='상의' order by product_category_median desc]]>
+	</select>
+	<select id="getProductBottom" resultType="product">
+	<![CDATA[select * from product where product_category_parent='하의']]>
+	</select>
+	<select id="getProductETC" resultType="product">
+	<![CDATA[select * from product where product_category_parent='기타']]>
+	</select>
+	<select id="getProductShoes" resultType="product">
+	<![CDATA[select * from product where product_category_parent='신발']]>
+	</select>
+	<select id="getProductBedding" resultType="product">
+	<![CDATA[select * from product where product_category_parent='침구류']]>
+	</select>
+	<select id="getProductOuter" resultType="product">
+	<![CDATA[select * from product where product_category_parent='외투']]>
+	</select>
+	
+	<select id="OrderCoupon" parameterType="ORDER" resultType="CouponList">
+	<![CDATA[select * from coupon_management where customer_no=#{customer_no}]]>
+	</select>
+	
+	<select id="selectTerms" resultType="terms">
+	<![CDATA[select * from terms where terms_type=2]]>
+	</select>
+
+	<insert id="OrderInsert" parameterType="ORDER">
+	<![CDATA[insert into order_cm(store_code,order_pickup_date,order_pickup_time,cm_gate_passwd,order_request1,order_request2,order_price,order_use_coupon_price,order_price_method,customer_no
+	,order_customer_name,order_store_name,order_expected_date,order_customer_phone,order_address1,order_address2,order_delivery_price)
+	values(#{store_code},#{order_pickup_date},#{order_pickup_time},#{cm_gate_passwd},#{order_request1},#{order_request2},#{order_price},#{order_use_coupon_price},#{order_price_method},#{customer_no}
+	,#{order_customer_name},#{order_store_name},date_add(#{order_pickup_date},interval 5 day),#{order_customer_phone},#{order_address1},#{order_address2},#{order_delivery_price})]]>
+	</insert>
+	
+	<select id="OrderSelect" parameterType="ORDER" resultType="int">
+	<![CDATA[select max(order_no) from order_cm where customer_no=#{customer_no}]]>
+	
+	</select>
+	
+	
+	
+ 	<insert id="OrderInsert1" parameterType="orderManagement">
+	<![CDATA[insert into order_management(customer_no,customer_name,product_code,order_mt_category1,order_mt_category2,order_mt_product,order_mt_count,order_mt_price,order_no)
+	values(#{customer_no},#{customer_name},#{product_code},#{order_mt_category1},#{order_mt_category2},#{order_mt_product},#{order_mt_count},#{order_mt_price},#{order_no})]]>
+	</insert>
+
+
+
+
+
+
+
+
+</mapper>

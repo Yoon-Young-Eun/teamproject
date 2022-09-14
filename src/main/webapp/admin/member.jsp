@@ -293,7 +293,7 @@
 							회원관리 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
 						</div>
 					</div>
-					<div class="card mb-4">
+					<div class="card mb-4" style="width:100%;">
 						<div class="card-header">
 							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 게시판에 대한 세부제목
 						</div>
@@ -313,6 +313,8 @@
 						<div class="b_button">
 							<!-- 테이블 행 필터 -->
 							<form name="selectname" action="member.mdo" method="get">
+							   <input type="hidden" name="searchCondition" value="${search.searchCondition}"/>
+							   <input type="hidden" name="searchKeyword" value="${search.searchKeyword}"/>
 								<div col-index=8>
 									<select name="selectPage" onchange="this.form.submit()">
 										<option value="">선택</option>
@@ -346,17 +348,17 @@
 								<form action="member.mdo" method="get">
 									<div class="icon_flex">
 
-										<td><select name="searchCondition">
+										<div><select name="searchCondition">
 												<c:forEach items="${conditionMap}" var="option">
 													<div>
 														<option value="${option.value}">${option.key}</option>
 													</div>
 												</c:forEach>
-										</select> <input type="text" id="se_input" name="searchKeyword" />
+										</select> <input type="text" id="se_input" name="searchKeyword" /></div>
 											<div>
 												<input type="submit" id="se_submit" value="검색" />
 											</div>
-											<div></div> <input type="button" id="se_reset" value="초기화" />
+											<div> <input type="reset" id="se_reset" value="초기화" /></div>
 									</div>
 								</form>
 							</div>
@@ -364,39 +366,23 @@
 							
 						</div>
 						
-						<!-- 검색 초기화 버튼 js -->
-						<script type="text/javascript">
-							const se_reset = document
-									.querySelector("#se_reset");
-							se_reset.addEventListener("click", function() {
-								const se_input = document
-										.querySelector("#se_input");
-								se_input.value = '';
-								const se_submit = document
-										.querySelector("#se_submit");
-								se_submit.click();
-							});
-						</script>
 
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
+						<div style= "width:100%; overflow-x:auto;">
 						<table id=""
-							class="emp-table dataPerPage tblCustomers tblexportData table"
+							class="tblCustomers tblexportData table"
 							border="5">
 							<thead>
 								<tr>
 									<th width="50" id="check_td"><input type="checkbox"
 										name="check" class="allcheck"></th>
-									<th col-index=2>회원코드</th>
-									<th col-index=3>아이디(이메일)</th>
-									<th col-index=4>이름</th>
-									<th col-index=5>핸드폰</th>
-									<th col-index=6>주소</th>
-									<th col-index=7>SMS수신</th>
-									<th style="padding: 0px 5px;" col-index=8>회원상태<br><select class="table-filter"
-										onchange="filter_rows()">
-											<option value="all"></option>
-									</select>
-									</th>
+									<th>회원코드</th>
+									<th>아이디(이메일)</th>
+									<th>이름</th>
+									<th>핸드폰</th>
+									<th>주소</th>
+									<th>SMS수신</th>
+									<th>회원상태</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -414,7 +400,7 @@
 								</c:forEach>
 							</tbody>
 						</table>
-						
+						</div>
 						
 						<!-- pagaing 처리 -->
 						<div >					
@@ -429,16 +415,16 @@
 									<c:set var="endPage" value="${pageCount}" />
 								</c:if>
 								<c:if test="${startPage > pageBlock}">
-									<a href="member.mdo?pageNum=${startPage-pageBlock}"><div class="pageging2">이전</div></a>
+									<a href="member.mdo?pageNum=${startPage-pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="pageging2">이전</div></a>
 								</c:if>
 								<div class="icon_flex">
 								<c:forEach var="i" begin="${startPage}" end="${endPage}">
-										<a href="member.mdo?pageNum=${i}"><div class="pageging">${i}</div></a>
+										<a href="member.mdo?pageNum=${i}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="pageging">${i}</div></a>
 								</c:forEach>
 								</div>							
 								<div class="icon_flex">
 								<c:if test="${endPage < pageCount -1}">
-									<a href="member.mdo?pageNum=${startPage + pageBlock}"><div class="pageging2">다음</div></a>
+									<a href="member.mdo?pageNum=${startPage + pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="pageging2">다음</div></a>
 								</c:if>
 								</div>
 							</c:if>

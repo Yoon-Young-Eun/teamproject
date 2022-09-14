@@ -28,16 +28,46 @@
     <div class="payment_text2">
       서비스종류 선택
     </div>
-    <div class="payment_text3">
+    <div class="fofofofo" style="display: flex; width: 1000px; justify-content: center; margin:0px;">
+    <form action="/OrderType.do">
+    <div class="payment_text3" style="width:300px">
       <div class="general">
-        <input type="button"  value="일반세탁" id="general1" onclick="location.href='/pay/pay9.jsp'" class="action-button shadow animate blue" style="padding: 0px; width: 200px; height: 60px;"> 
+        <input type="submit"  value="일반세탁" id="general1"  class="action-button shadow animate blue" style="padding: 0px; width: 200px; height: 60px;" name="order_type"> 
       </div>
-      <div class="special">  
-        <input type="button"  value="특수세탁" id="special1" onclick="location.href='/pay/pay6.jsp'" class="action-button shadow animate blue" style="padding: 0px; width: 200px; height: 60px;">
-      </div>
+      
+     <input type="hidden" value="${OrderData.customer_no}" name="customer_no">
+    <input type="hidden" value="${OrderData.order_address1 }" name="order_address1">
+    <input type="hidden" value="${OrderData.order_address2}" name="order_address2">
+    <input type="hidden" value="${OrderData.order_customer_name}" name="order_customer_name">
+    <input type="hidden" value="${OrderData.order_customer_phone }" name="order_customer_phone">
+    <input type="hidden" value="${OrderData.cm_gate_passwd }" name="cm_gate_passwd">
+    <input type="hidden" value="${OrderData.order_pickup_date }" name="order_pickup_date">
+    <input type="hidden" value="${OrderData.order_pickup_time }" name="order_pickup_time">
+      
+      
     </div>
-
+    </form>
     
+     <form action="/OrderType1.do">
+    <div class="payment_text3" style="width:300px">
+     
+      <div class="special">  
+        <input type="submit"  value="특수세탁" id="special1"  class="action-button shadow animate blue" style="padding: 0px; width: 200px; height: 60px;" name="order_type" >
+      </div>
+     <input type="hidden" value="${OrderData.customer_no}" name="customer_no">
+    <input type="hidden" value="${OrderData.order_address1 }" name="order_address1">
+    <input type="hidden" value="${OrderData.order_address2}" name="order_address2">
+    <input type="hidden" value="${OrderData.order_customer_name}" name="order_customer_name">
+    <input type="hidden" value="${OrderData.order_customer_phone }" name="order_customer_phone">
+    <input type="hidden" value="${OrderData.cm_gate_passwd }" name="cm_gate_passwd">
+    <input type="hidden" value="${OrderData.order_pickup_date }" name="order_pickup_date">
+    <input type="hidden" value="${OrderData.order_pickup_time }" name="order_pickup_time">
+      
+      
+    </div>
+    </form>
+
+    </div>
   </div>
   <div class="payment_right"></div>
 

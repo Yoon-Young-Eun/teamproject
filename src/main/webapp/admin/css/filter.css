@@ -21,8 +21,8 @@ h1 {
 	margin-top: 40px;
 	margin-left: 20px;
 	margin-right: 20px;
-	border: 1px solid black;
-	border-radius: 4px;
+/* 	border: 1px solid black; */
+/* 	border-radius: 4px; */
 	box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.9);
 	max-width: fit-content;
 	max-height: fit-content;
@@ -45,13 +45,13 @@ table {
 }
 
 .table-filter {
-	border-radius: 5px;
+/* 	border-radius: 5px; */
 }
 
 table th {
 	position: sticky;
 	top: 0px;
-	background-color: #6666ff;
+	/* background-color: #6666ff; */
 	color: black;
 	/*     color: rgb(241, 245, 179); */
 	text-align: center;
@@ -88,7 +88,7 @@ table td {
 }
 
 #button {
-	border-radius: 4px;
+/* 	border-radius: 4px; */
 	font-weight: bold;
 	font-size: 20px;
 	align-content: center;
@@ -97,10 +97,30 @@ table td {
 }
 
 #delBtn {
-	border-radius: 4px;
+/* 	border-radius: 4px; */
 	font-weight: bold;
 	font-size: 20px;
 	align-content: center;
 	width: 80px;
 	margin-left: 5px;
 }
+
+.searchBtn {
+ margin :0px;
+ padding :0px;
+ height : 5px;
+ font-size: 15px;
+ text-align: center;
+}
+
+#se_input{
+ text-align: center;
+}
+
+
+#se_submit{
+ text-align:center;
+ width : 40px;	
+}
+
+

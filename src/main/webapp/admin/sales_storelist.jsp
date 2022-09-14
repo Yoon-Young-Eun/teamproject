@@ -333,13 +333,13 @@
 		<div id="layoutSidenav_content">
 			<main>
 
-				<div class="container-fluid px-4">
+				<div class="container-fluid px-4"  > <!--                     ㅇㄴㅁㅇㅁㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㅇㄴㅁ -->
 					<h1 class="mt-4">매출현황</h1>
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
 						<li class="breadcrumb-item active">지점별 매출현황</li>
 					</ol>
-					<div class="card mb-4">
+					<div class="card mb-4" style="width:100%; overflow-x:auto;">
 						<div class="card-body">
 							지점별 매출현황 페이지 입니다. <a target="_blank"
 								href="https://datatables.net/">아무링크</a>
@@ -394,6 +394,7 @@
 
 						</div>
 					</div>
+						
 					<div class="card mb-4">
 						<div class="card-header">
 							<i class="fas fa-chart-area me-1"></i> 여기는 지점별 매출현황 현황에 대한 차트와
@@ -410,7 +411,9 @@
 								onclick="exportToExcel('tblexportData', 'user-data')">Excel</button>
 							<!-- excel -->
 						</div>
-
+						
+						
+						
 						<div class="b_button">
 							<!-- 테이블 행 필터 -->
 							<form name="selectname" action="salesStoreList.mdo" method="get">
@@ -472,6 +475,7 @@
 						</div>
 
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
+				
 						<table id=""
 							class="emp-table dataPerPage tblCustomers tblexportData table"
 							border="5">
@@ -498,7 +502,7 @@
 								</c:forEach>
 							</tbody>
 						</table>
-
+					
 
 						<!-- pagaing 처리 -->
 						<div>
@@ -534,6 +538,7 @@
 						<!-- 페이징 종료 -->
 
 
+</div>
 
 
 

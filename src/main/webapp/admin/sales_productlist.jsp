@@ -333,7 +333,7 @@
 						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
 						<li class="breadcrumb-item active">상품별 매출현황</li>
 					</ol>
-					<div class="card mb-4">
+					<div class="card mb-4" style="width:100%; overflow-x:auto;">
 						<div class="card-body">
 							상품별 매출현황 페이지 입니다. <a target="_blank"
 								href="https://datatables.net/">아무링크</a>
@@ -414,14 +414,14 @@
 								</form>
 							</div> 
     					</div>
-
+						
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
 						<table id=""
 							class="tblCustomers tblexportData table"
 							border="5">
 							<thead>
 								<tr>
-									<th col-index=1>주문일자</th>
+									<th>주문일자</th>
 									<th>대분류</th>
 									<th>중분류</th>
 									<th>상품명</th>

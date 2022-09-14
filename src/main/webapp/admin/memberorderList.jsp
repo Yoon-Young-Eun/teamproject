@@ -358,7 +358,7 @@
 
 
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
-						<div style= "width:100%; overflow-x:auto;">
+						
 						<table id=""
 							class="tblCustomers tblexportData table"
 							border="5">
@@ -394,7 +394,7 @@
 								</c:forEach>
 							</tbody>
 						</table>
-						</div>
+						
 						
 						<!-- pagaing 처리 -->
 						<div >					

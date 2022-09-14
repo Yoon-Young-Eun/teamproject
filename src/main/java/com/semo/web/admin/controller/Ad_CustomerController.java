@@ -25,7 +25,7 @@ public class Ad_CustomerController {
 	@Autowired
 	MemberService memberService;
 	
-	@Autowired
+	@Autowired //문자 메시지
 	UtilService utilservice;
 	
 	@Autowired
@@ -113,6 +113,15 @@ public class Ad_CustomerController {
 	       
 		return "admin/member.jsp";
 	}	
+	
+	
+	@RequestMapping(value="/memberUpdate.mdo", method=RequestMethod.GET)
+	public String getMemberUpdate(CustomerVO vo) {
+		
+		memberService.getMemberUpdate(vo);
+		
+		return "/member.mdo";
+	}
 	
     //블랙맴버 리스트 조회 리스트
 	@RequestMapping(value="/blackmember.mdo", method = RequestMethod.GET)

@@ -6,15 +6,10 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-<<<<<<< HEAD
-import com.semo.web.admin.vo.CustomerVO;
-import com.semo.web.admin.vo.PagingVO;
-=======
 import com.semo.web.admin.vo.Ad_EstimateVO;
 import com.semo.web.admin.vo.Estimate_T_VO;
 import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.user.vo.EstimateVO;
->>>>>>> main
 import com.semo.web.user.vo.OrderMtVO;
 import com.semo.web.user.vo.OrderVO;
 

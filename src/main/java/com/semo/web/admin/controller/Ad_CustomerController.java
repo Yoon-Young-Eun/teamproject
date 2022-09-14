@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.semo.web.admin.service.MemberService;
 import com.semo.web.admin.service.UtilService;
 import com.semo.web.admin.util.CoolSms;
-import com.semo.web.admin.vo.CustomerVO;
 import com.semo.web.admin.vo.MessageVO;
 import com.semo.web.admin.vo.PagingVO;
+import com.semo.web.user.vo.CustomerVO;
 
 @Controller
 public class Ad_CustomerController {

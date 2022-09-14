@@ -9,18 +9,14 @@
 	<typeAliases>
 
 		<typeAlias type="com.semo.web.admin.vo.AdminVO" alias="admin" />
-		<typeAlias type="com.semo.web.admin.vo.CustomerVO" alias="customer0"/>
 		<typeAlias type="com.semo.web.admin.vo.MessageVO" alias="message" />
 		<typeAlias type="com.semo.web.admin.vo.PagingVO" alias="paging"/>
-<<<<<<< HEAD
-		
-		<!-- 삭제 -->
-		<typeAlias type="com.semo.web.admin.vo.Ad_EstimateVO" alias="ad_estimate"/>
 
-		<typeAlias type="com.semo.web.user.vo.AddressListVO" alias="CM_ADDRESS" />
-		<typeAlias type="com.semo.web.user.vo.FaqVO" alias="BOARD_FAQ"/>	
+		
+
+
+		<typeAlias type="com.semo.web.user.vo.AddressListVO" alias="CM_ADDRESS" />	
 		<typeAlias type="com.semo.web.user.vo.OrderVO" alias="ORDER" />
-		<typeAlias type="com.semo.web.user.vo.CustomerVO2" alias="CUSTOMER"/>
 		<typeAlias type="com.semo.web.user.vo.OrderMtVO" alias="orderManagement"/>
 		
 		<typeAlias type="com.semo.web.admin.vo.BannerVO" alias="banner" />
@@ -28,8 +24,7 @@
 		<typeAlias type="com.semo.web.admin.vo.ProductVO" alias="product" />
 		<typeAlias type="com.semo.web.admin.vo.StoreVO" alias="store" />
 		<typeAlias type="com.semo.web.admin.vo.TermsVO" alias="terms" />
-=======
->>>>>>> main
+
 		
 
 
@@ -39,25 +34,16 @@
 
 		
 
-		<typeAlias type="com.semo.web.admin.vo.BannerVO"
-			alias="banner" />
-		<typeAlias type="com.semo.web.admin.vo.CouponVO"
-			alias="coupon" />
-		<typeAlias type="com.semo.web.admin.vo.ProductVO"
-			alias="product" />
-		<typeAlias type="com.semo.web.admin.vo.StoreVO"
-			alias="store" />
-		<typeAlias type="com.semo.web.admin.vo.TermsVO"
-			alias="terms" />
+		<typeAlias type="com.semo.web.admin.vo.BannerVO" alias="banner" />
+		<typeAlias type="com.semo.web.admin.vo.CouponVO" alias="coupon" />
+		<typeAlias type="com.semo.web.admin.vo.ProductVO" alias="product" />
+		<typeAlias type="com.semo.web.admin.vo.StoreVO" alias="store" />
+		<typeAlias type="com.semo.web.admin.vo.TermsVO" alias="terms" />
 
-		<typeAlias type="com.semo.web.admin.vo.NoticeVO"
-			alias="notice" />
-		<typeAlias type="com.semo.web.admin.vo.EventVO"
-			alias="board_event" />
-		<typeAlias type="com.semo.web.admin.vo.Ad_EstimateVO"
-			alias="Ad_estimate" />
-		<typeAlias type="com.semo.web.admin.vo.Estimate_T_VO"
-			alias="estimatetype" />
+		<typeAlias type="com.semo.web.admin.vo.NoticeVO" alias="notice" />
+		<typeAlias type="com.semo.web.admin.vo.EventVO" alias="board_event" />
+		<typeAlias type="com.semo.web.admin.vo.Ad_EstimateVO" alias="Ad_estimate" />
+		<typeAlias type="com.semo.web.admin.vo.Estimate_T_VO" alias="estimatetype" />
 
 		<!-- user -->
 		<typeAlias type="com.semo.web.user.vo.CustomerVO" alias="customer" />
@@ -94,8 +80,6 @@
 
 		<mapper resource="mappings/ad_sales-mapping.xml" />
 
-		<mapper resource="mappings/user_address-mapping.xml" />
-		<mapper resource="mappings/user_faq-mapping.xml" />
 
 
 

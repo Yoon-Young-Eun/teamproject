@@ -4,33 +4,33 @@
 
 <mapper namespace="SalesDAO">
 
-    <!-- 상품별 매출 현황  테이블 카운트-->
+    <!-- 상품별 매출 현황  테이블 카운트-->  <!-- !!!!손봐야함 문제있는 쿼리!!!! -->
 	<select id="getProductArticleCount" parameterType="paging" resultType="int">
 		  <![CDATA[ select count(*) from order_management]]>
 			<trim prefix="where" prefixOverrides="and | or">
 				<if test="startDate != null and endDate != null and startDate != '' and endDate != ''">
     			<![CDATA[and order_mt_date >= #{startDate} and order_mt_date < #{endDate} ]]></if>
-				<if test="searchCondition1 =='order_mt_category1'">
+				<if test="searchKeyword1 != null">
     			<![CDATA[and order_mt_category1 like concat('%', #{searchKeyword1}, '%')]]></if>
-				<if test="searchCondition2=='order_mt_category2'">	
+				<if test="searchKeyword2 != null">	
     			<![CDATA[and order_mt_category2 like concat('%', #{searchKeyword2}, '%')]]></if>
-    			<if test="searchCondition3=='order_mt_product'">
+    			<if test="searchKeyword3 != null">
     			<![CDATA[and order_mt_product like concat('%', #{searchKeyword3}, '%')]]></if>
 			</trim>
 	</select>
 
 
-    <!-- 지점별 매출 현황 테이블 카운트-->
+    <!-- 지점별 매출 현황 테이블 카운트-->  <!-- !!!!손봐야함 문제있는 쿼리!!!! -->
 	<select id="getStoreArticleCount" parameterType="paging" resultType="int">
 		  <![CDATA[ select count(*) from order_cm]]>
 			<trim prefix="where" prefixOverrides="and | or">
 			    <if test="startDate != null and endDate != null and startDate != '' and endDate != ''">
     			<![CDATA[and order_date >= #{startDate} and order_date < #{endDate} ]]></if>
-				<if test="searchCondition1 =='order_type'">
+				<if test="searchKeyword1 != null">
     			<![CDATA[and order_type like concat('%', #{searchKeyword1}, '%')]]></if>
-				<if test="searchCondition2=='order_store_name'">	
+				<if test="searchKeyword2 != null">	
     			<![CDATA[and order_store_name like concat('%', #{searchKeyword2}, '%')]]></if>
-    			<if test="searchCondition3=='order_address1'">
+    			<if test="searchKeyword3 != null">
     			<![CDATA[and order_address1 like concat('%', #{searchKeyword3}, '%')]]></if>
 			</trim>
  

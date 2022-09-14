@@ -1,16 +1,13 @@
 package com.semo.web.admin.service;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.semo.web.admin.dao.MemberDAO;
-import com.semo.web.admin.vo.CustomerVO;
-import com.semo.web.admin.vo.MessageVO;
 import com.semo.web.admin.vo.PagingVO;
-import com.semo.web.user.vo.OrderMtVO;
+import com.semo.web.user.vo.CustomerVO;
 
 @Service
 public class MemberServiceImpl implements MemberService {

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import com.semo.web.admin.vo.Ad_EstimateVO;
 import com.semo.web.admin.vo.AdminVO;
 import com.semo.web.admin.vo.PagingVO;
-import com.semo.web.user.vo.EstimateVO;
 
 @Repository
 public class AdminDAO {

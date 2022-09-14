@@ -9,7 +9,6 @@ import com.semo.web.admin.dao.AdminDAO;
 import com.semo.web.admin.vo.Ad_EstimateVO;
 import com.semo.web.admin.vo.AdminVO;
 import com.semo.web.admin.vo.PagingVO;
-import com.semo.web.user.vo.EstimateVO;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -58,11 +57,5 @@ public class AdminServiceImpl implements AdminService {
 		return admindao.getArticleCount(pvo);
 	}
 
-	
-	//삭제
-	@Override
-	public Ad_EstimateVO getEstimate(int num) {
-		return admindao.getEstimate(num);
-	}
 
 }

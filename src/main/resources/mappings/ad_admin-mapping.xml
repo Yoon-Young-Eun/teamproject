@@ -61,7 +61,7 @@
 
 
 
-	<resultMap id="Joinvo" type="ad_estimate">
+<!-- 	<resultMap id="Joinvo" type="ad_estimate">
 		<result column="estimate_ad_no" property="estimate_ad_no" />
 		<result column="estimate_cm_no" property="estimate_cm_no" />
 		<result column="estimate_price" property="estimate_price" />
@@ -82,7 +82,7 @@
 <select id="getAd_Estimate" parameterType="int" resultMap="Joinvo">
   <![CDATA[ select a.estimate_type_content, b.estimate_type_title from estimate_ad as a, estimate_type as b where a.estimate_type_content = b.estimate_type_content and estimate_cm_no=#{estimate_cm_no}]]>
 </select>
-
+ -->
 
 
 <!-- 	<select id="getAd_Estimate" parameterType="int"

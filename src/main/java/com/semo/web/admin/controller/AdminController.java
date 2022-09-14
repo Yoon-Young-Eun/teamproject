@@ -209,23 +209,6 @@ public class AdminController {
 	
 	
 	
-	//삭제
-	
-	@RequestMapping("/getAd_Estimate.mdo")
-	public String getAD_Estimate(Ad_EstimateVO vo, EstimateVO evo, Model model, Estimate_T_VO tvo) {
-		System.out.println("관리자 답변 보기");
-		
-		int num = 5;
-		
-		Ad_EstimateVO adv=adminservice.getEstimate(num);
-		System.out.println(adv);
-		model.addAttribute("join", adv);
-		System.out.println(adv.getEstimate_type_content());
-		System.out.println(adv.getEstiType().getEstimate_type_title());
-
-		return "/admin/testtesttest.jsp";
-	}
-	
 	
 	
 }

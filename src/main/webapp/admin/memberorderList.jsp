@@ -313,6 +313,10 @@
 						<div class="b_button">
 							<!-- 테이블 행 필터 -->
 							<form name="selectname" action="memberorderList.mdo" method="get">
+							   <input type="hidden" name="customer_no" value="${search.customer_no}"/>
+							   <input type="hidden" name="searchCondition" value="${search.searchCondition}"/>
+							   <input type="hidden" name="searchKeyword" value="${search.searchKeyword}"/>
+						
 								<div col-index=8>
 									<select name="selectPage" onchange="this.form.submit()">
 										<option value="">선택</option>
@@ -334,54 +338,43 @@
 								<form action="memberorderList.mdo" method="get">
 									<div class="icon_flex">
 
-										<td><select name="searchCondition">
+										<div><select name="searchCondition">
 												<c:forEach items="${conditionMap}" var="option">
 													<div>
 														<option value="${option.value}">${option.key}</option>
 													</div>
 												</c:forEach>
-										</select> <input type="text" id="se_input" name="searchKeyword" />
+										</select> <input type="text" name="searchKeyword" /></div>
 											<div>
-												<input type="submit" id="se_submit" value="검색" />
+												<input type="submit" value="검색" />
 											</div>
-											<div></div> <input type="button" id="se_reset" value="초기화" />
+											<div> <input type="reset" value="초기화" /></div>
 									</div>
 								</form>
 							</div>
 							</div>
 							
 						</div>
-						
-						<!-- 검색 초기화 버튼 js -->
-						<script type="text/javascript">
-							const se_reset = document
-									.querySelector("#se_reset");
-							se_reset.addEventListener("click", function() {
-								const se_input = document
-										.querySelector("#se_input");
-								se_input.value = '';
-								const se_submit = document
-										.querySelector("#se_submit");
-								se_submit.click();
-							});
-						</script>
+
 
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
+						<div style= "width:100%; overflow-x:auto;">
 						<table id=""
-							class="emp-table dataPerPage tblCustomers tblexportData table"
+							class="tblCustomers tblexportData table"
 							border="5">
 							<thead>
 								<tr>
 									<th width="50" id="check_td"><input type="checkbox"
 										name="check" class="allcheck"></th>
-									<th col-index=2>주문번호</th>
-									<th col-index=3>회원이름(이메일)</th>
-									<th col-index=4>상품코드</th>
-									<th col-index=5>대분류</th>
-									<th col-index=6>중분류</th>
-									<th col-index=7>상품명</th>
-									<th col-index=8>가격</th>
-									<th col-index=9>주문일자</th>
+									<th>주문번호</th>
+									<th>회원번호</th>
+									<th>회원이름(이메일)</th>
+									<th>대분류</th>
+									<th>중분류</th>
+									<th>상품명</th>
+									<th>가격</th>
+									<th>수량</th>
+									<th>주문일자</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -389,18 +382,19 @@
 									<tr>
 										<td id="check_td"><input type="checkbox" name="check"></td>
 										<td>${orderList.order_no}</td>
+										<td>${orderList.customer_no}</td>
 										<td>${orderList.customer_name}</a></td>
-										<td>${orderList.product_code}</td>
 										<td>${orderList.order_mt_category1}</td>
 										<td>${orderList.order_mt_category2}</td>
 										<td>${orderList.order_mt_product}</td>
 										<td>${orderList.order_mt_price}</td>
+										<td>${orderList.order_mt_count}</td>
 										<td>${orderList.order_mt_date}</td>
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
-						
+						</div>
 						
 						<!-- pagaing 처리 -->
 						<div >					
@@ -415,16 +409,16 @@
 									<c:set var="endPage" value="${pageCount}" />
 								</c:if>
 								<c:if test="${startPage > pageBlock}">
-									<a href="memberorderList.mdo?pageNum=${startPage-pageBlock}"><div class="pageging2">이전</div></a>
+									<a href="memberorderList.mdo?pageNum=${startPage-pageBlock}&selectPage=${search.selectPage}&customer_no=${search.customer_no}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="pageging2">이전</div></a>
 								</c:if>
 								<div class="icon_flex">
 								<c:forEach var="i" begin="${startPage}" end="${endPage}">
-										<a href="memberorderList.mdo?pageNum=${i}"><div class="pageging">${i}</div></a>
+										<a href="memberorderList.mdo?pageNum=${i}&selectPage=${search.selectPage}&customer_no=${search.customer_no}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="pageging">${i}</div></a>
 								</c:forEach>
 								</div>							
 								<div class="icon_flex">
-								<c:if test="${endPage < pageCount -1}">
-									<a href="memberorderList.mdo?pageNum=${startPage + pageBlock}"><div class="pageging2">다음</div></a>
+								<c:if test="${endPage < pageCount -1}">                           
+									<a href="memberorderList.mdo?pageNum=${startPage + pageBlock}&selectPage=${search.selectPage}&customer_no=${search.customer_no}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="pageging2">다음</div></a>
 								</c:if>
 								</div>
 							</c:if>

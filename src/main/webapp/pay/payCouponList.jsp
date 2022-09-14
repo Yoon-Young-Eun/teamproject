@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,13 +15,16 @@
 </head>
 <body>
 <div class="main">
+	
     <div class="coupon">
       쿠폰함
     </div>
+    <input type="hidden" value="${OrderData.customer_no }">
+    <c:forEach var="coupon" items="${couponList }">
     <div class="bb">
     <div class="aaaa">
     <div class="coupon_text1" >
-     <input type="text" value="회원가입축하쿠폰 (2000원 할인)" id="aa1" readonly>  
+     <input type="text" value="${coupon.coupon_management_name }" id="aa1" readonly >  
     </div>
     <div class="coupon_buttons">
       <input type="button" value="쿠폰적용" id="button1" onclick="setParentText(this); getParentText2();" readonly class="action-button shadow animate blue" style="height: 25px; width: 100px;margin-top: 5px; padding: 0px; font-size: 15px; ">
@@ -32,7 +36,7 @@
         <input type="text" value="금액 : " id="aa2" readonly>
       </div>
       <div class="coupon_text4">
-        <input type="text" value="2000원" id="aa3" readonly>
+        <input type="text" value="${coupon.coupon_management_price }" id="aa3" readonly>
       </div>
     </div>
 
@@ -41,50 +45,23 @@
         <input type="text" value="유효기간:" id="aa4" readonly>
       </div>
       <div class="coupon_text7">
-        <input type="text" value="2022-08-29부터 ~ 2099-12-31까지" id="aa5" readonly>   
+        <input type="text" value="${coupon.coupon_management_start_date } ~ ${coupon.coupon_management_end_date}" id="aa5" readonly>
+       
       </div>
     </div>
   </div>
+</c:forEach>
 
-
-  <div class="bb">
-    <div class="aaaa">
-    <div class="coupon_text1" >
-     <input type="text" value="회원가입축하쿠폰 (2000원 할인)" id="aa1" readonly>  
-    </div>
-    <div class="coupon_buttons">
-      <input type="button" value="쿠폰적용" id="button1" onclick="setParentText(this)" readonly class="action-button shadow animate blue" style="height: 25px; width: 100px;margin-top: 5px; padding: 0px; font-size: 15px; ">
-    </div>
-  </div>
-
-    <div class="coupon_text2">
-      <div class="coupon_text3">
-        <input type="text" value="금액 : " id="aa2" readonly>
-      </div>
-      <div class="coupon_text4">
-        <input type="text" value="233000원" id="aa3" readonly>
-      </div>
-    </div>
-
-    <div class="coupon_text5">
-      <div class="coupon_text6" >
-        <input type="text" value="유효기간:" id="aa4" readonly>
-      </div>
-      <div class="coupon_text7">
-        <input type="text" value="2022-08-29부터 ~ 2099-12-31까지" id="aa5" readonly>   
-      </div>
-    </div>
-  </div>
 
 
 </div>
 <div class="zzz1">
-  <input type="text" value="합계">
-  <input type="text" value="" id="zzz2" class="zzz3" >
+  <input type="hidden" value="합계">
+  <input type="hidden" value="" id="zzz2" class="zzz3" >
 </div>
 <div class="zzz9">
-  <input type="text" value="배송비">
-  <input type="text" value="3500" id="zzz8" class="zzz3" readonly>
+  <input type="hidden" value="배송비">
+  <input type="hidden" value="${OrderData.order_delivery_price }" id="zzz8" class="zzz3" readonly name="order_delivery_price">
 </div>
 
 
@@ -104,7 +81,7 @@
       // console.log(e.parentNode.parentNode.parentNode);
       
       opener.document.getElementsByClassName("coupon_text")[0].innerHTML = e.parentNode.parentNode.parentNode.innerHTML;
-      opener.document.getElementById("cou11").value = "-" + e.parentNode.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[1].value;
+      opener.document.getElementById("q1").innerText = e.parentNode.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[1].value;
       // console.log(opener.document.getElementsByClassName("coupon_text")[0]);
       getParentText2();
       
@@ -123,7 +100,7 @@
     document.getElementById("zzz2").value = result;
 
 
-      var price2 = opener.document.getElementById("cou11").value;
+      var price2 = opener.document.getElementById("q1").innerText;
       var bbb = /[^0-9]/g;
       var result1 = Number(price2.replace(bbb,""));
       console.log(result1);
@@ -138,15 +115,15 @@
 
       
       var result3 = result - result1 + result4;
-      opener.document.getElementById("cou44").value = result3 + "원";
+      opener.document.getElementById("q2").innerText = result3;
       
       if(document.getElementById("zzz2").value<20000){
         document.getElementById("zzz8").value = 3500 ;
-        opener.document.getElementById("cou66").value = document.getElementById("zzz8").value+"원";
+        opener.document.getElementById("cou66").value = document.getElementById("zzz8").value;
         
       }else if(document.getElementById("zzz2").value >=20000){
         document.getElementById("zzz8").value = 0; 
-        opener.document.getElementById("cou66").value = document.getElementById("zzz8").value+"원";
+        opener.document.getElementById("cou66").value = document.getElementById("zzz8").value;
       }
     
     }

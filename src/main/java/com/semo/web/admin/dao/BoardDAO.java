@@ -48,8 +48,12 @@ public class BoardDAO {
 		return sqltemplate.selectOne("BoardDAO.getBoard",vo);
 	}
 
-	public List<NoticeVO> getBoardList(NoticeVO vo) {
-		return sqltemplate.selectList("BoardDAO.getBoardList",vo);
+	public List<NoticeVO> getBoardList(PagingVO pvo) {
+		return sqltemplate.selectList("BoardDAO.getBoardList",pvo);
+	}
+	
+	public int getBoardCount(PagingVO pvo) {
+		return sqltemplate.selectOne("BoardDAO.getBoardCount", pvo);
 	}
 
 //이벤트

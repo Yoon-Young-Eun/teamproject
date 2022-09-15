@@ -38,12 +38,12 @@
       <div class="address1">주소지관리</div>
       <div class="address2">
         
-        <input type="text" name="customer_no" value="${sendCustomer.customer_no }"  id="customnumber">
+        <input type="hidden" name="customer_no" value="${sendCustomer.customer_no }"  id="customnumber" required>
         <div class="address3">
           <div class="aa" >
         <input type="hidden" value="기본주소" id="ad1" readonly class="address_name">
         <div class="name_address" style="display: flex">
-        <div class="name_address1" id="z1">기본주소</div>
+        <div class="name_address1" id="z1" style="width:100px; text-align:right; font-weight: 800; font-size:15px; ">기본주소</div>
         
         </div>
       </div>
@@ -54,36 +54,36 @@
         
       </div>
       <div class="address4">
-        <input type="hidden" id="phone" value="${sendCustomer.customer_phone }"  name="customer_phone" class="phone"/>
+        <input type="hidden" id="phone" value="${sendCustomer.customer_phone }"  name="customer_phone" class="phone"/ required>
         <div class="phone1" style="display: flex">
-        <div class="phone_title">연락처:</div>
-        <div class="phone9" id="z2">${sendCustomer.customer_phone}</div>
+        <div class="phone_title" style="font-weight: normal; font-size:15px; width:100px; text-align:right; ">기본연락처 : </div>
+        <div class="phone9" id="z2" style="font-weight: normal; font-size:15px; margin-left:5px;">${sendCustomer.customer_phone}</div>
         </div>
       </div>
       <div class="first_address">
-       <input type="hidden" id="address1-1" value="${sendCustomer.customer_address1 }"  name="customer_address1" class="address1-1">
+       <input type="hidden" id="address1-1" value="${sendCustomer.customer_address1 }"  name="customer_address1" class="address1-1" required>
       <div class="addressOne" style="display: flex">
-      <div class="address_1">주소:</div>
-      <div class="address_2" id="z3">${sendCustomer.customer_address1 }</div>
+      <div class="address_1" style="font-weight: normal; font-size:15px; width:100px; text-align:right;"> 기본 주소 : </div>
+      <div class="address_2" id="z3" style="font-weight: normal; font-size:15px; margin-left:5px;">${sendCustomer.customer_address1 }</div>
       
       </div>
       
       </div>
       <div class="second_address">
-       <input type="hidden" id="address1-2" value="${sendCustomer.customer_address2 }"  name="customer_address2" class="address1-2">
+       <input type="hidden" id="address1-2" value="${sendCustomer.customer_address2 }"  name="customer_address2" class="address1-2" required>
       <div class="addressOne" style="display: flex">
-      <div class="address_3">나머지주소:</div>
-      <div class="address_4" id="z4">${sendCustomer.customer_address2 }</div>
+      <div class="address_3" style="font-weight: normal; font-size:15px; width:100px; text-align:right;">나머지주소 : </div>
+      <div class="address_4" id="z4" style="font-weight: normal; font-size:15px; margin-left:5px;">${sendCustomer.customer_address2 }</div>
       
       </div>
       </div>
       <div class="address5">
-       <input type="hidden" id="password" value="${gatepswd.cm_gate_passwd }" placeholder="#1234 , 종1234" class="password" name="cm_gate_passwd"> 
+       <input type="hidden" id="password" value="${gatepswd.cm_gate_passwd }" placeholder="#1234 , 종1234" class="password" name="cm_gate_passwd" required> 
         <div class="address_pass" style="display: flex">
-        <div class="address_pass1" >출입비밀번호:</div>
+        <div class="address_pass1"  style="font-weight: normal; font-size:15px; width:100px; text-align:right;">출입비밀번호 : </div>
         
-        <div class="address_pass2" id="z5" ></div>
-        <input type="hidden" value="${sendCustomer.customer_name }" name="customer_name">
+        <div class="address_pass2" id="z5" style="font-weight: normal; font-size:15px;" ></div>
+        <input type="hidden" value="${sendCustomer.customer_name }" name="customer_name" style="font-weight: normal; font-size:15px; margin-left:5px;">
         
         </div>
       </div>
@@ -102,7 +102,7 @@
 </div>
 	
 	
-	<div id="chse">1</div>
+	<div id="chse" style="display: none">1</div>
 </div>
 </div>
 

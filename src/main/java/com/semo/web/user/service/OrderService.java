@@ -5,6 +5,8 @@ import java.util.List;
 import com.semo.web.admin.vo.ProductVO;
 import com.semo.web.admin.vo.TermsVO;
 import com.semo.web.user.vo.CouponListVO;
+import com.semo.web.user.vo.EstimateVO;
+import com.semo.web.user.vo.Estimate_ImageVO;
 import com.semo.web.user.vo.OrderMtVO;
 import com.semo.web.user.vo.OrderVO;
 
@@ -25,4 +27,12 @@ public interface OrderService {
 	void OrderInsert(OrderVO vo);
 	void OrderInsert1(OrderMtVO vo1);
 	int OrderSelect(OrderVO vo);
+	
+	void Orderspecial(EstimateVO vo);
+	void insertImage(Estimate_ImageVO vo3);
+	int selectImage(EstimateVO vo);
+	
+	
+	
+	
 }

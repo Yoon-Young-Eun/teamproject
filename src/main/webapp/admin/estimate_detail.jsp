@@ -361,10 +361,25 @@
 							</div>
 							<div class="estimate_request">
 								<div class="estimate_request_title">첨부파일</div>
-								<div class="estimate_request_file" name="estimate_filepath">
-									<img src="${getEstimate.estimate_filepath }">
+								<div class="estimate_request_file" name="estiimg">
+									<c:forEach var="est_img" items="${estiimg}">
+										<img onclick="window.open(this.src)" hspace="0" src="${est_img.estimate_filepath }">
+									</c:forEach>
 								</div>
 							</div>
+							
+							<script type="text/javascript">
+							function detailView(src) {
+								   $("#detail_img").attr("src", src);
+								   $("#product_popup").show();
+								}
+								 
+								$(function(){
+								   $("#pop_close").click(function(){
+								      $("#detail_imgt_pop").hide();
+								   });
+								});
+							</script>
 
 							<div class="end">
 								<div id="layer_reply_btn">
@@ -395,20 +410,11 @@
 											</div>
 										</div>
 										<div class="estimate_reply">
-											<div class="estimate_reply_title">견적일자</div>
 											<div class="estimate_reply_body" name="estimate_reply_date">
 											</div>
 										</div>
 										<div class="estimate_reply">
 											<div class="estimate_reply_title">이유</div>
-											<!-- 						<div class="estimate_reply_content_body"> -->
-											<!-- 							<select name="estimate_reply_type" > -->
-											<!-- 								<option value="특수세탁1단계">특수세탁1단계</option> -->
-											<!-- 								<option value="특수세탁2단계">특수세탁2단계</option> -->
-											<!-- 								<option value="특수세탁3단계">특수세탁3단계</option> -->
-											<!-- 								<option value="특수세탁4단계">특수세탁4단계</option> -->
-											<!-- 							</select> -->
-											<!-- 						</div> -->
 											<div class="estimate_reply_body">
 												<select name="estimate_type_content" id="selectOption">
 													<c:forEach var="type" items="${estitype}">
@@ -422,7 +428,7 @@
 									</div>
 								</div>
 
-								<div class="end">
+								<div class="end" style="padding-top: 465px;">
 									<div class="board_btn">
 										<input type="button" value="발송" onclick="popup();">
 									</div>

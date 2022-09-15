@@ -227,7 +227,7 @@
 
 								<a class="nav-link" href="promo.jsp">쿠폰관리</a> <a
 									class="nav-link" href="supporbanner.jsp">배너관리</a> <a
-									class="nav-link" href="supporclause.jsp">약관관리</a>
+									class="nav-link" href="/TermsList.mdo">약관관리</a>
 
 							</nav>
 						</div>

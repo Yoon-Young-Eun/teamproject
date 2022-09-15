@@ -218,7 +218,7 @@
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
 								<a class="nav-link" href="#">배너관리</a> <a class="nav-link"
-									href="#">약관관리</a>
+									href="/TermsList.mdo">약관관리</a>
 							</nav>
 						</div>
 

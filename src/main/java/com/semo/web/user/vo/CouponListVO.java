@@ -10,6 +10,7 @@ public class CouponListVO {
 	private int coupon_management_price;
 	private int customer_no;
 	private int coupon_code;
+	
 	public int getCoupon_management_no() {
 		return coupon_management_no;
 	}

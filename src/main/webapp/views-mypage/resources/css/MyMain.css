@@ -1,0 +1,121 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	width: 100%;
+	max-width: 1920px;
+	scroll-behavior: smooth;
+}
+
+body {
+	zoom: 1;
+	position: relative;
+	z-index: 1;
+	-ms-overflow-y-style: none;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color : black;
+}
+
+a:hover {
+	font-weight : bold;
+}
+
+
+/*전체*/
+.page-wrapper {
+	display : flex;
+	justify-content : center;
+}
+
+/*사이드메뉴*/
+
+/*본문*/
+.content-wrapper {
+	max-width : 1240px;
+	margin : 50px;
+	width : 100%;
+}
+
+/*요약박스*/
+.top-item-wrapper {
+	display : flex;
+	border : 7px solid #cdcdcd;
+	width : 70%;
+	margin : auto;
+}
+
+.top-item-wrapper div {
+	width : 230px;
+	height : 120px;
+	padding : 30px;
+}
+
+
+.top-item-wrapper div:after {
+	content : "";
+	display : block;
+	height : 100px;
+	margin-top : -60px;
+	margin-right : -30px;
+	border-right : 1px solid #a4a4a4;
+}
+
+.top-item-wrapper .top-ask:after{
+	border : none;
+}
+
+.top-item-wrapper h3{
+	line-height : 70px;
+}
+
+.top-item-wrapper h3:hover {
+	font-weight : bold;
+	cursor : pointer;
+	color : #2b92da;
+}
+
+.top-item-wrapper p{
+	float : right;
+	line-height : 40px;
+	font-size : 20px;
+}
+
+/*최근주문*/
+.order-wrapper {
+	margin-top : 50px;
+	width : 100%;
+}
+
+.order-title {
+	display : flex;
+	justify-content : space-between;
+	line-height : 70px;
+	border-bottom : 2px solid ;
+}
+
+.order-body-title {
+	display : flex;
+	line-height : 80px;
+	border-bottom : 2px solid;
+}
+
+.order-body-content {
+	display : flex;
+	line-height : 100px;
+	border-bottom : 1px solid #cdcdcd;
+}

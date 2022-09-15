@@ -390,7 +390,7 @@
 									<tr>
 										<td id="check_td"><input type="checkbox" name="check"></td>
 										<td>${board.customer_no}</td>
-										<td><a href="/getMemberBoard.mdo?customer_no=${board.customer_no}">${board.customer_id}</a></td>
+										<td><a href="/getMemberBoard.mdo?customer_no=${board.customer_no}&customer_status=${board.customer_status}">${board.customer_id}</a></td>
 										<td>${board.customer_name }</td>
 										<td>${board.customer_phone}</td>
 										<td>${board.customer_address1} ${board.customer_address2}</td>
@@ -405,27 +405,22 @@
 						<!-- pagaing 처리 -->
 						<div >					
 							<c:if test="${count > 0}">
-								<c:set var="imsi" value="${count%pageSize==0? 0 : 1}" />
-								<c:set var="pageCount" value="${count / pageSize+imsi}" />
-								<c:set var="pageBlock" value="${5}" />
-								<fmt:parseNumber var="result" value="${(currentPage-1) / pageBlock}" integerOnly="true" />
-								<c:set var="startPage" value="${result * pageBlock+1}" />
-								<c:set var="endPage" value="${startPage + pageBlock-1}" />
-								<c:if test="${endPage > pageCount}">
-									<c:set var="endPage" value="${pageCount}" />
-								</c:if>
+								<div class="icon_flex">
+								<div>
 								<c:if test="${startPage > pageBlock}">
 									<a href="member.mdo?pageNum=${startPage-pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="pageging2">이전</div></a>
 								</c:if>
+								</div>
 								<div class="icon_flex">
 								<c:forEach var="i" begin="${startPage}" end="${endPage}">
 										<a href="member.mdo?pageNum=${i}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="pageging">${i}</div></a>
 								</c:forEach>
 								</div>							
-								<div class="icon_flex">
-								<c:if test="${endPage < pageCount -1}">
+								<div>
+								<c:if test="${endPage < pageCount}">
 									<a href="member.mdo?pageNum=${startPage + pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="pageging2">다음</div></a>
 								</c:if>
+								</div>
 								</div>
 							</c:if>
 						</div><!-- 페이징 종료 -->

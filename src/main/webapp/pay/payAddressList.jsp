@@ -47,44 +47,44 @@
 				
 				<%-- <input type="number" value="${address.cm_customer_no}"> --%>
 				<div class="line">
-					<div class="address3">
+					<div class="address3" style="height: 30px;">
 						<div class="aa">
 							<input type="text" value="${address.cm_address_name}" id="ad2" readonly name="cm_address_name">
 
 						</div>
-						<div class="button1">
+						<div class="button1" >
 							<input type="button" value="주소지선택" id="button2"
 								onclick="setParentText(this);"
 								class="action-button shadow animate blue"
-								style="width: 100px; height: 30px; margin: 0px; padding: 0px; font-size: 15px;">
+								style="width: 100px; height: 25px; margin-bottom: 12px; padding: 0px; font-size: 13px;">
 								<input type="button" value="기본주소지등록" id="button5" onclick="F5(${address.cm_address_no},${address.customer_no},this)"
 								class="action-button shadow animate blue" 
-								style="width: 150px; height: 30px; margin: 0px; padding: 0px; font-size: 15px; margin-left:5px;"
+								style="width: 150px; height: 25px; margin-bottom: 12px; padding: 0px; font-size: 13px; margin-left:5px;"
 								>
 							
 								
 						</div>
 					</div>
-					<div class="address4">
+					<div class="address4" style="height:30px;">
 						연락처 :<input type="text" id="phone" value="${address.cm_phone_number}" readonly name="cm_phone_number">
 					</div>
-					<div class="first_address">
+					<div class="first_address" style="height:30px;">
 						주소 : <input type="text" id="address1-1" value="${address.cm_address1}" name="cm_address1"
 							readonly>
 					</div>
-					<div class="second_address">
+					<div class="second_address" style="height:30px;">
 						나머지주소:<input type="text" id="address1-2" value="${address.cm_address2}" name="cm_address2"
 							readonly>
 					</div>
-					<div class="address5">
-						출입비밀번호:<input type="text" id="password" value="${address.cm_gate_passwd}" name="cm_gate_passwd"> 
+					<div class="address5" style="height:30px;">
+						출입비밀번호:<input type="text" id="password" value="${address.cm_gate_passwd}" name="cm_gate_passwd" readonly> 
 						<div class="button3">
 							<input type="button" value="수정" id="button3" 
 								class="action-button shadow animate blue" id="abc123"
-								style="padding: 0px; font-size: 15px; width: 100px; height: 25px;" onclick="location.href='/sendAddressList.do?cm_address_no=${address.cm_address_no}'">
+								style="padding: 0px; font-size: 10px; width: 100px; height: 20px; margin-bottom:30px;" onclick="location.href='/sendAddressList.do?cm_address_no=${address.cm_address_no}'">
 							<input type="button" value="삭제" id="button4"
 								class="action-button shadow animate blue" onclick="location.href='/deleteAddressList.do?cm_address_no=${address.cm_address_no}&customer_no=${address.customer_no}'"
-								style="padding: 0px; font-size: 15px; width: 100px; height: 25px;">
+								style="padding: 0px; font-size: 10px; width: 100px; height: 20px; margin-bottom:30px;">
 						</div>
 					</div>
 					

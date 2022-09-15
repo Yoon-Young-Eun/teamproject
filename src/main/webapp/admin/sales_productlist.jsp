@@ -333,7 +333,7 @@
 						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
 						<li class="breadcrumb-item active">상품별 매출현황</li>
 					</ol>
-					<div class="card mb-4">
+					<div class="card mb-4" style="width:100%; overflow-x:auto;">
 						<div class="card-body">
 							상품별 매출현황 페이지 입니다. <a target="_blank"
 								href="https://datatables.net/">아무링크</a>
@@ -414,14 +414,14 @@
 								</form>
 							</div> 
     					</div>
-
+						
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
 						<table id=""
 							class="tblCustomers tblexportData table"
 							border="5">
 							<thead>
 								<tr>
-									<th col-index=1>주문일자</th>
+									<th>주문일자</th>
 									<th>대분류</th>
 									<th>중분류</th>
 									<th>상품명</th>
@@ -447,30 +447,26 @@
 						<!-- pagaing 처리 -->
 						<div>
 							<c:if test="${count > 0}">
-								<c:set var="imsi" value="${count%pageSize==0? 0 : 1}" />
-								<c:set var="pageCount" value="${count / pageSize+imsi}" />
-								<c:set var="pageBlock" value="${5}" />
-								<fmt:parseNumber var="result"
-									value="${(currentPage-1) / pageBlock}" integerOnly="true" />
-								<c:set var="startPage" value="${result * pageBlock+1}" />
-								<c:set var="endPage" value="${startPage + pageBlock-1}" />
-								<c:if test="${endPage > pageCount}">
-									<c:set var="endPage" value="${pageCount}" />
-								</c:if>
+						<div class="icon_flex">
+						<div>
 								<c:if test="${startPage > pageBlock}">
 									<a href="salesProductList.mdo?pageNum=${startPage-pageBlock}&endDate=${search.endDate}&startDate=${search.startDate}&selectPage=${search.selectPage}&searchKeyword1=${search.searchKeyword1}&searchKeyword2=${search.searchKeyword2}&searchKeyword3=${search.searchKeyword3}"><div
 											class="pageging2">이전</div></a>
 								</c:if>
+								</div>
+								<div>
 								<div class="icon_flex">
 									<c:forEach var="i" begin="${startPage}" end="${endPage}">
 										<a href="salesProductList.mdo?pageNum=${i}&endDate=${search.endDate}&startDate=${search.startDate}&selectPage=${search.selectPage}&searchKeyword1=${search.searchKeyword1}&searchKeyword2=${search.searchKeyword2}&searchKeyword3=${search.searchKeyword3}"><div class="pageging">${i}</div></a>
 									</c:forEach>
 								</div>
-								<div class="icon_flex">
-									<c:if test="${endPage < pageCount -1}">
+								</div>
+								<div>
+									<c:if test="${endPage < pageCount}">
 										<a href="salesProductList.mdo?pageNum=${startPage + pageBlock}&endDate=${search.endDate}&startDate=${search.startDate}&selectPage=${search.selectPage}&searchKeyword1=${search.searchKeyword1}&searchKeyword2=${search.searchKeyword2}&searchKeyword3=${search.searchKeyword3}"><div
 												class="pageging2">다음</div></a>               
 									</c:if>
+								</div>
 								</div>
 							</c:if>
 						</div>

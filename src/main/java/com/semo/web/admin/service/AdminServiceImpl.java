@@ -9,6 +9,7 @@ import com.semo.web.admin.dao.AdminDAO;
 import com.semo.web.admin.vo.Ad_EstimateVO;
 import com.semo.web.admin.vo.AdminVO;
 import com.semo.web.admin.vo.PagingVO;
+import com.semo.web.user.vo.CustomerVO;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -56,6 +57,7 @@ public class AdminServiceImpl implements AdminService {
 	public int getArticleCount(PagingVO pvo) {
 		return admindao.getArticleCount(pvo);
 	}
+
 
 
 }

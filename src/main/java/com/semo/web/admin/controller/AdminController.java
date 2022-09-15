@@ -101,6 +101,25 @@ public class AdminController {
 		    	   adminList=Collections.emptyList(); 
 		       }
 		       
+				  if(count >0) { //조회된 데이터 개수가 0보다 크면 if문 실행
+			    	  int pageBlock =5;
+			    	  int imsi =count % pageSize ==0 ?0:1; //전체 페이지 게시물을 pageSize로 나눴을때 오류를 대비한 나머지구하는식
+			    	  int pageCount = count/pageSize +imsi; //페이징 넘버 개수
+			    	  int startPage =(int)((currentPage-1)/pageBlock)*pageBlock +1; //현재 보이는 페이징 시작번호 
+			    	  int endPage = startPage + pageBlock -1; //현재 보이는 페이징 끝번호
+			    	  
+			    	  // 추가 if문 : endPage(예:10)이 pageCount(예:9)보다 클경우 endPage의 값은 9로 한다!
+			    	  if(endPage > pageCount) {
+			    		  endPage = pageCount;
+			    	  }
+			    	  
+			    	  model.addAttribute("pageCount",pageCount);
+			    	  model.addAttribute("startPage",startPage);
+			    	  model.addAttribute("endPage",endPage);
+			    	  model.addAttribute("pageBlock",pageBlock);
+			          model.addAttribute("count", count);
+			    	  }
+		       
 		       //검색을 적용할 타이틀을 정하는 제목(jsp에서 받아서 작업할거임)
 				Map<String, String> conditionMap = new HashMap<String, String>();
 				conditionMap.put("이름", "admin_name");
@@ -109,14 +128,8 @@ public class AdminController {
 				
 			   //위에서 얻은 데이터를 model에 담아 보낸다~
 		       model.addAttribute("conditionMap", conditionMap);
-		       model.addAttribute("pageNum", pvo.getPageNum());
-		       model.addAttribute("pageSize", pageSize);
-		       model.addAttribute("currentPage", currentPage);
-		       model.addAttribute("endRow", pvo.getEndRow());
-		       model.addAttribute("count", count);
 		       model.addAttribute("adminList", adminList);
-		       System.out.println("어드민 목록 리스트"+adminList);
-		       
+		       System.out.println("어드민 목록 리스트"+adminList);	       
 		       
 			return "/admin/memberstaff.jsp";
 		}	

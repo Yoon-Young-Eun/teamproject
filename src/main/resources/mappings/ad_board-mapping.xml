@@ -84,12 +84,12 @@
    <![CDATA[select * from (select @rownum := @rownum+1 as rnum, board_review_no, board_review_rating, board_review_name, board_review_title, board_review_content, board_review_reg_date, board_review_status from board_review, (select @rownum :=0)as rowcolum]]>
 			<if test="searchCondition=='board_review_rating'">
     		<![CDATA[where board_review_rating like concat('%', #{searchKeyword}, '%') ]]></if>
+    		<if test="searchCondition=='board_review_name'">
+    		<![CDATA[where board_review_name like concat('%', #{searchKeyword}, '%') ]]></if>
     		<if test="searchCondition=='board_review_title'">
     		<![CDATA[where board_review_title like concat('%', #{searchKeyword}, '%') ]]></if>
     		<if test="searchCondition=='board_review_content'">
     		<![CDATA[where board_review_content like concat('%', #{searchKeyword}, '%') ]]></if>
-    		<if test="searchCondition=='board_review_status'">
-    		<![CDATA[where board_review_status like concat('%', #{searchKeyword}, '%') ]]></if>
     <![CDATA[order by board_review_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]>
 	</select>
 	
@@ -97,13 +97,13 @@
 	<select id="getReviewArticleCount" parameterType="paging" resultType="int">
 	   <![CDATA[ select count(*) from board_review  ]]>
 		<if test="searchCondition=='board_review_rating'">
-   			<![CDATA[ where board_review_rating like concat('%', #{searchKeyword}, '%')]]></if> 
+   			<![CDATA[ where board_review_rating like concat('%', #{searchKeyword}, '%')]]></if>
+   		<if test="searchCondition=='board_review_name'">
+	   		<![CDATA[where board_review_name like concat('%', #{searchKeyword}, '%') ]]></if>
     	<if test="searchCondition=='board_review_title'">
 	   		<![CDATA[where board_review_title like concat('%', #{searchKeyword}, '%') ]]></if>
 	   	<if test="searchCondition=='board_review_content'">
 	   		<![CDATA[where board_review_content like concat('%', #{searchKeyword}, '%') ]]></if>
-	   	<if test="searchCondition=='board_review_status'">
-	   		<![CDATA[where board_review_status like concat('%', #{searchKeyword}, '%') ]]></if>
 	</select>
 
 <!-- FAQ -->

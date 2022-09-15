@@ -51,7 +51,7 @@
 
 <div class="b_button">
 							<!-- 테이블 행 필터 -->
-							<form name="selectname" action="staffList.mdo" method="get">
+							<form name="selectname" action="ReviewBoardList.mdo" method="get">
 							   <input type="hidden" name="searchCondition" value="${search.searchCondition}"/>
 							   <input type="hidden" name="searchKeyword" value="${search.searchKeyword}"/>
 						
@@ -69,7 +69,7 @@
 							<div class="icon_flex">
 						<!-- 검색기능 -->
 							<div>
-								<form action="staffList.mdo" method="get">
+								<form action="ReviewBoardList.mdo" method="get">
 									<div class="icon_flex">
 										<td><select name="searchCondition">
 												<c:forEach items="${conditionMap}" var="option">
@@ -98,20 +98,13 @@
 								<tr>
 									<th width="50" id="check_td"><input type="checkbox"
 										name="check" class="allcheck"></th>
-									<th col-index=2>No</th>
-									<th col-index=3>평점<select class="table-filter"
-										onchange="filter_rows()">
-											<option value="all"></option>
-									</select></th>
-									<th col-index=4>작성자</th>
-									<th col-index=5>제목
-									</th>
-									<th col-index=6>내용</th>
-									<th col-index=7>작성일</th>
-									<th col-index=8>상태<select class="table-filter"
-										onchange="filter_rows()">
-											<option value="all"></option>
-									</select></th>
+									<th>No</th>
+									<th>평점</th>
+									<th>작성자</th>
+									<th>제목</th>
+									<th>내용</th>
+									<th>작성일</th>
+									<th>상태</th>
 									
 								</tr>
 							</thead>

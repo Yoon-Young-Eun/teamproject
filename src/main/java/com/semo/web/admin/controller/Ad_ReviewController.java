@@ -39,10 +39,6 @@ public class Ad_ReviewController {
 		@RequestMapping(value="/ReviewBoardList.mdo", method=RequestMethod.GET)
 		public String getReviewBoardList(PagingVO pvo, ReviewVO vo, Model model) {
 			System.out.println("admin ReviewBoardList()");
-//			List<ReviewVO> ReviewList = BoardService.getReviewBoardList(vo);
-//			model.addAttribute("ReviewList", ReviewList); // model에 저장해서 보내면 jsp에서 불러 사용할 수 있는데.
-//			System.out.println(ReviewList);              // for문에서는 for문 id이름.컬럼명 ${for문의id이름.컬럼명}
-			
 			
 			//검색조건을 가지고 페이지 이동을 하기 위한 장치
 			//페이징 버튼에  href = &searchKeyword=${search.searchKeyword} 등을 하기위함 
@@ -70,7 +66,7 @@ public class Ad_ReviewController {
 		       pvo.setEndRow(currentPage * pageSize); //현재 화면에서의 마지막 게시물 행
 		       int count =0; 	 
 		      
-		       count = BoardService.getArticleCount(pvo); // 조회 개수 (여러 검색 조건등이 포함되어야함)
+		       count = BoardService.getReviewArticleCount(pvo); // 조회 개수 (여러 검색 조건등이 포함되어야함)
 		       System.out.println("count"+count);
 		       List<ReviewVO> ReviewList = null; //조회 데이터를 담을 List 객체
 		       if(count >0) { //조회할 데이터가 하나라도 있다면 메서드 실행
@@ -102,18 +98,15 @@ public class Ad_ReviewController {
 		       //검색을 적용할 타이틀을 정하는 제목(jsp에서 받아서 작업할거임)
 				Map<String, String> conditionMap = new HashMap<String, String>();
 				conditionMap.put("별점", "board_review_rating");
+				conditionMap.put("작성자", "board_review_name");
 				conditionMap.put("제목", "board_review_title");
 				conditionMap.put("내용", "board_review_content");
-				conditionMap.put("상태", "board_review_status");
 				/* conditionMap.put("회원상태", "customer_status"); */
 				
 			   //위에서 얻은 데이터를 model에 담아 보낸다~
 		       model.addAttribute("conditionMap", conditionMap);
 		       model.addAttribute("ReviewList", ReviewList);
 		       System.out.println("Review 목록 리스트"+ReviewList);
-			
-			
-			
 			
 			return "/admin/board_reviewlist.jsp";            // 그냥 불러올때는 model의 키 이름.컬럼명 = ${xxxxList.컬럼명}
 		}

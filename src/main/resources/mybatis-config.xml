@@ -66,6 +66,7 @@
 		<mapper resource="mappings/user_faq-mapping.xml" />
 		<mapper resource="mappings/user_order-mapping.xml"/>
 		<mapper resource="mappings/user-customer-mapping.xml" />
+		<mapper resource="mappings/ad_coupon-mapping.xml" />
 
 	</mappers>
 

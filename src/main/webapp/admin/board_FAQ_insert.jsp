@@ -353,7 +353,7 @@
 
 							</header>
 							
-							<form action="/insertFAQ.mdo" method="POST">	
+							<form action="/insertFAQ.mdo" method="GET">	
 							
 							<div id="content_wrap">
 								<ul class="title_wrap">

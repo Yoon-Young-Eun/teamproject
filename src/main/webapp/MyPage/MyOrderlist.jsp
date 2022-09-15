@@ -199,7 +199,6 @@ $(function() {
 
 <!---------- 본문 시작 ---------->
 
-
 <div class="wrapper">
 	<div class="orderlist_title">
 		<h1>내 세탁물 관리</h1>

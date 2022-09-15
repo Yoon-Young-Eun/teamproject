@@ -387,7 +387,7 @@
 												<div>
 													<input type="submit" value="검색" />
 												</div>
-												<div></div> <input type="reset" value="초기화" />
+												<div> <input type="reset" value="초기화" /></div>
 										</div>
 									</form>
 								</div>

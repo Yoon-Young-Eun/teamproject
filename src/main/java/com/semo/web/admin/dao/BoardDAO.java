@@ -82,8 +82,12 @@ public class BoardDAO {
 		return sqltemplate.selectOne("BoardDAO.getEvent",vo);
 	}
 
-	public List<EventVO> getEventList(EventVO vo) {
-		return sqltemplate.selectList("BoardDAO.getEventList",vo);
+	public List<EventVO> getEventList(PagingVO pvo) {
+		return sqltemplate.selectList("BoardDAO.getEventList",pvo);
+	}
+	
+	public int getEventCount(PagingVO pvo) {
+		return sqltemplate.selectOne("BoardDAO.getEventCount", pvo);
 	}
 	
 //리뷰

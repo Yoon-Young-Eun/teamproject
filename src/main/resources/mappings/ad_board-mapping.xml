@@ -40,8 +40,21 @@
 	</select>
 	
 <!-- 이벤트 -->
-	<select id="getEventList" resultType="board_event">
-		<![CDATA[ select * from board_event ]]>
+	<select id="getEventList" resultType="board_event" parameterType="paging">
+		<![CDATA[ select * from (select @rownum := @rownum+1 as rnum, board_event_no, board_event_title, board_event_content, banner_no, board_event_reg_date from board_event, (select @rownum :=0)as rowcolum]]>
+		<if test="searchCondition=='board_event_title'">
+    		<![CDATA[where board_event_title like concat('%', #{searchKeyword}, '%') ]]></if>
+    		<if test="searchCondition=='board_event_content'">
+    		<![CDATA[where board_event_content like concat('%', #{searchKeyword}, '%') ]]></if>
+    	<![CDATA[order by board_event_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]>
+	</select>
+	
+	<select id="getEventCount" parameterType="paging" resultType="int">
+		<![CDATA[ select count(*) from board_event  ]]>
+		<if test="searchCondition=='board_event_title'">
+     	<![CDATA[ where board_event_title like concat('%', #{searchKeyword}, '%')]]></if> 
+     	 <if test="searchCondition=='board_event_content'">
+    	<![CDATA[where board_event_content like concat('%', #{searchKeyword}, '%') ]]></if>
 	</select>
 
 	<insert id="insertEvent" parameterType="board_event">

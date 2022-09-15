@@ -27,7 +27,8 @@ public interface BoardService {
 	void deleteEvent(int no);
 	void deleteEvent(EventVO vo);
 	EventVO getEvent(EventVO vo);
-	List<EventVO> getEventList(EventVO vo);
+	List<EventVO> getEventList(PagingVO pvo);
+	int getEventCount(PagingVO pvo);
 	
 // 리뷰
 	public void updateReviewBoard(ReviewVO vo);

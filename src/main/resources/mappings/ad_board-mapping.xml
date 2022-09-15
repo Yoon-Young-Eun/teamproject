@@ -62,9 +62,9 @@
 	</select>
 	
 <!-- 리뷰 -->
-	<select id="getReviewBoardList" resultType="board_review">
-		<![CDATA[ select * from board_review ]]>
-	</select>
+<!-- 	<select id="getReviewBoardList" resultType="board_review"> -->
+<!-- 		<![CDATA[ select * from board_review ]]> -->
+<!-- 	</select> -->
 
 	<delete id="deleteReviewBoard" parameterType="board_review">
 		<![CDATA[ delete from board_review where board_review_no=#{board_review_no} ]]>
@@ -77,6 +77,34 @@
 	<update id="updateReviewBoard" parameterType="board_review">
 		<![CDATA[ update board_review set board_review_status=#{board_review_status} where board_review_no=#{board_review_no} ]]>
 	</update>
+	
+		<!-- 어드민 리스트 조회 -->
+	<select id="getReviewBoardList" parameterType="paging"
+		resultType="board_review"> 
+   <![CDATA[select * from (select @rownum := @rownum+1 as rnum, board_review_no, board_review_rating, board_review_name, board_review_title, board_review_content, board_review_reg_date, board_review_status from board_review, (select @rownum :=0)as rowcolum]]>
+			<if test="searchCondition=='board_review_rating'">
+    		<![CDATA[where board_review_rating like concat('%', #{searchKeyword}, '%') ]]></if>
+    		<if test="searchCondition=='board_review_title'">
+    		<![CDATA[where board_review_title like concat('%', #{searchKeyword}, '%') ]]></if>
+    		<if test="searchCondition=='board_review_content'">
+    		<![CDATA[where board_review_content like concat('%', #{searchKeyword}, '%') ]]></if>
+    		<if test="searchCondition=='board_review_status'">
+    		<![CDATA[where board_review_status like concat('%', #{searchKeyword}, '%') ]]></if>
+    <![CDATA[order by board_review_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]>
+	</select>
+	
+	<!-- 어드민리스트 count -->
+	<select id="getReviewArticleCount" parameterType="paging" resultType="int">
+	   <![CDATA[ select count(*) from board_review  ]]>
+		<if test="searchCondition=='board_review_rating'">
+   			<![CDATA[ where board_review_rating like concat('%', #{searchKeyword}, '%')]]></if> 
+    	<if test="searchCondition=='board_review_title'">
+	   		<![CDATA[where board_review_title like concat('%', #{searchKeyword}, '%') ]]></if>
+	   	<if test="searchCondition=='board_review_content'">
+	   		<![CDATA[where board_review_content like concat('%', #{searchKeyword}, '%') ]]></if>
+	   	<if test="searchCondition=='board_review_status'">
+	   		<![CDATA[where board_review_status like concat('%', #{searchKeyword}, '%') ]]></if>
+	</select>
 
 <!-- FAQ -->
 	<insert id="insertFAQ" parameterType="FAQ">

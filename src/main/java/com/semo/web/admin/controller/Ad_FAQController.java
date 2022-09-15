@@ -47,8 +47,6 @@ public class Ad_FAQController {
 		//페이징 버튼에  href = &searchKeyword=${search.searchKeyword} 등을 하기위함 
 
 			model.addAttribute("search",pvo);
-
-		
 		
 		// 페이징 처리
 	      if (pvo.getPageNum() == null) { //처음엔 값이 없으니 null
@@ -82,6 +80,24 @@ public class Ad_FAQController {
 	    	   FAQList=Collections.emptyList(); 
 	       }
 	       
+	       if(count >0) {  //45일 경우
+	     	  int pageBlock =5;
+	     	  int imsi =count % pageSize ==0 ?0:1; 
+	     	  int pageCount = count/pageSize +imsi;  
+	     	  int startPage =(int)((currentPage-1)/pageBlock)*pageBlock +1;  
+	     	  int endPage = startPage + pageBlock -1;  
+	     	  //endPage(10)가 pageCount(9) 보다 크면 작동 endPage=pageCount
+	     	  if(endPage > pageCount) {
+	     		  endPage = pageCount;
+	     	  }
+	     	  
+	     	  model.addAttribute("pageCount",pageCount);
+	     	  model.addAttribute("startPage",startPage);
+	     	  model.addAttribute("endPage",endPage);
+	     	  model.addAttribute("pageBlock",pageBlock);
+	           model.addAttribute("count", count);
+	     	  }
+	       
 	       //검색을 적용할 타이틀을 정하는 제목(jsp에서 받아서 작업할거임)
 			Map<String, String> conditionMap = new HashMap<String, String>();
 			conditionMap.put("제목", "board_faq_title");
@@ -90,21 +106,9 @@ public class Ad_FAQController {
 			
 		   //위에서 얻은 데이터를 model에 담아 보낸다~
 	       model.addAttribute("conditionMap", conditionMap);
-	       model.addAttribute("pageNum", pvo.getPageNum());
-	       model.addAttribute("pageSize", pageSize);
-	       model.addAttribute("currentPage", currentPage);
-	       model.addAttribute("endRow", pvo.getEndRow());
-	       model.addAttribute("count", count);
 	       model.addAttribute("FAQList", FAQList);
 	       System.out.println("FAQ 목록 리스트"+FAQList);
 		
-		
-		
-		
-		
-//		List<FAQVO> FAQList = BoardService.getFAQList();
-//		model.addAttribute("FAQList", FAQList); // model에 저장해서 보내면 jsp에서 불러 사용할 수 있는데.
-//		System.out.println(FAQList);              // for문에서는 for문 id이름.컬럼명 ${for문의id이름.컬럼명}
 		return "/admin/board_FAQlist.jsp";            // 그냥 불러올때는 model의 키 이름.컬럼명 = ${xxxxList.컬럼명}
 	}
 	

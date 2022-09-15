@@ -111,14 +111,19 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<ReviewVO> getReviewBoardList(ReviewVO vo) {
-		return boardDAO.getReviewBoardList(vo);
+	public List<ReviewVO> getReviewBoardList(PagingVO pvo) {
+		return boardDAO.getReviewBoardList(pvo);
 	}
 
 	@Override
 	public void updateReviewBoard(ReviewVO vo) {
 		boardDAO.updateReviewBoard(vo);
 		
+	}
+
+	@Override
+	public int getReviewArticleCount(PagingVO pvo) {
+		return boardDAO.getReviewArticleCount(pvo);
 	}
 //----------------------------------------------
 
@@ -188,6 +193,8 @@ public class BoardServiceImpl implements BoardService {
 	public void updateQnA_cm(Cm_QnAVO vo) {
 		boardDAO.updateQnA_cm(vo);
 	}
+
+	
 	
 
 	

@@ -101,9 +101,12 @@ public class BoardDAO {
 		return sqltemplate.selectOne("BoardDAO.getReadReviewBoard",vo);
 	}
 
-	public List<ReviewVO> getReviewBoardList(ReviewVO vo) {
-		return sqltemplate.selectList("BoardDAO.getReviewBoardList",vo);
-	}	
+	public List<ReviewVO> getReviewBoardList(PagingVO pvo) {
+		return sqltemplate.selectList("BoardDAO.getReviewBoardList",pvo);
+	}
+	public int getReviewArticleCount(PagingVO pvo) {
+		return sqltemplate.selectOne("BoardDAO.getReviewArticleCount", pvo);
+	}
 	
 	public void updateReviewBoard(ReviewVO vo) {
 		System.out.println("---> MyBatis로 updateReview() 기능 처리");

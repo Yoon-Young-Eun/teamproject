@@ -71,11 +71,11 @@ public class Ad_BoardController {
     	  int startPage =(int)((currentPage-1)/pageBlock)*pageBlock +1;
     	  int endPage = startPage + pageBlock -1;
     	  
-    	  
     	  model.addAttribute("pageCount",pageCount);
     	  model.addAttribute("startPage",startPage);
     	  model.addAttribute("endPage",endPage);
     	  model.addAttribute("pageBlock",pageBlock);
+          model.addAttribute("count", count);
     	  }
       
       Map<String, String> condition = new HashMap<String, String>();
@@ -83,10 +83,6 @@ public class Ad_BoardController {
       condition.put("내용", "notice_content");
       
       model.addAttribute("condition", condition);
-     
-      model.addAttribute("pageSize", pageSize);
-      model.addAttribute("currentPage", currentPage);
-      model.addAttribute("count", count);
       model.addAttribute("boardList", boardList);
       return "/admin/board_notice.jsp";
    }
@@ -168,8 +164,6 @@ public class Ad_BoardController {
       return "redirect:/getBoardList.mdo";
    }
 
-
-
    @RequestMapping("/getUpdate.mdo")
    public String getUpdate(NoticeVO vo, Model model) {
       System.out.println("글 수정정보 보기 처리");
@@ -181,7 +175,6 @@ public class Ad_BoardController {
       model.addAttribute("filename", filename);
       return "/admin/board_notice_update.jsp";
    }
-
 
    @RequestMapping("/deleteBoard2.mdo")
    public String deleteBoard2(String[] tdArr, NoticeVO vo) {

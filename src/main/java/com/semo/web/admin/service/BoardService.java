@@ -34,7 +34,8 @@ public interface BoardService {
 	public void deleteReviewBoard(int no);
 	public void deleteReviewBoard(ReviewVO vo);
 	public ReviewVO getReadReviewBoard(ReviewVO vo);
-	public List<ReviewVO> getReviewBoardList(ReviewVO vo);	
+	public List<ReviewVO> getReviewBoardList(PagingVO pvo);	
+	public int getReviewArticleCount(PagingVO pvo);
 
 // FAQ
 	public void insertFAQ(FAQVO vo);

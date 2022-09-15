@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.semo.web.admin.dao.SiteDAO;
 import com.semo.web.admin.vo.BannerVO;
 import com.semo.web.admin.vo.CouponVO;
+import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.TermsVO;
 
 @Service
@@ -22,8 +23,13 @@ public class SiteServiceImpl implements SiteService {
 	}
 
 	@Override
-	public List<CouponVO> getCouponList() {
-		return SiteDAO.getCouponList();
+	public List<CouponVO> getCouponList(PagingVO pvo) {
+		return SiteDAO.getCouponList(pvo);
+	}
+
+	@Override
+	public int getCouponArticleCount(PagingVO pvo) {
+		return SiteDAO.getCouponArticleCount(pvo);
 	}
 
 	@Override

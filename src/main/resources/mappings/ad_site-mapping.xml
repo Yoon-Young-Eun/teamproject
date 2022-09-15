@@ -19,9 +19,9 @@
  			#{coupon_end_date}
  		)
  	</insert>
- 	<select id="getCouponList" resultType="coupon">
- 	  select * from coupon
- 	</select>
+<!--  	<select id="getCouponList" resultType="coupon"> -->
+<!--  	  select * from coupon -->
+<!--  	</select> -->
  	<select id="getReadCoupon" resultType="coupon">
 	<![CDATA[ select * from coupon where coupon_code=#{coupon_code} ]]>
 	</select>
@@ -31,6 +31,33 @@
 	<delete id="deleteCoupon" parameterType="coupon">
 	<![CDATA[ delete from coupon where coupon_code=#{coupon_code} ]]>
 	</delete>
+	
+
+	<select id="getCouponList" parameterType="paging"
+		resultType="coupon"> 
+   <![CDATA[select * from (select @rownum := @rownum+1 as rnum, coupon_code, coupon_title, coupon_sale_price, coupon_type, coupon_start_date, coupon_end_date from coupon, (select @rownum :=0)as rowcolum]]>
+			<if test="searchCondition=='coupon_title'">
+    		<![CDATA[where coupon_title like concat('%', #{searchKeyword}, '%') ]]></if>
+    		<if test="searchCondition=='coupon_sale_price'">
+    		<![CDATA[where coupon_sale_price like concat('%', #{searchKeyword}, '%') ]]></if>
+    		<if test="searchCondition=='coupon_type'">
+    		<![CDATA[where coupon_type like concat('%', #{searchKeyword}, '%') ]]></if>
+    <![CDATA[order by coupon_code desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]>
+	</select>
+	
+
+	<select id="getCouponArticleCount" parameterType="paging" resultType="int">
+	   <![CDATA[ select count(*) from coupon  ]]>
+		<if test="searchCondition=='coupon_title'">
+   			<![CDATA[ where coupon_title like concat('%', #{searchKeyword}, '%')]]></if>
+   		<if test="searchCondition=='coupon_sale_price'">
+	   		<![CDATA[where coupon_sale_price like concat('%', #{searchKeyword}, '%') ]]></if>
+    	<if test="searchCondition=='coupon_type'">
+	   		<![CDATA[where coupon_type like concat('%', #{searchKeyword}, '%') ]]></if>
+	</select>
+	
+	
+		
  	
 
  	<insert id="insertBanner" parameterType="banner">
@@ -85,5 +112,6 @@
   	<delete id="deleteTerms" parameterType="terms">
 	<![CDATA[ delete from terms where terms_no=#{terms_no} ]]>
 	</delete>
+	
 </mapper>
  

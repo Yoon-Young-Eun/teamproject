@@ -71,15 +71,22 @@ public class Ad_BoardController {
     	  int startPage =(int)((currentPage-1)/pageBlock)*pageBlock +1;
     	  int endPage = startPage + pageBlock -1;
     	  
+<<<<<<< HEAD
     	  if(endPage > pageCount) {
     		  endPage = pageCount;
     	  }
     	  
           model.addAttribute("count", count);
+=======
+>>>>>>> main
     	  model.addAttribute("pageCount",pageCount);
     	  model.addAttribute("startPage",startPage);
     	  model.addAttribute("endPage",endPage);
     	  model.addAttribute("pageBlock",pageBlock);
+<<<<<<< HEAD
+=======
+          model.addAttribute("count", count);
+>>>>>>> main
     	  }
       
       Map<String, String> condition = new HashMap<String, String>();
@@ -168,8 +175,11 @@ public class Ad_BoardController {
       return "redirect:/getBoardList.mdo";
    }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> main
    @RequestMapping("/getUpdate.mdo")
    public String getUpdate(NoticeVO vo, Model model) {
       System.out.println("글 수정정보 보기 처리");
@@ -182,7 +192,10 @@ public class Ad_BoardController {
       return "/admin/board_notice_update.jsp";
    }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
    @RequestMapping("/deleteBoard2.mdo")
    public String deleteBoard2(String[] tdArr, NoticeVO vo) {
       System.out.println(tdArr[0]);

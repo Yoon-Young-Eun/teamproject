@@ -4,17 +4,19 @@ import java.util.List;
 
 import com.semo.web.admin.vo.BannerVO;
 import com.semo.web.admin.vo.CouponVO;
+import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.TermsVO;
 
 public interface SiteService {
 	
 	// 쿠폰
 	public void insertCoupon(CouponVO vo);
-	public List<CouponVO> getCouponList();
+	public List<CouponVO> getCouponList(PagingVO pvo);
 	public CouponVO getReadCoupon(CouponVO vo);
 	public void updateCoupon(CouponVO vo);
 	public void deleteCoupon(int no);
 	public void deleteCoupon(CouponVO vo);
+	public int getCouponArticleCount(PagingVO pvo);
 	
 	// 배너
 	public void insertBanner(BannerVO vo);

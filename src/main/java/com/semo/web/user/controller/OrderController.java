@@ -1,5 +1,8 @@
 package com.semo.web.user.controller;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,13 +11,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.semo.web.admin.vo.ProductVO;
 import com.semo.web.admin.vo.TermsVO;
+import com.semo.web.amazon.s3.AwsS3;
 import com.semo.web.user.service.OrderService;
 import com.semo.web.user.vo.CouponListVO;
 import com.semo.web.user.vo.CustomerVO;
 import com.semo.web.user.vo.DataSendVO;
+import com.semo.web.user.vo.EstimateVO;
+import com.semo.web.user.vo.Estimate_ImageVO;
 import com.semo.web.user.vo.OrderMtArrayVO;
 import com.semo.web.user.vo.OrderMtVO;
 import com.semo.web.user.vo.OrderProductVO;
@@ -25,6 +33,7 @@ public class OrderController {
 
 	@Autowired
 	OrderService orderservice;
+	public AwsS3 awss3 = AwsS3.getInstance();
 
 	@RequestMapping(value = "/OrderAddress.do", method = RequestMethod.GET)
 	public String OrderAddress(CustomerVO vo, OrderVO vo1, Model model) {
@@ -174,6 +183,7 @@ public class OrderController {
 
 		for(int i=0;i<vo2.getOrder_mtArray_count().size();i++) {
 			
+			
 				
 			OrderMtVO vo1  =new OrderMtVO();
 			vo1.setOrder_no(num);
@@ -199,6 +209,61 @@ public class OrderController {
 		System.out.println(vo);
 
 		return "/pay/payGeneralComplete.jsp";
+	}
+	
+
+	@RequestMapping(value="/Orderspecial.do")
+	public String Orderspecial(@RequestParam(name="file") MultipartFile[] file,Model model, EstimateVO vo,OrderVO vo2,Estimate_ImageVO vo1) throws IOException,SQLException{
+		
+		orderservice.Orderspecial(vo);
+		System.out.println(vo);
+		model.addAttribute("OrderEstimate",vo);
+		model.addAttribute("OrderData",vo2);
+		int num = vo.getCustomer_no();
+		System.out.println(num);
+		
+		int num1 = orderservice.selectImage(vo);
+		System.out.println(num1);
+		
+		List<Estimate_ImageVO> estimate_image = new ArrayList<Estimate_ImageVO>();
+		try {
+			
+			for(MultipartFile multipartFile : file) {
+				
+				Estimate_ImageVO vo3 = new Estimate_ImageVO();
+				InputStream is = multipartFile.getInputStream();
+				System.out.println(is);
+				String key = multipartFile.getOriginalFilename();
+				String contentType=multipartFile.getContentType();
+				long contentLength = multipartFile.getSize();
+				
+				String bucket = "semoproject/estimate";
+				
+				awss3.upload(is,key,contentType,contentLength,bucket);
+				String estimate_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/estimate/"+key;
+				
+				vo3.setEstimate_cm_no(num1);
+				vo3.setCustomer_no(num);
+				vo3.setEstimate_filepath(estimate_filepath);
+				orderservice.insertImage(vo3);
+				estimate_image.add(vo3);
+				System.out.println(vo3);
+				
+				
+		}
+			System.out.println(estimate_image);
+			model.addAttribute("estimate_image",estimate_image);
+			System.out.println("dd"+estimate_image);
+		}catch(Exception e){
+			e.printStackTrace();
+			throw new IOException("파일 업로드 중 에러가 발생했습니다.");
+		
+		}
+		
+		
+	
+		
+		return "/pay/payOrderSpecialCheck.jsp";
 	}
 	
 	

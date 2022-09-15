@@ -22,7 +22,7 @@
     <div class="main">
   <div class="space_left"></div>
   <div class="main_content">
-  <form action="/OrderInsert.do">
+  <form action="/OrderInsert.do" id="form1">
     <div class="main_text">
       주문내역 확인
     </div>
@@ -196,7 +196,7 @@
       <div class="total">
         <div class="total1" style="display: flex">
           <input type="text" value="최종금액 :" class="total_price1" id="cou33" readonly>
-          <input type="hidden" value="" id="cou444" readonly  name="order_price">
+          <input type="hidden" value="${price }" id="cou444" readonly  name="order_price">
           <div id="q2" style="width:150px; text-align:right;font-size:20px;padding-right:3px;" >${price}</div>
           <input type="text" value="원" id="cou44" readonly style="width:30px;">
         </div> 
@@ -255,7 +255,7 @@
 
 
       <div class="bt1" style="width:1000px;">
-        <input type="submit" id="but1" value="결제하기" onclick="order()" class="action-button shadow animate blue">
+        <input type="button" id="but1" value="결제하기" onclick="order()" class="action-button shadow animate blue">
         <input type="button" id="but2" value="취소하기" class="action-button shadow animate blue" >
       </div>
     
@@ -267,13 +267,16 @@
       
       <script>
         document.getElementById("but1").addEventListener("click",function order(){
-          var money1 = document.getElementById("price_text1").value;
+          var money1 = document.getElementById("q2").innerText;
           var abc = /[^0-9]/g;
           var totalpay = Number(money1.replace(abc,""));
-			
-        /*   if(totalpay > 15000){
-            location.href='/OrderInsert.do';
-          } */
+          var totalpay2 = Number(money1);
+			console.log(totalpay2);
+          if(totalpay2 < 15000){
+         	alert("최소주문금액은 15000원 입니다.");
+          }else{
+        	  document.getElementById("form1").submit();
+          }
 
         })
 
@@ -294,6 +297,12 @@ $("#q2").on("DOMSubtreeModified",function(){
 
 
 </script>
+
+	<script>
+	
+	
+	</script>
+
 
 
 

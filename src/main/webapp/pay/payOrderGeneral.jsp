@@ -123,7 +123,7 @@
 			<div class="main">
 				<div class="space_left"></div>
 				<div class="content_box">
-					<form action="/OrderGeneral.do">
+					<form action="/OrderGeneral.do" id="form1">
 						<div class="main_text">
 							<div class="main_text1">일반세탁 결제하기</div>
 							<div class="main_text2">세탁할 옷의 종류를 선택하세요</div>
@@ -393,7 +393,7 @@
 
 
 							<div class="price5">
-								합계 금액: <input type="text" class="price3" readonly value="0"
+								합계 금액: <input type="text" class="price3" id="pppp"readonly value=""
 									name="order_price"> 원
 							</div>
 
@@ -457,16 +457,15 @@
 								value="${OrderData.order_pickup_time }" name="order_pickup_time">
 							<input type="hidden" value="${OrderData.order_type}"
 								name="order_type">
-							<input type="hidden" value="${OrderData.order_use_coupon_price }" name="order_use_coupon_price">
+							<input type="hidden" value="0" name="order_use_coupon_price">
 
 							<div class="main_text10">
-								<input type="submit" value="주문하기" id="pay"
-									class="action-button shadow animate blue"> <input
-									type="button" value="취소하기" id="paycancel" onclick="#"
+								<input type="button" value="주문하기" id="pay" onclick="order()"
+									class="action-button shadow animate blue" > 
+								<input type="button" value="취소하기" id="paycancel" onclick="#"
 									class="action-button shadow animate blue">
 							</div>
 						</div>
-
 
 
 
@@ -475,6 +474,35 @@
 				</div>
 				<div class="space_right"></div>
 			</div>
+			 <script>
+        document.getElementById("pay").addEventListener("click",function order(){
+          var money1 = document.getElementById("pppp").value;
+          var abc = /[^0-9]/g;
+          var totalpay = Number(money1.replace(abc,""));
+          var totalpay2 = Number(money1);
+			console.log(totalpay2);
+          if(totalpay2 < 15000){
+         	alert("최소주문금액은 15000원 입니다.");
+          }else{
+        	  document.getElementById("form1").submit();
+          }
+
+        })
+
+        
+      </script>
+			
+			
+			
+			<!-- <script>
+			if(Number(document.getElementById("pppp").value) >= 15000){
+				document.getElementById("form1").submit();
+			}
+			
+			</script> -->
+			
+			
+			
 			<script>
   
   // 현재 화면에 표시된 값
@@ -487,7 +515,7 @@
     resultElement[i].addEventListener("click", function (e){
       
       e.target.parentNode.childNodes[3].value = Number(e.target.parentNode.childNodes[3].value)+1; 
-      //console.log(e.target.parentNode.childNodes[3].value); +버튼 클릭시 숫자가 올라갈 위치 타겟으로 찾기
+      console.log(e.target.parentNode.childNodes[3].value); // +버튼 클릭시 숫자가 올라갈 위치 타겟으로 찾기
       if(e.target.parentNode.childNodes[3].value > 10){
         alert('최대 수량은 10개 입니다.');
         e.target.parentNode.childNodes[3].value = 10;

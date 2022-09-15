@@ -27,6 +27,21 @@
 
 <form action="/login.do">
 <div id = "header">
+</div>
+</form> 
+
+<div class = "img"><img alt="" src="/views/resources/img/service-info.png"></div>
+
+<div class = "map-wrapper">
+<!-- 지도를 표시할 div 입니다 -->
+<div id="map"></div>
+</div>
+
+<jsp:include page="../common/footer.jsp"/> 
+
+<!---------------------- 스트립트 ---------------------->
+
+<!-- 헤더 -->
 <script>
 $(function(){
 	
@@ -41,15 +56,8 @@ $(function(){
 
 });
 </script>
-</div>
-</form> 
 
-<div class = "img"><img alt="" src="/views/resources/img/service-info.png"></div>
-
-<div class = "map-wrapper">
-<!-- 지도를 표시할 div 입니다 -->
-<div id="map"></div>
-
+<!-- 지도 -->
 <script>
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
@@ -60,9 +68,9 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
 var map = new kakao.maps.Map(mapContainer, mapOption); 
 </script>
-</div>
 
-<jsp:include page="../common/footer.jsp"/> 
+
+
 
 </body>
 </html>

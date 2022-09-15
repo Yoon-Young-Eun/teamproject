@@ -154,9 +154,10 @@
 	
 	
 		</form>
-		
-		<!-- 아이디 중복 체크 -->
+<!---------------------- 스트립트 ---------------------->
 
+	
+<!-- 아이디 중복 체크 -->
 	<script> 	
 		function idCheck() {
 			var id = $('#email1').val();
@@ -180,141 +181,137 @@
 			});
 		};
 	</script>
+
 											
-							
-		
-		<!-- 비밀번호 체크 -->
-		<script type="text/javascript">
-									// 비밀번호 체크
-									$(document).ready(function(){
+<!-- 비밀번호 체크 -->
+	<script type="text/javascript">
+	$(document).ready(function(){
 										
-										$('#insertPw').keyup(function(){
+		$('#insertPw').keyup(function(){
+												
+			var pw = $('#insertPw').val()
+			var sc = ["!","@","#","$","%"]
+			var check_sc = 0;
+													
+			for(var i = 0; i < sc.length; i ++){
+				if(pw.indexOf(sc[i]) != -1){
+				check_sc = 1;
+				}
+			}
+			
+			if(pw.length < 8) {
+				$('#pwCorrection').css("color", "red");
+				$('#pwCorrection').html("비밀번호를 8자 이상 입력해주세요.");
+			} else if(pw.length >= 8 && check_sc == 0) {
+				$('#pwCorrection').css("color", "red");
+				$('#pwCorrection').html("특수문자 입력은 필수입니다.");
+			} else {
+				$('#pwCorrection').html(" ");
+			}
+												
+		});
 											
-											var pw = $('#insertPw').val()
-											var sc = ["!","@","#","$","%"]
-											var check_sc = 0;
-											
-											for(var i = 0; i < sc.length; i ++){
-												if(pw.indexOf(sc[i]) != -1){
-													check_sc = 1;
-												}
-											}
-											if(pw.length < 8) {
-												$('#pwCorrection').css("color", "red");
-												$('#pwCorrection').html("비밀번호를 8자 이상 입력해주세요.");
-											} else if(pw.length >= 8 && check_sc == 0) {
-												$('#pwCorrection').css("color", "red");
-												$('#pwCorrection').html("특수문자 입력은 필수입니다.");
-											} else {
-												$('#pwCorrection').html(" ");
-											}
-											
-										});
+		$('#checkPw').keyup(function(){
+			if($('#insertPw').val() != $('#checkPw').val()){
+				$('#pwChecking').css("color", "red");
+				$('#pwChecking').html("비밀번호가 일치하지 않습니다. 다시 확인해주세요!");
+			}else {
+				$('#pwChecking').css("color", "green");
+				$('#pwChecking').html("비밀번호가 일치합니다. 회원가입을 계속 진행해주세요!");
+			}
+		});
 										
-										$('#checkPw').keyup(function(){
-											if($('#insertPw').val() != $('#checkPw').val()){
-												$('#pwChecking').css("color", "red");
-												$('#pwChecking').html("비밀번호가 일치하지 않습니다. 다시 확인해주세요!");
-											}else {
-												$('#pwChecking').css("color", "green");
-												$('#pwChecking').html("비밀번호가 일치합니다. 회원가입을 계속 진행해주세요!");
-											}
-										});
-										
-									});
-									</script>
+	});
+	</script>
 
 <!-- 전화번호 -->
-										<script>
-											function autoHypenTel(str) {
-												str = str.replace(/[^0-9]/g, '');
-												var tmp = '';
+	<script>
+	function autoHypenTel(str) {
+		str = str.replace(/[^0-9]/g, '');
+		var tmp = '';
 
-												if (str.substring(0, 2) == 02) {
-													// 서울 전화번호일 경우 10자리까지만 나타나고 그 이상의 자리수는 자동삭제
-													if (str.length < 3) {
-														return str;
-													} else if (str.length < 6) {
-														tmp += str.substr(0, 2);
-														tmp += '-';
-														tmp += str.substr(2);
-														return tmp;
-													} else if (str.length < 10) {
-														tmp += str.substr(0, 2);
-														tmp += '-';
-														tmp += str.substr(2, 3);
-														tmp += '-';
-														tmp += str.substr(5);
-														return tmp;
-													} else {
-														tmp += str.substr(0, 2);
-														tmp += '-';
-														tmp += str.substr(2, 4);
-														tmp += '-';
-														tmp += str.substr(6, 4);
-														return tmp;
-													}
-												} else {
-													// 핸드폰 및 다른 지역 전화번호 일 경우
-													if (str.length < 4) {
-														return str;
-													} else if (str.length < 7) {
-														tmp += str.substr(0, 3);
-														tmp += '-';
-														tmp += str.substr(3);
-														return tmp;
-													} else if (str.length < 11) {
-														tmp += str.substr(0, 3);
-														tmp += '-';
-														tmp += str.substr(3, 3);
-														tmp += '-';
-														tmp += str.substr(6);
-														return tmp;
-													} else {
-														tmp += str.substr(0, 3);
-														tmp += '-';
-														tmp += str.substr(3, 4);
-														tmp += '-';
-														tmp += str.substr(7);
-														return tmp;
-													}
-												}
-											};
+		if (str.substring(0, 2) == 02) {
+			// 서울 전화번호일 경우 10자리까지만 나타나고 그 이상의 자리수는 자동삭제
+			if (str.length < 3) {
+				return str;
+			} else if (str.length < 6) {
+				tmp += str.substr(0, 2);
+				tmp += '-';
+				tmp += str.substr(2);
+				return tmp;
+			} else if (str.length < 10) {
+				tmp += str.substr(0, 2);
+				tmp += '-';
+				tmp += str.substr(2, 3);
+				tmp += '-';
+				tmp += str.substr(5);
+				return tmp;
+			} else {
+				tmp += str.substr(0, 2);
+				tmp += '-';
+				tmp += str.substr(2, 4);
+				tmp += '-';
+				tmp += str.substr(6, 4);
+				return tmp;
+			}
+		} else {
+			// 핸드폰 및 다른 지역 전화번호 일 경우
+			if (str.length < 4) {
+			return str;
+			} else if (str.length < 7) {
+				tmp += str.substr(0, 3);
+				tmp += '-';
+				tmp += str.substr(3);
+				return tmp;
+			} else if (str.length < 11) {
+				tmp += str.substr(0, 3);
+				tmp += '-';
+				tmp += str.substr(3, 3);
+				tmp += '-';
+				tmp += str.substr(6);
+				return tmp;
+			} else {
+				tmp += str.substr(0, 3);
+				tmp += '-';
+				tmp += str.substr(3, 4);
+				tmp += '-';
+				tmp += str.substr(7);
+				return tmp;
+			}
+		}
+	};
 
-											$('#telInput')
-													.keyup(
-															function(event) {
-																event = event || window.event;
-																var _val = this.value.trim();
-																this.value = autoHypenTel(_val);
-															});
-										</script>
+	$('#telInput').keyup(function(event) {
+		event = event || window.event;
+		var _val = this.value.trim();
+		this.value = autoHypenTel(_val);
+	});
+	</script>
 
 <!-- 주소 검사 -->
-<script>
-										function findAddr(){
-											new daum.Postcode({
-										        oncomplete: function(data) {
+	<script>
+	function findAddr(){
+		new daum.Postcode({
+			oncomplete: function(data) {
 										        	
-									        	console.log(data);
-										        	
-										            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-										            // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
-										            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-										            var roadAddr = data.roadAddress; // 도로명 주소 변수
-										            var jibunAddr = data.jibunAddress; // 지번 주소 변수
-										            // 우편번호와 주소 정보를 해당 필드에 넣는다.
-										            document.getElementById('uupeon').value = data.zonecode;
-										            if(roadAddr !== ''){
-										                document.getElementById("address1").value = roadAddr;
-										            } 
-										            else if(jibunAddr !== ''){
-										                document.getElementById("address2").value = jibunAddr;
-										            }
-										        }
-										    }).open();
-										}
-									</script>	
+				console.log(data);
+											        	
+				 // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+				 // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+				 // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+				 var roadAddr = data.roadAddress; // 도로명 주소 변수
+				 var jibunAddr = data.jibunAddress; // 지번 주소 변수
+				 // 우편번호와 주소 정보를 해당 필드에 넣는다.
+				 document.getElementById('uupeon').value = data.zonecode;
+				 if(roadAddr !== ''){
+						document.getElementById("address1").value = roadAddr;
+				 } else if(jibunAddr !== ''){
+						document.getElementById("address2").value = jibunAddr;
+				 }
+			 }
+		}).open();
+	}
+</script>	
 									
 									
 <!-- 회원 정보 유효성 검사 -->

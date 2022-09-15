@@ -207,4 +207,6 @@ body {
   -webkit-transform: translate(0px,5px);
 	border-bottom: 1px solid;
 }
-
+form{
+	width:1000px;
+}

@@ -24,14 +24,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
+
+<!-- 헤더 -->
+<form action="/login.do">
 <div id = "header">
-<script>
-$(function(){
-	 $('#header').load("/common/header.jsp");
-});
-</script>
 </div>
 
+<!-- 베너 -->
 <div class="section">
 	<input type="radio" name="slide" id="slide01" checked>
 	<input type="radio" name="slide" id="slide02">
@@ -79,25 +78,28 @@ $(function(){
 			<li><label for="slide02"></label></li>
 			<li><label for="slide03"></label></li>
 		</ul>
-	</div>
-
-	
+	</div>	
 </div>
 
+<<<<<<< HEAD
 <c:forEach var="banner" items="${BannerList}">
 		<img src="${banner.banner_filepath}" width="340px", height="100px">
 		</c:forEach>
 
+=======
+<!-- 이미지 베너 --> 
+>>>>>>> main
 <div class = "img-banner"><img src="/views/resources/img/aal banner.png"></div>
 
+<!-- 바로가기 버튼 -->
 <div class = "button">
 	<div class = "botton-list">
-		<div id = "booking" class = "btn" onclick = "location.href='/views/login.jsp'">
+		<div id = "booking" class = "btn">
 			<span class = "btn-title">예약하기</span><br>
 			<span class = "btn-text">당신의 세탁물, <br> 지금 세모에게 맡기세요!</span><br>
 			<span class = "btn-icon"><i class="far fa-calendar-check fa-5x"></i></span>
 		</div>
-		<div id = "tracking" class = "btn" onclick = "location.href='/views/login.jsp'">
+		<div id = "tracking" class = "btn">
 			<span class = "btn-title">세탁현황</span><br>
 			<span class = "btn-text">맡기신 세탁물, <br>진행상황이 궁금하세요?</span><br>
 			<span class = "btn-icon"><i class="fas fa-truck fa-5x"></i></span>
@@ -105,6 +107,7 @@ $(function(){
 	</div>
 </div>
 
+<!-- 리뷰세션 -->
 <div class="rbd-core-ui" style = "background-image:url(/views/resources/img/review-back.png);">
 	<div class="rbd-review-slider" style = "padding : 50px;">
 	<h2 style = "text-align:center; line-height:60px; padding : 20px; color:black;">후★기</h2>
@@ -144,8 +147,57 @@ $(function(){
 			</div>
 		</div>
 	</div>
+</div>
+
+<jsp:include page="/common/footer.jsp"/> 
+</form>
+</body>
+
+<!---------------------- 스트립트 ---------------------->
+
+<!-- 헤더 -->
+<script type="text/javascript">
+$(function(){
 	
-	<script>
+	var id = "${id}";
+	
+	if (id == ""){
+		$('#header').load("/common/header.jsp");
+	} else {
+		$('#header').load("/common/logined-header.jsp");
+	}
+	
+
+});
+</script>
+
+<!-- 바로가기 버튼 -->
+<script type="text/javascript">
+$(function() {
+	$('#booking').click(function(){
+		var id = "${id}";
+		
+		if (id == ""){
+			location.href = "/views/login.jsp";
+		}else {
+			
+		}
+	});
+	
+	$('#tracking').click(function(){
+		var id = "${id}";
+		
+		if (id == ""){
+			location.href = "/views/login.jsp";
+		} else {
+			
+		}
+	})
+});
+</script>
+
+<!-- 리뷰세션 -->
+<script>
 	let options = {
 			'speed': 3000,
 			'pause': true,
@@ -190,9 +242,7 @@ $(function(){
 				slide();
 			}, options.speed);
 		}, true);
-	</script>
-</div>
+</script>
 
-<jsp:include page="/common/footer.jsp"/> 
-</body>
+
 </html>

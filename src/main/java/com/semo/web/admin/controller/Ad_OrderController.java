@@ -107,7 +107,7 @@ public class Ad_OrderController {
 		       model.addAttribute("adminOrderList", adminOrderList);
 		       System.out.println("회원 주문이력"+adminOrderList);
 		       
-		       
+		      
 		       List<MessageVO> messageList = utilservice.getMessageList(mvo);
 		       System.out.println(messageList);
 		       model.addAttribute("messageList", messageList);
@@ -184,6 +184,7 @@ public class Ad_OrderController {
 			       model.addAttribute("userOrderList", userOrderList);
 			       System.out.println("회원 주문이력"+userOrderList);
 			       
+			   
 			       List<MessageVO> messageList = utilservice.getMessageList(mvo);
 			       System.out.println(messageList);
 			       model.addAttribute("messageList", messageList);

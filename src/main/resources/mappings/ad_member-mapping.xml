@@ -8,8 +8,8 @@
     <!-- 정상회원 count (블랙회원 제외 검색 조건 포함)-->
 	<select id="getArticleCount" parameterType="paging" resultType="int">
   	<![CDATA[ select count(*) from customer where]]>
-			<if test="searchCondition=='customer_id'">
-    			<![CDATA[customer_id like concat('%', #{searchKeyword}, '%') and]]></if>
+			<if test="searchCondition=='customer_name'">
+    			<![CDATA[customer_name like concat('%', #{searchKeyword}, '%') and]]></if>
 			<if test="searchCondition=='customer_status'">	
     			<![CDATA[customer_status like concat('%', #{searchKeyword}, '%') and]]></if>
     <![CDATA[customer_status not in ('블랙회원') ]]>
@@ -19,8 +19,8 @@
 	<!-- 블랙회원 count -->
 	<select id="getBlackCount" parameterType="paging" resultType="int">
   	<![CDATA[ select count(*) from customer where]]>
-			<if test="searchCondition=='customer_id'">
-    			<![CDATA[customer_id like concat('%', #{searchKeyword}, '%') and]]></if>
+			<if test="searchCondition=='customer_name'">
+    			<![CDATA[customer_name like concat('%', #{searchKeyword}, '%') and]]></if>
 			<if test="searchCondition=='customer_status'">	
     			<![CDATA[customer_status like concat('%', #{searchKeyword}, '%') and]]></if>
     <![CDATA[customer_status = ('블랙회원')]]>
@@ -28,8 +28,8 @@
 	
 	
 	<!-- 문제 메시지 보내기 -->
-	<select id="getMessageList" resultType="message">
-		select * from message
+	<select id="getMessageList"  resultType="message">
+		select message_title, message_content from message 
 	</select>
 
 	<!-- 회원상세정보 읽기 -->
@@ -54,8 +54,8 @@
     <![CDATA[ select * from (select @rownum := @rownum+1 as rnum, customer_no, customer_name,customer_passwd, customer_id, customer_phone, customer_join_date, customer_sms_permit, customer_zipcode, customer_address1, customer_address2, customer_birth, customer_status from customer, (select @rownum :=0) as rowcolum where ]]>
 			<if test="searchCondition=='customer_status'">
     			<![CDATA[customer_status like concat('%', #{searchKeyword}, '%') and]]></if>
-			<if test="searchCondition=='customer_id'">	
-    			<![CDATA[ customer_id like concat('%', #{searchKeyword}, '%') and]]></if>
+			<if test="searchCondition=='customer_name'">	
+    			<![CDATA[ customer_name like concat('%', #{searchKeyword}, '%') and]]></if>
     <![CDATA[customer_status not in ('블랙회원') order by customer_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]>
 	</select>
 
@@ -63,37 +63,13 @@
 	<select id="getBlackList" parameterType="paging"
 		resultType="customer">
     	     <![CDATA[ select * from (select @rownum := @rownum+1 as rnum, customer_no, customer_name,customer_passwd, customer_id, customer_phone, customer_join_date, customer_sms_permit, customer_zipcode, customer_address1, customer_address2, customer_birth, customer_status from customer, (select @rownum :=0) as rowcolum where]]>
-			<if test="searchCondition=='customer_id'">
-    			<![CDATA[customer_id like concat('%', #{searchKeyword}, '%') and]]></if>
+			<if test="searchCondition=='customer_name'">
+    			<![CDATA[customer_name like concat('%', #{searchKeyword}, '%') and]]></if>
 			<if test="searchCondition=='customer_status'">	
     			<![CDATA[customer_status like concat('%', #{searchKeyword}, '%') and]]></if>
     <![CDATA[customer_status = ('블랙회원') order by customer_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]>
 	</select>
 
 </mapper>
-
-
-
-<!-- 	<select parameterType="cateSearchVO" resultType="categoryVO"
-		id="getCategoryList"> 
-	<![CDATA[select * from(select category_seq,category_name,category_num, @rownum:=@rownum+1 
-	as rnum from category , (SELECT @rownum:=0) TMP ]]>
-		<trim prefix="WHERE" prefixOverrides="AND |OR">
-			<if test="name != null"><![CDATA[AND category_name 
-	like CONCAT('%',#{name},'%')]]></if>
-			<if test="num != 0">AND category_num=#{num}</if>
-		</trim> <![CDATA[order by category_num) B where rnum>(#{page}-1)*5 AND rnum<=#{page}*5 
-	order by category_num ]]>
-	</select> -->
-
-
-
-
-
-
-
-
-
-
 
 

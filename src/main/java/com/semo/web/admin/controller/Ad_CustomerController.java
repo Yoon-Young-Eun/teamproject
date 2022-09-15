@@ -60,7 +60,7 @@ public class Ad_CustomerController {
 	@RequestMapping(value="/member.mdo", method = RequestMethod.GET)
 	public String getMemberList(PagingVO pvo, CustomerVO vo, Model model, MessageVO mvo) {
 		System.out.println("회원 목록 검색 처리");
-		
+		System.out.println(mvo);
 		System.out.println(pvo);
 			 model.addAttribute("search",pvo);
 		
@@ -109,7 +109,7 @@ public class Ad_CustomerController {
 		    	  }
 
 		       Map<String, String> conditionMap = new HashMap<String, String>();
-				conditionMap.put("아이디", "customer_id");
+				conditionMap.put("이름", "customer_name");
 				conditionMap.put("회원상태", "customer_status");
 					
 			
@@ -117,6 +117,8 @@ public class Ad_CustomerController {
 	       model.addAttribute("articleList", articleList);
 	       System.out.println("회원 목록 리스트"+articleList);
 	       
+	  
+	       System.out.println("메시지 타입에 넣은 값"+mvo.getMessage_title());
 	       List<MessageVO> messageList = utilservice.getMessageList(mvo);
 	       System.out.println(messageList);
 	       model.addAttribute("messageList", messageList);
@@ -124,16 +126,6 @@ public class Ad_CustomerController {
 	       
 		return "admin/member.jsp";
 	}	
-	
-	
-	@RequestMapping(value="/memberUpdate.mdo", method=RequestMethod.GET)
-	public String getMemberUpdate(CustomerVO vo) {
-		System.out.println("memberUpdate.mdo 실행");
-		System.out.println(vo);
-		memberService.getMemberUpdate(vo);
-		
-		return "/member.mdo";
-	}
 	
     //블랙맴버 리스트 조회 리스트
 	@RequestMapping(value="/blackmember.mdo", method = RequestMethod.GET)
@@ -189,13 +181,14 @@ public class Ad_CustomerController {
 	       
 	       //검색 조건
 			Map<String, String> conditionMap = new HashMap<String, String>();
-			conditionMap.put("아이디", "customer_id");
+			conditionMap.put("이름", "customer_name");
 			conditionMap.put("주소", "customer_address1");
 			
 	       model.addAttribute("conditionMap", conditionMap);
 	       model.addAttribute("blackList", blackList);
 	       System.out.println("블랙 회원 목록 리스트"+blackList);
 	       
+	      
 	       List<MessageVO> messageList = utilservice.getMessageList(mvo);
 	       model.addAttribute("messageList", messageList);
 	       System.out.println("메시지 리스트"+ messageList);
@@ -204,17 +197,51 @@ public class Ad_CustomerController {
 	}
 	
 	
-	//회원 정보 열람
+	//일반 회원 정보 열람
    @RequestMapping(value="getMemberBoard.mdo", method=RequestMethod.GET)
     public String getRead(CustomerVO vo, Model model) {
 	   	System.out.println("getRead() 메서드 실행");
 	    System.out.println(vo);
 	    CustomerVO user = memberService.getRead(vo);
 	    model.addAttribute("user", user);
-	   return "admin/member_managepop.jsp";
-   }
+
+	    	  return "admin/member_detail.jsp";
+	    }
    
+	//블랙 회원 정보 열람
+   @RequestMapping(value="getBlackMemberBoard.mdo", method=RequestMethod.GET)
+    public String getReadBlack(CustomerVO vo, Model model) {
+	   	System.out.println("getRead() 메서드 실행");
+	    System.out.println(vo);
+	    CustomerVO user = memberService.getRead(vo);
+	    model.addAttribute("user", user);
+	    	  return "admin/member_black_detail.jsp";
+	    }
    
+   	//일반회원 상세정보 수정
+	@RequestMapping(value="/memberUpdate.mdo", method=RequestMethod.GET)
+	public String getMemberUpdate(CustomerVO vo) {
+		System.out.println("memberUpdate.mdo 실행");
+		System.out.println(vo);
+		System.out.println("계정상태"+vo.getCustomer_status());
+			memberService.getMemberUpdate(vo);
+		    	  return "member.mdo";
+
+	}
+	
+   	//블랙회원 상세정보 수정
+	@RequestMapping(value="/blackmemberUpdate.mdo", method=RequestMethod.GET)
+	public String getBlackMemberUpdate(CustomerVO vo) {
+		System.out.println("blackmemberUpdate.mdo 실행");
+		System.out.println(vo);
+		System.out.println("계정상태"+vo.getCustomer_status());
+			memberService.getMemberUpdate(vo);
+		    	return "blackmember.mdo";
+	
+	}
+	
+
+	
 
    
    

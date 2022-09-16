@@ -2,6 +2,7 @@ package com.semo.web.user.vo;
 
 import java.sql.Date;
 
+
 public class EstimateVO {
 	private int estimate_cm_no;
 	private int customer_no;

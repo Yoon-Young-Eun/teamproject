@@ -8,7 +8,9 @@ import org.springframework.stereotype.Repository;
 
 import com.semo.web.admin.vo.Ad_EstimateVO;
 import com.semo.web.admin.vo.Estimate_T_VO;
+import com.semo.web.admin.vo.MessageVO;
 import com.semo.web.admin.vo.PagingVO;
+import com.semo.web.admin.vo.StoreVO;
 import com.semo.web.user.vo.EstimateVO;
 import com.semo.web.user.vo.Estimate_ImageVO;
 import com.semo.web.user.vo.OrderMtVO;
@@ -73,7 +75,26 @@ public class OrderDAO {
 		return sqlTemplate.selectList("OrderDAO.getEstimateType");
 	}
 	
+<<<<<<< HEAD
 	public List<Estimate_ImageVO> getEstimateImg() {
 		return sqlTemplate.selectList("OrderDAO.getEstimateImg");
 	}
+=======
+	public OrderVO getReadOrderInfo(OrderVO vo) {
+	    return sqlTemplate.selectOne("OrderDAO.getReadOrderInfo", vo);
+	}
+	
+	public List<StoreVO> getStoreList() {
+	    return sqlTemplate.selectList("OrderDAO.getStoreList");
+	}
+	
+	public void updateOrderInfo(OrderVO vo) {
+		sqlTemplate.update("OrderDAO.updateOrderInfo", vo);
+	}
+	
+	public List<MessageVO> getMessageTypeList() {
+		return sqlTemplate.selectList("OrderDAO.getMessageTypeList");
+	}
+	
+>>>>>>> main
 }

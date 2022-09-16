@@ -1,8 +1,7 @@
 @charset "UTF-8";
 
 body {
-	display: flex;
-	justify-content: center;
+		width :100%;
 	align-items: center;
 }
 
@@ -119,3 +118,9 @@ body {
 	width: 170px;
 	height: 25px;
 }
+
+.form{
+	display: flex;
+	justify-content: center;
+}
+

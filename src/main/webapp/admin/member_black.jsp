@@ -368,21 +368,18 @@
 					
 						<div style= "width:100%; overflow-x:auto;">				
 						<table id=""
-							class="emp-table dataPerPage tblCustomers tblexportData table" border="5">
+							class="tblCustomers tblexportData table" border="5">
 							<thead>
 								<tr>
 									<th width="50" id="check_td"><input type="checkbox"
 										name="check" class="allcheck"></th>
-									<th col-index=2>회원코드</th>
-									<th col-index=3>아이디(이메일)</th>
-									<th col-index=4>이름</th>
-									<th col-index=5>헨드폰</th>
-									<th col-index=6>주소</th>
-									<th col-index=7>SMS수신</th>
-									<th col-index=8>회원상태<select class="table-filter"
-										onchange="filter_rows()">
-											<option value="all"></option>
-									</select></th>
+									<th>회원코드</th>
+									<th>아이디(이메일)</th>
+									<th>이름</th>
+									<th>헨드폰</th>
+									<th>주소</th>
+									<th>SMS수신</th>
+									<th>회원상태</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -391,7 +388,7 @@
 								     <tr>
 										<td id="check_td"><input type="checkbox" name="check"></td>
 										<td>${black.customer_no}</td>  <!--for문의 id값.컬럼명으로 값을 불러옴 -->
-										<td>${black.customer_id}</a></td>
+										<td><a href="/getBlackMemberBoard.mdo?customer_no=${black.customer_no}&customer_status=${black.customer_status}">${black.customer_id}</a></td>
 										<td>${black.customer_name}</a></td>
 										<td>${black.customer_phone}</td>
 										<td>${black.customer_address1} </td>

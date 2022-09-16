@@ -24,6 +24,10 @@ public class UtilDAO {
 		return sqlTemplate.selectList("UtilDAO.getMessageTypeList");
 	}
 
+	public MessageVO getMessageEstimateType() {
+		System.out.println("DAO.getMessageEstimateType()실행");
+		return sqlTemplate.selectOne("UtilDAO.getMessageEstimateType");
+	}
 		
 	
 	

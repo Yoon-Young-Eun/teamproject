@@ -11,6 +11,7 @@ public class EstimateVO {
 	private Date estimate_date;
 	private String customer_address1;
 	private String customer_address2;
+	private String customer_phone;
 	private String estimate_content;
 	private String estimate_filepath;
 	private String estimate_status;
@@ -56,6 +57,14 @@ public class EstimateVO {
 	public void setCustomer_address2(String customer_address2) {
 		this.customer_address2 = customer_address2;
 	}
+	
+	public String getCustomer_phone() {
+		return customer_phone;
+	}
+	public void setCustomer_phone(String customer_phone) {
+		this.customer_phone = customer_phone;
+	}
+	
 	public String getEstimate_content() {
 		return estimate_content;
 	}
@@ -74,13 +83,16 @@ public class EstimateVO {
 	public void setEstimate_status(String estimate_status) {
 		this.estimate_status = estimate_status;
 	}
+	
 	@Override
 	public String toString() {
 		return "EstimateVO [estimate_cm_no=" + estimate_cm_no + ", customer_no=" + customer_no + ", customer_name="
 				+ customer_name + ", estimate_type=" + estimate_type + ", estimate_date=" + estimate_date
 				+ ", customer_address1=" + customer_address1 + ", customer_address2=" + customer_address2
-				+ ", estimate_content=" + estimate_content + ", estimate_filepath=" + estimate_filepath
-				+ ", estimate_status=" + estimate_status + "]";
+				+ ", customer_phone=" + customer_phone + ", estimate_content=" + estimate_content
+				+ ", estimate_filepath=" + estimate_filepath + ", estimate_status=" + estimate_status + "]";
 	}
+	
+	
 	
 }

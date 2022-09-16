@@ -135,12 +135,7 @@
 								<i class="fas fa-angle-down"></i>
 							</div>
 						</a>
-						<!--                             <div class="collapse" id="change_id_03" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
-						<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
-						<!--                                     <a class="nav-link" href="#">매출현황#1</a> -->
-						<!--                                     <a class="nav-link" href="#">매출현황#2</a> -->
-						<!--                                 </nav> -->
-						<!--                             </div> -->
+	
 
 						<a class="nav-link collapsed" href="/admin/item.jsp"
 							data-bs-toggle="collapse" data-bs-target="#change_id_04"
@@ -152,12 +147,6 @@
 								<i class="fas fa-angle-down"></i>
 							</div>
 						</a>
-						<!--                             <div class="collapse" id="change_id_04" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
-						<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
-						<!--                                     <a class="nav-link" href="#">상품등록#1</a> -->
-						<!--                                     <a class="nav-link" href="#">상품등록#2</a> -->
-						<!--                                 </nav> -->
-						<!--                             </div> -->
 
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 							data-bs-target="#change_id_05" aria-expanded="false"
@@ -169,12 +158,7 @@
 								<i class="fas fa-angle-down"></i>
 							</div>
 						</a>
-						<!--                             <div class="collapse" id="change_id_05" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
-						<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
-						<!--                                     <a class="nav-link" href="#">지점관리</a> -->
-						<!--                                     <a class="nav-link" href="#">외주관리</a> -->
-						<!--                                 </nav> -->
-						<!--                             </div> -->
+		
 
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 							data-bs-target="#change_id_06" aria-expanded="false"
@@ -347,6 +331,10 @@
 								<div class="estimate_request_value" name="customer_name">${getEstimate.customer_name }</div>
 							</div>
 							<div class="estimate_request">
+								<div class="estimate_request_title">연락처</div>
+								<div class="estimate_request_value" name="customer_phone">${getEstimate.customer_phone }</div>
+							</div>
+							<div class="estimate_request">
 								<div class="estimate_request_title">접수일자</div>
 								<div class="estimate_request_value" name="estimate_date">${getEstimate.estimate_date}</div>
 							</div>
@@ -361,10 +349,25 @@
 							</div>
 							<div class="estimate_request">
 								<div class="estimate_request_title">첨부파일</div>
-								<div class="estimate_request_file" name="estimate_filepath">
-									<img src="${getEstimate.estimate_filepath }">
+								<div class="estimate_request_file" name="estiimg">
+									<c:forEach var="est_img" items="${estiimg}">
+										<img onclick="window.open(this.src)" hspace="0" src="${est_img.estimate_filepath }">
+									</c:forEach>
 								</div>
 							</div>
+							
+							<script type="text/javascript">
+							function detailView(src) {
+								   $("#detail_img").attr("src", src);
+								   $("#product_popup").show();
+								}
+								 
+								$(function(){
+								   $("#pop_close").click(function(){
+								      $("#detail_imgt_pop").hide();
+								   });
+								});
+							</script>
 
 							<div class="end">
 								<div id="layer_reply_btn">
@@ -377,7 +380,7 @@
 						</div>
 					</div>
 
-					<form id="insert" action="/insertEstimate.mdo" method="post">
+					<form id="insert" action="/insertEstimate.mdo?customer_phone=${getEstimate.customer_phone }" method="post">
 						<div class="layer" id="layer_reply">
 							<div class="popup_wrapper2">
 
@@ -395,20 +398,11 @@
 											</div>
 										</div>
 										<div class="estimate_reply">
-											<div class="estimate_reply_title">견적일자</div>
 											<div class="estimate_reply_body" name="estimate_reply_date">
 											</div>
 										</div>
 										<div class="estimate_reply">
 											<div class="estimate_reply_title">이유</div>
-											<!-- 						<div class="estimate_reply_content_body"> -->
-											<!-- 							<select name="estimate_reply_type" > -->
-											<!-- 								<option value="특수세탁1단계">특수세탁1단계</option> -->
-											<!-- 								<option value="특수세탁2단계">특수세탁2단계</option> -->
-											<!-- 								<option value="특수세탁3단계">특수세탁3단계</option> -->
-											<!-- 								<option value="특수세탁4단계">특수세탁4단계</option> -->
-											<!-- 							</select> -->
-											<!-- 						</div> -->
 											<div class="estimate_reply_body">
 												<select name="estimate_type_content" id="selectOption">
 													<c:forEach var="type" items="${estitype}">
@@ -422,7 +416,7 @@
 									</div>
 								</div>
 
-								<div class="end">
+								<div class="end" style="padding-top: 465px;">
 									<div class="board_btn">
 										<input type="button" value="발송" onclick="popup();">
 									</div>

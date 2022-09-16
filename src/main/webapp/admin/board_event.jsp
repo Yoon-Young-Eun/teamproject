@@ -227,7 +227,7 @@
 
 								<a class="nav-link" href="promo.jsp">쿠폰관리</a> <a
 									class="nav-link" href="supporbanner.jsp">배너관리</a> <a
-									class="nav-link" href="supporclause.jsp">약관관리</a>
+									class="nav-link" href="/TermsList.mdo">약관관리</a>
 
 							</nav>
 						</div>
@@ -352,21 +352,57 @@
 						</div>
 
 
+						<div class="b_button">
+							<!-- 테이블 행 필터 -->
+							<form name="selectname" action="getEventList.mdo" method="get">
+								<input type="hidden" name="searchCondition"
+									value="${search.searchCondition}" /> <input type="hidden"
+									name="searchKeyword" value="${search.searchKeyword}" />
 
+								<div>
+									<select name="selectPage" onchange="this.form.submit()">
+										<option value="">선택</option>
+										<option value="5">5</option>
+										<option value="10">10</option>
+										<option value="20">20</option>
+										<option value="50">50</option>
+									</select> entries per page
+								</div>
+							</form>
+
+							<div class="icon_flex">
+								<!-- 검색기능 -->
+								<div>
+									<form action="getEventList.mdo" method="get">
+										<div class="icon_flex">
+											<td><select name="searchCondition">
+													<c:forEach items="${condition}" var="option">
+														<div>
+															<option value="${option.value}">${option.key}</option>
+														</div>
+													</c:forEach>
+											</select> <input type="text" name="searchKeyword" />
+												<div>
+													<input type="submit" value="검색" />
+												</div>
+												<div><input type="reset" value="초기화" /></div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
-						<table id="datatablesSimple"
-							class="emp-table dataPerPage tblCustomers tblexportData table"
-							border="5">
+						<table id="" class="tblCustomers tblexportData table" border="5">
 							<thead>
 								<tr>
 								<tr>
 									<th width="50" id="check_td"><input type="checkbox"
 										name="check" class="allcheck"></th>
-									<th col-index=2>No</th>
-									<th col-index=3>제목</th>
-									<th col-index=4>내용</th>
-									<th col-index=5>배너번호</th>
-									<th col-index=6>작성일</th>
+									<th>No</th>
+									<th>제목</th>
+									<th>내용</th>
+									<th>배너번호</th>
+									<th>작성일</th>
 								<tr>
 							</thead>
 							<tbody>
@@ -394,6 +430,40 @@
 							</div>
 
 						</div>
+						<!-- pagaing 처리 -->
+
+						<div>
+							<c:if test="${count > 0}">
+								<!-- 조회된 데이터 개수가 0보다 크면 if문 실행 -->
+								<div class="icon_flex">
+									<div>
+										<c:if test="${startPage > pageBlock}">
+											<!-- 시작번호가 5보다 크면, 앞에 '이전'을 붙여줌 -->
+											<a
+												href="getEventList.mdo?pageNum=${startPage-pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div
+													class="pageging2">이전</div></a>
+										</c:if>
+									</div>
+									<div>
+										<div class="icon_flex">
+											<c:forEach var="i" begin="${startPage}" end="${endPage}">
+												<a
+													href="getEventList.mdo?pageNum=${i}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div
+														class="pageging">${i}</div></a>
+											</c:forEach>
+										</div>
+									</div>
+									<div>
+										<c:if test="${endPage < pageCount}">
+											<a
+												href="getEventList.mdo?pageNum=${startPage + pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div
+													class="pageging2">다음</div></a>
+										</c:if>
+									</div>
+								</div>
+							</c:if>
+						</div>
+						<!-- 페이징 종료 -->
 						<script type="text/javascript">
 							//체크삭제
 							$("#delBtn")

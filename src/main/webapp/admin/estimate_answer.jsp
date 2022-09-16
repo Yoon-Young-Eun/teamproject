@@ -339,6 +339,10 @@
 								<div class="estimate_request_value" name="customer_name">${getestimate.customer_name }</div>
 							</div>
 							<div class="estimate_request">
+								<div class="estimate_request_title">연락처</div>
+								<div class="estimate_request_value" name="customer_phone">${getestimate.customer_phone }</div>
+							</div>
+							<div class="estimate_request">
 								<div class="estimate_request_title">접수일자</div>
 								<div class="estimate_request_value" name="estimate_date">${getestimate.estimate_date}</div>
 							</div>

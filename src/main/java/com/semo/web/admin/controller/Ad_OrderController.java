@@ -1,6 +1,5 @@
 package com.semo.web.admin.controller;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -28,340 +27,205 @@ import com.semo.web.user.vo.OrderVO;
 
 @Controller
 public class Ad_OrderController {
-	// 주문이력 관련
+   // 주문이력 관련 
 
-	@Autowired
-	OrderService orderserivce;
+   @Autowired
+   OrderService orderserivce;
 
-	@Autowired // 문자 서비스
-	UtilService utilservice;
+   @Autowired //문자 서비스
+   UtilService utilservice;
 
-	@Autowired
-	CoolSms coolsms;
+   @Autowired
+   CoolSms coolsms;
 
-<<<<<<< HEAD
-	// 메시지 보내는 메서드 보낸 후, 회원List 조회 컨트롤러로 이동
-	@RequestMapping(value = "/orderMessage.mdo")
-	public String sendMassage(String[] tdArr, String message) {
+   /*
+    * //메시지 보내는 메서드 보낸 후, 회원List 조회 컨트롤러로 이동
+    * 
+    * @RequestMapping(value="/orderMessage.mdo") public String sendMassage(String
+    * [] tdArr, String message) {
+    * 
+    * System.out.println(tdArr); System.out.println(message);
+    * 
+    * coolsms.sendMessage(phone, message); return "/adminOrderList.mdo"; }
+    */
+      
+      // 주문이력
+      @RequestMapping("/adminOrderList.mdo")
+      public String getOrderList(PagingVO pvo, Model model, MessageVO mvo) {
+         System.out.println("getOrderList() 실행");
+         
+            model.addAttribute("search",pvo);
 
-		System.out.println(tdArr);
-		System.out.println(message);
+         
+         // 페이징 처리
+            if (pvo.getPageNum() == null) {
+               pvo.setPageNum("1");
+             }
+            
+            System.out.println(pvo.getSelectPage());
+            if (pvo.getSelectPage()==null ) {
+               pvo.setSelectPage("5");
+            }
+             int pageSize = Integer.parseInt(pvo.getSelectPage());
+             int currentPage = Integer.parseInt(pvo.getPageNum()); 
+             pvo.setStartRow((currentPage -1)* pageSize +1);
+             pvo.setEndRow(currentPage * pageSize);
+             int count =0;     
+            
+             count = orderserivce.getArticleCount(pvo);
+             List<OrderVO> adminOrderList = null;
+             if(count >0) {
+                adminOrderList= orderserivce.getAdminOrderList(pvo);
+         
+             }else {
+                adminOrderList=Collections.emptyList(); 
+             }
+             
+             if(count >0) {
+                  int pageBlock =5;
+                  int imsi =count % pageSize ==0 ?0:1;
+                  int pageCount = count/pageSize +imsi;
+                  int startPage =(int)((currentPage-1)/pageBlock)*pageBlock +1;
+                  int endPage = startPage + pageBlock -1;
+                  
+                  // 추가 if문 : endPage(예:10)이 pageCount(예:9)보다 클경우 endPage의 값은 9로 한다!
+                  if(endPage > pageCount) {
+                     endPage = pageCount;
+                  }
+                  
+                  model.addAttribute("pageCount",pageCount);
+                  model.addAttribute("startPage",startPage);
+                  model.addAttribute("endPage",endPage);
+                  model.addAttribute("pageBlock",pageBlock);
+                   model.addAttribute("count", count);
+                  }
 
-		coolsms.sendMessage(tdArr, message);
-		return "/adminOrderList.mdo";
-	}
+            Map<String, String> conditionMap = new HashMap<String, String>();
+            conditionMap.put("주문번호", "order_no");
+            conditionMap.put("주문상태", "order_status");
+            conditionMap.put("결제상태", "order_price_status");
+            
+             model.addAttribute("conditionMap", conditionMap);
+             model.addAttribute("adminOrderList", adminOrderList);
+             System.out.println("회원 주문이력"+adminOrderList);
+             
+            
+             List<MessageVO> messageList = utilservice.getMessageList();
+             System.out.println(messageList);
+             model.addAttribute("messageList", messageList);
+             System.out.println("메시지 리스트"+ messageList);
+         
+         return "admin/orderList.jsp";
+      }
+      
+      
+      
+      
+      
+         //회원 개인 구매이력
+         @RequestMapping(value="/memberorderList.mdo", method = RequestMethod.GET)
+         public String getUserOrderList(PagingVO pvo,  Model model, MessageVO mvo) {
+            System.out.println("회원 개인 구매 이력");
+            
+            System.out.println(pvo);
+            
+            if (pvo != null) {
+               model.addAttribute("search",pvo);
+            }
 
-	// 주문이력
-	@RequestMapping("/adminOrderList.mdo")
-	public String getOrderList(PagingVO pvo, Model model, MessageVO mvo) {
-		System.out.println("getOrderList() 실행");
-
-		model.addAttribute("search", pvo);
-
-		// 페이징 처리
-		if (pvo.getPageNum() == null) {
-			pvo.setPageNum("1");
-		}
-
-		System.out.println(pvo.getSelectPage());
-		if (pvo.getSelectPage() == null) {
-			pvo.setSelectPage("5");
-=======
-	/*
-	 * //메시지 보내는 메서드 보낸 후, 회원List 조회 컨트롤러로 이동
-	 * 
-	 * @RequestMapping(value="/orderMessage.mdo") public String sendMassage(String
-	 * [] tdArr, String message) {
-	 * 
-	 * System.out.println(tdArr); System.out.println(message);
-	 * 
-	 * coolsms.sendMessage(phone, message); return "/adminOrderList.mdo"; }
-	 */
-		
-		// 주문이력
-		@RequestMapping("/adminOrderList.mdo")
-		public String getOrderList(PagingVO pvo, Model model, MessageVO mvo) {
-			System.out.println("getOrderList() 실행");
-			
-				model.addAttribute("search",pvo);
-
-			
-			// 페이징 처리
-		      if (pvo.getPageNum() == null) {
-		    	  pvo.setPageNum("1");
-		       }
-		      
-		      System.out.println(pvo.getSelectPage());
-		      if (pvo.getSelectPage()==null ) {
-		    	  pvo.setSelectPage("5");
-		      }
-		       int pageSize = Integer.parseInt(pvo.getSelectPage());
-		       int currentPage = Integer.parseInt(pvo.getPageNum()); 
-		       pvo.setStartRow((currentPage -1)* pageSize +1);
-		       pvo.setEndRow(currentPage * pageSize);
-		       int count =0; 	 
-		      
-		       count = orderserivce.getArticleCount(pvo);
-		       List<OrderVO> adminOrderList = null;
-		       if(count >0) {
-		    	   adminOrderList= orderserivce.getAdminOrderList(pvo);
-		   
-		       }else {
-		    	   adminOrderList=Collections.emptyList(); 
-		       }
-		       
-		       if(count >0) {
-			    	  int pageBlock =5;
-			    	  int imsi =count % pageSize ==0 ?0:1;
-			    	  int pageCount = count/pageSize +imsi;
-			    	  int startPage =(int)((currentPage-1)/pageBlock)*pageBlock +1;
-			    	  int endPage = startPage + pageBlock -1;
-			    	  
-			    	  // 추가 if문 : endPage(예:10)이 pageCount(예:9)보다 클경우 endPage의 값은 9로 한다!
-			    	  if(endPage > pageCount) {
-			    		  endPage = pageCount;
-			    	  }
-			    	  
-			    	  model.addAttribute("pageCount",pageCount);
-			    	  model.addAttribute("startPage",startPage);
-			    	  model.addAttribute("endPage",endPage);
-			    	  model.addAttribute("pageBlock",pageBlock);
-			          model.addAttribute("count", count);
-			    	  }
-
-				Map<String, String> conditionMap = new HashMap<String, String>();
-				conditionMap.put("주문번호", "order_no");
-				conditionMap.put("주문상태", "order_status");
-				conditionMap.put("결제상태", "order_price_status");
-				
-		       model.addAttribute("conditionMap", conditionMap);
-		       model.addAttribute("adminOrderList", adminOrderList);
-		       System.out.println("회원 주문이력"+adminOrderList);
-		       
-		      
-		       List<MessageVO> messageList = utilservice.getMessageList();
-		       System.out.println(messageList);
-		       model.addAttribute("messageList", messageList);
-		       System.out.println("메시지 리스트"+ messageList);
-			
-			return "admin/orderList.jsp";
->>>>>>> main
-		}
-		int pageSize = Integer.parseInt(pvo.getSelectPage());
-		int currentPage = Integer.parseInt(pvo.getPageNum());
-		pvo.setStartRow((currentPage - 1) * pageSize + 1);
-		pvo.setEndRow(currentPage * pageSize);
-		int count = 0;
-
-<<<<<<< HEAD
-		count = orderserivce.getArticleCount(pvo);
-		List<OrderVO> adminOrderList = null;
-		if (count > 0) {
-			adminOrderList = orderserivce.getAdminOrderList(pvo);
-=======
-				// 페이징 처리
-			      if (pvo.getPageNum() == null) {
-			    	  pvo.setPageNum("1");
-			       }
-			      
-			      System.out.println(pvo.getSelectPage());
-			      if (pvo.getSelectPage()==null ) {
-			    	  pvo.setSelectPage("5");
-			      }
-			       int pageSize = Integer.parseInt(pvo.getSelectPage());
-			       int currentPage = Integer.parseInt(pvo.getPageNum()); 
-			       pvo.setStartRow((currentPage -1)* pageSize +1);
-			       pvo.setEndRow(currentPage * pageSize);
-			       int count =0; 	
-			      
-			       count = orderserivce.getMemberArticleCount(pvo);
-			       System.out.println("count"+count);
-			       List<OrderMtVO> userOrderList = null;
-			       if(count >0) {
-			    	   userOrderList= orderserivce.getUserOrderList(pvo);
-			   
-			       }else {
-			    	   userOrderList=Collections.emptyList(); 
-			       }
-			       
-			       
-			       if(count >0) {
-				    	  int pageBlock =5;
-				    	  int imsi =count % pageSize ==0 ?0:1;
-				    	  int pageCount = count/pageSize +imsi;
-				    	  int startPage =(int)((currentPage-1)/pageBlock)*pageBlock +1;
-				    	  int endPage = startPage + pageBlock -1;
-				    	  
-				    	  // 추가 if문 : endPage(예:10)이 pageCount(예:9)보다 클경우 endPage의 값은 9로 한다!
-				    	  if(endPage > pageCount) {
-				    		  endPage = pageCount;
-				    	  }
-				    	  
-				    	  model.addAttribute("pageCount",pageCount);
-				    	  model.addAttribute("startPage",startPage);
-				    	  model.addAttribute("endPage",endPage);
-				    	  model.addAttribute("pageBlock",pageBlock);
-				          model.addAttribute("count", count);
-				    	  }
-			       
-					Map<String, String> conditionMap = new HashMap<String, String>();
-					conditionMap.put("회원번호", "customer_no");
-					conditionMap.put("주문번호", "order_no");
-					
-			       model.addAttribute("conditionMap", conditionMap);
-			       model.addAttribute("userOrderList", userOrderList);
-			       System.out.println("회원 주문이력"+userOrderList);
-			       
-			   
-			       List<MessageVO> messageList = utilservice.getMessageList();
-			       System.out.println(messageList);
-			       model.addAttribute("messageList", messageList);
-			       System.out.println("메시지 리스트"+ messageList);
-			       
-				return "admin/memberorderList.jsp";
-			}		   
-		   
-		   
-			@RequestMapping("/Ad_getReadOrderInfo.mdo")
-			public String getAd_ReadOrderInfo(OrderVO vo, Model model, MessageVO mvo) {
-				System.out.println(vo);
-				
-				OrderVO order = orderserivce.getReadOrderInfo(vo);
-				List<StoreVO> storeList = orderserivce.getStoreList();
-				
-				mvo.setMessage_type("주문");
-				System.out.println("입력한 문자 타입"+mvo.getMessage_type());
-				List<MessageVO> messageTypeList = utilservice.getMessageTypeList(mvo);
-				System.out.println("출력된 문자 타입List"+messageTypeList);
-				
-				model.addAttribute("message", messageTypeList);
-				model.addAttribute("order", order);
-				model.addAttribute("storeList", storeList);
-				return "/admin/member_order.jsp";
-			}		
-			
-			@RequestMapping("/Ad_updateOrderInfo.mdo")
-			public String getAd_updateOrderInfo(OrderVO vo) {
-				System.out.println("order수정사항"+ vo);
-				
-				orderserivce.updateOrderInfo(vo);
-				
-				return "/adminOrderList.mdo";
-			}
->>>>>>> main
-
-		} else {
-			adminOrderList = Collections.emptyList();
-		}
-
-		if (count > 0) {
-			int pageBlock = 5;
-			int imsi = count % pageSize == 0 ? 0 : 1;
-			int pageCount = count / pageSize + imsi;
-			int startPage = (int) ((currentPage - 1) / pageBlock) * pageBlock + 1;
-			int endPage = startPage + pageBlock - 1;
-
-			// 추가 if문 : endPage(예:10)이 pageCount(예:9)보다 클경우 endPage의 값은 9로 한다!
-			if (endPage > pageCount) {
-				endPage = pageCount;
-			}
-
-			model.addAttribute("pageCount", pageCount);
-			model.addAttribute("startPage", startPage);
-			model.addAttribute("endPage", endPage);
-			model.addAttribute("pageBlock", pageBlock);
-			model.addAttribute("count", count);
-		}
-
-		Map<String, String> conditionMap = new HashMap<String, String>();
-		conditionMap.put("주문번호", "order_no");
-		conditionMap.put("주문상태", "order_status");
-		conditionMap.put("결제상태", "order_price_status");
-
-		model.addAttribute("conditionMap", conditionMap);
-		model.addAttribute("adminOrderList", adminOrderList);
-		System.out.println("회원 주문이력" + adminOrderList);
-
-		List<MessageVO> messageList = utilservice.getMessageList(mvo);
-		System.out.println(messageList);
-		model.addAttribute("messageList", messageList);
-		System.out.println("메시지 리스트" + messageList);
-
-		return "admin/orderList.jsp";
-	}
-
-	// 회원 개인 구매이력
-	@RequestMapping(value = "/memberorderList.mdo", method = RequestMethod.GET)
-	public String getUserOrderList(PagingVO pvo, Model model, MessageVO mvo) {
-		System.out.println("회원 개인 구매 이력");
-
-		System.out.println(pvo);
-
-		if (pvo != null) {
-			model.addAttribute("search", pvo);
-		}
-
-		// 페이징 처리
-		if (pvo.getPageNum() == null) {
-			pvo.setPageNum("1");
-		}
-
-		System.out.println(pvo.getSelectPage());
-		if (pvo.getSelectPage() == null) {
-			pvo.setSelectPage("5");
-		}
-		int pageSize = Integer.parseInt(pvo.getSelectPage());
-		int currentPage = Integer.parseInt(pvo.getPageNum());
-		pvo.setStartRow((currentPage - 1) * pageSize + 1);
-		pvo.setEndRow(currentPage * pageSize);
-		int count = 0;
-
-		count = orderserivce.getMemberArticleCount(pvo);
-		System.out.println("count" + count);
-		List<OrderMtVO> userOrderList = null;
-		if (count > 0) {
-			userOrderList = orderserivce.getUserOrderList(pvo);
-
-		} else {
-			userOrderList = Collections.emptyList();
-		}
-
-		if (count > 0) {
-			int pageBlock = 5;
-			int imsi = count % pageSize == 0 ? 0 : 1;
-			int pageCount = count / pageSize + imsi;
-			int startPage = (int) ((currentPage - 1) / pageBlock) * pageBlock + 1;
-			int endPage = startPage + pageBlock - 1;
-
-			// 추가 if문 : endPage(예:10)이 pageCount(예:9)보다 클경우 endPage의 값은 9로 한다!
-			if (endPage > pageCount) {
-				endPage = pageCount;
-			}
-
-			model.addAttribute("pageCount", pageCount);
-			model.addAttribute("startPage", startPage);
-			model.addAttribute("endPage", endPage);
-			model.addAttribute("pageBlock", pageBlock);
-			model.addAttribute("count", count);
-		}
-
-		Map<String, String> conditionMap = new HashMap<String, String>();
-		conditionMap.put("회원번호", "customer_no");
-		conditionMap.put("주문번호", "order_no");
-
-		model.addAttribute("conditionMap", conditionMap);
-		model.addAttribute("userOrderList", userOrderList);
-		System.out.println("회원 주문이력" + userOrderList);
-
-		List<MessageVO> messageList = utilservice.getMessageList(mvo);
-		System.out.println(messageList);
-		model.addAttribute("messageList", messageList);
-		System.out.println("메시지 리스트" + messageList);
-
-		return "admin/memberorderList.jsp";
-
-	}
-
+            // 페이징 처리
+               if (pvo.getPageNum() == null) {
+                  pvo.setPageNum("1");
+                }
+               
+               System.out.println(pvo.getSelectPage());
+               if (pvo.getSelectPage()==null ) {
+                  pvo.setSelectPage("5");
+               }
+                int pageSize = Integer.parseInt(pvo.getSelectPage());
+                int currentPage = Integer.parseInt(pvo.getPageNum()); 
+                pvo.setStartRow((currentPage -1)* pageSize +1);
+                pvo.setEndRow(currentPage * pageSize);
+                int count =0;    
+               
+                count = orderserivce.getMemberArticleCount(pvo);
+                System.out.println("count"+count);
+                List<OrderMtVO> userOrderList = null;
+                if(count >0) {
+                   userOrderList= orderserivce.getUserOrderList(pvo);
+            
+                }else {
+                   userOrderList=Collections.emptyList(); 
+                }
+                
+                
+                if(count >0) {
+                     int pageBlock =5;
+                     int imsi =count % pageSize ==0 ?0:1;
+                     int pageCount = count/pageSize +imsi;
+                     int startPage =(int)((currentPage-1)/pageBlock)*pageBlock +1;
+                     int endPage = startPage + pageBlock -1;
+                     
+                     // 추가 if문 : endPage(예:10)이 pageCount(예:9)보다 클경우 endPage의 값은 9로 한다!
+                     if(endPage > pageCount) {
+                        endPage = pageCount;
+                     }
+                     
+                     model.addAttribute("pageCount",pageCount);
+                     model.addAttribute("startPage",startPage);
+                     model.addAttribute("endPage",endPage);
+                     model.addAttribute("pageBlock",pageBlock);
+                      model.addAttribute("count", count);
+                     }
+                
+               Map<String, String> conditionMap = new HashMap<String, String>();
+               conditionMap.put("회원번호", "customer_no");
+               conditionMap.put("주문번호", "order_no");
+               
+                model.addAttribute("conditionMap", conditionMap);
+                model.addAttribute("userOrderList", userOrderList);
+                System.out.println("회원 주문이력"+userOrderList);
+                
+            
+                List<MessageVO> messageList = utilservice.getMessageList();
+                System.out.println(messageList);
+                model.addAttribute("messageList", messageList);
+                System.out.println("메시지 리스트"+ messageList);
+                
+            return "admin/memberorderList.jsp";
+         }         
+         
+         
+         @RequestMapping("/Ad_getReadOrderInfo.mdo")
+         public String getAd_ReadOrderInfo(OrderVO vo, Model model, MessageVO mvo) {
+            System.out.println(vo);
+            
+            OrderVO order = orderserivce.getReadOrderInfo(vo);
+            List<StoreVO> storeList = orderserivce.getStoreList();
+            
+            mvo.setMessage_type("주문");
+            System.out.println("입력한 문자 타입"+mvo.getMessage_type());
+            List<MessageVO> messageTypeList = utilservice.getMessageTypeList(mvo);
+            System.out.println("출력된 문자 타입List"+messageTypeList);
+            
+            model.addAttribute("message", messageTypeList);
+            model.addAttribute("order", order);
+            model.addAttribute("storeList", storeList);
+            return "/admin/member_order.jsp";
+         }      
+         
+         @RequestMapping("/Ad_updateOrderInfo.mdo")
+         public String getAd_updateOrderInfo(OrderVO vo) {
+            System.out.println("order수정사항"+ vo);
+            
+            orderserivce.updateOrderInfo(vo);
+            
+            return "/adminOrderList.mdo";
+         }
+	
+	
+	
+	
 	// 견적서
 	@RequestMapping(value = "/getEstimateList.mdo", method = RequestMethod.GET)
 	public String getEstimateList(PagingVO pvo, EstimateVO vo, Model model) {
@@ -426,12 +290,18 @@ public class Ad_OrderController {
 	public String getEstimate(EstimateVO vo, Estimate_ImageVO vo1, Model model) {
 		System.out.println("사용자 요청 상세보기 처리");
 		System.out.println(vo);
+		System.out.println("vo1 " +vo1);
 		List<Estimate_T_VO> eto = orderserivce.getEstimateType();
 		System.out.println(eto);
 
-		List<Estimate_ImageVO> eiv = orderserivce.getEstimateImg();
+
+		
+		List<Estimate_ImageVO> eiv = orderserivce.getEstimateImg(vo1);
 
 		EstimateVO evo = orderserivce.getEstimate(vo);
+
+		
+		
 
 		model.addAttribute("estiimg", eiv);
 		model.addAttribute("getEstimate", evo);
@@ -441,13 +311,21 @@ public class Ad_OrderController {
 	}
 
 	@RequestMapping(value = "/insertEstimate.mdo", method = RequestMethod.POST)
-	public String insertEstimate(Ad_EstimateVO vo) {
+	public String insertEstimate(Ad_EstimateVO vo, EstimateVO evo ) {
 		System.out.println("insertEstimate메서드");
 		System.out.println(vo);
 
+		System.out.println(evo);
 		orderserivce.insertEstimate(vo);
 		orderserivce.updateEstimate(vo);
+		
+		MessageVO msg = utilservice.getMessageEstimateType();
 
+		String phone = evo.getCustomer_phone();
+		String message = msg.getMessage_content();
+		
+		coolsms.sendMessage(phone, message);
+		
 		System.out.println("답변등록 처리");
 		return "redirect:getEstimateList.mdo";
 	}
@@ -463,11 +341,4 @@ public class Ad_OrderController {
 		model.addAttribute("getAd_Estimate", avo);
 		return "/admin/estimate_answer.jsp";
 	}
-<<<<<<< HEAD
-
-=======
-	
-
-	
->>>>>>> main
 }

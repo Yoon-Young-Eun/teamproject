@@ -8,5 +8,7 @@ public interface UtilService {
 	public List<MessageVO> getMessageList();
 	public List<MessageVO> getMessageTypeList(MessageVO mvo);
 	
+	public MessageVO getMessageEstimateType();
+	
 
 }

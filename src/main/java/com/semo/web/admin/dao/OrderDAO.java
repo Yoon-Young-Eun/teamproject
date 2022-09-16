@@ -75,11 +75,11 @@ public class OrderDAO {
 		return sqlTemplate.selectList("OrderDAO.getEstimateType");
 	}
 	
-<<<<<<< HEAD
-	public List<Estimate_ImageVO> getEstimateImg() {
-		return sqlTemplate.selectList("OrderDAO.getEstimateImg");
+
+	public List<Estimate_ImageVO> getEstimateImg(Estimate_ImageVO vo1) {
+		return sqlTemplate.selectList("OrderDAO.getEstimateImg",vo1);
 	}
-=======
+	
 	public OrderVO getReadOrderInfo(OrderVO vo) {
 	    return sqlTemplate.selectOne("OrderDAO.getReadOrderInfo", vo);
 	}
@@ -96,5 +96,4 @@ public class OrderDAO {
 		return sqlTemplate.selectList("OrderDAO.getMessageTypeList");
 	}
 	
->>>>>>> main
 }

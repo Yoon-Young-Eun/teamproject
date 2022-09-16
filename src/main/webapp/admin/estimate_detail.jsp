@@ -135,12 +135,7 @@
 								<i class="fas fa-angle-down"></i>
 							</div>
 						</a>
-						<!--                             <div class="collapse" id="change_id_03" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
-						<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
-						<!--                                     <a class="nav-link" href="#">매출현황#1</a> -->
-						<!--                                     <a class="nav-link" href="#">매출현황#2</a> -->
-						<!--                                 </nav> -->
-						<!--                             </div> -->
+	
 
 						<a class="nav-link collapsed" href="/admin/item.jsp"
 							data-bs-toggle="collapse" data-bs-target="#change_id_04"
@@ -152,12 +147,6 @@
 								<i class="fas fa-angle-down"></i>
 							</div>
 						</a>
-						<!--                             <div class="collapse" id="change_id_04" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
-						<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
-						<!--                                     <a class="nav-link" href="#">상품등록#1</a> -->
-						<!--                                     <a class="nav-link" href="#">상품등록#2</a> -->
-						<!--                                 </nav> -->
-						<!--                             </div> -->
 
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 							data-bs-target="#change_id_05" aria-expanded="false"
@@ -169,12 +158,7 @@
 								<i class="fas fa-angle-down"></i>
 							</div>
 						</a>
-						<!--                             <div class="collapse" id="change_id_05" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
-						<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
-						<!--                                     <a class="nav-link" href="#">지점관리</a> -->
-						<!--                                     <a class="nav-link" href="#">외주관리</a> -->
-						<!--                                 </nav> -->
-						<!--                             </div> -->
+		
 
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 							data-bs-target="#change_id_06" aria-expanded="false"
@@ -347,6 +331,10 @@
 								<div class="estimate_request_value" name="customer_name">${getEstimate.customer_name }</div>
 							</div>
 							<div class="estimate_request">
+								<div class="estimate_request_title">연락처</div>
+								<div class="estimate_request_value" name="customer_phone">${getEstimate.customer_phone }</div>
+							</div>
+							<div class="estimate_request">
 								<div class="estimate_request_title">접수일자</div>
 								<div class="estimate_request_value" name="estimate_date">${getEstimate.estimate_date}</div>
 							</div>
@@ -392,7 +380,7 @@
 						</div>
 					</div>
 
-					<form id="insert" action="/insertEstimate.mdo" method="post">
+					<form id="insert" action="/insertEstimate.mdo?customer_phone=${getEstimate.customer_phone }" method="post">
 						<div class="layer" id="layer_reply">
 							<div class="popup_wrapper2">
 

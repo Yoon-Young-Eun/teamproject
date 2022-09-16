@@ -416,10 +416,10 @@
 										<td>${est.customer_address1}${est.customer_address2}</td>
 										<td><c:choose>
 												<c:when test="${est.estimate_status eq '견적대기'}">
-													<a href="/getEstimate.mdo?estimate_cm_no=${est.estimate_cm_no }">${est.estimate_status}</a>
+													<a href="/getEstimate.mdo?estimate_cm_no=${est.estimate_cm_no }&customer_no=${est.customer_no}">${est.estimate_status}</a>
 												</c:when>
 												<c:otherwise>
-													<a href="/getAd_Estimate.mdo?estimate_cm_no=${est.estimate_cm_no }">${est.estimate_status}</a>
+													<a href="/getAd_Estimate.mdo?estimate_cm_no=${est.estimate_cm_no }&customer_no=${est.customer_no}">${est.estimate_status}</a>
 												</c:otherwise>
 											</c:choose></td>
 									</tr>

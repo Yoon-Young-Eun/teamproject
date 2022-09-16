@@ -101,13 +101,9 @@ public class OrderServiceImpl implements OrderService {
 	public List<Estimate_T_VO> getEstimateType() {
 		return orderDao.getEstimateType();
 	}
-<<<<<<< HEAD
 	
-	public List<Estimate_ImageVO> getEstimateImg() {
-		return orderDao.getEstimateImg();
+	public List<Estimate_ImageVO> getEstimateImg(Estimate_ImageVO vo1) {
+		return orderDao.getEstimateImg(vo1);
 	}
-		
-=======
 
->>>>>>> main
 }

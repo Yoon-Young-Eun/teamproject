@@ -29,5 +29,5 @@ public interface OrderService {
 	EstimateVO getEstimate(EstimateVO vo);
 	Ad_EstimateVO getAd_Estimate(Ad_EstimateVO vo);
 	public List<Estimate_T_VO> getEstimateType();
-	public List<Estimate_ImageVO> getEstimateImg();
+	public List<Estimate_ImageVO> getEstimateImg(Estimate_ImageVO vo1);
 }

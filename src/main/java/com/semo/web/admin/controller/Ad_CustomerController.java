@@ -47,14 +47,24 @@ public class Ad_CustomerController {
 	
 	//메시지 보내는 메서드 보낸 후, 회원List 조회 컨트롤러로 이동
 	@RequestMapping(value="/message.mdo")
-	public String sendMassage(String [] tdArr, String message) {
+	public String sendMassage(String [] tdArr, String message, CustomerVO vo, MessageVO mvo) {
 		
-		System.out.println(tdArr);
-		System.out.println(message);
 		
-		 coolsms.sendMessage(tdArr, message); 
+		/*
+		 * String phone = vo.getCustomer_phone(); String mess =
+		 * mvo.getMessage_content();
+		 */
+		
+		String phone = "01031721622";
+		String mess = "문자다";
+		System.out.println(phone);
+		System.out.println(mess);
+		
+		 coolsms.sendMessage(phone, mess); 
 		 return "/member.mdo";
 	}
+	
+
 	
 	//회원 (블랙회원 제외) 조회 리스트
 	@RequestMapping(value="/member.mdo", method = RequestMethod.GET)
@@ -117,9 +127,9 @@ public class Ad_CustomerController {
 	       model.addAttribute("articleList", articleList);
 	       System.out.println("회원 목록 리스트"+articleList);
 	       
-	  
-	       System.out.println("메시지 타입에 넣은 값"+mvo.getMessage_title());
-	       List<MessageVO> messageList = utilservice.getMessageList(mvo);
+	       
+	
+	       List<MessageVO> messageList = utilservice.getMessageList();
 	       System.out.println(messageList);
 	       model.addAttribute("messageList", messageList);
 	       System.out.println("메시지 리스트"+ messageList);
@@ -189,7 +199,7 @@ public class Ad_CustomerController {
 	       System.out.println("블랙 회원 목록 리스트"+blackList);
 	       
 	      
-	       List<MessageVO> messageList = utilservice.getMessageList(mvo);
+	       List<MessageVO> messageList = utilservice.getMessageList();
 	       model.addAttribute("messageList", messageList);
 	       System.out.println("메시지 리스트"+ messageList);
 	       
@@ -203,6 +213,7 @@ public class Ad_CustomerController {
 	   	System.out.println("getRead() 메서드 실행");
 	    System.out.println(vo);
 	    CustomerVO user = memberService.getRead(vo);
+
 	    model.addAttribute("user", user);
 
 	    	  return "admin/member_detail.jsp";

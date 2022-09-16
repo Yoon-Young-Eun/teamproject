@@ -33,8 +33,7 @@
 		resultType="orderManagement">
 
 		<if test="customer_no != 0">
-        	     <![CDATA[ select * from (select @rownum := @rownum+1 as rnum, order_mt_no, customer_id, customer_no ,customer_name, product_code, order_mt_category1, order_mt_category2, order_mt_product, order_mt_count, order_mt_price, order_mt_date, order_no from order_management, (select @rownum :=0) as rowcolum where]]>
-			
+        	    <![CDATA[ select * from (select @rownum := @rownum+1 as rnum, order_mt_no, customer_id, customer_no ,customer_name, product_code, order_mt_category1, order_mt_category2, order_mt_product, order_mt_count, order_mt_price, order_mt_date, order_no from order_management, (select @rownum :=0) as rowcolum where]]>
 				<if test="searchCondition=='order_no'">
     			<![CDATA[order_no like concat(#{searchKeyword}) and]]></if>
 				<if test="searchCondition=='customer_no'">	
@@ -67,32 +66,54 @@
 	</if>
 	<if test="customer_no == 0">
         	  <![CDATA[ select count(*) from order_cm ]]>
+        	  	<trim prefix="where" prefixOverrides="and | or">
+				<if test="startDate != null and endDate != null and startDate != '' and endDate != ''">
+    			<![CDATA[order_date >= #{startDate} and order_date < #{endDate} ]]></if>
 				<if test="searchCondition=='order_no'">
-    			<![CDATA[where order_no like concat(#{searchKeyword}) ]]></if>
+    			<![CDATA[and order_no like concat(#{searchKeyword}) ]]></if>
     			<if test="searchCondition=='order_status'">
-    			<![CDATA[where order_status like concat('%', #{searchKeyword}, '%') ]]></if>
+    			<![CDATA[and order_status like concat('%', #{searchKeyword}, '%') ]]></if>
 				<if test="searchCondition=='order_price_status'">	
-    			<![CDATA[where order_price_status like concat('%', #{searchKeyword}, '%') ]]></if>
+    			<![CDATA[and order_price_status like concat('%', #{searchKeyword}, '%') ]]></if>
+    			</trim>
 	</if>
 	</select>
 
    <!-- 주문 이력 조회 (검색 및 페이징 기능 포함) -->
    	<select id="getAdminOrderList" parameterType="paging" resultType="ORDER">
        	    <![CDATA[ select * from (select @rownum := @rownum+1 as rnum, order_no, order_type, store_code, order_date, order_pickup_date, order_pickup_time, cm_gate_passwd, order_request1, order_request2, order_price, order_use_coupon_price, order_status, order_price_status, order_price_method, customer_no, order_customer_name, order_store_name, order_expected_date, order_customer_phone, order_address1, order_address2, order_delivery_price from order_cm, (select @rownum :=0) as rowcolum]]>
-			<trim prefix="where" >
+			<trim prefix="where" prefixOverrides="and | or">
+				<if test="startDate != null and endDate != null and startDate != '' and endDate != ''">
+    			<![CDATA[order_date >= #{startDate} and order_date < #{endDate} ]]></if>
 				<if test="searchCondition=='order_no'">
-    			<![CDATA[order_no like concat('%', #{searchKeyword}, '%') ]]></if>
+    			<![CDATA[and order_no like concat('%', #{searchKeyword}, '%') ]]></if>
     			<if test="searchCondition=='order_status'">
-    			<![CDATA[order_status like concat('%', #{searchKeyword}, '%') ]]></if>
+    			<![CDATA[and order_status like concat('%', #{searchKeyword}, '%') ]]></if>
 				<if test="searchCondition=='order_price_status'">	
-    			<![CDATA[order_price_status like concat('%', #{searchKeyword}, '%') ]]></if>
+    			<![CDATA[and order_price_status like concat('%', #{searchKeyword}, '%') ]]></if>
 			</trim>
    			<![CDATA[order by order_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]>
 	</select>
    
+   
+    <!-- 주문 상세보기 -->
+   	<select id="getReadOrderInfo" parameterType="order" resultType="order">
+	select * from order_cm where order_no =#{order_no}
+	</select>
+	
+	<!-- 주문 상세보기 안의 storeList 정보 제공-->
+	<select id="getStoreList" resultType="store">
+	select * from store;
+	</select>
+
+	<!-- 주문 상세보기 수정 -->
+	<update id="updateOrderInfo" parameterType="order">
+	<![CDATA[[update order_cm set order_store_name =#{order_store_name}, order_status=#{order_status} where order_no =#{order_no}]]>
+	</update>
+   
   
   
- <!--  견적서 -->
+    <!-- 견적서 -->
  	<select id="getEstimateList" parameterType="estimate" resultType="estimate">
  		<![CDATA[ select * from estimate_cm ]]>
  	</select>
@@ -118,4 +139,7 @@
 	<select id="getEstimateType" resultType="estimatetype">
 		<![CDATA[ select * from estimate_type ]]>
 	</select>
+	
+
+	
 </mapper>

@@ -15,7 +15,13 @@ public class UtilServiceImpl implements UtilService {
 	UtilDAO utildao;
 	
 	@Override
-	public List<MessageVO> getMessageList(MessageVO mvo) {
-		return utildao.getMessageList(mvo);
+	public List<MessageVO> getMessageList() {
+		return utildao.getMessageList();
+	}
+	
+	
+	@Override
+	public List<MessageVO> getMessageTypeList(MessageVO mvo) {
+		return utildao.getMessageTypeList(mvo);
 	}
 }

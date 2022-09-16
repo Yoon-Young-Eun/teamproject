@@ -369,7 +369,7 @@
 							<div>
 								<form action="staffList.mdo" method="get">
 									<div class="icon_flex">
-										<td><select name="searchCondition">
+										<select name="searchCondition">
 												<c:forEach items="${conditionMap}" var="option">
 													<div>
 														<option value="${option.value}">${option.key}</option>
@@ -379,12 +379,13 @@
 											<div>
 												<input type="submit" value="검색" />
 											</div>
-											<div></div> <input type="reset"  value="초기화" />
+											<div><input type="reset"  value="초기화" /></div>
 									</div>
+							
 								</form>
 							</div>
 							</div>
-							
+						
 						</div>
 					
 
@@ -421,7 +422,7 @@
 						</div>
 						<div class="flex">
 							<div>
-								<input id="button" type="button" value="등록" onclick="showPopup();"/>
+								<input id="button" type="button" value="등록" onclick="location.href='/admin/member_staff_insert.jsp';"/>
 							</div>
 							<div>
 								<input id="delBtn" type="button" value="삭제" />

@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 import com.semo.web.admin.dao.OrderDAO;
 import com.semo.web.admin.vo.Ad_EstimateVO;
 import com.semo.web.admin.vo.Estimate_T_VO;
+import com.semo.web.admin.vo.MessageVO;
 import com.semo.web.admin.vo.PagingVO;
+import com.semo.web.admin.vo.StoreVO;
 import com.semo.web.user.vo.EstimateVO;
 import com.semo.web.user.vo.OrderMtVO;
 import com.semo.web.user.vo.OrderVO;
@@ -42,6 +44,25 @@ public class OrderServiceImpl implements OrderService {
 		return orderDao.getMemberArticleCount(pvo);
 	}
 
+
+	@Override
+	public OrderVO getReadOrderInfo(OrderVO vo) {
+		return orderDao.getReadOrderInfo(vo);
+	}
+
+	@Override
+	public List<StoreVO> getStoreList() {
+		return orderDao.getStoreList();
+	}
+
+	@Override
+	public void updateOrderInfo(OrderVO vo) {
+		orderDao.updateOrderInfo(vo);
+	}
+
+
+	
+	
 	
 	
 //	견적서
@@ -74,5 +95,5 @@ public class OrderServiceImpl implements OrderService {
 	public List<Estimate_T_VO> getEstimateType() {
 		return orderDao.getEstimateType();
 	}
-		
+
 }

@@ -18,6 +18,7 @@ import com.semo.web.admin.vo.Ad_EstimateVO;
 import com.semo.web.admin.vo.Estimate_T_VO;
 import com.semo.web.admin.vo.MessageVO;
 import com.semo.web.admin.vo.PagingVO;
+import com.semo.web.admin.vo.StoreVO;
 import com.semo.web.user.vo.CustomerVO;
 import com.semo.web.user.vo.EstimateVO;
 import com.semo.web.user.vo.OrderMtVO;
@@ -36,16 +37,16 @@ public class Ad_OrderController {
 	@Autowired
 	CoolSms coolsms;
 
-	//메시지 보내는 메서드 보낸 후, 회원List 조회 컨트롤러로 이동
-		@RequestMapping(value="/orderMessage.mdo")
-		public String sendMassage(String [] tdArr, String message) {
-			
-			System.out.println(tdArr);
-			System.out.println(message);
-			
-			 coolsms.sendMessage(tdArr, message); 
-			 return "/adminOrderList.mdo";
-		}
+	/*
+	 * //메시지 보내는 메서드 보낸 후, 회원List 조회 컨트롤러로 이동
+	 * 
+	 * @RequestMapping(value="/orderMessage.mdo") public String sendMassage(String
+	 * [] tdArr, String message) {
+	 * 
+	 * System.out.println(tdArr); System.out.println(message);
+	 * 
+	 * coolsms.sendMessage(phone, message); return "/adminOrderList.mdo"; }
+	 */
 		
 		// 주문이력
 		@RequestMapping("/adminOrderList.mdo")
@@ -107,8 +108,8 @@ public class Ad_OrderController {
 		       model.addAttribute("adminOrderList", adminOrderList);
 		       System.out.println("회원 주문이력"+adminOrderList);
 		       
-		       
-		       List<MessageVO> messageList = utilservice.getMessageList(mvo);
+		      
+		       List<MessageVO> messageList = utilservice.getMessageList();
 		       System.out.println(messageList);
 		       model.addAttribute("messageList", messageList);
 		       System.out.println("메시지 리스트"+ messageList);
@@ -184,15 +185,42 @@ public class Ad_OrderController {
 			       model.addAttribute("userOrderList", userOrderList);
 			       System.out.println("회원 주문이력"+userOrderList);
 			       
-			       List<MessageVO> messageList = utilservice.getMessageList(mvo);
+			   
+			       List<MessageVO> messageList = utilservice.getMessageList();
 			       System.out.println(messageList);
 			       model.addAttribute("messageList", messageList);
 			       System.out.println("메시지 리스트"+ messageList);
 			       
 				return "admin/memberorderList.jsp";
+			}		   
+		   
+		   
+			@RequestMapping("/Ad_getReadOrderInfo.mdo")
+			public String getAd_ReadOrderInfo(OrderVO vo, Model model, MessageVO mvo) {
+				System.out.println(vo);
 				
+				OrderVO order = orderserivce.getReadOrderInfo(vo);
+				List<StoreVO> storeList = orderserivce.getStoreList();
 				
-			}	
+				mvo.setMessage_type("주문");
+				System.out.println("입력한 문자 타입"+mvo.getMessage_type());
+				List<MessageVO> messageTypeList = utilservice.getMessageTypeList(mvo);
+				System.out.println("출력된 문자 타입List"+messageTypeList);
+				
+				model.addAttribute("message", messageTypeList);
+				model.addAttribute("order", order);
+				model.addAttribute("storeList", storeList);
+				return "/admin/member_order.jsp";
+			}		
+			
+			@RequestMapping("/Ad_updateOrderInfo.mdo")
+			public String getAd_updateOrderInfo(OrderVO vo) {
+				System.out.println("order수정사항"+ vo);
+				
+				orderserivce.updateOrderInfo(vo);
+				
+				return "/adminOrderList.mdo";
+			}
 
 
 
@@ -241,5 +269,7 @@ public class Ad_OrderController {
 		model.addAttribute("getAd_Estimate", avo);
 		return "/admin/estimate_answer.jsp";
 	}
+	
+
 	
 }

@@ -10,16 +10,23 @@ import net.nurigo.java_sdk.exceptions.CoolsmsException;
 
 
 @Component
-public class CoolSms {
+public class CoolSmsAll {
 	
-	public void sendMessage(String phone, String message) {
+	public void sendMessage(String [] tdArr, String message) {
+		
 
+	System.out.println(tdArr);
+    System.out.println("message :"+ message);
+	if( tdArr != null && message != null ) {
+		String [] sns = tdArr; 
 		  String api_key = "NCSK8KGKIZD54AMU";   //coolsns 가입후 받는 키
 		  String api_secret = "Z3E8MTR7D5HA5BFTR0FDJXETBQS6AIVU"; // //coolsns 가입후 받는 키  
 		  Message coolsms = new Message(api_key, api_secret);
+		  	
 		    HashMap<String, String> params = new HashMap<String, String>();
-		    params.put("to", phone);	 // 문자를 보낼 전화번호를 배열로 받음
-
+		    for(int i = 0;i<tdArr.length; i++) {
+		    params.put("to", tdArr[i]);	 // 문자를 보낼 전화번호를 배열로 받음
+		    }
 		    params.put("from", "01031721622");	
 		    params.put("type", "SMS");
 		    params.put("text", message);
@@ -33,7 +40,8 @@ public class CoolSms {
 		    } catch (CoolsmsException e) {
 		      System.out.println(e.getMessage());
 		      System.out.println(e.getCode());
-		    }	
+		    }		
+		} 
 	}
 	
 }

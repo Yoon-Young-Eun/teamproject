@@ -4,7 +4,9 @@ import java.util.List;
 
 import com.semo.web.admin.vo.Ad_EstimateVO;
 import com.semo.web.admin.vo.Estimate_T_VO;
+import com.semo.web.admin.vo.MessageVO;
 import com.semo.web.admin.vo.PagingVO;
+import com.semo.web.admin.vo.StoreVO;
 import com.semo.web.user.vo.EstimateVO;
 import com.semo.web.user.vo.OrderMtVO;
 import com.semo.web.user.vo.OrderVO;
@@ -14,7 +16,10 @@ public interface OrderService {
 	public int getArticleCount(PagingVO pvo);
 	public List<OrderVO> getAdminOrderList(PagingVO pvo);
 	public int getMemberArticleCount(PagingVO pvo);
-	
+	public OrderVO getReadOrderInfo(OrderVO vo);
+	public List<StoreVO> getStoreList();
+	public void updateOrderInfo(OrderVO vo);
+
 //	견적서
 	public List<EstimateVO> getEstimateList(EstimateVO vo);
 	public void insertEstimate(Ad_EstimateVO vo);

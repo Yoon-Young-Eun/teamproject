@@ -354,16 +354,15 @@
 
 									<li><span class="title">약관이름</span> <input class="title_wrap_input"  type="text" name="terms_title" placeholder="게시글 제목을 입력하세요"/>
 									</li>
-									
-									<div class="require">
-									<li><span class="title">약관타입</span>
+
+									<li><span class="title">약관분류</span>
 										<div class="clause_select">
 											<select name="terms_type" >
-												<option value="TRUE">회원가입</option>
-												<option value="FALSE">결제</option>
+												<option value="회원가입">회원가입</option>
+												<option value="결제">결제</option>
 											</select>
 										</div></li>
-									</div>
+				
 									
 									<div class="require">
 									<li><span class="title">필수여부</span>
@@ -379,7 +378,7 @@
 									<textarea class="writeArea" name="terms_content"></textarea>
 								</div>
 								<div class="end">
-									<input type="submit" value="저장">&nbsp;&nbsp;<a href="#">취소</a>
+									<input type="submit" value="저장">&nbsp;&nbsp;<a href="/TermsList.mdo">목록</a>
 								</div>
 							</form>
 							</div>

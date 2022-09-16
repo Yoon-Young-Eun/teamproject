@@ -224,9 +224,6 @@
 
 
 
-
-
-
 						<div class="sb-sidenav-menu-heading">Interface</div>
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 							data-bs-target="#collapseLayouts" aria-expanded="false"
@@ -363,14 +360,15 @@
 									<li><span class="title">약관번호</span>
 									${TermsInfo.terms_no} 
 									</li>
+									<li><span class="title">약관분류</span>
+									${TermsInfo.terms_type} 
+									</li>
 									<li><span class="title">약관이름</span>
 									${TermsInfo.terms_title} 
 									</li>
-									<div class="require">
 									<li><span class="title">필수여부</span>
 										${TermsResult} 
 										</li>
-									</div>
 									<li><span class="title">등록일</span>
 									${TermsInfo.terms_reg_date}
 									</li>

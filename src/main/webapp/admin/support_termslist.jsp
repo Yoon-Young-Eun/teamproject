@@ -11,7 +11,25 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>Dashboard - SEMO Admin</title>
-
+<style>
+.table .ellipsis {
+position: relative;
+min-width: 200px;
+width: 850px;
+}
+.table .ellipsis span {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	position: absolute;
+	left: 9px;
+	right: 9px;
+}
+.ellipsis:before {
+content: '';
+display: inline-block;
+}
+</style>
 <!-- icon 버튼 css -->
 <link href="/admin/css/icon.css" rel="stylesheet"/>
 
@@ -331,7 +349,7 @@
 										<td>${terms.terms_no}</td>
 										<!--for문의 id값.컬럼명으로 값을 불러옴 -->
 										<td><a href="readTerms.mdo?terms_no=${terms.terms_no}">${terms.terms_title}</a></td>
-										<td>${terms.terms_content}</td>
+										<td class="ellipsis"><span>${terms.terms_content}</span></td>
 										<td>
 										<c:choose> 
 											<c:when test="${terms.terms_necessary == true}">

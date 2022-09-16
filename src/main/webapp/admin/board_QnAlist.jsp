@@ -351,10 +351,11 @@
 								onclick="exportToExcel('tblexportData', 'user-data')">Excel</button>
 							<!-- excel -->
 						</div>
+						
 
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
 						<table id=""
-							class="emp-table dataPerPage tblCustomers tblexportData table"
+							class=" tblCustomers tblexportData table"
 							border="5">
 							<thead>
 								<tr>
@@ -474,7 +475,6 @@
 <!-- 							</div> -->
 
 <!-- 						</div> -->
-
 
 
 						<!-- 내용물 end -->

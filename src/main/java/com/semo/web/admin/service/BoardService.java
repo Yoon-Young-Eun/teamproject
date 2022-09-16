@@ -34,15 +34,17 @@ public interface BoardService {
 	public void deleteReviewBoard(int no);
 	public void deleteReviewBoard(ReviewVO vo);
 	public ReviewVO getReadReviewBoard(ReviewVO vo);
-	public List<ReviewVO> getReviewBoardList(ReviewVO vo);	
+	public List<ReviewVO> getReviewBoardList(PagingVO pvo);	
+	public int getReviewArticleCount(PagingVO pvo);
 
 // FAQ
 	public void insertFAQ(FAQVO vo);
-	public List<FAQVO> getFAQList();
+	public List<FAQVO> getFAQList(PagingVO pvo);
 	public FAQVO getReadFAQ(FAQVO vo);
 	public void updateFAQ(FAQVO vo);
 	public void deleteFAQ(int no);
 	public void deleteFAQ(FAQVO vo);
+	public int getArticleCount(PagingVO pvo);
 
 // QnA
 	public void insertQnA_ad(Ad_QnAVO vo);

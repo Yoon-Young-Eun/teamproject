@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.semo.web.admin.vo.BannerVO;
 import com.semo.web.admin.vo.CouponVO;
 import com.semo.web.admin.vo.NoticeVO;
+import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.TermsVO;
 
 @Repository
@@ -22,9 +23,13 @@ public class SiteDAO {
 		sql.insert("SiteDAO.insertCoupon", vo);
 	}
 	
-	public List<CouponVO> getCouponList(){
+	public List<CouponVO> getCouponList(PagingVO pvo){
 		System.out.println("DAO.getCouponList 실행");
-		return sql.selectList("SiteDAO.getCouponList");
+		return sql.selectList("SiteDAO.getCouponList", pvo);
+	}
+	
+	public int getCouponArticleCount(PagingVO pvo) {
+		return sql.selectOne("SiteDAO.getCouponArticleCount", pvo);
 	}
 	
 	public CouponVO getReadCoupon(CouponVO vo) {

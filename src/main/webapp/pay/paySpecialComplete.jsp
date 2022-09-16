@@ -46,8 +46,8 @@
     
     <div class="main_text8">
       <input type="button" value="주문확인" id="button1" class="action-button shadow animate blue">
-      <input type="button" value="메인으로" id="button2" onclick="location.href='main.html'" class="action-button shadow animate blue">
-      <input type="button" value="추가세탁" id="button3" onclick="location.href='/pay/pay1.jsp'" class="action-button shadow animate blue">
+      <input type="button" value="메인으로" id="button2" onclick="location.href='/views/main.jsp'" class="action-button shadow animate blue">
+      <input type="button" value="추가세탁" id="button3" onclick="location.href='/pay/payUseText.jsp'" class="action-button shadow animate blue">
     </div>
   </div>
   

@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 import com.semo.web.admin.vo.ProductVO;
 import com.semo.web.admin.vo.TermsVO;
 import com.semo.web.user.vo.CouponListVO;
+import com.semo.web.user.vo.EstimateVO;
+import com.semo.web.user.vo.Estimate_ImageVO;
 import com.semo.web.user.vo.OrderMtVO;
 import com.semo.web.user.vo.OrderVO;
 
@@ -55,6 +57,15 @@ public class OrderDAO {
 	}
 	public int OrderSelect(OrderVO vo) {
 		return sqlSessiontemplate.selectOne("OrderDAOuser.OrderSelect",vo);
+	}
+	public void Orderspecial(EstimateVO vo) {
+		sqlSessiontemplate.insert("OrderDAOuser.Orderspecial",vo);
+	}
+	public void insertImage(Estimate_ImageVO vo3) {
+		sqlSessiontemplate.insert("OrderDAOuser.insertImage",vo3);
+	}
+	public int selectImage(EstimateVO vo) {
+		return sqlSessiontemplate.selectOne("OrderDAOuser.selectImage",vo);
 	}
 	
 }

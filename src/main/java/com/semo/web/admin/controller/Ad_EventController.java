@@ -22,7 +22,6 @@ public class Ad_EventController {
 
 	@Autowired
 	private BoardService boardservice;
-	public AwsS3 awss3 = AwsS3.getInstance();
 
 	@RequestMapping(value="/getEventList.mdo", method = RequestMethod.GET)
 	public String getEventList(EventVO vo, Model model) {
@@ -53,6 +52,7 @@ public class Ad_EventController {
 	@RequestMapping("/EventUpload.mdo")
 	public String EventUpload(EventVO vo, MultipartFile EventFile) throws IOException, SQLException {
 		// aws s3 파일 업로드 처리 */
+		AwsS3 awss3 = AwsS3.getInstance(); 
 		InputStream is = EventFile.getInputStream();
 		String key = EventFile.getOriginalFilename();
 		String contentType = EventFile.getContentType();
@@ -71,6 +71,7 @@ public class Ad_EventController {
 
 	@RequestMapping(value="/updateEvent.mdo")
 	public String updateEvent(EventVO vo, MultipartFile uploadImg) throws SQLException, IOException{
+		AwsS3 awss3 = AwsS3.getInstance();
 		System.out.print(vo);
 		System.out.println(uploadImg);
 		System.out.println("글 수정 기능 처리");
@@ -119,6 +120,7 @@ public class Ad_EventController {
 
 	@RequestMapping("/deleteEvent2.mdo")
 	public String deleteEvent2(String[] tdArr, EventVO vo) throws IOException, SQLException{
+		AwsS3 awss3 = AwsS3.getInstance();
 		System.out.println(tdArr[0]);
 		System.out.println("글 삭제 처리");
 
@@ -143,7 +145,7 @@ public class Ad_EventController {
 
 	@RequestMapping("/deleteEvent.mdo") 
 	public String deleteEvent(EventVO vo) throws IOException, SQLException{
-
+		AwsS3 awss3 = AwsS3.getInstance();
 		EventVO bringData = boardservice.getEvent(vo);
 
 		int index = bringData.getBoard_event_filepath().indexOf("/", 20);

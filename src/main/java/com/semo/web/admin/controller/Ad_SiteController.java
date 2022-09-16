@@ -31,7 +31,6 @@ public class Ad_SiteController {
 	
 	@Autowired
 	private SiteService SiteService;
-	public AwsS3 awss3 = AwsS3.getInstance();
 	
 	// 쿠폰 등록
 	@RequestMapping(value="/insertCoupon.mdo", method=RequestMethod.GET)
@@ -194,6 +193,7 @@ public class Ad_SiteController {
 	@RequestMapping("/bannerUpload.mdo")
 	public String bannerUpload(BannerVO vo, MultipartFile banner) throws IOException, SQLException {
 		// aws s3 파일 업로드 처리 */
+		AwsS3 awss3 = AwsS3.getInstance();
 		InputStream is = banner.getInputStream();
 		System.out.println(is);
 		String key = banner.getOriginalFilename();
@@ -262,6 +262,7 @@ public class Ad_SiteController {
 	// 배너 수정
 	@RequestMapping(value="/updateBanner.mdo")
 	public String updateBanner(BannerVO vo, MultipartFile uploadImg) throws SQLException, IOException {
+		AwsS3 awss3 = AwsS3.getInstance();
 		System.out.println(vo);
 		System.out.println(uploadImg);
 		BannerVO bringData = SiteService.getReadBanner(vo);
@@ -297,22 +298,12 @@ public class Ad_SiteController {
 		
 		return "redirect:/BannerList.mdo";
 	}
-	
-//	// 배너 삭제
-//	@RequestMapping(value="/deleteBanner.mdo", method=RequestMethod.GET)
-//	public String deleteDelete(BannerVO vo, Model model) {
-//		System.out.println(vo);
-//		System.out.println("deleteBanner 메서드 실행");
-//		SiteService.deleteBanner(vo);
-//		System.out.println("완료!");
-//		return "/BannerList.mdo";
-//	}
-	
-	// --------------------------------------------------------------------------------------------//	
+
 	// 배너 삭제
 	@RequestMapping("/deleteBanner.mdo")
 	public String deleteDelete(BannerVO vo) throws IOException, SQLException{
 		
+		AwsS3 awss3 = AwsS3.getInstance();
 		BannerVO bringData = SiteService.getReadBanner(vo);
 		
 		int index = bringData.getBanner_filepath().indexOf("/", 20);
@@ -327,7 +318,10 @@ public class Ad_SiteController {
 	
 	// 배너 삭제 (체크박스)
 	@RequestMapping("/deleteBannerCheck.mdo")
-	public String deleteBannerCheck(String[] tdArr, BannerVO vo) {
+	public String deleteBannerCheck(String[] tdArr, BannerVO vo) throws IOException {
+		
+		AwsS3 awss3 = AwsS3.getInstance();
+		
 		System.out.println(tdArr[0]);
 		System.out.println("글 삭제 처리");
 

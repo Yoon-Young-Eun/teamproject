@@ -30,7 +30,6 @@ public class Ad_BoardController {
 
    @Autowired
    private BoardService boardservice;
-   public AwsS3 awss3 = AwsS3.getInstance();
 
    @RequestMapping(value="/getBoardList.mdo", method = RequestMethod.GET)
    public String getBoardList(PagingVO pvo, NoticeVO vo, Model model) {
@@ -110,6 +109,7 @@ public class Ad_BoardController {
    @RequestMapping("/BoardUpload.mdo")
    public String BoardUpload(NoticeVO vo, MultipartFile NoticeFile) throws IOException, SQLException {
       // aws s3 파일 업로드 처리 */
+	  AwsS3 awss3 = AwsS3.getInstance();
       InputStream is = NoticeFile.getInputStream();
       String key = NoticeFile.getOriginalFilename();
       String contentType = NoticeFile.getContentType();
@@ -128,6 +128,8 @@ public class Ad_BoardController {
 
    @RequestMapping(value="/updateBoard.mdo")
    public String updateBoard(NoticeVO vo, MultipartFile uploadImg) throws SQLException, IOException{
+	  AwsS3 awss3 = AwsS3.getInstance();
+	  
       System.out.print(vo);
       System.out.println(uploadImg);
       System.out.println("글 수정 기능 처리");
@@ -177,7 +179,9 @@ public class Ad_BoardController {
    }
 
    @RequestMapping("/deleteBoard2.mdo")
-   public String deleteBoard2(String[] tdArr, NoticeVO vo) {
+   public String deleteBoard2(String[] tdArr, NoticeVO vo) throws IOException {
+	  AwsS3 awss3 = AwsS3.getInstance();
+	  
       System.out.println(tdArr[0]);
       System.out.println("글 삭제 처리");
 
@@ -204,7 +208,8 @@ public class Ad_BoardController {
    // 삭제
    @RequestMapping("/deleteBoard.mdo")
    public String deleteBoard(NoticeVO vo) throws IOException, SQLException{
-
+	  AwsS3 awss3 = AwsS3.getInstance();
+	  
       NoticeVO bringData = boardservice.getBoard(vo);
 
       int index = bringData.getNotice_filepath().indexOf("/", 20);

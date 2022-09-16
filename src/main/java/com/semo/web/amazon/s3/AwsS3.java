@@ -1,7 +1,12 @@
 package com.semo.web.amazon.s3;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.Reader;
+import java.util.Properties;
+
+import org.apache.ibatis.io.Resources;
 
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
@@ -18,19 +23,27 @@ import com.amazonaws.services.s3.model.PutObjectRequest;
 
 public class AwsS3 {
 	private AmazonS3 s3Client;
-	   final private String accessKey = "AKIAXBYFWCPEGJAFOWMP";
-	   final private String secretKey = "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";
+	   private String accessKey = "";
+	   private String secretKey = "";
 	   private Regions clientRegion = Regions.AP_NORTHEAST_2;
 	   private String bucket = "semoproject";
 
-	   private AwsS3() {
+	   private AwsS3() throws IOException {
+		   String resource = "config/AWS.properties";
+		    Properties properties = new Properties();    
+		    Reader reader = Resources.getResourceAsReader(resource);
+		    properties.load(reader);
+		    accessKey = properties.getProperty("accessKey");
+		    secretKey = properties.getProperty("secretKey");
+		    bucket = properties.getProperty("bucket");
 			createS3Client();
+			
 		}
 
 		// singleton pattern
 		static private AwsS3 instance = null;
 
-		public static AwsS3 getInstance() {
+		public static AwsS3 getInstance() throws IOException {
 			if (instance == null) {
 				return new AwsS3();
 			} else {

@@ -348,6 +348,12 @@
 							<div>
 								<form action="adminOrderList.mdo" method="get">
 									<div class="icon_flex">
+										<div>
+											날짜 선택 : <input type="date" name="startDate" />
+										</div>
+										<div>
+											<input type="date" name="endDate" />
+										</div>
 										<div><select name="searchCondition">
 												<c:forEach items="${conditionMap}" var="option">
 													<div>
@@ -395,8 +401,8 @@
 								<c:forEach var="order" items="${adminOrderList}">
 									<tr>
 										<td id="check_td"><input type="checkbox" name="check"></td>
-										<td>${order.order_no}</td>
-										<td><a href="/getMemberBoard.mdo?customer_no=${order.order_no}">${order.order_customer_name}</a></td>
+										<td><a href="/Ad_getReadOrderInfo.mdo?order_no=${order.order_no}">${order.order_no}</td>
+										<td>${order.order_customer_name}</a></td>
 										<td>${order.order_customer_phone}</td>
 										<td>${order.order_address1} ${order.order_address2}</td>
 										<td>${order.order_date}</td>

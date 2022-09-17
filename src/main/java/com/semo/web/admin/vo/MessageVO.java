@@ -6,6 +6,10 @@ public class MessageVO {
 	 private String message_type;
 	 private String message_title;
 	 private String message_content;
+<<<<<<< HEAD
+=======
+	 
+>>>>>>> main
 	public int getMessage_no() {
 		return message_no;
 	}
@@ -34,10 +38,14 @@ public class MessageVO {
 	public String toString() {
 		return "MessageVO [message_no=" + message_no + ", message_type=" + message_type + ", message_title="
 				+ message_title + ", message_content=" + message_content + "]";
+<<<<<<< HEAD
 	}
 	             
 	 
 	
 	 
 	 
+=======
+	} 
+>>>>>>> main
 }

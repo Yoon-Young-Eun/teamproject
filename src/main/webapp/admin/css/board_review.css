@@ -85,6 +85,13 @@
 	align-items: center;
 }
 
+.submit_btn {
+	border:0px;
+	background: #dee2e6;
+	padding: -1px;
+	font-weight: bold;
+}
+
 .end a {
 	color : #212529;
 	font-size: 16px;

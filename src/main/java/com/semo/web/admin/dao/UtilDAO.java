@@ -15,9 +15,20 @@ public class UtilDAO {
 	SqlSessionTemplate sqlTemplate;
 	
 	//메세지 데이터베이스에 저장해놓은 문자데이터 가져오기
-	public List<MessageVO> getMessageList(MessageVO vo){
+	public List<MessageVO> getMessageList(){
 		System.out.println("DAO.getMessageList()실행");
-	return sqlTemplate.selectList("UtilDAO.getMessageList", vo);
+	return sqlTemplate.selectList("UtilDAO.getMessageList");
 	}
+	
+	public List<MessageVO> getMessageTypeList(MessageVO mvo){
+		return sqlTemplate.selectList("UtilDAO.getMessageTypeList");
+	}
+
+	public MessageVO getMessageEstimateType() {
+		System.out.println("DAO.getMessageEstimateType()실행");
+		return sqlTemplate.selectOne("UtilDAO.getMessageEstimateType");
+	}
+		
+	
 	
 }

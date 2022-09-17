@@ -5,15 +5,11 @@
 }
 .popup_wrapper2 {
 	width: 500px;
-	height: 800px;
+	height: 750px;
 	border-top : 12px solid #eeeeee;
 	border-right : 12px solid #eeeeee;
 	border-bottom : 12px solid #eeeeee;
 	padding: 16px;
-}
-
-.estimate_reply_conwrap{
-	
 }
 
 .estimate_reply {
@@ -45,10 +41,6 @@
 .estimate_reply_body > select {
 	width: 240px;
 	height: 30px;
-}
-
-.estimate_reply_content_body {
-	
 }
 
 /* 버튼 */

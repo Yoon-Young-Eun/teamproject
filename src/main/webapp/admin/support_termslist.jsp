@@ -12,6 +12,27 @@
 <meta name="author" content="" />
 <title>Dashboard - SEMO Admin</title>
 
+<style>
+.table .ellipsis {
+position: relative;
+min-width: 200px;
+width: 850px;
+}
+.table .ellipsis span {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	position: absolute;
+	left: 9px;
+	right: 9px;
+
+}
+.ellipsis:before {
+content: '';
+display: inline-block;
+}
+</style>
+
 <!-- icon 버튼 css -->
 <link href="/admin/css/icon.css" rel="stylesheet"/>
 
@@ -183,7 +204,7 @@
 
                                     <a class="nav-link" href="promo.jsp">쿠폰관리</a>
                                     <a class="nav-link" href="supporbanner.jsp">배너관리</a>
-                                    <a class="nav-link" href="supporclause.jsp">약관관리</a>
+                                    <a class="nav-link" href="/TermsList.mdo">약관관리</a>
 
                                 </nav>
                             </div>
@@ -307,19 +328,17 @@
 	 
 	  
 	  <!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->  
-    <table id="datatablesSimple" class="emp-table dataPerPage tblCustomers tblexportData table" border="5">
+    <table id="" class="tblCustomers tblexportData table" border="5">
         <thead>
 								<tr>
 									<th width="50" id="check_td"><input type="checkbox"
 										name="check" class="allcheck"></th>
-									<th col-index=2>약관번호</th>
-									<th col-index=3>약관이름</th>
-									<th col-index=4>약관내용</th>
-									<th col-index=5>필수여부<select class="table-filter"
-										onchange="filter_rows()">
-											<option value="all"></option>
-									</select></th>
-									<th col-index=6>등록일</th>
+									<th>약관번호</th>
+									<th>약관분류</th>
+									<th>약관이름</th>
+									<th>약관내용</th>
+									<th>필수여부</th>
+									<th>등록일</th>
 								</tr>
 							</thead>  
 							<tbody>
@@ -330,8 +349,10 @@
 										<td id="check_td"><input type="checkbox" name="check"></td>
 										<td>${terms.terms_no}</td>
 										<!--for문의 id값.컬럼명으로 값을 불러옴 -->
+										<td>${terms.terms_type}</td>
 										<td><a href="readTerms.mdo?terms_no=${terms.terms_no}">${terms.terms_title}</a></td>
-										<td>${terms.terms_content}</td>
+										<td  class="ellipsis"><span>${terms.terms_content}</span></td>
+
 										<td>
 										<c:choose> 
 											<c:when test="${terms.terms_necessary == true}">
@@ -350,7 +371,6 @@
 						</table>
 <div class="flex">
 						<div> <input id="button" type="button" value="등록" onclick="window.location='/admin/support_terms_insert.jsp'"/> </div>
-<!-- 						<div> <input  id="button" type="button"  value="수정" /> </div> -->
 						<div> <input id="delBtn" type="button" value="삭제" /> </div>
 						
 						</div>

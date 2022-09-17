@@ -320,13 +320,13 @@
 			<main>
 
 				<div class="container-fluid px-4">
-					<h1 class="mt-4">상품 조회</h1>
+					<h1 class="mt-4">일반회원정보</h1>
 					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
-						<li class="breadcrumb-item active">상품 조회</li>
+						<li class="breadcrumb-item"><a href="/admin/index.jsp">Dashboard</a></li>
+						<li class="breadcrumb-item active">회원상세정보</li>
 					</ol>
 					<div class="card mb-4">
-						<div class="card-body">상품을 조회합니다.</div>
+						<div class="card-body">회원의 상세 정보를 조회합니다.</div>
 					</div>
 					
 					<!-- 상세정보 -->
@@ -341,9 +341,7 @@
 		
 		<div class="member_state">
 			계정상태(${user.customer_status}) : <select name="customer_status">
-				<option value="신규회원">신규회원</option>
-				<option value="정상회원">정상회원</option>
-				<option value="탈퇴회원">탈퇴회원</option>
+				<option value="정상회원">일반회원</option>
 	            <option value="블랙회원">블랙회원</option>
 			</select>
 

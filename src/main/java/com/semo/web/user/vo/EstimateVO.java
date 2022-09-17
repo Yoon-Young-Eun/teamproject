@@ -2,6 +2,7 @@ package com.semo.web.user.vo;
 
 import java.sql.Date;
 
+
 public class EstimateVO {
 	private int estimate_cm_no;
 	private int customer_no;
@@ -56,12 +57,20 @@ public class EstimateVO {
 	public void setCustomer_address2(String customer_address2) {
 		this.customer_address2 = customer_address2;
 	}
+<<<<<<< HEAD
+=======
+	
+>>>>>>> main
 	public String getCustomer_phone() {
 		return customer_phone;
 	}
 	public void setCustomer_phone(String customer_phone) {
 		this.customer_phone = customer_phone;
 	}
+<<<<<<< HEAD
+=======
+	
+>>>>>>> main
 	public String getEstimate_content() {
 		return estimate_content;
 	}
@@ -80,6 +89,7 @@ public class EstimateVO {
 	public void setEstimate_status(String estimate_status) {
 		this.estimate_status = estimate_status;
 	}
+	
 	@Override
 	public String toString() {
 		return "EstimateVO [estimate_cm_no=" + estimate_cm_no + ", customer_no=" + customer_no + ", customer_name="
@@ -88,5 +98,7 @@ public class EstimateVO {
 				+ ", customer_phone=" + customer_phone + ", estimate_content=" + estimate_content
 				+ ", estimate_filepath=" + estimate_filepath + ", estimate_status=" + estimate_status + "]";
 	}
+	
+	
 	
 }

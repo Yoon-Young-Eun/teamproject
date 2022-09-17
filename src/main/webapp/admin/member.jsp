@@ -283,7 +283,7 @@
 			<main>
 
 				<div class="container-fluid px-4">
-					<h1 class="mt-4">회원관리111</h1>
+					<h1 class="mt-4">회원관리</h1>
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
 						<li class="breadcrumb-item active">회원관리</li>
@@ -391,7 +391,7 @@
 										<td id="check_td"><input type="checkbox" name="check"></td>
 										<td>${board.customer_no}</td>
 										<td><a href="/getMemberBoard.mdo?customer_no=${board.customer_no}&customer_status=${board.customer_status}">${board.customer_id}</a></td>
-										<td>${board.customer_name }</td>
+										<td>${board.customer_name}</td>
 										<td>${board.customer_phone}</td>
 										<td>${board.customer_address1} ${board.customer_address2}</td>
 										<td>${board.customer_sms_permit}</td>

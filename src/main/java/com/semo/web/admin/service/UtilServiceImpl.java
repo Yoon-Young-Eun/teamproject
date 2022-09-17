@@ -24,16 +24,14 @@ public class UtilServiceImpl implements UtilService {
 	public List<MessageVO> getMessageTypeList(MessageVO mvo) {
 		return utildao.getMessageTypeList(mvo);
 	}
-<<<<<<< HEAD
-
 
 	@Override
 	public MessageVO getQnAMessageType(MessageVO mvo) {
 		return utildao.getQnAMessageType(mvo);
-=======
+	}
 	
 	public MessageVO getMessageEstimateType() {
 		return utildao.getMessageEstimateType();
->>>>>>> main
+
 	}
 }

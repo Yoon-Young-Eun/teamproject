@@ -99,7 +99,7 @@ public class OrderController {
 
 	@RequestMapping(value="/OrderGeneral.do",method=RequestMethod.GET)
 	//일반세탁 주문하기
-	public String OrderGeneral(OrderVO vo,Model model,DataSendVO vo2,OrderMtArrayVO vo4) {
+	public String OrderGeneral(OrderVO vo,Model model,DataSendVO vo2,OrderMtArrayVO vo4, CustomerVO cvo) {
 		
 	
 		List<OrderProductVO> vo6 = new ArrayList<OrderProductVO>();
@@ -129,6 +129,8 @@ public class OrderController {
 		System.out.println(vo);
 		model.addAttribute("arr",vo4);
 		model.addAttribute("OrderProduct",vo6);
+		model.addAttribute("CustomerInfo",orderservice.getReadCustomerInfo(cvo)); // 내가 추가
+		System.out.println("customerinfo"+cvo);
 		
 		
 		if(vo.getOrder_price() >= 20000) {

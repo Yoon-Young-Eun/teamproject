@@ -9,6 +9,7 @@ import com.semo.web.admin.vo.ProductVO;
 import com.semo.web.admin.vo.TermsVO;
 import com.semo.web.user.dao.OrderDAO;
 import com.semo.web.user.vo.CouponListVO;
+import com.semo.web.user.vo.CustomerVO;
 import com.semo.web.user.vo.EstimateVO;
 import com.semo.web.user.vo.Estimate_ImageVO;
 import com.semo.web.user.vo.OrderMtVO;
@@ -97,6 +98,11 @@ public class OrderServiceImpl implements OrderService {
 	public int selectImage(EstimateVO vo) {
 		
 		return orderdao.selectImage(vo);
+	}
+
+	@Override
+	public CustomerVO getReadCustomerInfo(CustomerVO vo) {
+		return orderdao.getReadCustomerInfo(vo);
 	}
 
 	

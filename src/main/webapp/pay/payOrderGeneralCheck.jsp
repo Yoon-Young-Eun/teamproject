@@ -12,6 +12,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <title>[세모]세탁의 모든것</title>
+<!-- jQuery -->
+	<script type="text/javascript"
+		src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+		
+	<!-- iamport.payment.js -->
+	<script type="text/javascript"
+		src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
+		
+
+
 </head>
 <body>
 
@@ -152,7 +162,8 @@
 	  <input type="hidden" value="${OrderData.order_pickup_date }" name="order_pickup_date">
 	  <input type="hidden" value="${OrderData.order_pickup_time }" name="order_pickup_time">
 	  <input type="hidden" value="${OrderData.order_type}" name="order_type">
-	  
+	  <input type="hidden" value="${CustomerInfo.customer_id}" name="customer_id">
+      <input type="hidden" value="${CustomerInfo.customer_zipcode}" name="customer_zipcode">
 
       <div class="pay" style="width:1000px;">
        <div class="pay1">
@@ -255,7 +266,7 @@
 
 
       <div class="bt1" style="width:1000px;">
-        <input type="button" id="but1" value="결제하기" onclick="order()" class="action-button shadow animate blue">
+        <input type="button" id="but1" value="결제하기" onclick="requestPay()" class="action-button shadow animate blue">
         <input type="button" id="but2" value="취소하기" class="action-button shadow animate blue" >
       </div>
     
@@ -263,10 +274,43 @@
 
       
       
-      
+      <!--  결제 js -->
+	<script>
+	function requestPay() {
+	  IMP.init('imp62424	881'); //iamport 대신 자신의 "가맹점 식별코드"를 사용
+	  IMP.request_pay({
+	    pg: "html5_inicis",
+	    pay_method: "card",
+	    merchant_uid : 'teamPjt_'+new Date().getTime(),
+	    name : '결제테스트',
+	    amount : '${price}',
+	    buyer_email : '${CustomerInfo.customer_id}',
+	    buyer_name : '${OrderData.order_customer_name}',
+	    buyer_tel : '${OrderData.order_customer_phone}',
+	    buyer_addr : '${OrderData.order_address1} ${OrderData.order_address2}',
+	    buyer_postcode : '${CustomerInfo.customer_zipcode}'
+	  }, function (rsp) {
+		    console.log(rsp);
+		    if (rsp.success) {
+		    	   console.log(rsp.success);
+		    	   console.log("adadasad");
+		      var msg = '결제가 완료되었습니다.';
+		      alert(msg);
+		      order();
+		   /*    location.href = "import_payment.jsp" */
+		    } else {
+		      var msg = '결제에 실패하였습니다.';
+		      msg += '에러내용 : ' + rsp.error_msg;
+		      alert(msg);
+		    }
+	  });
+	}
+	
+	
+	</script>
       
       <script>
-        document.getElementById("but1").addEventListener("click",function order(){
+        function order(){
           var money1 = document.getElementById("q2").innerText;
           var abc = /[^0-9]/g;
           var totalpay = Number(money1.replace(abc,""));
@@ -276,9 +320,10 @@
          	alert("최소주문금액은 15000원 입니다.");
           }else{
         	  document.getElementById("form1").submit();
-          }
+          } 
+          
 
-        })
+        }
 
         
       </script>
@@ -321,14 +366,20 @@ $("#q2").on("DOMSubtreeModified",function(){
         </script>
     </div>
     </form>
+    
   </div>
   <div class="space_right"></div>
 </div>
     
     </div>
     </div>
+	
+
+
+
 
 </body>
+
 
 <jsp:include page="/common/footer.jsp" />
 </html>

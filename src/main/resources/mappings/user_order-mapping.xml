@@ -66,6 +66,9 @@
 	<![CDATA[select max(estimate_cm_no) from estimate_cm where customer_no=#{customer_no}]]>
 	</select>
 
+	<select id="getReadCustomerInfo" resultType="customer">
+	<![CDATA[ select * from customer where customer_no=#{customer_no} ]]>
+	</select>
 
 
 </mapper>

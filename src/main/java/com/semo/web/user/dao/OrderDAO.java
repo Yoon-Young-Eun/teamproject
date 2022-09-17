@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.semo.web.admin.vo.ProductVO;
 import com.semo.web.admin.vo.TermsVO;
 import com.semo.web.user.vo.CouponListVO;
+import com.semo.web.user.vo.CustomerVO;
 import com.semo.web.user.vo.EstimateVO;
 import com.semo.web.user.vo.Estimate_ImageVO;
 import com.semo.web.user.vo.OrderMtVO;
@@ -66,6 +67,11 @@ public class OrderDAO {
 	}
 	public int selectImage(EstimateVO vo) {
 		return sqlSessiontemplate.selectOne("OrderDAOuser.selectImage",vo);
+	}
+	public CustomerVO getReadCustomerInfo(CustomerVO vo) {
+		System.out.println("DAO.getReadCustomerInfo 실행");
+		return sqlSessiontemplate.selectOne("OrderDAOuser.getReadCustomerInfo", vo);
+				
 	}
 	
 }

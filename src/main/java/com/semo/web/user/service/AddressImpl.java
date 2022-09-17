@@ -68,6 +68,12 @@ public class AddressImpl implements AddressService {
 		
 	}
 
+	@Override
+	public CustomerVO SearchId(CustomerVO vo) {
+		
+		return addressdao.SearchId(vo);
+	}
+
 
 
 }

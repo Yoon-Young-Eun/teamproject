@@ -34,12 +34,12 @@
     <div class="main_text1">
       수거주소 선택하기
     </div>
-    <form action="/OrderAddress.do">
+    <form action="/OrderSpecial2.do">
     <div class="main_text2">
       <div class="address1">주소지관리</div>
       <div class="address2">
         
-        <input type="hidden" name="customer_no" value="${sendCustomer.customer_no }"  id="customnumber" required>
+        <input type="hidden" name="customer_no" value="${customer.customer_no }"  id="customnumber" required>
         <div class="address3">
           <div class="aa" >
         <input type="hidden" value="기본주소" id="ad1" readonly class="address_name">
@@ -55,26 +55,26 @@
         
       </div>
       <div class="address4">
-        <input type="hidden" id="phone" value="${sendCustomer.customer_phone }"  name="customer_phone" class="phone" required>
+        <input type="hidden" id="phone" value="${customer.customer_phone }"  name="customer_phone" class="phone" required>
         <div class="phone1" style="display: flex">
         <div class="phone_title" style="font-weight: normal; font-size:15px; width:100px; text-align:right; ">기본연락처 : </div>
-        <div class="phone9" id="z2" style="font-weight: normal; font-size:15px; margin-left:5px;">${sendCustomer.customer_phone}</div>
+        <div class="phone9" id="z2" style="font-weight: normal; font-size:15px; margin-left:5px;">${customer.customer_phone}</div>
         </div>
       </div>
       <div class="first_address">
-       <input type="hidden" id="address1-1" value="${sendCustomer.customer_address1 }"  name="customer_address1" class="address1-1" required>
+       <input type="hidden" id="address1-1" value="${customer.customer_address1 }"  name="customer_address1" class="address1-1" required>
       <div class="addressOne" style="display: flex">
       <div class="address_1" style="font-weight: normal; font-size:15px; width:100px; text-align:right;"> 기본 주소 : </div>
-      <div class="address_2" id="z3" style="font-weight: normal; font-size:15px; margin-left:5px;">${sendCustomer.customer_address1 }</div>
+      <div class="address_2" id="z3" style="font-weight: normal; font-size:15px; margin-left:5px;">${customer.customer_address1 }</div>
       
       </div>
       
       </div>
       <div class="second_address">
-       <input type="hidden" id="address1-2" value="${sendCustomer.customer_address2 }"  name="customer_address2" class="address1-2" required>
+       <input type="hidden" id="address1-2" value="${customer.customer_address2 }"  name="customer_address2" class="address1-2" required>
       <div class="addressOne" style="display: flex">
       <div class="address_3" style="font-weight: normal; font-size:15px; width:100px; text-align:right;">나머지주소 : </div>
-      <div class="address_4" id="z4" style="font-weight: normal; font-size:15px; margin-left:5px;">${sendCustomer.customer_address2 }</div>
+      <div class="address_4" id="z4" style="font-weight: normal; font-size:15px; margin-left:5px;">${customer.customer_address2 }</div>
       
       </div>
       </div>
@@ -84,7 +84,7 @@
         <div class="address_pass1"  style="font-weight: normal; font-size:15px; width:100px; text-align:right;">출입비밀번호 : </div>
         
         <div class="address_pass2" id="z5" style="font-weight: normal; font-size:15px;" ></div>
-        <input type="hidden" value="${sendCustomer.customer_name }" name="customer_name" style="font-weight: normal; font-size:15px; margin-left:5px;">
+        <input type="hidden" value="${customer.customer_name }" name="customer_name" style="font-weight: normal; font-size:15px; margin-left:5px;">
         
         </div>
       </div>
@@ -110,7 +110,7 @@
 <script type="text/javascript">
    window.name = "parentForm";
 
-   var url="/getAddressList.do?customer_no="+${sendCustomer.customer_no };
+   var url="/getAddressList.do?customer_no="+${customer.customer_no };
    function showPopup() { window.open(url, "", "width=720, height=850"); }
    </script>
    

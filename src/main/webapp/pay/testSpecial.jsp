@@ -9,7 +9,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
 <link rel="stylesheet" href="/common/css/button.css">
-<link rel="stylesheet" href="/css/payUseText.css">
+<link rel="stylesheet" href="/css/testSpecial.css">
 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -48,7 +48,7 @@
 			<div class="main">
 				<div class="space_left"></div>
 				<div class="paymainBox">
-				<form action="/sendCustomer.do?" method="GET">
+				<form action="/SpecialOrder.do" method="GET">
 					<div class="paymain_text">세탁 서비스 예약하기</div>
 					<input type="hidden" value="6" name="customer_no">
 					<div class="paymain_text1">유의사항</div>

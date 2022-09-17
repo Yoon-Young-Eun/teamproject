@@ -57,4 +57,8 @@ public class AddressDAO {
 		System.out.println("updateCustomerAddressDAO 메서드 실행");
 		sqltemplate.update("AddressDAO.updateCustomerAddress", vo);
 	}
+	public CustomerVO SearchId(CustomerVO vo) {
+		System.out.println("SearchIdDAO 메서드 실행");
+		return sqltemplate.selectOne("AddressDAO.SearchId",vo);
+	}
 }

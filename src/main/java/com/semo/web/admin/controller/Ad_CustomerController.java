@@ -117,6 +117,8 @@ public class Ad_CustomerController {
 	       model.addAttribute("articleList", articleList);
 	       System.out.println("회원 목록 리스트"+articleList);
 	       
+	       mvo.setMessage_type("회원");
+	       System.out.println(mvo.getMessage_type());
 	       List<MessageVO> messageList = utilservice.getMessageList(mvo);
 	       System.out.println(messageList);
 	       model.addAttribute("messageList", messageList);

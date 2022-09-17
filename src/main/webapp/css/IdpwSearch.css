@@ -1,0 +1,160 @@
+@charset "UTF-8";
+html{
+font-family: 'Noto Sans KR', sans-serif;
+}
+/* *{
+	border: 1px solid red;
+} */
+body{
+	overflow-x: hidden;
+}
+input{
+font-family: 'Noto Sans KR', sans-serif;	
+}
+.main{
+
+	display: flex;
+}
+.space_left, .space_right{
+  width: 240px;
+}
+.mainBox{
+  width: 1440px;
+
+  
+  
+}
+.search{
+	
+	width:1000px;
+	justify-content:center;
+	display:flex;
+	align-items:center;
+	font-size: 35px;
+	font-weight: bold;
+	height: 100px;
+}
+.idSearch{
+	width:1000px;
+	font-size:25px;
+	font-weight: bold;
+	height:70px;
+	border-bottom:3px solid grey;
+	display: flex;
+	align-items: center;
+	
+}
+.phone{
+	width:1000px;
+	
+}
+.button{
+	width: 1000px;
+}
+
+
+
+
+#id{
+	height:30px;
+	width: 300px;
+}
+#number3{
+	height:30px;
+	width: 300px;
+}
+
+
+
+
+#id1{
+	border-style: none;
+	height: 50px;
+}
+#id1:focus{
+	outline:none;
+}
+
+#number2{
+	border-style: none;
+	height: 50px;
+}
+#number2:focus{
+	outline:none;
+}
+
+
+#phone11{
+	margin-left:15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#name{
+	height:30px;
+	width: 300px;
+}
+#phone{
+	height:30px;
+	width: 300px;
+}
+
+
+#button1{
+	height:30px;
+}
+#name1{
+	border-style: none;
+	height: 50px;
+}
+#name1:focus{
+	outline:none;
+}
+#phone1{
+	border-style: none;
+	height: 50px;
+}
+#phone1:focus{
+	outline:none;
+}
+#button2{
+	height: 30px;
+}
+
+#button1{
+
+	border-top: none;
+	border-left:none;
+	border-right:none;
+	border-bottom: 5px solid #2b92da;
+}
+#button1:active{
+	transform: translate(0px,5px);
+  -webkit-transform: translate(0px,5px);
+	border-bottom: 1px solid;
+}
+
+
+/* #phone11{
+	border-top: none;
+	border-left:none;
+	border-right:none;
+	border-bottom: 5px solid #2b92da;
+}
+#phone11:active{
+	transform: translate(0px,5px);
+  -webkit-transform: translate(0px,5px);
+	border-bottom: 1px solid;
+}
+ */
+
+

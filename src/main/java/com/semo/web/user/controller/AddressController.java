@@ -121,4 +121,26 @@ public class AddressController {
 		return "/getAddressList.do";
 	}
 
+	
+	//아이디찾기
+	@RequestMapping(value="/SearchId.do",method=RequestMethod.GET)
+	public String SearchId(CustomerVO vo,Model model) {
+		System.out.println("1차" + vo);
+		addressservice.SearchId(vo);
+		model.addAttribute("SearchId",addressservice.SearchId(vo));
+		System.out.println(addressservice.SearchId(vo));
+		String a = vo.getCustomer_name();
+		System.out.println(a);
+		
+		CustomerVO vo2 = addressservice.SearchId(vo);
+		
+		
+		if(vo2==null) {
+			return "/views/falseId.jsp";
+		}
+		
+		return "/views/viewId.jsp";
+	}
+
+	
 }

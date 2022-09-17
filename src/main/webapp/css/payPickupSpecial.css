@@ -1,0 +1,204 @@
+@charset "UTF-8";
+body {
+	overflow-x: hidden;
+	
+}
+html{
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.main{
+  display: flex;
+
+}
+.space_left{
+  width: 240px;
+}
+.space_right{
+  width: 240px;
+}
+.main_box{
+  width: 1440px;
+  margin-left:165px;
+}
+
+.main_text{
+ width: 1000px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  display: flex;
+  height: 100px;
+  align-items: center;
+  margin-top: 30px;
+}
+.main_text2{
+	width:1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  font-size: 25px;
+  font-weight: bold;
+  text-align:center;
+ 
+}
+.main_time1{
+	width:1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  font-size: 25px;
+  font-weight: bold;
+}
+.main_time2{
+	width:1000px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.1px solid rgb(128,128,128,0.4);
+}
+.main_time3{
+  margin: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  
+}
+.main_time4{
+  display: flex;
+  align-items: center;
+  margin: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+#radio1{
+  width: 20px;
+  height: 20px;
+  margin: 10px;
+}
+
+
+
+
+
+
+.main_text3{
+	width:1000px;
+  height: 150px;
+  border: 0.1px solid rgb(128,128,128,0.4);
+}
+.main_text4{
+  width:1000px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#datepicker{
+  width: 500px;
+  height:50px ;
+  text-align: center;
+  font-size: 20px;
+  margin-left: 10px;
+}
+#datepicker:hover{
+  cursor: pointer;
+}
+.ui-datepicker-trigger{
+  width: 60px;
+  padding: 10px;
+  padding-bottom: 15px;
+  margin-left: 10px;
+}
+.ui-datepicker-trigger:hover{
+  cursor: pointer;
+}
+
+
+
+
+
+
+.main_text5{
+	margin-top:35px;
+	display:flex;
+	justify-content:center;
+	width:1000px;
+  
+ 
+  
+}
+#form1{
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* #button1{
+  width: 150px;
+  height: 70px;
+  margin-left: 0px;
+  margin-right:30px;
+  background-color: white;
+  box-shadow: 1px 4px 0 rgba(255, 255, 255, 0.5);
+  border-style: solid;
+  border: 1px solid grey;
+  border-radius: 5px;
+
+}
+#button2{
+  width: 150px;
+  height: 70px;
+  margin-left: 30px;
+  margin-right:30px;
+  background-color: white;
+  box-shadow: 1px 4px 0 rgba(255, 255, 255, 0.5);
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+#button1:active{
+  box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+  position: relative;
+  top:2px;
+}
+#button2:active{
+  box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+  position: relative;
+  top:2px;
+}
+#button1:hover{
+  background-color:#006eb7;
+  transition: 0.8s;
+}
+#button2:hover{
+  background-color:#006eb7;
+  transition: 0.8s;
+} */
+#button1{
+	border-top: none;
+	border-left:none;
+	border-right:none;
+	border-bottom: 5px solid #2b92da;
+}
+#button1:active{
+	transform: translate(0px,5px);
+  -webkit-transform: translate(0px,5px);
+	border-bottom: 1px solid;
+}
+
+#button2{
+	border-top: none;
+	border-left:none;
+	border-right:none;
+	border-bottom: 5px solid #2b92da;
+}
+#button2:active{
+	transform: translate(0px,5px);
+  -webkit-transform: translate(0px,5px);
+	border-bottom: 1px solid;
+}

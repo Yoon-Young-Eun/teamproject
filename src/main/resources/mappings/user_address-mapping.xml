@@ -48,7 +48,10 @@
 	</update>
 	
 	
+	<select id="SearchId" parameterType="customer" resultType="customer">
+	<![CDATA[select customer_id,customer_name from customer where customer_name=#{customer_name} and customer_phone=#{customer_phone}]]>
 	
+	</select>
 
 
 

@@ -9,10 +9,12 @@ import com.semo.web.admin.dao.BoardDAO;
 import com.semo.web.admin.vo.Ad_QnAVO;
 import com.semo.web.admin.vo.EventVO;
 import com.semo.web.admin.vo.FAQVO;
+import com.semo.web.admin.vo.MessageVO;
 import com.semo.web.admin.vo.NoticeVO;
 import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.ReviewVO;
 import com.semo.web.user.vo.Cm_QnAVO;
+import com.semo.web.user.vo.CustomerVO;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -193,6 +195,12 @@ public class BoardServiceImpl implements BoardService {
 	public void updateQnA_cm(Cm_QnAVO vo) {
 		boardDAO.updateQnA_cm(vo);
 	}
+
+	@Override
+	public CustomerVO getReadPhoneNum(CustomerVO vo) {
+		return boardDAO.getReadPhoneNum(vo);
+	}
+
 
 	
 	

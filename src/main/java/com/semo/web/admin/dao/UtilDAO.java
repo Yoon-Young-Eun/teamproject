@@ -24,7 +24,9 @@ public class UtilDAO {
 		return sqlTemplate.selectList("UtilDAO.getMessageTypeList");
 	}
 
-		
+	public MessageVO getQnAMessageType(MessageVO mvo) {
+		return sqlTemplate.selectOne("UtilDAO.getQnAMessageType");
+	}
 	
 	
 }

@@ -5,10 +5,12 @@ import java.util.List;
 import com.semo.web.admin.vo.Ad_QnAVO;
 import com.semo.web.admin.vo.EventVO;
 import com.semo.web.admin.vo.FAQVO;
+import com.semo.web.admin.vo.MessageVO;
 import com.semo.web.admin.vo.NoticeVO;
 import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.ReviewVO;
 import com.semo.web.user.vo.Cm_QnAVO;
+import com.semo.web.user.vo.CustomerVO;
 
 public interface BoardService {
 	
@@ -53,4 +55,6 @@ public interface BoardService {
 	public List<Cm_QnAVO> getQnAList1();
 	public Cm_QnAVO getReadQnA_q(Cm_QnAVO vo);
 	public Cm_QnAVO getReadQnA_a(Cm_QnAVO vo);
+	public CustomerVO getReadPhoneNum(CustomerVO vo);
+	
 }

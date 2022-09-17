@@ -33,7 +33,6 @@ public class OrderController {
 
 	@Autowired
 	OrderService orderservice;
-	public AwsS3 awss3 = AwsS3.getInstance();
 
 	@RequestMapping(value = "/OrderAddress.do", method = RequestMethod.GET)
 	public String OrderAddress(CustomerVO vo, OrderVO vo1, Model model) {
@@ -214,6 +213,8 @@ public class OrderController {
 
 	@RequestMapping(value="/Orderspecial.do")
 	public String Orderspecial(@RequestParam(name="file") MultipartFile[] file,Model model, EstimateVO vo,OrderVO vo2,Estimate_ImageVO vo1) throws IOException,SQLException{
+		
+		AwsS3 awss3 = AwsS3.getInstance();
 		
 		orderservice.Orderspecial(vo);
 		System.out.println(vo);

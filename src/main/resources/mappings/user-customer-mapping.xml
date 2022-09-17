@@ -20,6 +20,9 @@
 	<select id="idCheck" parameterType="String" resultType="int">
 		SELECT COUNT(*) FROM CUSTOMER where customer_id = #{customer_id}
 	</select>
+	<select id="getReadPhoneNum" resultType="customer">
+	<![CDATA[ select * from customer where customer_id=#{customer_id} ]]>
+	</select>
 	
 </mapper>
 

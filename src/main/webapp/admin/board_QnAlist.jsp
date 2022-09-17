@@ -382,7 +382,7 @@
 										<!--for문의 id값.컬럼명으로 값을 불러옴 -->
 										<td>${QnA.BOARD_QnA_TYPE}</td>
 										<td><a href="readQnA.mdo?BOARD_QnA_NO=${QnA.BOARD_QnA_NO}&BOARD_QnA_STATUS=${QnA.BOARD_QnA_STATUS}">${QnA.BOARD_QnA_TITLE}</a></td>
-										<td><a href="readQnA.mdo?BOARD_QnA_NO=${QnA.BOARD_QnA_NO}&BOARD_QnA_STATUS=${QnA.BOARD_QnA_STATUS}">${QnA.BOARD_QnA_CONTENT}</a></td>
+										<td><a href="readQnA.mdo?BOARD_QnA_NO=${QnA.BOARD_QnA_NO}&CUSTOMER_ID=${QnA.CUSTOMER_ID}&BOARD_QnA_STATUS=${QnA.BOARD_QnA_STATUS}">${QnA.BOARD_QnA_CONTENT}</a></td>
 										<td>${QnA.BOARD_QnA_REG_DATE}</td>
 										<td>
 										<c:choose> 

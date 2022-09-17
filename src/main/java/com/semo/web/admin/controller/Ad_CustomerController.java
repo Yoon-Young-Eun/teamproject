@@ -63,7 +63,7 @@ public class Ad_CustomerController {
 		 coolsms.sendMessage(phone, mess); 
 		 return "/member.mdo";
 	}
-	
+
 
 	
 	//회원 (블랙회원 제외) 조회 리스트

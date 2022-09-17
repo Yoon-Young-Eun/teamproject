@@ -18,6 +18,11 @@
 	</select>
 
 	
+	
+	<select id="getMessageEstimateType" resultType="message">
+	   select * from message where message_type='견적'
+	</select>
+	
 </mapper>
 
 

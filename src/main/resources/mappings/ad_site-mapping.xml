@@ -90,11 +90,13 @@
 	
  	<insert id="insertTerms" parameterType="terms">
   		INSERT INTO terms(
+  			terms_type,
   			terms_title, 
   			terms_content, 
   			terms_necessary
 		)
   		VALUES (
+  			#{terms_type},
   			#{terms_title}, 
   			#{terms_content}, 
   			#{terms_necessary}

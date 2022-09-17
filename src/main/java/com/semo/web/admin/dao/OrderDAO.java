@@ -12,6 +12,7 @@ import com.semo.web.admin.vo.MessageVO;
 import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.StoreVO;
 import com.semo.web.user.vo.EstimateVO;
+import com.semo.web.user.vo.Estimate_ImageVO;
 import com.semo.web.user.vo.OrderMtVO;
 import com.semo.web.user.vo.OrderVO;
 
@@ -46,8 +47,12 @@ public class OrderDAO {
 	}
 	
 //	견적서
-	public List<EstimateVO> getEstimateList(EstimateVO vo){
-		return sqlTemplate.selectList("OrderDAO.getEstimateList", vo);
+	public List<EstimateVO> getEstimateList(PagingVO pvo){
+		return sqlTemplate.selectList("OrderDAO.getEstimateList", pvo);
+	}
+	
+	public int EstimateCount(PagingVO pvo) {
+		return sqlTemplate.selectOne("OrderDAO.EstimateCount", pvo);
 	}
 	
 	public void insertEstimate(Ad_EstimateVO vo) {
@@ -68,6 +73,11 @@ public class OrderDAO {
 	
 	public List<Estimate_T_VO> getEstimateType() {
 		return sqlTemplate.selectList("OrderDAO.getEstimateType");
+	}
+	
+
+	public List<Estimate_ImageVO> getEstimateImg(Estimate_ImageVO vo1) {
+		return sqlTemplate.selectList("OrderDAO.getEstimateImg",vo1);
 	}
 	
 	public OrderVO getReadOrderInfo(OrderVO vo) {

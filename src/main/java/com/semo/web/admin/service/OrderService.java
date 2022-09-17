@@ -8,6 +8,7 @@ import com.semo.web.admin.vo.MessageVO;
 import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.StoreVO;
 import com.semo.web.user.vo.EstimateVO;
+import com.semo.web.user.vo.Estimate_ImageVO;
 import com.semo.web.user.vo.OrderMtVO;
 import com.semo.web.user.vo.OrderVO;
 
@@ -21,10 +22,12 @@ public interface OrderService {
 	public void updateOrderInfo(OrderVO vo);
 
 //	견적서
-	public List<EstimateVO> getEstimateList(EstimateVO vo);
+	public List<EstimateVO> getEstimateList(PagingVO pvo);
+	int EstimateCount(PagingVO pvo);
 	public void insertEstimate(Ad_EstimateVO vo);
 	public void updateEstimate(Ad_EstimateVO vo);
 	EstimateVO getEstimate(EstimateVO vo);
 	Ad_EstimateVO getAd_Estimate(Ad_EstimateVO vo);
 	public List<Estimate_T_VO> getEstimateType();
+	public List<Estimate_ImageVO> getEstimateImg(Estimate_ImageVO vo1);
 }

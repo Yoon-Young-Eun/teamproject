@@ -89,8 +89,13 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<EventVO> getEventList(EventVO vo) {
-		return boardDAO.getEventList(vo);
+	public List<EventVO> getEventList(PagingVO pvo) {
+		return boardDAO.getEventList(pvo);
+	}
+	
+	@Override
+	public int getEventCount(PagingVO pvo) {
+		return boardDAO.getEventCount(pvo);
 	}
 //----------------------------------------------
 	

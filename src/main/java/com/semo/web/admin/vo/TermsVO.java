@@ -9,7 +9,7 @@ public class TermsVO {
 	private boolean terms_necessary;
 	private Date terms_reg_date;
 	private int admin_no;
-	private int terms_type;
+	private String terms_type;
 	public int getTerms_no() {
 		return terms_no;
 	}
@@ -46,10 +46,10 @@ public class TermsVO {
 	public void setAdmin_no(int admin_no) {
 		this.admin_no = admin_no;
 	}
-	public int getTerms_type() {
+	public String getTerms_type() {
 		return terms_type;
 	}
-	public void setTerms_type(int terms_type) {
+	public void setTerms_type(String terms_type) {
 		this.terms_type = terms_type;
 	}
 	@Override
@@ -58,6 +58,8 @@ public class TermsVO {
 				+ ", terms_necessary=" + terms_necessary + ", terms_reg_date=" + terms_reg_date + ", admin_no="
 				+ admin_no + ", terms_type=" + terms_type + "]";
 	}
+	
+	
 	
 	
 }

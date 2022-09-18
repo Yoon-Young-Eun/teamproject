@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.semo.web.user.service.CoolSmsUser;
 import com.semo.web.user.service.CustomerService;
 import com.semo.web.user.vo.CustomerVO;
 
@@ -20,6 +21,9 @@ public class CustomerController {
 	
 	@Autowired
 	CustomerService userservice;
+
+	@Autowired
+	CoolSmsUser coolsms;
 
 	// 로그인
 	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
@@ -69,6 +73,20 @@ public class CustomerController {
 
 		return result;
 	}
+	
+	
+	//본인인증
+	@RequestMapping(value= "/phoneCheck.do", method=RequestMethod.GET)
+	@ResponseBody
+	public String sendSMS(@RequestParam("phone") String userPhoneNumber) {
+		//휴대폰 문자보내기
+		int randomNumber = (int)((Math.random()* (9999-1000+1))+1000); //난수생성
+		System.out.println(randomNumber);
+		coolsms.certifiedPhoneNumber(userPhoneNumber, randomNumber);
+		
+		return Integer.toString(randomNumber);		
+	}
+	
 	
 
 	// 회원가입 완료 페이지 이동

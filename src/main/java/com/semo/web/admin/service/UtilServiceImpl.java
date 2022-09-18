@@ -28,4 +28,6 @@ public class UtilServiceImpl implements UtilService {
 	public MessageVO getMessageEstimateType() {
 		return utildao.getMessageEstimateType();
 	}
+
+
 }

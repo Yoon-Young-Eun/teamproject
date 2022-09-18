@@ -10,5 +10,4 @@ public interface UtilService {
 	
 	public MessageVO getMessageEstimateType();
 	
-
 }

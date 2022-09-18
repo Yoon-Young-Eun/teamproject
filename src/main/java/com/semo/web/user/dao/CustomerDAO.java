@@ -30,6 +30,5 @@ public class CustomerDAO {
 		System.out.println("CustomerDAO");
 	 sql.insert("CustomerVO.insertMember", vo);
 	}
-	
 
 }

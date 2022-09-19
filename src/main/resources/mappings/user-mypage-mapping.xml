@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace = "MypageVO">
+ 	
+ 	<select id = "orderlist" parameterType = "customer" resultType="ORDER">
+ 		select * from order_cm where customer_no = #{customer_no}
+ 	</select>
+ 	
+ 	<select id = "orderdetail" parameterType = "ORDER" resultType ="orderManagement">
+ 		select * from order_management where order_no = #{order_no}
+ 	</select>
+ 	
+ 	<select id = "storedetail" parameterType = "ORDER" resultType = "store">
+ 		select * from store where store_code = #{store_code}
+ 	</select>
+ 
+ 	<select id = "addresslist" parameterType = "customer" resultType = "CM_ADDRESS">
+ 		select * from cm_address where customer_no = #{customer_no}
+ 	</select>
+ </mapper>

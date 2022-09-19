@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,24 +63,31 @@
 		
 		<!-- 주문 상세 내용 -->
 		<div class = "order-wrapper">
-			
-			<div class = "order-body-title">
-				<div class = "num-title" style = "width : 10%; text-align : center;">주문번호</div>
-				<div class = "content-title" style = "width : 25%; text-align : center;">내용</div>
-				<div class = "address-title" style = "width : 25%; text-align : center;">주소</div>
-				<div class = "date-title" style = "width : 20%; text-align : center;">주문일자</div>
-				<div class = "pickup-title" style = "width : 20%; text-align : center;">배송예정일</div>
-				<div class = "status-title" style = "width : 10%; text-align : center;">주문상태</div>
-			</div>
-			
-			<div class = "order-body-content">
-				<div class = "num-content" style = "width : 10%; text-align : center;">1</div>
-				<div class = "content-content" style = "width : 25%; text-align : center;"><a href = "/views-mypage/MyOrder.jsp">와이셔츠, 모자 외 3건</a></div>
-				<div class = "address-content" style = "width : 25%; text-align : center;">서울 강북구 삼각산로 123</div>
-				<div class = "date-content" style = "width : 20%; text-align : center;">2022.07.11(월)</div>
-				<div class = "pickup-content" style = "width : 20%; text-align : center;">2022.07.15(월)</div>
-				<div class = "status-content" style = "width : 10%; text-align : center;">세탁 중</div>
-			</div>
+			<table>
+				<thead class = "order-body-title">
+					<tr>
+						<th class = "num-title" style = "width : 10%;">주문번호</th>
+						<th class = "content-content-title" style = "width : 20%;">내용</th>
+						<th class = "address-title" style = "width : 20%;">주소</th>
+						<th class = "date-title" style = "width : 20%;">주문일자</th>
+						<th class = "pickup-title" style = "width : 20%;">배송예정일</th>
+						<th class = "status-title" style = "width : 10%;">주문상태</th>
+					</tr>
+				</thead>
+				
+				<tbody class = "order-body-content">	
+					<tr>
+						<c:forEach var="orderlist" items="${orderlist}">
+						<td class = "num-content" style = "width : 10%; text-align : center;">${orderlist.order_no}</td>
+						<td class = "content-content" style = "width : 20%; text-align : center;"><a href = "/orderdetail.do?order_no=${orderlist.order_no}&customer_no=${num}&store_code=${orderlist.store_code}">주문 자세히 보기</a></td>
+						<td class = "address-content" style = "width : 20%; text-align : center;">${orderlist.order_address1}</td>
+						<td class = "date-content" style = "width : 20%; text-align : center;">${orderlist.order_date}</td>
+						<td class = "pickup-content" style = "width : 20%; text-align : center;">${orderlist.order_expected_date}</td>
+						<td class = "status-content" style = "width : 10%; text-align : center;">${orderlist.order_status}</td>
+						</c:forEach>
+					</tr>
+				</tbody>
+			</table>
 		</div><!-- order-wrapper -->
 	</div><!-- content-wrapper -->
 	

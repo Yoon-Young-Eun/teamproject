@@ -64,7 +64,7 @@ a:hover {
 .content-subtitle-wrapper {
 	display : flex;
 	justify-content : space-between;
-	border-bottom : 2px solid; 	
+	border-bottom : 3px solid black;	
 	line-height : 70px;
 }
 
@@ -127,14 +127,14 @@ a:hover {
 }
 
 .order-item-title h3, .order-customer-title h3{
-	border-bottom : 2px solid #cdcdcd;
+	border-bottom : 3px solid black;
 }
 
 .order-item-list {
 	width : 80%;
 	margin : 50px;
 	display : flex;
-	justify-content : space-between;
+	justify-content : center;
 }
 
 .order-customer-detail{
@@ -142,10 +142,72 @@ a:hover {
 	width : 80%
 }
 
+table {
+	width : 100%;
+}
+
+.order-item-list tr {
+	width : 100%;
+	display : flex;
+	justify-content : space-between;
+}
+
 .order-customer-detail {
 	line-height : 50px;
 }
 
 .order-customer-detail .customer-title {
-	width : 100px;
+	width : 150px;
+	font-weight : bold;
+}
+
+/*요청메세지*/
+.request-wrapper {
+	width : 100%;
+}
+
+.request-title {
+	margin-top : 50px;
+	line-height : 70px;
+}
+
+.request-title h3 {
+	border-bottom : 3px solid black;
+}
+
+.request-content{
+	width : 80%;
+	margin : 50px;
+	line-height : 50px;
+} 
+
+.request-content-title {
+	width : 150px;
+	font-weight : bold;
+}
+
+/*결제정보*/
+
+.pay-wrapper {
+	width : 100%;
+}
+
+.pay-title {
+	margin-top : 50px;
+	line-height : 70px;
+}
+
+.pay-title h3 {
+	border-bottom : 3px solid black;
+}
+
+.pay-content{
+	width : 80%;
+	margin : 50px;
+	line-height : 50px;
+} 
+
+.pay-content-title {
+	width : 150px;
+	font-weight : bold;
 }

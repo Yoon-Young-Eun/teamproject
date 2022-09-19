@@ -7,8 +7,7 @@
 
 	<select id="getMember" resultType="customer"
 		parameterType="customer">
-		SELECT * FROM CUSTOMER where customer_id =#{customer_id} and
-		customer_passwd=#{customer_passwd}
+		SELECT * FROM CUSTOMER where customer_id =#{customer_id} and customer_passwd=#{customer_passwd}
 	</select>
 
 	<insert id="insertMember" parameterType="customer" >

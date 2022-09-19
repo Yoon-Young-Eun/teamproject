@@ -31,7 +31,7 @@
          <ul class = "top-list">
          	<li><a href = "/views/main.jsp">메인으로</a></li>
             <li><button id = "logout" class = "logout" type="submit">로그아웃</button></li>
-            <li><a href = "/views-mypage/MyMain.jsp">마이페이지</a></li>
+            <li><a href = "/mypage.do?customer_no=${num}">마이페이지</a></li>
             <li><a href = "/service/serviceMain.jsp">고객센터</a></li>
          </ul>
       </nav>

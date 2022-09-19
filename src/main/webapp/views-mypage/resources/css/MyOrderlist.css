@@ -90,3 +90,17 @@ a:hover {
 	line-height : 100px;
 	border-bottom : 1px solid #cdcdcd;
 }
+
+table {
+	width : 100%;
+}
+
+table thead tr {
+	display : flex;
+	width : 100%;
+}
+
+table tbody tr {
+	display : flex;
+	width : 100%;
+}

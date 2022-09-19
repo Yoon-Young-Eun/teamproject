@@ -59,13 +59,8 @@ header>h1 {
 }
 
 #content_wrap ul li {
-	/* margin-bottom: 7px;
-	margin-top: 7px; */
-}
-
-#content_wrap ul li:nth-child(2) {
-	margin-bottom: 5px;
-	margin-top: 10px;
+	margin : 5px;
+	display: flex;
 }
 
 #content_wrap .title {
@@ -80,10 +75,6 @@ header>h1 {
 	display: inline-block;
 }
 
-#content_wrap li:nth-child(1) .radiobox {
-	font-size: 15px;
-	margin-left: 50px;
-}
 /*�벐湲곗쁺�뿭 */
 .writeWrap {
 	font-size: 15;
@@ -117,6 +108,11 @@ header>h1 {
 .configWrap .InputArea input {
 	width: 500px;
 	margin-left: 10px;
+}
+
+.clause_select >select {
+	width: 88px;
+	height: 28.5px;
 }
 
 .popup_btn {
@@ -176,9 +172,4 @@ header>h1 {
 
 .title_wrap_input{
 	width : 300px;
-}
-
-.require {
-	display: flex;
-	margin-top: 10px;
 }

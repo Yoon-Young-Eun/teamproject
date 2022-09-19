@@ -218,12 +218,9 @@
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
 								<a class="nav-link" href="#">배너관리</a> <a class="nav-link"
-									href="#">약관관리</a>
+									href="/TermsList.mdo">약관관리</a>
 							</nav>
 						</div>
-
-
-
 
 
 
@@ -363,14 +360,15 @@
 									<li><span class="title">약관번호</span>
 									${TermsInfo.terms_no} 
 									</li>
+									<li><span class="title">약관분류</span>
+									${TermsInfo.terms_type} 
+									</li>
 									<li><span class="title">약관이름</span>
 									${TermsInfo.terms_title} 
 									</li>
-									<div class="require">
 									<li><span class="title">필수여부</span>
 										${TermsResult} 
 										</li>
-									</div>
 									<li><span class="title">등록일</span>
 									${TermsInfo.terms_reg_date}
 									</li>

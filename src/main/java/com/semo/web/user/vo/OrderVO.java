@@ -25,6 +25,10 @@ public class OrderVO {
    private String order_address1;
    private String order_address2;
    private int order_delivery_price;
+<<<<<<< HEAD
+=======
+   private String product_name;
+>>>>>>> main
 public int getOrder_no() {
 	return order_no;
 }
@@ -43,6 +47,7 @@ public int getStore_code() {
 public void setStore_code(int store_code) {
 	this.store_code = store_code;
 }
+<<<<<<< HEAD
 public String getOrder_date() {
 	return order_date;
 }
@@ -53,6 +58,18 @@ public String getOrder_pickup_date() {
 	return order_pickup_date;
 }
 public void setOrder_pickup_date(String order_pickup_date) {
+=======
+public Date getOrder_date() {
+	return order_date;
+}
+public void setOrder_date(Date order_date) {
+	this.order_date = order_date;
+}
+public Date getOrder_pickup_date() {
+	return order_pickup_date;
+}
+public void setOrder_pickup_date(Date order_pickup_date) {
+>>>>>>> main
 	this.order_pickup_date = order_pickup_date;
 }
 public String getOrder_pickup_time() {
@@ -157,6 +174,15 @@ public int getOrder_delivery_price() {
 public void setOrder_delivery_price(int order_delivery_price) {
 	this.order_delivery_price = order_delivery_price;
 }
+<<<<<<< HEAD
+=======
+public String getProduct_name() {
+	return product_name;
+}
+public void setProduct_name(String product_name) {
+	this.product_name = product_name;
+}
+>>>>>>> main
 @Override
 public String toString() {
 	return "OrderVO [order_no=" + order_no + ", order_type=" + order_type + ", store_code=" + store_code
@@ -168,7 +194,11 @@ public String toString() {
 			+ order_customer_name + ", order_store_name=" + order_store_name + ", order_expected_date="
 			+ order_expected_date + ", order_customer_phone=" + order_customer_phone + ", order_address1="
 			+ order_address1 + ", order_address2=" + order_address2 + ", order_delivery_price=" + order_delivery_price
+<<<<<<< HEAD
 			+ "]";
+=======
+			+ ", product_name=" + product_name + "]";
+>>>>>>> main
 }
    
    

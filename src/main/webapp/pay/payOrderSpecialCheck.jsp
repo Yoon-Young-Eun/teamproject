@@ -40,11 +40,11 @@
       <input type="text" value="${OrderEstimate.customer_name }" id="name_text2" readonly> 
     </div>
     <div class="main_text4">
-      <input type="text" value="연락처" id="phone_text1" readonly>
+      <input type="text" value="연락처 :" id="phone_text1" readonly>
       <input type="text" value="${OrderData.order_customer_phone }" id="phone_text2" readonly>
     </div>
     <div class="main_text5">
-      <input type="text" value="주소" id="address_text1" readonly>
+      <input type="text" value="주소 :" id="address_text1" readonly>
       <input type="text" value="${OrderEstimate.customer_address1 }" id="address_text2" readonly style="width:250px;">
       <input type="text" value="${OrderEstimate.customer_address2}" id="address_text2" readonly style="width:250px; margin-top:2px;">
     </div>

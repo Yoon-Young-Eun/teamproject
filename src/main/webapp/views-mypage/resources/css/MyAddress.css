@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	width: 100%;
+	scroll-behavior: smooth;
+}
+
+body {
+	zoom: 1;
+	position: relative;
+	z-index: 1;
+	max-width : 600px;
+	width : 100%;
+}
+
+.address-wrapper {
+	padding : 50px;
+}
+
+.address-title h2 {
+	text-align : center;
+	width : 100%;
+	line-height : 100px;
+	border-bottom : 2px solid;
+}
+
+.address-content div{
+	display : flex;
+}
+
+.address-content .title {
+	width : 100px;
+	line-height : 70px;
+}
+
+.address-content .content {
+	line-height : 70px;
+	display : inline-block;
+}
+
+.address-content .content input {
+	height : 25px;
+	border : 2px solid #cdcdcd;
+	width : 300px;
+}
+
+.address-content .content input:focus{
+	border : 3px solid;
+	border-color : #a9d3f0;
+	outline : none;
+}
+
+.address-content .content i {
+	line-height : 70px;
+}
+
+.address-content button {
+	padding : 2px;
+}
+
+.button {
+	display : flex;
+	justify-content : center;
+}
+
+.button button {
+	margin : 20px;
+}

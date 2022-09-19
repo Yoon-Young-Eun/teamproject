@@ -1,0 +1,69 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insert title here</title>
+
+<!-- font awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+<!-- resources -->
+<link rel="stylesheet" href="/views-mypage/resources/css/MyAddress.css"/>
+<link rel="stylesheet" href="/common/css/header.css"/>
+<link rel="stylesheet" href="/common/css/button.css"/>
+<link rel="stylesheet" href="/common/css/footer.css"/>
+<!-- JQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class = "address-wrapper">
+	
+	<div class = "address-title">
+		<h2>주소</h2>	
+	</div>
+	<c:forEach var="addressOne" items="${addressOne}">
+	<div class = "address-content">
+		<div class = "contect">
+			<div class = title>연락처</div>
+			<div class = content>${addressOne.cm_phone_number}</div>
+		</div>
+		<div class = "zip">
+			<div class = title>우편번호</div>
+			<div class = content>
+			<input type = "text"  style = "width : 100px;"value = "33579" />
+			<button class = "search">찾기</button>
+			</div>
+		
+		</div>
+		<div class = "address1">
+			<div class = title>주소</div>
+			<div class = content>"${addressOne.cm_address1}</div>
+		</div>
+		<div class = "address2">
+			<div class = title>상세주소</div>
+			<div class = content>${addressOne.cm_address2}</div>
+		</div>
+		<div class = "passwd">
+			<div class = title>공동현관</div>
+			<div class = content>${addressOne.cm_gate_passwd}</div>
+		</div>
+	</div>
+	</c:forEach>
+	<div class = "button">
+		<button>닫기</button>
+		<button>수정</button>
+	</div>
+	
+</div>
+
+
+</body>
+</html>

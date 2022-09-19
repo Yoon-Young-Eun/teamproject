@@ -50,6 +50,7 @@
 	    <![CDATA[select * from message where message_type='주문']]>
 	</select>
 	
+<<<<<<< HEAD
 	<select id="getMessageContentType" parameterType="message" resultType="message">
 	 select * from message where message_title =#{message_title}
 	</select>
@@ -59,6 +60,13 @@
     select customer_phone from customer 
     </select>
 
+=======
+	
+	<select id="getMessageEstimateType" resultType="message">
+	   select * from message where message_type='견적'
+	</select>
+	
+>>>>>>> main
 </mapper>
 
 

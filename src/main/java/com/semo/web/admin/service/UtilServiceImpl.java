@@ -52,6 +52,7 @@ public class UtilServiceImpl implements UtilService {
 	public List<MessageVO> getMessageTypeList() {
 		return utildao.getMessageTypeList();
 	}
+<<<<<<< HEAD
 
 
 	@Override
@@ -71,4 +72,12 @@ public class UtilServiceImpl implements UtilService {
 
 
 
+=======
+	
+	public MessageVO getMessageEstimateType() {
+		return utildao.getMessageEstimateType();
+	}
+
+
+>>>>>>> main
 }

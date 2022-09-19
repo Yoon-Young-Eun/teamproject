@@ -1,0 +1,184 @@
+@charset "UTF-8";
+
+body {
+	margin: 0px;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+ul, lu {
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+#wrap {
+	width: 860px;
+}
+
+header {
+	background: #eeeeee;
+	padding: 0px;
+}
+
+
+header>h1 {
+	padding-top: 30px;
+	margin: 0px;
+}
+
+.clear {
+	clear: both;
+}
+
+.none {
+	display: none;
+}
+
+/*寃뚯떆�뙋*/
+/*�쇅怨쎌옟湲�*/
+#content_wrap {
+	/*   border : 1px solid red ; */
+	padding: 15px;
+	background: #eeeeee; width : 100%;
+	font-size: 15px;
+	width: 100%;
+}
+
+#content_wrap ul {
+	background: #ffffff;
+	border: 1px solid #dddddd;
+	padding: 10px;
+}
+
+#content_wrap ul li {
+	/* margin-bottom: 7px;
+	margin-top: 7px; */
+}
+
+#content_wrap ul li:nth-child(2) {
+	margin-bottom: 5px;
+	margin-top: 10px;
+}
+
+#content_wrap .title {
+	font-weight: bold;
+	display: inline-block;
+	width: 80px;
+	margin-bottom: 4px;
+}
+
+/*�궡遺��옟湲� shift+home+insert */
+#content_wrap li:nth-child(1) div {
+	display: inline-block;
+}
+
+#content_wrap li:nth-child(1) .radiobox {
+	font-size: 15px;
+	margin-left: 50px;
+}
+/*�벐湲곗쁺�뿭 */
+.writeWrap {
+	font-size: 15;
+	padding: 0px;
+	padding-bottom: 12px;
+	margin: 0px;
+	width: 100%;
+	padding: 0px;
+}
+
+.writeWrap  .writeArea {
+	width: 100%;
+	padding: 12px;
+	font-size: 14px;
+	color: #666666;
+	min-height: 300px;
+	resize: none;
+	border: 1px solid #ddd;
+}
+
+.configWrap {
+	border: none;
+}
+
+.configWrap ul {
+	margin: 0px;
+	background: #ffffff;
+	padding: 10px;
+}
+
+.configWrap .InputArea input {
+	width: 500px;
+	margin-left: 10px;
+}
+
+.popup_btn {
+	margin: 0px 12px;
+	padding: 10px;
+	border-radius: 10px;
+	background: #dee2e6;
+}
+
+.end {
+	border-radius: 3px;
+	margin-top: 1px; 
+	width: 100%;
+	padding: 20px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.end a {
+	color : #212529;
+	font-size: 16px;
+	font-weight: bold;
+	letter-spacing: 3px;
+	text-decoration: none;
+}
+
+.end a:hover {
+	font-weight: bold;
+	text-decoration: underline;
+	color: white;
+}
+
+.div2 {
+	display: flex;
+	margin-left: 175px;
+}
+
+.div3 {
+	width: 520px;
+	text-align: center;
+ 	padding-top: 25px;
+}
+
+.dd {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+
+/* named upload */
+.title_wrap {
+	margin-bottom: 7px;
+}
+
+.title_wrap_input{
+	width : 300px;
+}
+
+.require {
+	display: flex;
+	margin-top: 10px;
+}

@@ -330,7 +330,7 @@
 							
 							<div class="icon_flex">
 							
-							<!-- 문자 발송 -->
+<%-- 							<!-- 문자 발송 -->
 							<div>
 							<select name="text" id="selectOption">
 								<c:forEach var="message" items="${messageList}">
@@ -341,7 +341,7 @@
 							</select>
 							</div>
 							<div><input style="margin-right: 5px;" type="button" id="selectBtn" value="문자발송" /></div>
-							
+							 --%>
 
 							<!-- 검색기능 -->
 							<div>
@@ -493,7 +493,7 @@
 				//console.log("phone : " + phone);
 
 				$.ajax({
-					url : "message.mdo",
+					url : "/sendSMSAll.mdo",
 					type : "get",
 					traditional : true,
 					data : {

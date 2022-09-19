@@ -334,7 +334,8 @@
 <div>					
 <form action="/blackmemberUpdate.mdo" method="GET" class="form">			
 	<input type="hidden" name="customer_no" value="${user.customer_no}"/>
-	<div class="member_wrapper">
+	<input type="hidden" name="customer_phone" value="${user.customer_phone}"/>
+ 	<div class="member_wrapper">
 		<div class="member_popup_head">
 			<h2>회원 상세정보</h2>
 		</div>

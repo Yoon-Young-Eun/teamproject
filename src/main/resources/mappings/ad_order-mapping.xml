@@ -108,9 +108,17 @@
 
 	<!-- 주문 상세보기 수정 -->
 	<update id="updateOrderInfo" parameterType="order">
-	<![CDATA[[update order_cm set order_store_name =#{order_store_name}, order_status=#{order_status} where order_no =#{order_no}]]>
+	<![CDATA[ update order_cm set order_store_name=#{order_store_name}, order_status=#{order_status} where order_no=#{order_no}]]>
 	</update>
    
+    <!-- message 에서 title가져오기 -->
+    <select id="getMessageTitle" parameterType="message" resultType="message">
+     select * from message where message_content =#{message_content}
+    </select>
+    
+  
+  
+  
   
   
     <!-- 견적서 -->

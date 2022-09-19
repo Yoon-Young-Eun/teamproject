@@ -336,7 +336,7 @@
 							<select name="text" id="selectOption">
 								<c:forEach var="message" items="${messageList}">
 									<div>
-										<option style="padding:1px;" value="${message.message_content}">${message.message_title }</option>
+										<option style="padding:1px;" value="${message.message_content}">${message.message_title}</option>
 									</div>
 								</c:forEach>
 							</select>
@@ -349,7 +349,7 @@
 								<form action="adminOrderList.mdo" method="get">
 									<div class="icon_flex">
 										<div>
-											날짜 선택 : <input type="date" name="startDate" />
+											검색 조건 : <input type="date" name="startDate" />
 										</div>
 										<div>
 											<input type="date" name="endDate" />
@@ -509,7 +509,7 @@
 				//console.log("phone : " + phone);
 
 				$.ajax({
-					url : "message.mdo",
+					url : "/sendSMSAll.mdo",
 					type : "get",
 					traditional : true,
 					data : {

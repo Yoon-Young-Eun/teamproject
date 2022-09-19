@@ -156,7 +156,7 @@
                                     <a class="nav-link" href="/CouponList.mdo">쿠폰관리</a>
                                     <a class="nav-link" href="/BannerList.mdo">배너관리</a>
                                     <a class="nav-link" href="/TermsList.mdo">약관관리</a>
-
+ 									<a class="nav-link" href="/supportmessageList.mdo">문자관리</a>
                                 </nav>
                             </div>
                             

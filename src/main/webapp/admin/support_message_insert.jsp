@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
-<% request.setCharacterEncoding("utf-8"); %>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,9 +9,13 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
-<meta name="author" content="" />ㅉ
+<meta name="author" content="" />
 <title>Dashboard - SEMO Admin</title>
-<link href="/admin/css/item_product.css" rel="stylesheet" />
+<script src="/admin/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/admin/js/fileupload.js"></script>
+<!-- <-게시판 css -->
+<link rel="stylesheet" href="/admin/css/support_message.css" />
+
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
@@ -19,20 +23,11 @@
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
 	crossorigin="anonymous"></script>
 <script type="text/javascript" src="/admin/js/index_navbar_onclick.js"></script>
-
-
-
-<link href="/admin/css/styles.css" rel="stylesheet" />
-<link href="/admin/css/order_detail.css" rel="stylesheet" />
-
-
-
 </head>
 <body class="sb-nav-fixed">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 		<!-- Navbar Brand-->
-		<a class="navbar-brand ps-3" href="index_dashboard.jsp">Start
-			Bootstrap</a>
+		<a class="navbar-brand ps-3" href="index.html">Start Bootstrap</a>
 		<!-- Sidebar Toggle-->
 		<button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
 			id="sidebarToggle" href="#!">
@@ -64,6 +59,7 @@
 				</ul></li>
 		</ul>
 	</nav>
+
 	<div id="layoutSidenav">
 		<div id="layoutSidenav_nav">
 			<nav class="sb-sidenav accordion sb-sidenav-dark"
@@ -76,6 +72,9 @@
 								<i class="fas fa-tachometer-alt"></i>
 							</div> 대시보드
 						</a>
+
+
+
 
 
 						<div class="sb-sidenav-menu-heading">관리자 메뉴</div>
@@ -92,9 +91,8 @@
 						<div class="collapse" id="change_id_01"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="member.jsp">회원관리</a> <a
-									class="nav-link" href="member_black.jsp">블랙회원관리</a> <a
-									class="nav-link" href="memberstaff.jsp">매니저관리</a>
+								<a class="nav-link" href="#">회원관리</a> <a class="nav-link"
+									href="#">블랙회원관리</a> <a class="nav-link" href="#">매니저 관리</a>
 							</nav>
 						</div>
 
@@ -111,8 +109,8 @@
 						<div class="collapse" id="change_id_02"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="order.jsp">주문/결제</a> <a
-									class="nav-link" href="#">견적상품</a>
+								<a class="nav-link" href="#">주문/결제</a> <a class="nav-link"
+									href="#">견적상품</a>
 							</nav>
 						</div>
 
@@ -126,29 +124,31 @@
 								<i class="fas fa-angle-down"></i>
 							</div>
 						</a>
-						<!--                             <div class="collapse" id="change_id_03" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
-						<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
-						<!--                                     <a class="nav-link" href="#">매출현황#1</a> -->
-						<!--                                     <a class="nav-link" href="#">매출현황#2</a> -->
-						<!--                                 </nav> -->
-						<!--                             </div> -->
+						<div class="collapse" id="change_id_03"
+							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+							<nav class="sb-sidenav-menu-nested nav">
+								<a class="nav-link" href="#">매출현황#1</a> <a class="nav-link"
+									href="#">매출현황#2</a>
+							</nav>
+						</div>
 
-						<a class="nav-link collapsed" href="item.jsp"
-							data-bs-toggle="collapse" data-bs-target="#change_id_04"
-							aria-expanded="false" aria-controls="collapseLayouts">
+						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+							data-bs-target="#change_id_04" aria-expanded="false"
+							aria-controls="collapseLayouts">
 							<div class="sb-nav-link-icon">
 								<i class="fas fa-columns"></i>
-							</div> <span onclick="newPage()">상품등록</span>
+							</div> 상품등록
 							<div class="sb-sidenav-collapse-arrow">
 								<i class="fas fa-angle-down"></i>
 							</div>
 						</a>
-						<!--                             <div class="collapse" id="change_id_04" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
-						<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
-						<!--                                     <a class="nav-link" href="#">상품등록#1</a> -->
-						<!--                                     <a class="nav-link" href="#">상품등록#2</a> -->
-						<!--                                 </nav> -->
-						<!--                             </div> -->
+						<div class="collapse" id="change_id_04"
+							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+							<nav class="sb-sidenav-menu-nested nav">
+								<a class="nav-link" href="#">상품등록#1</a> <a class="nav-link"
+									href="#">상품등록#2</a>
+							</nav>
+						</div>
 
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 							data-bs-target="#change_id_05" aria-expanded="false"
@@ -160,12 +160,13 @@
 								<i class="fas fa-angle-down"></i>
 							</div>
 						</a>
-						<!--                             <div class="collapse" id="change_id_05" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
-						<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
-						<!--                                     <a class="nav-link" href="#">지점관리</a> -->
-						<!--                                     <a class="nav-link" href="#">외주관리</a> -->
-						<!--                                 </nav> -->
-						<!--                             </div> -->
+						<div class="collapse" id="change_id_05"
+							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+							<nav class="sb-sidenav-menu-nested nav">
+								<a class="nav-link" href="#">지점관리</a> <a class="nav-link"
+									href="#">외주관리</a>
+							</nav>
+						</div>
 
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 							data-bs-target="#change_id_06" aria-expanded="false"
@@ -180,12 +181,8 @@
 						<div class="collapse" id="change_id_06"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="board_notice.jsp">공지사항</a> <a
-									class="nav-link" href="board_event.jsp">이벤트</a> <a
-									class="nav-link" href="#">리뷰</a> <a class="nav-link"
-									href="board_Q&A.jsp">QnA</a> <a class="nav-link"
-									href="board_FAQ.jsp">자주하는 질문</a>
-
+								<a class="nav-link" href="#">Q&A</a> <a class="nav-link"
+									href="#">자주하는 질문</a> <a class="nav-link" href="#">리뷰관리</a>
 							</nav>
 						</div>
 
@@ -220,13 +217,14 @@
 						<div class="collapse" id="change_id_08"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-
-								<a class="nav-link" href="promo.jsp">쿠폰관리</a> <a
-									class="nav-link" href="supporbanner.jsp">배너관리</a> <a
-									class="nav-link" href="supporclause.jsp">약관관리</a>
-
+								<a class="nav-link" href="#">배너관리</a> <a class="nav-link"
+									href="#">약관관리</a>
 							</nav>
 						</div>
+
+
+
+
 
 
 						<div class="sb-sidenav-menu-heading">Interface</div>
@@ -273,7 +271,7 @@
 									aria-labelledby="headingOne"
 									data-bs-parent="#sidenavAccordionPages">
 									<nav class="sb-sidenav-menu-nested nav">
-										<a class="nav-link" href="login.jsp">Login</a> <a
+										<a class="nav-link" href="login.html">Login</a> <a
 											class="nav-link" href="register.html">Register</a> <a
 											class="nav-link" href="password.html">Forgot Password</a>
 									</nav>
@@ -297,6 +295,7 @@
 							</nav>
 						</div>
 
+
 						<div class="sb-sidenav-menu-heading">Addons</div>
 						<a class="nav-link" href="charts.html">
 							<div class="sb-nav-link-icon">
@@ -309,120 +308,109 @@
 						</a>
 					</div>
 				</div>
-				<!--                     <div class="sb-sidenav-footer"> -->
-				<!--                         <div class="small">Logged in as:</div> -->
-				<!--                         Start Bootstrap -->
-				<!--                     </div> -->
+				<div class="sb-sidenav-footer">
+					<div class="small">Logged in as:</div>
+					Start Bootstrap
+				</div>
 			</nav>
 		</div>
-
 		<div id="layoutSidenav_content">
 			<main>
 
+
+
 				<div class="container-fluid px-4">
-					<h1 class="mt-4">주문상세정보</h1>
+					<h1 class="mt-4">문자등록</h1>
 					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item"><a href="/admin/index.jsp">Dashboard</a></li>
-						<li class="breadcrumb-item active">주문상세정보</li>
+						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
+						<li class="breadcrumb-item active">문자등록</li>
 					</ol>
 					<div class="card mb-4">
-						<div class="card-body">회원의 주문 상세 정보를 조회합니다.</div>
+						<div class="card-body">문자 등록 화면입니다..</div>
 					</div>
+					<div class="dd">
+						<!-- <div class="card-header">
+							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 게시판에 대한 세부제목
+						</div> -->
 
-					<!-- 상세정보 -->
-
-					<div>
-						<form action="/Ad_updateOrderInfo.mdo" method="GET" class="form">
-						<input type="hidden" name="order_customer_phone" value="${order.order_customer_phone}"/>
-							<input type="hidden" name="order_no"
-								value="${order.order_no}" />
-							<div class="member_wrapper">
-								<div class="member_popup_head">
-									<h2>주문상세정보</h2>
-								</div>
-
-								<div class="member_id">구&nbsp;&nbsp;&nbsp;분 :
-									${order.order_type}</div>
-
-								<div class="member_db_id"></div>
-								<div class="flex">
-									<div class="member_id">
-										고객이름 : ${order.order_customer_name}(${order.customer_no})&nbsp; 
-								<%-- 		<a style="font-size: 5px;"
-											href="/getMemberBoard.mdo?customer_no=${order.customer_no}">개인정보보기</a> --%>
+						<div id="wrap">
+							<header>
+								<div class="div2">
+									<!--<div>
+										<img
+											src="https://i.etsystatic.com/14912200/r/il/7c4834/1295206612/il_570xN.1295206612_nj87.jpg"
+											width=150px>
+									</div> -->
+									<div class="div3">
+										<h1>문자 등록</h1>
 									</div>
-									&nbsp;&nbsp;
-									<div class="member_id">&nbsp;&nbsp;&nbsp;&nbsp;
-									전화번호 : ${order.order_customer_phone}</div>
 								</div>
-								<div class="member_id">주 소 : ${order.order_address1}
-									${order.order_address2}</div>
-								<div class="member_id">주문일자 : ${order.order_date}</div>
-								<div class="member_id">픽업일시 : ${order.order_pickup_date} /
-									${order.order_pickup_time}</div>
-								<div class="member_id">요청사항(세탁) : ${order.order_request1}</div>
-								<div class="member_id">요청사항(택배) : ${order.order_request2}</div>
-
-								<div class="flex">
-									<div class="member_id">주문금액 : ${order.order_price}</div>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						
-									<div class="member_id">쿠폰금액 : ${order.order_use_coupon_price}</div>
-			
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<div class="member_id">결제상태 : ${order.order_price_status}</div>
+							</header>
+							<div id="content_wrap">
+							
+							<form action="/insertmessage.mdo" method="GET">	
+							
+								<ul class="title_wrap">
+<!-- 									<li><span class="title">약관번호</span> <input class="title_wrap_input" type="text" -->
+<!-- 										onfocus="value=''" value="약관번호를 입력"/> -->
+<!-- 									</li> -->
+											<!--
+            <input type="checkBox" id="chkNotice1" name="chkB1">
+            <label for="chkNotice1">공지사항으로 게시글쓰기</label>
+            <input type="checkBox" id="chkNotice2" name="chkB2">
+            <label for="chkNotice2">일반글로 게시글쓰기</label>
+            -->
+									<li><span class="title">분류</span> <input class="title_wrap_input"  type="text" name="message_type" placeholder="문자 타입을 입력하세요"/>
+									</li>
+								    <li><span class="title">제목</span> <input class="title_wrap_input"  type="text" name="message_title" placeholder="문자 제목을 입력하세요"/>
+									</li>	
+								
+	<!-- 								<div class="require">
+									<li><span class="title">제목</span>
+										<div class="clause_select">
+											<select name="terms_necessary" >
+												<option value="TRUE">필수</option>
+												<option value="TRUE">필수</option>
+												<option value="TRUE">필수</option>
+												<option value="TRUE">필수</option>
+												<option value="TRUE">필수</option>
+												<option value="FALSE">선택</option>
+											</select>
+										</div></li>
+									</div> -->
+								</ul>
+								<div class="writeWrap">
+									<textarea class="writeArea" name="message_content"></textarea>
 								</div>
+<!-- 								<div class="configWrap"> -->
+<!-- 									<ul> -->
 
-								<div class="flex">
-									<div class="member_state">
-										주문상태 : <select name="message_content">${order.order_status}
-												<option value="">${order.order_status}</option>
-												<c:forEach var="message" items="${message}">
-													<option value="${message.message_content}">${message.message_title}</option>
-												</c:forEach>
-										</select>
-									</div>
-									&nbsp;&nbsp;&nbsp;
-									<div class="member_state">
-										담당지점 : <select name="order_store_name">
-											<option value="">${store_name}</option>
-										<c:forEach var="secret" items="${storeList}">
-											<option value="${secret.store_name}">${secret.store_name}</option>
-										</c:forEach>	
-										</select>
-									</div>
-									&nbsp;&nbsp;&nbsp;
-									<div class="member_state">배송예정일자 : ${order.order_price_status}</div>
-								</div>
-
-
-								<div class="member_order">
-									<a style="font-size: 10px;" href="/memberorderList.mdo?order_no=${order.order_no}">주문리스트</a>
-								</div>
-
+<!-- 										<li><span class="title">공개설정</span>&nbsp; <input -->
+<!-- 											type="radio" name="open" id="open_0"> <label -->
+<!-- 											for="open_0">공개</label>&nbsp;&nbsp; <input type="radio" -->
+<!-- 											name="open" id="open_1"> <label for="open_1">비공개</label>&nbsp;&nbsp; -->
+										
+<!-- 									</ul> -->
+<!-- 								</div> -->
 								<div class="end">
-									<div class="popup_btn">
-										<input type="submit" value="저장" />
-									</div>
-									<div class="popup_btn">
-										<a href="/adminOrderList.mdo" onclick="self.close();">취소</a>
-									</div>
+									<input type="submit" value="저장">&nbsp;&nbsp;<a href="#">취소</a>
 								</div>
+							</form>
 							</div>
+						</div>
 
-						</form>
+						<!-- <div class="card-footer small text-muted">Updated yesterday
+							at 11:59 PM</div> -->
 					</div>
+
+				</div>
 			</main>
+
 			<footer class="py-4 bg-light mt-auto">
 				<div class="container-fluid px-4">
 					<div
 						class="d-flex align-items-center justify-content-between small">
 						<div class="text-muted">Copyright &copy; Your Website 2022</div>
-						<div>
-							<a href="#">Privacy Policy</a> &middot; <a href="#">Terms
-								&amp; Conditions</a>
-						</div>
 					</div>
 				</div>
 			</footer>
@@ -431,14 +419,14 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
-	<script src="js/scripts.js"></script>
+	<script src="/admin/js/scripts.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
 		crossorigin="anonymous"></script>
-	<script src="assets/demo/chart-area-demo.js"></script>
-	<script src="assets/demo/chart-bar-demo.js"></script>
+	<script src="/admin/assets/demo/chart-area-demo.js"></script>
+	<script src="/admin/assets/demo/chart-bar-demo.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
 		crossorigin="anonymous"></script>
-	<script src="js/datatables-simple-demo.js"></script>
+	<script src="/admin/js/datatables-simple-demo.js"></script>
 </body>
 </html>

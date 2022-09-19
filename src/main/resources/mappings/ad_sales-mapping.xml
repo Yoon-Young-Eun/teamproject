@@ -35,7 +35,6 @@
 			</trim>
  
 	</select>
-    
 
  
     <!-- 매출 조회를 위한 order_cm 테이블 페이징 쿼리-->
@@ -69,7 +68,6 @@
 			</trim>
     <![CDATA[order by order_mt_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow}]]>
 	</select>
-	
 
 	
 	<!-- 도넛차트 조건별 조회 쿼리 -->
@@ -90,29 +88,42 @@
 
 	<!-- 바차트 조건별 조회 쿼리  -->	
 	<select id="getBarChart" parameterType="paging" resultType="order">
-	  <![CDATA[ select order_store_name, sum(order_price) as order_price from order_cm]]>
+	  <![CDATA[select order_store_name, sum(order_price) as order_price from order_cm]]>
 	  			<if test="startDate != null and endDate != null and startDate != '' and endDate != ''">
     			<![CDATA[where order_date >= #{startDate} and order_date < #{endDate} ]]></if>
 	            <![CDATA[group by order_store_name ]]>
+	</select> 
+	
+		<!-- Main바차트 조건별 조회 쿼리  -->	
+	<select id="getMainBarChart" parameterType="paging" resultType="order">
+	  select
+	  <if test="startDate != null and endDate != null and startDate != '' and endDate != ''">
+      <![CDATA[date_format(order_date, '%Y-%m-%d') as order_date, sum(order_price) as order_price from order_cm where order_date >= #{startDate} and order_date < #{endDate} group by date_format(order_date, '%Y-%m-%d') order by order_date asc ]]></if>
+	  <if test="chartDate == 'day'">
+	  <![CDATA[date_format(order_date, '%m-%d') as order_date, sum(order_price) as order_price from order_cm group by date_format(order_date, '%Y-%m-%d') order by order_date asc]]></if>
+	  <if test="chartDate == 'month'">
+	  <![CDATA[date_format(order_date, '%Y-%m') as order_date, sum(order_price) as order_price from order_cm group by date_format(order_date, '%Y-%m') order by order_date asc]]></if>
+	  <if test="chartDate == 'year'">
+	  <![CDATA[date_format(order_date, '%Y') as order_date, sum(order_price) as order_price from order_cm group by date_format(order_date, '%Y') order by order_date asc]]></if>
+	  <if test="chartDate == 'all'">
+	  <![CDATA[date_format(order_date, '%Y') as order_date, sum(order_price) as order_price from order_cm group by date_format(order_date, '%Y') order by order_date asc]]></if>
+	  <if test="chartDate == '검색'">
+	  <![CDATA[date_format(order_date, '%m-%d') as order_date, sum(order_price) as order_price from order_cm group by date_format(order_date, '%Y-%m-%d') order by order_date asc]]></if>
+	</select> 
+
+	
+	
+	
+	
+	<!-- 검색 조건List  -->
+	<select id="getSaleStoreSearchTitle2" resultType="order">
+		select distinct order_store_name from order_cm 
 	</select>
 	
+	<select id="getSaleStoreSearchTitle3" resultType="order">
+		select distinct order_address1 from order_cm 
+	</select>
 	
-<!-- 	
-		<select id="getBarChart" parameterType="paging" resultType="order">
-	  <![CDATA[ select order_store_name, sum(order_price) as order_price from order_cm]]>
-	  			<if test="chartDate == 'day'">
-				<![CDATA[where order_date > date_add(now(),interval -1 day ) group by order_store_name]]></if>
-				<if test="chartDate == 'week'">
-				<![CDATA[where order_date > date_add(now(),interval -7 day) group by order_store_name]]></if>
-				<if test="chartDate == 'month'">
-				<![CDATA[where order_date > date_add(now(),interval -1 month ) group by order_store_name]]></if>
-				<if test="chartDate == 'year'">
-				<![CDATA[where order_date > date_add(now(),interval -1 year ) group by order_store_name]]></if>
-				<if test="chartDate == '검색'">
-	            <![CDATA[group by order_store_name ]]></if>
-	</select> -->
-	
-
 	
 
 </mapper>

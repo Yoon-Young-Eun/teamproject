@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.semo.web.admin.service.SalesService;
+import com.semo.web.admin.service.UtilService;
 import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.user.vo.OrderMtVO;
 import com.semo.web.user.vo.OrderVO;
@@ -71,14 +72,13 @@ public class Ad_SalesController {
 		    	  model.addAttribute("pageBlock",pageBlock);
 		          model.addAttribute("count", count);
 		    	  }
+	       List<OrderVO> search2 = salseService.getSaleStoreSearchTitle2();
+	       System.out.println(search2);
+	       List<OrderVO> search3 = salseService.getSaleStoreSearchTitle3();
+	       System.out.println(search3);
 	       
-	       
-			Map<String, String> conditionMap = new HashMap<String, String>();
-			conditionMap.put("세탁구분", "order_no");
-			conditionMap.put("매장명", "order_status");
-			conditionMap.put("지역", "order_price_status");
-			
-		   model.addAttribute("conditionMap", conditionMap);
+	       model.addAttribute("search2", search2);
+	       model.addAttribute("search3", search3);
 	       model.addAttribute("storeSalesList", storeSalesList);
 	       System.out.println("매출 DB 결과"+storeSalesList);
 

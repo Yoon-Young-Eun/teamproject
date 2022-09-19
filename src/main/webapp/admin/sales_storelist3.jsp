@@ -346,42 +346,39 @@
 
 
 							<!--Chart -->
-							<div class="chartparent">
-								<div class="chart">
-									<!-- <div id="chart_div" style="width: 300px; height: 300px;"></div> -->
-									<div id="chart_div" style="width: 550px; height: 400px;"></div>
-									<form id="barChart">
-										<div class="icon_flex">
-											<div>
-												<input type="date" name="startDate" />
+								<div class="chartparent">
+									<div class="chart">
+										<!-- <div id="chart_div" style="width: 300px; height: 300px;"></div> -->
+										<canvas id="bar-chart" width="650" height="400"></canvas>
+										<form id="barChart">
+											<div class="icon_flex">
+												<div>
+													<input type="date" name="startDate" />
+												</div>
+												<div>
+													<input type="date" name="endDate" />
+												</div>
+												<div>
+													<input type="button" value="검색" onClick="getGraph()" />
+												</div>
 											</div>
-											<div>
-												<input type="date" name="endDate" />
-											</div>
-											<div>
-												<input type="button" value="검색" onClick="getGraph()" />
-											</div>
-											<div>
-												<input type="reset" value="초기화" onChange="getGraph()" />
-											</div>
-										</div>
-									</form>
+										</form>
+									</div>
+									<div class="chart">
+										<div id="donutchart" style="width: 550px; height: 400px;"></div>
+										<select id="doughnutChart" name="chartDate"
+											onChange="drawChart()">
+											<option>검색</option>
+											<option value="today">오늘</option>
+											<option value="thisweek">최근일주일</option>
+											<option value="thismonth">최근한달</option>
+											<option value="thisyear">최근일년</option>
+										</select>
+									</div>
 								</div>
-								<div class="chart">
-									<div id="donutchart" style="width: 550px; height: 400px;"></div>
-									<select id="doughnutChart" name="chartDate"
-										onChange="drawChart()">
-										<option>검색</option>
-										<option value="today">오늘</option>
-										<option value="thisweek">최근일주일</option>
-										<option value="thismonth">최근한달</option>
-										<option value="thisyear">최근일년</option>
-									</select>
-								</div>
-							</div>
 
 
-
+						
 						</div>
 
 						<div class="card mb-4">
@@ -463,9 +460,8 @@
 											</div>
 
 											<div>
-												<input type="submit" id="se_submit" value="검색"  />
+												<input type="submit" id="se_submit" value="검색" />
 											</div>
-
 										</div>
 									</form>
 								</div>
@@ -582,19 +578,17 @@
 	<!-- 구글차트 -->
 	<script type="text/javascript"
 		src="https://www.gstatic.com/charts/loader.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js">
+		
+	</script>
 
 	<script>
-		google.charts.load('current', {
-			packages : [ 'corechart', 'bar' ]
+		//bar 차트
+		$(document).ready(function() {
+			getGraph();
+			console.log("getGraph");
 		});
-		google.charts.setOnLoadCallback(getGraph);
-		google.charts.load('current', {
-			'packages' : [ 'corechart' ]
-		});
-		google.charts.setOnLoadCallback(drawChart); // 도넛
-		/* 	google.charts.setOnLoadCallback(getGraph);  // bar차트  */
-
-		/* Bar */
 
 		function getGraph() {
 			console.log("getGraph");
@@ -602,58 +596,60 @@
 			let price = []
 			let color = [ "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9",
 					"#c45850", "yellow", "silver" ]
-			let showgraph = [ [ 'corechart', 'bar' ] ]
 
-			$
-					.ajax({
-						url : "/getBarChart.mdo",
-						type : "get",
-						data : $("#barChart").serialize(),
-						dataType : "json",
-						success : function(data) {
-							console.log(data);
- 							if(data == null){
- 								
- 							}
-							for (let i = 0; i < data.length; i++) {
-								store.push(data[i].order_store_name);
+			$.ajax({
+				url : "/getBarChart.mdo",
+				type : "get",
+				data : $("#barChart").serialize(),
+				dataType : "json",
+				success : function(data) {
+					console.log("success" + data);
 
-								let price = Number(data[i].order_price)
-								showgraph.push([ data[i].order_store_name,
-										price ])
-								console.log(data[i].order_store_name);
-								console.log(price);
+					for (let i = 0; i < data.length; i++) {
+						store.push(data[i].order_store_name);
+						price.push(data[i].order_price);
+					}
+					console.log(store);
+					console.log(price);
+
+					new Chart(document.getElementById("bar-chart"), {
+
+						type : 'bar',
+						data : {
+							labels : store, // x축
+							datasets : [ {
+								label : "StorebarChart",
+								backgroundColor : color,
+								data : price
+							//y축
+							} ]
+						},
+						options : {
+							legend : {
+								display : false
+							},
+							title : {
+								display : true,
+								text : '세모 직영별 매출 현황'
 							}
-							console.log(showgraph);
-
-							var data = google.visualization
-									.arrayToDataTable(showgraph);
-
-							var options = {
-								title : 'Population of Largest U.S. Cities',
-								chartArea : {
-									width : '50%'
-								},
-								hAxis : {
-									title : 'Total Population',
-									minValue : 0
-								},
-								vAxis : {
-									title : 'City'
-								}
-							};
-
-							var chart = new google.visualization.BarChart(
-									document.getElementById('chart_div'));
-
-							chart.draw(data, options);
-
-						}, //success:function
-						error : function() {
-							alert("실패");
 						}
-					});//ajax	
-		}//get그래프
+					}); //그래프
+
+				},
+				error : function() {
+					alert("실패");
+				}
+
+			});//ajax
+		} //get그래프
+	</script>
+	<script>
+		google.charts.load('current', {
+			'packages' : [ 'corechart' ]
+		});
+
+		google.charts.setOnLoadCallback(drawChart); // 도넛
+		/* 	google.charts.setOnLoadCallback(getGraph);  // bar차트  */
 
 		/* 도넛 */
 		function drawChart() {

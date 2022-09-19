@@ -46,4 +46,21 @@ public class SalesServiceImpl implements SalesService {
 		return salesDao.getBarChart(pvo);
 	}
 	
+	@Override
+	public List<OrderVO> getMainBarChart(PagingVO pvo) {
+		return salesDao.getMainBarChart(pvo);
+	}
+	
+	@Override
+	public List<OrderVO> getSaleStoreSearchTitle2() {
+		return salesDao.getSaleStoreSearchTitle2();
+	}
+
+	@Override
+	public List<OrderVO> getSaleStoreSearchTitle3() {
+		return salesDao.getSaleStoreSearchTitle3();
+	}
+
+
+	
 }

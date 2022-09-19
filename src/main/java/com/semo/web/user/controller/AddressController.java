@@ -9,8 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.semo.web.user.service.AddressService;
+import com.semo.web.user.service.CoolSmsPassword;
 import com.semo.web.user.vo.AddressListVO;
 import com.semo.web.user.vo.CustomerVO;
 
@@ -21,6 +24,11 @@ public class AddressController {
 	@Autowired
 	AddressService addressservice;
 
+	@Autowired
+	CoolSmsPassword coolsmspassword;
+	
+	
+	
 	@RequestMapping(value = "/setAddress.do", method = RequestMethod.GET)
 	public String setAddress(AddressListVO vo, HttpSession session, Model model) {
 		System.out.println(vo);
@@ -121,4 +129,59 @@ public class AddressController {
 		return "/getAddressList.do";
 	}
 
+	
+	//아이디찾기
+	@RequestMapping(value="/SearchId.do",method=RequestMethod.GET)
+	public String SearchId(CustomerVO vo,Model model) {
+		System.out.println("1차" + vo);
+		addressservice.SearchId(vo);
+		model.addAttribute("SearchId",addressservice.SearchId(vo));
+		System.out.println(addressservice.SearchId(vo));
+		String a = vo.getCustomer_name();
+		System.out.println(a);
+		
+		CustomerVO vo2 = addressservice.SearchId(vo);
+		
+		
+		if(vo2==null) {
+			return "/views/falseId.jsp";
+		}
+		
+		return "/views/viewId.jsp";
+	}
+
+	/*
+	 * @RequestMapping("/message.do") public String sendMessage(String phone, String
+	 * name) {
+	 * 
+	 * coolsms.sendMessage(phone, name);
+	 * 
+	 * 
+	 * return "Asdasda";
+	 * 
+	 * }
+	 */
+	 
+		@RequestMapping(value="/message.do")
+		@ResponseBody
+		public String sendSMS(@RequestParam(name="customer_phone", required=false) String userPhoneNumber,@RequestParam(name="customer_id") String customer_id, CustomerVO vo) {
+			System.out.println("00000");
+			System.out.println("고객정보"+vo);
+			CustomerVO vo1 = addressservice.selectPassword(vo);
+			System.out.println(vo1);
+			int randomNumber = (int)((Math.random()*(9999-1000+1))+1000);
+			if(vo1 != null) {
+				 //난수생성
+				System.out.println("난수생성완료");
+				coolsmspassword.sendMessage(userPhoneNumber,randomNumber);
+					System.out.println("1111");
+			}else {
+				System.out.println("정보 불일치");
+			}
+			
+			
+			return Integer.toString(randomNumber);
+			
+			
+		}
 }

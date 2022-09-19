@@ -6,24 +6,26 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+import lombok.RequiredArgsConstructor;
+
+@Component
 public class refund {
 	public String getToken(String token) throws Exception {
 
 		// requestURL 아임퐅크 고유키, 시크릿 키 정보를 포함하는 url 정보
 		JSONObject json = new JSONObject();
 		
-		json.put("imp_uid", "imp_949335515456");// 결제 완료시 나오는 imp_uid
-		json.put("amount", "200");// 환불금액
+		json.put("merchant_uid", "semo_1663504373609");// 결제 완료시 나오는 imp_uid
+		json.put("amount", "100");// 환불금액
 		json.put("reason", "테스트결제");// 사유
-		json.put("checksum", "200");// 이전 총 결제금액
+		json.put("checksum", "100");// 이전 총 결제금액
 		JSONObject json1 = new JSONObject();
 		json1.put("data", json);
 

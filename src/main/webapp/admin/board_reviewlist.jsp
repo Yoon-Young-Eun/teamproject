@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<%@ include file="ad_header.jsp"%>
+<%@ include file="/admin/ad_header.jsp"%>
 
 <!-- icon 버튼 css -->
 <link href="/admin/css/icon.css" rel="stylesheet" />
@@ -243,24 +243,11 @@
 
 
 						<!-- 내용물 end -->
-						<div class="card-footer small text-muted">Updated yesterday
-							at 11:59 PM</div>
-					</div>
 
 				</div>
 			</main>
-			<footer class="py-4 bg-light mt-auto">
-				<div class="container-fluid px-4">
-					<div
-						class="d-flex align-items-center justify-content-between small">
-						<div class="text-muted">Copyright &copy; Your Website 2022</div>
-						<div>
-							<a href="#">Privacy Policy</a> &middot; <a href="#">Terms
-								&amp; Conditions</a>
-						</div>
-					</div>
-				</div>
-			</footer>
+
+<%@ include file="/admin/ad_footer.jsp"%>
 			
 	<script>
 		getUniqueValuesFromColumn()
@@ -278,5 +265,5 @@
 	<!-- excel -->
 	<script src="/admin/js/excel.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
-<jsp:include page="ad_end.jsp" />
+<%@ include file="/admin/ad_end.jsp"%>
+<%-- <jsp:include page="/admin/ad_end.jsp" /> --%>

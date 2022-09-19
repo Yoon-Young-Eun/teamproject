@@ -39,6 +39,7 @@
 		<typeAlias type="com.semo.web.user.vo.OrderMtVO" alias="orderManagement"/>
 		<typeAlias type="com.semo.web.user.vo.CouponListVO" alias="CouponList"/>
 		<typeAlias type="com.semo.web.user.vo.EstimateVO" alias="estimate" />
+		<typeAlias type="com.semo.web.user.vo.PayVO" alias="pay" />
 		<typeAlias type="com.semo.web.user.vo.Estimate_ImageVO" alias="estimate_image" />
       
    </typeAliases>
@@ -67,7 +68,8 @@
 		<mapper resource="mappings/user_order-mapping.xml"/>
 		<mapper resource="mappings/user-customer-mapping.xml" />
 		<mapper resource="mappings/ad_coupon-mapping.xml" />
-
+		<mapper resource="mappings/user_pay-mapping.xml" />
+		
 	</mappers>
 
 </configuration>

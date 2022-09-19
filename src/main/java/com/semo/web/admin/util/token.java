@@ -5,15 +5,17 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.springframework.stereotype.Component;
 
+
+@Component
 public class token {
-   public static String getToken() throws Exception {
+   private static final String String = null;
 
+public static String getToken(String imp_uid, int amount) throws Exception {
+	  System.out.println("imp"+imp_uid+"+amount"+amount);
       // requestURL 아임퐅크 고유키, 시크릿 키 정보를 포함하는 url 정보
       JSONObject json = new JSONObject();
 
@@ -83,8 +85,12 @@ public class token {
            
            _token = (String) getToken.get("access_token");
            
+
+              
+           
+      
            }
-          
+    
 
       } catch (Exception e) {
 
@@ -94,14 +100,14 @@ public class token {
 
       }
 
-      
       refund rf = new refund();
-      rf.getToken(_token);
+      rf.getToken(_token, imp_uid, amount);
       
       
-      
+
       return requestString;
-   }
+
+}
    
    
    

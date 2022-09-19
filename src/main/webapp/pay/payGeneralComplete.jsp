@@ -17,7 +17,7 @@
     <div class="wrap1">
     
     <jsp:include page="/common/header.jsp"></jsp:include>
-    
+        
     <div class="main">
   <div class="space_left"></div>
   <div class="main_box">
@@ -55,7 +55,7 @@
   </div>
   <div class="space_right"></div>
 </div>
-    
+
     </div>
     </div>
 </body>

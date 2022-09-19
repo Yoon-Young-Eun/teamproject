@@ -9,6 +9,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,7 +30,7 @@ import com.semo.web.user.vo.OrderProductVO;
 import com.semo.web.user.vo.OrderVO;
 
 @Controller
-public class OrderController {
+public class OrderController<imp_uid> {
 
 	@Autowired
 	OrderService orderservice;
@@ -171,9 +172,10 @@ public class OrderController {
 		List<CouponListVO> CouponList = orderservice.OrderCoupon(vo);
 		model.addAttribute("couponList",CouponList);
 		System.out.println(CouponList);
+		
 		return "/pay/payCouponList.jsp";
 	}
-	@RequestMapping(value="/OrderInsert.do",method=RequestMethod.GET)
+	@RequestMapping(value="/OrderInsert.do", method=RequestMethod.GET)
 	public String  OrderInsert(OrderVO vo,OrderMtVO vo3 ,OrderMtArrayVO vo2) {
 		System.out.println("오더"+ vo);
 		System.out.println("오더MT"+vo3);

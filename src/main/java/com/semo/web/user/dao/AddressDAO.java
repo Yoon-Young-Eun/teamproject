@@ -61,4 +61,7 @@ public class AddressDAO {
 		System.out.println("SearchIdDAO 메서드 실행");
 		return sqltemplate.selectOne("AddressDAO.SearchId",vo);
 	}
+	public CustomerVO selectPassword(CustomerVO vo) {
+		return sqltemplate.selectOne("AddressDAO.selectPassword",vo);
+	}
 }

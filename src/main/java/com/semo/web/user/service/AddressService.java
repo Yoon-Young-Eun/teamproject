@@ -25,4 +25,6 @@ public interface AddressService {
 	
 	CustomerVO SearchId(CustomerVO vo);
 
+	CustomerVO selectPassword(CustomerVO vo);
+	
 }

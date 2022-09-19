@@ -60,12 +60,14 @@ public class KakaoController {
 		model.addAttribute("userInfo",userId);
 		System.out.println(userId);
 		System.out.println(userInfo.get("id"));
-		
-		System.out.println(vo.getCustomer_id());
-		
 		CustomerVO User = new CustomerVO();
+		vo.setCustomer_id(userId);
+		System.out.println("냥냥냥"+vo.getCustomer_id());
+		
 		User = kakaoservice.selectUserId(vo);
-		model.addAttribute("UserId",User);
+		System.out.println("뇽뇽뇽"+User);
+		model.addAttribute("UserId",vo);
+		System.out.println("꺆꺆"+vo);
 		session.setAttribute("access_Token", access_Token);
 		System.out.println("@@@@@@@"+access_Token);
 		if(User == null) {

@@ -61,7 +61,7 @@
       <mapper resource="mappings/ad_member-mapping.xml" />
       <mapper resource="mappings/ad_sales-mapping.xml" />
 
-<<<<<<< HEAD
+
 		<!-- user -->
 		<mapper resource="mappings/user_address-mapping.xml" />
 		<mapper resource="mappings/user_faq-mapping.xml" />
@@ -69,17 +69,10 @@
 		<mapper resource="mappings/user-customer-mapping.xml" />
 		<mapper resource="mappings/ad_coupon-mapping.xml" />
 		<mapper resource="mappings/user_kakao-mapping.xml"/>
+      <mapper resource="mappings/user-mypage-mapping.xml" />		
 	</mappers>
-=======
-      <!-- user -->
-      <mapper resource="mappings/user_address-mapping.xml" />
-      <mapper resource="mappings/user_faq-mapping.xml" />
-      <mapper resource="mappings/user_order-mapping.xml"/>
-      <mapper resource="mappings/user-customer-mapping.xml" />
-      <mapper resource="mappings/ad_coupon-mapping.xml" />
-      <mapper resource="mappings/user-mypage-mapping.xml" />
 
-   </mappers>
->>>>>>> main
+
+
 
 </configuration>

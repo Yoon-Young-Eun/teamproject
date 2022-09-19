@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +17,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.semo.web.admin.service.BoardService;
 import com.semo.web.admin.vo.EventVO;
+import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.amazon.s3.AwsS3;
+
+import edu.emory.mathcs.backport.java.util.Collections;
 
 @Controller
 public class Ad_EventController {
@@ -25,9 +30,59 @@ public class Ad_EventController {
 	public AwsS3 awss3 = AwsS3.getInstance();
 
 	@RequestMapping(value="/getEventList.mdo", method = RequestMethod.GET)
-	public String getEventList(EventVO vo, Model model) {
+	public String getEventList(PagingVO pvo, EventVO vo, Model model) {
 		System.out.println("글 목록 처리");
-		List<EventVO> EventList = boardservice.getEventList(vo);
+		model.addAttribute("search",pvo);
+
+		//페이징
+		if (pvo.getPageNum() == null) {
+			pvo.setPageNum("1");
+		}
+		System.out.println(pvo.getSelectPage());
+		if (pvo.getSelectPage()==null) {
+			pvo.setSelectPage("5");
+		}
+
+		int pageSize = Integer.parseInt(pvo.getSelectPage());
+		int currentPage = Integer.parseInt(pvo.getPageNum());
+		System.out.println("paagenum"+currentPage);
+		pvo.setStartRow((currentPage - 1)*pageSize+1);
+		pvo.setEndRow(currentPage * pageSize);
+		int count=0;
+
+		count=boardservice.getEventCount(pvo);
+		System.out.println(count);
+
+		List<EventVO> EventList = null;
+		if(count > 0) {
+			EventList = boardservice.getEventList(pvo);
+		}else {
+			EventList=Collections.emptyList();
+		}
+
+		if(count >0) {
+			int pageBlock =5;
+			int imsi =count % pageSize ==0 ?0:1;
+			int pageCount = count/pageSize +imsi;
+			int startPage =(int)((currentPage-1)/pageBlock)*pageBlock +1;
+			int endPage = startPage + pageBlock -1;
+
+			if(endPage > pageCount) {
+				endPage = pageCount;
+			}
+
+			model.addAttribute("count", count);
+			model.addAttribute("pageCount",pageCount);
+			model.addAttribute("startPage",startPage);
+			model.addAttribute("endPage",endPage);
+			model.addAttribute("pageBlock",pageBlock);
+		}
+
+		Map<String, String> condition = new HashMap<String, String>();
+		condition.put("제목", "board_event_title");
+		condition.put("내용", "board_event_content");
+
+		model.addAttribute("condition", condition);
 		model.addAttribute("EventList", EventList);
 		return "/admin/board_event.jsp";
 	}

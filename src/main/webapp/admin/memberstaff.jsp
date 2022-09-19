@@ -369,7 +369,7 @@
 							<div>
 								<form action="staffList.mdo" method="get">
 									<div class="icon_flex">
-										<td><select name="searchCondition">
+										<select name="searchCondition">
 												<c:forEach items="${conditionMap}" var="option">
 													<div>
 														<option value="${option.value}">${option.key}</option>
@@ -379,12 +379,13 @@
 											<div>
 												<input type="submit" value="검색" />
 											</div>
-											<div></div> <input type="reset"  value="초기화" />
+											<div><input type="reset"  value="초기화" /></div>
 									</div>
+							
 								</form>
 							</div>
 							</div>
-							
+						
 						</div>
 					
 
@@ -421,7 +422,7 @@
 						</div>
 						<div class="flex">
 							<div>
-								<input id="button" type="button" value="등록" onclick="showPopup();"/>
+								<input id="button" type="button" value="등록" onclick="location.href='/admin/member_staff_insert.jsp';"/>
 							</div>
 							<div>
 								<input id="delBtn" type="button" value="삭제" />
@@ -430,29 +431,24 @@
 						</div>
 
 	<!-- pagaing 처리 -->
-						<div >					(currentPage-1) / pageBlock)* pageBlock+1
-							<c:if test="${count > 0}"> <!-- 조회된 데이터 개수가 0보다 크면 if문 실행 -->
-								<c:set var="imsi" value="${count % pageSize==0? 0 : 1}" /> <!-- 전체 페이지 게시물을 pageSize로 나눴을때 오류를 대비한 나머지구하는식 -->
-								<c:set var="pageCount" value="${count / pageSize+imsi}" /> <!-- 페이징 넘버 개수~ -->
-								<c:set var="pageBlock" value="${5}" /> <!-- 노출시킬 마지막 페이징 번호 단위(5개씩 끊어 보여줌) -->
-								<fmt:parseNumber var="result" value="${(currentPage-1) / pageBlock}" integerOnly="true" /> <!-- int타입으로 형변환 -->
-								<c:set var="startPage" value="${result * pageBlock+1}" /> <!--  현재 보이는 페이징 시작번호 -->
-								<c:set var="endPage" value="${startPage + pageBlock-1}" /> <!-- 현재 보이는 페이징 끝번호 -->
-								<c:if test="${endPage > pageCount}"> <!--  끝번호가 전체 페이징 개수보다 크면 안되기 때문에 변경해줌  -->
-									<c:set var="endPage" value="${pageCount}" />
-								</c:if>
+						<div >					
+							<c:if test="${count > 0}">
+							<div class="icon_flex">
+							    <div>
 								<c:if test="${startPage > pageBlock}"> <!-- 시작번호가 5보다 크면, 앞에 '이전'을 붙여줌 -->
 									<a href="staffList.mdo?pageNum=${startPage-pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="pageging2">이전</div></a>
 								</c:if>
+								</div>
 								<div class="icon_flex">
 								<c:forEach var="i" begin="${startPage}" end="${endPage}">
 										<a href="staffList.mdo?pageNum=${i}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="pageging">${i}</div></a>
 								</c:forEach>
 								</div>							
-								<div class="icon_flex">
+								<div>
 								<c:if test="${endPage < pageCount}">
 									<a href="staffList.mdo?pageNum=${startPage + pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="pageging2">다음</div></a>
 								</c:if>
+								</div>
 								</div>
 							</c:if>
 						</div><!-- 페이징 종료 -->

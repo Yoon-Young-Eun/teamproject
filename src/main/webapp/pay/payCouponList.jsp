@@ -114,7 +114,7 @@
       
 
       
-      var result3 = result - result1 + result4;
+      var result3 =result - result1 + result4;
       opener.document.getElementById("q2").innerText = result3;
       
       if(document.getElementById("zzz2").value<20000){

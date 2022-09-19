@@ -288,6 +288,9 @@ html {
   -webkit-transform: translate(0px,5px);
 	border-bottom: 1px solid;
 }
+input{
+	font-family: 'Noto Sans KR', sans-serif;
+}
 
 
 

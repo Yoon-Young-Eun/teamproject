@@ -368,21 +368,18 @@
 					
 						<div style= "width:100%; overflow-x:auto;">				
 						<table id=""
-							class="emp-table dataPerPage tblCustomers tblexportData table" border="5">
+							class="tblCustomers tblexportData table" border="5">
 							<thead>
 								<tr>
 									<th width="50" id="check_td"><input type="checkbox"
 										name="check" class="allcheck"></th>
-									<th col-index=2>회원코드</th>
-									<th col-index=3>아이디(이메일)</th>
-									<th col-index=4>이름</th>
-									<th col-index=5>헨드폰</th>
-									<th col-index=6>주소</th>
-									<th col-index=7>SMS수신</th>
-									<th col-index=8>회원상태<select class="table-filter"
-										onchange="filter_rows()">
-											<option value="all"></option>
-									</select></th>
+									<th>회원코드</th>
+									<th>아이디(이메일)</th>
+									<th>이름</th>
+									<th>헨드폰</th>
+									<th>주소</th>
+									<th>SMS수신</th>
+									<th>회원상태</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -391,7 +388,7 @@
 								     <tr>
 										<td id="check_td"><input type="checkbox" name="check"></td>
 										<td>${black.customer_no}</td>  <!--for문의 id값.컬럼명으로 값을 불러옴 -->
-										<td>${black.customer_id}</a></td>
+										<td><a href="/getBlackMemberBoard.mdo?customer_no=${black.customer_no}&customer_status=${black.customer_status}">${black.customer_id}</a></td>
 										<td>${black.customer_name}</a></td>
 										<td>${black.customer_phone}</td>
 										<td>${black.customer_address1} </td>
@@ -406,27 +403,22 @@
 						<!-- pagaing 처리 -->
 						<div >					
 							<c:if test="${count > 0}">
-								<c:set var="imsi" value="${count%pageSize==0? 0 : 1}" />
-								<c:set var="pageCount" value="${count / pageSize+imsi}" />
-								<c:set var="pageBlock" value="${5}" />
-								<fmt:parseNumber var="result" value="${(currentPage-1) / pageBlock}" integerOnly="true" />
-								<c:set var="startPage" value="${result * pageBlock+1}" />
-								<c:set var="endPage" value="${startPage + pageBlock-1}" />
-								<c:if test="${endPage > pageCount}">
-									<c:set var="endPage" value="${pageCount}" />
-								</c:if>
+								<div class="icon_flex">
+								<div>
 								<c:if test="${startPage > pageBlock}">
 									<a href="blackmember.mdo?pageNum=${startPage-pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="pageging2">이전</div></a>
 								</c:if>
+								</div>
 								<div class="icon_flex">
 								<c:forEach var="i" begin="${startPage}" end="${endPage}">
 										<a href="blackmember.mdo?pageNum=${i}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="pageging">${i}</div></a>
 								</c:forEach>
 								</div>							
-								<div class="icon_flex">
-								<c:if test="${endPage < pageCount -1}">
+								<div>
+								<c:if test="${endPage < pageCount}">
 									<a href="blackmember.mdo?pageNum=${startPage + pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="pageging2">다음</div></a>
 								</c:if>
+								</div>
 								</div>
 							</c:if>
 						</div><!-- 페이징 종료 -->

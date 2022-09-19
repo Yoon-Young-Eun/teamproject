@@ -42,7 +42,6 @@ public class Ad_SalesController {
 	       pvo.setStartRow((currentPage -1)* pageSize +1);
 	       pvo.setEndRow(currentPage * pageSize);
 	       int count =0; 	
-	       int number = 0;  
 
 	       count = salseService.getStoreArticleCount(pvo);
 	       System.out.println("페이징 count : "+count);
@@ -54,20 +53,33 @@ public class Ad_SalesController {
 	    	   storeSalesList=Collections.emptyList(); 
 	       }
 	       
+	       if(count >0) {
+		    	  int pageBlock =5;
+		    	  int imsi =count % pageSize ==0 ?0:1;
+		    	  int pageCount = count/pageSize +imsi;
+		    	  int startPage =(int)((currentPage-1)/pageBlock)*pageBlock +1;
+		    	  int endPage = startPage + pageBlock -1;
+		    	  
+		    	  // 추가 if문 : endPage(예:10)이 pageCount(예:9)보다 클경우 endPage의 값은 9로 한다!
+		    	  if(endPage > pageCount) {
+		    		  endPage = pageCount;
+		    	  }
+		    	  
+		    	  model.addAttribute("pageCount",pageCount);
+		    	  model.addAttribute("startPage",startPage);
+		    	  model.addAttribute("endPage",endPage);
+		    	  model.addAttribute("pageBlock",pageBlock);
+		          model.addAttribute("count", count);
+		    	  }
+	       
+	       
 			Map<String, String> conditionMap = new HashMap<String, String>();
 			conditionMap.put("세탁구분", "order_no");
 			conditionMap.put("매장명", "order_status");
 			conditionMap.put("지역", "order_price_status");
 			
 		   model.addAttribute("conditionMap", conditionMap);
-	       model.addAttribute("pageNum", pvo.getPageNum());
-	       model.addAttribute("pageSize", pageSize);
-	       model.addAttribute("currentPage", currentPage);
-	       model.addAttribute("endRow", pvo.getEndRow());
-	       model.addAttribute("count", count);
-	       model.addAttribute("number", number);
 	       model.addAttribute("storeSalesList", storeSalesList);
-	       model.addAttribute("number", number);
 	       System.out.println("매출 DB 결과"+storeSalesList);
 
 		return"admin/sales_storelist.jsp";
@@ -94,7 +106,6 @@ public class Ad_SalesController {
 	       pvo.setStartRow((currentPage -1)* pageSize +1);
 	       pvo.setEndRow(currentPage * pageSize);
 	       int count =0; 	
-	       int number = 0;  
 
 	       count = salseService.getProductArticleCount(pvo);
 	       List<OrderMtVO> productSalesList = null;
@@ -104,6 +115,25 @@ public class Ad_SalesController {
 	       }else {
 	    	   productSalesList=Collections.emptyList(); 
 	       }
+	       
+	       if(count >0) {
+		    	  int pageBlock =5;
+		    	  int imsi =count % pageSize ==0 ?0:1;
+		    	  int pageCount = count/pageSize +imsi;
+		    	  int startPage =(int)((currentPage-1)/pageBlock)*pageBlock +1;
+		    	  int endPage = startPage + pageBlock -1;
+		    	  
+		    	  // 추가 if문 : endPage(예:10)이 pageCount(예:9)보다 클경우 endPage의 값은 9로 한다!
+		    	  if(endPage > pageCount) {
+		    		  endPage = pageCount;
+		    	  }
+		    	  
+		    	  model.addAttribute("pageCount",pageCount);
+		    	  model.addAttribute("startPage",startPage);
+		    	  model.addAttribute("endPage",endPage);
+		    	  model.addAttribute("pageBlock",pageBlock);
+		          model.addAttribute("count", count);
+		    	  }
 			
 	       
 			Map<String, String> conditionMap = new HashMap<String, String>();
@@ -112,14 +142,7 @@ public class Ad_SalesController {
 			conditionMap.put("결제상태", "order_price_status");
 				
 		   model.addAttribute("conditionMap", conditionMap);
-	       model.addAttribute("pageNum", pvo.getPageNum());
-	       model.addAttribute("pageSize", pageSize);
-	       model.addAttribute("currentPage", currentPage);
-	       model.addAttribute("endRow", pvo.getEndRow());
-	       model.addAttribute("count", count);
-	       model.addAttribute("number", number);
 	       model.addAttribute("productSalesList", productSalesList);
-	       model.addAttribute("number", number);
 	       System.out.println("매출 DB 결과"+productSalesList);
 
 		return"admin/sales_productlist.jsp";

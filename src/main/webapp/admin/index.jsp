@@ -61,7 +61,7 @@
                             <div class="collapse" id="change_id_01" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-men
                                 u-nested nav">
-                                    <a class="nav-link" href="/member.mdo">회원관리</a>
+                                    <a class="nav-link" href="/member.mdo?message_type=회원">회원관리</a>
                                     <a class="nav-link" href="/blackmember.mdo">블랙회원관리</a>
                                     <a class="nav-link" href="/staffList.mdo">매니저관리</a>
                                 </nav>

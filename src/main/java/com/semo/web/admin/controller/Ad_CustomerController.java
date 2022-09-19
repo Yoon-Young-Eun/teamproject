@@ -25,7 +25,7 @@ public class Ad_CustomerController {
 	@Autowired
 	MemberService memberService;
 	
-	@Autowired
+	@Autowired //문자 메시지
 	UtilService utilservice;
 	
 	@Autowired
@@ -47,20 +47,30 @@ public class Ad_CustomerController {
 	
 	//메시지 보내는 메서드 보낸 후, 회원List 조회 컨트롤러로 이동
 	@RequestMapping(value="/message.mdo")
-	public String sendMassage(String [] tdArr, String message) {
+	public String sendMassage(String [] tdArr, String message, CustomerVO vo, MessageVO mvo) {
 		
-		System.out.println(tdArr);
-		System.out.println(message);
 		
-		 coolsms.sendMessage(tdArr, message); 
+		/*
+		 * String phone = vo.getCustomer_phone(); String mess =
+		 * mvo.getMessage_content();
+		 */
+		
+		String phone = "01031721622";
+		String mess = "문자다";
+		System.out.println(phone);
+		System.out.println(mess);
+		
+		 coolsms.sendMessage(phone, mess); 
 		 return "/member.mdo";
 	}
+	
+
 	
 	//회원 (블랙회원 제외) 조회 리스트
 	@RequestMapping(value="/member.mdo", method = RequestMethod.GET)
 	public String getMemberList(PagingVO pvo, CustomerVO vo, Model model, MessageVO mvo) {
 		System.out.println("회원 목록 검색 처리");
-		
+		System.out.println(mvo);
 		System.out.println(pvo);
 			 model.addAttribute("search",pvo);
 		
@@ -79,7 +89,6 @@ public class Ad_CustomerController {
 	       pvo.setStartRow((currentPage -1)* pageSize +1);
 	       pvo.setEndRow(currentPage * pageSize);
 	       int count =0; 	
-	       int number = 0;  
 	      
 	       count = memberService.getArticleCount(pvo);
 	       List<CustomerVO> articleList = null;
@@ -90,23 +99,37 @@ public class Ad_CustomerController {
 	    	   articleList=Collections.emptyList(); 
 	       }
 
-	       
-			Map<String, String> conditionMap = new HashMap<String, String>();
-			conditionMap.put("아이디", "customer_id");
-			conditionMap.put("회원상태", "customer_status");
+			  if(count >0) {
+		    	  int pageBlock =5;
+		    	  int imsi =count % pageSize ==0 ?0:1;
+		    	  int pageCount = count/pageSize +imsi;
+		    	  int startPage =(int)((currentPage-1)/pageBlock)*pageBlock +1;
+		    	  int endPage = startPage + pageBlock -1;
+		    	  
+		    	  // 추가 if문 : endPage(예:10)이 pageCount(예:9)보다 클경우 endPage의 값은 9로 한다!
+		    	  if(endPage > pageCount) {
+		    		  endPage = pageCount;
+		    	  }
+		    	  
+		    	  model.addAttribute("pageCount",pageCount);
+		    	  model.addAttribute("startPage",startPage);
+		    	  model.addAttribute("endPage",endPage);
+		    	  model.addAttribute("pageBlock",pageBlock);
+		          model.addAttribute("count", count);
+		    	  }
+
+		       Map<String, String> conditionMap = new HashMap<String, String>();
+				conditionMap.put("이름", "customer_name");
+				conditionMap.put("회원상태", "customer_status");
+					
 			
 	       model.addAttribute("conditionMap", conditionMap);
-	       model.addAttribute("pageNum", pvo.getPageNum());
-	       model.addAttribute("pageSize", pageSize);
-	       model.addAttribute("currentPage", currentPage);
-	       model.addAttribute("endRow", pvo.getEndRow());
-	       model.addAttribute("count", count);
-	       model.addAttribute("number", number);
 	       model.addAttribute("articleList", articleList);
-	       model.addAttribute("number", number);
 	       System.out.println("회원 목록 리스트"+articleList);
 	       
-	       List<MessageVO> messageList = utilservice.getMessageList(mvo);
+	       
+	
+	       List<MessageVO> messageList = utilservice.getMessageList();
 	       System.out.println(messageList);
 	       model.addAttribute("messageList", messageList);
 	       System.out.println("메시지 리스트"+ messageList);
@@ -136,8 +159,7 @@ public class Ad_CustomerController {
 	       int currentPage = Integer.parseInt(pvo.getPageNum()); 
 	       pvo.setStartRow((currentPage -1)* pageSize +1);
 	       pvo.setEndRow(currentPage * pageSize);
-	       int count =0; 	
-	       int number = 0;  
+	       int count =0; 	 
 	      
 	       count = memberService.getBlackCount(pvo);
 	       List<CustomerVO> blackList = null;
@@ -147,25 +169,37 @@ public class Ad_CustomerController {
 	    	   blackList=Collections.emptyList(); 
 	       }
 
+	 	  if(count >0) {
+	    	  int pageBlock =5;
+	    	  int imsi =count % pageSize ==0 ?0:1;
+	    	  int pageCount = count/pageSize +imsi;
+	    	  int startPage =(int)((currentPage-1)/pageBlock)*pageBlock +1;
+	    	  int endPage = startPage + pageBlock -1;
+	    	  
+	    	  // 추가 if문 : endPage(예:10)이 pageCount(예:9)보다 클경우 endPage의 값은 9로 한다!
+	    	  if(endPage > pageCount) {
+	    		  endPage = pageCount;
+	    	  }
+	    	  
+	    	  model.addAttribute("pageCount",pageCount);
+	    	  model.addAttribute("startPage",startPage);
+	    	  model.addAttribute("endPage",endPage);
+	    	  model.addAttribute("pageBlock",pageBlock);
+	          model.addAttribute("count", count);
+	    	  }
+	       
 	       
 	       //검색 조건
 			Map<String, String> conditionMap = new HashMap<String, String>();
-			conditionMap.put("아이디", "customer_id");
+			conditionMap.put("이름", "customer_name");
 			conditionMap.put("주소", "customer_address1");
 			
 	       model.addAttribute("conditionMap", conditionMap);
-	       model.addAttribute("pageNum", pvo.getPageNum());
-	       model.addAttribute("pageSize", pageSize);
-	       model.addAttribute("currentPage", currentPage);
-	       model.addAttribute("endRow", pvo.getEndRow());
-	       model.addAttribute("count", count);
-	       model.addAttribute("number", number);
 	       model.addAttribute("blackList", blackList);
-	       model.addAttribute("number", number);
 	       System.out.println("블랙 회원 목록 리스트"+blackList);
 	       
-	       List<MessageVO> messageList = utilservice.getMessageList(mvo);
-	       System.out.println(messageList);
+	      
+	       List<MessageVO> messageList = utilservice.getMessageList();
 	       model.addAttribute("messageList", messageList);
 	       System.out.println("메시지 리스트"+ messageList);
 	       
@@ -173,17 +207,52 @@ public class Ad_CustomerController {
 	}
 	
 	
-	//회원 정보 열람
+	//일반 회원 정보 열람
    @RequestMapping(value="getMemberBoard.mdo", method=RequestMethod.GET)
     public String getRead(CustomerVO vo, Model model) {
 	   	System.out.println("getRead() 메서드 실행");
 	    System.out.println(vo);
 	    CustomerVO user = memberService.getRead(vo);
+
 	    model.addAttribute("user", user);
-	   return "admin/member_managepop.jsp";
-   }
+
+	    	  return "admin/member_detail.jsp";
+	    }
    
+	//블랙 회원 정보 열람
+   @RequestMapping(value="getBlackMemberBoard.mdo", method=RequestMethod.GET)
+    public String getReadBlack(CustomerVO vo, Model model) {
+	   	System.out.println("getRead() 메서드 실행");
+	    System.out.println(vo);
+	    CustomerVO user = memberService.getRead(vo);
+	    model.addAttribute("user", user);
+	    	  return "admin/member_black_detail.jsp";
+	    }
    
+   	//일반회원 상세정보 수정
+	@RequestMapping(value="/memberUpdate.mdo", method=RequestMethod.GET)
+	public String getMemberUpdate(CustomerVO vo) {
+		System.out.println("memberUpdate.mdo 실행");
+		System.out.println(vo);
+		System.out.println("계정상태"+vo.getCustomer_status());
+			memberService.getMemberUpdate(vo);
+		    	  return "member.mdo";
+
+	}
+	
+   	//블랙회원 상세정보 수정
+	@RequestMapping(value="/blackmemberUpdate.mdo", method=RequestMethod.GET)
+	public String getBlackMemberUpdate(CustomerVO vo) {
+		System.out.println("blackmemberUpdate.mdo 실행");
+		System.out.println(vo);
+		System.out.println("계정상태"+vo.getCustomer_status());
+			memberService.getMemberUpdate(vo);
+		    	return "blackmember.mdo";
+	
+	}
+	
+
+	
 
    
    

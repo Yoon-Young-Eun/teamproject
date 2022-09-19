@@ -218,7 +218,7 @@
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
 								<a class="nav-link" href="#">배너관리</a> <a class="nav-link"
-									href="#">약관관리</a>
+									href="/TermsList.mdo">약관관리</a>
 							</nav>
 						</div>
 
@@ -336,11 +336,6 @@
 						<div id="wrap">
 							<header>
 								<div class="div2">
-									<!--<div>
-										<img
-											src="https://i.etsystatic.com/14912200/r/il/7c4834/1295206612/il_570xN.1295206612_nj87.jpg"
-											width=150px>
-									</div> -->
 									<div class="div3">
 										<h1>약관 수정</h1>
 									</div>
@@ -351,21 +346,19 @@
 							<form action = "/updateTerms.mdo" method="get">
 							
 								<ul class="title_wrap">
-<!-- 									<li><span class="title">약관번호</span> <input class="title_wrap_input" type="text" -->
-<!-- 										onfocus="value=''" value="약관번호를 입력"/> -->
-<!-- 									</li> -->
-											<!--
-            <input type="checkBox" id="chkNotice1" name="chkB1">
-            <label for="chkNotice1">공지사항으로 게시글쓰기</label>
-            <input type="checkBox" id="chkNotice2" name="chkB2">
-            <label for="chkNotice2">일반글로 게시글쓰기</label>
-            -->
-									
+		
 									<input type="hidden" name="terms_no" value="${TermsInfo.terms_no}">
 									<input type="hidden" name="terms_reg_date" value="${TermsInfo.terms_reg_date}">
 									<li><span class="title">약관번호</span>
 									${TermsInfo.terms_no} 
 									</li>
+									<li><span class="title">약관분류</span>
+										<div class="clause_select">
+											<select name="terms_type" >
+												<option value="회원가입">회원가입</option>
+												<option value="결제">결제</option>
+											</select>
+										</div></li>
 									<li><span class="title">약관이름</span> <input class="title_wrap_input"  type="text" name="terms_title" value="${TermsInfo.terms_title}" />
 									</li>
 									<div class="require">

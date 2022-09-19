@@ -380,11 +380,11 @@ ${ReviewInfo.board_review_content}
 	<c:choose>
 	<c:when test="${ReviewInfo.board_review_status eq 1}">
 <input type="hidden" name="board_review_status" value="0">
-<input type="submit" value="리뷰 가리기">
+<input class="submit_btn" type="submit" value="리뷰 가리기">
     </c:when>
 	<c:otherwise>
 <input type="hidden" name="board_review_status" value="1">
-<input type="submit" value="리뷰 보이기">
+<input class="submit_btn" type="submit" value="리뷰 보이기">
 	</c:otherwise>
 </c:choose>
 </div>

@@ -348,6 +348,12 @@
 							<div>
 								<form action="adminOrderList.mdo" method="get">
 									<div class="icon_flex">
+										<div>
+											날짜 선택 : <input type="date" name="startDate" />
+										</div>
+										<div>
+											<input type="date" name="endDate" />
+										</div>
 										<div><select name="searchCondition">
 												<c:forEach items="${conditionMap}" var="option">
 													<div>
@@ -395,8 +401,8 @@
 								<c:forEach var="order" items="${adminOrderList}">
 									<tr>
 										<td id="check_td"><input type="checkbox" name="check"></td>
-										<td>${order.order_no}</td>
-										<td><a href="/getMemberBoard.mdo?customer_no=${order.order_no}">${order.order_customer_name}</a></td>
+										<td><a href="/Ad_getReadOrderInfo.mdo?order_no=${order.order_no}">${order.order_no}</td>
+										<td>${order.order_customer_name}</a></td>
 										<td>${order.order_customer_phone}</td>
 										<td>${order.order_address1} ${order.order_address2}</td>
 										<td>${order.order_date}</td>
@@ -418,27 +424,22 @@
 						<!-- pagaing 처리 -->
 						<div >					
 							<c:if test="${count > 0}">
-								<c:set var="imsi" value="${count%pageSize==0? 0 : 1}" />
-								<c:set var="pageCount" value="${count / pageSize+imsi}" />
-								<c:set var="pageBlock" value="${5}" />
-								<fmt:parseNumber var="result" value="${(currentPage-1) / pageBlock}" integerOnly="true" />
-								<c:set var="startPage" value="${result * pageBlock+1}" />
-								<c:set var="endPage" value="${startPage + pageBlock-1}" />
-								<c:if test="${endPage > pageCount}">
-									<c:set var="endPage" value="${pageCount}" />
-								</c:if>
+							<div class="icon_flex">
+							   <div>
 								<c:if test="${startPage > pageBlock}">
 									<a href="adminOrderList.mdo?pageNum=${startPage-pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="pageging2">이전</div></a>
 								</c:if>
+								</div>
 								<div class="icon_flex">
 								<c:forEach var="i" begin="${startPage}" end="${endPage}">
 										<a href="adminOrderList.mdo?pageNum=${i}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="pageging">${i}</div></a>
 								</c:forEach>
 								</div>							
-								<div class="icon_flex">
-								<c:if test="${endPage < pageCount -1}">
+								<div>
+								<c:if test="${endPage < pageCount}">
 									<a href="adminOrderList.mdo?pageNum=${startPage + pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="pageging2">다음</div></a>
 								</c:if>
+								</div>
 								</div>
 							</c:if>
 						</div><!-- 페이징 종료 -->

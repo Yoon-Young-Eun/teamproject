@@ -4,28 +4,22 @@
 
 <mapper namespace="UtilDAO">
 
-
+	<!-- 문제 메시지 보내기 -->
 	<select id="getMessageList" resultType="message">
-		select * from message
+		<![CDATA[ select message_title, message_content from message where message_type='회원']]>
 	</select>
-
 	
-
+	<!-- 타입별 문자 추출-->
+	<select id="getMessageTypeList" parameterType="message" resultType="message">
+	    <![CDATA[select * from message where message_type='주문']]>
+	</select>
+	
+	
+	<select id="getMessageEstimateType" resultType="message">
+	   select * from message where message_type='견적'
+	</select>
+	
 </mapper>
-
-
-
-<!-- 	<select parameterType="cateSearchVO" resultType="categoryVO"
-		id="getCategoryList"> 
-	<![CDATA[select * from(select category_seq,category_name,category_num, @rownum:=@rownum+1 
-	as rnum from category , (SELECT @rownum:=0) TMP ]]>
-		<trim prefix="WHERE" prefixOverrides="AND |OR">
-			<if test="name != null"><![CDATA[AND category_name 
-	like CONCAT('%',#{name},'%')]]></if>
-			<if test="num != 0">AND category_num=#{num}</if>
-		</trim> <![CDATA[order by category_num) B where rnum>(#{page}-1)*5 AND rnum<=#{page}*5 
-	order by category_num ]]>
-	</select> -->
 
 
 

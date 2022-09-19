@@ -70,12 +70,19 @@ public class Ad_BoardController {
     	  int pageCount = count/pageSize +imsi;
     	  int startPage =(int)((currentPage-1)/pageBlock)*pageBlock +1;
     	  int endPage = startPage + pageBlock -1;
+
+    	  if(endPage > pageCount) {
+    		  endPage = pageCount;
+    	  }
     	  
-    	  
+          model.addAttribute("count", count);
     	  model.addAttribute("pageCount",pageCount);
     	  model.addAttribute("startPage",startPage);
     	  model.addAttribute("endPage",endPage);
     	  model.addAttribute("pageBlock",pageBlock);
+
+          model.addAttribute("count", count);
+
     	  }
       
       Map<String, String> condition = new HashMap<String, String>();
@@ -83,10 +90,6 @@ public class Ad_BoardController {
       condition.put("내용", "notice_content");
       
       model.addAttribute("condition", condition);
-     
-      model.addAttribute("pageSize", pageSize);
-      model.addAttribute("currentPage", currentPage);
-      model.addAttribute("count", count);
       model.addAttribute("boardList", boardList);
       return "/admin/board_notice.jsp";
    }
@@ -167,7 +170,6 @@ public class Ad_BoardController {
 
       return "redirect:/getBoardList.mdo";
    }
-
 
 
    @RequestMapping("/getUpdate.mdo")

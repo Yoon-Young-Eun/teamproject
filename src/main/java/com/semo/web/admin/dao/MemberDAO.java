@@ -45,5 +45,10 @@ public class MemberDAO {
 		System.out.println("DAO.getBlackList() 실행");
 		return sqlTemplate.selectList("MemberDAO.getBlackList", pvo);
 	}
+	
+	public void getMemberUpdate(CustomerVO vo) {
+		System.out.println("getMemberUpdate()메서드 실행");
+		sqlTemplate.update("MemberDAO.getMemberUpdate", vo);
+	}
 
 }

@@ -218,7 +218,7 @@
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
 								<a class="nav-link" href="#">배너관리</a> <a class="nav-link"
-									href="#">약관관리</a>
+									href="/TermsList.mdo">약관관리</a>
 							</nav>
 						</div>
 
@@ -348,20 +348,22 @@
 							</header>
 							<div id="content_wrap">
 							
-							<form action="/insertTerms.mdo" method="GET">	
+							<form action="/insertTerms.mdo" method="post">	
 							
 								<ul class="title_wrap">
-<!-- 									<li><span class="title">약관번호</span> <input class="title_wrap_input" type="text" -->
-<!-- 										onfocus="value=''" value="약관번호를 입력"/> -->
-<!-- 									</li> -->
-											<!--
-            <input type="checkBox" id="chkNotice1" name="chkB1">
-            <label for="chkNotice1">공지사항으로 게시글쓰기</label>
-            <input type="checkBox" id="chkNotice2" name="chkB2">
-            <label for="chkNotice2">일반글로 게시글쓰기</label>
-            -->
+
 									<li><span class="title">약관이름</span> <input class="title_wrap_input"  type="text" name="terms_title" placeholder="게시글 제목을 입력하세요"/>
 									</li>
+
+									<li><span class="title">약관분류</span>
+										<div class="clause_select">
+											<select name="terms_type" >
+												<option value="회원가입">회원가입</option>
+												<option value="결제">결제</option>
+											</select>
+										</div></li>
+				
+									
 									<div class="require">
 									<li><span class="title">필수여부</span>
 										<div class="clause_select">
@@ -375,18 +377,8 @@
 								<div class="writeWrap">
 									<textarea class="writeArea" name="terms_content"></textarea>
 								</div>
-<!-- 								<div class="configWrap"> -->
-<!-- 									<ul> -->
-
-<!-- 										<li><span class="title">공개설정</span>&nbsp; <input -->
-<!-- 											type="radio" name="open" id="open_0"> <label -->
-<!-- 											for="open_0">공개</label>&nbsp;&nbsp; <input type="radio" -->
-<!-- 											name="open" id="open_1"> <label for="open_1">비공개</label>&nbsp;&nbsp; -->
-										
-<!-- 									</ul> -->
-<!-- 								</div> -->
 								<div class="end">
-									<input type="submit" value="저장">&nbsp;&nbsp;<a href="#">취소</a>
+									<input type="submit" value="저장">&nbsp;&nbsp;<a href="/TermsList.mdo">목록</a>
 								</div>
 							</form>
 							</div>

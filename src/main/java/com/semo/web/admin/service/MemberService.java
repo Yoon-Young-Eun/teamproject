@@ -12,7 +12,7 @@ public interface MemberService {
 	public List<CustomerVO> getBoardList(PagingVO pvo);
 	public CustomerVO getRead(CustomerVO vo);
 	public List<CustomerVO> getBlackList(PagingVO pvo);
-
+	public void getMemberUpdate(CustomerVO vo);
 	
 	
 	

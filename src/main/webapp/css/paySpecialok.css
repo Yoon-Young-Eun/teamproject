@@ -1,0 +1,563 @@
+@charset "UTF-8";
+body {
+	overflow-x: hidden;
+
+}
+html{
+	font-family: 'Noto Sans KR', sans-serif;
+}
+.main{
+  display: flex;
+}
+.space_left{
+  width: 240px;
+}
+.space_right{
+  width: 240px;
+}
+.main_content{
+  width: 1440px;
+  margin-left: 165px;
+}
+.main_text{
+  width: 1000px;
+  height: 100px;
+  margin-top: 30px;
+  font-size: 25px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid grey;
+}
+.main_text1{
+   width: 1050px;
+}
+.main_text2{
+  display: flex;
+  align-items: center;
+  height: 70px;
+  width: 1000px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.main_text3{
+  width: 1000px;
+  display: flex;
+  height: 50px;
+  border: 1px solid black;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 20px;
+  margin-top: 5px;
+}
+.main_text3-1{
+  width: 200px;
+  text-align: center;
+}
+.main_text3-2{
+  width: 300px;
+  text-align: center;
+}
+.main_text3-3{
+  width: 200px;
+  text-align: center;
+}
+.main_text3-4{
+  width: 200px;
+  text-align: center;
+}
+.service{
+
+  display: flex;
+  align-items: center;
+  height: 70px;
+  width: 1000px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.service1{
+  width: 1000px;
+}
+#service_text1{
+  width: 995px;
+  height: auto;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+}
+
+.service2{
+
+  display: flex;
+  align-items: center;
+  height: 70px;
+  width: 1000px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.service3{
+  width: 1000px;
+}
+#service_text2{
+  width: 995px;
+  height: auto;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+}
+
+#service_text1:focus{
+  outline: none;
+}
+#service_text2:focus{
+  outline: none;
+}
+.main_text4{
+  width: 1000px;
+  height: 50px;
+  display: flex;
+  justify-content: end;
+  margin-top: 15px;
+  font-size: 25px;
+}
+.coupon{
+   width: 1000px;
+  height: 70px;
+  display: flex;
+  font-weight: bold;
+  margin-top: 15px;
+  font-size: 20px;
+}
+.coupon_text2{
+   display: flex;
+}
+.coupon_text5{
+   display: flex;
+   margin-bottom: 15px;
+}
+
+#id1, #id3, #id5{
+   background-color: none;
+   border-style: none;
+   width: 500px;
+   font-family: 'Noto Sans KR', sans-serif;
+   font-size: 15px;
+ }
+ #id1:focus, #id2:focus, #id3:focus, #id4:focus, #id5:focus{
+   outline: none;
+ }
+ #id2, #id4{
+   background-color: none;
+   border-style: none;
+   width: 100px;
+   font-family: 'Noto Sans KR', sans-serif;
+   font-size: 15px;
+ }
+ #id1{
+ font-weight: bold;
+ }
+ .coupon_button{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 1000px;
+ }
+ *{
+   /* border: 1px solid red; */
+ }
+
+ 
+ 
+ #cou_button{
+	border-top: none;
+	border-left:none;
+	border-right:none;
+	border-bottom: 5px solid #2b92da;
+}
+ #cou_button:active{
+	transform: translate(0px,5px);
+  -webkit-transform: translate(0px,5px);
+	border-bottom: 1px solid;
+}
+
+/*  #cou_button{
+   height: 25px;
+   background-color: rgb(128,128,128,0.3);
+   border-style: none;
+   border-radius: 5px;
+   font-weight: bold;
+   box-shadow: 1px 4px 0 rgba(255, 255, 255, 0.0);
+ }
+ #cou_button:hover{
+   background-color: #63afe4;
+ }
+ #cou_button:active{
+   box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.0);
+  position: relative;
+  top:2px;
+} */
+.coupon_button{
+  border-top: 1px solid grey;
+}
+.coupon_text{
+   border-bottom: 1px solid grey;
+   height: auto;
+}
+.pay1{
+   height: 70px;
+   display: flex;
+   align-items: center;
+   font-size: 20px;
+   font-weight: bold;
+   justify-content: right;
+}
+.pay2{
+   
+   
+}
+.pay5{
+   display: flex;
+   justify-content: right;
+}
+
+
+.total{
+   
+   font-size: 25px;
+   font-weight: bold;
+   display: flex;
+   justify-content: right;
+}
+.bt1{
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+}
+#but1{
+	border-top: none;
+	border-left:none;
+	border-right:none;
+	border-bottom: 5px solid #2b92da;
+}
+#but1:active{
+	transform: translate(0px,5px);
+  -webkit-transform: translate(0px,5px);
+	border-bottom: 1px solid;
+}
+
+#but2{
+	border-top: none;
+	border-left:none;
+	border-right:none;
+	border-bottom: 5px solid #2b92da;
+}
+#but2:active{
+	transform: translate(0px,5px);
+  -webkit-transform: translate(0px,5px);
+	border-bottom: 1px solid;
+}
+
+
+
+/* #but1{
+   height: 30px;
+   width: 150px;
+   border-style: none;
+   border-radius: 5px;
+   background-color: rgb(128,128,128,0.3);
+   font-size: 15px;
+   font-weight: bold;
+   margin-top: 20px;
+   margin-left: 10px;
+   box-shadow: 1px 4px 0 rgba(255, 255, 255, 0.0);
+}
+#but2{
+   height: 30px;
+   width: 150px;
+   border-style: none;
+   border-radius: 5px;
+   background-color: rgb(128,128,128,0.3);
+   font-size: 15px;
+   font-weight: bold;
+   margin-top: 20px;
+   margin-left: 10px;
+   box-shadow: 1px 4px 0 rgba(255, 255, 255, 0.0);
+}
+#but1:active, #but2:active{
+   box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.0);
+  position: relative;
+  top:2px;
+}
+
+#but1:hover, #but2:hover{
+   background-color: #63afe4;
+}
+ */
+
+
+#button1{
+   font-family: 'Noto Sans KR', sans-serif;
+   background-color: rgb(128,128,128,0.3);
+   color: black;
+   font-weight: bold;
+   border-style: none;
+   border-radius: 5px;
+   height: 25px;
+   box-shadow: 1px 4px 0 rgba(255, 255, 255, 0.0);
+ }
+ #button1:hover{
+   background-color: #a9d3f0;
+ }
+ #button1:active{
+   box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.0);
+   position: relative;
+   top:2px;
+ }
+ #aa1, #aa3, #aa5{
+   background-color: none;
+   border-style: none;
+   width: 500px;
+   font-family: 'Noto Sans KR', sans-serif;
+   font-size: 15px;
+ }
+ #aa1:focus, #aa2:focus, #aa3:focus, #aa4:focus, #aa5:focus{
+   outline: none;
+ }
+ #aa2, #aa4{
+   background-color: none;
+   border-style: none;
+   width: 100px;
+   font-family: 'Noto Sans KR', sans-serif;
+   font-size: 15px;
+ }
+ #aa1{
+ font-weight: bold;
+ }
+ .coupon_buttons{
+   display: none;
+ }
+ .price{
+   margin-top: 20px;
+   display: flex;
+   justify-content: right;
+ }
+ #price_text{
+   width: 150px;
+   height: 30px;
+   border-style: none;
+   text-align: center;
+   font-size: 20px;
+   
+   font-family: 'Noto Sans KR', sans-serif;
+ }
+ #price_text1{
+   width: 150px;
+   height: 30px;
+   border-style: none;
+   text-align: right;
+   font-size: 20px;
+   
+   font-family: 'Noto Sans KR', sans-serif;
+ }
+ #price_text:focus{
+   outline: none;
+ }
+ #price_text1:focus{
+   outline: none;
+ }
+
+ #price_text{
+   width: 150px;
+   height: 30px;
+   border-style: none;
+   text-align: center;
+   font-size: 20px;
+   
+   font-family: 'Noto Sans KR', sans-serif;
+ }
+ #cou11, #cou22, #cou33, #cou44, #cou55{
+   width: 150px;
+   height: 30px;
+   border-style: none;
+   
+   font-size: 20px;
+   
+   font-family: 'Noto Sans KR', sans-serif;
+ }
+ #cou22{
+   text-align: center;
+ }
+ #cou11{
+   text-align: right;
+ }
+ #cou33{
+   text-align: center;
+   font-weight: bold;
+ }
+ #cou44{
+   text-align: right;
+   font-weight: bold;
+ }
+ #cou11:focus{
+   outline: none;
+ }
+ #cou33:focus{
+   outline: none;
+ }
+ #cou22:focus{
+   outline: none;
+ }
+ #cou44:focus{
+   outline: none;
+ }
+.del_pay{
+  display: flex;
+   justify-content: right;
+}
+#cou55{
+text-align: center;
+}
+#cou66{
+text-align: right;
+width: 150px;
+   height: 30px;
+   border-style: none;
+   
+   font-size: 20px;
+   
+   font-family: 'Noto Sans KR', sans-serif;
+}
+
+.pay{
+  border-bottom: 1px solid grey;
+}
+/* .company{
+
+}
+.company_name{
+  display: flex;
+  align-items: center;
+}
+.company_number{
+  display: flex;
+  align-items: center;
+}
+.company_sell{
+  display: flex;
+  align-items: center;
+}
+.company_ceo{
+  display: flex;
+  align-items: center;
+}
+.company_tell{
+  display: flex;
+  align-items: center;
+}
+.company > div > input {
+  background-color: none;
+  border-style: none;
+  font-size: 15px;
+} */
+
+#yak3{
+  display: none;
+}
+.yak2{
+  margin-left: 200px;
+  width: 600px;
+  justify-content: center;
+  margin-top: 15px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  background-color: #63afe4;
+  border-radius: 5px;
+  color: white;
+  font-weight: normal;
+}
+#yakk33{
+  background-color: none;
+  border-style: none;
+  cursor: pointer;
+  margin-left: 10px;
+  
+}
+.yak33{
+  margin-left: 200px;
+  width: 600px;
+  justify-content: center;
+  margin-top: 15px;
+  height: auto;
+  display: flex;
+  align-items: center;
+}
+.yak{
+  border-bottom: 1px solid grey;
+}
+.yak1{
+  margin-bottom: 15px;
+}
+.total_price1:focus{
+  outline: none;
+}
+#cou44:focus{
+  outline: none;
+}
+#cou55:focus{
+  outline: none;
+}
+#cou66:focus{
+  outline: none;
+}
+.order_min{
+  margin-top: 20px;
+  color: red;
+  font-weight: bold;
+  display: flex;
+  justify-content: right;
+  font-size: 20px;
+  
+}
+.total{
+  margin-bottom: 15px;
+}
+.order_min1{
+	margin-bottom: 40px;
+  margin-top: 10px;
+  font-size: 15px;
+}
+#checkbox{
+	font-family: 'Noto Sans KR', sans-serif;
+	border-style:none;
+	width:700px;
+	height:30px;
+	font-size:15px;
+	margin-bottom:5px;
+}
+#checkbox:focus{
+	outline:none;
+}
+#checkbox1{
+	font-family: 'Noto Sans KR', sans-serif;
+	width:1000px;
+	height:100px;
+	font-size:15px;
+	margin-top:10px;
+	
+}
+#checkbox1:focus{
+	outline:none;
+}
+#product{
+	text-align:center;
+	
+	border-style:none;
+	height:30px;
+	font-size:15px;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+#product:focus{
+	outline:none;
+}
+#terms:focus{
+	outline:none;
+}

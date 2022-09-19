@@ -46,6 +46,18 @@ public class OrderDAO {
 		return sqlTemplate.selectList("OrderDAO.getAdminOrderList", pvo);
 	}
 	
+	public OrderVO getReadOrderInfo(OrderVO vo) {
+	    return sqlTemplate.selectOne("OrderDAO.getReadOrderInfo", vo);
+	}
+	
+	public List<StoreVO> getStoreList() {
+	    return sqlTemplate.selectList("OrderDAO.getStoreList");
+	}
+	
+	public void updateOrderInfo(OrderVO vo) {
+		sqlTemplate.update("OrderDAO.updateOrderInfo", vo);
+	}
+	
 //	견적서
 	public List<EstimateVO> getEstimateList(PagingVO pvo){
 		return sqlTemplate.selectList("OrderDAO.getEstimateList", pvo);
@@ -80,17 +92,6 @@ public class OrderDAO {
 		return sqlTemplate.selectList("OrderDAO.getEstimateImg",vo1);
 	}
 	
-	public OrderVO getReadOrderInfo(OrderVO vo) {
-	    return sqlTemplate.selectOne("OrderDAO.getReadOrderInfo", vo);
-	}
-	
-	public List<StoreVO> getStoreList() {
-	    return sqlTemplate.selectList("OrderDAO.getStoreList");
-	}
-	
-	public void updateOrderInfo(OrderVO vo) {
-		sqlTemplate.update("OrderDAO.updateOrderInfo", vo);
-	}
 	
 	public List<MessageVO> getMessageTypeList() {
 		return sqlTemplate.selectList("OrderDAO.getMessageTypeList");

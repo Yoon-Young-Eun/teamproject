@@ -34,4 +34,6 @@ public class UtilServiceImpl implements UtilService {
 		return utildao.getMessageEstimateType();
 
 	}
+
+
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,7 +55,7 @@
         
       </div>
       <div class="address4">
-        <input type="hidden" id="phone" value="${sendCustomer.customer_phone }"  name="customer_phone" class="phone"/ required>
+        <input type="hidden" id="phone" value="${sendCustomer.customer_phone }"  name="customer_phone" class="phone" required>
         <div class="phone1" style="display: flex">
         <div class="phone_title" style="font-weight: normal; font-size:15px; width:100px; text-align:right; ">기본연락처 : </div>
         <div class="phone9" id="z2" style="font-weight: normal; font-size:15px; margin-left:5px;">${sendCustomer.customer_phone}</div>

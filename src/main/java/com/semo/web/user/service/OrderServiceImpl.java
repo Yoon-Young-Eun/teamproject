@@ -101,10 +101,26 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public CustomerVO getReadCustomerInfo(CustomerVO vo) {
 		return orderdao.getReadCustomerInfo(vo);
 	}
 
+=======
+	public CustomerVO OrderSpecial1(CustomerVO vo1) {
+		
+		return orderdao.OrderSpecial1(vo1);
+	}
+
+	@Override
+	public void OrderOrder(OrderVO vo) {
+		orderdao.OrderOrder(vo);
+		
+	}
+
+	
+
+>>>>>>> main
 	
 
 	

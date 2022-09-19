@@ -48,9 +48,14 @@
 	</update>
 	
 	
+	<select id="SearchId" parameterType="customer" resultType="customer">
+	<![CDATA[select customer_id,customer_name from customer where customer_name=#{customer_name} and customer_phone=#{customer_phone}]]>
 	
+	</select>
 
-
+	<select id="selectPassword" parameterType="customer" resultType="customer">
+	<![CDATA[select customer_name from customer where customer_id=#{customer_id} and customer_phone=#{customer_phone}]]>
+	</select>
 
 
 

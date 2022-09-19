@@ -9,5 +9,9 @@ public interface UtilService {
 	public List<MessageVO> getMessageTypeList(MessageVO mvo);
 	public MessageVO getQnAMessageType(MessageVO mvo);
 	public MessageVO getMessageEstimateType();
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> main
 }

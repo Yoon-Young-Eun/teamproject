@@ -50,7 +50,7 @@
 				<div class="paymainBox">
 				<form action="/sendCustomer.do?" method="GET">
 					<div class="paymain_text">세탁 서비스 예약하기</div>
-					<input type="hidden" value="7" name="customer_no">
+					<input type="hidden" value="6" name="customer_no">
 					<div class="paymain_text1">유의사항</div>
 					<div class="paymain_text2">
 

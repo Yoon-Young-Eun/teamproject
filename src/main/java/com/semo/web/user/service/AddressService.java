@@ -22,5 +22,9 @@ public interface AddressService {
 	void updateCustomerAddress(AddressListVO vo);
 
 	AddressListVO selectCustomerAddress(AddressListVO vo);
+	
+	CustomerVO SearchId(CustomerVO vo);
 
+	CustomerVO selectPassword(CustomerVO vo);
+	
 }

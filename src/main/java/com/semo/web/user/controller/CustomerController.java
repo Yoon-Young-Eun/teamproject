@@ -30,14 +30,16 @@ public class CustomerController {
 
 		CustomerVO vo2 = userservice.getMember(vo);
 		System.out.println(userservice.getMember(vo));
+		
 		model.addAttribute("user", vo2);
 		model.addAttribute("id", vo2);
 		System.out.println(vo2);
 		if (vo2 != null) {
 			System.out.println("로그인!");
-
+			model.addAttribute("user", vo2);
 			session.setAttribute("user_name", vo2.getCustomer_name());
 			session.setAttribute("id", vo2.getCustomer_id());
+			session.setAttribute("num", vo2.getCustomer_no());
 			return "/views/logined-main.jsp";
 
 		} else {

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,34 +67,36 @@
 				<div class = "map" id="map" style="width:500px;height:500px;"></div>
 				<div class = "detail">
 					<h3>현재 주문</h3>
+					<c:forEach var="orderlist" items="${orderlist}">
 					<div class = "order-no" style = "display : flex;">
 						<p class = "order-title">주문번호</p>
-						<span class = "order-content">1</span>
+						<span class = "order-content">${orderlist.order_no}</span>
 					</div>
 					<div class = "order-pickup" style = "display : flex;">
 						<p class = "order-title">픽업 예정일</p>
-						<span class = "order-content">2022.07.12(화) 오전</span>
+						<span class = "order-content">${orderlist.order_pickup_date} ${order.order_pickup_time}</span>
 					</div>
 					<div class = "order-delivery" style = "display : flex;">
 						<p class = "order-title">배송 예정일</p>
-						<span class = "order-content">2022.07.15(월) - 2022.07.20(수)</span>
+						<span class = "order-content">${orderlist.order_expected_date}</span>
 					</div>
+					</c:forEach>
 					<br>
 					<h3>내 세탁물 위치</h3>
 					<div class = "laundry-name" style = "display : flex;">
 						<p class = "laundry-title">상호명</p>
-						<span class = "laundry-content">쓱쓱싹싹 클린데이</span>
+						<span class = "laundry-content">${storedetail.store_name }</span>
 					</div>
 					<div class = "laundry-address" style = "display : flex;">
 						<p class = "laundry-title">주소</p>
-						<span class = "laundry-content">동작구 노량진동 장승배기로 141</span>
+						<span class = "laundry-content">${storedetail.store_address1} ${storedetail.store_address1}</span>
 					</div>
 					<div class = "laundry-phone" style = "display : flex;">
 						<p class = "laundry-title">전화번호</p>
-						<span class = "laundry-content">02-000-0000</span>
+						<span class = "laundry-content">${storedetail.store_phone}</span>
 					</div>
 				</div>
-				</div><!-- map wrapper -->
+			</div><!-- map wrapper -->
 			</div> <!-- detail wrapper -->
 			
 			<!-- 주문상세 -->
@@ -102,46 +105,99 @@
 				<div class = "order-item-title">
 					<h3>주문 정보</h3>
 				</div>
-				<div class = "order-item-list">
-					<div class = "order-item-name">와이셔츠</div>
-					<div class = "order-item-cnt">1</div>
-					<div class = "order-item-price"><b>1,200원</b></div>	
-				</div>
+				<c:forEach var="orderdetail" items="${orderdetail}">
+				<table>
+					<tbody class = "order-item-list">
+						<tr>
+							<td class = "order-item-name">${orderdetail.order_mt_product}</td>
+							<td class = "order-item-cnt">${orderdetail.order_mt_count}</td>
+							<td class = "order-item-price"><b>${orderdetail.order_mt_price}</b>원</td>	
+						</tr>
+					</tbody>
+				</table>
+				</c:forEach>
 				<!-- 주문자 정보 -->
 				<div class = "order-customer-wrapper">
 					<div class = "order-customer-title">
 						<h3>주문자 정보</h3>
 					</div>
 					<div class = "order-customer-detail">
+						<c:forEach var="orderlist" items="${orderlist}">
 						<div class = "order-customer-name" style = "display : flex;">
 							<p class = "customer-title">이름</p>
-							<span class = "cutomer-content">우처리</span>
+							<span class = "cutomer-content">${orderlist.order_customer_name}</span>
 						</div>
 						<div class = "order-customer-phone" style = "display : flex;">
 							<p class = "customer-title">연락처</p>
-							<span class = "cutomer-content">010-0000-0000</span>
+							<span class = "cutomer-content">${orderlist.order_customer_phone}</span>
 						</div>
 						<div class = "order-customer-address" style = "display : flex;"> 
 							<p class = "customer-title">주소</p>						
-							<span class = "cutomer-content">서울시 강북구 삼각산로 123-3 501호</span>
+							<span class = "cutomer-content">${orderlist.order_address1 } ${orderlist.order_address2 }</span>
 						</div>
 						<div class = "order-customer-passwd" style = "display : flex;">
 							<p class = "customer-title">공동현관</p>
-							<span class = "cutomer-content"><i class="fas fa-lock"></i> 7899</span>
+							<span class = "cutomer-content"><i class="fas fa-lock"></i>${orderlist.cm_gate_passwd }</span>
 						</div>
+						</c:forEach>
 					</div>
 				</div>
 				<!-- 요청메세지 -->
 				<div class = "request-wrapper">
+					<c:forEach var="orderlist" items="${orderlist}">
 					<div class = "request-title">
 						<h3>요청메세지</h3>
 					</div>
-					<div class = "request">
+					<div class = "request-content">
+						<div class = "request-to-laundry" style = "display : flex;">
+							<p class = "request-content-title">세탁소에게</p>
+							<span class = "request-content-content">${orderlist.order_request1 }</span>
+						</div>
+						<div class = "request-to-deliver" style = "display : flex;">
+							<p class = "request-content-title">배달 기사님에게</p>
+							<span class = "request-content-content">${orderlist.order_request2 }</span>
+						</div>	
 					</div>
+					</c:forEach>
 				</div>
 				<!-- 결제정보 -->
-				
-				
+				<div class = "pay-wrapper">
+					<div class = "pay-title">
+						<h3>결제 정보</h3>
+					</div>
+					<c:forEach var="orderlist" items="${orderlist}">
+					<div class = "pay-content">
+						<div class = "pay-way" style = "display : flex;">
+							<p class = "pay-content-title">결제수단</p>
+							<span class = "pay-content-content">${orderlist.order_price_method}</span>
+						</div>
+						<div class = "pay-item" style = "display : flex;">
+							<p class = "pay-content-title">총 상품 가격</p>
+							<span class = "pay-content-content">${orderlist.order_price }</span>
+						</div>
+						<div class = "pay-delivery" style = "display : flex;">
+							<p class = "pay-content-title">배송비</p>
+							<span class = "pay-content-content">${orderlist.order_delivery_price}</span>
+						</div>
+						<div class = "pay-discount" style = "display : flex;">
+							<p class = "pay-content-title">할인금액</p>
+							<span class = "pay-content-content" style = "line-height : 30px;">
+								-${orderlist.order_use_coupon_price}	
+								<br>
+								(쿠폰 할인)
+								<br>
+								-${orderlist.order_delivery_price}		
+								<br>
+								(배송비 할인)
+							</span>
+						</div>
+						<div class = "pay-total" style = "display : flex;">
+							<p class = "pay-content-title">총 결제금액</p>
+							<span class = "pay-content-content" style = "color : red; font-weight : bold;">${orderlist.order_price - orderlist.order_use_coupon_price - orderlist.order_delivery_price}</span>
+						</div>
+					</div>
+					</c:forEach>
+				</div>
 			</div><!-- order-item-wrapper -->
 	</div> <!-- content-wrapper -->
 </div>	<!-- page-wrapper -->			
@@ -172,5 +228,7 @@ marker.setMap(map);
 // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
 // marker.setMap(null);    
 </script>
+
+<jsp:include page="/common/footer.jsp"></jsp:include>
 </body>
 </html>

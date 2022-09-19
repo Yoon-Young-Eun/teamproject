@@ -119,7 +119,6 @@
 				</div>
 				<div class="rbd-content">돈세탁도 해주나요?</div>
 				<div class="rbd-footing">
-					<a class="rbd-button rbd-small" href="#">더보기</a>
 				</div>
 				<div class="rbd-review-meta">2022.08.29</div>
 			</div>
@@ -130,7 +129,6 @@
 				</div>
 				<div class="rbd-content">내 바지 돌려줘요</div>
 				<div class="rbd-footing">
-					<a class="rbd-button rbd-small" href="#">더보기</a>
 				</div>
 				<div class="rbd-review-meta">2022.06.30</div>
 			</div>
@@ -141,7 +139,6 @@
 				</div>
 				<div class="rbd-content">난 서울 사는디</div>
 				<div class="rbd-footing">
-					<a class="rbd-button rbd-small" href="#">더보기</a>
 				</div>
 				<div class="rbd-review-meta">2022.10.11</div>
 			</div>
@@ -175,22 +172,22 @@ $(function(){
 <script type="text/javascript">
 $(function() {
 	$('#booking').click(function(){
-		var id = "${id}";
+		var id = "${num}";
 		
 		if (id == ""){
 			location.href = "/views/login.jsp";
 		}else {
-			
+			location.href = "/pay/payUseText.jsp";
 		}
 	});
 	
 	$('#tracking').click(function(){
-		var id = "${id}";
-		
+		var id = "${num}";
+		console.log(id);
 		if (id == ""){
 			location.href = "/views/login.jsp";
 		} else {
-			
+			location.href = "/orderlist.do?customer_no=${num}";
 		}
 	})
 });

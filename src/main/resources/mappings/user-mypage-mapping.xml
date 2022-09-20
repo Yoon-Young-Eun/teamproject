@@ -8,6 +8,10 @@
  		select * from order_cm where customer_no = #{customer_no}
  	</select>
  	
+ 	<select id = "ordervo" parameterType = "customer" resultType="ORDER">
+ 		select * from order_cm where order_no = #{order_no}
+ 	</select>
+ 	
  	<select id = "orderdetail" parameterType = "ORDER" resultType ="orderManagement">
  		select * from order_management where order_no = #{order_no}
  	</select>
@@ -20,6 +24,7 @@
  		select * from cm_address where customer_no = #{customer_no}
  	</select>
  	
+<<<<<<< HEAD
  	
 <!-- 견적서 -->
  	<select id="getMyEstimate" parameterType="estimate" resultType="estimate">
@@ -32,5 +37,16 @@
  	
  	<select id="getEstimateImg" resultType="estimate_image" parameterType="estimate_image">
  		<![CDATA[ select * from estimate_image where estimate_cm_no=#{estimate_cm_no} and customer_no=#{customer_no} ]]>
+=======
+ 	<select id = "ordercnt" parameterType = "customer" resultType = "int">
+		select count(*) from order_cm where customer_no = #{customer_no} 	
+ 	</select>
+ 	<select id = "couponcnt" parameterType = "customer" resultType = "int">
+		select count(*) from coupon_management where customer_no = #{customer_no} 	
+ 	</select>
+ 	
+ 	<select id = "couponlist" parameterType = "customer" resultType = "CouponList">
+ 		select * from coupon_management where customer_no = #{customer_no}
+>>>>>>> main
  	</select>
  </mapper>

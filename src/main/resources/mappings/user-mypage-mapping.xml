@@ -8,6 +8,10 @@
  		select * from order_cm where customer_no = #{customer_no}
  	</select>
  	
+ 	<select id = "ordervo" parameterType = "customer" resultType="ORDER">
+ 		select * from order_cm where order_no = #{order_no}
+ 	</select>
+ 	
  	<select id = "orderdetail" parameterType = "ORDER" resultType ="orderManagement">
  		select * from order_management where order_no = #{order_no}
  	</select>
@@ -18,5 +22,16 @@
  
  	<select id = "addresslist" parameterType = "customer" resultType = "CM_ADDRESS">
  		select * from cm_address where customer_no = #{customer_no}
+ 	</select>
+ 	
+ 	<select id = "ordercnt" parameterType = "customer" resultType = "int">
+		select count(*) from order_cm where customer_no = #{customer_no} 	
+ 	</select>
+ 	<select id = "couponcnt" parameterType = "customer" resultType = "int">
+		select count(*) from coupon_management where customer_no = #{customer_no} 	
+ 	</select>
+ 	
+ 	<select id = "couponlist" parameterType = "customer" resultType = "CouponList">
+ 		select * from coupon_management where customer_no = #{customer_no}
  	</select>
  </mapper>

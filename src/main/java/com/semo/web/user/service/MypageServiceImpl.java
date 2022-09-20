@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.semo.web.admin.vo.StoreVO;
 import com.semo.web.user.dao.MypageDAO;
 import com.semo.web.user.vo.AddressListVO;
+import com.semo.web.user.vo.CouponListVO;
 import com.semo.web.user.vo.CustomerVO;
 import com.semo.web.user.vo.OrderMtVO;
 import com.semo.web.user.vo.OrderVO;
@@ -35,6 +36,12 @@ public class MypageServiceImpl implements MypageService{
 	public List<OrderMtVO> orderdetail(OrderVO order) {
 		return dao.orderdetail(order);
 	}
+	
+	// order_no > OrderVO
+	@Override
+	public OrderVO ordervo(OrderVO order) {
+	return dao.ordervo(order);
+	}
 
 	// store_no > 직영점 상세 불러오기
 	@Override
@@ -47,6 +54,36 @@ public class MypageServiceImpl implements MypageService{
 	public List<AddressListVO> addresslist(CustomerVO customer) {
 		return dao.addresslist(customer);
 	}
+	
+	// customer_no > 주소 불러오기
+	@Override
+	public AddressListVO addressdetail(CustomerVO customer) {
+		return dao.addressdetail(customer);
+	}
+	
+	// order_no count
+	@Override
+	public int ordercnt(CustomerVO customer) {
+		return dao.ordercnt(customer);
+	}
+	
+	@Override
+	public int couponcnt(CustomerVO customer) {
+		return dao.couponcnt(customer);
+	}
+
+	@Override
+	public int askcnt(CustomerVO customer) {
+		return dao.askcnt(customer);
+	}
+	
+	// customer_no > 쿠폰 목록 불러오기
+	@Override
+	public List<CouponListVO> couponlist(CustomerVO customer) {
+		return dao.couponlist(customer);
+	}
+
+	
 
 	
 	

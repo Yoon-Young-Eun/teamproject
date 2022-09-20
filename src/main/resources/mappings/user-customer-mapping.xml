@@ -5,14 +5,8 @@
 
 <mapper namespace="CustomerVO">
 
-	<select id="getMember" resultType="customer"
-		parameterType="customer">
-<<<<<<< HEAD
-		select * from customer where customer_id =#{customer_id} and
-		customer_passwd=#{customer_passwd}
-=======
-		SELECT * FROM CUSTOMER where customer_id =#{customer_id} and customer_passwd=#{customer_passwd}
->>>>>>> main
+	<select id="getMember" resultType="customer" parameterType="customer">
+		select * from customer where customer_id =#{customer_id} and customer_passwd=#{customer_passwd}
 	</select>
 
 	<insert id="insertMember" parameterType="customer" >

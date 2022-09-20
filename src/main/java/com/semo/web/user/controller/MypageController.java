@@ -9,10 +9,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.semo.web.admin.vo.Ad_EstimateVO;
+import com.semo.web.admin.vo.Estimate_T_VO;
 import com.semo.web.admin.vo.StoreVO;
 import com.semo.web.user.service.MypageService;
 import com.semo.web.user.vo.AddressListVO;
 import com.semo.web.user.vo.CustomerVO;
+import com.semo.web.user.vo.EstimateVO;
+import com.semo.web.user.vo.Estimate_ImageVO;
 import com.semo.web.user.vo.OrderMtVO;
 import com.semo.web.user.vo.OrderVO;
 
@@ -128,7 +132,27 @@ public class MypageController {
 	}
 	
 	
+	
+	//견적서
+	@RequestMapping(value= "/myestimate.do")
+	public String getMyEstimate(EstimateVO evo, Ad_EstimateVO avo, Estimate_ImageVO vo1, Model model) {
+		System.out.println("내 견적요청서");
+		System.out.println("evo"+evo);
+		
+		
+		List<Estimate_ImageVO> eiv = service.getEstimateImg(vo1);
+		EstimateVO myvo = service.getMyEstimate(evo);
 
+		model.addAttribute("estiimg", eiv);
+		model.addAttribute("getEstimate", myvo);
+		System.out.println("myvo"+myvo);
+		
+		System.out.println("관리자답변");
+		Ad_EstimateVO advo = service.getAd_Estimate(avo);
+		System.out.println("답변?"+advo);
+		model.addAttribute("getAd_Estimate", advo);
+		return "/views-mypage/MyEstimate.jsp";
+	}
 	
 	
 	

@@ -27,7 +27,7 @@
 <body>
 
 	<div class="whole-wrapper">
-		<jsp:include page="/common/header.jsp"></jsp:include>
+		<jsp:include page="/common/logined-header.jsp"></jsp:include>
 		<div class="main">
 			<div class="space_left">
 				<jsp:include page="/common/mypageSide.jsp" />
@@ -108,7 +108,7 @@
 					<div class="end_btn">
 						<input type="submit" id="Update" class="action-button shadow animate blue " value="수정"/>
 						<div class="action-button shadow animate blue" id="bye">탈퇴</div>
-						<div class="action-button shadow animate blue" onclick="window.location='/view/MyMain.jsp'">메인</div>
+						<div class="action-button shadow animate blue" onclick="window.location='/views-mypage/MyMain.jsp'">메인</div>
 					</div>
 				</div>
 				

@@ -25,7 +25,7 @@
 <body>
 
 		<div class="whole-wrapper">
-		<jsp:include page="/common/header.jsp"></jsp:include>
+		<jsp:include page="/common/logined-header.jsp"></jsp:include>
 		<div class="main">
 			<div class="space_left">
 				<jsp:include page="/common/mypageSide.jsp" />
@@ -59,14 +59,14 @@
  			var pw = $('#pw').val();
  			console.log("함수실행"); 			
  			$.ajax({
- 				url : "/pwCheck.do?customer_no=8",
+ 				url : "/pwCheck.do?customer_no=${num}",
  				type : "get",
  				data : {pw : pw},
  				success : function(result) {
  					if (result == 0) {
  						alert("비밀번호가 일치하지 않습니다.");
  					} else if (result == 1) {
- 						location.href="/getCustomer.do?customer_no=8";
+ 						location.href="/getCustomer.do?customer_no=${num}";
 					}
 				}
  			});

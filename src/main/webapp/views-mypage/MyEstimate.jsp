@@ -53,7 +53,7 @@
 					<h3>접수내역</h3>
 				</div>
 				<div class = "order-item-list">
-					<div class = "order-item-name" name="estimate_cm_no">접수번호</div>
+					<div class = "order-item-name" value="${getEstimate.estimate_cm_no }">접수번호</div>
 					<div class = "order-item-cnt" name="estimate_reg_date">접수일자</div>
 					<div class = "order-item-price" name="estimate_content">내용</div>	
 					<div class = "order-item-img" name="estimate_img">첨부이미지</div>

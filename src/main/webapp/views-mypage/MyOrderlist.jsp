@@ -86,6 +86,10 @@
 						<td class = "status-content" style = "width : 10%; text-align : center;">${orderlist.order_status}</td>
 						</c:forEach>
 					</tr>
+					
+					<tr>
+						
+					</tr>
 				</tbody>
 			</table>
 		</div><!-- order-wrapper -->

@@ -19,4 +19,18 @@
  	<select id = "addresslist" parameterType = "customer" resultType = "CM_ADDRESS">
  		select * from cm_address where customer_no = #{customer_no}
  	</select>
+ 	
+ 	
+<!-- 견적서 -->
+ 	<select id="getMyEstimate" parameterType="estimate" resultType="estimate">
+ 		select * from estimate_cm where estimate_cm_no = #{estimate_cm_no}
+ 	</select>
+ 	
+ 	<select id="getAd_Estimate" parameterType="Ad_estimate" resultType="Ad_estimate">
+ 		<![CDATA[ select ad.estimate_ad_no, ad.estimate_cm_no, ad.estimate_price, ad.estimate_reply_date, ad.estimate_type_content from estimate_ad ad, estimate_type t where ad.estimate_cm_no=#{estimate_cm_no} and ad.estimate_type_content = t.estimate_type_content; ]]>
+ 	</select>
+ 	
+ 	<select id="getEstimateImg" resultType="estimate_image" parameterType="estimate_image">
+ 		<![CDATA[ select * from estimate_image where estimate_cm_no=#{estimate_cm_no} and customer_no=#{customer_no} ]]>
+ 	</select>
  </mapper>

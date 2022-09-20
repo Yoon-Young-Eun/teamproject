@@ -7,7 +7,7 @@
 
 	<select id="getMember" resultType="customer"
 		parameterType="customer">
-		SELECT * FROM CUSTOMER where customer_id =#{customer_id} and customer_passwd=#{customer_passwd}
+		SELECT * FROM customer where customer_id =#{customer_id} and customer_passwd=#{customer_passwd}
 	</select>
 
 	<insert id="insertMember" parameterType="customer" >
@@ -17,7 +17,7 @@
 	</insert>
 
 	<select id="idCheck" parameterType="String" resultType="int">
-		SELECT COUNT(*) FROM CUSTOMER where customer_id = #{customer_id}
+		SELECT COUNT(*) FROM customer where customer_id = #{customer_id}
 	</select>
 	
 </mapper>

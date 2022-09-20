@@ -3,6 +3,8 @@ package com.semo.web.user.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.semo.web.admin.vo.StoreVO;
 import com.semo.web.user.service.MypageService;
 import com.semo.web.user.vo.AddressListVO;
+import com.semo.web.user.vo.CouponListVO;
 import com.semo.web.user.vo.CustomerVO;
 import com.semo.web.user.vo.OrderMtVO;
 import com.semo.web.user.vo.OrderVO;
@@ -32,6 +35,13 @@ public class MypageController {
 		System.out.println("go to MyMain.jsp");
 		System.out.println("Controller > " + customer);
 		
+		// 요약박스
+		int cnt = service.ordercnt(customer);
+		int cnt2 = service.couponcnt(customer);
+		
+		model.addAttribute("cnt", cnt);
+		model.addAttribute("cnt2", cnt2);
+
 		// order_no > 내용 불러오기(OrderMtVO)
 		OrderMtVO ordermt = service.ordermt(order);
 		System.out.println("Controller > OrderDetail > " + ordermt);
@@ -61,8 +71,9 @@ public class MypageController {
 		System.out.println("go to MyOrderlist.jsp");
 		System.out.println("Controller > " + customer);
 		
-		// 내용 불러오기
-		
+		// 목록 개수 세기
+		int cnt = service.ordercnt(customer);
+		model.addAttribute("cnt", cnt);
 		
 		// "더보기" 또는 "메뉴-주문관리" 눌렀을 때 주문 목록으로 넘어가기
 		// customer_no > 주문 정보 불러오기
@@ -95,6 +106,10 @@ public class MypageController {
 		List<OrderVO> orderlist = service.orderlist(customer);
 		System.out.println("Controller > OrderList > " + orderlist);
 		
+		// order_no > OrderVO
+		OrderVO ordervo = service.ordervo(order);
+		model.addAttribute("ordervo", ordervo);
+		
 		// order_no > 주문 상세 불러오기(OrderMtVO)
 		List<OrderMtVO> orderdetail = service.orderdetail(order);
 		System.out.println("Controller > OrderDetail > " + orderdetail);
@@ -115,6 +130,10 @@ public class MypageController {
 	@RequestMapping(value = "/myaddresslist.do", method = RequestMethod.GET)
 	public String AddressList(Model model, CustomerVO customer, AddressListVO address) {
 		
+		System.out.println("======================================================================================================");
+		System.out.println("go to MyAddresslist.jsp");
+		System.out.println("Controller > customer " + customer);
+		
 		// customer_no > 주소 목록 불러오기
 		List<AddressListVO> addresslist = service.addresslist(customer);
 		System.out.println("Controller > addresslist > " + addresslist);	
@@ -127,8 +146,42 @@ public class MypageController {
 		return "/views-mypage/MyAddresslist.jsp";
 	}
 	
+	// MyAddress : 주소 상세
+	@RequestMapping(value = "/addressdetail.do", method = RequestMethod.GET)
+	public String AddressDetail(Model model, CustomerVO customer, AddressListVO address, OrderVO order) {
+		
+		System.out.println("======================================================================================================");
+		System.out.println("go to MyAdress.jsp");	
+		
+		// customer_no > 주소 불러오기
+		AddressListVO addressdetail = service.addressdetail(customer);
+		System.out.println("Controller > addressdetail > " + addressdetail);
+				
+		model.addAttribute("addressdetail", addressdetail);
+		
+		return "/views-mypage/MyAddress.jsp";
+	}
 	
-
+	@RequestMapping(value = "/mycoupon.do", method = RequestMethod.GET)
+	public String Coupon(Model model, CustomerVO customer) {
+		
+		System.out.println("======================================================================================================");
+		System.out.println("go to MyAdress.jsp");
+		
+		System.out.println("Controller > " + customer);
+		
+		// 목록 개수 세기
+		int cnt2 = service.couponcnt(customer);
+		model.addAttribute("cnt2", cnt2);
+		
+		// customer_no > 쿠폰 목록 불러오기
+		List<CouponListVO> couponlist = service.couponlist(customer);
+		System.out.println("Controller > couponlist > " + couponlist);
+		
+		model.addAttribute("couponlist", couponlist);
+		
+		return "/views-mypage/MyCoupon.jsp";
+	}
 	
 	
 	

@@ -11,7 +11,7 @@
 <!-- font awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 <!-- resources -->
-<link rel="stylesheet" href="/views-mypage/resources/css/MyAddress.css"/>
+<link rel="stylesheet" href="/views-mypage/resources/css/MyAsklist.css"/>
 <link rel="stylesheet" href="/common/css/header.css"/>
 <link rel="stylesheet" href="/common/css/button.css"/>
 <link rel="stylesheet" href="/common/css/footer.css"/>
@@ -24,36 +24,32 @@
 </head>
 <body>
 
-<div class = "address-wrapper">
-	
-	<div class = "address-title">
-		<h2>${addressdetail.cm_address_name}</h2>	
-	</div>
-	<div class = "address-content">
-		<div class = "contect">
-			<div class = title>연락처</div>
-			<div class = content>${addressdetail.cm_phone_number}</div>
-		</div>
-		<div class = "address1">
-			<div class = title>주소</div>
-			<div class = content>${addressdetail.cm_address1}</div>
-		</div>
-		<div class = "address2">
-			<div class = title>상세주소</div>
-			<div class = content>${addressdetail.cm_address2}</div>
-		</div>
-		<div class = "passwd">
-			<div class = title>공동현관</div>
-			<div class = content>${addressdetail.cm_gate_passwd}</div>
-		</div>
-	</div>
-	<div class = "button">
-		<button>닫기</button>
-		<button>삭제</button>
+<jsp:include page="/common/logined-header.jsp"/> 
+
+<div class = "page-wrapper">
+	<!-- 사이드메뉴 -->
+	<div class = "sidemenu">
+		<jsp:include page="/common/mypageSide.jsp"/>
 	</div>
 	
-</div>
+	<!-- 본문 -->
+	<div class = "content-wrapper">
+		<!-- 제목 -->
+		<div class = "content-title-wrapper">
+			<div class = "content-title">
+				<h2>문의하기</h2>
+			</div>
+			<!-- 소제목 -->
+			<div class = "content-subtitle-wrapper">
+				<p>당신의 목소리에 귀기울이겠습니다.</p>		
+				</div><!-- content-subtitle-wrapper -->
+			</div> <!-- content-title-wrapper -->	
+		
+		<!-- 글쓰기 -->
 	
+	
+	</div><!-- content-wrapper -->	
+</div><!-- page-wrapper -->
 
 </body>
 </html>

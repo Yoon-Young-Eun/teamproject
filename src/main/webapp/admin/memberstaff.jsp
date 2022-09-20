@@ -408,7 +408,8 @@
 							</thead>
 							<tbody>
 							<!-- for문~(c:forEach)  이 for문의 id값은 "admin"으로 정함!-->  
-								<c:forEach var="admin" items="${adminList}">   <!--  adminList은 컨트롤러에서 model에 저장한 "adminList" 이름임 -->									<tr>
+								<c:forEach var="admin" items="${adminList}">   <!--  adminList은 컨트롤러에서 model에 저장한 "adminList" 이름임 -->									
+								    <tr>
 										<td id="check_td"><input type="checkbox" name="check"></td>
 										<td>${admin.admin_no}</td>  <!--for문의 id값.컬럼명으로 값을 불러옴 -->
 										<td><a href="readStaff.mdo?admin_no=${admin.admin_no}">${admin.admin_id}</a></td>

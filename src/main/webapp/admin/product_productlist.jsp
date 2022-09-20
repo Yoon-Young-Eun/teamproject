@@ -312,19 +312,13 @@
 			<tr>
 				<th width="50" id="check_td"><input type="checkbox"
 					name="check" class="allcheck"></th>
-				<th col-index=2>상품번호</th>
-				<th col-index=3>대분류<select class="table-filter"
-					onchange="filter_rows()">
-						<option value="all"></option>
-				</select></th>
-				<th col-index=4>소분류<select class="table-filter"
-					onchange="filter_rows()">
-						<option value="all"></option>
-				</select></th>
-				<th col-index=5>상품명</th>
-				<th col-index=6>상세설명</th>
-				<th col-index=7>등록일</th>
-				<th col-index=8>가격</th>
+				<th>상품번호</th>
+				<th>대분류</th>
+				<th>소분류</th>
+				<th>상품명</th>
+				<th>상세설명</th>
+				<th>등록일</th>
+				<th>가격</th>
 			</tr>
         </thead>
             <tbody>

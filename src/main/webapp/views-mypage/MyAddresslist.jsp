@@ -68,7 +68,7 @@
 						<td class = "check-content" style = "width : 10%; text-align : center;"><input type = "checkbox" /></td>
 						<td class = "address-title" style = "width : 10%; text-align : center;">${addresslist.cm_address_no}</td>
 						<td class = "address-title" id = "address" style = "width : 80%; text-align : center; cursor:pointer;">
-							<a href = "/addressdetail.do?cm_address_no=${addresslist.cm_address_no}">${addresslist.cm_address1 } ${addresslist.cm_address2 }</a>
+							${addresslist.cm_address1 } ${addresslist.cm_address2 }
 						</td>
 					</tr>
 				</tbody>
@@ -83,13 +83,12 @@
 </div>
 
 <!-------------------- 스크립트 -------------------->
-
-<!-- 상세주소 팝업창 -->
-<script>
-	function go_pop(){
-		window.open("/views-mypage/MyAddress.jsp","Adress","width=500, height=500, resizable=no, status=no, location=no, directories=no;");
-	}
+<script>	
+	var address = document.ElementById('address').innerText();
+	var url = "/addressdetail.do?cm_address_no="+address;
+	window.open(url, "", "width = 500px, height = 600px ");
 </script>
+
 
 </body>
 </html>

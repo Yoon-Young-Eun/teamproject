@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.semo.web.admin.vo.StoreVO;
 import com.semo.web.user.vo.AddressListVO;
+import com.semo.web.user.vo.CouponListVO;
 import com.semo.web.user.vo.CustomerVO;
 import com.semo.web.user.vo.OrderMtVO;
 import com.semo.web.user.vo.OrderVO;
@@ -39,6 +40,11 @@ public class MypageDAO {
 		return sql.selectList("MypageVO.orderdetail", order);
 	}
 	
+	// order_no > OrderVO
+	public OrderVO ordervo (OrderVO order) {
+		return sql.selectOne("MypageVO.ordervo", order);
+	}
+	
 	// store_no > 직영점 상세 불러오기
 	public StoreVO storedetail(OrderVO order) {
 		System.out.println("DAO > store_no > StoreDetail");
@@ -48,9 +54,37 @@ public class MypageDAO {
 	
 	// customer_no > 주소 목록 불러오기
 	public List<AddressListVO> addresslist(CustomerVO customer) {
-		System.out.println("DAO > store_no > AddressList");
+		System.out.println("DAO > customer_no > AddressList");
 		
 		return sql.selectList("MypageVO.addresslist", customer);
+	}
+	
+	// customer_no > 주소 불러오기
+	public AddressListVO addressdetail(CustomerVO customer) {
+		System.out.println("DAO > customer_no > AddressDetail");
+		
+		return sql.selectOne("MypageVO.addresslist", customer);
+	}
+	
+	// order_no count
+	public int ordercnt(CustomerVO customer) {
+		int cnt = sql.selectOne("MypageVO.ordercnt", customer);
+		return cnt;
+	}
+	public int couponcnt(CustomerVO customer) {
+		int cnt2 = sql.selectOne("MypageVO.couponcnt", customer);
+		return cnt2;
+	}
+	public int askcnt(CustomerVO customer) {
+		int cnt3 = sql.selectOne("MypageVO.askcnt", customer);
+		return cnt3;
+	}
+	
+	
+	// customer_no > 쿠폰 목록 불러오기
+	public List<CouponListVO> couponlist(CustomerVO customer) {
+		System.out.println("DAO > store_no > CouponList");
+		return sql.selectList("MypageVO.couponlist", customer);
 	}
 
 }

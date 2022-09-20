@@ -45,7 +45,12 @@ public class SalesServiceImpl implements SalesService {
 	public List<OrderVO> getBarChart(PagingVO pvo) {
 		return salesDao.getBarChart(pvo);
 	}
-	
+
+	@Override
+	public List<OrderMtVO> getMainAreaChart(PagingVO pvo) {
+		return salesDao.getMainAreaChart(pvo);
+	}
+
 	@Override
 	public List<OrderVO> getMainBarChart(PagingVO pvo) {
 		return salesDao.getMainBarChart(pvo);

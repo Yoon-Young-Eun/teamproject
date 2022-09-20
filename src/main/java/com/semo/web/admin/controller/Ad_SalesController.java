@@ -77,6 +77,8 @@ public class Ad_SalesController {
 	       List<OrderVO> search3 = salseService.getSaleStoreSearchTitle3();
 	       System.out.println(search3);
 	       
+	      
+	       
 	       model.addAttribute("search2", search2);
 	       model.addAttribute("search3", search3);
 	       model.addAttribute("storeSalesList", storeSalesList);

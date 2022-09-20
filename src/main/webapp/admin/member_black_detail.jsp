@@ -342,8 +342,8 @@
 		
 		<div class="member_state">
 			계정상태(${user.customer_status}) : <select name="customer_status">
-				<option value="정상회원">정상회원</option>
-	            <option value="블랙회원">블랙회원</option>
+				<option value="">상태수정</option>
+	            <option value="일반회원">일반회원</option>
 			</select>
 
 		</div>

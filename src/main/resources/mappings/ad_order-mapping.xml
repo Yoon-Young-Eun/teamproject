@@ -5,145 +5,126 @@
 <mapper namespace="OrderDAO">
 
    <!-- Order_Manegement아래 조건에 맞는 데이터 갯수를 구하는 쿼리문-->
-   <select id="getMemberArticleCount" parameterType="paging" resultType="int">
-   <if test="customer_no != 0">
-                <![CDATA[ select count(*) from  order_management]]>
-            <trim prefix ="where">
-            <if test="searchCondition=='order_no'">
-             <![CDATA[order_no like concat(#{searchKeyword}) and]]></if>
-            <if test="searchCondition=='customer_no'">   
-             <![CDATA[customer_no like concat('%', #{searchKeyword}, '%') and]]></if>
-            <if test="customer_no !=0">
-                <![CDATA[customer_no = #{customer_no}]]></if>
-                </trim>
-      </if>
+	<select id="getMemberArticleCount" parameterType="paging" resultType="int">
+	<if test="customer_no != 0">
+        	     <![CDATA[ select count(*) from  order_management]]>
+				<trim prefix ="where">
+				<if test="searchCondition=='order_no'">
+    			<![CDATA[order_no like concat(#{searchKeyword}) and]]></if>
+				<if test="searchCondition=='customer_no'">	
+    			<![CDATA[customer_no like concat('%', #{searchKeyword}, '%') and]]></if>
+				<if test="customer_no !=0">
+   			    <![CDATA[customer_no = #{customer_no}]]></if>
+   			    </trim>
+		</if>
 
-      <if test="customer_no ==0">
-              <![CDATA[ select count(*) from  order_management]]>
-            <if test="searchCondition=='order_no'">
-             <![CDATA[where order_no like concat(#{searchKeyword}) ]]></if>
-            <if test="searchCondition=='customer_no'">   
-             <![CDATA[where customer_no like concat('%', #{searchKeyword}, '%') ]]></if>
-      </if>
-   </select>
+		<if test="customer_no ==0">
+        	   <![CDATA[ select count(*) from  order_management]]>
+				<if test="searchCondition=='order_no'">
+    			<![CDATA[where order_no like concat(#{searchKeyword}) ]]></if>
+				<if test="searchCondition=='customer_no'">	
+    			<![CDATA[where customer_no like concat('%', #{searchKeyword}, '%') ]]></if>
+		</if>
+	</select>
 
 
     <!-- 회원 개인별 주문이력 페이징과 검색 조건을 포함한 쿼리문 + 회원메뉴에서 개인회원 상세보기에서 주문이력을 누르면 해당 인원의 주문이력 화면으로 이동함-->
-   <select id="getUserOrderList" parameterType="paging"
-      resultType="orderManagement">
+	<select id="getUserOrderList" parameterType="paging"
+		resultType="orderManagement">
 
-      <if test="customer_no != 0">
-               <![CDATA[ select * from (select @rownum := @rownum+1 as rnum, order_mt_no, customer_id, customer_no ,customer_name, product_code, order_mt_category1, order_mt_category2, order_mt_product, order_mt_count, order_mt_price, order_mt_date, order_no from order_management, (select @rownum :=0) as rowcolum where]]>
-            <if test="searchCondition=='order_no'">
-             <![CDATA[order_no like concat(#{searchKeyword}) and]]></if>
-            <if test="searchCondition=='customer_no'">   
-             <![CDATA[customer_no like concat('%', #{searchKeyword}, '%') and]]></if>
-            <![CDATA[customer_no = #{customer_no} order by customer_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]>
-      </if>
-      <if test="customer_no == 0">
-                <![CDATA[ select * from (select @rownum := @rownum+1 as rnum, order_mt_no, customer_no ,customer_id,customer_name, product_code, order_mt_category1, order_mt_category2, order_mt_product, order_mt_count, order_mt_price, order_mt_date, order_no from order_management, (select @rownum :=0) as rowcolum ]]>
-         <trim prefix="where" >
-            <if test="searchCondition=='order_no'">
-             <![CDATA[order_no like concat(#{searchKeyword})]]></if>
-            <if test="searchCondition=='customer_no'">   
-             <![CDATA[customer_no like concat('%', #{searchKeyword},'%')]]></if>
-         </trim>
+		<if test="customer_no != 0">
+        	    <![CDATA[ select * from (select @rownum := @rownum+1 as rnum, order_mt_no, customer_no ,customer_name, product_code, order_mt_category1, order_mt_category2, order_mt_product, order_mt_count, order_mt_price, order_mt_date, order_no from order_management, (select @rownum :=0) as rowcolum where]]>
+				<if test="searchCondition=='order_no'">
+    			<![CDATA[order_no like concat(#{searchKeyword}) and]]></if>
+				<if test="searchCondition=='customer_no'">	
+    			<![CDATA[customer_no like concat('%', #{searchKeyword}, '%') and]]></if>
+   			<![CDATA[customer_no = #{customer_no} order by customer_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]>
+		</if>
+		<if test="customer_no == 0">
+        	     <![CDATA[ select * from (select @rownum := @rownum+1 as rnum, order_mt_no, customer_no,customer_name, product_code, order_mt_category1, order_mt_category2, order_mt_product, order_mt_count, order_mt_price, order_mt_date, order_no from order_management, (select @rownum :=0) as rowcolum ]]>
+			<trim prefix="where" >
+				<if test="searchCondition=='order_no'">
+    			<![CDATA[order_no like concat(#{searchKeyword})]]></if>
+				<if test="searchCondition=='customer_no'">	
+    			<![CDATA[customer_no like concat('%', #{searchKeyword},'%')]]></if>
+			</trim>
            <![CDATA[order by customer_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]></if>
-   </select>
+	</select>
 
 
-   <!-- 고객 번호로 주문 이력을 조회하는 경우를 대비하여 같은 조건문을 customer_no 유무에 따라 나눠 씀  -->
+	<!-- 고객 번호로 주문 이력을 조회하는 경우를 대비하여 같은 조건문을 customer_no 유무에 따라 나눠 씀  -->
     <!-- OrderList -->
-   <select id="getArticleCount"  parameterType="paging" resultType="int">
-   <if test="customer_no != 0">
-             <![CDATA[ select count(*) from order_cm ]]>
-            <if test="searchCondition=='order_no'">
-             <![CDATA[where order_no like concat(#{searchKeyword}) ]]></if>
-             <if test="searchCondition=='order_status'">
-             <![CDATA[where order_status like concat('%', #{searchKeyword}, '%') ]]></if>
-            <if test="searchCondition=='order_price_status'">   
-             <![CDATA[where order_price_status like concat('%', #{searchKeyword}, '%') ]]></if>
-   </if>
-   <if test="customer_no == 0">
-             <![CDATA[ select count(*) from order_cm ]]>
-                <trim prefix="where" prefixOverrides="and | or">
-            <if test="startDate != null and endDate != null and startDate != '' and endDate != ''">
-             <![CDATA[order_date >= #{startDate} and order_date < #{endDate} ]]></if>
-            <if test="searchCondition=='order_no'">
-             <![CDATA[and order_no like concat(#{searchKeyword}) ]]></if>
-             <if test="searchCondition=='order_status'">
-             <![CDATA[and order_status like concat('%', #{searchKeyword}, '%') ]]></if>
-            <if test="searchCondition=='order_price_status'">   
-             <![CDATA[and order_price_status like concat('%', #{searchKeyword}, '%') ]]></if>
-             </trim>
-   </if>
-   </select>
+	<select id="getArticleCount"  parameterType="paging" resultType="int">
+	<if test="customer_no != 0">
+        	  <![CDATA[ select count(*) from order_cm ]]>
+				<if test="searchCondition=='order_no'">
+    			<![CDATA[where order_no like concat(#{searchKeyword}) ]]></if>
+    			<if test="searchCondition=='order_status'">
+    			<![CDATA[where order_status like concat('%', #{searchKeyword}, '%') ]]></if>
+				<if test="searchCondition=='order_price_status'">	
+    			<![CDATA[where order_price_status like concat('%', #{searchKeyword}, '%') ]]></if>
+	</if>
+	<if test="customer_no == 0">
+        	  <![CDATA[ select count(*) from order_cm ]]>
+        	  	<trim prefix="where" prefixOverrides="and | or">
+				<if test="startDate != null and endDate != null and startDate != '' and endDate != ''">
+    			<![CDATA[order_date >= #{startDate} and order_date < #{endDate} ]]></if>
+				<if test="searchCondition=='order_no'">
+    			<![CDATA[and order_no like concat(#{searchKeyword}) ]]></if>
+    			<if test="searchCondition=='order_status'">
+    			<![CDATA[and order_status like concat('%', #{searchKeyword}, '%') ]]></if>
+				<if test="searchCondition=='order_price_status'">	
+    			<![CDATA[and order_price_status like concat('%', #{searchKeyword}, '%') ]]></if>
+    			</trim>
+	</if>
+	</select>
 
    <!-- 주문 이력 조회 (검색 및 페이징 기능 포함) -->
-      <select id="getAdminOrderList" parameterType="paging" resultType="ORDER">
-              <![CDATA[ select * from (select @rownum := @rownum+1 as rnum, order_no, order_type, store_code, order_date, order_pickup_date, order_pickup_time, cm_gate_passwd, order_request1, order_request2, order_price, order_use_coupon_price, order_status, order_price_status, order_price_method, customer_no, order_customer_name, order_store_name, order_expected_date, order_customer_phone, order_address1, order_address2, order_delivery_price from order_cm, (select @rownum :=0) as rowcolum]]>
-         <trim prefix="where" prefixOverrides="and | or">
-            <if test="startDate != null and endDate != null and startDate != '' and endDate != ''">
-             <![CDATA[order_date >= #{startDate} and order_date < #{endDate} ]]></if>
-            <if test="searchCondition=='order_no'">
-             <![CDATA[and order_no like concat('%', #{searchKeyword}, '%') ]]></if>
-             <if test="searchCondition=='order_status'">
-             <![CDATA[and order_status like concat('%', #{searchKeyword}, '%') ]]></if>
-            <if test="searchCondition=='order_price_status'">   
-             <![CDATA[and order_price_status like concat('%', #{searchKeyword}, '%') ]]></if>
-         </trim>
-            <![CDATA[order by order_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]>
-   </select>
+   	<select id="getAdminOrderList" parameterType="paging" resultType="ORDER">
+       	    <![CDATA[ select * from (select @rownum := @rownum+1 as rnum, order_no, order_type, store_code, order_date, order_pickup_date, order_pickup_time, cm_gate_passwd, order_request1, order_request2, order_price, order_use_coupon_price, order_status, order_price_status, order_price_method, customer_no, order_customer_name, order_store_name, order_expected_date, order_customer_phone, order_address1, order_address2, order_delivery_price from order_cm, (select @rownum :=0) as rowcolum]]>
+			<trim prefix="where" prefixOverrides="and | or">
+				<if test="startDate != null and endDate != null and startDate != '' and endDate != ''">
+    			<![CDATA[order_date >= #{startDate} and order_date < #{endDate} ]]></if>
+				<if test="searchCondition=='order_no'">
+    			<![CDATA[and order_no like concat('%', #{searchKeyword}, '%') ]]></if>
+    			<if test="searchCondition=='order_status'">
+    			<![CDATA[and order_status like concat('%', #{searchKeyword}, '%') ]]></if>
+				<if test="searchCondition=='order_price_status'">	
+    			<![CDATA[and order_price_status like concat('%', #{searchKeyword}, '%') ]]></if>
+			</trim>
+   			<![CDATA[order by order_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]>
+	</select>
    
    
     <!-- 주문 상세보기 -->
-<<<<<<< HEAD
    	<select id="getReadOrderInfo" parameterType="order" resultType="order">
 	select * from order_cm where order_no =#{order_no}
 	</select>
 	
 	<!-- 주문 상세보기 안의 storeList 정보 제공-->
 	<select id="getStoreList" resultType="store">
-	select * from store;
+	select * from store
 	</select>
 
 	<!-- 주문 상세보기 수정 -->
 	<update id="updateOrderInfo" parameterType="order">
-	<![CDATA[ update order_cm set order_store_name=#{order_store_name}, order_status=#{order_status} where order_no=#{order_no}]]>
+	<![CDATA[ update order_cm set]]>
+	<trim prefixOverrides=",">
+	<if test ="order_store_name != null and order_store_name != ''">
+	order_store_name=#{order_store_name} </if>
+	<if test ="order_status != null and order_status != ''">
+	 , order_status=#{order_status} </if>
+     where order_no=#{order_no}
+     </trim>
 	</update>
    
     <!-- message 에서 title가져오기 -->
     <select id="getMessageTitle" parameterType="message" resultType="message">
      select * from message where message_content =#{message_content}
     </select>
-    
-  
-  
-  
-  
-  
-    <!-- 견적서 -->
- 	<select id="getEstimateList" parameterType="estimate" resultType="estimate">
- 		<![CDATA[ select * from estimate_cm ]]>
- 	</select>
- 
- 	<select id="getEstimate" parameterType="estimate" resultType="estimate">
- 		<![CDATA[ select * from estimate_cm where estimate_cm_no=#{estimate_cm_no} ]]>
- 	</select>
-=======
-      <select id="getReadOrderInfo" parameterType="order" resultType="order">
-   select * from order_cm where order_no =#{order_no}
-   </select>
-   
-   <!-- 주문 상세보기 안의 storeList 정보 제공-->
-   <select id="getStoreList" resultType="store">
-   select * from store;
-   </select>
 
-   <!-- 주문 상세보기 수정 -->
-   <update id="updateOrderInfo" parameterType="order">
-   <![CDATA[[update order_cm set order_store_name =#{order_store_name}, order_status=#{order_status} where order_no =#{order_no}]]>
-   </update>
+
+
 
 
 
@@ -199,7 +180,7 @@
    <select id="getEstimateImg" resultType="estimate_image" parameterType="estimate_image">
       <![CDATA[ select * from estimate_image where estimate_cm_no=#{estimate_cm_no} and customer_no=#{customer_no} ]]>
    </select>
->>>>>>> main
+
 
 
 </mapper>

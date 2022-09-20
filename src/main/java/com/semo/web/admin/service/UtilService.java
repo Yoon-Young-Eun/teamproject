@@ -9,8 +9,6 @@ import com.semo.web.user.vo.CustomerVO;
 public interface UtilService {
 	public int getMessageListCount(PagingVO pvo);
 	public List<MessageVO> getSupportMessageList(PagingVO pvo);
-	
-<<<<<<< HEAD
 	public MessageVO getReadMessage(MessageVO mvo);
 	public void insertMessage(MessageVO mvo);
 	public void updateMessage(MessageVO mvo);
@@ -19,8 +17,6 @@ public interface UtilService {
 	public List<MessageVO> getMessageTypeList();
 	public MessageVO getMessageContentType(MessageVO mvo);
 	public List<CustomerVO> sendMessageToAll();
-=======
 	public MessageVO getMessageEstimateType();
-	
->>>>>>> main
+
 }

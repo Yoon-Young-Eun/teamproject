@@ -70,23 +70,28 @@
 	</select>
 
 	
-	<!-- 도넛차트 조건별 조회 쿼리 -->
+	<!-- 품목 매출 도넛차트 조건별 조회 쿼리 -->
 	<select id="getDoughnutChart" parameterType="paging" resultType="orderManagement">
 	 <![CDATA[ select order_mt_category1, sum(order_mt_price) as order_mt_price from order_management]]>
-				<if test="chartDate == 'today'">
-				<![CDATA[where order_mt_date > date_add(now(),interval -1 day ) group by order_mt_category1]]></if>
-				<if test="chartDate == 'thisweek'">
-				<![CDATA[where order_mt_date > date_add(now(),interval -7 day) group by order_mt_category1]]></if>
-				<if test="chartDate == 'thismonth'">
-				<![CDATA[where order_mt_date > date_add(now(),interval -1 month ) group by order_mt_category1]]></if>
-				<if test="chartDate == 'thisyear'">
-				<![CDATA[where order_mt_date > date_add(now(),interval -1 year ) group by order_mt_category1]]></if>
-				<if test="chartDate == '검색'">
-	            <![CDATA[group by order_mt_category1 ]]></if>
+	 	  		<if test="startDate != null and endDate != null and startDate != '' and endDate != ''">
+    			<![CDATA[where order_mt_date >= #{startDate} and order_mt_date < #{endDate} ]]></if>
+    			 <![CDATA[group by order_mt_category1 ]]>
 	</select>
 	
+	<!-- 지점과 날짜를 같이 조회하는 쿼리  -->
+	<!-- 	<select id="getDoughnutChart" parameterType="paging" resultType="orderManagement">
+	 <![CDATA[ select * from (select  sum(a.order_mt_price) as order_mt_price, b.order_store_name, a.order_mt_date, a.order_mt_category1 from order_management as a, order_cm as b where a.order_no = b.order_no) as jta ]]>
+	 	  		<trim prefix="where" prefixOverrides="and | or">
+    			<if test="searchKeyword =='order_store_name'"> 
+    			<![CDATA[order_store_name= #{order_store_name}]]></if>
+    			<if test="startDate != null and endDate != null and startDate != '' and endDate != ''">
+    			<![CDATA[and order_mt_date >= #{startDate} and order_mt_date < #{endDate} ]]></if>
+    			</trim>
+	            <![CDATA[group by order_mt_category1 ]]>
+	  </select> -->
+	
 
-	<!-- 바차트 조건별 조회 쿼리  -->	
+	<!-- 지점 매출 바 차트 조건별 조회 쿼리 -->
 	<select id="getBarChart" parameterType="paging" resultType="order">
 	  <![CDATA[select order_store_name, sum(order_price) as order_price from order_cm]]>
 	  			<if test="startDate != null and endDate != null and startDate != '' and endDate != ''">
@@ -95,7 +100,7 @@
 	</select> 
 	
 		<!-- Main바차트 조건별 조회 쿼리  -->	
-	<select id="getMainBarChart" parameterType="paging" resultType="order">
+	<!-- <select id="getMainBarChart" parameterType="paging" resultType="order">
 	  select
 	  <if test="startDate != null and endDate != null and startDate != '' and endDate != ''">
       <![CDATA[date_format(order_date, '%Y-%m-%d') as order_date, sum(order_price) as order_price from order_cm where order_date >= #{startDate} and order_date < #{endDate} group by date_format(order_date, '%Y-%m-%d') order by order_date asc ]]></if>
@@ -105,12 +110,94 @@
 	  <![CDATA[date_format(order_date, '%Y-%m') as order_date, sum(order_price) as order_price from order_cm group by date_format(order_date, '%Y-%m') order by order_date asc]]></if>
 	  <if test="chartDate == 'year'">
 	  <![CDATA[date_format(order_date, '%Y') as order_date, sum(order_price) as order_price from order_cm group by date_format(order_date, '%Y') order by order_date asc]]></if>
-	  <if test="chartDate == 'all'">
-	  <![CDATA[date_format(order_date, '%Y') as order_date, sum(order_price) as order_price from order_cm group by date_format(order_date, '%Y') order by order_date asc]]></if>
 	  <if test="chartDate == '검색'">
 	  <![CDATA[date_format(order_date, '%m-%d') as order_date, sum(order_price) as order_price from order_cm group by date_format(order_date, '%Y-%m-%d') order by order_date asc]]></if>
-	</select> 
+	</select>  -->
+	
+	
+		<select id="getMainBarChart" parameterType="paging" resultType="order">
+			<if test="chartDate == null">
+		 <![CDATA[ select date_format(order_date, '%Y-%m-%d') as order_date, sum(order_price) as order_price from order_cm]]>
+	 	  		<if test="startDate != null and endDate != null and startDate != '' and endDate != ''">
+    			<![CDATA[where order_date >= #{startDate} and order_date < #{endDate} ]]></if>
+    		    <![CDATA[group by date_format(order_date, '%Y-%m-%d') order by order_date asc ]]>
+    			</if>
+    	   <if test="chartDate != null">
+         <![CDATA[select sum(order_price) as order_price,]]>
+	            <if test="chartDate == 'day'">
+	  			<![CDATA[date_format(order_date, '%m-%d') as order_date from order_cm group by date_format(order_date, '%m-%d') order by order_date asc]]></if>
+	  			<if test="chartDate == 'week'">
+	  			<![CDATA[date_format(order_date, '%U째 주') as order_date from order_cm group by order_date order by order_date asc]]></if>
+	  			<if test="chartDate == 'month'">
+	  			<![CDATA[date_format(order_date, '%Y-%m') as order_date from order_cm group by date_format(order_date, '%Y-%m') order by order_date asc]]></if>
+	  			<if test="chartDate == 'year'">
+	  			<![CDATA[date_format(order_date, '%Y') as order_date from order_cm group by date_format(order_date, '%Y') order by order_date asc]]></if>
+    	  </if>
+    			 
+		 </select>
 
+	
+	<!-- Main Area차트 조건별 조회 및 조인문(resultMap 사용) 쿼리  -->
+	<resultMap id="joinOrderMt" type="orderManagement">
+	<result column="product_code" property="product_code" />
+	<result column="order_mt_product" property="order_mt_product" />
+	<result column="order_mt_count" property="order_mt_count" />	
+	<result column="order_mt_price" property="order_mt_price" />
+	<result column="order_mt_date" property="order_mt_date" />
+	<collection resultMap="provo" property="productVo" />
+	</resultMap>	
+	
+	<resultMap id="provo" type="product">
+	<result column="product_code" property="product_code" />
+	<result column="product_category_parent" property="product_category_parent" />
+	<result column="product_category_median" property="product_category_median" />
+	<result column="product_name" property="product_name" />
+	<result column="product_detail" property="product_detail" />
+	<result column="product_reg_date" property="product_reg_date" />
+	<result column="product_price" property="product_price" />
+	<result column="product_business_profits" property="product_business_profits" />
+	<result column="product_net_profit" property="product_net_profit" />
+	</resultMap>
+	
+	
+	<select id="getMainAreaChart" parameterType="paging" resultMap="joinOrderMt">
+	<if test="chartDate == null">
+	<![CDATA[select  sum(a.order_mt_price) as order_mt_price, sum(a.order_mt_count) as order_mt_count, sum(b.product_business_profits)*order_mt_count as product_business_profits , 
+	  sum(b.product_net_profit)*order_mt_count as product_net_profit, date_format(a.order_mt_date, '%Y-%m-%d') as order_mt_date 
+      from order_management as a join product as b on a.product_code = b.product_code]]>
+	<if test="startDate != null and endDate != null and startDate != '' and endDate != ''">
+    <![CDATA[where order_mt_date >= #{startDate} and order_mt_date < #{endDate} ]]></if>
+    <![CDATA[group by  date_format(a.order_mt_date, '%Y-%m-%d') order by a.order_mt_date asc ]]>
+    </if>
+    
+    <if test="chartDate != null">
+      <![CDATA[select sum(a.order_mt_price) as order_mt_price, sum(a.order_mt_count) as order_mt_count, sum(b.product_business_profits)*order_mt_count as product_business_profits, sum(b.product_net_profit)*order_mt_count as product_net_profit,]]>
+	  <if test="chartDate == 'day'">
+	  <![CDATA[date_format(a.order_mt_date, '%m-%d') as order_mt_date from order_management as a join product as b on a.product_code = b.product_code group by date_format(a.order_mt_date, '%m-%d') order by a.order_mt_date asc]]></if>
+	  <if test="chartDate == 'week'">
+	  <![CDATA[date_format(order_mt_date, '%U째 주') as order_mt_date from order_management as a join product as b on a.product_code = b.product_code group by order_mt_date order by order_mt_date asc]]></if>
+	  <if test="chartDate == 'month'">
+	  <![CDATA[date_format(a.order_mt_date, '%Y-%m') as order_mt_date from order_management as a join product as b on a.product_code = b.product_code group by date_format(a.order_mt_date, '%Y-%m') order by a.order_mt_date asc]]></if>
+	  <if test="chartDate == 'year'">
+	  <![CDATA[date_format(a.order_mt_date, '%Y') as order_mt_date from order_management as a join product as b on a.product_code = b.product_code group by date_format(a.order_mt_date, '%Y') order by a.order_mt_date asc]]></if>
+    </if>
+    
+	</select>
+	
+	
+	
+<!--  <select id="getMainAreaChart" parameterType="paging" resultMap="joinOrderMt">
+	  <![CDATA[select sum(a.order_mt_price) as order_mt_price, sum(a.order_mt_count) as order_mt_count, sum(b.product_business_profits)*order_mt_count as product_business_profits, sum(b.product_net_profit)*order_mt_count as product_net_profit,]]>
+	  <if test="chartDate == 'day'">
+	  <![CDATA[date_format(a.order_mt_date, '%Y-%m-%d') as order_mt_date from order_management as a join product as b on a.product_code = b.product_code group by date_format(a.order_mt_date, '%Y-%m-%d') order by a.order_mt_date asc]]></if>
+	  <if test="chartDate == 'month'">
+	  <![CDATA[date_format(a.order_mt_date, '%Y-%m') as order_mt_date from order_management as a join product as b on a.product_code = b.product_code group by date_format(a.order_mt_date, '%Y-%m') order by a.order_mt_date asc]]></if>
+	  <if test="chartDate == 'year'">
+	  <![CDATA[date_format(a.order_mt_date, '%Y') as order_mt_date from order_management as a join product as b on a.product_code = b.product_code group by date_format(a.order_mt_date, '%Y') order by a.order_mt_date asc]]></if>
+      </select>  -->
+
+	
+	
 	
 	
 	

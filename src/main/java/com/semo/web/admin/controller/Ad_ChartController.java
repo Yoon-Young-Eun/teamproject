@@ -49,6 +49,21 @@ public class Ad_ChartController {
 			return bar;
 		}
 	
+	@GetMapping("/getMainAreaChart.mdo")
+	public @ResponseBody List<OrderMtVO> getMainAreaChart(Model model, PagingVO pvo)throws Exception {
+		System.out.println("area차트 pvo 값 : "+pvo);
+			List<OrderMtVO> area = salesService.getMainAreaChart(pvo);
+			System.out.println("바차트 출력"+area);
+			
+			System.out.println(area.get(0).getOrder_mt_price());
+			System.out.println(area.get(0).getOrder_mt_date());
+			System.out.println(area.get(0).productVo.getProduct_net_profit());
+			System.out.println(area.get(0).productVo.getProduct_net_profit());
+			
+			
+			return area;
+		}
+	
 	}
 	
 	

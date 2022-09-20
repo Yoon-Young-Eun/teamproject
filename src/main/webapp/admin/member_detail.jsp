@@ -29,7 +29,7 @@
 
 </head>
 <body class="sb-nav-fixed">
-	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+	<nav class="sb-topnav navbar navbar-ewnxpand navbar-dark bg-dark">
 		<!-- Navbar Brand-->
 		<a class="navbar-brand ps-3" href="index_dashboard.jsp">Start
 			Bootstrap</a>
@@ -342,7 +342,7 @@
 		
 		<div class="member_state">
 			계정상태(${user.customer_status}) : <select name="customer_status">
-				<option value="정상회원">일반회원</option>
+				<option value="">상태수정</option>
 	            <option value="블랙회원">블랙회원</option>
 			</select>
 

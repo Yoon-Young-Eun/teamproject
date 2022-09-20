@@ -12,6 +12,7 @@ public class ProductVO {
 	private int product_price;
 	private int product_business_profits;
 	private int product_net_profit;
+	
 	public int getProduct_code() {
 		return product_code;
 	}

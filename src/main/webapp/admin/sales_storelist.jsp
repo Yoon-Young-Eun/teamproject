@@ -344,14 +344,27 @@
 							지점별 매출현황 페이지 입니다. <a target="_blank"
 								href="https://datatables.net/">아무링크</a>
 
+						</div>
 
+						<div class="card mb-4">
+							<div class="card-header">
+								<i class="fas fa-chart-area me-1"></i> 여기는 지점별 매출현황 현황에 대한 차트와
+								표데이터
+							</div>
+							
 							<!--Chart -->
 							<div class="chartparent">
-								<div class="chart">
+								
 									<!-- <div id="chart_div" style="width: 300px; height: 300px;"></div> -->
-									<div id="chart_div" style="width: 550px; height: 400px;"></div>
-									<form id="barChart">
-										<div class="icon_flex">
+									<div id="chart_div" style="width: 950px; height: 400px;"></div>
+
+						
+								<div class="chart">
+								<div id="donutchart" style="width: 650px; height: 400px;"></div>
+								</div>
+							</div>
+									<form id="ChartData">
+										<div class="chart_flex">
 											<div>
 												<input type="date" name="startDate" />
 											</div>
@@ -366,29 +379,6 @@
 											</div>
 										</div>
 									</form>
-								</div>
-								<div class="chart">
-									<div id="donutchart" style="width: 550px; height: 400px;"></div>
-									<select id="doughnutChart" name="chartDate"
-										onChange="drawChart()">
-										<option>검색</option>
-										<option value="today">오늘</option>
-										<option value="thisweek">최근일주일</option>
-										<option value="thismonth">최근한달</option>
-										<option value="thisyear">최근일년</option>
-									</select>
-								</div>
-							</div>
-
-
-
-						</div>
-
-						<div class="card mb-4">
-							<div class="card-header">
-								<i class="fas fa-chart-area me-1"></i> 여기는 지점별 매출현황 현황에 대한 차트와
-								표데이터
-							</div>
 
 							<!--  여기부터 내용물 -->
 
@@ -584,31 +574,26 @@
 		src="https://www.gstatic.com/charts/loader.js"></script>
 
 	<script>
-		google.charts.load('current', {
-			packages : [ 'corechart', 'bar' ]
-		});
+		google.charts.load('current', {packages : [ 'corechart', 'bar' ]});
 		google.charts.setOnLoadCallback(getGraph);
-		google.charts.load('current', {
-			'packages' : [ 'corechart' ]
-		});
-		google.charts.setOnLoadCallback(drawChart); // 도넛
+		google.charts.load('current', {'packages' : [ 'corechart' ] });
+		 google.charts.setOnLoadCallback(drawChart); 
+
 		/* 	google.charts.setOnLoadCallback(getGraph);  // bar차트  */
 
 		/* Bar */
 
 		function getGraph() {
-			console.log("getGraph");
-			let store = []
-			let price = []
+			
+			//바차트
+			console.log("바차트");
 			let color = [ "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9",
 					"#c45850", "yellow", "silver" ]
-			let showgraph = [ [ 'corechart', 'bar' ] ]
-
-			$
-					.ajax({
+			let showgraph = [ [ 'corechart', '매출' ] ]
+			$.ajax({
 						url : "/getBarChart.mdo",
 						type : "get",
-						data : $("#barChart").serialize(),
+						data : $("#ChartData").serialize(),
 						dataType : "json",
 						success : function(data) {
 							console.log(data);
@@ -616,11 +601,9 @@
  								
  							}
 							for (let i = 0; i < data.length; i++) {
-								store.push(data[i].order_store_name);
-
 								let price = Number(data[i].order_price)
-								showgraph.push([ data[i].order_store_name,
-										price ])
+								let store = data[i].order_store_name
+								showgraph.push([ store,	price ])
 								console.log(data[i].order_store_name);
 								console.log(price);
 							}
@@ -630,16 +613,16 @@
 									.arrayToDataTable(showgraph);
 
 							var options = {
-								title : 'Population of Largest U.S. Cities',
+								title : '지점별 매출현황',
 								chartArea : {
 									width : '50%'
 								},
 								hAxis : {
-									title : 'Total Population',
+									title : '',
 									minValue : 0
 								},
 								vAxis : {
-									title : 'City'
+									title : ''
 								}
 							};
 
@@ -653,50 +636,41 @@
 							alert("실패");
 						}
 					});//ajax	
-		}//get그래프
+		
+		//도넛		
+		console.log("도넛차트");
+		let category = [ [ 'Task', 'Hours per Day' ] ]
+		$.ajax({
 
-		/* 도넛 */
-		function drawChart() {
-			console.log('drawChart() 함수');
-			let category = [ [ 'Task', 'Hours per Day' ] ]
-			$.ajax({
+			url : "/getDoughnutChart.mdo",
+			type : "get",
+			data : $("#ChartData").serialize(),
+			dataType : "json",
+			success : function(data) {
+				console.log("success" + data);
 
-				url : "/getDoughnutChart.mdo",
-				type : "get",
-				data : $("#doughnutChart").serialize(),
-				dataType : "json",
-				success : function(data) {
-					console.log("success" + data);
-
-					for (let i = 0; i < data.length; i++) {
-						let num = Number(data[i].order_mt_price);
-						category.push([ data[i].order_mt_category1, num ]);
-					}
-					console.log(category);
-
-					var data = google.visualization.arrayToDataTable(category);
-
-					var options = {
-						title : 'My Daily Activities',
-						pieHole : 0.4,
-					};
-
-					var chart = new google.visualization.PieChart(document
-							.getElementById('donutchart'));
-					chart.draw(data, options);
-
+				for (let i = 0; i < data.length; i++) {
+					let num = Number(data[i].order_mt_price);
+					category.push([ data[i].order_mt_category1, num ]);
 				}
-			});
-		}
-	</script>
+				console.log(category);
 
+				var data = google.visualization.arrayToDataTable(category);
 
+				var options = {
+					title : '품목별 매출현황',
+					pieHole : 0.4,
+				};
 
+				var chart = new google.visualization.PieChart(document
+						.getElementById('donutchart'));
+				chart.draw(data, options);
 
-
-
-
-
+			}
+		});	
+				
+	}//get그래프
+</script>
 
 
 	<!-- pdf -->

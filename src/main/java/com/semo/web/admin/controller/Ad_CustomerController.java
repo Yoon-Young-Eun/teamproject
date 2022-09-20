@@ -218,16 +218,18 @@ public class Ad_CustomerController {
 		System.out.println("memberUpdate.mdo 실행");
 		System.out.println(vo);
 		System.out.println("계정상태"+vo.getCustomer_status());
-		memberService.getMemberUpdate(vo);
+		
 		
 		MessageVO mvo = new MessageVO();
 		mvo.setMessage_title("회원정지문자");
+		if(vo.getCustomer_status() != "") {
+		memberService.getMemberUpdate(vo);
 		MessageVO title = utilservice.getMessageContentType(mvo);
 		System.out.println("MessageVO title"+title);
 		String phone = vo.getCustomer_phone();
 		String message = title.getMessage_content();
 		coolsms.sendMessage(phone, message);
-
+		}
 	    return "member.mdo";
 	}
 	
@@ -237,16 +239,19 @@ public class Ad_CustomerController {
 		System.out.println("blackmemberUpdate.mdo 실행");
 		System.out.println(vo);
 		System.out.println("계정상태"+vo.getCustomer_status());
-			memberService.getMemberUpdate(vo);
+			
 			
 			MessageVO mvo = new MessageVO();
 			mvo.setMessage_title("계정복구문자");
+			
+			if(vo.getCustomer_status() != "") {
+			memberService.getMemberUpdate(vo);
 			MessageVO title = utilservice.getMessageContentType(mvo);
 			String phone = vo.getCustomer_phone();
 			
 			String message = title.getMessage_content();
 			coolsms.sendMessage(phone, message);
-			
+			}
 		    	return "blackmember.mdo";
 	
 	}

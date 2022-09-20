@@ -58,7 +58,6 @@ public class OrderDAO {
 		sqlTemplate.update("OrderDAO.updateOrderInfo", vo);
 	}
 	
-<<<<<<< HEAD
 	public List<MessageVO> getMessageTypeList() {
 		return sqlTemplate.selectList("OrderDAO.getMessageTypeList");
 	}
@@ -68,8 +67,9 @@ public class OrderDAO {
 	}
 	
 	
-=======
->>>>>>> main
+	
+	
+
 //	견적서
 	public List<EstimateVO> getEstimateList(PagingVO pvo){
 		return sqlTemplate.selectList("OrderDAO.getEstimateList", pvo);
@@ -98,19 +98,10 @@ public class OrderDAO {
 	public List<Estimate_T_VO> getEstimateType() {
 		return sqlTemplate.selectList("OrderDAO.getEstimateType");
 	}
-<<<<<<< HEAD
-
-=======
-	
 
 	public List<Estimate_ImageVO> getEstimateImg(Estimate_ImageVO vo1) {
 		return sqlTemplate.selectList("OrderDAO.getEstimateImg",vo1);
 	}
 	
-	
-	public List<MessageVO> getMessageTypeList() {
-		return sqlTemplate.selectList("OrderDAO.getMessageTypeList");
-	}
->>>>>>> main
 	
 }

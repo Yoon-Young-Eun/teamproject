@@ -509,7 +509,7 @@
 				//console.log("phone : " + phone);
 
 				$.ajax({
-					url : "/sendSMSAll.mdo",
+					url : "/sendSelectedMessage.mdo",
 					type : "get",
 					traditional : true,
 					data : {

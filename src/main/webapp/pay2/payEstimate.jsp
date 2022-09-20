@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
-<link rel="stylesheet" href="/css/payOrderGeneral.css">
+<link rel="stylesheet" href="/css/payEstimate.css">
 <link rel="stylesheet" href="/common/css/button.css">
 <link
 	href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
@@ -123,13 +123,19 @@
 			<div class="main">
 				<div class="space_left"></div>
 				<div class="content_box">
-					<form action="/OrderGeneral.do" id="form1">
+					<form action="/OrderSpecial4.do" id="form1">
 						<div class="main_text">
-							<div class="main_text1">일반세탁 결제하기</div>
-							<div class="main_text2">세탁할 옷의 종류를 선택하세요</div>
+							<div class="main_text1">특수세탁 결제하기</div>
+							<div class="estimate_text1">
+							<input type="text" value="특수세탁 1단계" readonly style="width:700px;" id="estimate_text1">
+							</div>
+							<div class="estimate_text2">
+							<input type="text" value="너무 더러워서 1단계 입니다." readonly style="height:100px;" id="estimate_text2"> 
+							</div>
+							<div class="main_text2" style="display:none;">세탁할 옷의 종류를 선택하세요</div>
 
 							<div class="main_text3">
-								<div class="aaaa">
+								<div class="aaaa" style="display: none;">
 									<div class="top">
 										<input type="button" id="toggle" onclick="openCloseToc()"
 											value="상의" name="product_category_parent"
@@ -203,7 +209,7 @@
 								</div>
 
 
-								<div id="view1">
+							<%-- 	<div id="view1">
 									<c:forEach var="Bottom" items="${bottom}">
 										<div class="main_text4">
 											<div class="main_text9">
@@ -388,58 +394,55 @@
 
 										</div>
 									</c:forEach>
-								</div>
+								</div> --%>
 							</div>
-
-
-							<div class="price5">
-								합계 금액: <input type="text" class="price3" id="pppp"readonly value=""
-									name="order_price"> 원
-							</div>
-
-
 
 
 							<div class="main_text6">세탁시 요청사항</div>
-							<div class="service1">
+							<!-- <div class="service1">
 								<input type="checkbox" id="checkbox1"
-									value="특수오염 제거 요청 (혈흔/음식물/토사물/기타 등)" name="data1" style="margin-left:-10px;"> <label
-									for="checkbox1" style="margin-left:10px;">특수오염 제거 요청 (혈흔/음식물/토사물/기타 등)</label>
+									value="특수오염 제거 요청 (혈흔/음식물/토사물/기타 등)" name="data1"> <label
+									for="checkbox1">특수오염 제거 요청 (혈흔/음식물/토사물/기타 등)</label>
 
 
 							</div>
 							<div class="service2">
 								<input type="checkbox" id="checkbox2"
-									value="흰색 의류 전처리 요청 (불림/표백작업 ※추가금액발생)" name="data2" style="margin-left:-10px;"> <label
-									for="checkbox2" style="margin-left:10px;">흰색 의류 전처리 요청 (불림/표백작업 ※추가금액발생)</label>
+									value="흰색 의류 전처리 요청 (불림/표백작업 ※추가금액발생)" name="data2"> <label
+									for="checkbox2">흰색 의류 전처리 요청 (불림/표백작업 ※추가금액발생)</label>
 
-							</div>
+							</div> -->
 
 							<div class="main_text7">
 								<textarea id="textarea1" maxlength="99999"
-									placeholder="세탁시 요청사항을 입력하세요" name="data3"></textarea>
+									placeholder="세탁시 요청사항을 입력하세요" name="data1"></textarea>
 							</div>
 							<div class="service">기사님께 요청사항</div>
 							<div class="service3">
 								<input type="checkbox" id="checkbox3" value="수거시 사용한 가방은 돌려주세요"
-									name="data4" style="margin-left:-10px;"> <label for="checkbox3" style="margin-left:10px;">수거시 사용한
+									name="data2" style="margin-left:-10px;"> <label for="checkbox3" style="margin-left:10px;">수거시 사용한
 									가방은 돌려주세요</label>
 
 							</div>
 							<div class="service4">
 								<input type="checkbox" id="checkbox4" value="방문전 연락 부탁드려요"
-									name="data5" style="margin-left:-10px;"> <label for="checkbox4" style="margin-left:10px;">방문전 연락
+									name="data3" style="margin-left:-10px;"> <label for="checkbox4" style="margin-left:10px;">방문전 연락
 									부탁드려요</label>
 							</div>
 							<div class="service5">
 								<input type="checkbox" id="checkbox5" value="안전한 배송 부탁드려요"
-									name="data6" style="margin-left:-10px;"> <label for="checkbox5" style="margin-left:10px;">안전한 배송
+									name="data4" style="margin-left:-10px;"> <label for="checkbox5" style="margin-left:10px;">안전한 배송
 									부탁드려요</label>
 							</div>
 
 							<div class="service6">
 								<textarea id="textarea2" maxlength="99999"
-									placeholder="수거/배달시 요청사항을 입력해주세요" name="data7"></textarea>
+									placeholder="수거/배달시 요청사항을 입력해주세요" name="data5"></textarea>
+							</div>
+							
+							<div class="price5">
+								합계 금액: <input type="text" class="price3" id="pppp"readonly value="18000"
+									name="order_price"> 원
 							</div>
 
 							<input type="hidden" value="${OrderData.customer_no}"
@@ -460,7 +463,7 @@
 							<input type="hidden" value="0" name="order_use_coupon_price">
 
 							<div class="main_text10">
-								<input type="button" value="주문하기" id="pay" onclick="order()"
+								<input type="submit" value="주문하기" id="pay" onclick="order()"
 									class="action-button shadow animate blue" > 
 								<input type="button" value="취소하기" id="paycancel" onclick="#"
 									class="action-button shadow animate blue">
@@ -481,11 +484,11 @@
           var totalpay = Number(money1.replace(abc,""));
           var totalpay2 = Number(money1);
 			console.log(totalpay2);
-          if(totalpay2 < 15000){
+          /* if(totalpay2 < 15000){
          	alert("최소주문금액은 15000원 입니다.");
           }else{
         	  document.getElementById("form1").submit();
-          }
+          } */
 
         })
 

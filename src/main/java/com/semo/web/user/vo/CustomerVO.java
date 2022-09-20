@@ -87,15 +87,18 @@ public class CustomerVO {
 	public void setCustomer_status(String customer_status) {
 		this.customer_status = customer_status;
 	}
+	
 	@Override
 	public String toString() {
-		return "MemberVO [customer_no=" + customer_no + ", customer_name=" + customer_name + ", customer_passwd="
+		return "CustomerVO [customer_no=" + customer_no + ", customer_name=" + customer_name + ", customer_passwd="
 				+ customer_passwd + ", customer_id=" + customer_id + ", customer_phone=" + customer_phone
 				+ ", customer_join_date=" + customer_join_date + ", customer_sms_permit=" + customer_sms_permit
 				+ ", customer_zipcode=" + customer_zipcode + ", customer_address1=" + customer_address1
 				+ ", customer_address2=" + customer_address2 + ", customer_birth=" + customer_birth
 				+ ", customer_status=" + customer_status + "]";
 	}
+	
+	
 
 
 }

@@ -57,14 +57,14 @@ public class EstimateVO {
 	public void setCustomer_address2(String customer_address2) {
 		this.customer_address2 = customer_address2;
 	}
-	
+
 	public String getCustomer_phone() {
 		return customer_phone;
 	}
 	public void setCustomer_phone(String customer_phone) {
 		this.customer_phone = customer_phone;
 	}
-	
+
 	public String getEstimate_content() {
 		return estimate_content;
 	}

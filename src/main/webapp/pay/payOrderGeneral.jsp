@@ -403,15 +403,15 @@
 							<div class="main_text6">세탁시 요청사항</div>
 							<div class="service1">
 								<input type="checkbox" id="checkbox1"
-									value="특수오염 제거 요청 (혈흔/음식물/토사물/기타 등)" name="data1"> <label
-									for="checkbox1">특수오염 제거 요청 (혈흔/음식물/토사물/기타 등)</label>
+									value="특수오염 제거 요청 (혈흔/음식물/토사물/기타 등)" name="data1" style="margin-left:-10px;"> <label
+									for="checkbox1" style="margin-left:10px;">특수오염 제거 요청 (혈흔/음식물/토사물/기타 등)</label>
 
 
 							</div>
 							<div class="service2">
 								<input type="checkbox" id="checkbox2"
-									value="흰색 의류 전처리 요청 (불림/표백작업 ※추가금액발생)" name="data2"> <label
-									for="checkbox2">흰색 의류 전처리 요청 (불림/표백작업 ※추가금액발생)</label>
+									value="흰색 의류 전처리 요청 (불림/표백작업 ※추가금액발생)" name="data2" style="margin-left:-10px;"> <label
+									for="checkbox2" style="margin-left:10px;">흰색 의류 전처리 요청 (불림/표백작업 ※추가금액발생)</label>
 
 							</div>
 
@@ -422,18 +422,18 @@
 							<div class="service">기사님께 요청사항</div>
 							<div class="service3">
 								<input type="checkbox" id="checkbox3" value="수거시 사용한 가방은 돌려주세요"
-									name="data4"> <label for="checkbox3">수거시 사용한
+									name="data4" style="margin-left:-10px;"> <label for="checkbox3" style="margin-left:10px;">수거시 사용한
 									가방은 돌려주세요</label>
 
 							</div>
 							<div class="service4">
 								<input type="checkbox" id="checkbox4" value="방문전 연락 부탁드려요"
-									name="data5"> <label for="checkbox4">방문전 연락
+									name="data5" style="margin-left:-10px;"> <label for="checkbox4" style="margin-left:10px;">방문전 연락
 									부탁드려요</label>
 							</div>
 							<div class="service5">
 								<input type="checkbox" id="checkbox5" value="안전한 배송 부탁드려요"
-									name="data6"> <label for="checkbox5">안전한 배송
+									name="data6" style="margin-left:-10px;"> <label for="checkbox5" style="margin-left:10px;">안전한 배송
 									부탁드려요</label>
 							</div>
 

@@ -29,18 +29,22 @@
            -->
            <input type="hidden" value="7" name="customer_no">
            <li class="listItemT" style="left:0px; background: #a9d3f0; color : #1f2427; font-weight:bold;">MY 세탁</li>
-           <li class="listItemA"><i class="fas fa-list-ul"></i><a href="/views-mypage//MyOrderlist.jsp">주문/견적서 관리</a></li>
+           <li class="listItemA"><i class="fas fa-list-ul"></i><a href="/myorderlist.do?customer_no=${num}">주문/견적서 관리</a></li>
 
             <li class="listItemT" style="left:0px; background: #a9d3f0; color : #1f2427; font-weight:bold;">MY 정보</li>
 
+<<<<<<< HEAD
             <li class="listItemA"><i class="fas fa-user-edit"></i><a href="/getno.do?customer_no=8">회원 정보 수정</a></li>
             <li class="listItemA" style = "margin-left:5px;"><i class="fas fa-map-marker-alt"></i><a href="#">내주소 관리</a></li>
+=======
+            <li class="listItemA"><i class="fas fa-user-edit"></i><a href="#">회원 정보 수정</a></li>
+            <li class="listItemA" style = "margin-left:5px;"><i class="fas fa-map-marker-alt"></i><a href="/myaddresslist.do?customer_no=${num}">내주소 관리</a></li>
+>>>>>>> main
             <li class="listItemA"><i class="fas fa-ticket-alt"></i><a href="#">쿠폰/포인트관리</a></li>
             
             <li class="listItemT" style="left:0px; background: #a9d3f0; color :#1f2427; font-weight:bold;">MY 활동</li>
             <li class="listItemA"><a href="#"><i class="far fa-question-circle"></i>문의하기</a></li>
             <li class="listItemA"><a href="#"><i class="fas fa-list-ul"></i>문의 내역 확인</a></li>
-            <li class="listItemA"><i class="far fa-edit"></i><a href="#">리뷰작성</a></li>
             <li class="listItemA"><a href="#"><i class="fas fa-tasks"></i>리뷰 관리</a></li>
              
         </ul>

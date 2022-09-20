@@ -68,6 +68,18 @@ public class AddressImpl implements AddressService {
 		
 	}
 
+	@Override
+	public CustomerVO SearchId(CustomerVO vo) {
+		
+		return addressdao.SearchId(vo);
+	}
+
+	@Override
+	public CustomerVO selectPassword(CustomerVO vo) {
+		
+		return addressdao.selectPassword(vo);
+	}
+
 
 
 }

@@ -66,8 +66,29 @@
 				<div class="social">
 					<span>소셜 로그인</span>
 					<br>
-					<img style = "display:flex;justify-content:center;" onclick="kakaoLogin()" alt="" src="/views/resources/img/kakao_login_medium_wide.png">
+					<button onclick="kakaoLogin()"><img style = "display:flex;justify-content:center;"alt="" src="/views/resources/img/kakao_login_medium_wide.png"></button>
+					
 					<script>
+					 function kakaoLogin() {
+
+			             $.ajax({
+			                 url: '/kakao.do',
+			                 type: 'get',
+			                 async: false,
+			                 dataType: 'text',
+			                 success: function (res) {
+			                     location.href = res;
+			                 }
+			             });
+
+			           }
+					
+					</script>
+					
+					
+					
+					
+					<!-- <script>
 						Kakao.init('23ba625f7534454f4f7553b3ef9cfd1c'); //발급받은 키 중 javascript키를 사용해준다.
 						console.log(Kakao.isInitialized()); // sdk초기화여부판단
 						//카카오로그인
@@ -104,7 +125,7 @@
 						      Kakao.Auth.setAccessToken(undefined)
 						    }
 						  }  
-						</script>
+						</script> -->
 				</div>
 			</div>
 		</div>

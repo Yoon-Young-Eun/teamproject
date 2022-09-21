@@ -43,4 +43,23 @@ public class SalesDAO {
 	public List<OrderVO> getBarChart(PagingVO pvo){
 		return sqlTemplate.selectList("SalesDAO.getBarChart", pvo);
 	}
+	
+	public List<OrderVO> getMainBarChart(PagingVO pvo){
+		return sqlTemplate.selectList("SalesDAO.getMainBarChart",pvo);
+	}
+	
+	public List<OrderMtVO> getMainAreaChart(PagingVO pvo){
+		return sqlTemplate.selectList("SalesDAO.getMainAreaChart",pvo);
+	}
+	public List<OrderVO> getSaleStoreSearchTitle2() {
+		return sqlTemplate.selectList("SalesDAO.getSaleStoreSearchTitle2");
+	}
+	
+	public List<OrderVO> getSaleStoreSearchTitle3() {
+		return sqlTemplate.selectList("SalesDAO.getSaleStoreSearchTitle3");
+	}
+	
+	
+	
+	
 }

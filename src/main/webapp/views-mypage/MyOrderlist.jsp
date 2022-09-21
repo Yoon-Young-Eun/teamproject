@@ -41,23 +41,26 @@
 			</div>
 			<!-- 소제목 -->
 			<div class = "content-subtitle-wrapper">
-				<p>총 <b>1</b>건의 주문내역</p>
-				<!-- 검색창 -->
+				<p>총 <b>${cnt}</b>건의 주문내역</p>
+<!-- 		
+				 검색창
 				<div class = "searchbar-wrapper">
-					<!-- 분류 -->
+					 분류
 					<div class = "sort">
 						<select class = "select">
-							<option>제목</option>
+							<option>최근순</option>
 							<option>내용</option>
 							<option>제목+내용</option>
 						</select>
 					</div>
-					<!-- 검색 -->
+					검색
 					<div class = "searchbar">
 						<input type = "text" onfocus = "value = ''" value = "검색어를 입력해주세요.">
 						<button>검색</button>
 					</div>
-				</div> <!-- searchbar-wrapper -->
+				</div> 
+				searchbar-wrapper
+ -->				
 			</div><!-- content-subtitle-wrapper -->
 		</div> <!-- content-title-wrapper -->	
 		
@@ -76,16 +79,38 @@
 				</thead>
 				
 				<tbody class = "order-body-content">	
-					<tr>
-						<c:forEach var="orderlist" items="${orderlist}">
+					<c:forEach var="orderlist" items="${orderlist}">
+					<tr style = "border-bottom : 1px solid #cdcdcd;">
 						<td class = "num-content" style = "width : 10%; text-align : center;">${orderlist.order_no}</td>
 						<td class = "content-content" style = "width : 20%; text-align : center;"><a href = "/orderdetail.do?order_no=${orderlist.order_no}&customer_no=${num}&store_code=${orderlist.store_code}">주문 자세히 보기</a></td>
 						<td class = "address-content" style = "width : 20%; text-align : center;">${orderlist.order_address1}</td>
 						<td class = "date-content" style = "width : 20%; text-align : center;">${orderlist.order_date}</td>
 						<td class = "pickup-content" style = "width : 20%; text-align : center;">${orderlist.order_expected_date}</td>
-						<td class = "status-content" style = "width : 10%; text-align : center;">${orderlist.order_status}</td>
-						</c:forEach>
+						<td class = "status-content" style = "width : 10%; text-align : center;">
+							<c:choose>
+								<c:when test="${orderlist.order_status eq '수거대기'}">
+									수거대기
+								</c:when>
+								<c:when test="${orderlist.order_status eq '수거중'}">
+									수거중
+								</c:when>
+								<c:when test="${orderlist.order_status eq '세탁중'}">
+									세탁중
+								</c:when>
+								<c:when test="${orderlist.order_status eq '배송중'}">
+									배송중
+								</c:when>
+								<c:when test="${orderlist.order_status eq '배송완료'}">
+									<p style = "height :30px;">배송완료</p>
+									<button>리뷰쓰기</button>
+								</c:when>
+								<c:otherwise>
+									주문취소
+								</c:otherwise>
+							</c:choose>
+						</td>
 					</tr>
+					</c:forEach>
 				</tbody>
 			</table>
 		</div><!-- order-wrapper -->

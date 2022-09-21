@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.semo.web.user.service.CoolSmsUser;
 import com.semo.web.user.service.CustomerService;
 import com.semo.web.user.vo.CustomerVO;
+import com.semo.web.user.vo.OrderVO;
 
 
 
@@ -27,7 +28,7 @@ public class CustomerController {
 
 	// 로그인
 	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
-	public String login(CustomerVO vo, Model model, HttpSession session) {
+	public String login(CustomerVO vo, OrderVO order, Model model, HttpSession session) {
 
 		System.out.println(vo);
 		System.out.println("login method");

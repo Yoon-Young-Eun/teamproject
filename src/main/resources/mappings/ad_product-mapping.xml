@@ -9,14 +9,18 @@
  			product_category_median, 
  			product_name, 
  			product_detail,
- 			product_price
+ 			product_price,
+ 			product_business_profits,
+ 			product_net_profit
  		) 
  		VALUES(
  			#{product_category_parent}, 
  			#{product_category_median}, 
  			#{product_name}, 
  			#{product_detail},
- 			#{product_price}
+ 			#{product_price},
+ 			#{product_business_profits},
+ 			#{product_net_profit}
  		)
  	</insert>
  	<select id="getProductList" resultType="product">

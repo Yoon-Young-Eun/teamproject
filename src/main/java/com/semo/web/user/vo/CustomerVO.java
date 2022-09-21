@@ -12,9 +12,9 @@ public class CustomerVO {
 	private String customer_zipcode;
 	private String customer_address1;
 	private String customer_address2;
+	private String cm_gate_passwd;
 	private String customer_birth;
 	private String customer_status;
-	
 	public int getCustomer_no() {
 		return customer_no;
 	}
@@ -75,6 +75,12 @@ public class CustomerVO {
 	public void setCustomer_address2(String customer_address2) {
 		this.customer_address2 = customer_address2;
 	}
+	public String getCm_gate_passwd() {
+		return cm_gate_passwd;
+	}
+	public void setCm_gate_passwd(String cm_gate_passwd) {
+		this.cm_gate_passwd = cm_gate_passwd;
+	}
 	public String getCustomer_birth() {
 		return customer_birth;
 	}
@@ -87,15 +93,15 @@ public class CustomerVO {
 	public void setCustomer_status(String customer_status) {
 		this.customer_status = customer_status;
 	}
+	
 	@Override
 	public String toString() {
-		return "MemberVO [customer_no=" + customer_no + ", customer_name=" + customer_name + ", customer_passwd="
+		return "CustomerVO [customer_no=" + customer_no + ", customer_name=" + customer_name + ", customer_passwd="
 				+ customer_passwd + ", customer_id=" + customer_id + ", customer_phone=" + customer_phone
 				+ ", customer_join_date=" + customer_join_date + ", customer_sms_permit=" + customer_sms_permit
 				+ ", customer_zipcode=" + customer_zipcode + ", customer_address1=" + customer_address1
-				+ ", customer_address2=" + customer_address2 + ", customer_birth=" + customer_birth
-				+ ", customer_status=" + customer_status + "]";
+				+ ", customer_address2=" + customer_address2 + ", cm_gate_passwd=" + cm_gate_passwd
+				+ ", customer_birth=" + customer_birth + ", customer_status=" + customer_status + "]";
 	}
-
 
 }

@@ -80,7 +80,8 @@
 
 
 <select id="getAd_Estimate" parameterType="int" resultMap="Joinvo">
-  <![CDATA[ select a.estimate_type_content, b.estimate_type_title from estimate_ad as a, estimate_type as b where a.estimate_type_content = b.estimate_type_content and estimate_cm_no=#{estimate_cm_no}]]>
+  <![CDATA[ select a.estimate_type_content, b.estimate_type_title 
+  from estimate_ad as a, estimate_type as b where a.estimate_type_content = b.estimate_type_content and estimate_cm_no=#{estimate_cm_no}]]>
 </select>
  -->
 

@@ -10,6 +10,9 @@ public class ProductVO {
 	private String product_detail;
 	private Date product_reg_date;
 	private int product_price;
+	private int product_business_profits;
+	private int product_net_profit;
+	
 	public int getProduct_code() {
 		return product_code;
 	}
@@ -52,14 +55,28 @@ public class ProductVO {
 	public void setProduct_price(int product_price) {
 		this.product_price = product_price;
 	}
+	public int getProduct_business_profits() {
+		return product_business_profits;
+	}
+	public void setProduct_business_profits(int product_business_profits) {
+		this.product_business_profits = product_business_profits;
+	}
+	public int getProduct_net_profit() {
+		return product_net_profit;
+	}
+	public void setProduct_net_profit(int product_net_profit) {
+		this.product_net_profit = product_net_profit;
+	}
+	
 	@Override
 	public String toString() {
 		return "ProductVO [product_code=" + product_code + ", product_category_parent=" + product_category_parent
 				+ ", product_category_median=" + product_category_median + ", product_name=" + product_name
 				+ ", product_detail=" + product_detail + ", product_reg_date=" + product_reg_date + ", product_price="
-				+ product_price + "]";
+				+ product_price + ", product_business_profits=" + product_business_profits + ", product_net_profit="
+				+ product_net_profit + "]";
 	}
-
+	
 	
 	
 }

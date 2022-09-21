@@ -2,12 +2,13 @@ package com.semo.web.user.vo;
 
 import java.sql.Date;
 
+
 public class OrderVO {
    private int order_no;
    private String order_type;
    private int store_code;
-   private Date order_date;
-   private Date order_pickup_date;
+   private String order_date;
+   private String order_pickup_date;
    private String order_pickup_time;
    private String cm_gate_passwd;
    private String order_request1;
@@ -26,7 +27,7 @@ public class OrderVO {
    private String order_address2;
    private String imp_uid;
    private int order_delivery_price;
-   private String product_name;
+
 public int getOrder_no() {
 	return order_no;
 }
@@ -45,16 +46,16 @@ public int getStore_code() {
 public void setStore_code(int store_code) {
 	this.store_code = store_code;
 }
-public Date getOrder_date() {
+public String getOrder_date() {
 	return order_date;
 }
-public void setOrder_date(Date order_date) {
+public void setOrder_date(String order_date) {
 	this.order_date = order_date;
 }
-public Date getOrder_pickup_date() {
+public String getOrder_pickup_date() {
 	return order_pickup_date;
 }
-public void setOrder_pickup_date(Date order_pickup_date) {
+public void setOrder_pickup_date(String order_pickup_date) {
 	this.order_pickup_date = order_pickup_date;
 }
 public String getOrder_pickup_time() {
@@ -165,12 +166,6 @@ public int getOrder_delivery_price() {
 public void setOrder_delivery_price(int order_delivery_price) {
 	this.order_delivery_price = order_delivery_price;
 }
-public String getProduct_name() {
-	return product_name;
-}
-public void setProduct_name(String product_name) {
-	this.product_name = product_name;
-}
 @Override
 public String toString() {
 	return "OrderVO [order_no=" + order_no + ", order_type=" + order_type + ", store_code=" + store_code
@@ -182,9 +177,18 @@ public String toString() {
 			+ order_customer_name + ", order_store_name=" + order_store_name + ", order_expected_date="
 			+ order_expected_date + ", order_customer_phone=" + order_customer_phone + ", order_address1="
 			+ order_address1 + ", order_address2=" + order_address2 + ", imp_uid=" + imp_uid + ", order_delivery_price="
+<<<<<<< HEAD
 			+ order_delivery_price + ", product_name=" + product_name + "]";
+=======
+			+ order_delivery_price + "]";
+>>>>>>> main
 }
 
    
+<<<<<<< HEAD
 
+=======
+   
+   
+>>>>>>> main
 }

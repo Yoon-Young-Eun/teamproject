@@ -2,10 +2,13 @@ package com.semo.web.user.service;
 
 import java.util.List;
 
+import javax.activation.CommandMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.semo.web.admin.vo.Ad_EstimateVO;
+import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.StoreVO;
 import com.semo.web.user.dao.MypageDAO;
 import com.semo.web.user.vo.AddressListVO;
@@ -27,6 +30,12 @@ public class MypageServiceImpl implements MypageService{
 	@Override
 	public OrderMtVO ordermt(OrderVO order) {
 		return dao.ordermt(order);
+	}
+	
+	// My Main > 최근 목록 3개만
+	@Override
+	public List<OrderVO> recentorder(CustomerVO customer) {
+		return dao.recentorder(customer);
 	}
 	
 	// customer_no > 주문 정보 불러오기
@@ -77,6 +86,23 @@ public class MypageServiceImpl implements MypageService{
 		return dao.asklist(customer);
 	}
 	
+	// MyAsk : 문의글 작성 > MyAsklist : 목록으로 보내기
+	@Override
+	public Cm_QnAVO insertask(Cm_QnAVO qna) {
+		return dao.insertask(qna);
+	}
+	
+	// mypage order paging
+	@Override
+	public int myOrderCount() {
+		return dao.myOrderCount();
+	}
+	//
+	@Override
+	public List<OrderVO> myOrderPaging(PagingVO pvo) {
+		return dao.myOrderPaging(pvo);
+	}
+	
 	
 	// order_no count
 	@Override
@@ -116,6 +142,10 @@ public class MypageServiceImpl implements MypageService{
    public List<EstimateVO> getmyEstimate(CustomerVO vo) {
       return dao.getmyEstimate(vo);
    }
+
+
+
+
 
 
 

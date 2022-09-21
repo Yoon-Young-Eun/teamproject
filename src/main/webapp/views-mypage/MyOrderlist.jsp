@@ -113,6 +113,29 @@
 					</c:forEach>
 				</tbody>
 			</table>
+				<!-- pagaing 처리 -->
+						<div class = "paging-wrapper">					
+							<c:if test="${count > 0}">
+								<div class="paging">
+							    <div class="paging-text">
+								<c:if test="${startPage > pageBlock}"> <!-- 시작번호가 5보다 크면, 앞에 '이전'을 붙여줌 -->
+									<a href="/myorderlist.do?pageNum=${startPage-pageBlock}"><i class="fas fa-chevron-left"></i></a>
+								</c:if>
+								</div>
+								<div class="paging-num">
+								<c:forEach var="i" begin="${startPage}" end="${endPage}">
+										<a href="/myorderlist.do?pageNum=${i}">${i}</a>
+								</c:forEach>
+								</div>							
+								<div class="paging-text">
+								<c:if test="${endPage < pageCount}">
+									<a href="/myorderlist.do?pageNum=${startPage + pageBlock}"><i class="fas fa-chevron-right"></i></a>
+								</c:if>
+								</div>
+								</div>
+							</c:if>
+						</div><!-- 페이징 종료 -->
+			
 		</div><!-- order-wrapper -->
 	</div><!-- content-wrapper -->
 	

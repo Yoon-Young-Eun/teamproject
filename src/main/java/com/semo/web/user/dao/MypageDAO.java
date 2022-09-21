@@ -2,11 +2,14 @@ package com.semo.web.user.dao;
 
 import java.util.List;
 
+import javax.activation.CommandMap;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.semo.web.admin.vo.Ad_EstimateVO;
+import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.StoreVO;
 import com.semo.web.user.vo.AddressListVO;
 import com.semo.web.user.vo.Cm_QnAVO;
@@ -28,6 +31,11 @@ public class MypageDAO {
 		System.out.println("DAO > order_no > OrderMtVO 불러오기");
 		
 		return sql.selectOne("MypageVO.orderdetail", order);
+	}
+	
+	// My Main > 최근 목록 3개만
+	public List<OrderVO> recentorder(CustomerVO customer){
+		return sql.selectList("MypageVO.recentorder", customer);
 	}
 	
 	// customer_no > 주문 정보 불러오기
@@ -82,6 +90,20 @@ public class MypageDAO {
 		return sql.selectList("MypageVO.asklist", customer);
 	}
 	
+	// MyAsk : 문의글 작성 > MyAsklist : 목록으로 보내기
+	public Cm_QnAVO insertask(Cm_QnAVO qna) {
+		System.out.println("DAO > AskInsert");
+		return sql.selectOne("MypageVO.insertask", qna);
+	}
+	
+	//mypaging order
+	
+	public int myOrderCount() {
+		return sql.selectOne("MypageVO.myOrderCount");
+	};
+	public List<OrderVO >myOrderPaging(PagingVO pvo){
+		return sql.selectList("MypageVO.myOrderPaging", pvo);
+	}
 	
 	
 	// order_no count

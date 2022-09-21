@@ -44,7 +44,14 @@
 			<!-- 소제목 -->
 			<div class = "content-subtitle-wrapper">
 				<p>주문 상세 진행 상황</p>
-				<button style = "height : 20px; margin-top:auto; margin-bottom:auto;">주문 취소</button>
+				<c:choose>
+					<c:when test="${ordervo.order_status eq '수거대기'}">
+						<a href="#" style = "font-size : 15px; height : 20px; margin-top:auto; margin-bottom:auto;" class="action-button shadow animate grey">주문취소</a>
+					</c:when>
+					<c:otherwise>
+						<a></a>
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</div><!-- content-title-wrapper -->
 		
@@ -52,15 +59,33 @@
 		<div class = "detail-wrapper">
 			<!-- 상태바 -->
 			<div class = "statusbar">
-				<center><img alt="" src="/views-mypage/resources/img/delivery-progress-3.png"></center>
+				<center>
+				<c:choose>
+					<c:when test = "${ordervo.order_status eq '수거대기'}">
+						<img alt="" src="/views-mypage/resources/img/delivery-progress-1.png">
+					</c:when>	
+					<c:when test = "${ordervo.order_status eq '수거중'}">
+						<img alt="" src="/views-mypage/resources/img/delivery-progress-2.png">
+					</c:when>	
+					<c:when test = "${ordervo.order_status eq '세탁중'}">
+						<img alt="" src="/views-mypage/resources/img/delivery-progress-3.png">
+					</c:when>	
+					<c:when test = "${ordervo.order_status eq '배송중'}">
+						<img alt="" src="/views-mypage/resources/img/delivery-progress-4.png">
+					</c:when>	
+					<c:when test = "${ordervo.order_status eq '배송완료'}">
+						<img alt="" src="/views-mypage/resources/img/delivery-progress-5.png">
+					</c:when>	
+				</c:choose>
+				</center>
 			</div>
 			<div class = "status">
 				<ul>
-					<li>수거대기</li>
-					<li>수거중</li>
+					<li><b>수거대기</b></li>
+					<li><b>수거중</b></li>
 					<li><b>세탁중</b></li>
-					<li>배송중</li>
-					<li>배송완료</li>
+					<li><b>배송중</b></li>
+					<li><b>배송완료</b></li>
 				</ul>
 			</div>
 			<!-- 지도 -->
@@ -223,5 +248,6 @@ marker.setMap(map);
 </script>
 
 <jsp:include page="/common/footer.jsp"></jsp:include>
+
 </body>
 </html>

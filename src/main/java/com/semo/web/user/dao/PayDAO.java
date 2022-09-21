@@ -18,18 +18,23 @@ public class PayDAO {
 		sql.insert("PayDAO.insertPayInfo", vo);
 	}
 	
-	public PayVO getReadPay(PayVO vo) {
-		System.out.println("DAO.getReadPay 실행");
-		return sql.selectOne("PayDAO.getReadPay", vo);
+	public OrderVO getReadOrder(OrderVO vo) {
+		System.out.println("DAO.getReadOrder 실행");
+		return sql.selectOne("PayDAO.getReadOrder", vo);
 	}
 	
-	public OrderVO getRefundNum(OrderVO vo) {
-		System.out.println("DAO.getRefundNum 실행");
-		return sql.selectOne("PayDAO.getRefundNum", vo);
+	public OrderVO getPayNum(OrderVO vo) {
+		System.out.println("DAO.getPayNum 실행");
+		return sql.selectOne("PayDAO.getPayNum", vo);
 	}
 	
 	public void updateOrder(OrderVO vo) {
-		System.out.println("DAO.getUpdateOrder 실행");
+		System.out.println("DAO.UpdateOrder 실행");
 		sql.update("PayDAO.updateOrder", vo);
+	}
+	
+	public void deletePayInfo(PayVO vo) {
+		System.out.println("DAO.deletePayInfo 실행");
+		sql.delete("PayDAO.deletePayInfo", vo);
 	}
 }

@@ -7,5 +7,5 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>환불완료 껒ㅕㅇ</h1></body>
+<h1>환불완료 ㄷㅏ신오지마</h1></body>
 </html>

@@ -19,18 +19,25 @@ public class PayServiceImpl implements PayService {
 	}
 
 	@Override
-	public PayVO getReadPay(PayVO vo) {
-		return PayDAO.getReadPay(vo);
-	}
+	public OrderVO getReadOrder(OrderVO vo) {
+		System.out.println("ReadOrder서비스vo:   " + vo);
 
-	@Override
-	public OrderVO getRefundNum(OrderVO vo) {
-		return PayDAO.getRefundNum(vo);
+		return PayDAO.getReadOrder(vo);
 	}
 
 	@Override
 	public void updateOrder(OrderVO vo) {
 		PayDAO.updateOrder(vo);
+	}
+
+	@Override
+	public OrderVO getPayNum(OrderVO vo) {
+		return PayDAO.getPayNum(vo);
+	}
+
+	@Override
+	public void deletePayInfo(PayVO vo) {
+		PayDAO.deletePayInfo(vo);
 	}
 
 	

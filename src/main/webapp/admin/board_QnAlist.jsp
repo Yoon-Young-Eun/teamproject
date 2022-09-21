@@ -378,15 +378,15 @@
 									<!--  adminList은 컨트롤러에서 model에 저장한 "adminList" 이름임 -->
 									<tr>
 										<td id="check_td"><input type="checkbox" name="check"></td>
-										<td>${QnA.BOARD_QnA_NO}</td>
+										<td>${QnA.board_qna_no}</td>
 										<!--for문의 id값.컬럼명으로 값을 불러옴 -->
-										<td>${QnA.BOARD_QnA_TYPE}</td>
-										<td><a href="readQnA.mdo?BOARD_QnA_NO=${QnA.BOARD_QnA_NO}&BOARD_QnA_STATUS=${QnA.BOARD_QnA_STATUS}">${QnA.BOARD_QnA_TITLE}</a></td>
-										<td><a href="readQnA.mdo?BOARD_QnA_NO=${QnA.BOARD_QnA_NO}&CUSTOMER_ID=${QnA.CUSTOMER_ID}&BOARD_QnA_STATUS=${QnA.BOARD_QnA_STATUS}">${QnA.BOARD_QnA_CONTENT}</a></td>
-										<td>${QnA.BOARD_QnA_REG_DATE}</td>
+										<td>${QnA.board_qna_type}</td>
+										<td><a href="readQnA.mdo?board_qna_no=${QnA.board_qna_no}&board_qna_status=${QnA.board_qna_status}">${QnA.board_qna_title}</a></td>
+										<td><a href="readQnA.mdo?board_qna_no=${QnA.board_qna_no}&customer_no=${QnA.customer_no}&board_qna_status=${QnA.board_qna_status}">${QnA.board_qna_content}</a></td>
+										<td>${QnA.board_qna_reg_date}</td>
 										<td>
 										<c:choose> 
-											<c:when test="${QnA.BOARD_QnA_STATUS eq 0}">
+											<c:when test="${QnA.board_qna_status eq 0}">
 												답변대기
 											</c:when>  
 											<c:otherwise>
@@ -438,15 +438,15 @@
 									<!--  adminList은 컨트롤러에서 model에 저장한 "adminList" 이름임 -->
 									<tr>
 										<td id="check_td"><input type="checkbox" name="check"></td>
-										<td>${QnA.BOARD_QnA_NO}</td>
+										<td>${QnA.board_qna_no}</td>
 										<!--for문의 id값.컬럼명으로 값을 불러옴 -->
-										<td>${QnA.BOARD_QnA_TYPE}</td>
-										<td><a href="readQnA.mdo?BOARD_QnA_NO=${QnA.BOARD_QnA_NO}&BOARD_QnA_STATUS=${QnA.BOARD_QnA_STATUS}">${QnA.BOARD_QnA_TITLE}</a></td>
-										<td><a href="readQnA.mdo?BOARD_QnA_NO=${QnA.BOARD_QnA_NO}&BOARD_QnA_STATUS=${QnA.BOARD_QnA_STATUS}">${QnA.BOARD_QnA_CONTENT}</a></td>
-										<td>${QnA.BOARD_QnA_REG_DATE}</td>
+										<td>${QnA.board_qna_type}</td>
+										<td><a href="readQnA.mdo?board_qna_no=${QnA.board_qna_no}&board_qna_status=${QnA.board_qna_status}">${QnA.board_qna_title}</a></td>
+										<td><a href="readQnA.mdo?board_qna_no=${QnA.board_qna_no}&board_qna_status=${QnA.board_qna_status}">${QnA.board_qna_content}</a></td>
+										<td>${QnA.board_qna_reg_date}</td>
 										<td>
 										<c:choose> 
-											<c:when test="${QnA.BOARD_QnA_STATUS eq 1}">
+											<c:when test="${QnA.board_qna_status eq 1}">
 												답변완료
 											</c:when>  
 											<c:otherwise>

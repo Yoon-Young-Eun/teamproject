@@ -11,12 +11,6 @@ html{
 .main{
 	display: flex;
 }
-.main_img {
-	width: 960px;
-}
-.main_img>img {
-	width: 100%;
-}
 .space_left{
 	margin-top:58px;
 	width: 440px;
@@ -29,7 +23,7 @@ html{
 	width: 1040px;
 }
 .main_text{
-   width: 960px;
+   width: 800px;
    margin-left: 30px;
 }
 .main_text1{
@@ -42,10 +36,40 @@ html{
   font-weight: bold;
   border-bottom: 2px solid #a9d3f0;
 }
-.main_content {
-	margin-bottom: 20px;
+.main_text3{
+	height:120px;
+	margin-top:5px;
+	display: flex;
+	align-items: center;
+	
+	
 }
-.main_reg_date {
-	margin: 4px 0px;
-	text-align: right;
+#event1{
+	width: 400px;
+	height: 100px;
+}
+#image1{
+	width:400px;
+	height:100px;
+}
+.event_image1{
+	margin-bottom:5px;
+	display:flex;
+	justify-content:center;
+	background-color:rgb(128,128,128,0.1);
+	width:400px;
+	height:100px;
+	text-align:center;
+	align-items: center;
+}
+#event2{
+	color:black;
+}
+#evenet2:visited{
+	color:black;
+}
+
+#sapn1{
+	font-size:10px;
+	color:grey;
 }

@@ -23,7 +23,6 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public List<ProductVO> getProductTop() {
-		
 		return orderdao.getProductTop();
 	}
 
@@ -55,32 +54,26 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public List<CouponListVO> OrderCoupon(OrderVO vo) {
-		
 		return orderdao.OrderCoupon(vo);
 	}
 
 	@Override
 	public List<TermsVO> selectTerms() {
-		
 		return orderdao.selectTerms();
 	}
 
 	@Override
 	public void OrderInsert(OrderVO vo) {
-		
 		orderdao.OrderInsert(vo);
-		
 	}
 
 	@Override
 	public void OrderInsert1(OrderMtVO vo1) {
 		orderdao.OrderInsert1(vo1);
-		
 	}
 
 	@Override
 	public int OrderSelect(OrderVO vo) {
-		
 		return orderdao.OrderSelect(vo);
 	}
 
@@ -96,41 +89,21 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public int selectImage(EstimateVO vo) {
-		
 		return orderdao.selectImage(vo);
 	}
 
 	@Override
-<<<<<<< HEAD
 	public CustomerVO getReadCustomerInfo(CustomerVO vo) {
 		return orderdao.getReadCustomerInfo(vo);
 	}
 
-=======
 	public CustomerVO OrderSpecial1(CustomerVO vo1) {
-		
 		return orderdao.OrderSpecial1(vo1);
 	}
 
 	@Override
 	public void OrderOrder(OrderVO vo) {
-		orderdao.OrderOrder(vo);
-		
+		orderdao.OrderOrder(vo);	
 	}
-
-	
-
->>>>>>> main
-	
-
-	
-	
-
-	
-	
-
-
-	
-	
 
 }

@@ -5,7 +5,8 @@ import com.semo.web.user.vo.PayVO;
 
 public interface PayService {
 	public void insertPayInfo(PayVO vo);
-	public PayVO getReadPay(PayVO vo);
-	public OrderVO getRefundNum(OrderVO vo);
+	public OrderVO getReadOrder(OrderVO vo);
+	public OrderVO getPayNum(OrderVO vo);
 	public void updateOrder(OrderVO vo);
+	public void deletePayInfo(PayVO vo);
 }

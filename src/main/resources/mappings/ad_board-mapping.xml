@@ -40,8 +40,9 @@
 	</select>
 	
 <!-- 이벤트 -->
+
 	<select id="getEventList" resultType="board_event" parameterType="paging">
-		<![CDATA[ select * from (select @rownum := @rownum+1 as rnum, board_event_no, board_event_title, board_event_content, banner_no, board_event_reg_date from board_event, (select @rownum :=0)as rowcolum]]>
+		<![CDATA[ select * from (select @rownum := @rownum+1 as rnum, board_event_no, board_event_title, board_event_content, board_event_filepath, banner_no, board_event_reg_date from board_event, (select @rownum :=0)as rowcolum]]>
 		<if test="searchCondition=='board_event_title'">
     		<![CDATA[where board_event_title like concat('%', #{searchKeyword}, '%') ]]></if>
     		<if test="searchCondition=='board_event_content'">
@@ -69,10 +70,20 @@
 	<delete id="deleteEvent" parameterType="board_event">
 		<![CDATA[ delete from board_event where board_event_no=#{board_event_no} ]]>
 	</delete>
-
-	<select id="getEvent" parameterType="board_event" resultType="board_event"> 
+	
+	<select id="getBoardEvent" parameterType="board_event" resultType="board_event"> 
  		<![CDATA[ select * from board_event where board_event_no=#{board_event_no} ]]>
 	</select>
+	
+	<select id="getEvent" parameterType="board_event" resultType="board_event"> 
+ 		<![CDATA[ select * from board_event where banner_no=#{banner_no} ]]>
+	</select>
+	
+	<select id="getBoardEventList" resultType="banner">
+	<![CDATA[ select * from banner where banner_no=#{banner_no} ]]>
+	</select>
+	
+	
 	
 <!-- 리뷰 -->
 <!-- 	<select id="getReviewBoardList" resultType="board_review"> -->
@@ -167,15 +178,15 @@
 
 <!-- QnA -->
 	<insert id="insertQnA_ad" parameterType="Ad_QnA">
-  		INSERT INTO BOARD_QnA_ADMIN(
-  			BOARD_QnA_NO,
-  			ADMIN_QnA_TITLE, 
-  			ADMIN_QnA_CONTENT
+  		INSERT INTO board_qna_admin(
+  			board_qna_no,
+  			admin_qna_title, 
+  			admin_qna_content
 		)
   		VALUES (
-  			#{BOARD_QnA_NO},
-  			#{ADMIN_QnA_TITLE}, 
-  			#{ADMIN_QnA_CONTENT}
+  			#{board_qna_no},
+  			#{admin_qna_title}, 
+  			#{admin_qna_content}
   		)
   	</insert>
   	

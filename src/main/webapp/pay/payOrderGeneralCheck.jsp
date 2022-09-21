@@ -275,7 +275,7 @@
 
       
       
-      <!--  결제 js -->
+<!--  결제 js -->
 	<script>
 	function requestPay() {
 	  IMP.init('imp62424	881'); //iamport 대신 자신의 "가맹점 식별코드"를 사용

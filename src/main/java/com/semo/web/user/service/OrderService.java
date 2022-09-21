@@ -33,13 +33,13 @@ public interface OrderService {
 	void insertImage(Estimate_ImageVO vo3);
 	int selectImage(EstimateVO vo);
 	
-<<<<<<< HEAD
+
 	CustomerVO getReadCustomerInfo(CustomerVO vo);
-=======
+
 	CustomerVO OrderSpecial1(CustomerVO vo1);
 	
 	void OrderOrder(OrderVO vo);
->>>>>>> main
+
 	
 	
 }

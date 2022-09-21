@@ -6,8 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.semo.web.admin.util.token;
 import com.semo.web.user.service.PayService;
+import com.semo.web.user.util.copy.token;
 import com.semo.web.user.vo.OrderVO;
 import com.semo.web.user.vo.PayVO;
 
@@ -17,8 +17,8 @@ public class PayController {
 	@Autowired
 	PayService PayService;
 	
-//	@Autowired
-//	token token;
+	@Autowired
+	token token;
 	
 	@RequestMapping("/insertPayInfo.do")
 	@ResponseBody
@@ -31,14 +31,14 @@ public class PayController {
 		return "";
 	}
 	
-	@RequestMapping("/getReadPay.do")
+	@RequestMapping("/getReadOrder.do")
 //	@ResponseBody
-	public String getReadPay(Model model, PayVO vo) {	
+	public String getReadOrder(Model model, OrderVO vo) {	
 		System.out.println(vo);
-		System.out.println("getReadPay()");
-		System.out.println("getReadPay 값"+PayService.getReadPay(vo));
-		model.addAttribute("PayInfo", PayService.getReadPay(vo));
-		System.out.println(PayService.getReadPay(vo));
+		System.out.println("getReadOrder()");
+		System.out.println("getReadOrder 값"+PayService.getReadOrder(vo));
+		model.addAttribute("PayInfo", PayService.getReadOrder(vo));
+		System.out.println(PayService.getReadOrder(vo));
 		return "/refund/refund2.jsp";
 	}
 	
@@ -46,8 +46,9 @@ public class PayController {
 	public String getToken(OrderVO vo) throws Exception{
 		System.out.println("getRefund.do 메서드");
 		System.out.println("ordervo:    " +vo);
-		 OrderVO ovo =  PayService.getRefundNum(vo);  
-		 System.out.println("ovo:    "+ovo);
+		
+		OrderVO ovo =  PayService.getPayNum(vo);
+		System.out.println("ovo:    "+ovo);
 		System.out.println(ovo.getImp_uid());
 		int am = ovo.getOrder_price();
 		String imp = ovo.getImp_uid();

@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<a href="/getReadPay.do?merchant_uid=imp_082840827289">환불받기</a>
+<a href="/getReadOrder.do?order_no=21">환불받기</a>
 
 </body>
 </html>

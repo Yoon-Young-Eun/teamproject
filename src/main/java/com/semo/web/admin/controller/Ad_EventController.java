@@ -29,80 +29,82 @@ public class Ad_EventController {
 	private BoardService boardservice;
 
 	@RequestMapping(value="/getEventList.mdo", method = RequestMethod.GET)
-	public String getEventList(PagingVO pvo, EventVO vo, Model model) {
-		System.out.println("글 목록 처리");
-		model.addAttribute("search",pvo);
+	   public String getEventList(PagingVO pvo, EventVO vo, Model model) {
+	      System.out.println("글 목록 처리");
+	  model.addAttribute("search",pvo);
+	
+	  //페이징
+	  if (pvo.getPageNum() == null) {
+	     pvo.setPageNum("1");
+	  }
+	  System.out.println(pvo.getSelectPage());
+	  if (pvo.getSelectPage()==null) {
+	     pvo.setSelectPage("5");
+	  }
+	
+	  int pageSize = Integer.parseInt(pvo.getSelectPage());
+	  int currentPage = Integer.parseInt(pvo.getPageNum());
+	  System.out.println("paagenum"+currentPage);
+	  pvo.setStartRow((currentPage - 1)*pageSize+1);
+	  pvo.setEndRow(currentPage * pageSize);
+	  int count=0;
+	
+	  count=boardservice.getEventCount(pvo);
+	  System.out.println(count);
+	
+	  List<EventVO> EventList = null;
+	  if(count > 0) {
+	     EventList = boardservice.getEventList(pvo);
+	  }else {
+	     EventList=Collections.emptyList();
+	  }
 
-		//페이징
-		if (pvo.getPageNum() == null) {
-			pvo.setPageNum("1");
-		}
-		System.out.println(pvo.getSelectPage());
-		if (pvo.getSelectPage()==null) {
-			pvo.setSelectPage("5");
-		}
+      if(count >0) {
+         int pageBlock =5;
+         int imsi =count % pageSize ==0 ?0:1;
+         int pageCount = count/pageSize +imsi;
+         int startPage =(int)((currentPage-1)/pageBlock)*pageBlock +1;
+         int endPage = startPage + pageBlock -1;
 
-		int pageSize = Integer.parseInt(pvo.getSelectPage());
-		int currentPage = Integer.parseInt(pvo.getPageNum());
-		System.out.println("paagenum"+currentPage);
-		pvo.setStartRow((currentPage - 1)*pageSize+1);
-		pvo.setEndRow(currentPage * pageSize);
-		int count=0;
+         if(endPage > pageCount) {
+            endPage = pageCount;
+         }
 
-		count=boardservice.getEventCount(pvo);
-		System.out.println(count);
+         model.addAttribute("count", count);
+         model.addAttribute("pageCount",pageCount);
+         model.addAttribute("startPage",startPage);
+         model.addAttribute("endPage",endPage);
+         model.addAttribute("pageBlock",pageBlock);
+      }
 
-		List<EventVO> EventList = null;
-		if(count > 0) {
-			EventList = boardservice.getEventList(pvo);
-		}else {
-			EventList=Collections.emptyList();
-		}
+      Map<String, String> condition = new HashMap<String, String>();
+      condition.put("제목", "board_event_title");
+      condition.put("내용", "board_event_content");
 
-		if(count >0) {
-			int pageBlock =5;
-			int imsi =count % pageSize ==0 ?0:1;
-			int pageCount = count/pageSize +imsi;
-			int startPage =(int)((currentPage-1)/pageBlock)*pageBlock +1;
-			int endPage = startPage + pageBlock -1;
+      model.addAttribute("condition", condition);
+      model.addAttribute("EventList", EventList);
+      return "/admin/board_event.jsp";
+   }
 
-			if(endPage > pageCount) {
-				endPage = pageCount;
-			}
-
-			model.addAttribute("count", count);
-			model.addAttribute("pageCount",pageCount);
-			model.addAttribute("startPage",startPage);
-			model.addAttribute("endPage",endPage);
-			model.addAttribute("pageBlock",pageBlock);
-		}
-
-		Map<String, String> condition = new HashMap<String, String>();
-		condition.put("제목", "board_event_title");
-		condition.put("내용", "board_event_content");
-
-		model.addAttribute("condition", condition);
-		model.addAttribute("EventList", EventList);
-		return "/admin/board_event.jsp";
-	}
 
 	@RequestMapping("/getEvent.mdo")
-	public String getEvent(EventVO vo, Model model) {
-		System.out.println("글 상세 보기 처리");
-		String event_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/event/";
-		EventVO vos=boardservice.getEvent(vo);
-		String filename = vos.getBoard_event_filepath().replace(event_filepath, "");
-		System.out.println(vos);
-		model.addAttribute("event", vos);
-		model.addAttribute("filename", filename);
-		return "/admin/getBoard_event.jsp";
-	}
+   public String getEvent(EventVO vo, Model model) {
+      System.out.println("글 상세 보기 처리");
+      String event_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/event/";
+      EventVO vos=boardservice.getEvent(vo);
+      String filename = vos.getBoard_event_filepath().replace(event_filepath, "");
+      System.out.println(vos);
+      model.addAttribute("event", vos);
+      model.addAttribute("filename", filename);
+      return "/admin/getBoard_event.jsp";
+   }
 
-	@RequestMapping(value="/insertEvent.mdo", method=RequestMethod.GET)
-	public String insertEvent(EventVO vo) {
-		System.out.println("글 등록 처리");
-		return "/admin/board_event_write.jsp";
-	}
+   @RequestMapping(value="/insertEvent.mdo", method=RequestMethod.GET)
+   public String insertEvent(EventVO vo) {
+      System.out.println("글 등록 처리");
+      return "/admin/board_event_write.jsp";
+   }
+
 
 	@RequestMapping("/EventUpload.mdo")
 	public String EventUpload(EventVO vo, MultipartFile EventFile) throws IOException, SQLException {

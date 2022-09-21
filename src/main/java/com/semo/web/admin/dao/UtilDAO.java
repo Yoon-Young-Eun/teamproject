@@ -32,9 +32,5 @@ public class UtilDAO {
 		System.out.println("DAO.getMessageEstimateType()실행");
 		return sqlTemplate.selectOne("UtilDAO.getMessageEstimateType");
 	}
-<<<<<<< HEAD
-	
-=======
 
->>>>>>> main
 }

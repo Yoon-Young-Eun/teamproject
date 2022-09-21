@@ -56,11 +56,11 @@
 			</div>
 			<div class = "status">
 				<ul>
-					<li>주문 접수</li>
-					<li>수거 중</li>
+					<li>수거대기</li>
+					<li>수거중</li>
 					<li><b>세탁중</b></li>
-					<li>배송 중</li>
-					<li>배송 완료</li>
+					<li>배송중</li>
+					<li>배송완료</li>
 				</ul>
 			</div>
 			<!-- 지도 -->

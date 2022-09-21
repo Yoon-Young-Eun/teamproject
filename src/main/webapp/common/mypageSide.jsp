@@ -28,7 +28,8 @@
            <li class="listItemA"><a></a></li> 
            -->
            <li class="listItemT" style="left:0px; background: #a9d3f0; color : #1f2427; font-weight:bold;">MY 세탁</li>
-           <li class="listItemA"><i class="fas fa-list-ul"></i><a href="/myorderlist.do?customer_no=${num}">주문/견적서 관리</a></li>
+           <li class="listItemA"><i class="fas fa-list-ul"></i><a href="/myorderlist.do?customer_no=${num}">주문 관리</a></li>
+           <li class="listItemA"><i class="fas fa-tasks"></i><a href="#">견적서 관리</a></li>
 
             <li class="listItemT" style="left:0px; background: #a9d3f0; color : #1f2427; font-weight:bold;">MY 정보</li>
 
@@ -37,9 +38,9 @@
             <li class="listItemA"><i class="fas fa-ticket-alt"></i><a href="/mycoupon.do?customer_no=${num}">할인쿠폰</a></li>
             
             <li class="listItemT" style="left:0px; background: #a9d3f0; color :#1f2427; font-weight:bold;">MY 활동</li>
-            <li class="listItemA"><a href="#"><i class="far fa-question-circle"></i>문의하기</a></li>
-            <li class="listItemA"><a href="#"><i class="fas fa-list-ul"></i>문의 내역 확인</a></li>
-            <li class="listItemA"><a href="#"><i class="fas fa-tasks"></i>리뷰 관리</a></li>
+            <li class="listItemA"><i class="far fa-question-circle"></i><a href="/myask.do?customer_no=${num}">문의하기</a></li>
+            <li class="listItemA"><i class="fas fa-list-ul"></i><a href="/myasklist.do?customer_no=${num}">내 문의 내역 확인</a></li>
+            <li class="listItemA"><i class="fas fa-edit"></i><a href="#">내 리뷰 관리</a></li>
              
         </ul>
     </div>

@@ -69,14 +69,25 @@
 					</tr>
 				</thead>
 				
-				<tbody class = "order-body-content">	
+				<tbody class = "order-body-content">
+					<c:forEach var = "asklist" items = "${asklist}">
 					<tr style = "border-bottom : 1px solid #cdcdcd;">
 						<td class = "check-title" style = "width : 10%; text-align : center;"><input type = "checkbox" /></td>
-						<td class = "num-content" style = "width : 10%; text-align : center;">1</td>
-						<td class = "num-content" style = "width : 30%; text-align : center;"><a href = "#">장난하세요?</a></td>
-						<td class = "content-content" style = "width : 20%; text-align : center;">2022-09-20</td>
-						<td class = "address-content" style = "width : 20%; text-align : center;">세탁문의</td>
+						<td class = "num-content" style = "width : 10%; text-align : center;">${asklist.board_qna_no }</td>
+						<td class = "num-content" style = "width : 30%; text-align : center;"><a href = "#">${asklist.board_qna_title }</a></td>
+						<td class = "content-content" style = "width : 20%; text-align : center;">${asklist.board_qna_reg_date}</td>
+						<td class = "address-content" style = "width : 20%; text-align : center;">
+							<c:choose> 
+                                 <c:when test="${asklist.board_qna_status eq 0}">
+                                    답변대기
+                                 </c:when>  
+                                 <c:otherwise>
+                                    답변완료
+                                 </c:otherwise> 
+                           	</c:choose> 
+						</td>
 					</tr>
+					</c:forEach>	
 				</tbody>
 			</table>
 		</div><!-- order-wrapper -->

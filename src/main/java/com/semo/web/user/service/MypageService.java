@@ -2,6 +2,7 @@ package com.semo.web.user.service;
 
 import java.util.List;
 
+
 import com.semo.web.admin.vo.Ad_EstimateVO;
 import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.StoreVO;
@@ -18,6 +19,9 @@ public interface MypageService {
 	
 	// order_no > OrderMtVO 불러오기
 	public OrderMtVO ordermt(OrderVO order);
+	
+	// My Main > 최근 목록 3개만
+	public List<OrderVO> recentorder(CustomerVO customer);
 	
 	// customer_no > 주문 정보 불러오기
 	public List<OrderVO> orderlist(CustomerVO customer);
@@ -37,6 +41,12 @@ public interface MypageService {
 	// customer_no > 주소 불러오기
 	public AddressListVO addressdetail(CustomerVO customer);
 	
+	//mypage order 리스트 카운트
+	public int myOrderCount();
+	
+	//mypage order 리스트
+	public List<OrderVO> myOrderPaging(PagingVO pvo);
+	
 	// order_no count
 	public int ordercnt(CustomerVO customer);
 	public int couponcnt(CustomerVO customer);
@@ -48,6 +58,8 @@ public interface MypageService {
 	// customer_no > 문의 목록 불러오기
 	public List<Cm_QnAVO> asklist(CustomerVO customer);
 	
+	// MyAsk : 문의글 작성 > MyAsklist : 목록으로 보내기
+	public Cm_QnAVO insertask(Cm_QnAVO qna);
 	
 	//특수세탁 견적서
     public EstimateVO getMyEstimate(EstimateVO vo);

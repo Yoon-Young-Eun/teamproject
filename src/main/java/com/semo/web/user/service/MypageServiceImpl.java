@@ -2,6 +2,8 @@ package com.semo.web.user.service;
 
 import java.util.List;
 
+import javax.activation.CommandMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +30,12 @@ public class MypageServiceImpl implements MypageService{
 	@Override
 	public OrderMtVO ordermt(OrderVO order) {
 		return dao.ordermt(order);
+	}
+	
+	// My Main > 최근 목록 3개만
+	@Override
+	public List<OrderVO> recentorder(CustomerVO customer) {
+		return dao.recentorder(customer);
 	}
 	
 	// customer_no > 주문 정보 불러오기
@@ -76,6 +84,23 @@ public class MypageServiceImpl implements MypageService{
 	@Override
 	public List<Cm_QnAVO> asklist(CustomerVO customer) {
 		return dao.asklist(customer);
+	}
+	
+	// MyAsk : 문의글 작성 > MyAsklist : 목록으로 보내기
+	@Override
+	public Cm_QnAVO insertask(Cm_QnAVO qna) {
+		return dao.insertask(qna);
+	}
+	
+	// mypage order paging
+	@Override
+	public int myOrderCount() {
+		return dao.myOrderCount();
+	}
+	//
+	@Override
+	public List<OrderVO> myOrderPaging(PagingVO pvo) {
+		return dao.myOrderPaging(pvo);
 	}
 	
 	
@@ -129,8 +154,6 @@ public class MypageServiceImpl implements MypageService{
 		return dao.getListCount(pvo);
 	}
 
-
-	
 }
 
 	

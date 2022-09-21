@@ -32,14 +32,6 @@ public interface MypageService {
 	
 	// customer_no > 주소 목록 불러오기
 	public List<AddressListVO> addresslist(CustomerVO customer);
-<<<<<<< HEAD
-
-	
-	//특수세탁 견적서
-	public EstimateVO getMyEstimate(EstimateVO vo);
-	public Ad_EstimateVO getAd_Estimate(Ad_EstimateVO vo);
-	public List<Estimate_ImageVO> getEstimateImg(Estimate_ImageVO vo);
-=======
 	
 	// customer_no > 주소 불러오기
 	public AddressListVO addressdetail(CustomerVO customer);
@@ -52,5 +44,10 @@ public interface MypageService {
 	// customer_no > 쿠폰 목록 불러오기
 	public List<CouponListVO> couponlist (CustomerVO customer);
 
->>>>>>> main
+
+	//특수세탁 견적서
+		public EstimateVO getMyEstimate(EstimateVO vo);
+		public Ad_EstimateVO getAd_Estimate(Ad_EstimateVO vo);
+		public List<Estimate_ImageVO> getEstimateImg(Estimate_ImageVO vo);
+		public List<EstimateVO> getmyEstimate(CustomerVO vo);
 }

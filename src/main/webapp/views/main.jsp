@@ -81,14 +81,11 @@
 	</div>	
 </div>
 
-<<<<<<< HEAD
 <c:forEach var="banner" items="${BannerList}">
 		<img src="${banner.banner_filepath}" width="340px", height="100px">
 		</c:forEach>
 
-=======
 <!-- 이미지 베너 --> 
->>>>>>> main
 <div class = "img-banner"><img src="/views/resources/img/aal banner.png"></div>
 
 <!-- 바로가기 버튼 -->

@@ -93,7 +93,7 @@ public class MypageServiceImpl implements MypageService{
 	
 
 	//견적서
-	
+	//고객 견적서 상세내용
 	@Override
 	public EstimateVO getMyEstimate(EstimateVO vo) {
 		return dao.getMyEstimate(vo);
@@ -108,11 +108,16 @@ public class MypageServiceImpl implements MypageService{
 	public List<Estimate_ImageVO> getEstimateImg(Estimate_ImageVO vo) {
 		return dao.getEstimateImg(vo);
 	}
+
+	//고객 견적서테이블
+	@Override
+	public List<EstimateVO> getmyEstimate(CustomerVO vo) {
+		return dao.getmyEstimate(vo);
+	}
 	
 
 	
 
-	
 	
 
 }

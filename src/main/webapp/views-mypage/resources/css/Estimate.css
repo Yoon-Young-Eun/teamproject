@@ -86,34 +86,6 @@ a:hover {
 	text-align : center;
 }
 
-/*지도*/
-
-.map-wrapper {
-	display : flex;
-	justify-content : center;
-	margin-top : 50px;
-	width : 100%;
-}
-
-.detail-wrapper .detail {
-	width : 500px;
-	margin-left : 50px;
-}
-
-.detail h3 {
-	line-height : 70px;
-	border-bottom : 2px solid #cdcdcd;
-}
-
-.detail .order-title, .detail .laundry-title{
-	line-height : 50px;
-	font-weight : bold;
-	width : 100px;
-}
-
-.detail .order-content, .detail .laundry-content{
-	line-height : 50px;
-}
 
 /*주문상세*/
 
@@ -151,4 +123,12 @@ a:hover {
 
 .order-customer-detail .customer-title {
 	width : 100px;
+}
+
+.imgcon img{
+	width : 250px;
+}
+
+#im{
+	display: flex;
 }

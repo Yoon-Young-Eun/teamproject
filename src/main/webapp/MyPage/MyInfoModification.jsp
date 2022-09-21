@@ -137,7 +137,7 @@ $(document).ready(function () {
                    text: "메인페이지로 되돌아갑니다.", // 내가 띄워줄 text 내용
                    icon: "success", // 그에 맞는 아이콘 무늬 
                    showConfirmButton: false, // Confirm 버튼을 보여줄 것인지? -> 나는 false 로 값이 안나타나고 바로 로딩돼서 없어지도록 만들어줬어!
-                   timer: 1700, // 타이머 걸어둬서 1.5초 지나면 바로 modal 없어지지롱
+                   timer: 2000, // 타이머 걸어둬서 1.5초 지나면 바로 modal 없어지지롱
                 })
                 location.href="/deleteCustomer.do?customer_no=${info.customer_no}"; // 이건 내가 어느 주소로 보내줄건지
             }else if(result.isDismissed){ // 만약에 result 를 아니오로 선택한 경우에는

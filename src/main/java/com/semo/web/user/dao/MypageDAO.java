@@ -63,19 +63,6 @@ public class MypageDAO {
 		return sql.selectList("MypageVO.addresslist", customer);
 	}
 	
-<<<<<<< HEAD
-	
-	//견적서불러오기
-	public EstimateVO getMyEstimate(EstimateVO vo) {
-		return sql.selectOne("MypageVO.getMyEstimate", vo);
-	}
-	public Ad_EstimateVO getAd_Estimate(Ad_EstimateVO vo) {
-		return sql.selectOne("MypageVO.getAd_Estimate", vo);
-	}
-
-	public List<Estimate_ImageVO> getEstimateImg(Estimate_ImageVO vo){
-		return sql.selectList("MypageVO.getEstimateImg",vo);
-=======
 	// customer_no > 주소 불러오기
 	public AddressListVO addressdetail(CustomerVO customer) {
 		System.out.println("DAO > customer_no > AddressDetail");
@@ -102,7 +89,24 @@ public class MypageDAO {
 	public List<CouponListVO> couponlist(CustomerVO customer) {
 		System.out.println("DAO > store_no > CouponList");
 		return sql.selectList("MypageVO.couponlist", customer);
->>>>>>> main
-	}
 
+	}
+	
+	
+	
+	//견적서불러오기
+		public EstimateVO getMyEstimate(EstimateVO vo) {
+			return sql.selectOne("MypageVO.getMyEstimate", vo);
+		}
+		public Ad_EstimateVO getAd_Estimate(Ad_EstimateVO vo) {
+			return sql.selectOne("MypageVO.getAd_Estimate", vo);
+		}
+
+		public List<Estimate_ImageVO> getEstimateImg(Estimate_ImageVO vo){
+			return sql.selectList("MypageVO.getEstimateImg",vo);
+		}
+
+		public List<EstimateVO> getmyEstimate(CustomerVO vo){
+			return sql.selectList("MypageVO.getmyEstimate", vo);
+		}
 }

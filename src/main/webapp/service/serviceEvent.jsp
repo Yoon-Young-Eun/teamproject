@@ -31,7 +31,7 @@
 				});
 			</script>
 		</div>
-	</form>lude>
+	</form>
     
     <div class="main">
 	<div class="space_left">

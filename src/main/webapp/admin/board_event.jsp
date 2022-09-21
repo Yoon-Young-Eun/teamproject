@@ -402,6 +402,7 @@
 									<th>제목</th>
 									<th>내용</th>
 									<th>배너번호</th>
+									<th>게시여부</th>
 									<th>작성일</th>
 								<tr>
 							</thead>
@@ -414,6 +415,7 @@
 											href="/getEvent.mdo?board_event_no=${event.board_event_no}">${event.board_event_title}</a></td>
 										<td>${event.board_event_content}</td>
 										<td>${event.banner_no}</td>
+										<td>${event.admin_no}</td>
 										<td>${event.board_event_reg_date}</td>
 									</tr>
 								</c:forEach>
@@ -421,10 +423,10 @@
 							</tbody>
 						</table>
 						<div class="flex">
-							<div>
-								<input id="button" type="button" value="등록"
-									onclick="window.location='/admin/board_event_write.jsp'" />
-							</div>
+<!-- 							<div> -->
+<!-- 								<input id="button" type="button" value="등록" -->
+<!-- 									onclick="window.location='/admin/board_event_write.jsp'" /> -->
+<!-- 							</div> -->
 							<div>
 								<input id="delBtn" type="button" value="삭제" />
 							</div>

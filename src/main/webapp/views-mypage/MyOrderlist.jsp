@@ -86,53 +86,11 @@
 						<td class = "address-content" style = "width : 20%; text-align : center;">${orderlist.order_address1}</td>
 						<td class = "date-content" style = "width : 20%; text-align : center;">${orderlist.order_date}</td>
 						<td class = "pickup-content" style = "width : 20%; text-align : center;">${orderlist.order_expected_date}</td>
-						<td class = "status-content" style = "width : 10%; text-align : center;">
-							<c:choose>
-								<c:when test="${orderlist.order_status eq '수거대기'}">
-									수거대기
-								</c:when>
-								<c:when test="${orderlist.order_status eq '수거중'}">
-									수거중
-								</c:when>
-								<c:when test="${orderlist.order_status eq '세탁중'}">
-									세탁중
-								</c:when>
-								<c:when test="${orderlist.order_status eq '배송중'}">
-									배송중
-								</c:when>
-								<c:when test="${orderlist.order_status eq '배송완료'}">
-									<p style = "height :30px;">배송완료</p>
-									<button>리뷰쓰기</button>
-								</c:when>
-								<c:otherwise>
-									주문취소
-								</c:otherwise>
-							</c:choose>
-						</td>
+						<td class = "status-content" style = "width : 10%; text-align : center;">${orderlist.order_status}</td>
 					</tr>
 					</c:forEach>
 				</tbody>
 			</table>
-			
-			<table>
-					<thead class = "order-body-title">
-						<tr>
-							<th class = "num-title" style = "width : 10%;">견적번호</th>
-							<th class = "content-content-title" style = "width : 30%;">세탁분류</th>
-							<th class = "address-title" style = "width : 30%;">내용</th>
-							<th class = "date-title" style = "width : 30%;">요청날짜</th>
-					</thead>
-					<tbody>
-						<c:forEach var="e" items="${elist}">
-						<tr style = "border-bottom : 1px solid #cdcdcd;">
-							<td class = "address-content" style ="width : 10%; text-align : center;">${e.estimate_cm_no}</a></td>
-							<td class = "date-content" style = "width : 30%; text-align : center;">${e.estimate_type}</td>
-							<td class = "content-content" style ="width : 30%; text-align : center;"><a href = "/myestimate.do?customer_no=${e.customer_no}&estimate_cm_no=${e.estimate_cm_no}">주문 자세히 보기</a></td>
-							<td class = "status-content" style = "width : 30%; text-align : center;">${e.estimate_date}</td>
-						</tr>
-						</c:forEach>
-					</tbody>
-						</table>
 		</div><!-- order-wrapper -->
 	</div><!-- content-wrapper -->
 	

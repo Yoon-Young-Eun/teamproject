@@ -376,6 +376,12 @@
 <div class="item_infor">
 <div class="popup_text">가격</div>&nbsp;<div class="popup_inputbox"><input type="text" name="product_price" placeholder=""></div>
 </div>
+<div class="item_infor">
+<div class="popup_text">영업이익</div>&nbsp;<div class="popup_inputbox"><input type="text" name="product_business_profits" placeholder=""></div>
+</div>
+<div class="item_infor">
+<div class="popup_text">순이익</div>&nbsp;<div class="popup_inputbox"><input type="text" name="product_net_profit" placeholder=""></div>
+</div>
 
 </div>
 

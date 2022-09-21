@@ -20,6 +20,7 @@ public interface OrderService {
 	public OrderVO getReadOrderInfo(OrderVO vo);
 	public List<StoreVO> getStoreList();
 	public void updateOrderInfo(OrderVO vo);
+	public MessageVO getMessageTitle(MessageVO mvo);
 
 //	견적서
 	public List<EstimateVO> getEstimateList(PagingVO pvo);

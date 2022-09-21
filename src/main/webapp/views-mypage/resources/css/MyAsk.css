@@ -31,9 +31,6 @@ a {
 	color : black;
 }
 
-a:hover {
-	font-weight : bold;
-}
 
 /*전체*/
 .page-wrapper {
@@ -61,4 +58,61 @@ a:hover {
 	justify-content : space-between;
 	border-bottom : 2px solid; 	
 	line-height : 70px;
+}
+
+.article-wrapper {
+	margin-top : 30px;
+}
+
+.sort-wrapper{
+	display : flex;	
+	height : 70px; 
+	margin-top : 50px;
+}
+
+.sort-wrapper .sort-title{
+	width : 100px;
+}
+
+
+.article-title-wrapper{
+	display : flex;	
+	height : 70px; 
+	margin-top : 50px;
+}
+
+.article-title-wrapper .article-title-title{
+	width : 100px;
+}
+
+.article-title-wrapper input{
+	height : 35px;
+	width : 100%;
+	padding : 5px;
+}
+
+.article-content-wrapper{
+	display : flex;
+}
+
+.article-content-wrapper .article-content-title{
+	width : 100px;
+}
+
+.article-content-wrapper textarea{
+	height : 200px;
+	width : 100%;
+	padding : 5px;
+	resize : none;
+}
+
+.button-wrapper {
+	width : 100%;
+	display : flex;
+	justify-content : center;
+	height : 70px;
+}
+
+.button-wrapper {
+	margin : 40px;
 }

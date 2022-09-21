@@ -61,6 +61,12 @@ public class OrderServiceImpl implements OrderService {
 		orderDao.updateOrderInfo(vo);
 	}
 
+	@Override
+	public MessageVO getMessageTitle(MessageVO mvo) {
+		return orderDao.getMessageTitle(mvo);
+	}
+	
+
 
 	
 	

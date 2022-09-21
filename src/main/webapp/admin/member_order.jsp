@@ -1,6 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
-<% request.setCharacterEncoding("utf-8"); %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%
+request.setCharacterEncoding("utf-8");
+%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +12,8 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
-<meta name="author" content="" />ㅉ
+<meta name="author" content="" />
+ㅉ
 <title>Dashboard - SEMO Admin</title>
 <link href="/admin/css/item_product.css" rel="stylesheet" />
 <link
@@ -333,8 +337,9 @@
 
 					<div>
 						<form action="/Ad_updateOrderInfo.mdo" method="GET" class="form">
-							<input type="hidden" name="order_no"
-								value="${order.order_no}" />
+							<input type="hidden" name="order_customer_phone"
+								value="${order.order_customer_phone}" /> <input type="hidden"
+								name="order_no" value="${order.order_no}" />
 							<div class="member_wrapper">
 								<div class="member_popup_head">
 									<h2>주문상세정보</h2>
@@ -346,28 +351,39 @@
 								<div class="member_db_id"></div>
 								<div class="flex">
 									<div class="member_id">
-										고객이름 : ${order.order_customer_name}(${order.customer_no})&nbsp; 
-								<%-- 		<a style="font-size: 5px;"
+										고객이름 :
+										${order.order_customer_name}(${order.customer_no})&nbsp;
+										<%-- 		<a style="font-size: 5px;"
 											href="/getMemberBoard.mdo?customer_no=${order.customer_no}">개인정보보기</a> --%>
 									</div>
-									&nbsp;&nbsp;
-									<div class="member_id">&nbsp;&nbsp;&nbsp;&nbsp;
-									전화번호 : ${order.order_customer_phone}</div>
+									&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;						
+									&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+									&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+									&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+									<div class="member_id">
+									전화번호 :
+										${order.order_customer_phone}</div>
 								</div>
 								<div class="member_id">주 소 : ${order.order_address1}
 									${order.order_address2}</div>
 								<div class="member_id">주문일자 : ${order.order_date}</div>
-								<div class="member_id">픽업일시 : ${order.order_pickup_date} /
-									${order.order_pickup_time}</div>
+								<div class="flex">
+									<div class="member_id">픽업일시 : ${order.order_pickup_date}
+										/ ${order.order_pickup_time}</div>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<div class="member_id">배송예정일자 :
+										${order.order_expected_date}</div>
+								</div>
 								<div class="member_id">요청사항(세탁) : ${order.order_request1}</div>
 								<div class="member_id">요청사항(택배) : ${order.order_request2}</div>
 
 								<div class="flex">
 									<div class="member_id">주문금액 : ${order.order_price}</div>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						
-									<div class="member_id">쿠폰금액 : ${order.order_use_coupon_price}</div>
-			
+
+									<div class="member_id">쿠폰금액 :
+										${order.order_use_coupon_price}</div>
+
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									<div class="member_id">결제상태 : ${order.order_price_status}</div>
@@ -375,29 +391,30 @@
 
 								<div class="flex">
 									<div class="member_state">
-										주문상태 : <select name="order_status">${order.order_status}
-												<option value="">${order.order_status}</option>
-												<c:forEach var="message" items="${message}">
-													<option value="${message.message_content}">${message.message_title}</option>
-												</c:forEach>
+										주문상태(${order.order_status}) : <select name="message_content">${order.order_status}
+										<option value="">상태수정</option>
+											<c:forEach var="message" items="${message}">
+												<option value="${message.message_content}">${message.message_title}</option>
+											</c:forEach>
 										</select>
 									</div>
-									&nbsp;&nbsp;&nbsp;
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									<div class="member_state">
-										담당직영 : <select name="order_store_name">
-											<option value="">${store_name}</option>
-										<c:forEach var="secret" items="${storeList}">
-											<option value="${secret.store_name}">${secret.store_name}</option>
-										</c:forEach>	
+										담당지점(${order.order_store_name}) : <select name="order_store_name">
+											<option value="">지점변경</option>
+											<c:forEach var="store" items="${storeList}">
+												<option value="${store.store_name}">${store.store_name}</option>
+											</c:forEach>
 										</select>
 									</div>
 									&nbsp;&nbsp;&nbsp;
-									<div class="member_state">배송예정일자 : ${order.order_price_status}</div>
+
 								</div>
 
 
 								<div class="member_order">
-									<a style="font-size: 10px;" href="/memberorderList.mdo?order_no=${order.order_no}">주문리스트</a>
+									<a style="font-size: 10px;"
+										href="/memberorderList.mdo?order_no=${order.order_no}">주문리스트</a>
 								</div>
 
 								<div class="end">

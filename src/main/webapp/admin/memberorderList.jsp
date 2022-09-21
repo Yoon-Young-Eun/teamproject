@@ -364,8 +364,6 @@
 							border="5">
 							<thead>
 								<tr>
-									<th width="50" id="check_td"><input type="checkbox"
-										name="check" class="allcheck"></th>
 									<th>주문번호</th>
 									<th>회원번호</th>
 									<th>회원이름(이메일)</th>
@@ -380,7 +378,6 @@
 							<tbody>
 								<c:forEach var="orderList" items="${userOrderList}">
 									<tr>
-										<td id="check_td"><input type="checkbox" name="check"></td>
 										<td>${orderList.order_no}</td>
 										<td>${orderList.customer_no}</td>
 										<td>${orderList.customer_name}</a></td>

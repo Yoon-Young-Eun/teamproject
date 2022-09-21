@@ -3,19 +3,22 @@ package com.semo.web.user.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.semo.web.admin.vo.Ad_EstimateVO;
 import com.semo.web.admin.vo.StoreVO;
 import com.semo.web.user.service.MypageService;
 import com.semo.web.user.vo.AddressListVO;
+import com.semo.web.user.vo.Cm_QnAVO;
 import com.semo.web.user.vo.CouponListVO;
 import com.semo.web.user.vo.CustomerVO;
+import com.semo.web.user.vo.EstimateVO;
+import com.semo.web.user.vo.Estimate_ImageVO;
 import com.semo.web.user.vo.OrderMtVO;
 import com.semo.web.user.vo.OrderVO;
 
@@ -38,9 +41,11 @@ public class MypageController {
 		// 요약박스
 		int cnt = service.ordercnt(customer);
 		int cnt2 = service.couponcnt(customer);
+		int cnt3 = service.askcnt(customer);
 		
 		model.addAttribute("cnt", cnt);
 		model.addAttribute("cnt2", cnt2);
+		model.addAttribute("cnt3", cnt3);
 
 		// order_no > 내용 불러오기(OrderMtVO)
 		OrderMtVO ordermt = service.ordermt(order);
@@ -162,6 +167,7 @@ public class MypageController {
 		return "/views-mypage/MyAddress.jsp";
 	}
 	
+	// MyCoupon : 쿠폰 조회
 	@RequestMapping(value = "/mycoupon.do", method = RequestMethod.GET)
 	public String Coupon(Model model, CustomerVO customer) {
 		
@@ -182,6 +188,80 @@ public class MypageController {
 		
 		return "/views-mypage/MyCoupon.jsp";
 	}
+	
+	// MyAsklist : 문의내역
+	@RequestMapping(value = "/myasklist.do", method = RequestMethod.GET)
+	public String AskList(Model model, CustomerVO customer, Cm_QnAVO qna) {
+		System.out.println("======================================================================================================");
+		System.out.println("go to Myasklist.jsp");
+		
+		System.out.println("Controller > " + customer);
+		
+		// 목록 개수 세기
+		int cnt3 = service.askcnt(customer);
+		model.addAttribute("cnt3", cnt3);
+		
+		// customer_no > 문의 목록 불러오기
+		List<Cm_QnAVO> asklist = service.asklist(customer);
+		System.out.println("Controller > asklist > " + asklist);
+		
+		model.addAttribute("asklist", asklist);
+		
+		return "/views-mypage/MyAsklist.jsp";
+	}
+	
+	// MyAsklist : 문의내역 조회
+	
+	
+	// MyAsk : 문의글쓰기
+	@RequestMapping(value = "/myask.do", method = RequestMethod.GET)
+	public String Ask(Model model, CustomerVO customer, Cm_QnAVO qna) {
+		System.out.println("======================================================================================================");
+		System.out.println("go to Myask.jsp");
+		
+		System.out.println("Controller > " + customer);
+		
+		
+		return "/views-mypage/MyAsk.jsp";
+	}
+	
+	// MyAsk : 문의글 작성 > MyAsklist : 목록으로 보내기
+	@RequestMapping(value = "/insertask.do", method = RequestMethod.POST)
+	public String AskInsert(Model model, CustomerVO customer, Cm_QnAVO qna) {
+		
+		return "/myasklist.do";
+	}
+	
+	//견적서
+    @RequestMapping(value= "/myestimate.do")
+    public String getMyEstimate(EstimateVO evo, Ad_EstimateVO avo, Estimate_ImageVO vo1, Model model) {
+       System.out.println("내 견적요청서");
+       System.out.println("evo"+evo);
+       System.out.println("avo"+ avo); 
+       
+       List<Estimate_ImageVO> eiv = service.getEstimateImg(vo1);
+       EstimateVO myvo = service.getMyEstimate(evo);
+
+       model.addAttribute("estiimg", eiv);
+       model.addAttribute("getEstimate", myvo);
+       System.out.println("myvo"+myvo);
+       
+       System.out.println("관리자답변");
+       Ad_EstimateVO advo = service.getAd_Estimate(avo);
+       System.out.println("답변?"+advo);
+       model.addAttribute("getAd", advo);
+       return "/views-mypage/MyEstimate.jsp";
+    }
+    
+    @RequestMapping(value= "/getmyEstimate.do")
+    public String getmyEstimate(CustomerVO vo, Model m) {
+       System.out.println("견적리스트뽑기");
+       System.out.println();
+       List<EstimateVO> evo= service.getmyEstimate(vo);
+       m.addAttribute("elist", evo);
+       System.out.println(evo);
+       return "/views-mypage/MyOrderlist.jsp";
+    }
 	
 	
 	

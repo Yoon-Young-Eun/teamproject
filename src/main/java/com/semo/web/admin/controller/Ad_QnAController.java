@@ -37,7 +37,7 @@ public class Ad_QnAController {
 	public String getReadQnA(Model model, Cm_QnAVO vo) {	
 		System.out.println("admin readQnA()");
 		System.out.println(vo);
-		int num = vo.getBOARD_QnA_STATUS();
+		int num = vo.getBoard_qna_status();
 		System.out.println("STATUS"+vo);
 		System.out.println("num"+num);
 		if(num == 0) {

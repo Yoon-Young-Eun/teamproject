@@ -15,7 +15,22 @@
 <body>
 <div class="wrap">
     <div class="wrap1">
-    <jsp:include page="/common/header.jsp"></jsp:include>
+      <!-- 헤더 : 로그인 유무에 따라 달라짐 -->  
+    <form action="/login.do">
+		<div id = "header">
+			<script>
+				$(function(){
+					var id = "${id}";
+	
+					if (id == ""){
+						$('#header').load("/common/header.jsp");
+					} else {
+						$('#header').load("/common/logined-header.jsp");
+					}
+				});
+			</script>
+		</div>
+	</form>lude>
     
     <div class="main">
 	<div class="space_left">

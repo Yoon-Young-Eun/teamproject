@@ -37,6 +37,13 @@
 	text-shadow: 0px -2px #BD3E31;
 }
 
+.grey
+{
+	background-color : #cdcdcd;
+	border-bottom : 5px solid #838383;
+	text-shadow : 0px 2px #a4a4a4
+}
+
 .action-button:active
 {
 	transform: translate(0px,5px);

@@ -32,14 +32,15 @@
 		</c:forEach> --%>
 
 
-		<div class="main_text2" id="main2">
+		<div class="main_text2">
 			<div class="address1">주소록</div>
 			
 			
 			<input type="text" value="${customer_no}" name="customer_no" style="display: none" id="customerNum">
 			
 			
-			<c:forEach var="address" items="${AddressList}" begin="0" end="4">
+			<c:forEach var="address" items="${AddressList}" begin="0" end="3">
+			
 			
 			<input type="text" value="${address.customer_no }" name="customer_no" style="display: none" id="customerNumer">
 			<input type="text" value="${address.cm_address_no }" name="cm_address_no" style="display: none">
@@ -53,10 +54,7 @@
 
 						</div>
 						<div class="button1" >
-							<input type="button" value="주소지선택" id="button2"
-								onclick="setParentText(this);"
-								class="action-button shadow animate blue"
-								style="width: 100px; height: 25px; margin-bottom: 12px; padding: 0px; font-size: 13px;">
+							
 								<input type="button" value="기본주소지등록" id="button5" onclick="F5(${address.cm_address_no},${address.customer_no},this)"
 								class="action-button shadow animate blue" 
 								style="width: 150px; height: 25px; margin-bottom: 12px; padding: 0px; font-size: 13px; margin-left:5px;"
@@ -70,7 +68,7 @@
 					</div>
 					<div class="first_address" style="height:30px;">
 						주소 : <input type="text" id="address1-1" value="${address.cm_address1}" name="cm_address1"
-							readonly>
+							readonly style="width:400px;">
 					</div>
 					<div class="second_address" style="height:30px;">
 						나머지주소:<input type="text" id="address1-2" value="${address.cm_address2}" name="cm_address2"
@@ -81,9 +79,9 @@
 						<div class="button3">
 							<input type="button" value="수정" id="button3" 
 								class="action-button shadow animate blue" id="abc123"
-								style="padding: 0px; font-size: 10px; width: 100px; height: 20px; margin-bottom:30px;" onclick="location.href='/sendAddressList.do?cm_address_no=${address.cm_address_no}'">
+								style="padding: 0px; font-size: 10px; width: 100px; height: 20px; margin-bottom:30px;" onclick="location.href='/sendmyAddressList.do?cm_address_no=${address.cm_address_no}'">
 							<input type="button" value="삭제" id="button4"
-								class="action-button shadow animate blue" onclick="location.href='/deleteAddressList.do?cm_address_no=${address.cm_address_no}&customer_no=${address.customer_no}'"
+								class="action-button shadow animate blue" onclick="location.href='/deletemyAddressList.do?cm_address_no=${address.cm_address_no}&customer_no=${address.customer_no}'"
 								style="padding: 0px; font-size: 10px; width: 100px; height: 20px; margin-bottom:30px;">
 						</div>
 					</div>
@@ -105,21 +103,16 @@
 			
 		</div>
 	</div>
-<div class="d" style="display: flex; justify-content: center;">※ 주소지는 최대 4개까지 등록이 가능합니다.</div>
+	<div class="d" style="display: flex; justify-content: center;">※ 주소지는 최대 4개까지 등록이 가능합니다.</div>
 	<div class="add_button">
 	<%-- <input type="text" value="${addressList.customer_no }"> --%>
 		<input type="button" id="add_button1" value="+ 주소지 추가하기" 
-			onclick="location.href='/getAddressList1.do?customer_no='+${customer_no}"
+			onclick="location.href='/getmyAddressList1.do?customer_no='+${customer_no}"
 			class="action-button shadow animate blue"
 			style="margin: 0px; font-size: 25px; height: 60px; width: 300px;">
 			
 		
 	</div>
-	<script>
-	
-	
-	</script>
-	
 	
 	
 	<script type="text/javascript">
@@ -141,7 +134,7 @@
     	console.log(cm_address_no,customer_no);
     	console.log($(e));
     	opener.document.getElementById("chse").innerText=Number(opener.document.getElementById("chse").innerText)+1;
-    	location.href=`/updateCustomerAddress.do?cm_address_no=`+cm_address_no+`&customer_no=${customer_no}`;
+    	location.href=`/updatemyAddress.do?cm_address_no=`+cm_address_no+`&customer_no=${customer_no}`;
     	
     	//window.opener.location.reload();
     	

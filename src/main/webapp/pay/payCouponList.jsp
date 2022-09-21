@@ -37,6 +37,7 @@
       </div>
       <div class="coupon_text4">
         <input type="text" value="${coupon.coupon_management_price }" id="aa3" readonly>
+        <input type="hidden" value="${coupon.coupon_code }" id="couponCode2">
       </div>
     </div>
 
@@ -79,9 +80,10 @@
       window.close();
       // console.log(e.parentNode.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[1]);
       // console.log(e.parentNode.parentNode.parentNode);
-      
+      console.log( e.parentNode.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3]);
       opener.document.getElementsByClassName("coupon_text")[0].innerHTML = e.parentNode.parentNode.parentNode.innerHTML;
       opener.document.getElementById("q1").innerText = e.parentNode.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[1].value;
+      opener.document.getElementById("couponCode").innerText = e.parentNode.parentNode.parentNode.childNodes[3].childNodes[3].childNodes[3].value;
       // console.log(opener.document.getElementsByClassName("coupon_text")[0]);
       getParentText2();
       

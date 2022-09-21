@@ -64,4 +64,10 @@ public class AddressDAO {
 	public CustomerVO selectPassword(CustomerVO vo) {
 		return sqltemplate.selectOne("AddressDAO.selectPassword",vo);
 	}
+	public CustomerVO sendPassword(CustomerVO vo) {
+		return sqltemplate.selectOne("AddressDAO.sendPassword",vo);
+	}
+	public void UpdatePassword(CustomerVO vo) {
+		sqltemplate.update("AddressDAO.UpdatePassword",vo);
+	}
 }

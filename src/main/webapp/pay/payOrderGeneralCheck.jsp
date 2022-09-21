@@ -294,7 +294,7 @@
 	    pay_method: "card",
 	    merchant_uid : 'semo_'+new Date().getTime(),
 	    name : '결제테스트',
-	    amount : '${price}',
+	    amount : document.getElementById("cou444").value,
 // 		amount : '100',
 	    buyer_email : '${CustomerInfo.customer_id}',
 	    buyer_name : '${OrderData.order_customer_name}',

@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<a href="/getReadOrder.do?order_no=21">환불받기</a>
+<a href="/getReadOrder.do?order_no=26">환불받기</a>
 
 </body>
 </html>

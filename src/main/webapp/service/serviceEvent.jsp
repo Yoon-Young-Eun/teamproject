@@ -57,7 +57,7 @@
 	<img src="/image/220829_04.jpg"><br>
 	
 	<br><br>
-	<input type="button" id="but2" value="취소하기" class="action-button shadow animate blue" >
+	<div class="event_btn"><input type="button" id="button2" value="목록" onclick="location.href='/getBoardEventList.do'" class="action-button shadow animate blue" ></div>
 	<br><br>
 	
 	</div>

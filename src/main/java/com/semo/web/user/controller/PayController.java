@@ -53,8 +53,9 @@ public class PayController {
 		int am = ovo.getOrder_price();
 		String imp = ovo.getImp_uid();
 		token.getToken(imp, am);
-		
-		PayService.updateOrder(vo);
+		System.out.println("업데이트오더 실행");
+		System.out.println("before update order ordervo"+vo);
+		PayService.updateOrder(ovo);
 		System.out.println("오더브이오:      " + vo);
 		return "/refund/refund3.jsp";
 		// requestURL 아임퐅크 고유키, 시크릿 키 정보를 포함하는 url 정보

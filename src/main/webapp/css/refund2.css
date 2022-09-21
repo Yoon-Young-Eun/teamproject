@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+.moveTopBtn {
+  position: fixed;
+  bottom: 14rem;
+  right: 0.6rem;
+  width: 3rem;
+  height: 2em;
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor : pointer;
+  font-weight: bold;
+ }
+ .moveOrderBtn {
+  position: fixed;
+  bottom: 10rem;
+  right: 0.6rem;
+  width: 3rem;
+  height: 4em;
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor : pointer;
+  font-weight: bold;
+ }

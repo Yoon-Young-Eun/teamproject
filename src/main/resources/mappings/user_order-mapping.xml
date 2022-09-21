@@ -33,9 +33,13 @@
 
 	<insert id="OrderInsert" parameterType="ORDER">
 	<![CDATA[insert into order_cm(store_code,order_pickup_date,order_pickup_time,cm_gate_passwd,order_request1,order_request2,order_price,order_use_coupon_price,order_price_method,customer_no
-	,order_customer_name,order_store_name,order_expected_date,order_customer_phone,order_address1,order_address2,order_delivery_price)
+	,order_customer_name,order_expected_date,order_customer_phone,order_address1,order_address2,imp_uid,order_delivery_price)
 	values(#{store_code},#{order_pickup_date},#{order_pickup_time},#{cm_gate_passwd},#{order_request1},#{order_request2},#{order_price},#{order_use_coupon_price},#{order_price_method},#{customer_no}
+<<<<<<< HEAD
 	,#{order_customer_name},default,date_add(#{order_pickup_date},interval 5 day),#{order_customer_phone},#{order_address1},#{order_address2},#{order_delivery_price})]]>
+=======
+	,#{order_customer_name},date_add(#{order_pickup_date},interval 5 day),#{order_customer_phone},#{order_address1},#{order_address2},#{imp_uid},#{order_delivery_price})]]>
+>>>>>>> main
 	</insert>
 	
 	<select id="OrderSelect" parameterType="ORDER" resultType="int">
@@ -74,6 +78,10 @@
 	<![CDATA[select * from customer where customer_no=#{customer_no}]]>
 	</select>
 
+	<select id="getReadCustomerInfo" resultType="customer">
+	<![CDATA[ select * from customer where customer_no=#{customer_no} ]]>
+	</select>
+
 	<insert id="OrderOrder" parameterType="ORDER">
 	<![CDATA[insert into order_cm(order_type,store_code,order_pickup_date,order_pickup_time,cm_gate_passwd,order_request1,order_request2,order_price,order_use_coupon_price,order_price_method,customer_no
 	,order_customer_name,order_store_name,order_expected_date,order_customer_phone,order_address1,order_address2,order_delivery_price)
@@ -81,6 +89,5 @@
 	,#{order_customer_name},#{order_store_name},date_add(#{order_pickup_date},interval 5 day),#{order_customer_phone},#{order_address1},#{order_address2},#{order_delivery_price})]]>
 		
 	</insert>
-
 
 </mapper>

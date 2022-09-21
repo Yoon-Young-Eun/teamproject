@@ -33,7 +33,7 @@
       resultType="orderManagement">
 
       <if test="customer_no != 0">
-               <![CDATA[ select * from (select @rownum := @rownum+1 as rnum, order_mt_no, customer_id, customer_no ,customer_name, product_code, order_mt_category1, order_mt_category2, order_mt_product, order_mt_count, order_mt_price, order_mt_date, order_no from order_management, (select @rownum :=0) as rowcolum where]]>
+               <![CDATA[ select * from (select @rownum := @rownum+1 as rnum, order_mt_no, customer_no ,customer_name, product_code, order_mt_category1, order_mt_category2, order_mt_product, order_mt_count, order_mt_price, order_mt_date, order_no from order_management, (select @rownum :=0) as rowcolum where]]>
             <if test="searchCondition=='order_no'">
              <![CDATA[order_no like concat(#{searchKeyword}) and]]></if>
             <if test="searchCondition=='customer_no'">   
@@ -41,7 +41,7 @@
             <![CDATA[customer_no = #{customer_no} order by customer_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]>
       </if>
       <if test="customer_no == 0">
-                <![CDATA[ select * from (select @rownum := @rownum+1 as rnum, order_mt_no, customer_no ,customer_id,customer_name, product_code, order_mt_category1, order_mt_category2, order_mt_product, order_mt_count, order_mt_price, order_mt_date, order_no from order_management, (select @rownum :=0) as rowcolum ]]>
+                <![CDATA[ select * from (select @rownum := @rownum+1 as rnum, order_mt_no, customer_no,customer_name, product_code, order_mt_category1, order_mt_category2, order_mt_product, order_mt_count, order_mt_price, order_mt_date, order_no from order_management, (select @rownum :=0) as rowcolum ]]>
          <trim prefix="where" >
             <if test="searchCondition=='order_no'">
              <![CDATA[order_no like concat(#{searchKeyword})]]></if>
@@ -103,13 +103,28 @@
    
    <!-- 주문 상세보기 안의 storeList 정보 제공-->
    <select id="getStoreList" resultType="store">
-   select * from store;
+   select * from store
    </select>
 
    <!-- 주문 상세보기 수정 -->
    <update id="updateOrderInfo" parameterType="order">
-   <![CDATA[[update order_cm set order_store_name =#{order_store_name}, order_status=#{order_status} where order_no =#{order_no}]]>
+   <![CDATA[ update order_cm set]]>
+   <trim prefixOverrides=",">
+   <if test ="order_store_name != null and order_store_name != ''">
+   order_store_name=#{order_store_name} </if>
+   <if test ="order_status != null and order_status != ''">
+    , order_status=#{order_status} </if>
+     where order_no=#{order_no}
+     </trim>
    </update>
+   
+    <!-- message 에서 title가져오기 -->
+    <select id="getMessageTitle" parameterType="message" resultType="message">
+     select * from message where message_content =#{message_content}
+    </select>
+
+
+
 
 
 
@@ -165,6 +180,7 @@
    <select id="getEstimateImg" resultType="estimate_image" parameterType="estimate_image">
       <![CDATA[ select * from estimate_image where estimate_cm_no=#{estimate_cm_no} and customer_no=#{customer_no} ]]>
    </select>
+
 
 
 </mapper>

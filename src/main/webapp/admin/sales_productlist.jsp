@@ -12,6 +12,11 @@
 <meta name="author" content="" />
 <title>Dashboard - SEMO Admin</title>
 
+
+<!-- chart css -->
+<link href="/admin/css/chart.css" rel="stylesheet" />
+
+
 <!-- icon 버튼 css -->
 <link href="/admin/css/icon.css" rel="stylesheet" />
 
@@ -333,7 +338,7 @@
 						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
 						<li class="breadcrumb-item active">상품별 매출현황</li>
 					</ol>
-					<div class="card mb-4" style="width:100%; overflow-x:auto;">
+					<div class="card mb-4" style="width: 100%; overflow-x: auto;">
 						<div class="card-body">
 							상품별 매출현황 페이지 입니다. <a target="_blank"
 								href="https://datatables.net/">아무링크</a>
@@ -347,6 +352,44 @@
 
 						<!--  여기부터 내용물 -->
 
+
+						<!--Chart -->
+						<div class="chartparent">
+							<div class="chart chart_flex">
+								<!-- <div id="chart_div" style="width: 300px; height: 300px;"></div> -->
+								<div id="chart_div" style="width: 800px; height: 400px;"></div>
+								<div id="chart_area" style="width: 800px; height: 400px;"></div>
+							</div>
+						</div>
+						<div class="chart_flex">
+						<div>
+							<form id="barChart">
+								<div class="chart_flex">
+									<div>
+										<input type="date" name="startDate" />
+									</div>
+									<div>
+										<input type="date" name="endDate" />
+									</div>
+									<div>
+										<input type="button" value="검색" onClick="getGraph()" />
+									</div>
+									<div>
+										<input type="reset" value="초기화" onChange="getGraph()" />
+									</div>
+								</div>
+							</form>
+						</div>
+						<div>
+						<select id=AreaChart name="chartDate" onChange="drawChart()">
+							<option value="week">검색</option>
+							<option value="day">일일</option>
+							<option value="week">주간</option>
+							<option value="month">월별</option>
+							<option value="year">년간</option>
+						</select>
+						</div>
+						</div>			
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
 						<div class="flex">
 							<input type="button" id="btnExport" value="PDF" class="icon_pdf" />
@@ -359,12 +402,15 @@
 
 						<div class="b_button">
 							<!-- 테이블 행 필터 -->
-							<form name="selectname" action="salesProductList.mdo" method="get">
-							   <input type="hidden" name="searchKeyword1" value="${search.searchKeyword1}"/>
-							   <input type="hidden" name="searchKeyword2" value="${search.searchKeyword2}"/>
-							   <input type="hidden" name="searchKeyword3" value="${search.searchKeyword3}"/>
-							   <input type="hidden" name="startDate" value="${search.startDate}"/>
-							   <input type="hidden" name="endDate" value="${search.endDate}"/>						   
+							<form name="selectname" action="salesProductList.mdo"
+								method="get">
+								<input type="hidden" name="searchKeyword1"
+									value="${search.searchKeyword1}" /> <input type="hidden"
+									name="searchKeyword2" value="${search.searchKeyword2}" /> <input
+									type="hidden" name="searchKeyword3"
+									value="${search.searchKeyword3}" /> <input type="hidden"
+									name="startDate" value="${search.startDate}" /> <input
+									type="hidden" name="endDate" value="${search.endDate}" />
 								<div col-index=8>
 									<select name="selectPage" onchange="this.form.submit()">
 										<option value="">선택</option>
@@ -382,43 +428,45 @@
 								<form action="salesProductList.mdo" method="get">
 									<div class="icon_flex">
 										<div>
-											날짜 선택 : <input type="date" name="startDate" />
+											검색 조건 : <input type="date" name="startDate" />
 										</div>
 										<div>
 											<input type="date" name="endDate" />
 										</div>
-									
+
 
 										<div>
 											<div class="searchBtn">
-											   <input type="text" id="se_input" name="searchKeyword1" placeholder="대분류"/>
+												<input type="text" id="se_input" name="searchKeyword1"
+													placeholder="대분류" />
 											</div>
 										</div>
 										<div>
 											<div class="searchBtn">
-											   <input type="text" id="se_input" name="searchKeyword2" placeholder="중분류" />
+												<input type="text" id="se_input" name="searchKeyword2"
+													placeholder="중분류" />
 											</div>
 										</div>
 										<div>
 											<div class="searchBtn">
-											   <input type="text" id="se_input" name="searchKeyword3" placeholder="상품명" />
+												<input type="text" id="se_input" name="searchKeyword3"
+													placeholder="상품명" />
 											</div>
 										</div>
 
 										<div>
 											<input type="submit" id="se_submit" value="검색" />
 										</div>
-										<div> 
-										<input type="reset" id="se_reset" value="초기화" /></div>
+										<div>
+											<input type="reset" id="se_reset" value="초기화" />
+										</div>
 									</div>
 								</form>
-							</div> 
-    					</div>
-						
+							</div>
+						</div>
+
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
-						<table id=""
-							class="tblCustomers tblexportData table"
-							border="5">
+						<table id="" class="tblCustomers tblexportData table" border="5">
 							<thead>
 								<tr>
 									<th>주문일자</th>
@@ -447,26 +495,30 @@
 						<!-- pagaing 처리 -->
 						<div>
 							<c:if test="${count > 0}">
-						<div class="icon_flex">
-						<div>
-								<c:if test="${startPage > pageBlock}">
-									<a href="salesProductList.mdo?pageNum=${startPage-pageBlock}&endDate=${search.endDate}&startDate=${search.startDate}&selectPage=${search.selectPage}&searchKeyword1=${search.searchKeyword1}&searchKeyword2=${search.searchKeyword2}&searchKeyword3=${search.searchKeyword3}"><div
-											class="pageging2">이전</div></a>
-								</c:if>
-								</div>
-								<div>
 								<div class="icon_flex">
-									<c:forEach var="i" begin="${startPage}" end="${endPage}">
-										<a href="salesProductList.mdo?pageNum=${i}&endDate=${search.endDate}&startDate=${search.startDate}&selectPage=${search.selectPage}&searchKeyword1=${search.searchKeyword1}&searchKeyword2=${search.searchKeyword2}&searchKeyword3=${search.searchKeyword3}"><div class="pageging">${i}</div></a>
-									</c:forEach>
-								</div>
-								</div>
-								<div>
-									<c:if test="${endPage < pageCount}">
-										<a href="salesProductList.mdo?pageNum=${startPage + pageBlock}&endDate=${search.endDate}&startDate=${search.startDate}&selectPage=${search.selectPage}&searchKeyword1=${search.searchKeyword1}&searchKeyword2=${search.searchKeyword2}&searchKeyword3=${search.searchKeyword3}"><div
-												class="pageging2">다음</div></a>               
-									</c:if>
-								</div>
+									<div>
+										<c:if test="${startPage > pageBlock}">
+											<a
+												href="salesProductList.mdo?pageNum=${startPage-pageBlock}&endDate=${search.endDate}&startDate=${search.startDate}&selectPage=${search.selectPage}&searchKeyword1=${search.searchKeyword1}&searchKeyword2=${search.searchKeyword2}&searchKeyword3=${search.searchKeyword3}"><div
+													class="pageging2">이전</div></a>
+										</c:if>
+									</div>
+									<div>
+										<div class="icon_flex">
+											<c:forEach var="i" begin="${startPage}" end="${endPage}">
+												<a
+													href="salesProductList.mdo?pageNum=${i}&endDate=${search.endDate}&startDate=${search.startDate}&selectPage=${search.selectPage}&searchKeyword1=${search.searchKeyword1}&searchKeyword2=${search.searchKeyword2}&searchKeyword3=${search.searchKeyword3}"><div
+														class="pageging">${i}</div></a>
+											</c:forEach>
+										</div>
+									</div>
+									<div>
+										<c:if test="${endPage < pageCount}">
+											<a
+												href="salesProductList.mdo?pageNum=${startPage + pageBlock}&endDate=${search.endDate}&startDate=${search.startDate}&selectPage=${search.selectPage}&searchKeyword1=${search.searchKeyword1}&searchKeyword2=${search.searchKeyword2}&searchKeyword3=${search.searchKeyword3}"><div
+													class="pageging2">다음</div></a>
+										</c:if>
+									</div>
 								</div>
 							</c:if>
 						</div>
@@ -512,8 +564,230 @@
 		getUniqueValuesFromColumn()
 	</script>
 
+	<!-- 구글차트 -->
+	<script type="text/javascript"
+		src="https://www.gstatic.com/charts/loader.js"></script>
 
+	<script>
+		google.charts.load('current', {
+			'packages' : [ 'corechart' ]
+		});
+		google.charts.setOnLoadCallback(getGraph); // bar차트  
+		google.charts.setOnLoadCallback(drawChart); //area차트 
+		/* Bar */
+		function getGraph() {
+			console.log("getGraph");
+			let color = [ "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9",
+					"#c45850", "yellow", "silver" ]
+			let showgraph = [ [ 'corechart', '매출' ] ]
 
+			$
+					.ajax({
+						url : "/getMainBarChart.mdo",
+						type : "get",
+						data : $("#barChart").serialize(),
+						dataType : "json",
+						success : function(data) {
+							console.log(data);
+							if (data == null) {
+
+							}
+
+							for (let i = 0; i < data.length; i++) {
+								let date = String(data[i].order_date);
+								let price = Number(data[i].order_price)
+								showgraph.push([ date, price ])
+								console.log(date);
+								console.log(price);
+							}
+							console.log(showgraph);
+
+							var data = google.visualization
+									.arrayToDataTable(showgraph);
+
+							var options = {
+								title : '기간별매출현황(Bar_Chart)',
+								vAxis : {
+									title : ''
+								},
+								hAxis : {
+									title : ''
+								},
+								seriesType : 'bars',
+								series : {
+									5 : {
+										type : 'line'
+									}
+								}
+							};
+
+							var chart = new google.visualization.ComboChart(
+									document.getElementById('chart_div'));
+							chart.draw(data, options);
+
+						}, //success:function
+						error : function() {
+							alert("실패");
+						}
+					});//ajax	
+
+			/* Area */
+			console.log('AreaChart 차트');
+			let category = [ [ 'Date', '매출', '영업이익', '순이익' ] ]
+
+			$
+					.ajax({
+						url : "/getMainAreaChart.mdo",
+						type : "get",
+						data : $("#barChart").serialize(),
+						dataType : "json",
+						success : function(data) {
+							console.log("success" + data);
+
+							for (let i = 0; i < data.length; i++) {
+								let price = Number(data[i].order_mt_price)
+								let profits = Number(data[i].productVo.product_business_profits)
+								let net = Number(data[i].productVo.product_net_profit)
+								let date = data[i].order_mt_date
+								category.push([ date, price, profits, net ]);
+								console.log(price);
+								console.log(profits);
+								console.log(net);
+								console.log(date);
+							}
+							console.log("최종" + category);
+
+							var data = google.visualization
+									.arrayToDataTable(category);
+
+							var options = {
+								title : '기간별매출현황(Area_Chart)',
+								hAxis : {
+									title : '',
+									titleTextStyle : {
+										color : '#8e5ea2'
+									}
+								},
+								vAxis : {
+									minValue : 0
+								}
+							};
+
+							var chart = new google.visualization.AreaChart(
+									document.getElementById('chart_area'));
+							chart.draw(data, options);
+
+						}
+					});
+		}
+	</script>
+	
+	<script>
+	function drawChart() {
+		console.log("getGraph");
+		let color = [ "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9",
+				"#c45850", "yellow", "silver" ]
+		let showgraph = [ [ 'corechart', '매출' ] ]
+
+		$
+				.ajax({
+					url : "/getMainBarChart.mdo",
+					type : "get",
+					data : $("#AreaChart").serialize(),
+					dataType : "json",
+					success : function(data) {
+						console.log(data);
+						if (data == null) {
+
+						}
+
+						for (let i = 0; i < data.length; i++) {
+							let date = String(data[i].order_date);
+							let price = Number(data[i].order_price)
+							showgraph.push([ date, price ])
+							console.log(date);
+							console.log(price);
+						}
+						console.log(showgraph);
+
+						var data = google.visualization
+								.arrayToDataTable(showgraph);
+
+						var options = {
+							title : '기간별매출현황(Bar_Chart)',
+							vAxis : {
+								title : ''
+							},
+							hAxis : {
+								title : ''
+							},
+							seriesType : 'bars',
+							series : {
+								5 : {
+									type : 'line'
+								}
+							}
+						};
+
+						var chart = new google.visualization.ComboChart(
+								document.getElementById('chart_div'));
+						chart.draw(data, options);
+
+					}, //success:function
+					error : function() {
+						alert("실패");
+					}
+				});
+		
+	console.log('AreaChart 차트');
+	let category = [ [ 'Date', '매출', '영업이익', '순이익' ] ]
+
+	$
+			.ajax({
+				url : "/getMainAreaChart.mdo",
+				type : "get",
+				data : $("#AreaChart").serialize(),
+				dataType : "json",
+				success : function(data) {
+					console.log("success" + data);
+
+					for (let i = 0; i < data.length; i++) {
+						let price = Number(data[i].order_mt_price)
+						let profits = Number(data[i].productVo.product_business_profits)
+						let net = Number(data[i].productVo.product_net_profit)
+						let date = data[i].order_mt_date
+						category.push([ date, price, profits, net ]);
+						console.log(price);
+						console.log(profits);
+						console.log(net);
+						console.log(date);
+					}
+					console.log("최종" + category);
+
+					var data = google.visualization
+							.arrayToDataTable(category);
+
+					var options = {
+						title : '기간별매출현황(Area_Chart)',
+						hAxis : {
+							title : '',
+							titleTextStyle : {
+								color : '#8e5ea2'
+							}
+						},
+						vAxis : {
+							minValue : 0
+						}
+					};
+
+					var chart = new google.visualization.AreaChart(
+							document.getElementById('chart_area'));
+					chart.draw(data, options);
+
+				}
+			});
+}
+	</script>
 
 
 	<!-- pdf -->

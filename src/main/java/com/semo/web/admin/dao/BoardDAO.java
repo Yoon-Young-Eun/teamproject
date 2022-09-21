@@ -13,6 +13,7 @@ import com.semo.web.admin.vo.NoticeVO;
 import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.ReviewVO;
 import com.semo.web.user.vo.Cm_QnAVO;
+import com.semo.web.user.vo.CustomerVO;
 
 @Repository
 public class BoardDAO {
@@ -179,4 +180,9 @@ public class BoardDAO {
 		System.out.println("DAO.updateQnA_cm 실행");
 		sqltemplate.update("cm_BoardDAO.updateQnA_cm", vo);
 	}
+	public CustomerVO getReadPhoneNum(CustomerVO vo) {
+		System.out.println("DAO.getReadPhoneNum 실행");
+		return sqltemplate.selectOne("CustomerVO.getReadPhoneNum", vo);
+	}
+	
 }

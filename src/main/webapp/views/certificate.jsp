@@ -74,7 +74,7 @@
 		</div>
 		
 		<script type="text/javascript">
-		let che=false;
+			let che=false;
 			let code2 = "";
 			$("#phoneChk").click(
 					function() {

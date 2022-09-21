@@ -8,8 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.semo.web.admin.service.CouponService;
-import com.semo.web.admin.vo.CouponVO;
-import com.semo.web.admin.vo.TermsVO;
 import com.semo.web.user.vo.CouponListVO;
 import com.semo.web.user.vo.CustomerVO;
 
@@ -20,16 +18,19 @@ public class Ad_CouponController {
 	CouponService couponService;
 	
 		@RequestMapping("/getBirthList.mdo")
-		public void getBirthList(Model model) {
+		public void getBirthList(Model model, CouponListVO cvo) {
 			System.out.println("admin BirthList()");
 			List<CustomerVO> BirthList = couponService.getBirthList();
 			System.out.println(BirthList);
+			
+			couponService.deleteEndDateCoupon(cvo);
 			
 			for(int i =0; i<BirthList.size(); i++) {
 				System.out.println(BirthList.get(i).getCustomer_no());
 				int num =BirthList.get(i).getCustomer_no();
 				couponService.insertBirthCoupon(num);
 			}
+			
 		}
 		
 //		@RequestMapping("/insertCoupon.mdo");

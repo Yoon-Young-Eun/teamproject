@@ -38,14 +38,19 @@
 		<!-- 요약 박스 -->
 		<div class = "top-item-wrapper">
 			
-			<div class = "top-order" onclick = "location.href = '/orderlist.do?customer_no=${num}'">
+			<div class = "top-order" onclick = "location.href = '/myorderlist.do?customer_no=${num}'">
 				<h3>MY 주문 <i class="fas fa-chevron-right"></i></h3>
-				<p class = "num">12</p>
+				<p class = "num">${cnt}</p>
 			</div>
 			<div class = "top-coupon">
 				<h3>MY 쿠폰 <i class="fas fa-chevron-right"></i></h3>
+<<<<<<< HEAD
 				<p class = "num">3</p>
 			</div>	
+=======
+				<p class = "num">${cnt2}</p>
+			</div>
+>>>>>>> main
 			<div class = "top-ask">
 				<h3>MY 문의 <i class="fas fa-chevron-right"></i></h3>
 				<p class = "num">5</p>
@@ -72,17 +77,16 @@
 				</thead>
 				
 				<tbody class = "order-body-content">
-					
-					<tr>
-						<c:forEach var="orderlist" items="${orderlist}">
+					<c:forEach var="orderlist" items="${orderlist}">
+					<tr style = "border-bottom : 1px solid #cdcdcd;">
 						<td class = "num-content" style = "width : 10%; text-align : center;">${orderlist.order_no}</td>
 						<td class = "content-content" style = "width : 20%; text-align : center;"><a href = "/orderdetail.do?order_no=${orderlist.order_no}&customer_no=${num}&store_code=${orderlist.store_code}">주문 자세히 보기</a></td>
 						<td class = "address-content" style = "width : 20%; text-align : center;">${orderlist.order_address1}</td>
 						<td class = "date-content" style = "width : 20%; text-align : center;">${orderlist.order_date}</td>
 						<td class = "pickup-content" style = "width : 20%; text-align : center;">${orderlist.order_expected_date}</td>
 						<td class = "status-content" style = "width : 10%; text-align : center;">${orderlist.order_status}</td>
-						</c:forEach>
 					</tr>
+					</c:forEach>
 				</tbody>
 			</table>
 		</div>

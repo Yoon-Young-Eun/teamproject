@@ -87,8 +87,8 @@
 		</c:forEach>
 
 =======
-<!-- 이미지 베너 --> 
 >>>>>>> main
+<!-- 이미지 베너 --> 
 <div class = "img-banner"><img src="/views/resources/img/aal banner.png"></div>
 
 <!-- 바로가기 버튼 -->

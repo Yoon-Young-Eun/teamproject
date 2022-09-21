@@ -68,11 +68,19 @@ public class OrderDAO {
 	public int selectImage(EstimateVO vo) {
 		return sqlSessiontemplate.selectOne("OrderDAOuser.selectImage",vo);
 	}
+
+	public CustomerVO getReadCustomerInfo(CustomerVO vo) {
+		System.out.println("DAO.getReadCustomerInfo 실행");
+		return sqlSessiontemplate.selectOne("OrderDAOuser.getReadCustomerInfo", vo);
+	}
+	
 	public CustomerVO OrderSpecial1(CustomerVO vo1) {
 		return sqlSessiontemplate.selectOne("OrderDAOuser.OrderSpecial1",vo1);
 	}
+	
 	public void OrderOrder(OrderVO vo) {
 		sqlSessiontemplate.insert("OrderDAOuser.OrderOrder",vo);
+
 	}
 	public void deleteCoupon(CouponListVO cou) {
 		sqlSessiontemplate.delete("OrderDAOuser.deleteCoupon",cou);

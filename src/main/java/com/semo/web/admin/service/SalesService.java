@@ -15,7 +15,8 @@ public interface SalesService {
     public List<OrderMtVO> getProductSalesList(PagingVO pvo);
     public List<OrderMtVO> getDoughnutChart(PagingVO pvo);
     public List<OrderVO> getBarChart(PagingVO pvo);
-
-    
-
+    public List<OrderVO> getMainBarChart(PagingVO pvo);
+    public List<OrderMtVO> getMainAreaChart(PagingVO pvo);
+    public List<OrderVO> getSaleStoreSearchTitle2();
+    public List<OrderVO> getSaleStoreSearchTitle3();
 }

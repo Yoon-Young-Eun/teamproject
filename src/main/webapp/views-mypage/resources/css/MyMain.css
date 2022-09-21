@@ -115,7 +115,6 @@ a:hover {
 }
 
 .order-body-content {
-	display : flex;
 	line-height : 100px;
 	border-bottom : 1px solid #cdcdcd;
 }

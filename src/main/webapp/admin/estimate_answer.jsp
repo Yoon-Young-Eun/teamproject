@@ -357,9 +357,29 @@
 							</div>
 							<div class="estimate_request">
 								<div class="estimate_request_title">첨부파일</div>
-								<div class="estimate_request_file" name="filepath">
-									<img src="${getestimate.estimate_filepath }">
+<!-- 								<div class="estimate_request_file" name="filepath"> -->
+<%-- 									<img src="${getestimate.estimate_filepath }"> --%>
+<!-- 								</div> -->
+									<div class="estimate_request_file" name="estiimg">
+									<c:forEach var="est_img" items="${estiimg}">
+										<img onclick="window.open(this.src)" hspace="0" src="${est_img.estimate_filepath }">
+									</c:forEach>
 								</div>
+							
+							
+							<script type="text/javascript">
+							function detailView(src) {
+								   $("#detail_img").attr("src", src);
+								   $("#product_popup").show();
+								}
+								 
+								$(function(){
+								   $("#pop_close").click(function(){
+								      $("#detail_imgt_pop").hide();
+								   });
+								});
+							</script>
+							
 							</div>
 						</div>
 					</div>

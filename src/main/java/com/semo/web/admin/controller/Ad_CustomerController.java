@@ -44,7 +44,6 @@ public class Ad_CustomerController {
 	 * "customer_address1"); return conditionMap; }
 	 */
 	
-	
 	//메시지 보내는 메서드 보낸 후, 회원List 조회 컨트롤러로 이동
 	@RequestMapping(value="/message.mdo")
 	public String sendMassage(String [] tdArr, String message, CustomerVO vo, MessageVO mvo) {
@@ -63,7 +62,6 @@ public class Ad_CustomerController {
 		 coolsms.sendMessage(phone, mess); 
 		 return "/member.mdo";
 	}
-	
 
 	
 	//회원 (블랙회원 제외) 조회 리스트
@@ -72,7 +70,7 @@ public class Ad_CustomerController {
 		System.out.println("회원 목록 검색 처리");
 		System.out.println(mvo);
 		System.out.println(pvo);
-			 model.addAttribute("search",pvo);
+		model.addAttribute("search",pvo);
 		
 		
 		// 페이징 처리
@@ -237,9 +235,19 @@ public class Ad_CustomerController {
 		System.out.println("memberUpdate.mdo 실행");
 		System.out.println(vo);
 		System.out.println("계정상태"+vo.getCustomer_status());
-			memberService.getMemberUpdate(vo);
-		    	  return "member.mdo";
-
+		
+		
+		MessageVO mvo = new MessageVO();
+		mvo.setMessage_title("회원정지문자");
+		if(vo.getCustomer_status() != "") {
+		memberService.getMemberUpdate(vo);
+		MessageVO title = utilservice.getMessageContentType(mvo);
+		System.out.println("MessageVO title"+title);
+		String phone = vo.getCustomer_phone();
+		String message = title.getMessage_content();
+		coolsms.sendMessage(phone, message);
+		}
+	    return "member.mdo";
 	}
 	
    	//블랙회원 상세정보 수정
@@ -248,15 +256,20 @@ public class Ad_CustomerController {
 		System.out.println("blackmemberUpdate.mdo 실행");
 		System.out.println(vo);
 		System.out.println("계정상태"+vo.getCustomer_status());
+			
+			
+			MessageVO mvo = new MessageVO();
+			mvo.setMessage_title("계정복구문자");
+			
+			if(vo.getCustomer_status() != "") {
 			memberService.getMemberUpdate(vo);
+			MessageVO title = utilservice.getMessageContentType(mvo);
+			String phone = vo.getCustomer_phone();
+			
+			String message = title.getMessage_content();
+			coolsms.sendMessage(phone, message);
+			}
 		    	return "blackmember.mdo";
 	
 	}
-	
-
-	
-
-   
-   
-
 }

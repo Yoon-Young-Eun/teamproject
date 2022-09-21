@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.semo.web.admin.dao.CouponDAO;
+import com.semo.web.user.vo.CouponListVO;
 import com.semo.web.user.vo.CustomerVO;
 
 
@@ -25,6 +26,13 @@ public class CouponServiceImpl implements CouponService {
 	@Override
 	public void insertBirthCoupon(int num) {
         coupon.insertBirthCoupon(num);		
+	}
+
+
+	@Override
+	public void deleteEndDateCoupon(CouponListVO vo) {
+		coupon.deleteEndDateCoupon(vo);
+		
 	}
 
 }

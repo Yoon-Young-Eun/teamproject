@@ -31,15 +31,16 @@
       <typeAlias type="com.semo.web.admin.vo.Ad_EstimateVO" alias="Ad_estimate" />
       <typeAlias type="com.semo.web.admin.vo.Estimate_T_VO" alias="estimatetype" />
 
-      <!-- user -->
-      <typeAlias type="com.semo.web.user.vo.CustomerVO" alias="customer" />
-      <typeAlias type="com.semo.web.user.vo.Cm_QnAVO" alias="QnA" /> 
-      <typeAlias type="com.semo.web.user.vo.AddressListVO" alias="CM_ADDRESS" />
-      <typeAlias type="com.semo.web.user.vo.OrderVO" alias="ORDER" />
-      <typeAlias type="com.semo.web.user.vo.OrderMtVO" alias="orderManagement"/>
-      <typeAlias type="com.semo.web.user.vo.CouponListVO" alias="CouponList"/>
-      <typeAlias type="com.semo.web.user.vo.EstimateVO" alias="estimate" />
-      <typeAlias type="com.semo.web.user.vo.Estimate_ImageVO" alias="estimate_image" />
+		<!-- user -->
+		<typeAlias type="com.semo.web.user.vo.CustomerVO" alias="customer" />
+		<typeAlias type="com.semo.web.user.vo.Cm_QnAVO" alias="QnA" /> 
+		<typeAlias type="com.semo.web.user.vo.AddressListVO" alias="CM_ADDRESS" />
+		<typeAlias type="com.semo.web.user.vo.OrderVO" alias="ORDER" />
+		<typeAlias type="com.semo.web.user.vo.OrderMtVO" alias="orderManagement"/>
+		<typeAlias type="com.semo.web.user.vo.CouponListVO" alias="CouponList"/>
+		<typeAlias type="com.semo.web.user.vo.EstimateVO" alias="estimate" />
+		<typeAlias type="com.semo.web.user.vo.PayVO" alias="pay" />
+		<typeAlias type="com.semo.web.user.vo.Estimate_ImageVO" alias="estimate_image" />
       
    </typeAliases>
 
@@ -68,8 +69,10 @@
 		<mapper resource="mappings/user_order-mapping.xml"/>
 		<mapper resource="mappings/user-customer-mapping.xml" />
 		<mapper resource="mappings/ad_coupon-mapping.xml" />
+		<mapper resource="mappings/user_pay-mapping.xml" />
 		<mapper resource="mappings/user_kakao-mapping.xml"/>
       <mapper resource="mappings/user-mypage-mapping.xml" />		
+
 	</mappers>
 
 

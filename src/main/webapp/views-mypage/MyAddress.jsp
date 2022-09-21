@@ -27,43 +27,33 @@
 <div class = "address-wrapper">
 	
 	<div class = "address-title">
-		<h2>주소</h2>	
+		<h2>${addressdetail.cm_address_name}</h2>	
 	</div>
-	<c:forEach var="addressOne" items="${addressOne}">
 	<div class = "address-content">
 		<div class = "contect">
 			<div class = title>연락처</div>
-			<div class = content>${addressOne.cm_phone_number}</div>
-		</div>
-		<div class = "zip">
-			<div class = title>우편번호</div>
-			<div class = content>
-			<input type = "text"  style = "width : 100px;"value = "33579" />
-			<button class = "search">찾기</button>
-			</div>
-		
+			<div class = content>${addressdetail.cm_phone_number}</div>
 		</div>
 		<div class = "address1">
 			<div class = title>주소</div>
-			<div class = content>"${addressOne.cm_address1}</div>
+			<div class = content>${addressdetail.cm_address1}</div>
 		</div>
 		<div class = "address2">
 			<div class = title>상세주소</div>
-			<div class = content>${addressOne.cm_address2}</div>
+			<div class = content>${addressdetail.cm_address2}</div>
 		</div>
 		<div class = "passwd">
 			<div class = title>공동현관</div>
-			<div class = content>${addressOne.cm_gate_passwd}</div>
+			<div class = content>${addressdetail.cm_gate_passwd}</div>
 		</div>
 	</div>
-	</c:forEach>
 	<div class = "button">
 		<button>닫기</button>
-		<button>수정</button>
+		<button>삭제</button>
 	</div>
 	
 </div>
-
+	
 
 </body>
 </html>

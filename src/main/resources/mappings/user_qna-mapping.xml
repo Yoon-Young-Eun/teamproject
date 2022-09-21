@@ -6,36 +6,36 @@
 
 <!-- QnA -->
  	<select id="getQnAList0" resultType="QnA">
- 	<![CDATA[ select * from BOARD_QnA_CM where BOARD_QnA_STATUS=0 ]]>
+ 	<![CDATA[ select * from board_qna_cm where board_qna_status=0 ]]>
  	</select>
  	<select id="getQnAList1" resultType="QnA">
- 	<![CDATA[ select * from BOARD_QnA_CM where BOARD_QnA_STATUS=1 ]]>
+ 	<![CDATA[ select * from board_qna_cm where board_qna_status=1 ]]>
  	</select>
  	<select id="getReadQnA_q" resultType="QnA">
-	<![CDATA[ select * from BOARD_QnA_CM where BOARD_QnA_NO=#{BOARD_QnA_NO} ]]>
+	<![CDATA[ select * from board_qna_cm where board_qna_no=#{board_qna_no} ]]>
 	</select>
  	<select id="getReadQnA_a" resultType="QnA">
  	<![CDATA[  select
-					a.ADMIN_QnA_TITLE,
-					a.ADMIN_QnA_CONTENT,
-					a.ADMIN_QnA_REG_DATE,
-					c.BOARD_QnA_NO,
-					c.BOARD_QnA_TYPE,
-					c.BOARD_QnA_TITLE,
-					c.BOARD_QnA_CONTENT,
-					c.BOARD_QnA_FILEPATH,
-					c.BOARD_QnA_REG_DATE,
-					c.CUSTOMER_ID
+					a.admin_qna_title,
+					a.admin_qna_content,
+					a.admin_qna_reg_date,
+					c.board_qna_no,
+					c.board_qna_type,
+					c.board_qna_title,
+					c.board_qna_content,
+					c.board_qna_filepath,
+					c.board_qna_reg_date,
+					c.customer_no
 				from
-					BOARD_QnA_ADMIN as a,
-					BOARD_QnA_CM as c
+					board_qna_admin as a,
+					board_qna_cm as c
 				where
-					c.BOARD_QnA_NO=#{BOARD_QnA_NO}
+					c.board_qna_no=#{board_qna_no}
 				and
-					a.BOARD_QnA_NO=#{BOARD_QnA_NO}	 ]]>
+					a.board_qna_no=#{board_qna_no}	 ]]>
 	</select>
 	<update id="updateQnA_cm" parameterType="QnA">
-  		update BOARD_QnA_CM set BOARD_QnA_NO=#{BOARD_QnA_NO}, BOARD_QnA_STATUS=1 where BOARD_QnA_NO=#{BOARD_QnA_NO}
+  		update board_qna_cm set board_qna_no=#{board_qna_no}, board_qna_status=1 where board_qna_no=#{board_qna_no}
   	</update>
 
 </mapper>

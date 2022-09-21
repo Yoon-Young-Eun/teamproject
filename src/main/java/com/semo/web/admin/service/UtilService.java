@@ -14,6 +14,7 @@ public interface UtilService {
 	public void updateMessage(MessageVO mvo);
 	public void deleteMessage(MessageVO mvo);
 	public List<MessageVO> getMessageList();
+	public MessageVO getQnAMessageType(MessageVO mvo);
 	public List<MessageVO> getMessageTypeList();
 	public MessageVO getMessageContentType(MessageVO mvo);
 	public List<CustomerVO> sendMessageToAll();

@@ -49,6 +49,10 @@
 	<select id="getMessageTypeList" resultType="message">
 	    <![CDATA[select * from message where message_type='주문']]>
 	</select>
+	<select id="getQnAMessageType"  resultType="message">
+	    <![CDATA[select * from message where message_type='QnA']]>
+	</select>
+
 	
 	<select id="getMessageContentType" parameterType="message" resultType="message">
 	 select * from message where message_title =#{message_title}

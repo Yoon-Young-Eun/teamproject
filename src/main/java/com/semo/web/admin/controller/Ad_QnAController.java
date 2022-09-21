@@ -9,8 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.semo.web.admin.service.BoardService;
+import com.semo.web.admin.service.UtilService;
+import com.semo.web.admin.util.CoolSms;
 import com.semo.web.admin.vo.Ad_QnAVO;
+import com.semo.web.admin.vo.MessageVO;
 import com.semo.web.user.vo.Cm_QnAVO;
+import com.semo.web.user.vo.CustomerVO;
 
 
 @Controller
@@ -19,13 +23,20 @@ public class Ad_QnAController {
 	@Autowired
 	private BoardService BoardService;
 	
+	@Autowired
+	UtilService utilservice;
+	
+	@Autowired
+	CoolSms coolsms;
+	
 	// QnA 목록
 	@RequestMapping(value="/QnAList.mdo", method=RequestMethod.GET)
-	public String getQnAList(Model model) {
+	public String getQnAList(CustomerVO vo, Model model, MessageVO mvo) {
 		System.out.println("admin QnAList()");
 		List<Cm_QnAVO> QnAList0 = BoardService.getQnAList0();
 		model.addAttribute("QnAList0", QnAList0); // model에 저장해서 보내면 jsp에서 불러 사용할 수 있는데.
-		System.out.println(QnAList0);              // for문에서는 for문 id이름.컬럼명 ${for문의id이름.컬럼명}
+		System.out.println(QnAList0);             // for문에서는 for문 id이름.컬럼명 ${for문의id이름.컬럼명}
+		
 		List<Cm_QnAVO> QnAList1 = BoardService.getQnAList1();
 		model.addAttribute("QnAList1", QnAList1);
 		System.out.println(QnAList1);
@@ -54,14 +65,33 @@ public class Ad_QnAController {
 	
 	// QnA 답변 등록
 	@RequestMapping(value="/insertQnA.mdo", method=RequestMethod.GET)
-	public String insertQnA(Ad_QnAVO avo, Cm_QnAVO cvo) {
+	public String insertQnA(Ad_QnAVO avo, Cm_QnAVO cvo, String message, CustomerVO vo, MessageVO mvo) {
 		System.out.println("답변 등록 처리");
 		System.out.println(avo);
 		System.out.println(cvo);
+		System.out.println("아이디"+vo.getCustomer_id());
+		System.out.println("문자 내용"+mvo.getMessage_content());
 		BoardService.insertQnA_ad(avo);
 		BoardService.updateQnA_cm(cvo);
+		CustomerVO pn = BoardService.getReadPhoneNum(vo);
+		
+		System.out.println("폰번호"+pn.getCustomer_phone());
 		System.out.println("insertQnA_ad: " + avo);
 		System.out.println("updateQnA_cm: " + cvo);
+		
+		
+		MessageVO qnamessage = utilservice.getQnAMessageType(mvo);
+	       System.out.println(qnamessage);
+	       System.out.println("메시지"+ qnamessage);
+		
+		String phone = pn.getCustomer_phone(); 
+		String mess = qnamessage.getMessage_content();
+		System.out.println(phone);
+		System.out.println(mess);
+	      
+		coolsms.sendMessage(phone, mess); 
+		
+		
 		return "redirect:QnAList.mdo";
 	}
 	

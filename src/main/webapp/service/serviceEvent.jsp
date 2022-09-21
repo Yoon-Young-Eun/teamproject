@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,50 +42,25 @@
 	<div class="main_text1">
 	이벤트
 	</div>
-	<div class="main_text2">
-	<div class="main_text3">
-	<div class="event_image">
-	<a id="event1" href="#"><img src="/image/event.jpg"  id="image1"></a>
+	<div class="main_reg_date">
+	등록일: ${event.board_event_reg_date}
+	</div>
+	<div class="main_content">
+	${event.board_event_content}
+	</div>
+	<div class="main_img">
+	<img src="${event.board_event_filepath}"><br>
+	${filename}<br>
+	<img src="/image/220829_01.jpg"><br>
+	<img src="/image/220829_02.jpg"><br>
+	<img src="/image/220829_03.jpg"><br>
+	<img src="/image/220829_04.jpg"><br>
+	
+	<br><br>
+	<input type="button" id="but2" value="취소하기" class="action-button shadow animate blue" >
+	<br><br>
 	
 	</div>
-	<div class="event_image1">
-	<a id="event2" href="#">세모 X 샤프란 콜라보레이션<br><span id="span1">2022-09-01 ~ 2022-12-31</span></a>
-	</div>
-	</div>
-	
-	<div class="main_text3">
-	<div class="event_image">
-	<a id="event1" href="#"><img src="/image/event1.jpg"  id="image1"></a>
-	
-	</div>
-	<div class="event_image1">
-	<a id="event2" href="#">세모 X 유한락스 콜라보레이션<br><span id="span1">2022-09-01 ~ 2022-12-31</span></a>
-	</div>
-	</div>
-	
-	<div class="main_text3">
-	<div class="event_image">
-	<a id="event1" href="#"><img src="/image/event2.jpg"  id="image1"></a>
-	
-	</div>
-	<div class="event_image1">
-	<a id="event2" href="#">세모 X LG전자 콜라보레이션<br><span id="span1">2022-09-01 ~ 2022-12-31</span></a>
-	</div>
-	</div>
-	
-	<div class="main_text3">
-	<div class="event_image">
-	<a id="event1" href="#"><img src="/image/event3.jpg"  id="image1"></a>
-	
-	</div>
-	<div class="event_image1">
-	<a id="event2" href="#">세모 X 삼성전자 콜라보레이션<br><span id="span1">2022-09-01 ~ 2022-12-31</span></a>
-	</div>
-	</div>
-	</div>
-	</div>
-	
-	
     </div><!--main_box  -->
     <div class="space_right"></div>
     </div><!-- main -->

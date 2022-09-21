@@ -3,55 +3,57 @@ package com.semo.web.admin.vo;
 import java.sql.Date;
 
 public class Ad_QnAVO {
-	private int ADMIN_QnA_NO;
-	private String ADMIN_QnA_TITLE;
-	private String ADMIN_QnA_CONTENT;
-	private Date ADMIN_QnA_REG_DATE;
-	private int BOARD_QnA_NO;
-	private int ADMIN_NO;
-	public int getADMIN_QnA_NO() {
-		return ADMIN_QnA_NO;
+	private int admin_qna_no;
+	private String admin_qna_title;
+	private String admin_qna_content;
+	private Date admin_qna_reg_date;
+	private int board_qna_no;
+	private int admin_no;
+	
+	public int getAdmin_qna_no() {
+		return admin_qna_no;
 	}
-	public void setADMIN_QnA_NO(int aDMIN_QnA_NO) {
-		ADMIN_QnA_NO = aDMIN_QnA_NO;
+	public void setAdmin_qna_no(int admin_qna_no) {
+		this.admin_qna_no = admin_qna_no;
 	}
-	public String getADMIN_QnA_TITLE() {
-		return ADMIN_QnA_TITLE;
+	public String getAdmin_qna_title() {
+		return admin_qna_title;
 	}
-	public void setADMIN_QnA_TITLE(String aDMIN_QnA_TITLE) {
-		ADMIN_QnA_TITLE = aDMIN_QnA_TITLE;
+	public void setAdmin_qna_title(String admin_qna_title) {
+		this.admin_qna_title = admin_qna_title;
 	}
-	public String getADMIN_QnA_CONTENT() {
-		return ADMIN_QnA_CONTENT;
+	public String getAdmin_qna_content() {
+		return admin_qna_content;
 	}
-	public void setADMIN_QnA_CONTENT(String aDMIN_QnA_CONTENT) {
-		ADMIN_QnA_CONTENT = aDMIN_QnA_CONTENT;
+	public void setAdmin_qna_content(String admin_qna_content) {
+		this.admin_qna_content = admin_qna_content;
 	}
-	public Date getADMIN_QnA_REG_DATE() {
-		return ADMIN_QnA_REG_DATE;
+	public Date getAdmin_qna_reg_date() {
+		return admin_qna_reg_date;
 	}
-	public void setADMIN_QnA_REG_DATE(Date aDMIN_QnA_REG_DATE) {
-		ADMIN_QnA_REG_DATE = aDMIN_QnA_REG_DATE;
+	public void setAdmin_qna_reg_date(Date admin_qna_reg_date) {
+		this.admin_qna_reg_date = admin_qna_reg_date;
 	}
-	public int getBOARD_QnA_NO() {
-		return BOARD_QnA_NO;
+	public int getBoard_qna_no() {
+		return board_qna_no;
 	}
-	public void setBOARD_QnA_NO(int bOARD_QnA_NO) {
-		BOARD_QnA_NO = bOARD_QnA_NO;
+	public void setBoard_qna_no(int board_qna_no) {
+		this.board_qna_no = board_qna_no;
 	}
-	public int getADMIN_NO() {
-		return ADMIN_NO;
+	public int getAdmin_no() {
+		return admin_no;
 	}
-	public void setADMIN_NO(int aDMIN_NO) {
-		ADMIN_NO = aDMIN_NO;
-	}
-	@Override
-	public String toString() {
-		return "Ad_QnAVO [ADMIN_QnA_NO=" + ADMIN_QnA_NO + ", ADMIN_QnA_TITLE=" + ADMIN_QnA_TITLE
-				+ ", ADMIN_QnA_CONTENT=" + ADMIN_QnA_CONTENT + ", ADMIN_QnA_REG_DATE=" + ADMIN_QnA_REG_DATE
-				+ ", BOARD_QnA_NO=" + BOARD_QnA_NO + ", ADMIN_NO=" + ADMIN_NO + "]";
+	public void setAdmin_no(int admin_no) {
+		this.admin_no = admin_no;
 	}
 	
+	@Override
+	public String toString() {
+		return "Ad_QnAVO [admin_qna_no=" + admin_qna_no + ", admin_qna_title=" + admin_qna_title
+				+ ", admin_qna_content=" + admin_qna_content + ", admin_qna_reg_date=" + admin_qna_reg_date
+				+ ", board_qna_no=" + board_qna_no + ", admin_no=" + admin_no + "]";
+	}
+
 	
 	
 	

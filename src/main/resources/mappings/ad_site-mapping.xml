@@ -87,6 +87,10 @@
 	<![CDATA[ delete from banner where banner_no=#{banner_no} ]]>
 	</delete>
 	
+	<select id="getBoardEventList" resultType="banner">
+	select * from banner
+	</select>
+	
 	
  	<insert id="insertTerms" parameterType="terms">
   		INSERT INTO terms(

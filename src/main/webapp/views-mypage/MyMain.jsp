@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%session.getAttribute("access_Token");  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,7 +45,7 @@
 			<div class = "top-coupon">
 				<h3>MY 쿠폰 <i class="fas fa-chevron-right"></i></h3>
 				<p class = "num">3</p>
-			</div>
+			</div>	
 			<div class = "top-ask">
 				<h3>MY 문의 <i class="fas fa-chevron-right"></i></h3>
 				<p class = "num">5</p>

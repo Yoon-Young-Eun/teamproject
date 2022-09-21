@@ -44,7 +44,7 @@
 
 
 	<update id="updateCustomerAddress" parameterType="CM_ADDRESS">
-	<![CDATA[update customer set customer_address1=#{cm_address1},customer_address2=#{cm_address2},customer_phone=#{cm_phone_number} where customer_no=#{customer_no}]]>
+	<![CDATA[update customer set customer_address1=#{cm_address1},customer_address2=#{cm_address2},customer_phone=#{cm_phone_number},cm_gate_passwd=#{cm_gate_passwd} where customer_no=#{customer_no}]]>
 	</update>
 	
 	

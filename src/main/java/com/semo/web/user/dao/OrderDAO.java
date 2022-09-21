@@ -74,5 +74,7 @@ public class OrderDAO {
 	public void OrderOrder(OrderVO vo) {
 		sqlSessiontemplate.insert("OrderDAOuser.OrderOrder",vo);
 	}
-	
+	public void deleteCoupon(CouponListVO cou) {
+		sqlSessiontemplate.delete("OrderDAOuser.deleteCoupon",cou);
+	}
 }

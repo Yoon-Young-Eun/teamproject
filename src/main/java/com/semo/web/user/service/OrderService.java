@@ -36,6 +36,6 @@ public interface OrderService {
 	CustomerVO OrderSpecial1(CustomerVO vo1);
 	
 	void OrderOrder(OrderVO vo);
-	
+	void deleteCoupon(CouponListVO cou);
 	
 }

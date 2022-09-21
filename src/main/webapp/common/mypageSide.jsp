@@ -30,7 +30,7 @@
            <input type="hidden" value="7" name="customer_no">
            <li class="listItemT" style="left:0px; background: #a9d3f0; color : #1f2427; font-weight:bold;">MY 세탁</li>
            <li class="listItemA"><i class="fas fa-list-ul"></i><a href="/myorderlist.do?customer_no=${num}">주문 관리</a></li>
-           <li class="listItemA"><i class="fas fa-tasks"></i><a href="#">견적서 관리</a></li>
+           <li class="listItemA"><i class="fas fa-tasks"></i><a href="/getmyEstimate.do?customer_no=${num}">견적서 관리</a></li>
 
             <li class="listItemT" style="left:0px; background: #a9d3f0; color : #1f2427; font-weight:bold;">MY 정보</li>
 

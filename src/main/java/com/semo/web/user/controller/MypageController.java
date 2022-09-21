@@ -1,7 +1,9 @@
 package com.semo.web.user.controller;
 
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.semo.web.admin.vo.Ad_EstimateVO;
+import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.StoreVO;
 import com.semo.web.user.service.MypageService;
 import com.semo.web.user.vo.AddressListVO;
@@ -21,6 +24,8 @@ import com.semo.web.user.vo.EstimateVO;
 import com.semo.web.user.vo.Estimate_ImageVO;
 import com.semo.web.user.vo.OrderMtVO;
 import com.semo.web.user.vo.OrderVO;
+
+import edu.emory.mathcs.backport.java.util.Collections;
 
 @Controller
 public class MypageController {
@@ -255,14 +260,73 @@ public class MypageController {
        return "/views-mypage/MyEstimate.jsp";
     }
     
+    //견적리스트
     @RequestMapping(value= "/getmyEstimate.do")
-    public String getmyEstimate(CustomerVO vo, Model m) {
+    public String getmyEstimate(PagingVO pvo, Model m) {
        System.out.println("견적리스트뽑기");
-       System.out.println();
-       List<EstimateVO> evo= service.getmyEstimate(vo);
+       System.out.println("페이징" + pvo);
+       
+       m.addAttribute("search",pvo);
+       
+     //페이징
+       if (pvo.getPageNum() == null) {
+     	  pvo.setPageNum("1");
+       }
+       System.out.println(pvo.getSelectPage());
+       if (pvo.getSelectPage()==null) {
+     	  pvo.setSelectPage("5");
+       }
+       
+       int pageSize = Integer.parseInt(pvo.getSelectPage());
+       int currentPage = Integer.parseInt(pvo.getPageNum());
+       System.out.println("paagenum"+currentPage);
+       pvo.setStartRow((currentPage - 1)*pageSize+1);
+       pvo.setEndRow(currentPage * pageSize);
+       int count=0;
+       
+       count= service.getListCount(pvo);
+       System.out.println(count);
+       List<EstimateVO> evo= null;
+       
+       if(count >0) {
+    	   evo = service.getmyEstimate(pvo);
+       }else {
+    	   evo = Collections.emptyList();
+       }
+ 
+       if(count >0) {
+     	  int pageBlock =5;
+     	  int imsi =count % pageSize ==0 ?0:1;
+     	  int pageCount = count/pageSize +imsi;
+     	  int startPage =(int)((currentPage-1)/pageBlock)*pageBlock +1;
+     	  int endPage = startPage + pageBlock -1;
+
+     	  if(endPage > pageCount) {
+     		  endPage = pageCount;
+     	  }
+     	  
+          m.addAttribute("count", count);
+     	  m.addAttribute("pageCount",pageCount);
+     	  m.addAttribute("startPage",startPage);
+     	  m.addAttribute("endPage",endPage);
+     	  m.addAttribute("pageBlock",pageBlock);
+
+          m.addAttribute("count", count);
+       }
+          
+       Map<String, String> condition = new HashMap<String, String>();
+       condition.put("견적번호", "estimate_cm_no");
+       condition.put("내용", "estimate_content");
+       
+       m.addAttribute("condition", condition);   
        m.addAttribute("elist", evo);
        System.out.println(evo);
-       return "/views-mypage/MyOrderlist.jsp";
+       
+       		// 목록 개수 세기
+       		EstimateVO evo2 = new EstimateVO();
+    		int cnt4 = service.estimatecnt(pvo);
+    		m.addAttribute("cnt4", cnt4);
+       return "/views-mypage/MyEstimatelist.jsp";
     }
 		
 }

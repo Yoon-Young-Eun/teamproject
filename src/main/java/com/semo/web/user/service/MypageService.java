@@ -3,7 +3,7 @@ package com.semo.web.user.service;
 import java.util.List;
 
 import com.semo.web.admin.vo.Ad_EstimateVO;
-
+import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.StoreVO;
 import com.semo.web.user.vo.AddressListVO;
 import com.semo.web.user.vo.Cm_QnAVO;
@@ -41,7 +41,7 @@ public interface MypageService {
 	public int ordercnt(CustomerVO customer);
 	public int couponcnt(CustomerVO customer);
 	public int askcnt(CustomerVO customer);
-	
+	public int estimatecnt(PagingVO vo);
 	// customer_no > 쿠폰 목록 불러오기
 	public List<CouponListVO> couponlist (CustomerVO customer);
 	
@@ -53,6 +53,6 @@ public interface MypageService {
     public EstimateVO getMyEstimate(EstimateVO vo);
     public Ad_EstimateVO getAd_Estimate(Ad_EstimateVO vo);
     public List<Estimate_ImageVO> getEstimateImg(Estimate_ImageVO vo);
-    public List<EstimateVO> getmyEstimate(CustomerVO vo);
-
+    public List<EstimateVO> getmyEstimate(PagingVO pvo);
+    int getListCount(PagingVO pvo);
 }

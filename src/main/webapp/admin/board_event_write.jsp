@@ -379,15 +379,6 @@
 													<input class="upload-name" value="" disabled="disabled">
 												</div></li>
 
-											<div class="open_set">
-												<li><span class="title">공개설정</span>&nbsp; <input
-													type="radio" name="open" id="open_0"> <label
-													for="open_0">전체공개</label>&nbsp;&nbsp; <input type="radio"
-													name="open" id="open_1"> <label for="open_1">회원만
-														공개</label>&nbsp;&nbsp; <input type="radio" name="open" id="open_2">
-													<label for="open_2">비공개</label>
-											</div>
-											</li>
 										</ul>
 									</div>
 									<div class="end">

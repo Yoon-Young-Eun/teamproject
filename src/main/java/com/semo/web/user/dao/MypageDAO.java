@@ -7,10 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.semo.web.admin.vo.Ad_EstimateVO;
-<<<<<<< HEAD
-import com.semo.web.admin.vo.Estimate_T_VO;
-=======
->>>>>>> main
 import com.semo.web.admin.vo.StoreVO;
 import com.semo.web.user.vo.AddressListVO;
 import com.semo.web.user.vo.Cm_QnAVO;
@@ -101,16 +97,8 @@ public class MypageDAO {
 		int cnt3 = sql.selectOne("MypageVO.askcnt", customer);
 		return cnt3;
 	}
-<<<<<<< HEAD
-	
-	
-	// customer_no > 쿠폰 목록 불러오기
-	public List<CouponListVO> couponlist(CustomerVO customer) {
-		System.out.println("DAO > store_no > CouponList");
-		return sql.selectList("MypageVO.couponlist", customer);
 
-	}
-	
+
 	
 	
 	//견적서불러오기
@@ -128,22 +116,5 @@ public class MypageDAO {
 		public List<EstimateVO> getmyEstimate(CustomerVO vo){
 			return sql.selectList("MypageVO.getmyEstimate", vo);
 		}
-=======
 
-	//견적서불러오기
-    public EstimateVO getMyEstimate(EstimateVO vo) {
-       return sql.selectOne("MypageVO.getMyEstimate", vo);
-    }
-    public Ad_EstimateVO getAd_Estimate(Ad_EstimateVO vo) {
-       return sql.selectOne("MypageVO.getAd_Estimate", vo);
-    }
-
-    public List<Estimate_ImageVO> getEstimateImg(Estimate_ImageVO vo){
-       return sql.selectList("MypageVO.getEstimateImg",vo);
-    }
-
-    public List<EstimateVO> getmyEstimate(CustomerVO vo){
-       return sql.selectList("MypageVO.getmyEstimate", vo);
-    }
->>>>>>> main
 }

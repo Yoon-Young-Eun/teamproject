@@ -11,10 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.semo.web.admin.vo.Ad_EstimateVO;
-<<<<<<< HEAD
-import com.semo.web.admin.vo.Estimate_T_VO;
-=======
->>>>>>> main
 import com.semo.web.admin.vo.StoreVO;
 import com.semo.web.user.service.MypageService;
 import com.semo.web.user.vo.AddressListVO;
@@ -170,12 +166,8 @@ public class MypageController {
 		
 		return "/views-mypage/MyAddress.jsp";
 	}
-<<<<<<< HEAD
 
-=======
-	
 	// MyCoupon : 쿠폰 조회
->>>>>>> main
 	@RequestMapping(value = "/mycoupon.do", method = RequestMethod.GET)
 	public String Coupon(Model model, CustomerVO customer) {
 		
@@ -241,6 +233,7 @@ public class MypageController {
 		return "/myasklist.do";
 	}
 	
+	
 	//견적서
     @RequestMapping(value= "/myestimate.do")
     public String getMyEstimate(EstimateVO evo, Ad_EstimateVO avo, Estimate_ImageVO vo1, Model model) {
@@ -271,37 +264,5 @@ public class MypageController {
        System.out.println(evo);
        return "/views-mypage/MyOrderlist.jsp";
     }
-	
-	
-	    //견적서
-		@RequestMapping(value= "/myestimate.do")
-		public String getMyEstimate(EstimateVO evo, Ad_EstimateVO avo, Estimate_ImageVO vo1, Model model) {
-			System.out.println("내 견적요청서");
-			System.out.println("evo"+evo);
-			System.out.println("avo"+ avo); 
-			
-			List<Estimate_ImageVO> eiv = service.getEstimateImg(vo1);
-			EstimateVO myvo = service.getMyEstimate(evo);
-
-			model.addAttribute("estiimg", eiv);
-			model.addAttribute("getEstimate", myvo);
-			System.out.println("myvo"+myvo);
-			
-			System.out.println("관리자답변");
-			Ad_EstimateVO advo = service.getAd_Estimate(avo);
-			System.out.println("답변?"+advo);
-			model.addAttribute("getAd", advo);
-			return "/views-mypage/MyEstimate.jsp";
-		}
-		
-		@RequestMapping(value= "/getmyEstimate.do")
-		public String getmyEstimate(CustomerVO vo, Model m) {
-			System.out.println("견적리스트뽑기");
-			System.out.println();
-			List<EstimateVO> evo= service.getmyEstimate(vo);
-			m.addAttribute("elist", evo);
-			System.out.println(evo);
-			return "/views-mypage/MyOrderlist.jsp";
-		}
 		
 }

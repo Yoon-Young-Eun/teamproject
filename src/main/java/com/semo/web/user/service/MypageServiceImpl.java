@@ -6,10 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.semo.web.admin.vo.Ad_EstimateVO;
-<<<<<<< HEAD
-import com.semo.web.admin.vo.Estimate_T_VO;
-=======
->>>>>>> main
 import com.semo.web.admin.vo.StoreVO;
 import com.semo.web.user.dao.MypageDAO;
 import com.semo.web.user.vo.AddressListVO;
@@ -97,25 +93,6 @@ public class MypageServiceImpl implements MypageService{
 	public int askcnt(CustomerVO customer) {
 		return dao.askcnt(customer);
 	}
-	
-	//견적서
-	//고객 견적서 상세내용
-   @Override
-   public EstimateVO getMyEstimate(EstimateVO vo) {
-      return dao.getMyEstimate(vo);
-   }
-	
-   @Override
-   public Ad_EstimateVO getAd_Estimate(Ad_EstimateVO vo) {
-      return dao.getAd_Estimate(vo);
-   }
-
-   @Override
-   public List<Estimate_ImageVO> getEstimateImg(Estimate_ImageVO vo) {
-      return dao.getEstimateImg(vo);
-   }
-
-<<<<<<< HEAD
 
 	
 
@@ -141,21 +118,7 @@ public class MypageServiceImpl implements MypageService{
 	public List<EstimateVO> getmyEstimate(CustomerVO vo) {
 		return dao.getmyEstimate(vo);
 	}
-	
-=======
-   //고객 견적서테이블
-   @Override
-   public List<EstimateVO> getmyEstimate(CustomerVO vo) {
-      return dao.getmyEstimate(vo);
-   }
 
->>>>>>> main
-
-
-<<<<<<< HEAD
-	
-=======
->>>>>>> main
 
 }
 

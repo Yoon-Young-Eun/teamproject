@@ -3,10 +3,7 @@ package com.semo.web.user.service;
 import java.util.List;
 
 import com.semo.web.admin.vo.Ad_EstimateVO;
-<<<<<<< HEAD
-import com.semo.web.admin.vo.Estimate_T_VO;
-=======
->>>>>>> main
+
 import com.semo.web.admin.vo.StoreVO;
 import com.semo.web.user.vo.AddressListVO;
 import com.semo.web.user.vo.Cm_QnAVO;
@@ -58,10 +55,4 @@ public interface MypageService {
     public List<Estimate_ImageVO> getEstimateImg(Estimate_ImageVO vo);
     public List<EstimateVO> getmyEstimate(CustomerVO vo);
 
-
-	//특수세탁 견적서
-		public EstimateVO getMyEstimate(EstimateVO vo);
-		public Ad_EstimateVO getAd_Estimate(Ad_EstimateVO vo);
-		public List<Estimate_ImageVO> getEstimateImg(Estimate_ImageVO vo);
-		public List<EstimateVO> getmyEstimate(CustomerVO vo);
 }

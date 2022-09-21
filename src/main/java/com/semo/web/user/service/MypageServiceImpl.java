@@ -119,31 +119,31 @@ public class MypageServiceImpl implements MypageService{
 	public int askcnt(CustomerVO customer) {
 		return dao.askcnt(customer);
 	}
+
 	
+
 	//견적서
 	//고객 견적서 상세내용
-   @Override
-   public EstimateVO getMyEstimate(EstimateVO vo) {
-      return dao.getMyEstimate(vo);
-   }
-	
-   @Override
-   public Ad_EstimateVO getAd_Estimate(Ad_EstimateVO vo) {
-      return dao.getAd_Estimate(vo);
-   }
+	@Override
+	public EstimateVO getMyEstimate(EstimateVO vo) {
+		return dao.getMyEstimate(vo);
+	}
 
-   @Override
-   public List<Estimate_ImageVO> getEstimateImg(Estimate_ImageVO vo) {
-      return dao.getEstimateImg(vo);
-   }
+	@Override
+	public Ad_EstimateVO getAd_Estimate(Ad_EstimateVO vo) {
+		return dao.getAd_Estimate(vo);
+	}
 
-   //고객 견적서테이블
-   @Override
-   public List<EstimateVO> getmyEstimate(CustomerVO vo) {
-      return dao.getmyEstimate(vo);
-   }
+	@Override
+	public List<Estimate_ImageVO> getEstimateImg(Estimate_ImageVO vo) {
+		return dao.getEstimateImg(vo);
+	}
 
-
+	//고객 견적서테이블
+	@Override
+	public List<EstimateVO> getmyEstimate(CustomerVO vo) {
+		return dao.getmyEstimate(vo);
+	}
 
 
 

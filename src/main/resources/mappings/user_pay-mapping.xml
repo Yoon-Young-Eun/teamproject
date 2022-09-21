@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="PayDAO">
+	<insert id="insertPayInfo" parameterType="pay">
+ 		INSERT INTO pay (
+ 			customer_no,
+ 			card_name,
+ 			card_quota,
+ 			paid_amount,
+ 			imp_uid,
+ 			merchant_uid
+ 		) 
+ 		VALUES(
+ 			#{customer_no},
+ 			#{card_name},
+ 			#{card_quota},
+ 			#{paid_amount},
+ 			#{imp_uid},
+ 			#{merchant_uid}
+ 		)
+ 	</insert>
+ 	
+ 	<select id="getReadOrder" resultType="ORDER">
+	<![CDATA[ select * from order_cm where order_no=#{order_no} ]]>
+	</select>
+	
+	<select id="getPayNum" resultType="ORDER">
+	<![CDATA[ select * from order_cm where imp_uid=#{imp_uid} ]]>
+	</select>
+	
+	<update id="updateOrder" parameterType="ORDER">
+		<![CDATA[ update order_cm set order_status='주문취소', order_price_status='환불완료', imp_uid='canceled' where order_no=#{order_no} ]]>
+	</update>
+	
+	<delete id="deletePayInfo" parameterType="pay">
+	<![CDATA[ delete from pay where terms_no=#{terms_no} ]]>
+	</delete>
+ 	
+</mapper>

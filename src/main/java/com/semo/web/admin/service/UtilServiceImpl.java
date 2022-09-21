@@ -53,7 +53,10 @@ public class UtilServiceImpl implements UtilService {
 		return utildao.getMessageTypeList();
 	}
 
-
+	@Override
+	public MessageVO getQnAMessageType(MessageVO mvo) {
+		return utildao.getQnAMessageType(mvo);
+	}
 
 	@Override
 	public MessageVO getMessageContentType(MessageVO mvo) {
@@ -69,10 +72,10 @@ public class UtilServiceImpl implements UtilService {
 	public List<CustomerVO> sendMessageToAll() {
 		return utildao.sendMessageToAll();
 	}
-
 	
 	public MessageVO getMessageEstimateType() {
 		return utildao.getMessageEstimateType();
+
 	}
 
 

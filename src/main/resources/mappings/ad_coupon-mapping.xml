@@ -16,13 +16,15 @@
 <!-- coupon_management테이블에 쿠폰 생성 -->
  <insert id="insertBirthCoupon" parameterType="int" >
  <![CDATA[insert into coupon_management(COUPON_MANAGEMENT_STATUS, COUPON_MANAGEMENT_NAME, COUPON_MANAGEMENT_START_DATE, COUPON_MANAGEMENT_END_DATE, CUSTOMER_ID, COUPON_CODE) 
-values(5, "생일축하쿠폰", curdate(), date_add(curdate(), interval 1 month),#{num},1)]]>
+values(0, "생일축하쿠폰", curdate(), date_add(curdate(), interval 1 month),#{num},1)]]>
 </insert>
 
+
+
 <!-- 유효기간 지난 쿠폰 삭제 -->
-<!-- <delete  id="" parameterType=""> -->
-<!--  <![CDATA[ delete from coupon_management where DATE_ADD(date_format(coupon_management_end_date, '%Y-%m-%d'), INTERVAL 1 DAY)=current_date()]]> -->
-<!-- </delete> -->
+<delete  id="deleteEndDateCoupon" parameterType="terms">
+ <![CDATA[ delete from coupon_management where DATE_ADD(date_format(coupon_management_end_date, '%Y-%m-%d'), INTERVAL 1 DAY)=current_date()]]>
+</delete>
 
 
 </mapper>

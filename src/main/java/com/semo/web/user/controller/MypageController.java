@@ -228,7 +228,7 @@ public class MypageController {
 		
 		return "/views-mypage/MyAddress.jsp";
 	}
-	
+
 	// MyCoupon : 쿠폰 조회
 	@RequestMapping(value = "/mycoupon.do", method = RequestMethod.GET)
 	public String Coupon(Model model, CustomerVO customer) {
@@ -249,6 +249,7 @@ public class MypageController {
 		model.addAttribute("couponlist", couponlist);
 		
 		return "/views-mypage/MyCoupon.jsp";
+
 	}
 	
 	// MyAsklist : 문의내역
@@ -290,6 +291,7 @@ public class MypageController {
 	}
 
 	
+	
 	//견적서
     @RequestMapping(value= "/myestimate.do")
     public String getMyEstimate(EstimateVO evo, Ad_EstimateVO avo, Estimate_ImageVO vo1, Model model) {
@@ -320,7 +322,5 @@ public class MypageController {
        System.out.println(evo);
        return "/views-mypage/MyOrderlist.jsp";
     }
-	
-	
-	
+		
 }

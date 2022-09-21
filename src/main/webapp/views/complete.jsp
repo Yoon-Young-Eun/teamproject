@@ -44,8 +44,8 @@
 </div>
 
 <div class = "btn">
-   <a href="login.jsp" class="action-button shadow animate blue">로그인</a>
-   <a href="main.jsp" class="action-button shadow animate blue">메인으로</a>
+   <a href="/views/login.jsp" class="action-button shadow animate blue">로그인</a>
+   <a href="/views/main.jsp" class="action-button shadow animate blue">메인으로</a>
 </div>
 
 <jsp:include page="/common/footer.jsp"/> 

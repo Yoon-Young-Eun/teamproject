@@ -95,8 +95,8 @@
 					
 						<div class="paymain_text9">
 							<input type="checkbox" id="checkbox1"
-								onClick="agreeCheck(this.form)"> <span id="span123">※유의사항을
-								숙지하였고 서비스를 진행합니다</span>
+								onClick="agreeCheck(this.form)"><label for="checkbox1"><span id="span123">※유의사항을
+								숙지하였고 서비스를 진행합니다</span></label>
 						</div>
 						<div class="paymain_text10">
 							<span id="span1234">(체크박스에 체크를 하셔야 다음단계로 진행이 가능합니다.)</span>

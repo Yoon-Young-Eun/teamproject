@@ -351,7 +351,7 @@
 								<div class="estimate_request_title">첨부파일</div>
 								<div class="estimate_request_file" name="estiimg">
 									<c:forEach var="est_img" items="${estiimg}">
-										<img onclick="window.open(this.src)" hspace="0" src="${est_img.estimate_filepath }">
+										<img onclick="window.open(this.src)" hspace="0" src="${est_img.estimate_filepath}">
 									</c:forEach>
 								</div>
 							</div>

@@ -103,5 +103,7 @@ public class CustomerVO {
 				+ ", customer_address2=" + customer_address2 + ", cm_gate_passwd=" + cm_gate_passwd
 				+ ", customer_birth=" + customer_birth + ", customer_status=" + customer_status + "]";
 	}
+	
+	
 
 }

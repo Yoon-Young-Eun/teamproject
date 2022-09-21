@@ -113,6 +113,7 @@
 					</c:forEach>
 				</tbody>
 			</table>
+<<<<<<< HEAD
 				<!-- pagaing 처리 -->
 						<div class = "paging-wrapper">					
 							<c:if test="${count > 0}">
@@ -136,6 +137,28 @@
 							</c:if>
 						</div><!-- 페이징 종료 -->
 			
+=======
+			
+			<table>
+					<thead class = "order-body-title">
+						<tr>
+							<th class = "num-title" style = "width : 10%;">견적번호</th>
+							<th class = "content-content-title" style = "width : 30%;">세탁분류</th>
+							<th class = "address-title" style = "width : 30%;">내용</th>
+							<th class = "date-title" style = "width : 30%;">요청날짜</th>
+					</thead>
+					<tbody>
+						<c:forEach var="e" items="${elist}">
+						<tr style = "border-bottom : 1px solid #cdcdcd;">
+							<td class = "address-content" style ="width : 10%; text-align : center;">${e.estimate_cm_no}</a></td>
+							<td class = "date-content" style = "width : 30%; text-align : center;">${e.estimate_type}</td>
+							<td class = "content-content" style ="width : 30%; text-align : center;"><a href = "/myestimate.do?customer_no=${e.customer_no}&estimate_cm_no=${e.estimate_cm_no}">주문 자세히 보기</a></td>
+							<td class = "status-content" style = "width : 30%; text-align : center;">${e.estimate_date}</td>
+						</tr>
+						</c:forEach>
+					</tbody>
+						</table>
+>>>>>>> main
 		</div><!-- order-wrapper -->
 	</div><!-- content-wrapper -->
 	

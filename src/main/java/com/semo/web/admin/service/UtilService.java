@@ -14,14 +14,10 @@ public interface UtilService {
 	public void updateMessage(MessageVO mvo);
 	public void deleteMessage(MessageVO mvo);
 	public List<MessageVO> getMessageList();
-<<<<<<< HEAD
-	public List<MessageVO> getMessageTypeList(MessageVO mvo);
 	public MessageVO getQnAMessageType(MessageVO mvo);
-=======
 	public List<MessageVO> getMessageTypeList();
 	public MessageVO getMessageContentType(MessageVO mvo);
 	public List<CustomerVO> sendMessageToAll();
->>>>>>> main
 	public MessageVO getMessageEstimateType();
 
 }

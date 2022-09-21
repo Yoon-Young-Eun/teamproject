@@ -44,8 +44,6 @@ public class Ad_CustomerController {
 	 * "customer_address1"); return conditionMap; }
 	 */
 	
-<<<<<<< HEAD
-	
 	//메시지 보내는 메서드 보낸 후, 회원List 조회 컨트롤러로 이동
 	@RequestMapping(value="/message.mdo")
 	public String sendMassage(String [] tdArr, String message, CustomerVO vo, MessageVO mvo) {
@@ -64,9 +62,6 @@ public class Ad_CustomerController {
 		 coolsms.sendMessage(phone, mess); 
 		 return "/member.mdo";
 	}
-=======
->>>>>>> main
-
 
 	
 	//회원 (블랙회원 제외) 조회 리스트

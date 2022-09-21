@@ -27,4 +27,7 @@ public interface AddressService {
 
 	CustomerVO selectPassword(CustomerVO vo);
 	
+	CustomerVO sendPassword(CustomerVO vo);
+	
+	void UpdatePassword(CustomerVO vo);
 }

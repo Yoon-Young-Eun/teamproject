@@ -96,7 +96,7 @@
           <input type="text" value="${orderproduct.order_mtArray_count }" name="order_mtArray_count" id="product" style="width: 100px;" readonly>
           <input type="text" value="${orderproduct.order_mtArray_price }" name="order_mtArray_price" id="product" style="width:150px;" readonly>
           <input type="text" value="${orderproduct.order_mtArray_sumPrice }" name="order_mtArray_sumPrice" id="product" style="width:150px;" readonly>
-          
+          <input type="hidden" value="" name="">
         </div>
         </c:forEach>
       </div>
@@ -162,10 +162,20 @@
 	  <input type="hidden" value="${OrderData.order_pickup_date }" name="order_pickup_date">
 	  <input type="hidden" value="${OrderData.order_pickup_time }" name="order_pickup_time">
 	  <input type="hidden" value="${OrderData.order_type}" name="order_type">
+
+	 
+	 
+	 
+	 
+	  <input type="hidden" value="" name="coupon_code" id="coupon_code2">
+	  <div id="couponCode" style="display: none">용용</div>
+
+
 	  <input type="hidden" value="${CustomerInfo.customer_id}" name="customer_id">
       <input type="hidden" value="${CustomerInfo.customer_zipcode}" name="customer_zipcode">
 	  <input type="hidden" name="imp_uid" id="imp_uid">
 	
+>>>>>>> main
       <div class="pay" style="width:1000px;">
        <div class="pay1">
         결제금액
@@ -284,7 +294,7 @@
 	    pay_method: "card",
 	    merchant_uid : 'semo_'+new Date().getTime(),
 	    name : '결제테스트',
-	    amount : '${price}',
+	    amount : document.getElementById("cou444").value,
 // 		amount : '100',
 	    buyer_email : '${CustomerInfo.customer_id}',
 	    buyer_name : '${OrderData.order_customer_name}',
@@ -372,6 +382,11 @@ $("#q2").on("DOMSubtreeModified",function(){
 	   console.log("q2");
 	   
 	   $("#cou444").val($("#q2").text().trim())  ;
+})
+$("#couponCode").on("DOMSubtreeModified",function(){
+	   console.log("couponCode");
+	   
+	   $("#coupon_code2").val($("#couponCode").text().trim())  ;
 })
 
 

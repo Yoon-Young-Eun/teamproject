@@ -40,6 +40,8 @@ public interface OrderService {
 	
 	void OrderOrder(OrderVO vo);
 
-	
+	void deleteCoupon(CouponListVO cou);
+
+
 	
 }

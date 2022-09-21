@@ -11,7 +11,7 @@
 <!-- font awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 <!-- resources -->
-<link rel="stylesheet" href="/views-mypage/resources/css/MyAsklist.css"/>
+<link rel="stylesheet" href="/views-mypage/resources/css/MyCoupon.css"/>
 <link rel="stylesheet" href="/common/css/header.css"/>
 <link rel="stylesheet" href="/common/css/button.css"/>
 <link rel="stylesheet" href="/common/css/footer.css"/>
@@ -37,21 +37,15 @@
 		<!-- 제목 -->
 		<div class = "content-title-wrapper">
 			<div class = "content-title">
-				<h2>문의내역</h2>
+				<h2>리뷰</h2>
 			</div>
 			<!-- 소제목 -->
 			<div class = "content-subtitle-wrapper">
-				<p>총 <b>5</b>개의 글</p>		
+				<p>총 <b>${cnt2}</b>개의 리뷰</p>		
 				<!-- 검색창 --> 
 				<div class = "searchbar-wrapper">
 					 <!-- 분류 -->
 					<div class = "sort">
-						<select class = "select">
-							<option>제목</option>
-							<option>내용</option>
-							<option>제목+내용</option>
-						</select>
-						<button>검색</button>
 					</div>	
 				</div><!-- content-subtitle-wrapper -->
 			</div> <!-- content-title-wrapper -->	
@@ -61,33 +55,21 @@
 			<table>
 				<thead class = "order-body-title">
 					<tr>
-						<th class = "check-title" style = "width : 10%; text-align : center;"><input type = "checkbox" /></th>
-						<th class = "num-title" style = "width : 10%;">번호</th>
-						<th class = "content-content-title" style = "width : 30%;">제목</th>
-						<th class = "address-title" style = "width : 20%;">날짜</th>
-						<th class = "address-title" style = "width : 20%;">비고</th>
+						<th class = "num-title" style = "width : 33%;">번호</th>
+						<th class = "num-title" style = "width : 33%;">제목</th>
+						<th class = "content-content-title" style = "width : 33%;">날짜</th>
+						<th class = "address-title" style = "width : 33%;">비고</th>
 					</tr>
 				</thead>
 				
-				<tbody class = "order-body-content">
-					<c:forEach var = "asklist" items = "${asklist}">
+				<tbody class = "order-body-content">	
+					<c:forEach var="couponlist" items="${couponlist}">
 					<tr style = "border-bottom : 1px solid #cdcdcd;">
-						<td class = "check-title" style = "width : 10%; text-align : center;"><input type = "checkbox" /></td>
-						<td class = "num-content" style = "width : 10%; text-align : center;">${asklist.board_qna_no }</td>
-						<td class = "num-content" style = "width : 30%; text-align : center;">[${asklist.board_qna_type}] <a href = "#">${asklist.board_qna_title }</a></td>
-						<td class = "content-content" style = "width : 20%; text-align : center;">${asklist.board_qna_reg_date}</td>
-						<td class = "address-content" style = "width : 20%; text-align : center;">
-							<c:choose> 
-                                 <c:when test="${asklist.board_qna_status eq 0}">
-                                    답변대기
-                                 </c:when>  
-                                 <c:otherwise>
-                                    답변완료
-                                 </c:otherwise> 
-                           	</c:choose> 
-						</td>
+						<td class = "num-content" style = "width : 33%; text-align : center;">${couponlist.coupon_management_name}</td>
+						<td class = "content-content" style = "width : 33%; text-align : center;">${couponlist.coupon_management_price}</td>
+						<td class = "address-content" style = "width : 33%; text-align : center;">${couponlist.coupon_management_start_date} - ${couponlist.coupon_management_end_date}</td>
 					</tr>
-					</c:forEach>	
+					</c:forEach>
 				</tbody>
 			</table>
 		</div><!-- order-wrapper -->

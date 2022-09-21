@@ -355,41 +355,33 @@
 
 						<!--Chart -->
 						<div class="chartparent">
-							<div class="chart chart_flex">
+							<div class="chart">
 								<!-- <div id="chart_div" style="width: 300px; height: 300px;"></div> -->
 								<div id="chart_div" style="width: 800px; height: 400px;"></div>
+
+								<form id="barChart">
+									<div class="icon_flex">
+										<div>
+											<input type="date" name="startDate" />
+										</div>
+										<div>
+											<input type="date" name="endDate" />
+										</div>
+										<div>
+											<input type="button" value="검색" onClick="getGraph()" />
+										</div>
+										<div>
+											<input type="reset" value="초기화" onChange="getGraph()" />
+										</div>
+									</div>
+								</form>
+
+							</div>
+							<div class="chart">
 								<div id="chart_area" style="width: 800px; height: 400px;"></div>
 							</div>
 						</div>
-						<div class="chart_flex">
-						<div>
-							<form id="barChart">
-								<div class="chart_flex">
-									<div>
-										<input type="date" name="startDate" />
-									</div>
-									<div>
-										<input type="date" name="endDate" />
-									</div>
-									<div>
-										<input type="button" value="검색" onClick="getGraph()" />
-									</div>
-									<div>
-										<input type="reset" value="초기화" onChange="getGraph()" />
-									</div>
-								</div>
-							</form>
-						</div>
-						<div>
-						<select id=AreaChart name="chartDate" onChange="drawChart()">
-							<option value="week">검색</option>
-							<option value="day">일일</option>
-							<option value="week">주간</option>
-							<option value="month">월별</option>
-							<option value="year">년간</option>
-						</select>
-						</div>
-						</div>			
+
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
 						<div class="flex">
 							<input type="button" id="btnExport" value="PDF" class="icon_pdf" />
@@ -581,8 +573,7 @@
 					"#c45850", "yellow", "silver" ]
 			let showgraph = [ [ 'corechart', '매출' ] ]
 
-			$
-					.ajax({
+			$.ajax({
 						url : "/getMainBarChart.mdo",
 						type : "get",
 						data : $("#barChart").serialize(),
@@ -602,11 +593,10 @@
 							}
 							console.log(showgraph);
 
-							var data = google.visualization
-									.arrayToDataTable(showgraph);
+							var data = google.visualization.arrayToDataTable(showgraph);
 
 							var options = {
-								title : '기간별매출현황(Bar_Chart)',
+								title : 'ㅇㅇㅇㅇㅇㅇ',
 								vAxis : {
 									title : ''
 								},
@@ -624,22 +614,25 @@
 							var chart = new google.visualization.ComboChart(
 									document.getElementById('chart_div'));
 							chart.draw(data, options);
+							
 
 						}, //success:function
 						error : function() {
 							alert("실패");
 						}
 					});//ajax	
+		}
 
-			/* Area */
-			console.log('AreaChart 차트');
+		/* Area */
+		function drawChart() {
+			console.log('drawChart() 함수');
 			let category = [ [ 'Date', '매출', '영업이익', '순이익' ] ]
 
 			$
 					.ajax({
 						url : "/getMainAreaChart.mdo",
 						type : "get",
-						data : $("#barChart").serialize(),
+						data : $("#AreaChart").serialize(),
 						dataType : "json",
 						success : function(data) {
 							console.log("success" + data);
@@ -661,7 +654,7 @@
 									.arrayToDataTable(category);
 
 							var options = {
-								title : '기간별매출현황(Area_Chart)',
+								title : '기간별매출현황',
 								hAxis : {
 									title : '',
 									titleTextStyle : {
@@ -680,113 +673,6 @@
 						}
 					});
 		}
-	</script>
-	
-	<script>
-	function drawChart() {
-		console.log("getGraph");
-		let color = [ "#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9",
-				"#c45850", "yellow", "silver" ]
-		let showgraph = [ [ 'corechart', '매출' ] ]
-
-		$
-				.ajax({
-					url : "/getMainBarChart.mdo",
-					type : "get",
-					data : $("#AreaChart").serialize(),
-					dataType : "json",
-					success : function(data) {
-						console.log(data);
-						if (data == null) {
-
-						}
-
-						for (let i = 0; i < data.length; i++) {
-							let date = String(data[i].order_date);
-							let price = Number(data[i].order_price)
-							showgraph.push([ date, price ])
-							console.log(date);
-							console.log(price);
-						}
-						console.log(showgraph);
-
-						var data = google.visualization
-								.arrayToDataTable(showgraph);
-
-						var options = {
-							title : '기간별매출현황(Bar_Chart)',
-							vAxis : {
-								title : ''
-							},
-							hAxis : {
-								title : ''
-							},
-							seriesType : 'bars',
-							series : {
-								5 : {
-									type : 'line'
-								}
-							}
-						};
-
-						var chart = new google.visualization.ComboChart(
-								document.getElementById('chart_div'));
-						chart.draw(data, options);
-
-					}, //success:function
-					error : function() {
-						alert("실패");
-					}
-				});
-		
-	console.log('AreaChart 차트');
-	let category = [ [ 'Date', '매출', '영업이익', '순이익' ] ]
-
-	$
-			.ajax({
-				url : "/getMainAreaChart.mdo",
-				type : "get",
-				data : $("#AreaChart").serialize(),
-				dataType : "json",
-				success : function(data) {
-					console.log("success" + data);
-
-					for (let i = 0; i < data.length; i++) {
-						let price = Number(data[i].order_mt_price)
-						let profits = Number(data[i].productVo.product_business_profits)
-						let net = Number(data[i].productVo.product_net_profit)
-						let date = data[i].order_mt_date
-						category.push([ date, price, profits, net ]);
-						console.log(price);
-						console.log(profits);
-						console.log(net);
-						console.log(date);
-					}
-					console.log("최종" + category);
-
-					var data = google.visualization
-							.arrayToDataTable(category);
-
-					var options = {
-						title : '기간별매출현황(Area_Chart)',
-						hAxis : {
-							title : '',
-							titleTextStyle : {
-								color : '#8e5ea2'
-							}
-						},
-						vAxis : {
-							minValue : 0
-						}
-					};
-
-					var chart = new google.visualization.AreaChart(
-							document.getElementById('chart_area'));
-					chart.draw(data, options);
-
-				}
-			});
-}
 	</script>
 
 

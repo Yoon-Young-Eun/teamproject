@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -31,16 +32,38 @@ public class Ad_ChartController {
 			System.out.println("도넛차트 "+ doughnut);
 			return doughnut;
 		}
-
 	
-	
-	@RequestMapping("/getBarChart.mdo")
+	@GetMapping("/getBarChart.mdo")
 	public @ResponseBody List<OrderVO> getBarChart(Model model, PagingVO pvo)throws Exception {
 		System.out.println("바차트 pvo 값 : "+pvo);
 			List<OrderVO> bar = salesService.getBarChart(pvo);
 			System.out.println("바차트 출력"+bar);
 			return bar;
 		}
+	
+	@GetMapping("/getMainBarChart.mdo")
+	public @ResponseBody List<OrderVO> getMainBarChart(Model model, PagingVO pvo)throws Exception {
+		System.out.println("바차트 pvo 값 : "+pvo);
+			List<OrderVO> bar = salesService.getMainBarChart(pvo);
+			System.out.println("바차트 출력"+bar);
+			return bar;
+		}
+	
+	@GetMapping("/getMainAreaChart.mdo")
+	public @ResponseBody List<OrderMtVO> getMainAreaChart(Model model, PagingVO pvo)throws Exception {
+		System.out.println("area차트 pvo 값 : "+pvo);
+			List<OrderMtVO> area = salesService.getMainAreaChart(pvo);
+			System.out.println("바차트 출력"+area);
+			
+			System.out.println(area.get(0).getOrder_mt_price());
+			System.out.println(area.get(0).getOrder_mt_date());
+			System.out.println(area.get(0).productVo.getProduct_net_profit());
+			System.out.println(area.get(0).productVo.getProduct_net_profit());
+			
+			
+			return area;
+		}
+	
 	}
 	
 	

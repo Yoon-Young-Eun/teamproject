@@ -13,7 +13,6 @@ public class PagingVO {
 	public String startDate;
 	public String endDate;
 	public String chartDate;
-	
 	public int startRow;
 	public int endRow;
 	public String selectPage;
@@ -123,9 +122,5 @@ public class PagingVO {
 				+ searchKeyword2 + ", searchKeyword3=" + searchKeyword3 + ", startDate=" + startDate + ", endDate="
 				+ endDate + ", chartDate=" + chartDate + ", startRow=" + startRow + ", endRow=" + endRow
 				+ ", selectPage=" + selectPage + ", pageNum=" + pageNum + ", customer_no=" + customer_no + "]";
-	}
-	
-	
-	
-	
+	}	
 }

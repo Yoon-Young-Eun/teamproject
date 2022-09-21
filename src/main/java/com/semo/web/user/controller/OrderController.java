@@ -9,7 +9,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -98,18 +97,10 @@ public class OrderController<imp_uid> {
 
 	}
 
-<<<<<<< HEAD
 	@RequestMapping(value = "/OrderGeneral.do", method = RequestMethod.GET)
 	// 일반세탁 주문하기
-	public String OrderGeneral(OrderVO vo, Model model, DataSendVO vo2, OrderMtArrayVO vo4, CouponListVO cou) {
+	public String OrderGeneral(OrderVO vo, Model model, DataSendVO vo2, OrderMtArrayVO vo4, CouponListVO cou, CustomerVO cvo) {
 
-=======
-	@RequestMapping(value="/OrderGeneral.do",method=RequestMethod.GET)
-	//일반세탁 주문하기
-	public String OrderGeneral(OrderVO vo,Model model,DataSendVO vo2,OrderMtArrayVO vo4, CustomerVO cvo) {
-		
-	
->>>>>>> main
 		List<OrderProductVO> vo6 = new ArrayList<OrderProductVO>();
 		for (int i = 0; i < vo4.getOrder_mtArray_sumPrice().size(); i++) {
 			if (vo4.getOrder_mtArray_count().get(i) != 0) {
@@ -135,20 +126,14 @@ public class OrderController<imp_uid> {
 		model.addAttribute("checkbox", vo2);
 		model.addAttribute("OrderData", vo);
 		System.out.println(vo);
-<<<<<<< HEAD
+
 		model.addAttribute("arr", vo4);
 		model.addAttribute("OrderProduct", vo6);
-
-		if (vo.getOrder_price() >= 20000) {
-=======
-		model.addAttribute("arr",vo4);
-		model.addAttribute("OrderProduct",vo6);
 		model.addAttribute("CustomerInfo",orderservice.getReadCustomerInfo(cvo)); // 내가 추가
 		System.out.println("customerinfo"+cvo);
 		
 		
 		if(vo.getOrder_price() >= 20000) {
->>>>>>> main
 			vo.setOrder_delivery_price(0);
 		} else {
 			vo.setOrder_delivery_price(3500);
@@ -163,7 +148,7 @@ public class OrderController<imp_uid> {
 		int price1 = vo.getOrder_price();
 		model.addAttribute("price1", price1);
 		
-		orderservice.deleteCoupon(cou);
+		
 
 		return "/pay/payOrderGeneralCheck.jsp";
 	}
@@ -180,18 +165,12 @@ public class OrderController<imp_uid> {
 		
 		return "/pay/payCouponList.jsp";
 	}
-<<<<<<< HEAD
 
-	@RequestMapping(value = "/OrderInsert.do", method = RequestMethod.GET)
-	public String OrderInsert(OrderVO vo, OrderMtVO vo3, OrderMtArrayVO vo2) {
-		System.out.println("오더" + vo);
-		System.out.println("오더MT" + vo3);
-=======
 	@RequestMapping(value="/OrderInsert.do", method=RequestMethod.GET)
-	public String  OrderInsert(OrderVO vo,OrderMtVO vo3 ,OrderMtArrayVO vo2) {
+	public String  OrderInsert(OrderVO vo,OrderMtVO vo3 ,OrderMtArrayVO vo2,CouponListVO cou,Model model) {
 		System.out.println("오더"+ vo);
 		System.out.println("오더MT"+vo3);
->>>>>>> main
+
 		orderservice.OrderInsert(vo);
 		int num = orderservice.OrderSelect(vo);
 
@@ -215,24 +194,22 @@ public class OrderController<imp_uid> {
 			System.out.println("vo1" + i + "번째" + vo1);
 
 		}
-
+		
+			orderservice.deleteCoupon(cou);
+		System.out.println(cou);
+		
 		System.out.println(vo);
 
 		return "/pay/payGeneralComplete.jsp";
 	}
 
-<<<<<<< HEAD
-	@RequestMapping(value = "/Orderspecial.do")
-	public String Orderspecial(@RequestParam(name = "file") MultipartFile[] file, Model model, EstimateVO vo,
-			OrderVO vo2, Estimate_ImageVO vo1) throws IOException, SQLException {
 
-=======
-	@RequestMapping(value="/Orderspecial.do")
-	public String Orderspecial(@RequestParam(name="file") MultipartFile[] file,Model model, EstimateVO vo,OrderVO vo2,Estimate_ImageVO vo1) throws IOException,SQLException{
-		
+	@RequestMapping(value = "/Orderspecial.do")
+	public String Orderspecial(@RequestParam(name="file") MultipartFile[] file, Model model, EstimateVO vo, OrderVO vo2, Estimate_ImageVO vo1) throws IOException, SQLException {
+	
 		AwsS3 awss3 = AwsS3.getInstance();
 		
->>>>>>> main
+
 		orderservice.Orderspecial(vo);
 		System.out.println(vo);
 		model.addAttribute("OrderEstimate", vo);

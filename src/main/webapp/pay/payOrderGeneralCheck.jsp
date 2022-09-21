@@ -162,7 +162,7 @@
 	  <input type="hidden" value="${OrderData.order_pickup_date }" name="order_pickup_date">
 	  <input type="hidden" value="${OrderData.order_pickup_time }" name="order_pickup_time">
 	  <input type="hidden" value="${OrderData.order_type}" name="order_type">
-<<<<<<< HEAD
+
 	 
 	 
 	 
@@ -170,7 +170,7 @@
 	  <input type="hidden" value="" name="coupon_code" id="coupon_code2">
 	  <div id="couponCode" style="display: none">용용</div>
 
-=======
+
 	  <input type="hidden" value="${CustomerInfo.customer_id}" name="customer_id">
       <input type="hidden" value="${CustomerInfo.customer_zipcode}" name="customer_zipcode">
 	  <input type="hidden" name="imp_uid" id="imp_uid">

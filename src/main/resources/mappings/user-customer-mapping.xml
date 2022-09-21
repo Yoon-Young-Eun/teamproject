@@ -7,11 +7,7 @@
 
 	<select id="getMember" resultType="customer"
 		parameterType="customer">
-<<<<<<< HEAD
 		SELECT * FROM customer where customer_id =#{customer_id} and customer_passwd=#{customer_passwd}
-=======
-		SELECT * FROM customer where customer_id=#{customer_id} and customer_passwd=#{customer_passwd}
->>>>>>> main
 	</select>
 
 	<insert id="insertMember" parameterType="customer" >
@@ -21,10 +17,7 @@
 	</insert>
 
 	<select id="idCheck" parameterType="String" resultType="int">
-<<<<<<< HEAD
 		SELECT COUNT(*) FROM customer where customer_id = #{customer_id}
-=======
-		SELECT COUNT(*) FROM customer where customer_no = #{customer_no}
 	</select>
 	<select id="getReadPhoneNum" resultType="customer">
 	<![CDATA[ select * from customer where customer_no=#{customer_no} ]]>

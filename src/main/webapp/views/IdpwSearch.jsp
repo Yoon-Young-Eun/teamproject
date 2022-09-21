@@ -62,7 +62,7 @@
 				</form>
 				
 				
-				<form action="/views/viewpswd.jsp" id="form1">
+				<form action="/sendPassword.do" id="form1">
 				<div class="idSearch" >
 				비밀번호 찾기
 				</div>
@@ -76,8 +76,7 @@
 				<input type="tel" value="" id="phone" name="customer_phone" required placeholder="Ex) 01012345678">
 				<input type="button" value="인증번호" id="button2">
 				<span class="point successPhoneChk" id="ttt">휴대폰 번호 입력후 인증번호 보내기를 해주십시오.</span>
-
-
+	
 				
 				</div>
 				
@@ -104,15 +103,37 @@
 
 		</div>
 	</div>
+	
+	
+<script>
+
+$("#phone9").on("change keyup",function(){
+    
+    $("#phone9").val($("#phone9").val().replace(/[^0-9]/g, '')
+            .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, ""))
+ })
+
+
+</script>	
+	
+	
 
 <script type="text/javascript">
 var code2 = "";
-$("#button2").click(function(){
-	var phone = $("#phone").val();
-	var Id = $("#id").val();
+$("#phone").on("change keyup",function(){
+    
+    $("#phone").val($("#phone").val().replace(/[^0-9]/g, '')
+            .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, ""))
+ })
+ $("#button2").click(
+       function() {
+          var phone = $("#phone").val();
+          var Id = $("#id").val();
+      
+
 	console.log(phone);
 	console.log(Id);
-	if(/^([0-8]).{0,20}$/.test(phone)&&phone.length==11){
+	if(/^([0-8]).{0,20}$/.test(phone)&&phone.length==13){
 		alert("인증번호 발송이 완료되었습니다.\n휴대폰에서 인증번호 확인을 해주십시오.");
 	}else{
 		alert("휴대폰 번호를 확인해주세요");

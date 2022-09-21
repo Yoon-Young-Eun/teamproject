@@ -2,15 +2,18 @@ package com.semo.web.user.controller;
 
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.semo.web.user.service.AddressService;
 import com.semo.web.user.service.CoolSmsPassword;
@@ -27,6 +30,8 @@ public class AddressController {
 	@Autowired
 	CoolSmsPassword coolsmspassword;
 	
+	@Resource(name="bcryptPasswordEncoder")
+	BCryptPasswordEncoder encoder;
 	
 	
 	@RequestMapping(value = "/setAddress.do", method = RequestMethod.GET)
@@ -164,17 +169,19 @@ public class AddressController {
 	 //비밀번호찾기 인증번호 메세지 보내기
 		@RequestMapping(value="/message.do")
 		@ResponseBody
-		public String sendSMS(@RequestParam(name="customer_phone", required=false) String userPhoneNumber,@RequestParam(name="customer_id") String customer_id, CustomerVO vo) {
+		public String sendSMS(@RequestParam(name="customer_phone", required=false) String userPhoneNumber,@RequestParam(name="customer_id") String customer_id, CustomerVO vo,Model model) {
 			System.out.println("00000");
 			System.out.println("고객정보"+vo);
 			CustomerVO vo1 = addressservice.selectPassword(vo);
 			System.out.println(vo1);
+			model.addAttribute("user",vo1);		
+			System.out.println("이거야"+vo1);
 			int randomNumber = (int)((Math.random()*(9999-1000+1))+1000);
+			System.out.println("난수생성완료");
 			if(vo1 != null) {
 				 //난수생성
-				System.out.println("난수생성완료");
 				coolsmspassword.sendMessage(userPhoneNumber,randomNumber);
-					System.out.println("1111");
+					System.out.println("발송 완료 ~");
 			}else {
 				System.out.println("정보 불일치");
 			}
@@ -182,8 +189,42 @@ public class AddressController {
 			
 			return Integer.toString(randomNumber);
 			
+		
+		}
+		@RequestMapping(value="/sendPassword.do")
+			public String sendPassword(CustomerVO vo,Model model) {
+				System.out.println(vo);
+				
+				CustomerVO vo1 = addressservice.sendPassword(vo);
+				model.addAttribute("User",vo1);
+				return "/views/viewpswd.jsp";
+			
+		}
+		//비밀번호 재설정 마지막 단계
+		@RequestMapping(value="/UpdatePassword.do")
+		public String UpdatePassword(CustomerVO vo,Model model) {
+			System.out.println(vo);
+			
+		    CustomerVO vo2 = new CustomerVO();
+		    vo2.setCustomer_passwd(encoder.encode(vo.getCustomer_passwd()));
+			vo2.setCustomer_no(vo.getCustomer_no());
+			
+			addressservice.UpdatePassword(vo2);
+			System.out.println(vo2);
+			
+			return "/views/login.jsp";
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		//마이페이지 사이드바(내주소관리) -> 내 주소관리 	
-		}@RequestMapping(value="/myAddress.do", method=RequestMethod.GET)
+		@RequestMapping(value="/myAddress.do", method=RequestMethod.GET)
 		public String myAddress(CustomerVO vo,Model model) {
 			
 			System.out.println(vo);

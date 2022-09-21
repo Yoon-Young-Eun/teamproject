@@ -44,9 +44,9 @@
 				아이디찾기
 				</div>
 				<div class="idContent">
-				
+				<div class="abc" style="display: flex; justify-content: center; width:1000px;margin-top:20px;">
 				<span style="font-size:18px; font-weight: bold">${SearchId.customer_name }</span>님의 아이디는 <span style="font-size:18px; font-weight: bold">${SearchId.customer_id }</span> 입니다.
-				
+				</div>
 				
 				<div class="button" style="display: flex; justify-content: center; margin-top:20px;">
 				<input type="button" value="로그인" class="action-button shadow animate blue" id="button1" style="padding: 0px; font-size:20px; width:150px; height:50px;"

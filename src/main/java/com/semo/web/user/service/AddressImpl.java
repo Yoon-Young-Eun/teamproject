@@ -80,6 +80,18 @@ public class AddressImpl implements AddressService {
 		return addressdao.selectPassword(vo);
 	}
 
+	@Override
+	public CustomerVO sendPassword(CustomerVO vo) {
+		
+		return addressdao.sendPassword(vo);
+	}
+
+	@Override
+	public void UpdatePassword(CustomerVO vo) {
+		addressdao.UpdatePassword(vo);
+		
+	}
+	
 
 
 }

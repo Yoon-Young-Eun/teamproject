@@ -43,26 +43,38 @@
 				<div class="idSearch">
 				비밀번호 재설정
 				</div>
+				<form action="/UpdatePassword.do" id="form1">
 				<div class="idContent">
-				
-				<span style="font-size:18px; font-weight: bold">${SearchId.customer_name }</span>님의 아이디는 <span style="font-size:18px; font-weight: bold">${SearchId.customer_id }</span> 입니다.
-				<div class="password">
-				<input type="text" value="비밀번호"><input type="password">
+				<div class="dddd" style="display:flex; justify-content: center; width:1000px;">${User.customer_name }님의 아이디는 ${User.customer_id }입니다.</div>
+				<input type="hidden" value="${User.customer_passwd }">
+				<input type="hidden" value="${User.customer_no}" name="customer_no">
+				<div class="password" style="display: flex; justify-content: center; width:1000px;">
+				<input type="text" value="비밀번호" readonly style="margin-top:20px; border-style:none;"><input type="password" value="" style="margin-top:20px;" name="customer_passwd" id="pass">
 				</div>
-				<div class="password1">
-				<input type="text" value="비밀번호 확인"><input type="password">
-				</div>
-				
-				
-				<div class="button" style="display: flex; justify-content: center; margin-top:20px;">
-				<input type="button" value="로그인" class="action-button shadow animate blue" id="button1" style="padding: 0px; font-size:20px; width:150px; height:50px;"
-				onclick="location.href='/views/login.jsp'">
-				
-				</div>
-				
+				<div class="password1" style="display: flex; justify-content: center; width:1000px;">
+				<input type="text" value="비밀번호 확인" readonly style="margin-top:20px; border-style:none;"><input type="password"  style="margin-top:20px;" id="repass">
 				</div>
 				
 				
+				<div class="button" style="display: flex; justify-content: center; margin-top:50px;">
+				<input type="button" value="비밀번호 재설정" class="action-button shadow animate blue" id="button1" style="padding: 0px; font-size:20px; width:150px; height:50px;"
+				onclick="password()">
+				
+				</div>
+				
+				</div>
+				</form>
+				
+				<script>
+				function password(){
+					if(document.getElementById("pass").value == document.getElementById("repass").value){
+						document.getElementById("form1").submit();
+					}else{
+						alert("입력하신 비밀번호가 일치하지 않습니다.");
+					}
+				}
+				
+				</script>
 				
 				
 				

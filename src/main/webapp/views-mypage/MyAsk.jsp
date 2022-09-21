@@ -33,6 +33,7 @@
 	</div>
 	
 	<!-- 본문 -->
+	
 	<div class = "content-wrapper">
 		<!-- 제목 -->
 		<div class = "content-title-wrapper">
@@ -46,34 +47,61 @@
 		</div> <!-- content-title-wrapper -->	
 		
 		<!-- 글쓰기 -->
+		<form action="/insertask.do" method = "get" name = "insertForm">
+		<input type="hidden" name="customer_no" value="${num}"/>
 		<div class = "article-wrapper">
 			<div class = "sort-wrapper">
 				<div class = "sort-title">분류</div>
 				<div class = "sort-content">
-					<select>
-						<option>배송문의</option>
-						<option>세탁문의</option>
-						<option>기타문의</option>
+					<select name = "board_qna_type">
+						<option value = "배송문의">배송문의</option>
+						<option value = "세탁문의">세탁문의</option>
+						<option value = "기타문의">기타문의</option>
 					</select>
 				</div>
 			</div>
 			<div class = "article-title-wrapper">
 				<div class = "article-title-title">제목</div>
-				<input class = "artice-title-content" type = "text" placeholder = "제목을 입력해주세요.">
+				<input name = "board_qna_title" id = "title" class = "artice-title-content" type = "text" placeholder = "제목을 입력해주세요.">
 			</div>
 			<div class = "article-content-wrapper">
 				<div class = "article-content-title">내용</div>
-				<textarea class = "artice-content-content" placeholder = "내용을 입력해주세요."></textarea>
+				<textarea name = "board_qna_content" id = "content" class = "artice-content-content" placeholder = "내용을 입력해주세요."></textarea>
 			</div>
 			<div></div>
 		</div>
 		<div class = "button-wrapper">
-			<a href="#" class="action-button shadow animate grey" style = "height : 30px;">취소</a>	
-			<a href="/insertask.do" class="action-button shadow animate blue" style = "height : 30px;">등록</a>	
+			<a href="/myasklist.do?customer_no=${num}" class="action-button shadow animate grey" style = "height : 30px;">취소</a>	
+			<a type = "submit" id = "insert" class="action-button shadow animate blue" style = "height : 30px;">등록</a>	
 		</div>
-	
+		</form>
 	</div><!-- content-wrapper -->	
 </div><!-- page-wrapper -->
+
+
+<!---------------------- 스크립트 ---------------------->
+<script type="text/javascript">
+
+	$('#insert').click(function(){
+		var insertForm = document.insertForm;
+		
+		var title = $('#title').val();
+		var content = $('#content').val();
+		
+		console.log("등록 유효성 실행");
+		
+		if (title == "" || title == null){
+			alert("제목을 입력해주세요.");
+		} else if (content == "" || content == null){
+			alert("내용을 입력해주세요.");
+		} else if (title != "" || content != ""){
+			alert("게시글 등록이 완료되었습니다.")
+			insertForm.submit();
+		}
+		
+	});
+
+</script>
 
 </body>
 </html>

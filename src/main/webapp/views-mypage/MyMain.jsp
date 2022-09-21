@@ -76,14 +76,14 @@
 				</thead>
 				
 				<tbody class = "order-body-content">
-					<c:forEach var="orderlist" items="${orderlist}">
+					<c:forEach var="recentorder" items="${recentorder}">
 					<tr style = "border-bottom : 1px solid #cdcdcd;">
-						<td class = "num-content" style = "width : 10%; text-align : center;">${orderlist.order_no}</td>
-						<td class = "content-content" style = "width : 20%; text-align : center;"><a href = "/orderdetail.do?order_no=${orderlist.order_no}&customer_no=${num}&store_code=${orderlist.store_code}">주문 자세히 보기</a></td>
-						<td class = "address-content" style = "width : 20%; text-align : center;">${orderlist.order_address1}</td>
-						<td class = "date-content" style = "width : 20%; text-align : center;">${orderlist.order_date}</td>
-						<td class = "pickup-content" style = "width : 20%; text-align : center;">${orderlist.order_expected_date}</td>
-						<td class = "status-content" style = "width : 10%; text-align : center;">${orderlist.order_status}</td>
+						<td class = "num-content" style = "width : 10%; text-align : center;">${recentorder.order_no}</td>
+						<td class = "content-content" style = "width : 20%; text-align : center;"><a href = "/orderdetail.do?order_no=${recentorder.order_no}&customer_no=${num}&store_code=${recentorder.store_code}">주문 자세히 보기</a></td>
+						<td class = "address-content" style = "width : 20%; text-align : center;">${recentorder.order_address1}</td>
+						<td class = "date-content" style = "width : 20%; text-align : center;">${recentorder.order_date}</td>
+						<td class = "pickup-content" style = "width : 20%; text-align : center;">${recentorder.order_expected_date}</td>
+						<td class = "status-content" style = "width : 10%; text-align : center;">${recentorder.order_status}</td>
 					</tr>
 					</c:forEach>
 				</tbody>

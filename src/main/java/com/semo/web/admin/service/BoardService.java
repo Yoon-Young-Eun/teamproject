@@ -12,6 +12,7 @@ import com.semo.web.admin.vo.ReviewVO;
 import com.semo.web.user.vo.Cm_QnAVO;
 import com.semo.web.user.vo.CustomerVO;
 
+
 public interface BoardService {
 	
 //	공지사항

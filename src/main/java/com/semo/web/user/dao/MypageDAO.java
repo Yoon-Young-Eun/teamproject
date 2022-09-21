@@ -98,19 +98,23 @@ public class MypageDAO {
 		return cnt3;
 	}
 
+
+	
+	
 	//견적서불러오기
-    public EstimateVO getMyEstimate(EstimateVO vo) {
-       return sql.selectOne("MypageVO.getMyEstimate", vo);
-    }
-    public Ad_EstimateVO getAd_Estimate(Ad_EstimateVO vo) {
-       return sql.selectOne("MypageVO.getAd_Estimate", vo);
-    }
+		public EstimateVO getMyEstimate(EstimateVO vo) {
+			return sql.selectOne("MypageVO.getMyEstimate", vo);
+		}
+		public Ad_EstimateVO getAd_Estimate(Ad_EstimateVO vo) {
+			return sql.selectOne("MypageVO.getAd_Estimate", vo);
+		}
 
-    public List<Estimate_ImageVO> getEstimateImg(Estimate_ImageVO vo){
-       return sql.selectList("MypageVO.getEstimateImg",vo);
-    }
+		public List<Estimate_ImageVO> getEstimateImg(Estimate_ImageVO vo){
+			return sql.selectList("MypageVO.getEstimateImg",vo);
+		}
 
-    public List<EstimateVO> getmyEstimate(CustomerVO vo){
-       return sql.selectList("MypageVO.getmyEstimate", vo);
-    }
+		public List<EstimateVO> getmyEstimate(CustomerVO vo){
+			return sql.selectList("MypageVO.getmyEstimate", vo);
+		}
+
 }

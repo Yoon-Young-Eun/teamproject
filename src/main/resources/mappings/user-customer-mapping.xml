@@ -5,10 +5,15 @@
 
 <mapper namespace="CustomerVO">
 
+<<<<<<< HEAD
 	<select id="getMember" resultType="customer"
 		parameterType="customer">
 		SELECT * FROM customer where customer_no =#{customer_no} and
 		customer_passwd=#{customer_passwd}
+=======
+	<select id="getMember" resultType="customer" parameterType="customer">
+		select * from customer where customer_id =#{customer_id} and customer_passwd=#{customer_passwd}
+>>>>>>> main
 	</select>
 
 	<insert id="insertMember" parameterType="customer" >
@@ -18,10 +23,32 @@
 	</insert>
 
 	<select id="idCheck" parameterType="String" resultType="int">
+<<<<<<< HEAD
 		SELECT COUNT(*) FROM customer where customer_no = #{customer_no}
 	</select>
 	<select id="getReadPhoneNum" resultType="customer">
 	<![CDATA[ select * from customer where customer_no=#{customer_no} ]]>
+=======
+		select count(*) from customer where customer_id = #{customer_id}
+	</select>
+	
+	
+	<!-- 내정보수정,탈퇴 -->
+	<select id="getCustomerInfo" parameterType="customer" resultType="customer">
+		<![CDATA[ select * from customer where customer_no=#{customer_no} ]]>
+	</select>
+	
+	<update id="updateCustomerInfo" parameterType="customer">
+		update customer set customer_passwd=#{customer_passwd}, customer_phone=#{customer_phone} where customer_no=#{customer_no}
+	</update>
+	
+	<delete id="deleteCustomer" parameterType="customer">
+		delete from customer where customer_no=#{customer_no}
+	</delete>
+	
+	<select id="pwCheck" parameterType="customer" resultType="int">
+		select count(*) from customer where customer_passwd=#{customer_passwd} and customer_no=#{customer_no}
+>>>>>>> main
 	</select>
 	
 </mapper>

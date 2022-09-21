@@ -166,6 +166,7 @@ public int getOrder_delivery_price() {
 public void setOrder_delivery_price(int order_delivery_price) {
 	this.order_delivery_price = order_delivery_price;
 }
+
 @Override
 public String toString() {
 	return "OrderVO [order_no=" + order_no + ", order_type=" + order_type + ", store_code=" + store_code
@@ -179,7 +180,10 @@ public String toString() {
 			+ order_address1 + ", order_address2=" + order_address2 + ", imp_uid=" + imp_uid + ", order_delivery_price="
 			+ order_delivery_price + "]";
 }
-   
-   
-   
+
+
+
+
 }
+
+  

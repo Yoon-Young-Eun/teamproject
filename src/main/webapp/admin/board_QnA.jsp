@@ -339,10 +339,10 @@
 <div class="popup_title"><h1>답변</h1>
 </div>
 <div class="customer_reply mg_top mg_btm">
-<div class="customer_reply_title">제목</div><div class="customer_reply_title_body">${QnAInfo_a.ADMIN_QnA_TITLE}</div>
+<div class="customer_reply_title">제목</div><div class="customer_reply_title_body">${QnAInfo_a.admin_qna_title}</div>
 </div>
 <div class="customer_reply mg_btm">
-<div class="customer_reply_title">내용</div><div class="customer_reply_content_body">${QnAInfo_a.ADMIN_QnA_CONTENT}</div>
+<div class="customer_reply_title">내용</div><div class="customer_reply_content_body">${QnAInfo_a.admin_qna_content}</div>
 </div>
 </div>
 <div class="end">
@@ -360,25 +360,25 @@
 <div class="customer_question_wrapper">
 <div class="customer_question">
 <div class="customer_question_title">제목</div>
-<div class="customer_question_title_body">${QnAInfo_a.BOARD_QnA_TITLE}</div>
+<div class="customer_question_title_body">${QnAInfo_a.board_qna_title}</div>
 </div>
 <div class="customer_question">
 <div class="customer_question_title_row">작성자</div>
-<div class="customer_question_name_body">${QnAInfo_a.CUSTOMER_ID}</div>
+<div class="customer_question_name_body">${QnAInfo_a.customer_no}</div>
 <!-- </div> -->
 <!-- <div class="customer_question"> -->
 <div class="customer_question_title_row">작성일</div>
-<div class="customer_question_date_body">${QnAInfo_a.BOARD_QnA_REG_DATE}</div>
+<div class="customer_question_date_body">${QnAInfo_a.board_qna_reg_date}</div>
 </div>
 <div class="customer_question">
 <div class="customer_question_title">내용</div>
 <div class="customer_question_content_body">
-${QnAInfo_a.BOARD_QnA_CONTENT}
+${QnAInfo_a.board_qna_content}
 </div>
 </div>
 <div class="customer_question">
 <div class="customer_question_title">첨부파일</div>
-<div class="customer_question_file_body"><img src="${QnAInfo_a.BOARD_QnA_FILEPATH}"></div>
+<div class="customer_question_file_body"><img src="${QnAInfo_a.board_qna_filepath}"></div>
 </div>
 </div>
 

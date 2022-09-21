@@ -9,6 +9,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,11 +30,10 @@ import com.semo.web.user.vo.OrderProductVO;
 import com.semo.web.user.vo.OrderVO;
 
 @Controller
-public class OrderController {
+public class OrderController<imp_uid> {
 
 	@Autowired
 	OrderService orderservice;
-	public AwsS3 awss3 = AwsS3.getInstance();
 
 	@RequestMapping(value = "/OrderAddress.do", method = RequestMethod.GET)
 	public String OrderAddress(CustomerVO vo, OrderVO vo1, Model model) {
@@ -100,7 +100,7 @@ public class OrderController {
 
 	@RequestMapping(value="/OrderGeneral.do",method=RequestMethod.GET)
 	//일반세탁 주문하기
-	public String OrderGeneral(OrderVO vo,Model model,DataSendVO vo2,OrderMtArrayVO vo4) {
+	public String OrderGeneral(OrderVO vo,Model model,DataSendVO vo2,OrderMtArrayVO vo4, CustomerVO cvo) {
 		
 	
 		List<OrderProductVO> vo6 = new ArrayList<OrderProductVO>();
@@ -130,6 +130,8 @@ public class OrderController {
 		System.out.println(vo);
 		model.addAttribute("arr",vo4);
 		model.addAttribute("OrderProduct",vo6);
+		model.addAttribute("CustomerInfo",orderservice.getReadCustomerInfo(cvo)); // 내가 추가
+		System.out.println("customerinfo"+cvo);
 		
 		
 		if(vo.getOrder_price() >= 20000) {
@@ -170,9 +172,10 @@ public class OrderController {
 		List<CouponListVO> CouponList = orderservice.OrderCoupon(vo);
 		model.addAttribute("couponList",CouponList);
 		System.out.println(CouponList);
+		
 		return "/pay/payCouponList.jsp";
 	}
-	@RequestMapping(value="/OrderInsert.do",method=RequestMethod.GET)
+	@RequestMapping(value="/OrderInsert.do", method=RequestMethod.GET)
 	public String  OrderInsert(OrderVO vo,OrderMtVO vo3 ,OrderMtArrayVO vo2) {
 		System.out.println("오더"+ vo);
 		System.out.println("오더MT"+vo3);
@@ -214,6 +217,8 @@ public class OrderController {
 
 	@RequestMapping(value="/Orderspecial.do")
 	public String Orderspecial(@RequestParam(name="file") MultipartFile[] file,Model model, EstimateVO vo,OrderVO vo2,Estimate_ImageVO vo1) throws IOException,SQLException{
+		
+		AwsS3 awss3 = AwsS3.getInstance();
 		
 		orderservice.Orderspecial(vo);
 		System.out.println(vo);

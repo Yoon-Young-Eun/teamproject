@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.semo.web.user.vo.CouponListVO;
 import com.semo.web.user.vo.CustomerVO;
 
 @Repository
@@ -22,6 +23,11 @@ public class CouponDAO {
 	public void insertBirthCoupon(int num) {
 		System.out.println("dao"+num);
 		  sqlTemplate.insert("CouponDAO.insertBirthCoupon", num);
+	}
+	
+	public void deleteEndDateCoupon(CouponListVO vo) {
+		System.out.println("DAO.deleteEndDateCoupon 실행");
+		sqlTemplate.delete("CouponDAO.deleteEndDateCoupon", vo);
 	}
 
 }

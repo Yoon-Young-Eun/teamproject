@@ -17,7 +17,7 @@
 	</insert>
 
 	<select id="idCheck" parameterType="String" resultType="int">
-		SELECT COUNT(*) FROM customer where customer_no = #{customer_no}
+		SELECT COUNT(*) FROM customer where customer_id = #{customer_id}
 	</select>
 	<select id="getReadPhoneNum" resultType="customer">
 	<![CDATA[ select * from customer where customer_no=#{customer_no} ]]>

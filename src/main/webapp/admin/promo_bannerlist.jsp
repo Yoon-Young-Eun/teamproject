@@ -316,10 +316,7 @@
 									<th col-index=3>배너이름</th>
 									<th col-index=4>첨부파일</th>
 									<th col-index=5>내용</th>
-									<th col-index=6>공개여부<select class="table-filter"
-										onchange="filter_rows()">
-											<option value="all"></option>
-									</select></th>
+									<th col-index=6>본문작성</th>
 									<th col-index=7>등록일</th>
 								</tr>
 							</thead>  
@@ -337,10 +334,10 @@
 										<td>
 										<c:choose> 
 											<c:when test="${banner.banner_usable == true}">
-												공개
+												작성완료
 											</c:when>  
 											<c:otherwise>
-												비공개
+												<input id="eventbutton" type="button" value="이벤트등록" onclick="window.location='/admin/board_event_write.jsp'" />
 											</c:otherwise> 
 										</c:choose> 
 										

@@ -119,7 +119,11 @@ public class MypageServiceImpl implements MypageService{
 	public int askcnt(CustomerVO customer) {
 		return dao.askcnt(customer);
 	}
-
+	
+	@Override
+	public int estimatecnt(PagingVO vo) {
+		return dao.estimatecnt(vo);
+	}
 	
 
 	//견적서
@@ -141,14 +145,14 @@ public class MypageServiceImpl implements MypageService{
 
 	//고객 견적서테이블
 	@Override
-	public List<EstimateVO> getmyEstimate(CustomerVO vo) {
-		return dao.getmyEstimate(vo);
+	public List<EstimateVO> getmyEstimate(PagingVO pvo) {
+		return dao.getmyEstimate(pvo);
 	}
 
-
-
-
-
+	@Override
+	public int getListCount(PagingVO pvo) {
+		return dao.getListCount(pvo);
+	}
 
 }
 

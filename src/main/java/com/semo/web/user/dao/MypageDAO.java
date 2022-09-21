@@ -119,7 +119,10 @@ public class MypageDAO {
 		int cnt3 = sql.selectOne("MypageVO.askcnt", customer);
 		return cnt3;
 	}
-
+	public int estimatecnt(PagingVO vo) {
+		int cnt4 = sql.selectOne("MypageVO.estimatecnt", vo);
+		return cnt4;
+	}
 
 	
 	
@@ -135,8 +138,11 @@ public class MypageDAO {
 			return sql.selectList("MypageVO.getEstimateImg",vo);
 		}
 
-		public List<EstimateVO> getmyEstimate(CustomerVO vo){
-			return sql.selectList("MypageVO.getmyEstimate", vo);
+		public List<EstimateVO> getmyEstimate(PagingVO pvo){
+			return sql.selectList("MypageVO.getmyEstimate", pvo);
+		}
+		public int getListCount(PagingVO pvo) {
+			return sql.selectOne("MypageVO.getListCount", pvo);
 		}
 
 }

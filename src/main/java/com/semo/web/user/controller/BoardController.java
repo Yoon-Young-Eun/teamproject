@@ -33,6 +33,7 @@ public class BoardController {
 		System.out.println(vo);
 		String event_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/event/";
 		EventVO vos =BoardService.getBoardEvent(vo);
+		System.out.println("vos"+ vos);
 		String filename = vos.getBoard_event_filepath().replace(event_filepath, "");
 		System.out.println("vos"+ vos);
 		model.addAttribute("event", vos);

@@ -90,8 +90,9 @@ public class Ad_EventController {
 	@RequestMapping("/getEvent.mdo")
    public String getEvent(EventVO vo, Model model) {
       System.out.println("글 상세 보기 처리");
+      System.out.println("vo"+vo);
       String event_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/event/";
-      EventVO vos=boardservice.getEvent(vo);
+      EventVO vos=boardservice.getEvent(vo); //getEvent 문제
       String filename = vos.getBoard_event_filepath().replace(event_filepath, "");
       System.out.println(vos);
       model.addAttribute("event", vos);

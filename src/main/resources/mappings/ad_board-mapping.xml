@@ -72,12 +72,15 @@
 	</delete>
 	
 	<select id="getBoardEvent" parameterType="board_event" resultType="board_event"> 
- 		<![CDATA[ select * from board_event where board_event_no=#{board_event_no} ]]>
+ 		<![CDATA[ select * from board_event where banner_no=#{banner_no} ]]>
 	</select>
 	
 	<select id="getEvent" parameterType="board_event" resultType="board_event"> 
- 		<![CDATA[ select * from board_event where banner_no=#{banner_no} ]]>
+ 		<![CDATA[ select * from board_event where board_event_no=#{board_event_no} ]]>
 	</select>
+	
+
+
 	
 	<select id="getBoardEventList" resultType="banner">
 	<![CDATA[ select * from banner where banner_no=#{banner_no} ]]>

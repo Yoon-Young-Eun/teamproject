@@ -151,12 +151,12 @@
 		</script>
 
 		<div class = "btn">
-   <a href="terms.jsp" class="action-button shadow animate blue">이전</a>
+   <a href="/getTerms.do" class="action-button shadow animate blue">이전</a>
    <a id="next" class="action-button shadow animate blue next">다음</a>
 </div>
 </form>
 
-<jsp:include page="../common/footer.jsp"/> 
+<jsp:include page="/common/footer.jsp"/> 
 
 </body>
 </html>

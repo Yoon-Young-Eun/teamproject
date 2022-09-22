@@ -64,8 +64,14 @@
 		select
 		count(*) from customer where customer_passwd=#{customer_passwd} and
 		customer_no=#{customer_no}
-		>>>>>>> main
+
 	</select>
 
+
+
+	<!-- 이용약관 불러오기 -->
+	<select id="getTerms" resultType="terms">
+		select * from terms where terms_type='회원가입'
+	</select>
 </mapper>
 

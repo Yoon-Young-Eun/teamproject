@@ -1,5 +1,7 @@
 package com.semo.web.user.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.semo.web.admin.vo.TermsVO;
 import com.semo.web.user.service.CoolSmsUser;
 import com.semo.web.user.service.CustomerService;
 import com.semo.web.user.vo.CustomerVO;
@@ -117,8 +120,13 @@ public class CustomerController {
 	
 	
 	//이용약관
-	@RequestMapping(value='/getTerms.do/', method=RequestMethod.GET)
+	@RequestMapping(value="/getTerms.do", method=RequestMethod.GET)
 	public String getTerms(TermsVO vo, Model m) {
-		System.out.println("vo가져오기"+vo);
+		System.out.println("vo가져오기");
+		
+		List<TermsVO> tvo = userservice.getTerms(vo);
+		m.addAttribute("tlist", tvo);
+		System.out.println("tvo"+tvo);
+		return "/views/terms.jsp";
 	}
 }

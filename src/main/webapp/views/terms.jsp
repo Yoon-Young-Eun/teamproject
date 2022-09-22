@@ -21,13 +21,35 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+<!-- 체크박스 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/admin/js/checkbox.js"></script>
+
+<script type="text/javascript">
+   
+    function agreeCheck(frm)
+    {
+    	console.log("dd");
+       if (frm.button1.disabled==true)
+    	   
+        frm.button1.disabled=false
+        
+       else
+        frm.button1.disabled=true
+       
+    }
+    
+</script>
 </head>
 <body>
 
-<jsp:include page="../common/header.jsp"/> 
+<jsp:include page="/common/header.jsp"/> 
 
 <div class = "progress-bar">
-	<div class = "progress-img"><img src="./resources/img/progress-1.png"></div>
+	<div class = "progress-img"><img src="/views/resources/img/progress-1.png"></div>
 	<div class = "progress-text">
 		<ul>
 			<li><b>이용약관</b></li>
@@ -37,20 +59,54 @@
 		</ul>
 	</div>
 </div>
-<c:forEach>
-<div class="content">
-	<input type="text" value="" id="terms_title">
-	<textarea rows="" cols=""></textarea>
-</div>
-</c:forEach>
 
-<div class = "btn">
-   <a href="terms.jsp" class="action-button shadow animate blue">이전</a>
-   <a href="certificate.jsp" class="action-button shadow animate blue">다음</a>
-</div>
+	<div class="yak">
+	<form action="/views/certificate.jsp">
+		<c:forEach var="t" items="${tlist}">
+			<div class="yak1">
+				<div class="yak2">
+					<div id="terms">${t.terms_title}[필수]				
+					<input type="button" value=" ▼ " onclick="showYak(this)" id="yakk33">
+					</div>
+					<div id="check_td">
+					동의<input type="checkbox" name="check" id="check" >
+					</div>
+				</div>
+				<div class="yak33" id="yak3">
+					<textarea>${t.terms_content}</textarea>
+				</div>
+			</div>
+		</c:forEach>
+		<div class="all_agree">
+				<div id="check_td" class="agree">
+				전체동의<input type="checkbox" id="check" name="check" class="allcheck" onClick="agreeCheck(this.form)"></div>
+		</div>
+
+		
+		<div class = "btn">
+   			<a href="/views/main.jsp" class="action-button shadow animate blue">이전</a>
+<!--    			<a href="/views/certificate.jsp" class="action-button shadow animate blue" id="button1" disabled>다음</a> -->
+<input type="submit" id="button1" value="확인" class="action-button shadow animate blue"
+									 disabled></input></form>
+									 
+		</div> 
+	</div>
+
+	<script>
+		function showYak(e) {
+			console.log(e.parentNode.parentNode.parentNode.childNodes[3].childNodes[1]);
+
+			if (e.parentNode.parentNode.parentNode.childNodes[3].childNodes[1].style.display === 'block') {
+				e.parentNode.parentNode.parentNode.childNodes[3].childNodes[1].style.display = 'none';
+			} else {
+				e.parentNode.parentNode.parentNode.childNodes[3].childNodes[1].style.display = 'block';
+			}
+
+		}
+	</script>
 
 
-<jsp:include page="../common/footer.jsp"/> 
+<jsp:include page="/common/footer.jsp"/> 
 </body>
 
 </html>

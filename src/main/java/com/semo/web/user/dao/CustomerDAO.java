@@ -1,8 +1,11 @@
 package com.semo.web.user.dao;
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.semo.web.admin.vo.TermsVO;
 import com.semo.web.user.vo.CustomerVO;
 
 @Repository
@@ -40,5 +43,12 @@ public class CustomerDAO {
 	public CustomerVO matchPasswd(CustomerVO vo) {
 		return sql.selectOne("CustomerVO.matchPasswd", vo);
 	}
+	
+	
+	//이용약관불러오기
+	public List<TermsVO> getTerms(TermsVO vo){
+		return sql.selectList("CustomerVO.getTerms", vo);
+	}
+
 	
 }

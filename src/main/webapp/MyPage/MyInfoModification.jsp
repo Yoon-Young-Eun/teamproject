@@ -34,6 +34,7 @@
 			</div>
 			
 			<form action="/updateCustomer.do" method="post" name="UpdateForm">
+			<input type="hidden" name="customer_no" value="${info.customer_no}">
 			<div class="main_text">
 				<div class="MyInfo_title">
 					<h1>내 정보 수정</h1>
@@ -45,7 +46,7 @@
 					<table class="tableWrap">
 						<tbody class="personalInfo">
 							<tr>
-								<input type="hidden" name="customer_no" value="${info.customer_no}">
+								
 								<th class="tableNumber">이메일</th>
 								<td class="tableTitle">${info.customer_id }</td>
 							</tr>

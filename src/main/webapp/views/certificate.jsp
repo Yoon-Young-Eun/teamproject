@@ -76,11 +76,16 @@
 		<script type="text/javascript">
 			let che=false;
 			let code2 = "";
+			$("#phone").on("change keyup",function(){
+				
+				$("#phone").val($("#phone").val().replace(/[^0-9]/g, '')
+						  .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, ""))
+			})
 			$("#phoneChk").click(
 					function() {
 						var phone = $("#phone").val();
 						if (/^([0-8]).{0,20}$/.test(phone)
-								&& phone.length == 11) {
+								&& phone.length == 13) {
 							alert("인증번호 발송이 완료되었습니다.\n휴대폰에서 인증번호 확인을 해주십시오.");
 							$.ajax({
 								type : "GET",
@@ -131,7 +136,7 @@
 				if($("#next").hasClass("next")){
 					alert("본인인증을 해주세요");
 					if(!(/^([0-8]).{0,20}$/.test($("#phone").val().trim())
-							&& phone.length == 11) ){
+							&& phone.length == 13) ){
 						console.log("ㅋㅋㅋ",$("#phone"));
 						$("#phone").focus();
 					}if(che){

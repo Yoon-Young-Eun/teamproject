@@ -43,6 +43,10 @@
 	
 	</select>
 	
+	<delete id="deleteCoupon" parameterType="CouponList">
+	<![CDATA[delete from coupon_management where coupon_code=#{coupon_code}]]>
+	</delete>
+	
 	
 	
  	<insert id="OrderInsert1" parameterType="orderManagement">

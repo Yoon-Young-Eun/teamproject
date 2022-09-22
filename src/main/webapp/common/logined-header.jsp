@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%session.getAttribute("access_Token");  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,9 +30,9 @@
       <form action="/logout.do" name = "logoutForm" method = "post">
       <nav class = "top-menu">
          <ul class = "top-list">
-         	<li><a href = "/views/main.jsp">메인으로</a></li>
+         	<li><a href = "/views/main.jsp?">메인으로</a></li>
             <li><button id = "logout" class = "logout" type="submit">로그아웃</button></li>
-            <li><a href = "/mypage.do?customer_no=${num}">마이페이지</a></li>
+            <li><a href = "/mypage.do?customer_no=${num}&userInfo=${K}">마이페이지</a></li>
             <li><a href = "/service/serviceMain.jsp">고객센터</a></li>
          </ul>
       </nav>

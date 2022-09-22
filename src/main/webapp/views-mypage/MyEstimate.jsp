@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SEMO</title>
+<title>[세모]세탁의 모든것</title>
 
 <!-- font awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
@@ -109,7 +109,12 @@
 				</div>
 								
 			</div><!-- order-item-wrapper -->
+		<div class="btn">
+			<button id="btn" class="action-button shadow animate blue">결제</button>
+			<button id="btn_c" class="action-button shadow animate red">취소</button>
+		</div>
 	</div> <!-- content-wrapper -->
+	
 </div>	<!-- page-wrapper -->	
 
 </body>

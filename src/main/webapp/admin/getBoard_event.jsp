@@ -384,6 +384,7 @@
 													</c:otherwise>
 												</c:choose>
 											</div></li>
+<<<<<<< HEAD
 									
 										<li style="display: flex; margin-top: 5px;"><span class="title">첨부파일</span>&nbsp;&nbsp;
 											<div class="filebox">
@@ -400,6 +401,9 @@
 											
 										
 										
+=======
+
+>>>>>>> main
 									</ul>
 								</div>
 								<div class="end">

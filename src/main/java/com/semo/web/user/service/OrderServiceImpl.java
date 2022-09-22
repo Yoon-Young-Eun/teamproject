@@ -106,4 +106,10 @@ public class OrderServiceImpl implements OrderService {
 		orderdao.OrderOrder(vo);	
 	}
 
+	@Override
+	public void deleteCoupon(CouponListVO cou) {
+		orderdao.deleteCoupon(cou);
+		
+	}
+
 }

@@ -1,6 +1,9 @@
 package com.semo.web.user.controller;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.semo.web.user.service.CustomerService;
 import com.semo.web.user.service.InfoService;
 import com.semo.web.user.vo.CustomerVO;
 
@@ -19,6 +21,10 @@ public class InfoController {
 	@Autowired
 	InfoService infoservice;
 	
+	@Resource(name="bcryptPasswordEncoder")
+	BCryptPasswordEncoder encoder;
+	
+	
 	//회원정보 수정 - 정보 불러오기
 	@RequestMapping(value="/getCustomer.do")
 	public String getCustomerInfo(CustomerVO vo, Model model) {
@@ -26,7 +32,8 @@ public class InfoController {
 		model.addAttribute("id", vo.getCustomer_no());
 		CustomerVO cvo = infoservice.getCustomerInfo(vo);
 		System.out.println(cvo);
-		model.addAttribute("info", cvo);
+		model.addAttribute("pw", vo); // 앞에서 받은 사용자 입력 passwd를 모델로 보내서 화면에 출력함(이거안하면 사용자는 수십자 되는 암호화 비번을 마주하게됨)
+		model.addAttribute("info", cvo); //회원번호로 리턴받은 DB정보
 		return "/MyPage/MyInfoModification.jsp";
 	}
 	
@@ -67,12 +74,23 @@ public class InfoController {
 	      System.out.println("pwCheck");
 		  System.out.println("야야야"+vo+"&"+pw);
 		  model.addAttribute("in",vo);
-		  vo.setCustomer_passwd(pw);
-		  System.out.println("결과값"+vo);
-		  int result = infoservice.pwCheck(vo);
-		  System.out.println(result);
-
 		  
+		  //입력한 비밀번호와 DB에 암호화된 비밀번호를 비교하기 위해,  getCustomerInfo()사용하요 vo2에 저장 
+		  CustomerVO vo2 = infoservice.getCustomerInfo(vo);
+		  System.out.println("vo.pass : "+ vo.getCustomer_passwd()); //입력한 비밀번호
+		  System.out.println("vo2.pass : "+ vo2.getCustomer_passwd()); //DB에 있는 암호화된 비밀번호
+		 
+		  int result = 0;
+		  
+		  if(encoder.matches(pw, vo2.getCustomer_passwd())) {
+			System.out.println("비밀번호 일치!");  
+			result = 1; 
+		  }
+			
+//		  vo.setCustomer_passwd(pw);
+//		  System.out.println("결과값"+vo);
+//		  int result = infoservice.pwCheck(vo);
+		  System.out.println(result);
 		  return result; 
 		  }
 		 

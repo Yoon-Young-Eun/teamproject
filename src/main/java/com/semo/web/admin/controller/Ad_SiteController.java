@@ -269,7 +269,7 @@ public class Ad_SiteController {
 		
 		int index = bringData.getBanner_filepath().indexOf("/", 20);
 		String key = bringData.getBanner_filepath().substring(index+1);
-		
+		System.out.println("key :           "+key);
 		if(!uploadImg.getOriginalFilename().equals("")) {
 			if(!key.equals("banner/" + uploadImg)) {
 				awss3.delete(key);

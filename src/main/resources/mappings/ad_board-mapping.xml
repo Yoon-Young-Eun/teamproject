@@ -82,8 +82,8 @@
 
 
 	
-	<select id="getBoardEventList" resultType="banner">
-	<![CDATA[ select * from banner where banner_no=#{banner_no} ]]>
+	<select id="getBoardEventList" resultType="board_event">
+	<![CDATA[ select * from board_event order by board_event_no desc]]>
 	</select>
 	
 	

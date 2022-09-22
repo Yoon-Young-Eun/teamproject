@@ -131,7 +131,7 @@ public class Ad_EventController {
 		String bucket2 = "semoproject/event";
 
 		awss3.upload(is2, key2, contentType2, contentLength2, bucket2);
-		String banner_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/event/" + key;
+		String banner_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/event/" + key2;
 		vo.setBanner_filepath(banner_filepath);
 		
 		boardservice.insertEvent(vo);

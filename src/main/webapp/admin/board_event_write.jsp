@@ -378,7 +378,8 @@
 												<div class="filebox">
 											<label for="ex_filename2">파일 선택</label> <input type="file"
 												id="ex_filename2" class="upload-hidden" name="banner"
-												accept="image/*" onchange="setThumbnail(event);" /> 
+												accept="image/*" />
+<!-- 												onchange="setThumbnail(event);" />  -->
 												<input class="upload-name" value="" disabled="disabled">
 										</div></li>
 
@@ -389,7 +390,8 @@
 												class="title">이벤트</span>&nbsp;&nbsp;
 												<div class="filebox">
 													<label for="ex_filename">파일 선택</label> <input type="file"
-														id="ex_filename" name="EventFile" class="upload-hidden" onchange="setThumbnail2(event);" >
+														id="ex_filename" name="EventFile" class="upload-hidden" >
+<!-- 														 onchange="setThumbnail2(event);" > -->
 													<input class="upload-name" value="" disabled="disabled">
 												</div></li>
 											

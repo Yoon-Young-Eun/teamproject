@@ -20,8 +20,8 @@ public class BoardController {
 
 	@RequestMapping(value="/getBoardEventList.do", method=RequestMethod.GET)
 	public String getBoardEventList(Model model) {
-		System.out.println("admin storeList()");
-		List<BannerVO> EventList = BoardService.getBoardEventList();
+		System.out.println("admin eventList()");
+		List<EventVO> EventList = BoardService.getBoardEventList();
 		model.addAttribute("EventList", EventList);
 		System.out.println("asdadas"+EventList);
 		return "/service/serviceEventlist.jsp";

@@ -66,7 +66,7 @@
  					if (result == 0) {
  						alert("비밀번호가 일치하지 않습니다.");
  					} else if (result == 1) {
- 						location.href="/getCustomer.do?customer_no=${num}";
+ 						location.href="/getCustomer.do?customer_no=${num}&customer_passwd="+pw;
 					}
 				}
  			});

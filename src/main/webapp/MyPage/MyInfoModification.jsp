@@ -52,7 +52,7 @@
 							<tr>
 								<th class="tableNumber">비밀번호</th>
 								<td class="tableTitle"><label for="insertPw">
-								<input type="password" id="insertPw" class="inputBox" name = "customer_passwd" value="${info.customer_passwd}" /></label>
+								<input type="password" id="insertPw" class="inputBox" name = "customer_passwd" value="${pw.customer_passwd}" /></label>
 								 <span class="text">비밀번호는 8자리 이상이며, 숫자와 영문, 특수문자(@,!,#,$,%)를
 										혼용해서 입력해주세요.</span> <span id="pwCorrection"></span> <script>
 									
@@ -63,7 +63,7 @@
 							<tr>
 								<th class="tableNumber">비밀번호 확인</th>
 								<td class="tableTitle"><label for="checkPw">
-								<input type="password" id="checkPw" class="inputBox" value="${info.customer_passwd}" /></label> 
+								<input type="password" id="checkPw" class="inputBox" value="${pw.customer_passwd}" /></label> 
 										<span class="text">입력하신 비밀번호를 확인합니다.</span> <span id="pwChecking"></span>
 									</td>
 							</tr>

@@ -1,8 +1,10 @@
 package com.semo.web.user.controller;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,16 +17,17 @@ import com.semo.web.user.service.CustomerService;
 import com.semo.web.user.vo.CustomerVO;
 import com.semo.web.user.vo.OrderVO;
 
-
-
 @Controller
 public class CustomerController {
-	
+
 	@Autowired
 	CustomerService userservice;
 
 	@Autowired
 	CoolSmsUser coolsms;
+
+	@Resource(name = "bcryptPasswordEncoder") // Autowired와 유사
+	BCryptPasswordEncoder encoder; // 암호화 클래스
 
 	// 로그인
 	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
@@ -33,13 +36,17 @@ public class CustomerController {
 		System.out.println(vo);
 		System.out.println("login method");
 
-		CustomerVO vo2 = userservice.getMember(vo);
+		// CustomerVO vo2 = userservice.getMember(vo); 기존의 메서드는 아이디 비번을 모두 비교하기에 사용이 적합하지 않음
 		System.out.println(userservice.getMember(vo));
-		
+		// 입력한 ID를 통해 DB에 저장되어있는 암호화된 passwd를 포함한 회원정보를 가져옴
+		CustomerVO vo2 = userservice.matchPasswd(vo);
+		System.out.println("vo2" + vo2);
 		model.addAttribute("user", vo2);
 		model.addAttribute("id", vo2);
 		System.out.println(vo2);
-		if (vo2 != null) {
+
+		// 복호화 비교(DB에 저장된 암호화된 passwd과 사용자가 입력한 passwd를 matches()메서드를 통해 동일 여부 확인
+		if (encoder.matches(vo.getCustomer_passwd(), vo2.getCustomer_passwd())) {
 			System.out.println("로그인!");
 			model.addAttribute("user", vo2);
 			session.setAttribute("user_name", vo2.getCustomer_name());
@@ -51,8 +58,7 @@ public class CustomerController {
 			System.out.println("로그인 실패");
 			return "/views/login.jsp";
 		}
-		
-		
+
 	}
 
 	// 로그아웃
@@ -76,33 +82,36 @@ public class CustomerController {
 
 		return result;
 	}
-	
-	
-	//본인인증
-	@RequestMapping(value= "/phoneCheck.do", method=RequestMethod.GET)
+
+	// 본인인증
+	@RequestMapping(value = "/phoneCheck.do", method = RequestMethod.GET)
 	@ResponseBody
 	public String sendSMS(@RequestParam("phone") String userPhoneNumber) {
-		//휴대폰 문자보내기
-		int randomNumber = (int)((Math.random()* (9999-1000+1))+1000); //난수생성
+		// 휴대폰 문자보내기
+		int randomNumber = (int) ((Math.random() * (9999 - 1000 + 1)) + 1000); // 난수생성
 		System.out.println(randomNumber);
 		coolsms.certifiedPhoneNumber(userPhoneNumber, randomNumber);
-		
-		return Integer.toString(randomNumber);		
+
+		return Integer.toString(randomNumber);
 	}
-	
-	
 
 	// 회원가입 완료 페이지 이동
 	@RequestMapping(value = "/complete.do", method = RequestMethod.GET)
 	public String join(CustomerVO vo, HttpSession session, Model model) {
-		System.out.println(vo);
 		System.out.println("join check");
-		userservice.insertMember(vo);
-		model.addAttribute("user", vo.getCustomer_name());
-		System.out.println(vo.getCustomer_name());
+		System.out.println(vo);
+		
+		//입력한 회원가입 정보를 vo2에 저장
+		CustomerVO vo2 = vo;
+		//vo2의 passwd() 메서드에 인코딩(암호화)한 passwd를 저장
+		vo2.setCustomer_passwd(encoder.encode(vo.getCustomer_passwd()));
+		System.out.println("암호회된 vo2"+vo2);
+		
+		//암호화된 passwd를 회원가입 정보에 입력
+		userservice.insertMember(vo2);
+		model.addAttribute("user", vo2.getCustomer_name());
+		System.out.println(vo2.getCustomer_name());
 		return "/views/complete.jsp";
 	}
-	
-	
 
 }

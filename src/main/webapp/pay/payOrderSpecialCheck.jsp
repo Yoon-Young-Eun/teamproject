@@ -21,7 +21,7 @@
 <div class="wrap">
     <div class="wrap1">
     
-    <jsp:include page="/common/header.jsp"></jsp:include>
+    <jsp:include page="/common/logined-header.jsp"></jsp:include>
     
     
     <div class="main">

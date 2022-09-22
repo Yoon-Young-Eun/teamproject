@@ -28,7 +28,7 @@
 	</select>
 	
 	<select id="selectTerms" resultType="terms">
-	<![CDATA[select * from terms where terms_type=2]]>
+	<![CDATA[select * from terms where terms_type='결제']]>
 	</select>
 
 	<insert id="OrderInsert" parameterType="ORDER">

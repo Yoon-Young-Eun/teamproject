@@ -42,7 +42,7 @@
 <!-- 이벤트 -->
 
 	<select id="getEventList" resultType="board_event" parameterType="paging">
-		<![CDATA[ select * from (select @rownum := @rownum+1 as rnum, board_event_no, board_event_title, board_event_content, board_event_filepath, banner_no, board_event_reg_date from board_event, (select @rownum :=0)as rowcolum]]>
+		<![CDATA[ select * from (select @rownum := @rownum+1 as rnum, board_event_no, board_event_title, board_event_content, board_event_filepath, banner_no, banner_filepath, board_event_reg_date from board_event, (select @rownum :=0)as rowcolum]]>
 		<if test="searchCondition=='board_event_title'">
     		<![CDATA[where board_event_title like concat('%', #{searchKeyword}, '%') ]]></if>
     		<if test="searchCondition=='board_event_content'">
@@ -59,8 +59,8 @@
 	</select>
 
 	<insert id="insertEvent" parameterType="board_event">
-		<![CDATA[ insert into board_event(board_event_title, board_event_content, banner_no, board_event_filepath) 
-		values (#{board_event_title}, #{board_event_content}, #{banner_no}, #{board_event_filepath}) ]]>
+		<![CDATA[ insert into board_event(board_event_title, board_event_content, banner_no, banner_filepath, board_event_filepath) 
+		values (#{board_event_title}, #{board_event_content}, #{banner_no}, #{banner_filepath}, #{board_event_filepath}) ]]>
 	</insert>
 
 	<update id="updateEvent" parameterType="board_event">

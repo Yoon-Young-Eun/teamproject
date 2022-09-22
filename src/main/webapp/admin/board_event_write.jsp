@@ -15,6 +15,7 @@
 <script type="text/javascript" src="/admin/js/index_navbar_onclick.js"></script>
 <!-- <-게시판 css -->
 <link rel="stylesheet" href="/admin/css/board.css" />
+<link rel="stylesheet" href="/admin/css/board_event_write.css" />
 
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
@@ -371,23 +372,29 @@
 												placeholder="배너번호를 입력해주세요" value=" " name="banner_no"
 												class="ban" /></li>
 
+											
+												
+											<li style="display: flex; margin-top: 15px;"><span class="title">배너</span>&nbsp;&nbsp;												
+												<div class="filebox">
+											<label for="ex_filename2">파일 선택</label> <input type="file"
+												id="ex_filename2" class="upload-hidden" name="banner"
+												accept="image/*" onchange="setThumbnail(event);" /> 
+												<input class="upload-name" value="" disabled="disabled">
+										</div></li>
+
+										<div id="image_container"></div>
+												
+											
 											<li style="display: flex; margin-top: 15px;"><span
-												class="title">첨부파일</span>&nbsp;&nbsp;
+												class="title">이벤트</span>&nbsp;&nbsp;
 												<div class="filebox">
 													<label for="ex_filename">파일 선택</label> <input type="file"
-														id="ex_filename" name="EventFile" class="upload-hidden">
+														id="ex_filename" name="EventFile" class="upload-hidden" onchange="setThumbnail2(event);" >
 													<input class="upload-name" value="" disabled="disabled">
 												</div></li>
+											
+												<div id="image_container2"></div>
 
-											<div class="open_set">
-												<li><span class="title">공개설정</span>&nbsp; <input
-													type="radio" name="open" id="open_0"> <label
-													for="open_0">전체공개</label>&nbsp;&nbsp; <input type="radio"
-													name="open" id="open_1"> <label for="open_1">회원만
-														공개</label>&nbsp;&nbsp; <input type="radio" name="open" id="open_2">
-													<label for="open_2">비공개</label>
-											</div>
-											</li>
 										</ul>
 									</div>
 									<div class="end">
@@ -403,8 +410,7 @@
 							</form>
 						</div>
 
-						<!-- <div class="card-footer small text-muted">Updated yesterday
-							at 11:59 PM</div> -->
+
 					</div>
 
 				</div>

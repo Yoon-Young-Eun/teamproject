@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.semo.web.admin.service.BoardService;
+import com.semo.web.admin.service.SiteService;
 import com.semo.web.admin.vo.EventVO;
 import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.amazon.s3.AwsS3;
@@ -108,7 +109,7 @@ public class Ad_EventController {
 
 
 	@RequestMapping("/EventUpload.mdo")
-	public String EventUpload(EventVO vo, MultipartFile EventFile) throws IOException, SQLException {
+	public String EventUpload(EventVO vo, MultipartFile EventFile, MultipartFile banner) throws IOException, SQLException {
 		// aws s3 파일 업로드 처리 */
 		AwsS3 awss3 = AwsS3.getInstance(); 
 		InputStream is = EventFile.getInputStream();
@@ -121,14 +122,25 @@ public class Ad_EventController {
 		awss3.upload(is, key, contentType, contentLength, bucket);
 		String event_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/event/" + key;
 		vo.setBoard_event_filepath(event_filepath);
+		
+		InputStream is2 = banner.getInputStream();
+		String key2 = banner.getOriginalFilename();
+		String contentType2 = banner.getContentType();
+		long contentLength2 = banner.getSize();
+		
+		String bucket2 = "semoproject/event";
 
+		awss3.upload(is2, key2, contentType2, contentLength2, bucket2);
+		String banner_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/event/" + key;
+		vo.setBanner_filepath(banner_filepath);
+		
 		boardservice.insertEvent(vo);
 
 		return "redirect:/getEventList.mdo";
 	}
 
 	@RequestMapping(value="/updateEvent.mdo")
-	public String updateEvent(EventVO vo, MultipartFile uploadImg) throws SQLException, IOException{
+	public String updateEvent(EventVO vo, MultipartFile uploadImg, MultipartFile uploadImg2) throws SQLException, IOException{
 		AwsS3 awss3 = AwsS3.getInstance();
 		System.out.print(vo);
 		System.out.println(uploadImg);
@@ -159,6 +171,29 @@ public class Ad_EventController {
 		}else {
 			bringData.setBoard_event_filepath(bringData.getBoard_event_filepath());
 		}
+		
+		if(!uploadImg2.getOriginalFilename().equals("")) {
+			if(!key.equals("event/" + uploadImg2)) {
+				awss3.delete(key);
+
+				InputStream is = uploadImg2.getInputStream();
+				String uploadKey = uploadImg2.getOriginalFilename();
+				String contentType = uploadImg2.getContentType();
+				long contentLength = uploadImg2.getSize();
+
+				String bucket = "semoproject/event";
+
+				awss3.upload(is, uploadKey, contentType, contentLength, bucket);
+
+				String banner_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/event/" + uploadKey;
+				bringData.setBanner_filepath(banner_filepath);
+			}else {
+				bringData.setBanner_filepath(bringData.getBanner_filepath());
+			}
+		}else {
+			bringData.setBanner_filepath(bringData.getBanner_filepath());
+		}
+		
 		bringData.setBoard_event_title(vo.getBoard_event_title());
 		bringData.setBoard_event_content(vo.getBoard_event_content());
 		boardservice.updateEvent(bringData);
@@ -192,7 +227,12 @@ public class Ad_EventController {
 
 				int index = bringData.getBoard_event_filepath().indexOf("/", 20);
 				String key = bringData.getBoard_event_filepath().substring(index+1);
+				
+				int index2 = bringData.getBanner_filepath().indexOf("/", 20);
+				String key2 = bringData.getBanner_filepath().substring(index2+1);
+				
 				awss3.delete(key);
+				awss3.delete(key2);
 
 				boardservice.deleteEvent(vo.getBoard_event_no());
 			}
@@ -208,7 +248,12 @@ public class Ad_EventController {
 
 		int index = bringData.getBoard_event_filepath().indexOf("/", 20);
 		String key = bringData.getBoard_event_filepath().substring(index+1);
+		
+		int index2 = bringData.getBoard_event_filepath().indexOf("/", 20);
+		String key2 = bringData.getBoard_event_filepath().substring(index2+1);
+		
 		awss3.delete(key);
+		awss3.delete(key2);
 
 		System.out.println("글 삭제 처리"); 
 		boardservice.deleteEvent(bringData); 

@@ -16,7 +16,7 @@
 <script type="text/javascript" src="/admin/js/index_navbar_onclick.js"></script>
 
 <!-- <-게시판 css -->
-<link rel="stylesheet" href="/admin/css/board.css" />
+<link rel="stylesheet" href="/admin/css/getBoard_event.css" />
 
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
@@ -358,34 +358,48 @@
 								<ul class="title_wrap">
 									<li><span class="title">제목</span>${event.board_event_title }</li>
 								</ul>
-								<div id="summer" class="writeWrap" name="board_event_content">${event.board_event_content}</div>
+								<ul class="title_wrap">
+								<li class="flex"><span class="title">내용</span>${event.board_event_content}<li>
+								</ul>
+								<ul>
+								<li class="banner_img"><img class="banner_img_img" src="${event.banner_filepath}"></li>
+								</ul>
+								
+								<div><ul class="event_img">
+								<li><img class="event_img_img" src="${event.board_event_filepath}"></li>
+								</ul></div>
+								
 								<div class="configWrap">
 									<ul>
-										<li><span class="title">배너번호</span>&nbsp;
-											${event.banner_no}</li>
-
-										<li style="display: flex; margin-top: 5px;"><span class="title">첨부파일</span>&nbsp;&nbsp;
+									
+									<li style="display: flex; margin-top: 5px;">
+											<span class="title">첨부파일</span>&nbsp;&nbsp;
 											<div class="filebox">
 												<c:choose>
-													<c:when
-														test="${event.board_event_filepath eq 'https://semoproject.s3.ap-northeast-2.amazonaws.com/event/'}">
-                                    파일없음
-                                 </c:when>
+													<c:when test="${event.banner_filepath eq 'https://semoproject.s3.ap-northeast-2.amazonaws.com/event/'}">
+					                                    파일없음
+					                                 </c:when>
 													<c:otherwise>
-														<a href="${event.board_event_filepath}" target="_blank">파일보기(${filename})</a>
+														배너(<a href="${event.banner_filepath}" target="_blank">${filename}</a>)
 													</c:otherwise>
 												</c:choose>
 											</div></li>
-
-										<li>
-											<div class="open_set">
-												<span class="title">공개설정</span>&nbsp; <input type="radio"
-													name="open" id="open_0"> <label for="open_0">전체공개</label>&nbsp;&nbsp;
-												<input type="radio" name="open" id="open_1"> <label
-													for="open_1">회원만 공개</label>&nbsp;&nbsp; <input type="radio"
-													name="open" id="open_2"> <label for="open_2">비공개</label>
-											</div>
-										</li>
+									
+										<li style="display: flex; margin-top: 5px;"><span class="title">첨부파일</span>&nbsp;&nbsp;
+											<div class="filebox">
+												<c:choose>
+													<c:when test="${event.board_event_filepath eq 'https://semoproject.s3.ap-northeast-2.amazonaws.com/event/'}">
+					                                    파일없음
+					                                 </c:when>
+													<c:otherwise>
+														이벤트(<a href="${event.board_event_filepath}" target="_blank">${filename}</a>)
+													</c:otherwise>
+												</c:choose>
+											</div></li>
+											
+											
+										
+										
 									</ul>
 								</div>
 								<div class="end">

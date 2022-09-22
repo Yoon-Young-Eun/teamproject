@@ -11,7 +11,7 @@
 <!-- font awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 <!-- resources -->
-<link rel="stylesheet" href="/views-mypage/resources/css/MyCoupon.css"/>
+<link rel="stylesheet" href="/views-mypage/resources/css/MyreviewList.css"/>
 <link rel="stylesheet" href="/common/css/header.css"/>
 <link rel="stylesheet" href="/common/css/button.css"/>
 <link rel="stylesheet" href="/common/css/footer.css"/>
@@ -41,7 +41,7 @@
 			</div>
 			<!-- 소제목 -->
 			<div class = "content-subtitle-wrapper">
-				<p>총 <b>${cnt2}</b>개의 리뷰</p>		
+				<p>총 <b>${count}</b>개의 리뷰</p>		
 				<!-- 검색창 --> 
 				<div class = "searchbar-wrapper">
 					 <!-- 분류 -->
@@ -55,29 +55,59 @@
 			<table>
 				<thead class = "order-body-title">
 					<tr>
-						<th class = "num-title" style = "width : 33%;">번호</th>
-						<th class = "num-title" style = "width : 33%;">제목</th>
-						<th class = "content-content-title" style = "width : 33%;">날짜</th>
-						<th class = "address-title" style = "width : 33%;">비고</th>
+						<th class = "num-title" style = "width : 25%;">별점</th>
+						<th class = "num-title" style = "width : 25%;">제목</th>
+						<th class = "num-title" style = "width : 25%;">내용</th>
+						<th class = "content-content-title" style = "width : 25%;">날짜</th>
+					
 					</tr>
 				</thead>
 				
 				<tbody class = "order-body-content">	
-					<c:forEach var="couponlist" items="${couponlist}">
+					<c:forEach var="myreviewList" items="${myReviewList}">
 					<tr style = "border-bottom : 1px solid #cdcdcd;">
-						<td class = "num-content" style = "width : 33%; text-align : center;">${couponlist.coupon_management_name}</td>
-						<td class = "content-content" style = "width : 33%; text-align : center;">${couponlist.coupon_management_price}</td>
-						<td class = "address-content" style = "width : 33%; text-align : center;">${couponlist.coupon_management_start_date} - ${couponlist.coupon_management_end_date}</td>
+						<td class = "num-content" id="star" style = "width : 33%; text-align : center;">${myreviewList.board_review_rating}</td>
+						<td class = "num-content" style = "width : 33%; text-align : center;">${myreviewList.board_review_title}</td>
+						<td class = "content-content" style = "width : 33%; text-align : center;">${myreviewList.board_review_content}</td>
+						<td class = "address-content" style = "width : 33%; text-align : center;">${myreviewList.board_review_reg_date }</td>
 					</tr>
 					</c:forEach>
 				</tbody>
 			</table>
+			
+			<!-- pagaing 처리 -->
+						<div class = "paging-wrapper">					
+							<c:if test="${count > 0}">
+								<div class="paging">
+							    <div class="paging-text">
+								<c:if test="${startPage > pageBlock}"> <!-- 시작번호가 5보다 크면, 앞에 '이전'을 붙여줌 -->
+									<a href="/myReview.do?pageNum=${startPage-pageBlock}&customer_no=${num}"><i class="fas fa-chevron-left"></i></a>
+								</c:if>
+								</div>
+								<div class="paging-num">
+								<c:forEach var="i" begin="${startPage}" end="${endPage}">
+										<a href="/myReview.do?pageNum=${i}&customer_no=${num}">${i}</a>
+								</c:forEach>
+								</div>							
+								<div class="paging-text">
+								<c:if test="${endPage < pageCount}">
+									<a href="/myReview.do?pageNum=${startPage + pageBlock}&customer_no=${num}"><i class="fas fa-chevron-right"></i></a>
+								</c:if>
+								</div>
+								</div>
+							</c:if>
+						</div>
+						<!-- 페이징 종료 -->
+			
 		</div><!-- order-wrapper -->
 	</div><!-- content-title-wrapper -->
 	
 	
 </div><!-- content-wrapper -->	
 </div>
+
+
+
 
 </body>
 </html>

@@ -38,7 +38,7 @@ public class CustomerController {
 
 		System.out.println(vo);
 		System.out.println("login method");
-
+		
 		// CustomerVO vo2 = userservice.getMember(vo); 기존의 메서드는 아이디 비번을 모두 비교하기에 사용이 적합하지 않음
 		System.out.println(userservice.getMember(vo));
 		// 입력한 ID를 통해 DB에 저장되어있는 암호화된 passwd를 포함한 회원정보를 가져옴

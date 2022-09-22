@@ -1,23 +1,19 @@
 package com.semo.web.user.controller;
 
 import java.util.Collections;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.activation.CommandMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.semo.web.admin.vo.Ad_EstimateVO;
-import com.semo.web.admin.vo.AdminVO;
 import com.semo.web.admin.vo.PagingVO;
+import com.semo.web.admin.vo.ReviewVO;
 import com.semo.web.admin.vo.StoreVO;
 import com.semo.web.user.service.MypageService;
 import com.semo.web.user.vo.AddressListVO;
@@ -382,6 +378,63 @@ public class MypageController {
     		int cnt4 = service.estimatecnt(pvo);
     		m.addAttribute("cnt4", cnt4);
        return "/views-mypage/MyEstimatelist.jsp";
+    }
+    
+    //마이페이지 -> 내 리뷰관리 
+    @RequestMapping(value="/myReview.do")
+    public String myReview(PagingVO vo,ReviewVO vo1,Model model) {
+    	System.out.println("고객정보내놔"+vo);
+   	
+    	
+    	if (vo.getPageNum() == null) {
+    		vo.setPageNum("1");
+	       }
+	      
+	      System.out.println(vo.getSelectPage());
+	      if (vo.getSelectPage()==null ) {
+	    	  vo.setSelectPage("5");
+	      }
+	       int pageSize = Integer.parseInt(vo.getSelectPage());
+	       int currentPage = Integer.parseInt(vo.getPageNum()); 
+	       vo.setStartRow((currentPage -1)* pageSize +1);
+	       vo.setEndRow(currentPage * pageSize);
+	       int count =0; 
+ 
+	    	count = service.getReviewCount(vo);
+	   	
+	      
+	     
+	    	List<ReviewVO>myReviewList =null;
+	       if(count >0) {
+	    	   myReviewList =  service.myReviewList(vo);	  
+	       }else {
+	    	   myReviewList=Collections.emptyList(); 
+	       }
+
+	 	  if(count >0) {
+	    	  int pageBlock =5;
+	    	  int imsi =count % pageSize ==0 ?0:1;
+	    	  int pageCount = count/pageSize +imsi;
+	    	  int startPage =(int)((currentPage-1)/pageBlock)*pageBlock +1;
+	    	  int endPage = startPage + pageBlock -1;
+	    	  
+	    	  // 추가 if문 : endPage(예:10)이 pageCount(예:9)보다 클경우 endPage의 값은 9로 한다!
+	    	  if(endPage > pageCount) {
+	    		  endPage = pageCount;
+	    	  }
+	    	  
+	    	  model.addAttribute("pageCount",pageCount);
+	    	  model.addAttribute("startPage",startPage);
+	    	  model.addAttribute("endPage",endPage);
+	    	  model.addAttribute("pageBlock",pageBlock);
+	          model.addAttribute("count", count);
+	    	  }
+	       
+	 	  	model.addAttribute("myReviewList",myReviewList);
+	 	  	
+	 	  	
+	 	  	
+    	return "/views-mypage/MyReview.jsp";
     }
 		
 }

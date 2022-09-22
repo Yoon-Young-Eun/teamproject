@@ -52,7 +52,7 @@ window.scrollTo({ top: 0, behavior: "smooth" });
 }
 const $bottomBtn = document.querySelector(".moveOrderBtn");
 
-//버튼 클릭 시 맨 위로 이동
+//버튼 클릭 시 주문 페이지로 이동
 $bottomBtn.onclick = () => {
 	window.location.href = '/pay/payUseText.jsp';
 }

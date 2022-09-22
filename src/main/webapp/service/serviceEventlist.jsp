@@ -32,11 +32,11 @@
 	<c:forEach var="event" items="${EventList}">
 		<div class="main_text3">
 		<div class="event_image">
-		<a id="event1" href="getBoardEvent.do?banner_no=${event.banner_no}"><img src="${event.banner_filepath}"  id="image1"></a>
+		<a id="event1" href="getBoardEvent.do?board_event_no=${event.board_event_no}"><img src="${event.banner_filepath}"  id="image1"></a>
 		
 		</div>
 		<div class="event_image1">
-		<a id="event2" href="#">${event.banner_title}<br><span id="span1">${event.banner_content}</span></a>
+		<a id="event2" href="#">${event.board_event_title}<br><span id="span1">${event.board_event_content}</span></a>
 		</div>
 		</div>	
 	</c:forEach>

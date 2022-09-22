@@ -84,7 +84,19 @@ header {
 	width: 100%;
 	padding: 0px;
 } 
-
+.banner_img {
+	height: 260px;
+}
+.banner_img_img {
+	height: 100%;
+}
+.event_img {
+	height: 600px;
+	overflow-x: auto; 
+}
+.event_img_img {
+	width: 100%;
+}
 .configWrap {
 	border: none;
 }
@@ -307,4 +319,8 @@ header {
 	-webkit-appearance: none; /* 네이티브 외형 감추기 */
 	-moz-appearance: none;
 	appearance: none;
+}
+
+.flex {
+	display: flex;
 }

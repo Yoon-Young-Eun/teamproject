@@ -18,11 +18,11 @@ public class TermsController {
 	@Autowired
 	TermsService TermsService;
 	
-	@RequestMapping(value="/getTerms.do", method=RequestMethod.GET)
-	public String getTerms(Model model, TermsVO vo) {	
+	@RequestMapping(value="/getTermsMain.do", method=RequestMethod.GET)
+	public String getTermsMain(Model model, TermsVO vo) {	
 		System.out.println("admin readTerms3()");
-		model.addAttribute("Terms3", TermsService.getTerms3(vo));
-		System.out.println(TermsService.getTerms3(vo));
+		model.addAttribute("Terms3", TermsService.getTermsMain(vo));
+		System.out.println(TermsService.getTermsMain(vo));
 		
 		System.out.println("admin readTerms4()");
 		model.addAttribute("Terms4", TermsService.getTerms4(vo));

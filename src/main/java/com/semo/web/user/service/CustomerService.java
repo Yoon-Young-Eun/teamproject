@@ -1,5 +1,8 @@
 package com.semo.web.user.service;
 
+import java.util.List;
+
+import com.semo.web.admin.vo.TermsVO;
 import com.semo.web.user.vo.CustomerVO;
 
 public interface CustomerService {
@@ -19,5 +22,8 @@ public interface CustomerService {
 	// 비밀번호 대조(로그인시 id를 통해 db에 있는 데이터 호출)
 	public CustomerVO matchPasswd(CustomerVO vo);
 	
+	
+	//이용약관불러오깅
+	public List<TermsVO> getTerms(TermsVO vo);
 
 }

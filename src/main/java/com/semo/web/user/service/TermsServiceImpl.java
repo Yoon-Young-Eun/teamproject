@@ -15,8 +15,8 @@ public class TermsServiceImpl implements TermsService {
 	TermsDAO TermsDAO;
 	
 	@Override
-	public TermsVO getTerms3(TermsVO vo) {
-		return TermsDAO.getTerms3(vo);
+	public TermsVO getTermsMain(TermsVO vo) {
+		return TermsDAO.getTermsMain(vo);
 	}
 	
 	@Override

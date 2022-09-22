@@ -20,9 +20,9 @@ public class TermsDAO {
 		return sql.selectList("SiteDAO.getTermsList");
 	}
 	
-	public TermsVO getTerms3(TermsVO vo) {
+	public TermsVO getTermsMain(TermsVO vo) {
 		System.out.println("DAO.getTerms3 실행");
-		return sql.selectOne("SiteDAO.getReadTerms", vo);
+		return sql.selectOne("SiteDAO.getTermsMain", vo);
 	}
 	
 	public TermsVO getTerms4(TermsVO vo) {

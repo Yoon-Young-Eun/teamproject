@@ -32,5 +32,19 @@ public class CustomerServiceImpl implements CustomerService{
 		dao.insertUser(vo);
 	}
 	
+	// 비밀번호 암호화 후 저장 (회원가입시 사용)
+	@Override
+	public void setPasswordEncoding(CustomerVO vo) {
+		dao.setPasswordEncoding(vo);
+		
+	}
+
+	// 비밀번호 대조(로그인시 id를 통해 db에 있는 데이터 호출)
+	@Override
+	public CustomerVO matchPasswd(CustomerVO vo) {
+		return dao.matchPasswd(vo);
+	}
+	
+	
 
 }

@@ -368,7 +368,7 @@
 			<a href="editPage.mdo?admin_no=${adminInfo.admin_no}">수정</a>
 			</div>
 			<div class="popup_btn">
-			<a href="deleteStaff.mdo?admin_no=${adminInfo.admin_no}">삭제</a>
+			<a href="deleteStaff.mdo?admin_no=${adminInfo.admin_no}" onclick="return confirm('매니저 정보를 삭제하시겠습니까?');">삭제</a>
 			</div>
 			<div class="popup_btn">
 				<a href="/staffList.mdo" onclick="self.close();">취소</a>

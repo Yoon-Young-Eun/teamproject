@@ -325,7 +325,7 @@
 
 <div class="popup_wrapper">
 
-<form action="/updateStore.mdo" method="get">
+<form action="/updateStore.mdo" method="get" onsubmit="return confirm('매장 정보를 저장하시겠습니까?');">
 							
 <input type="hidden" name="store_code" value="${StoreInfo.store_code}">
 

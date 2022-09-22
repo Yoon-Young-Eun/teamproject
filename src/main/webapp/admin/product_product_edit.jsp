@@ -322,7 +322,7 @@
 					</div>
 					
 					
-<form action="/updateProduct.mdo" method="GET">			
+<form action="/updateProduct.mdo" method="GET" onsubmit="return confirm('수정하시겠습니까?');">			
 <div class="pop_flex">
 <div class="popup_wrapper">
 <!-- <div class="popup_head"><h1>상품 조회</h1> -->

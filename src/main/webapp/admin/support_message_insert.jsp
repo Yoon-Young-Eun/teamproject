@@ -348,7 +348,7 @@
 							</header>
 							<div id="content_wrap">
 							
-							<form action="/insertmessage.mdo" method="GET">	
+							<form action="/insertmessage.mdo" method="GET"  onsubmit="return confirm('신규 문자를 등록하시겠습니까?');">	
 							
 								<ul class="title_wrap">
 <!-- 									<li><span class="title">약관번호</span> <input class="title_wrap_input" type="text" -->
@@ -393,7 +393,7 @@
 <!-- 									</ul> -->
 <!-- 								</div> -->
 								<div class="end">
-									<input type="submit" value="저장">&nbsp;&nbsp;<a href="#">취소</a>
+									<input type="submit" value="등록">&nbsp;&nbsp;<a href="/supportmessageList.mdo" onclick="self.close();">취소</a>
 								</div>
 							</form>
 							</div>

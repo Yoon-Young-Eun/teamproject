@@ -389,7 +389,7 @@ ${ProductInfo.product_net_profit}</div>
 		<a href="updateProductPage.mdo?product_code=${ProductInfo.product_code}">수정</a>
 	</div>
 	<div class="popup_btn">
-		<a href="deleteProduct.mdo?product_code=${ProductInfo.product_code}">삭제</a>
+		<a href="deleteProduct.mdo?product_code=${ProductInfo.product_code}"  onclick="return confirm('해당 상품을 삭제하시겠습니까?');" >삭제</a>
 	</div>
 </div>
 

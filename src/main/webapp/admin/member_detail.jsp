@@ -332,7 +332,7 @@
 					<!-- 상세정보 -->
 				
 <div>					
-<form action="/memberUpdate.mdo" method="GET" class="form">			
+<form action="/memberUpdate.mdo" method="GET" class="form" onsubmit="return confirm('저장 하시겠습니까? 계정상태 변경시 안내 문자가 회원에게 발송됩니다.');">			
 	<input type="hidden" name="customer_no" value="${user.customer_no}"/>
 	<input type="hidden" name="customer_phone" value="${user.customer_phone}"/>
 	<div class="member_wrapper">
@@ -342,7 +342,7 @@
 		
 		<div class="member_state">
 			계정상태(${user.customer_status}) : <select name="customer_status">
-				<option value="">상태수정</option>
+				<option value="" >상태수정</option>
 	            <option value="블랙회원">블랙회원</option>
 			</select>
 

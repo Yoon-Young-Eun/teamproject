@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,21 +13,30 @@
 <title>Dashboard - SEMO Admin</title>
 <script src="js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="js/fileupload.js"></script>
+<script type="text/javascript" src="js/index_navbar_onclick.js"></script>
 <!-- <-게시판 css -->
-<link rel="stylesheet" href="/admin/css/support_clause2.css" />
+<link rel="stylesheet" href="/admin/css/board.css" />
 
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
-<link href="css/styles.css" rel="stylesheet" />
+
+<link href="/admin/css/styles.css" rel="stylesheet" />
+<link href="/admin/css/main_info_card.css" rel="stylesheet" />
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
 	crossorigin="anonymous"></script>
-<script type="text/javascript" src="js/index_navbar_onclick.js"></script>
+
+<!-- summernote -->
+<script src="/admin/js/summernote/summernote-lite.js"></script>
+<script src="/admin/js/summernote/lang/summernote-ko-KR.js"></script>
+
+<link rel="stylesheet" href="/admin/css/summernote/summernote-lite.css">
+
 </head>
 <body class="sb-nav-fixed">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 		<!-- Navbar Brand-->
-		<a class="navbar-brand ps-3" href="index.html">Start Bootstrap</a>
+		<a class="navbar-brand ps-3" href="index.jsp">Start Bootstrap</a>
 		<!-- Sidebar Toggle-->
 		<button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
 			id="sidebarToggle" href="#!">
@@ -91,8 +100,9 @@
 						<div class="collapse" id="change_id_01"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="#">회원관리</a> <a class="nav-link"
-									href="#">블랙회원관리</a> <a class="nav-link" href="#">매니저 관리</a>
+								<a class="nav-link" href="/admin/member.jsp">회원관리</a> <a
+									class="nav-link" href="/admin/member_black.jsp">블랙회원관리</a> <a
+									class="nav-link" href="/admin/memberstaff.jsp">매니저관리</a>
 							</nav>
 						</div>
 
@@ -109,8 +119,8 @@
 						<div class="collapse" id="change_id_02"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="#">주문/결제</a> <a class="nav-link"
-									href="#">견적상품</a>
+								<a class="nav-link" href="/admin/order.jsp">주문/결제</a> <a
+									class="nav-link" href="/admin/estimate.jsp">견적상품</a>
 							</nav>
 						</div>
 
@@ -124,31 +134,29 @@
 								<i class="fas fa-angle-down"></i>
 							</div>
 						</a>
-						<div class="collapse" id="change_id_03"
-							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="#">매출현황#1</a> <a class="nav-link"
-									href="#">매출현황#2</a>
-							</nav>
-						</div>
+						<!--                             <div class="collapse" id="change_id_03" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
+						<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
+						<!--                                     <a class="nav-link" href="#">매출현황#1</a> -->
+						<!--                                     <a class="nav-link" href="#">매출현황#2</a> -->
+						<!--                                 </nav> -->
+						<!--                             </div> -->
 
-						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
-							data-bs-target="#change_id_04" aria-expanded="false"
-							aria-controls="collapseLayouts">
+						<a class="nav-link collapsed" href="/admin/item.jsp"
+							data-bs-toggle="collapse" data-bs-target="#change_id_04"
+							aria-expanded="false" aria-controls="collapseLayouts">
 							<div class="sb-nav-link-icon">
 								<i class="fas fa-columns"></i>
-							</div> 상품등록
+							</div> <span onclick="newPage()">상품등록</span>
 							<div class="sb-sidenav-collapse-arrow">
 								<i class="fas fa-angle-down"></i>
 							</div>
 						</a>
-						<div class="collapse" id="change_id_04"
-							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="#">상품등록#1</a> <a class="nav-link"
-									href="#">상품등록#2</a>
-							</nav>
-						</div>
+						<!--                             <div class="collapse" id="change_id_04" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
+						<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
+						<!--                                     <a class="nav-link" href="#">상품등록#1</a> -->
+						<!--                                     <a class="nav-link" href="#">상품등록#2</a> -->
+						<!--                                 </nav> -->
+						<!--                             </div> -->
 
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 							data-bs-target="#change_id_05" aria-expanded="false"
@@ -160,13 +168,12 @@
 								<i class="fas fa-angle-down"></i>
 							</div>
 						</a>
-						<div class="collapse" id="change_id_05"
-							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="#">지점관리</a> <a class="nav-link"
-									href="#">외주관리</a>
-							</nav>
-						</div>
+						<!--                             <div class="collapse" id="change_id_05" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
+						<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
+						<!--                                     <a class="nav-link" href="#">지점관리</a> -->
+						<!--                                     <a class="nav-link" href="#">외주관리</a> -->
+						<!--                                 </nav> -->
+						<!--                             </div> -->
 
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 							data-bs-target="#change_id_06" aria-expanded="false"
@@ -181,8 +188,12 @@
 						<div class="collapse" id="change_id_06"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="#">Q&A</a> <a class="nav-link"
-									href="#">자주하는 질문</a> <a class="nav-link" href="#">리뷰관리</a>
+								<a class="nav-link" href="/getBoardList.mdo">공지사항</a> <a
+									class="nav-link" href="/getEventList.mdo">이벤트</a> <a
+									class="nav-link" href="#">리뷰</a> <a class="nav-link"
+									href="/admin/board_Q&A.jsp">QnA</a> <a class="nav-link"
+									href="/admin/board_FAQ.jsp">자주하는 질문</a>
+
 							</nav>
 						</div>
 
@@ -217,11 +228,13 @@
 						<div class="collapse" id="change_id_08"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="#">배너관리</a> <a class="nav-link"
-									href="/TermsList.mdo">약관관리</a>
+
+								<a class="nav-link" href="/admin/promo.jsp">쿠폰관리</a> <a
+									class="nav-link" href="/admin/supporbanner.jsp">배너관리</a> <a
+									class="nav-link" href="/admin/supporclause.jsp">약관관리</a>
+
 							</nav>
 						</div>
-
 
 
 
@@ -271,7 +284,7 @@
 									aria-labelledby="headingOne"
 									data-bs-parent="#sidenavAccordionPages">
 									<nav class="sb-sidenav-menu-nested nav">
-										<a class="nav-link" href="login.html">Login</a> <a
+										<a class="nav-link" href="login.jsp">Login</a> <a
 											class="nav-link" href="register.html">Register</a> <a
 											class="nav-link" href="password.html">Forgot Password</a>
 									</nav>
@@ -314,78 +327,86 @@
 				</div>
 			</nav>
 		</div>
+
 		<div id="layoutSidenav_content">
+
 			<main>
 
-
-
 				<div class="container-fluid px-4">
-					<h1 class="mt-4">약관관리</h1>
+					<h1 class="mt-4">이벤트</h1>
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
-						<li class="breadcrumb-item active">약관등록</li>
+						<li class="breadcrumb-item active">이벤트</li>
 					</ol>
 					<div class="card mb-4">
-						<div class="card-body">약관을 등록해주세요.</div>
+						<div class="card-body">
+							이벤트 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
+						</div>
+					</div>
+					<div class="card mb-4">
+						<div class="card-body">이벤트 게시판입니다</div>
 					</div>
 					<div class="dd">
-						<!-- <div class="card-header">
-							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 게시판에 대한 세부제목
-						</div> -->
-
 						<div id="wrap">
 							<header>
-								<div class="div2">
-									<!--<div>
-										<img
-											src="https://i.etsystatic.com/14912200/r/il/7c4834/1295206612/il_570xN.1295206612_nj87.jpg"
-											width=150px>
-									</div> -->
-									<div class="div3">
-										<h1>약관 등록</h1>
-									</div>
+								<div class="board_title">
+									<h1>이벤트</h1>
 								</div>
+
 							</header>
-							<div id="content_wrap">
-							
-							<form action="/insertTerms.mdo" method="post">	
-							
-								<ul class="title_wrap">
-
-									<li><span class="title">약관이름</span> <input class="title_wrap_input"  type="text" name="terms_title" placeholder="게시글 제목을 입력하세요"/>
-									</li>
-
-									<li><span class="title">약관분류</span>
-										<div class="clause_select">
-											<select name="terms_type" >
-												<option value="회원가입">회원가입</option>
-												<option value="2">결제</option>
-											</select>
-										</div></li>
-				
-									
-									<div class="require">
-									<li><span class="title">필수여부</span>
-										<div class="clause_select">
-											<select name="terms_necessary" >
-												<option value="TRUE">필수</option>
-												<option value="FALSE">선택</option>
-											</select>
-										</div></li>
+							<form action="/updateEvent.mdo" method="post"
+								enctype="multipart/form-data">
+								<div id="content_wrap">
+									<ul class="title_wrap">
+										<li><span class="title">제목</span> <input type="text"
+											name="board_event_title" value="${event.board_event_title }" /></li>
+									</ul>
+									<div id="summer" class="writeWrap">
+										<textarea id="summernote" class="writeArea"
+											name="board_event_content">${event.board_event_content}</textarea>
 									</div>
-								</ul>
-								<div class="writeWrap">
-									<textarea class="writeArea" name="terms_content"></textarea>
-								</div>
-								<div class="end">
-									<input type="submit" value="저장">&nbsp;&nbsp;<a href="/TermsList.mdo">목록</a>
+									<div class="configWrap">
+										<ul>
+											<li><span class="title">배너번호</span>&nbsp; <input
+												type="text" value="${event.banner_no}" name="banner_no"
+												class="ban" /></li>
+
+											<li style="display: flex; margin-top: 15px;"><span
+												class="title">첨부파일</span>&nbsp;&nbsp;
+												<div class="filebox">
+													<label for="ex_filename">파일 선택</label> <input type="file"
+														id="ex_filename" name="uploadImg" class="upload-hidden">
+													<input class="upload-name" value="" disabled="disabled">
+												</div></li>
+
+											<div class="open_set">
+												<li><span class="title">공개설정</span>&nbsp; <input
+													type="radio" name="open" id="open_0"> <label
+													for="open_0">전체공개</label>&nbsp;&nbsp; <input type="radio"
+													name="open" id="open_1"> <label for="open_1">회원만
+														공개</label>&nbsp;&nbsp; <input type="radio" name="open" id="open_2">
+													<label for="open_2">비공개</label>
+											</div>
+											</li>
+										</ul>
+									</div>
+									<div class="end">
+										<div class="board_btn">
+											<input type="submit" value="저장">
+										</div>
+										<div class="board_btn">
+											<a
+												href="/deleteEvent.mdo?board_event_no=${event.board_event_no}">삭제</a>
+										</div>
+										<div class="board_btn">
+											<a href="/getEventList.mdo">목록</a>
+										</div>
+									</div>
+
 								</div>
 							</form>
-							</div>
 						</div>
 
-						<!-- <div class="card-footer small text-muted">Updated yesterday
-							at 11:59 PM</div> -->
 					</div>
 
 				</div>
@@ -396,6 +417,10 @@
 					<div
 						class="d-flex align-items-center justify-content-between small">
 						<div class="text-muted">Copyright &copy; Your Website 2022</div>
+						<div>
+							<a href="#">Privacy Policy</a> &middot; <a href="#">Terms
+								&amp; Conditions</a>
+						</div>
 					</div>
 				</div>
 			</footer>

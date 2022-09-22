@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,11 +10,12 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>Dashboard - SEMO Admin</title>
-<script src="js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="js/fileupload.js"></script>
-<script type="text/javascript" src="js/index_navbar_onclick.js"></script>
+<script src="/admin/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/admin/js/fileupload.js"></script>
+<script type="text/javascript" src="/admin/js/index_navbar_onclick.js"></script>
 <!-- <-게시판 css -->
 <link rel="stylesheet" href="/admin/css/board.css" />
+<link rel="stylesheet" href="/admin/css/board_event_write.css" />
 
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
@@ -100,9 +100,9 @@
 						<div class="collapse" id="change_id_01"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="/admin/member.jsp">회원관리</a> <a
-									class="nav-link" href="/admin/member_black.jsp">블랙회원관리</a> <a
-									class="nav-link" href="/admin/memberstaff.jsp">매니저관리</a>
+								<a class="nav-link" href="member.jsp">회원관리</a> <a
+									class="nav-link" href="member_black.jsp">블랙회원관리</a> <a
+									class="nav-link" href="memberstaff.jsp">매니저관리</a>
 							</nav>
 						</div>
 
@@ -119,8 +119,8 @@
 						<div class="collapse" id="change_id_02"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="/admin/order.jsp">주문/결제</a> <a
-									class="nav-link" href="/admin/estimate.jsp">견적상품</a>
+								<a class="nav-link" href="order.jsp">주문/결제</a> <a
+									class="nav-link" href="#">견적상품</a>
 							</nav>
 						</div>
 
@@ -141,7 +141,7 @@
 						<!--                                 </nav> -->
 						<!--                             </div> -->
 
-						<a class="nav-link collapsed" href="/admin/item.jsp"
+						<a class="nav-link collapsed" href="item.jsp"
 							data-bs-toggle="collapse" data-bs-target="#change_id_04"
 							aria-expanded="false" aria-controls="collapseLayouts">
 							<div class="sb-nav-link-icon">
@@ -191,8 +191,8 @@
 								<a class="nav-link" href="/getBoardList.mdo">공지사항</a> <a
 									class="nav-link" href="/getEventList.mdo">이벤트</a> <a
 									class="nav-link" href="#">리뷰</a> <a class="nav-link"
-									href="/admin/board_Q&A.jsp">QnA</a> <a class="nav-link"
-									href="/admin/board_FAQ.jsp">자주하는 질문</a>
+									href="board_Q&A.jsp">QnA</a> <a class="nav-link"
+									href="board_FAQ.jsp">자주하는 질문</a>
 
 							</nav>
 						</div>
@@ -229,9 +229,9 @@
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
 
-								<a class="nav-link" href="/admin/promo.jsp">쿠폰관리</a> <a
-									class="nav-link" href="/admin/supporbanner.jsp">배너관리</a> <a
-									class="nav-link" href="/admin/supporclause.jsp">약관관리</a>
+								<a class="nav-link" href="promo.jsp">쿠폰관리</a> <a
+									class="nav-link" href="supporbanner.jsp">배너관리</a> <a
+									class="nav-link" href="supporclause.jsp">약관관리</a>
 
 							</nav>
 						</div>
@@ -329,24 +329,24 @@
 		</div>
 
 		<div id="layoutSidenav_content">
-
 			<main>
 
+
+
 				<div class="container-fluid px-4">
-					<h1 class="mt-4">이벤트</h1>
+					<h1 class="mt-4">게시판</h1>
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
 						<li class="breadcrumb-item active">이벤트</li>
 					</ol>
 					<div class="card mb-4">
-						<div class="card-body">
-							이벤트 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
-						</div>
-					</div>
-					<div class="card mb-4">
 						<div class="card-body">이벤트 게시판입니다</div>
 					</div>
 					<div class="dd">
+						<!-- <div class="card-header">
+							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 게시판에 대한 세부제목
+						</div> -->
+
 						<div id="wrap">
 							<header>
 								<div class="board_title">
@@ -354,12 +354,13 @@
 								</div>
 
 							</header>
-							<form action="/updateEvent.mdo" method="post"
+							<form action="/EventUpload.mdo" method="post"
 								enctype="multipart/form-data">
 								<div id="content_wrap">
 									<ul class="title_wrap">
 										<li><span class="title">제목</span> <input type="text"
-											name="board_event_title" value="${event.board_event_title }" /></li>
+											name="board_event_title" placeholder="게시글 제목을 입력하세요"
+											value="[이벤트] " />${event.board_event_title}</li>
 									</ul>
 									<div id="summer" class="writeWrap">
 										<textarea id="summernote" class="writeArea"
@@ -367,27 +368,44 @@
 									</div>
 									<div class="configWrap">
 										<ul>
-											<li><span class="title">배너번호</span>&nbsp; <input
-												type="text" value="${event.banner_no}" name="banner_no"
-												class="ban" /></li>
+											<li><span class="title">배너번호</span>&nbsp; <input type="text"
+												placeholder="배너번호를 입력해주세요" value=" " name="banner_no"
+												class="ban" />${event.banner_no}</li>
 
+											
+												
+											<li style="display: flex; margin-top: 15px;"><span class="title">배너</span>&nbsp;&nbsp;												
+												<div class="filebox" style="width:920px">
+												
+												<label for="ex_filename2">파일 선택</label> <input type="file"
+												id="ex_filename2" class="upload-hidden" name="banner"
+												accept="image/*" onchange="setThumbnail(event);" /> 
+												<input class="upload-name" value="" disabled="disabled">
+												
+											
+										</div></li>
+
+										<div id="image_container"><img src="${event.banner_filepath}" style="width:100%"></div>
+												
+											
 											<li style="display: flex; margin-top: 15px;"><span
-												class="title">첨부파일</span>&nbsp;&nbsp;
-												<div class="filebox">
-													<label for="ex_filename">파일 선택</label> <input type="file"
-														id="ex_filename" name="uploadImg" class="upload-hidden">
+												class="title">이벤트</span>&nbsp;&nbsp;
+												<div class="filebox" style="width:920px">
+												
+												<label for="ex_filename">파일 선택</label> <input type="file"
+														id="ex_filename" name="EventFile" class="upload-hidden" onchange="setThumbnail2(event);" >
 													<input class="upload-name" value="" disabled="disabled">
+												
+													
 												</div></li>
+											
+												<div id="image_container2"><img src="${event.board_event_filepath}" style="width:100%"></div>
 
 										</ul>
 									</div>
 									<div class="end">
 										<div class="board_btn">
 											<input type="submit" value="저장">
-										</div>
-										<div class="board_btn">
-											<a
-												href="/deleteEvent.mdo?board_event_no=${event.board_event_no}">삭제</a>
 										</div>
 										<div class="board_btn">
 											<a href="/getEventList.mdo">목록</a>
@@ -397,6 +415,7 @@
 								</div>
 							</form>
 						</div>
+
 
 					</div>
 

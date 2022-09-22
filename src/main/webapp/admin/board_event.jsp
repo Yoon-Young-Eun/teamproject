@@ -401,7 +401,7 @@
 									<th>No</th>
 									<th>제목</th>
 									<th>내용</th>
-									<th>배너번호</th>
+									<th>배너이미지</th>
 									<th>작성일</th>
 								<tr>
 							</thead>
@@ -413,7 +413,7 @@
 										<td><a
 											href="/getEvent.mdo?board_event_no=${event.board_event_no}">${event.board_event_title}</a></td>
 										<td>${event.board_event_content}</td>
-										<td>${event.banner_no}</td>
+										<td><img src="${event.banner_filepath}" width="340px", height="100px"></td>
 										<td>${event.board_event_reg_date}</td>
 									</tr>
 								</c:forEach>
@@ -520,9 +520,7 @@
 
 
 						<!-- 내용물 end -->
-						<div class="card-footer small text-muted">Updated yesterday
-							at 11:59 PM</div>
-					</div>
+						
 
 				</div>
 			</main>

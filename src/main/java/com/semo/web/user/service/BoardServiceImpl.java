@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.semo.web.admin.vo.BannerVO;
 import com.semo.web.admin.vo.EventVO;
 import com.semo.web.user.dao.BoardDAO;
 
@@ -21,7 +20,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public List<BannerVO> getBoardEventList() {
+	public List<EventVO> getBoardEventList() {
 		return boardDAO.getBoardEventList();
 	}
 }

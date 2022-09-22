@@ -16,12 +16,12 @@ public class BoardDAO {
 	private SqlSessionTemplate sql;
 	
 	public EventVO getBoardEvent(EventVO vo) {
-		return sql.selectOne("BoardDAO.getBoardEvent",vo);
+		return sql.selectOne("BoardDAO.getEvent",vo);
 	}
 	
-	public List<BannerVO> getBoardEventList(){
+	public List<EventVO> getBoardEventList(){
 		System.out.println("DAO.getBoardEventList 실행");
-		return sql.selectList("SiteDAO.getBoardEventList");
+		return sql.selectList("BoardDAO.getBoardEventList");
 	}
 	
 }

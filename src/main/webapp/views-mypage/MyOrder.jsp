@@ -46,7 +46,11 @@
 				<p>주문 상세 진행 상황</p>
 				<c:choose>
 					<c:when test="${ordervo.order_status eq '수거대기'}">
-						<a href="#" style = "font-size : 15px; height : 20px; margin-top:auto; margin-bottom:auto;" class="action-button shadow animate grey">주문취소</a>
+					<form action="/getRefund.do" onsubmit="return confirm('정말 취소하시겠습니까?');" method="get">
+					<input type="hidden" value="${ordervo.imp_uid}" name="imp_uid">
+<!-- 						<a href="#" type="submit" style = "font-size : 15px; height : 20px; margin-top:auto; margin-bottom:auto;" class="action-button shadow animate grey">주문취소</a> -->
+						<input type="submit" value="주문취소" style = "font-size : 15px; margin-top:auto; margin-bottom:auto;" id="button2" class="action-button shadow animate grey">
+					</form>
 					</c:when>
 					<c:otherwise>
 						<a></a>

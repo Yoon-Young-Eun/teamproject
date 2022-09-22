@@ -375,16 +375,6 @@
 											<option value="TRUE">공개</option>
 											<option value="FALSE">비공개</option>
 										</select>
-<!-- 											<div class="popup_radio"> -->
-<!-- 												<input class="office_type" type="radio" -->
-<!-- 													name="banner_usable" value="TRUE" id="office_type1" -->
-<!-- 													checked="checked"><label for="office_type1">공개</label> -->
-<!-- 											</div> -->
-<!-- 											<div class="popup_radio"> -->
-<!-- 												<input class="office_type" type="radio" -->
-<!-- 													name="banner_usable" value="FALSE" id="office_type2"><label -->
-<!-- 													for="office_type2">비공개</label> -->
-<!-- 											</div> -->
 										</div>
 										</div>
 									</div>

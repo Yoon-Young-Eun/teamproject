@@ -43,13 +43,8 @@
 			</div>
 			<div class = "top-coupon">
 				<h3>MY 쿠폰 <i class="fas fa-chevron-right"></i></h3>
-<<<<<<< HEAD
-				<p class = "num">3</p>
-			</div>	
-=======
 				<p class = "num">${cnt2}</p>
 			</div>
->>>>>>> main
 			<div class = "top-ask">
 				<h3>MY 문의 <i class="fas fa-chevron-right"></i></h3>
 				<p class = "num">5</p>

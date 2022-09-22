@@ -336,7 +336,7 @@
 						<div class="wrapper">
 							<div class="write_wrapper">
 							
-							<form action="/bannerUpload.mdo" method="post" enctype="multipart/form-data">
+							<form action="/bannerUpload.mdo" method="post" enctype="multipart/form-data"  onsubmit="return confirm('신규 배너를 등록하시겠습니까?');">
 							
 								<div class="write_form">
 									<div class="write_title write_content">
@@ -390,10 +390,10 @@
 									</div>
 									<div class="end">
 										<div class="board_btn">
-											<input type="submit" value="저장">
+											<input type="submit" value="등록">
 										</div>
 										<div class="board_btn">
-											<a href="#">취소</a>
+											<a href="/BannerList.mdo">취소</a>
 										</div>
 									</div>
 									</div>

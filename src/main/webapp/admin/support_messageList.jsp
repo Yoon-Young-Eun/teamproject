@@ -437,7 +437,7 @@
 									onclick="location.href='/admin/support_message_insert.jsp';" />
 							</div>
 							<div>
-								<input id="delBtn" type="button" value="삭제" />
+								<input id="delBtn" type="button" value="삭제" onclick="return confirm('선택한 문자정보를 삭제하시겠습니까?');"  />
 							</div>
 
 						</div>

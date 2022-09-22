@@ -371,7 +371,7 @@ display: inline-block;
 						</table>
 <div class="flex">
 						<div> <input id="button" type="button" value="등록" onclick="window.location='/admin/support_terms_insert.jsp'"/> </div>
-						<div> <input id="delBtn" type="button" value="삭제" /> </div>
+						<div> <input id="delBtn" type="button" value="삭제"  onclick="return confirm('선택한 약관을 삭제하시겠습니까?');" /> </div>
 						
 						</div>
 

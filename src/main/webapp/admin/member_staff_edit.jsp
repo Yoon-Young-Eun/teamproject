@@ -27,7 +27,6 @@
 <link href="/admin/css/member_staff.css" rel="stylesheet" />
 
 
-
 </head>
 <body class="sb-nav-fixed">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -332,7 +331,7 @@
 					
 					<!-- 상세정보 -->
 
-	<form action = "/updatestaff.mdo" method="get" class="form">
+	<form action = "/updatestaff.mdo" method="get" class="form" onsubmit="return confirm('매니저 정보를 수정 하시겠습니까? ');">
 	 <%-- 히든으로 no 값을 보냄 다음 update할때 where admin_no =#{admin_no}를 해주기위해,, --%>
 		<input type="hidden" name="admin_no" value="${adminInfo.admin_no}">
 	<div class="popup_wrapper">
@@ -376,14 +375,15 @@
 			<div class="popup_text2">비밀번호</div>
 			&nbsp;
 			<div class="popup_inputbox">
-				<input type="text" placeholder="">
+				<input type="text" id="pass" placeholder="">
 			</div>
 		</div>
 		<div class="popup_login">
 			<div class="popup_text3">비밀번호&nbsp;확인</div>
 			&nbsp;
 			<div class="popup_inputbox">
-				<input type="text" name="admin_passwd" placeholder="">
+				<input type="text" name="admin_passwd" id="repass" placeholder="">
+				<span id="pwChecking"></span>
 			</div>
 		</div>
 		<!-- <div class="popup_img"><img src="image/gorae.jpg" width="60px" height="60px"><br><br></div> -->
@@ -391,7 +391,7 @@
 
 		<div class="end">
 			<div class="popup_btn">
-				<input type="submit" value="저장">
+			 <input type="submit"  id="login-btn" value="저장" style="border-style:none;"> 
 			</div>
 			<div class="popup_btn">
 				<a href="/staffList.mdo" onclick="self.close();">취소</a>
@@ -399,15 +399,6 @@
 		</div>
 	</div>
 	</form>
-
-
-
-
-
-			
-					
-					
-					
 					</main>
 			<footer class="py-4 bg-light mt-auto">
 				<div class="container-fluid px-4">
@@ -423,6 +414,25 @@
 			</footer>
 		</div>
 	</div>
+	
+	
+
+<script type="text/javascript">
+	$(document).ready(function(){
+	
+	$('#repass').keyup(function(){
+		console.log("ASdasdads");
+        if($('#pass').val() != $('#repass').val()){
+           $('#pwChecking').css("color", "red");
+           $('#pwChecking').html("비밀번호가 일치하지 않습니다. 다시 확인해주세요!");
+        }else {
+           $('#pwChecking').css("color", "green");
+           $('#pwChecking').html("비밀번호가 일치합니다. 회원가입을 계속 진행해주세요!");
+        }
+     });
+	});
+	</script>
+	
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>

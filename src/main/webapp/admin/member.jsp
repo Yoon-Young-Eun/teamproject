@@ -369,13 +369,11 @@
 
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
 						<div style= "width:100%; overflow-x:auto;">
-						<table id=""
+						<table id="#example-table-1"
 							class="tblCustomers tblexportData table"
 							border="5">
 							<thead>
 								<tr>
-									<th width="50" id="check_td"><input type="checkbox"
-										name="check" class="allcheck"></th>
 									<th>회원코드</th>
 									<th>아이디(이메일)</th>
 									<th>이름</th>
@@ -388,7 +386,6 @@
 							<tbody>
 								<c:forEach var="board" items="${articleList}">
 									<tr>
-										<td id="check_td"><input type="checkbox" name="check"></td>
 										<td>${board.customer_no}</td>
 										<td><a href="/getMemberBoard.mdo?customer_no=${board.customer_no}&customer_status=${board.customer_status}">${board.customer_id}</a></td>
 										<td>${board.customer_name}</td>

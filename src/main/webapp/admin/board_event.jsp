@@ -426,7 +426,7 @@
 									onclick="window.location='/admin/board_event_write.jsp'" />
 							</div>
 							<div>
-								<input id="delBtn" type="button" value="삭제" />
+								<input id="delBtn" type="button" value="삭제" onclick="return confirm('선택한 이벤트 정보를 삭제하시겠습니까?');"/>
 							</div>
 
 						</div>

@@ -353,7 +353,7 @@
 
 							</header>
 							
-							<form action="/insertFAQ.mdo" method="GET">	
+							<form action="/insertFAQ.mdo" method="GET"  onsubmit="return confirm('새 FAQ를 등록하겠습니까?');">	
 							
 							<div id="content_wrap">
 								<ul class="title_wrap">
@@ -382,7 +382,7 @@
 								</div>
 								<div class="end">
 									<div class="board_btn">
-										<input type="submit" value="저장">
+										<input type="submit" value="등록">
 									</div>
 									<div class="board_btn">
 										<a href="/FAQList.mdo">취소</a>

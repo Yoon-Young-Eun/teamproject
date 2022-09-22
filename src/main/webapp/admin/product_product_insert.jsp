@@ -322,7 +322,7 @@
 					</div>
 					
 					
-<form action="/insertProduct.mdo" method="GET">			
+<form action="/insertProduct.mdo" method="GET" onsubmit="return confirm('신규 상품을 등록하시겠습니까?');">			
 <div class="pop_flex">
 <div class="popup_wrapper">
 <div class="popup_head"><h1>상품 등록</h1>

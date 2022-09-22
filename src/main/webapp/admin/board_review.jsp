@@ -324,7 +324,7 @@
 <!-- ---------- 본문내용 시작 ---------- -->
 
 <div class="popup_wrapper">
-<form action="/updateReviewBoard.mdo" method="GET">
+<form action="/updateReviewBoard.mdo" method="GET" onsubmit="return confirm('해당 리뷰를 활성화 하시겠습니까?');">
 <input type="hidden" name="board_review_no" value="${ReviewInfo.board_review_no}" />
 <div class="popup_title"><h2>리뷰</h2>
 </div>
@@ -392,7 +392,7 @@ ${ReviewInfo.board_review_content}
 	<a href="/ReviewBoardList.mdo">목록</a>
 </div>
 <div class="popup_btn">
-	<a href="deleteReviewBoard.mdo?board_review_no=${ReviewInfo.board_review_no}">삭제</a>
+	<a href="deleteReviewBoard.mdo?board_review_no=${ReviewInfo.board_review_no}" onclick="return confirm('해당 리뷰를 삭제하시겠습니까?');">삭제</a>
 	</div>
 </div>
 

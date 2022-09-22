@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+body {
+	padding: 0px 32px 50px 16px;
+}
+textarea {
+	width:100%; 
+	font-size: 18px; 
+	font-weight: 600; 
+	border:0px; 
+	background-color: #fff;
+	resize: none;
+}
+.moveTopBtn {
+  position: fixed;
+  bottom: 6rem;
+  right: 0.2rem;
+  width: 1.8em;
+  height: 1.8em;
+/*   background: #fff; */
+  color: #000;
+/*   border: 1px solid #000; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor : pointer;
+  font-weight: bold;
+  font-size: 48px;
+ }

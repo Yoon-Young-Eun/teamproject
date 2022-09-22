@@ -218,3 +218,15 @@ table {
 	border-bottom: 5px solid #BD3E31;
 	text-shadow: 0px -2px #BD3E31;
 }
+
+
+#button2{
+	border-top: none;
+	border-left:none;
+	border-right:none;
+}
+#button2:active{
+	transform: translate(0px,5px);
+  -webkit-transform: translate(0px,5px);
+	border-bottom: 1px solid;
+}

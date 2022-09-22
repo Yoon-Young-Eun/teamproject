@@ -1,8 +1,11 @@
 package com.semo.web.user.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.semo.web.admin.vo.TermsVO;
 import com.semo.web.user.dao.CustomerDAO;
 import com.semo.web.user.vo.CustomerVO;
 
@@ -44,7 +47,12 @@ public class CustomerServiceImpl implements CustomerService{
 	public CustomerVO matchPasswd(CustomerVO vo) {
 		return dao.matchPasswd(vo);
 	}
-	
-	
 
+	//이용약관 불러오기
+	@Override
+	public List<TermsVO> getTerms(TermsVO vo) {
+		return dao.getTerms(vo);
+	}
+	
+	
 }

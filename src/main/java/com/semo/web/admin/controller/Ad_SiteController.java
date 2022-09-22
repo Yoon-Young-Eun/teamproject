@@ -308,6 +308,8 @@ public class Ad_SiteController {
 		
 		int index = bringData.getBanner_filepath().indexOf("/", 20);
 		String key = bringData.getBanner_filepath().substring(index+1);
+		System.out.println("index:      "+index);
+		System.out.println("key:          "+key);
 		awss3.delete(key);
 		
 		SiteService.deleteBanner(bringData);

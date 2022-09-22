@@ -20,8 +20,8 @@ public class BoardController {
 
 	@RequestMapping(value="/getBoardEventList.do", method=RequestMethod.GET)
 	public String getBoardEventList(Model model) {
-		System.out.println("admin storeList()");
-		List<BannerVO> EventList = BoardService.getBoardEventList();
+		System.out.println("admin eventList()");
+		List<EventVO> EventList = BoardService.getBoardEventList();
 		model.addAttribute("EventList", EventList);
 		System.out.println("asdadas"+EventList);
 		return "/service/serviceEventlist.jsp";
@@ -35,9 +35,11 @@ public class BoardController {
 		EventVO vos =BoardService.getBoardEvent(vo);
 		System.out.println("vos"+ vos);
 		String filename = vos.getBoard_event_filepath().replace(event_filepath, "");
+		String filename2 = vos.getBanner_filepath().replace(event_filepath, "");
 		System.out.println("vos"+ vos);
 		model.addAttribute("event", vos);
 		model.addAttribute("filename", filename);
+		model.addAttribute("filename2", filename2);
 		return "/service/serviceEvent.jsp";
 	}
 }

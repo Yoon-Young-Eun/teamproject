@@ -16,6 +16,18 @@
    </select>
    
    
+       <!-- 블랙회원을 제외한 정상회원 조회 (검색기능 포함)-->
+   <select id="getArticeList" parameterType="paging"
+      resultType="customer">
+  
+    <![CDATA[ select * from (select @rownum := @rownum+1 as rnum, customer_no, customer_name,customer_passwd, customer_id, customer_phone, customer_join_date, customer_sms_permit, customer_zipcode, customer_address1, customer_address2, customer_birth, customer_status from customer, (select @rownum :=0) as rowcolum where ]]>
+         <if test="searchCondition=='customer_status'">
+             <![CDATA[customer_status like concat('%', #{searchKeyword}, '%') and]]></if>
+         <if test="searchCondition=='customer_name'">   
+             <![CDATA[ customer_name like concat('%', #{searchKeyword}, '%') and]]></if>
+    <![CDATA[customer_status not in ('블랙회원') order by customer_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]>
+   </select>
+   
    <!-- 블랙회원 count -->
    <select id="getBlackCount" parameterType="paging" resultType="int">
      <![CDATA[ select count(*) from customer where]]>
@@ -42,21 +54,7 @@
      update customer set customer_status =#{customer_status} where customer_no=#{customer_no}
     </update>
     
-    
-
-
-
-    <!-- 블랙회원을 제외한 정상회원 조회 (검색기능 포함)-->
-   <select id="getArticeList" parameterType="paging"
-      resultType="customer">
-  
-    <![CDATA[ select * from (select @rownum := @rownum+1 as rnum, customer_no, customer_name,customer_passwd, customer_id, customer_phone, customer_join_date, customer_sms_permit, customer_zipcode, customer_address1, customer_address2, customer_birth, customer_status from customer, (select @rownum :=0) as rowcolum where ]]>
-         <if test="searchCondition=='customer_status'">
-             <![CDATA[customer_status like concat('%', #{searchKeyword}, '%') and]]></if>
-         <if test="searchCondition=='customer_name'">   
-             <![CDATA[ customer_name like concat('%', #{searchKeyword}, '%') and]]></if>
-    <![CDATA[customer_status not in ('블랙회원') order by customer_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]>
-   </select>
+   
 
    <!-- 블랙회원 회원 조회 (검색기능 포함)-->
    <select id="getBlackList" parameterType="paging"

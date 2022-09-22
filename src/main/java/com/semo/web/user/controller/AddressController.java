@@ -215,14 +215,7 @@ public class AddressController {
 			return "/views/login.jsp";
 		}
 		
-		
-		
-		
-		
-		
-		
-		
-		
+	
 		//마이페이지 사이드바(내주소관리) -> 내 주소관리 	
 		@RequestMapping(value="/myAddress.do", method=RequestMethod.GET)
 		public String myAddress(CustomerVO vo,Model model) {

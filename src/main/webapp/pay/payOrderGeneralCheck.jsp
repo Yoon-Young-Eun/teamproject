@@ -28,7 +28,7 @@
 <div class="wrap">
     <div class="wrap1">
     
-    <jsp:include page="/common/header.jsp"></jsp:include>
+    <jsp:include page="/common/logined-header.jsp"></jsp:include>
     <div class="main">
   <div class="space_left"></div>
   <div class="main_content">
@@ -175,7 +175,7 @@
       <input type="hidden" value="${CustomerInfo.customer_zipcode}" name="customer_zipcode">
 	  <input type="hidden" name="imp_uid" id="imp_uid">
 	
->>>>>>> main
+
       <div class="pay" style="width:1000px;">
        <div class="pay1">
         결제금액
@@ -233,9 +233,9 @@
           <input type="text" id="terms" value="${Terms.terms_title }" readonly style="font-size:15px; color:white; background-color:#63afe4; border-style:none; text-align:center;" > 
             <input type="button" value="▼" onclick="showYak(this)" id="yakk33">
           </div>
-          <div class="yak33" id="yak3">
+          <textarea class="yak33" id="yak3" style="height:500px;" disabled>
             ${Terms.terms_content }
-          </div>
+          </textarea>
         </div>
 		</c:forEach>
        

@@ -1,0 +1,136 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	width: 100%;
+	max-width: 1920px;
+	scroll-behavior: smooth;
+}
+
+body {
+	zoom: 1;
+	position: relative;
+	z-index: 1;
+	-ms-overflow-y-style: none;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color : black;
+}
+
+a:hover {
+	font-weight: bold;
+	cursor : pointer;
+}
+
+/*전체*/
+.page-wrapper {
+	display : flex;
+	justify-content : center;
+}
+
+/*사이드 메뉴*/
+
+/*본문*/
+.content-wrapper {
+	max-width : 1240px;
+	margin : 50px;
+	width : 100%;
+}
+
+/*제목*/
+.content-title {
+	line-height : 70px;
+}
+
+/*소제목*/
+.content-subtitle-wrapper {
+	display : flex;
+	justify-content : space-between;
+	border-bottom : 2px solid; 	
+	line-height : 70px;
+}
+
+/*검색창*/
+.searchbar-wrapper {
+	display : flex;
+}
+
+.searchbar-wrapper div {
+	margin-right : 4px;
+}
+
+/*주문 상세 내용*/
+
+.order-wrapper {
+	width : 100%;
+}
+
+.order-body-title {
+	display : flex;
+	line-height : 80px;
+	border-bottom : 2px solid;
+}
+
+
+.order-body-content {
+	line-height : 100px;
+	border-bottom : 1px solid #cdcdcd;
+}
+
+table {
+	width : 100%;
+}
+
+table thead tr {
+	display : flex;
+	width : 100%;
+}
+
+table tbody tr {
+	display : flex;
+	width : 100%;
+}
+
+.order-wrapper .paging-wrapper {
+	display : flex; 
+	justify-content : center; 
+	height : 40px;
+	margin-top : 30px;
+}
+
+.order-wrapper .paging{
+	margin : auto;
+	display : flex;
+}
+
+.order-wrapper .paging .paging-text{
+	width : 50px;
+	text-align : center;
+}
+
+.order-wrapper .paging .paging-num{
+	display : flex;
+}
+
+.order-wrapper .paging-wrapper a{
+	width : 50px;
+	text-align : center;
+}
+
+.order-wrapper .paging-wrapper a:hover {
+	color : #63afe4;
+}

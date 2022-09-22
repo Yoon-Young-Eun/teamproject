@@ -490,6 +490,9 @@ width: 150px;
   display: flex;
   align-items: center;
 }
+.yak33:focus{
+	outline:none;
+}
 .yak{
   border-bottom: 1px solid grey;
 }

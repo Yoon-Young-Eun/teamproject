@@ -27,7 +27,7 @@
 ${terms.terms_title}
 </h1>
 <br>
-<textarea readonly>${terms.terms_content}</textarea><br><br>
+<textarea disabled>${terms.terms_content}</textarea><br><br>
 </c:forEach>
 </div>
 

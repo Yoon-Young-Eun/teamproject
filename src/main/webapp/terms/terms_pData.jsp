@@ -27,13 +27,13 @@
 ${Terms3.terms_title}
 </h1>
 <br>
-<textarea readonly>${Terms3.terms_content}</textarea><br><br>
+<textarea disabled>${Terms3.terms_content}</textarea><br><br>
 
 <h1>
 ${Terms4.terms_title}
 </h1>
 <br>
-<textarea readonly>${Terms4.terms_content}</textarea><br><br>
+<textarea disabled>${Terms4.terms_content}</textarea><br><br>
 
 </div>
 

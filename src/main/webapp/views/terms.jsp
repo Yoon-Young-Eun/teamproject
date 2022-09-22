@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,10 +37,12 @@
 		</ul>
 	</div>
 </div>
+<c:forEach>
 <div class="content">
-	
+	<input type="text" value="" id="terms_title">
+	<textarea rows="" cols=""></textarea>
 </div>
-
+</c:forEach>
 
 <div class = "btn">
    <a href="terms.jsp" class="action-button shadow animate blue">이전</a>

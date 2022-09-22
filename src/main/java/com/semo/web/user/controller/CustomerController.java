@@ -113,5 +113,12 @@ public class CustomerController {
 		System.out.println(vo2.getCustomer_name());
 		return "/views/complete.jsp";
 	}
-
+	
+	
+	
+	//이용약관
+	@RequestMapping(value='/getTerms.do/', method=RequestMethod.GET)
+	public String getTerms(TermsVO vo, Model m) {
+		System.out.println("vo가져오기"+vo);
+	}
 }

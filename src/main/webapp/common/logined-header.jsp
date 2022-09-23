@@ -30,7 +30,7 @@
       <form action="/logout.do" name = "logoutForm" method = "post">
       <nav class = "top-menu">
          <ul class = "top-list">
-         	<li><a href = "/views/main.jsp?">메인으로</a></li>
+         	<li><a href = "/views/logined-main.jsp?customer_no=${num}&userInfo=${K}">메인으로</a></li>
             <li><button id = "logout" class = "logout" type="submit">로그아웃</button></li>
             <li><a href = "/mypage.do?customer_no=${num}">마이페이지</a></li>
             <li><a href = "/service/serviceMain.jsp">고객센터</a></li>
@@ -44,10 +44,10 @@
    				var result = confirm("로그아웃 하시겠습니까?");
    				var logoutForm = document.logoutForm;
    				
-   				if(result){
+   				if(result == true){
    					logoutForm.submit();
    				} else{
-   					
+   					return false;
    				}
    			});
    			

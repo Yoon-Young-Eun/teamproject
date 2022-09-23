@@ -400,7 +400,7 @@
 										<a href="updateCouponPage.mdo?coupon_code=${CouponInfo.coupon_code}">수정</a>
 									</div>
 									<div class="popup_btn">
-										<a href="deleteCoupon.mdo?coupon_code=${CouponInfo.coupon_code}">삭제</a>
+										<a href="deleteCoupon.mdo?coupon_code=${CouponInfo.coupon_code}" onclick="return confirm('삭제하시겠습니까?');">삭제</a>
 									</div>
 								</div>
 							</form>

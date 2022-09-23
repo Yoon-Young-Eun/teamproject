@@ -355,7 +355,7 @@
 
 							</header>
 							<form action="/EventUpload.mdo" method="post"
-								enctype="multipart/form-data">
+								enctype="multipart/form-data" onsubmit="return confirm('수정하시겠습니까?');">
 								<div id="content_wrap">
 									<ul class="title_wrap">
 										<li><span class="title">제목</span> <input type="text"

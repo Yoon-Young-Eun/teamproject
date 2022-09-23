@@ -12,6 +12,9 @@
 <meta name="author" content="" />
 <title>Dashboard - SEMO Admin</title>
 
+<!-- table & hover css -->
+<link href="/admin/css/table.css" rel="stylesheet" />
+
 <!-- icon 버튼 css -->
 <link href="/admin/css/icon.css" rel="stylesheet" />
 
@@ -355,8 +358,9 @@
 						<div class="b_button">
 							<!-- 테이블 행 필터 -->
 							<form name="selectname" action="getEstimateList.mdo" method="get">
-								<input type="hidden" name="searchCondition" value="${search.searchCondition}" /> 
-								<input type="hidden" name="searchKeyword" value="${search.searchKeyword}" />
+								<input type="hidden" name="searchCondition"
+									value="${search.searchCondition}" /> <input type="hidden"
+									name="searchKeyword" value="${search.searchKeyword}" />
 
 								<div>
 									<select name="selectPage" onchange="this.form.submit()">
@@ -384,7 +388,9 @@
 												<div>
 													<input type="submit" value="검색" />
 												</div>
-												<div> <input type="reset" value="초기화" /></div>
+												<div>
+													<input type="reset" value="초기화" />
+												</div>
 										</div>
 									</form>
 								</div>
@@ -393,67 +399,68 @@
 						</div>
 
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
-						<table id="" class="tblCustomers tblexportData table" border="5">
+						<table id="" class="tblCustomers tblexportData table">
 							<thead>
-								<tr>
-									<th width="50" id="check_td"><input type="checkbox" name="check" class="allcheck"></th>
-									<th width="100px;">견적코드</th>
-									<th width="100px;">세탁종류</th>
-									<th width="100px;">작성자</th>
-									<th width="100px;">접수일자</th>
-									<th width="250px;">주소</th>
-									<th width="150px;">견적상태</th>
+								<tr style="background-color: #f2f2f2";>
+									<th>견적코드</th>
+									<th>세탁종류</th>
+									<th>작성자</th>
+									<th>접수일자</th>
+									<th>주소</th>
+									<th>견적상태</th>
 								<tr>
 							</thead>
 							<tbody>
 								<c:forEach var="est" items="${estimateList}">
-									<tr>
-										<td id="check_td"><input type="checkbox" name="check"></td>
-										<td>${est.estimate_cm_no}</td>
-										<td>${est.estimate_type}</td>
-										<td>${est.customer_name}</td>
-										<td>${est.estimate_date}</td>
-										<td>${est.customer_address1}${est.customer_address2}</td>
-										<td><c:choose>
-												<c:when test="${est.estimate_status eq '견적대기'}">
-													<a href="/getEstimate.mdo?estimate_cm_no=${est.estimate_cm_no }&customer_no=${est.customer_no}">${est.estimate_status}</a>
-												</c:when>
-												<c:otherwise>
-													<a href="/getAd_Estimate.mdo?estimate_cm_no=${est.estimate_cm_no }&customer_no=${est.customer_no}">${est.estimate_status}</a>
-												</c:otherwise>
-											</c:choose></td>
+									<tr class="colored"
+										onclick="location.href='/getEstimate.mdo?estimate_cm_no=${est.estimate_cm_no }&customer_no=${est.customer_no}&estimate_status=${est.estimate_status}'">
+										<td class="center">${est.estimate_cm_no}</td>
+										<td class="center">${est.estimate_type}</td>
+										<td class="center">${est.customer_name}</td>
+										<td class="center">${est.estimate_date}</td>
+										<td>${est.customer_address1} ${est.customer_address2}</td>
+										<td class="center">${est.estimate_status}</td>
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
-						
+
 						<!-- pagaing 처리 -->
-		
+
 						<div>
-							<c:if test="${count > 0}"> <!-- 조회된 데이터 개수가 0보다 크면 if문 실행 -->
+							<c:if test="${count > 0}">
+								<!-- 조회된 데이터 개수가 0보다 크면 if문 실행 -->
 								<div class="icon_flex">
-								<div>
-								<c:if test="${startPage > pageBlock}"> <!-- 시작번호가 5보다 크면, 앞에 '이전'을 붙여줌 -->
-									<a href="getEstimateList.mdo?pageNum=${startPage-pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="pageging2">이전</div></a>
-								</c:if>
-								</div>
-								<div>
-								<div class="icon_flex">
-								<c:forEach var="i" begin="${startPage}" end="${endPage}">
-										<a href="getEstimateList.mdo?pageNum=${i}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="pageging">${i}</div></a>
-								</c:forEach>
-								</div>
-								</div>							
-								<div>
-								<c:if test="${endPage < pageCount}">
-									<a href="getEstimateList.mdo?pageNum=${startPage + pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="pageging2">다음</div></a>
-								</c:if>
-								</div>
+									<div>
+										<c:if test="${startPage > pageBlock}">
+											<!-- 시작번호가 5보다 크면, 앞에 '이전'을 붙여줌 -->
+											<a
+												href="getEstimateList.mdo?pageNum=${startPage-pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div
+													class="pageging2">이전</div></a>
+										</c:if>
+									</div>
+									<div>
+										<div class="icon_flex">
+											<c:forEach var="i" begin="${startPage}" end="${endPage}">
+												<a
+													href="getEstimateList.mdo?pageNum=${i}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div
+														class="pageging">${i}</div></a>
+											</c:forEach>
+										</div>
+									</div>
+									<div>
+										<c:if test="${endPage < pageCount}">
+											<a
+												href="getEstimateList.mdo?pageNum=${startPage + pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div
+													class="pageging2">다음</div></a>
+										</c:if>
+									</div>
 								</div>
 							</c:if>
-						</div><!-- 페이징 종료 -->
-						
-						
+						</div>
+						<!-- 페이징 종료 -->
+
+
 						<!-- 내용물 end -->
 						<div class="card-footer small text-muted">Updated yesterday
 							at 11:59 PM</div>
@@ -475,6 +482,15 @@
 			</footer>
 		</div>
 	</div>
+	
+	<!-- 테이블 Checked 되었을때 이벤트 반응 막기 -->
+	<script>
+		$(".checkone").click(function(event) {
+			event.stopPropagation();
+			// Do something
+		});
+	</script>
+
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
@@ -490,6 +506,7 @@
 	<script>
 		getUniqueValuesFromColumn()
 	</script>
+
 
 	<!-- pdf -->
 	<script type="text/javascript"

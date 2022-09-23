@@ -98,8 +98,8 @@ public class MypageDAO {
 	
 	//mypaging order
 	
-	public int myOrderCount() {
-		return sql.selectOne("MypageVO.myOrderCount");
+	public int myOrderCount(PagingVO vo) {
+		return sql.selectOne("MypageVO.myOrderCount", vo);
 	};
 	public List<OrderVO >myOrderPaging(PagingVO pvo){
 		return sql.selectList("MypageVO.myOrderPaging", pvo);

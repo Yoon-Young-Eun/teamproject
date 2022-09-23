@@ -341,7 +341,7 @@
 								</c:forEach>
 							</select>
 							</div>
-							<div><input style="margin-right: 5px;" type="button" id="selectBtn" value="문자발송" /></div>
+							<div><input style="margin-right: 5px;" type="button" id="selectBtn" value="문자발송" onclick="return confirm('문자 발송을 하시겠습니까?');"/></div>
 							
 
 							<!-- 검색기능 -->

@@ -8,8 +8,10 @@ public class EventVO {
 	private String board_event_content;
 	private String board_event_filepath;
 	private Date board_event_reg_date;
-	private int admin_no;
+	private boolean board_event_status;
+	private String banner_filepath;
 	private Integer banner_no;
+	
 	public int getBoard_event_no() {
 		return board_event_no;
 	}
@@ -40,11 +42,17 @@ public class EventVO {
 	public void setBoard_event_reg_date(Date board_event_reg_date) {
 		this.board_event_reg_date = board_event_reg_date;
 	}
-	public int getAdmin_no() {
-		return admin_no;
+	public boolean isBoard_event_status() {
+		return board_event_status;
 	}
-	public void setAdmin_no(int admin_no) {
-		this.admin_no = admin_no;
+	public void setBoard_event_status(boolean board_event_status) {
+		this.board_event_status = board_event_status;
+	}
+	public String getBanner_filepath() {
+		return banner_filepath;
+	}
+	public void setBanner_filepath(String banner_filepath) {
+		this.banner_filepath = banner_filepath;
 	}
 	public Integer getBanner_no() {
 		return banner_no;
@@ -57,9 +65,8 @@ public class EventVO {
 	public String toString() {
 		return "EventVO [board_event_no=" + board_event_no + ", board_event_title=" + board_event_title
 				+ ", board_event_content=" + board_event_content + ", board_event_filepath=" + board_event_filepath
-				+ ", board_event_reg_date=" + board_event_reg_date + ", admin_no=" + admin_no + ", banner_no="
-				+ banner_no + "]";
+				+ ", board_event_reg_date=" + board_event_reg_date + ", board_event_status=" + board_event_status
+				+ ", banner_filepath=" + banner_filepath + ", banner_no=" + banner_no + "]";
 	}
-	
 	
 }

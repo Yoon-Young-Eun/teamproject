@@ -325,7 +325,7 @@
 
 <div class="popup_wrapper">
 
-<form action="/insertStore.mdo" method="GET">
+<form action="/insertStore.mdo" method="GET" onsubmit="return confirm('매장 정보를 등록하겠습니까?');">
 
 <div class="popup_head"><h1>매장</h1>
 </div>
@@ -367,11 +367,11 @@
 
 <div class="end">
 		<div class="popup_btn">
-			<input type="submit" value="저장">
+			<input type="submit" value="등록">
 		</div>
 
 		<div class="popup_btn">
-			<a href="/CouponList.mdo">취소</a>
+			<a href="/StoreList.mdo">취소</a>
 		</div>
 	</div>
 </form>

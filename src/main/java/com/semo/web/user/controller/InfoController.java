@@ -40,8 +40,11 @@ public class InfoController {
 	//회원정보 수정
 	@RequestMapping(value="/updateCustomer.do")
 	public String updateCustomerInfo(CustomerVO vo) {
-		System.out.println("회원정보 수정 실행");		
-		infoservice.updateCustomerInfo(vo);
+		System.out.println("회원정보 수정 실행");	
+		CustomerVO cvo = vo;
+		cvo.setCustomer_passwd(encoder.encode(vo.getCustomer_passwd()));
+		
+		infoservice.updateCustomerInfo(cvo);
 		return "/views-mypage/MyMain.jsp";
 	}
 	

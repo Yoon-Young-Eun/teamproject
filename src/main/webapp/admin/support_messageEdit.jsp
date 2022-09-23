@@ -332,7 +332,7 @@
 						<!-- <div class="card-header">
 							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 게시판에 대한 세부제목
 						</div> -->
-	<form action = "/updatemessage.mdo" method="get" class="form">
+	<form action = "/updatemessage.mdo" method="get" class="form" onsubmit="return confirm('수정하시겠습니까?');">
 	<input type="hidden" name="message_no" value="${read.message_no}"/>
 						<div id="wrap">
 							<header>

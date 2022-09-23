@@ -87,9 +87,7 @@
 	<![CDATA[ delete from banner where banner_no=#{banner_no} ]]>
 	</delete>
 	
-	<select id="getBoardEventList" resultType="banner">
-	select * from banner
-	</select>
+	
 	
 	
  	<insert id="insertTerms" parameterType="terms">
@@ -118,6 +116,14 @@
   	<delete id="deleteTerms" parameterType="terms">
 	<![CDATA[ delete from terms where terms_no=#{terms_no} ]]>
 	</delete>
+	
+	<select id="getTermsMain" resultType="terms">
+	<![CDATA[ select * from terms where terms_no=#{terms_no} ]]>
+	</select>
+	
+	<select id="getReadTerms4" resultType="terms">
+	<![CDATA[ select * from terms where terms_no=4 ]]>
+	</select>
 	
 </mapper>
  

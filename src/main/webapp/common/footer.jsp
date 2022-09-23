@@ -17,9 +17,8 @@
 <footer>
 	<div class = "bottom-menu">
 		<ul>
-			<li><a href="#">개인정보처리방침</a></li>
-			<li><a href="#">이용약관</a></li>
-			<li><a href="#">의류보관 이용약관</a></li>
+			<li><a href="/getTermsMain.do?terms_no=3" target="_blank">개인정보처리방침</a></li>
+			<li><a href="/getTermsList.do" target="_blank">이용약관</a></li>
 		</ul>
 	</div>
 	<div class = "bottom-info">

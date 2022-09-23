@@ -343,7 +343,7 @@
 							</header>
 							<div id="content_wrap">
 							
-							<form action = "/updateTerms.mdo" method="get">
+							<form action = "/updateTerms.mdo" method="get"  onsubmit="return confirm('약관을 수정하시겠습니까?');">
 							
 								<ul class="title_wrap">
 		

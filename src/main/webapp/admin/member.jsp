@@ -12,6 +12,29 @@
 <meta name="author" content="" />
 <title>Dashboard - SEMO Admin</title>
 
+<!-- 테이블 호버 색상 -->
+<style>
+table,tr,td{
+  border:1px solid #000000;
+  border-collapse:collapse;
+}
+
+tr.colored:nth-child(even){
+  background-color: #f2f2f2;
+  color:#000000;       
+}
+
+tr.colored:nth-child(odd){
+  background-color: #ffffff;
+  color:#000000; 
+}
+
+tr.colored:hover td{
+  background-color:#f3e9e9 !important;
+  color:#303f39 !important;
+}
+</style>
+
 <!-- icon 버튼 css -->
 <link href="/admin/css/icon.css" rel="stylesheet" />
 
@@ -369,13 +392,11 @@
 
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
 						<div style= "width:100%; overflow-x:auto;">
-						<table id=""
+						<table id="#example-table-1"
 							class="tblCustomers tblexportData table"
 							border="5">
 							<thead>
-								<tr>
-									<th width="50" id="check_td"><input type="checkbox"
-										name="check" class="allcheck"></th>
+								<tr style="background-color: #e6ecff";>
 									<th>회원코드</th>
 									<th>아이디(이메일)</th>
 									<th>이름</th>
@@ -387,8 +408,7 @@
 							</thead>
 							<tbody>
 								<c:forEach var="board" items="${articleList}">
-									<tr>
-										<td id="check_td"><input type="checkbox" name="check"></td>
+									<tr class="colored">
 										<td>${board.customer_no}</td>
 										<td><a href="/getMemberBoard.mdo?customer_no=${board.customer_no}&customer_status=${board.customer_status}">${board.customer_id}</a></td>
 										<td>${board.customer_name}</td>

@@ -165,7 +165,7 @@ header {
 	align-items: center;
 }
 
-.filebox input[type="file"] {
+.filebox2 input[type="file"] {
 	position: absolute;
 	width: 1px;
 	height: 1px;
@@ -176,7 +176,7 @@ header {
 	border: 0;
 }
 
-.filebox label {
+.filebox2 label {
 	display: inline-block;
 	padding: .23em .53em;
 	color: #000;
@@ -191,7 +191,7 @@ header {
 }
 
 /* named upload */
-.filebox .upload-name {
+.filebox2 .upload-name {
 	display: inline-block;
 	padding: .23em .75em; /* label의 패딩값과 일치 */
 	font-size: inherit;

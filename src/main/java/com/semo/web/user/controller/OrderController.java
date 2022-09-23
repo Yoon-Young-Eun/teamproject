@@ -144,7 +144,7 @@ public class OrderController<imp_uid> {
 
 		List<TermsVO> terms = orderservice.selectTerms();
 		model.addAttribute("terms", terms);
-		System.out.println(terms);
+		System.out.println("약관약관"+terms);
 		int price1 = vo.getOrder_price();
 		model.addAttribute("price1", price1);
 		

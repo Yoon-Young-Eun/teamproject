@@ -360,15 +360,17 @@
 										value="${read.message_title}" readonly /></li>
 
 
-									 
+
 									<div>
-											<input style="margin-right: 5px;" type="button"	 value="전체문자발송" onclick="location.href='/sendSMSAll.mdo?message_content=${read.message_content}'" />
+										<input style="margin-right: 5px;" type="button" value="전체문자발송"
+											onclick="sendMessage()" />
 									</div>
-									
+
+
 
 								</ul>
 								<div class="writeWrap">
-									<textarea class="writeArea" readonly>${read.message_content}</textarea>
+									<textarea id="content" class="writeArea" readonly>${read.message_content}</textarea>
 								</div>
 
 								<div class="end">
@@ -376,7 +378,7 @@
 										<a href="/messageedit.mdo?message_no=${read.message_no}">수정</a>
 									</div>
 									<div class="popup_btn">
-										<a href="/deletemessage.mdo?message_no=${read.message_no}">삭제</a>
+										<a href="/deletemessage.mdo?message_no=${read.message_no}" onclick="return confirm('해당 문자를 삭제하시겠습니까?');">삭제</a>
 									</div>
 									<div class="popup_btn">
 										<a href="/supportmessageList.mdo" onclick="self.close();">취소</a>
@@ -402,6 +404,18 @@
 			</footer>
 		</div>
 	</div>
+
+	<script type="text/javascript">
+		
+									function sendMessage(){
+										let message = $("#content").val();
+										if(confirm('해당 문자를 모든 회원에게 송부하시겠습까?')){
+											console.log("ddd");
+											location.href="/sendSMSAll.mdo?message_content="+message;	
+									}
+									
+									</script>
+
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>

@@ -418,7 +418,6 @@
 										<td>${notice.notice_reg_date}</td>
 									</tr>
 								</c:forEach>
-
 							</tbody>
 						</table>
 						<div class="flex">
@@ -427,7 +426,7 @@
 									onclick="window.location='/admin/board_notice_write.jsp'" />
 							</div>
 							<div>
-								<input id="delBtn" type="button" value="삭제" />
+								<input id="delBtn" type="button" value="삭제" onclick="return confirm('선택한 공지사항을 삭제하시겠습니까?');"/>
 							</div>
 						</div>
 						<!-- pagaing 처리 -->

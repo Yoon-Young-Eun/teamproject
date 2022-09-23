@@ -43,7 +43,7 @@
 		<div class="wrap1">
 			<!-- haeder 시작 -->
 
-<jsp:include page="/common/header.jsp"></jsp:include>
+<jsp:include page="/common/logined-header.jsp"></jsp:include>
 
 			<div class="main">
 				<div class="space_left"></div>

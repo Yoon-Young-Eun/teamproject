@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.semo.web.admin.vo.Ad_EstimateVO;
 import com.semo.web.admin.vo.PagingVO;
+import com.semo.web.admin.vo.ReviewVO;
 import com.semo.web.admin.vo.StoreVO;
 import com.semo.web.user.dao.MypageDAO;
 import com.semo.web.user.vo.AddressListVO;
@@ -94,8 +95,8 @@ public class MypageServiceImpl implements MypageService{
 	
 	// mypage order paging
 	@Override
-	public int myOrderCount() {
-		return dao.myOrderCount();
+	public int myOrderCount(PagingVO vo) {
+		return dao.myOrderCount(vo);
 	}
 	//
 	@Override
@@ -152,6 +153,18 @@ public class MypageServiceImpl implements MypageService{
 	@Override
 	public int getListCount(PagingVO pvo) {
 		return dao.getListCount(pvo);
+	}
+
+	@Override
+	public List<ReviewVO> myReviewList(PagingVO vo) {
+		
+		return dao.myReviewList(vo);
+	}
+
+	@Override
+	public int getReviewCount(PagingVO vo) {
+		
+		return dao.getReviewCount(vo);
 	}
 
 }

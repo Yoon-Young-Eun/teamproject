@@ -2,9 +2,9 @@ package com.semo.web.user.service;
 
 import java.util.List;
 
-
 import com.semo.web.admin.vo.Ad_EstimateVO;
 import com.semo.web.admin.vo.PagingVO;
+import com.semo.web.admin.vo.ReviewVO;
 import com.semo.web.admin.vo.StoreVO;
 import com.semo.web.user.vo.AddressListVO;
 import com.semo.web.user.vo.Cm_QnAVO;
@@ -42,7 +42,7 @@ public interface MypageService {
 	public AddressListVO addressdetail(CustomerVO customer);
 	
 	//mypage order 리스트 카운트
-	public int myOrderCount();
+	public int myOrderCount(PagingVO vo);
 	
 	//mypage order 리스트
 	public List<OrderVO> myOrderPaging(PagingVO pvo);
@@ -67,4 +67,10 @@ public interface MypageService {
     public List<Estimate_ImageVO> getEstimateImg(Estimate_ImageVO vo);
     public List<EstimateVO> getmyEstimate(PagingVO pvo);
     int getListCount(PagingVO pvo);
+    
+    //마이 리뷰 보기
+    List<ReviewVO> myReviewList(PagingVO vo);
+    
+    //리뷰 카운트
+    int getReviewCount(PagingVO vo);
 }

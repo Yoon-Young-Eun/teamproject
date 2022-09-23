@@ -2,14 +2,13 @@ package com.semo.web.user.dao;
 
 import java.util.List;
 
-import javax.activation.CommandMap;
-
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.semo.web.admin.vo.Ad_EstimateVO;
 import com.semo.web.admin.vo.PagingVO;
+import com.semo.web.admin.vo.ReviewVO;
 import com.semo.web.admin.vo.StoreVO;
 import com.semo.web.user.vo.AddressListVO;
 import com.semo.web.user.vo.Cm_QnAVO;
@@ -98,8 +97,8 @@ public class MypageDAO {
 	
 	//mypaging order
 	
-	public int myOrderCount() {
-		return sql.selectOne("MypageVO.myOrderCount");
+	public int myOrderCount(PagingVO vo) {
+		return sql.selectOne("MypageVO.myOrderCount", vo);
 	};
 	public List<OrderVO >myOrderPaging(PagingVO pvo){
 		return sql.selectList("MypageVO.myOrderPaging", pvo);
@@ -143,6 +142,17 @@ public class MypageDAO {
 		}
 		public int getListCount(PagingVO pvo) {
 			return sql.selectOne("MypageVO.getListCount", pvo);
+		}
+		
+	//마이 리뷰보기
+		
+		public List<ReviewVO> myReviewList(PagingVO vo){
+			return sql.selectList("MypageVO.myReviewList",vo);
+		}
+	//리뷰 카운트
+		
+		public int getReviewCount(PagingVO vo) {
+			return sql.selectOne("MypageVO.getReviewCount",vo);
 		}
 
 }

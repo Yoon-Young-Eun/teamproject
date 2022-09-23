@@ -157,7 +157,7 @@
 <!-- 									onclick="window.location='/admin/board_review_insert.jsp'" /> -->
 <!-- 							</div> -->
 							<div>
-								<input id="delBtn" type="button" value="삭제" />
+								<input id="delBtn" type="button" value="삭제" onclick="return confirm('선택한 리뷰정보를 삭제하시겠습니까?');" />
 							</div>
 						</div>
 						

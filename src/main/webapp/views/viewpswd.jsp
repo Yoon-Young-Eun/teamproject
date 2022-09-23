@@ -49,11 +49,16 @@
 				<input type="hidden" value="${User.customer_passwd }">
 				<input type="hidden" value="${User.customer_no}" name="customer_no">
 				<div class="password" style="display: flex; justify-content: center; width:1000px;">
-				<input type="text" value="비밀번호" readonly style="margin-top:20px; border-style:none;"><input type="password" value="" style="margin-top:20px;" name="customer_passwd" id="pass">
+				<input type="text" value="비밀번호" readonly style="margin-top:20px; border-style:none;">
+				<input type="password" value="" style="margin-top:20px;" name="customer_passwd" id="pass">
 				</div>
-				<div class="password1" style="display: flex; justify-content: center; width:1000px;">
-				<input type="text" value="비밀번호 확인" readonly style="margin-top:20px; border-style:none;"><input type="password"  style="margin-top:20px;" id="repass">
+				<div style="display:flex; width:1000px;justify-content: center;"><span id="pwCorrection"></span></div>
+				<div class="password1" style="display: flex; justify-content: center; width:1000px; margin-top:15px;">
+				<input type="text" value="비밀번호 확인" readonly style="margin-top:20px; border-style:none;">
+				<input type="password"  style="margin-top:20px;" id="repass">
+				
 				</div>
+				<div style="display:flex; width:1000px;justify-content: center;margin-bottom:10px;"><span id="pwChecking"></span></div>
 				
 				
 				<div class="button" style="display: flex; justify-content: center; margin-top:50px;">
@@ -76,7 +81,53 @@
 				
 				</script>
 				
-				
+<!-- 비밀번호 체크 -->
+	<script type="text/javascript">
+	$(document).ready(function(){
+										
+		$('#pass').keyup(function(){
+												
+			var pw = $('#pass').val()
+			
+			var sc = ["!","@","#","$","%"]
+			var check_sc = 0;
+													
+			for(var i = 0; i < sc.length; i ++){
+				if(pw.indexOf(sc[i]) != -1){
+				check_sc = 1;
+				}
+			}
+			
+			if(pw.length < 8) {	
+				$('#pwCorrection').css("color", "red");
+				$('#pwCorrection').html("비밀번호를 8자 이상 입력해주세요.");
+				$('#pwChecking').html("");
+			} else if(pw.length >= 8 && check_sc == 0) {
+				$('#pwCorrection').css("color", "red");
+				$('#pwCorrection').html("특수문자 입력은 필수입니다.");
+				$('#pwChecking').html("");
+			} else {
+				$('#pwCorrection').html(" ");
+			}
+												
+		});
+											
+		$('#repass').keyup(function(){
+			if($('#pass').val() != $('#repass').val() || $('#repass').val().length < 8){
+				$('#pwChecking').css("color", "red");
+				$('#pwChecking').html("비밀번호가 일치하지 않습니다. 다시 확인해주세요!");
+			}else {
+				$('#pwChecking').css("color", "green");
+				$('#pwChecking').html("비밀번호가 일치합니다. 회원가입을 계속 진행해주세요!");
+			}
+		});
+		
+
+										
+	});
+	</script>	
+	
+		
 				
 				
 				

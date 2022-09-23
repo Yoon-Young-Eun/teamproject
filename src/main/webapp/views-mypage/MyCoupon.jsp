@@ -43,12 +43,14 @@
 			<div class = "content-subtitle-wrapper">
 				<p>총 <b>${cnt2}</b>개의 쿠폰</p>		
 				<!-- 검색창 --> 
-				<div class = "searchbar-wrapper">
-					 <!-- 분류 -->
-					<div class = "sort">
-						<button>쿠폰 이용 약관</button>
-					</div>	
-				</div><!-- content-subtitle-wrapper -->
+				<a href="#" class="tip">쿠폰 이용안내&nbsp;<i class="far fa-question-circle"></i>
+				<span>
+					*쿠폰 1개당 1회 적용할 수 있습니다.<br>
+					*할인쿠폰별 적용대상이 다를 수 있습니다.<br>
+					*최소결제금액 조건에 맞는 쿠폰이 있을 수 있습니다.<br>
+					*결제 취소 시 사용된 쿠폰은 환불되지 않습니다.
+				</span></a>
+			</div><!-- content-subtitle-wrapper -->
 			</div> <!-- content-title-wrapper -->	
 		
 		<!-- 주문 상세 내용 -->
@@ -74,10 +76,8 @@
 			</table>
 		</div><!-- order-wrapper -->
 	</div><!-- content-title-wrapper -->
-	
-	
 </div><!-- content-wrapper -->	
-</div>
+
 
 </body>
 </html>

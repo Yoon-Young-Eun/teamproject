@@ -26,7 +26,7 @@ public class AwsS3 {
 	   private String accessKey = "";
 	   private String secretKey = "";
 	   private Regions clientRegion = Regions.AP_NORTHEAST_2;
-	   private String bucket = "semoproject";
+	   private String bucket = "";
 
 	   private AwsS3() throws IOException {
 		   String resource = "config/AWS.properties";

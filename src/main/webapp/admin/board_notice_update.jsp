@@ -346,7 +346,7 @@
                         </div>
 
 							</header>
-							<form action="/updateBoard.mdo" method="post" enctype="multipart/form-data">
+							<form action="/updateBoard.mdo" method="post" enctype="multipart/form-data" onsubmit="return confirm('수정하시겠습니까?');">
 								<div id="content_wrap">
 									<ul class="title_wrap">
 
@@ -375,47 +375,13 @@
 											<input type="submit" value="저장">
 										</div>
 										<div class="board_btn">
-											<a href="/deleteBoard.mdo?notice_no=${board.notice_no}">삭제</a>
+											<a href="/deleteBoard.mdo?notice_no=${board.notice_no}" onclick="return confirm('게시물을 삭제하시겠습니까?');">삭제</a>
 										</div>
 										<div class="board_btn">
 											<a href="/getBoardList.mdo">목록</a>
 										</div>
 										<!-- <a href="#">저장</a>&nbsp;&nbsp;<a href="#">취소</a> -->
-									</div>
-
-
-                                    </div></li>
-                                 <!-- <li class="tag">
-                                 <div class="tag_di">
-                                    <div class="title">태그달기</div>
-                                    <div class="InputArea">
-                                       <input type="text" id="tagInput" nae="tagInput"
-                                          onfocus="value=''" value="태그와 태그는 쉼표로 구분하세요">
-                                    </div>
-                                 </div>
-                              </li> -->
-                                 <div class="open_set">
-                                    <li><span class="title">공개설정</span>&nbsp; <input
-                                       type="radio" name="open" id="open_0"> <label
-                                       for="open_0">전체공개</label>&nbsp;&nbsp; <input type="radio"
-                                       name="open" id="open_2"> <label for="open_2">비공개</label>
-                                    </li>
-                                 </div>
-                              </ul>
-                           </div>
-                           <div class="end">
-                              <div class="board_btn">
-                                 <input type="submit" value="저장">
-                              </div>
-                              <div class="board_btn">
-                                 <a href="/deleteBoard.mdo?notice_no=${board.notice_no}">삭제</a>
-                              </div>
-                              <div class="board_btn">
-                                 <a href="/getBoardList.mdo">목록</a>
-                              </div>
-                              <!-- <a href="#">저장</a>&nbsp;&nbsp;<a href="#">취소</a> -->
-                           </div>
-
+									</div>    
                         </div>
                      </form>
                   </div>

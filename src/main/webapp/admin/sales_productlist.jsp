@@ -12,6 +12,8 @@
 <meta name="author" content="" />
 <title>Dashboard - SEMO Admin</title>
 
+<!-- table & hover css -->
+<link href="/admin/css/table_Sales.css" rel="stylesheet" />
 
 <!-- chart css -->
 <link href="/admin/css/chart.css" rel="stylesheet" />
@@ -466,9 +468,9 @@
 						</div>
 
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
-						<table id="" class="tblCustomers tblexportData table" border="5">
+						<table id="" class="tblCustomers tblexportData table">
 							<thead>
-								<tr>
+								<tr style="background-color: #f2f2f2";>
 									<th>주문일자</th>
 									<th>대분류</th>
 									<th>중분류</th>
@@ -479,13 +481,13 @@
 							</thead>
 							<tbody>
 								<c:forEach var="sales" items="${productSalesList}">
-									<tr>
-										<td>${sales.order_mt_date}</td>
-										<td>${sales.order_mt_category1}</a></td>
-										<td>${sales.order_mt_category2}</td>
-										<td>${sales.order_mt_product}</td>
-										<td>${sales.order_mt_count}</td>
-										<td>${sales.order_mt_price}</td>
+									<tr class="colored">
+										<td class="center">${sales.order_mt_date}</td>
+										<td class="center">${sales.order_mt_category1}</a></td>
+										<td class="center">${sales.order_mt_category2}</td>
+										<td class="center">${sales.order_mt_product}</td>
+										<td class="center">${sales.order_mt_count}</td>
+										<td class="center">${sales.order_mt_price}</td>
 									</tr>
 								</c:forEach>
 							</tbody>

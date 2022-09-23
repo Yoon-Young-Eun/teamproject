@@ -91,7 +91,7 @@ public class OrderDAO {
 		return sqlTemplate.selectOne("OrderDAO.getEstimate", vo);
 	}
 	
-	public Ad_EstimateVO getAd_Estimate(Ad_EstimateVO vo) {
+	public Ad_EstimateVO getAd_Estimate(EstimateVO vo) {
 		return sqlTemplate.selectOne("OrderDAO.getAd_Estimate", vo);
 	}
 	

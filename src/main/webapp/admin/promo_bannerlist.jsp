@@ -12,6 +12,9 @@
 <meta name="author" content="" />
 <title>Dashboard - SEMO Admin</title>
 
+<!-- table & hover css -->
+<link href="/admin/css/table.css" rel="stylesheet" />
+
 <!-- icon 버튼 css -->
 <link href="/admin/css/icon.css" rel="stylesheet"/>
 
@@ -307,42 +310,31 @@
 	 
 	  
 	  <!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->  
-    <table id="datatablesSimple" class="emp-table dataPerPage tblCustomers tblexportData table" border="5">
+    <table id="" class="tblCustomers tblexportData table">
         <thead>
-								<tr>
+								<tr style="background-color: #f2f2f2";>
 									<th width="50" id="check_td"><input type="checkbox"
 										name="check" class="allcheck"></th>
-									<th col-index=2>배너번호</th>
-									<th col-index=3>배너이름</th>
-									<th col-index=4>첨부파일</th>
-									<th col-index=5>내용</th>
-									<th col-index=6>본문작성</th>
-									<th col-index=7>등록일</th>
+									<th>배너번호</th>
+									<th>배너이름</th>
+									<th>첨부파일</th>
+									<th>내용</th>								
+									<th>등록일</th>
 								</tr>
 							</thead>  
 							<tbody>
 								<!-- for문~(c:forEach)  이 for문의 id값은 "admin"으로 정함!-->
 								<c:forEach var="banner" items="${BannerList}">
 									<!--  adminList은 컨트롤러에서 model에 저장한 "adminList" 이름임 -->
-									<tr>
-										<td id="check_td"><input type="checkbox" name="check"></td>
-										<td>${banner.banner_no}</td>
+									<tr class="colored"
+										onclick="location.href='readBanner.mdo?banner_no=${banner.banner_no}'">
+										<td id="check_td"><input type="checkbox" class="checkone" name="check"></td>
+										<td class="center">${banner.banner_no}</td>
 										<!--for문의 id값.컬럼명으로 값을 불러옴 -->
 										<td>${banner.banner_title}</td>
-										<td><a href="readBanner.mdo?banner_no=${banner.banner_no}"><img src="${banner.banner_filepath}" width="340px", height="100px"></a></td>
-										<td>${banner.banner_content}</td>
-										<td>
-										<c:choose> 
-											<c:when test="${banner.banner_usable == true}">
-												작성완료
-											</c:when>  
-											<c:otherwise>
-												<input id="eventbutton" type="button" value="이벤트등록" onclick="window.location='/admin/board_event_write.jsp'" />
-											</c:otherwise> 
-										</c:choose> 
-										
-										</td>
-										<td>${banner.banner_reg_date}</td>
+										<td><img src="${banner.banner_filepath}" width="340px", height="100px"></td>
+										<td>${banner.banner_content}</td>										
+										<td class="center">${banner.banner_reg_date}</td>
 									</tr>
 								</c:forEach>
 
@@ -427,6 +419,15 @@
 			</footer>
 		</div>
 	</div>
+	
+		<!-- 테이블 Checked 되었을때 이벤트 반응 막기 -->
+	<script>
+		$(".checkone").click(function(event) {
+			event.stopPropagation();
+			// Do something
+		});
+	</script>
+	
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>

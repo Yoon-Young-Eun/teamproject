@@ -332,7 +332,7 @@
 					<!-- 상세정보 -->
 				
 <div>					
-<form action="/blackmemberUpdate.mdo" method="GET" class="form">			
+<form action="/blackmemberUpdate.mdo" method="GET" class="form" onsubmit="return confirm('저장 하시겠습니까? 계정상태 변경시 안내 문자가 회원에게 발송됩니다.');">			
 	<input type="hidden" name="customer_no" value="${user.customer_no}"/>
 	<input type="hidden" name="customer_phone" value="${user.customer_phone}"/>
  	<div class="member_wrapper">
@@ -383,7 +383,7 @@
 
 		<div class="end">
 			<div class="popup_btn">
-				<input type="submit" value="저장"/>
+				<input type="submit" value="저장" style="border-style:none;"/>
 			</div>
 			<div class="popup_btn">
 				<a href="/blackmember.mdo" onclick="self.close();">취소</a>

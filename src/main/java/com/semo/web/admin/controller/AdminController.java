@@ -11,6 +11,7 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +31,9 @@ public class AdminController {
 	@Autowired
 	AdminService adminservice;
 	
+	@Autowired
+	BCryptPasswordEncoder encoder; 
+	
 	
 	//login.jsp 에서 로그인 버튼시(login.mdo) 작동
 	@RequestMapping(value="/login.mdo", method = RequestMethod.POST)
@@ -37,23 +41,52 @@ public class AdminController {
 		System.out.println(vo); //값이 컨트롤러로 잘 보내지는 지 확인
 		System.out.println("어드민 login() 까꿍! ");
 		
+		
 		//세션 유지시간 설정 
 		session.setMaxInactiveInterval(1800); // 1800 = 60s*30 (30분)
 		
-		AdminVO user = adminservice.getAdmin(vo);
+		if(adminservice.getAdmin(vo) == null) {
+			System.out.println("유효하지 않은 아이디 입니다.");
+			return "/admin/login.jsp";
+		}
+		AdminVO user = adminservice.getAdmin(vo); 
 		System.out.println(user); //쿼리문의 결과가 어떻게 나왔는지 확인
 		
-		if(user.getAdmin_id() != null ) {
+		if(encoder.matches(vo.getAdmin_passwd(), user.getAdmin_passwd())) {
 			System.out.println("로그인 성공");
-			session.setAttribute("name", user.getAdmin_no()); //나중에 로그인 후 우측 상단에 OO님 환영합니다로 불러올 데이터
-			return "/admin/index.jsp";                        // jsp 페이지 안에 ${name} 이라고 쓰면 됨
+			session.setAttribute("admin", user); //나중에 로그인 후 우측 상단에 OO님 환영합니다로 불러올 데이터
+			return "/admin/index.jsp";   
 		}else {
 			System.out.println("로그인 실패");
 			return "/admin/login.jsp";
 		}	
 	}
 	
+	
+	@RequestMapping(value="/register.mdo")
+	public String adminRegister(AdminVO vo) {
+		System.out.println("adminRegister 메서드");
+		System.out.println("회원가입 입력정보"+vo);
+		
+		AdminVO vo2 = vo;
+		vo2.setAdmin_passwd(encoder.encode(vo.getAdmin_passwd()));
+		
+		adminservice.setAdmin(vo2);
+		
+		return"/admin/register_success.jsp";
+		
+	}
 
+	 
+	@RequestMapping(value="/logout.mdo")
+	public String logout(HttpSession session, Model model, AdminVO vo) {
+		
+
+		session.setAttribute("admin", null); 
+		session.invalidate();
+		
+		return "/admin/login.jsp";
+	}
 	
 	//매니저 조회 리스트 (staffList.mdo)실행 
 		@RequestMapping(value="/staffList.mdo", method = RequestMethod.GET)

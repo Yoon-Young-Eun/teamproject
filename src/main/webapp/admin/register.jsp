@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-	
+    
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -23,41 +23,56 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
                                     <div class="card-body">
-                                        <form>
+                                        <form action ="/register.mdo" method="post">
                                             <div class="row mb-3">
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
-                                                        <label for="inputFirstName">First name</label>
+                                                        <input class="form-control" id="inputName" name="admin_name"  type="text" placeholder="Enter your first name" />
+                                                        <label for="inputName">이름</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating">
-                                                        <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" />
-                                                        <label for="inputLastName">Last name</label>
+                                                        <input class="form-control" id="inputLastName" name="admin_title" type="text" placeholder="Enter your last name" />
+                                                        <label for="inputLastName">직급</label>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
-                                                <label for="inputEmail">Email address</label>
-                                            </div>
-                                            <div class="row mb-3">
+										<div class="row mb-3">
+											<div class="col-md-6">
+												<div class="form-floating mb-3 mb-md-0">
+													<input class="form-control" id="inputEmail"
+														name="admin_id" type="email"
+														placeholder="name@example.com" /> <label
+														for="inputEmail">Email address(아이디)</label>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-floating">
+													<input class="form-control" id="inputPosition"
+														name="admin_position" type="text"
+														placeholder="Enter your last name" /> <label
+														for="inputPosition">담당업무</label>
+												</div>
+											</div>
+										</div>
+										<div class="row mb-3">
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" id="inputPassword" type="password" placeholder="Create a password" />
+                                                        <input class="form-control" id="inputPassword" name="admin_passwd" type="password" placeholder="Create a password" />
                                                         <label for="inputPassword">Password</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" id="inputPasswordConfirm" type="password" placeholder="Confirm password" />
+                                                        <input class="form-control" id="inputPasswordConfirm" name="" type="password" placeholder="Confirm password" />
                                                         <label for="inputPasswordConfirm">Confirm Password</label>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="mt-4 mb-0">
-                                                <div class="d-grid"><a class="btn btn-primary btn-block" href="login.jsp">Create Account</a></div>
+                                            <div class="mt-4 mb-0"><div class="d-grid">
+                                            	<input type="submit" value="Create Account" class="btn btn-primary btn-block"/></div>
+                                                <!-- <div class="d-grid"><a class="btn btn-primary btn-block">Create Account</a></div> -->
                                             </div>
                                         </form>
                                     </div>

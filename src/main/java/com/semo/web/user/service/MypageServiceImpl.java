@@ -95,8 +95,8 @@ public class MypageServiceImpl implements MypageService{
 	
 	// mypage order paging
 	@Override
-	public int myOrderCount() {
-		return dao.myOrderCount();
+	public int myOrderCount(PagingVO vo) {
+		return dao.myOrderCount(vo);
 	}
 	//
 	@Override

@@ -394,7 +394,7 @@
 										<a href="updateTermsPage.mdo?terms_no=${TermsInfo.terms_no}">수정</a>
 									</div>
 									<div class="popup_btn">
-										<a href="deleteTerms.mdo?terms_no=${TermsInfo.terms_no}">삭제</a>
+										<a href="deleteTerms.mdo?terms_no=${TermsInfo.terms_no}"  onclick="return confirm('약관을 삭제하시겠습니까?');">삭제</a>
 									</div>
 								</div>
 							</form>

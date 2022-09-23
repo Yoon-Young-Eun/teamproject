@@ -17,7 +17,7 @@
 
 	<!-- 로그인 확인 -->
 	<select id="getAdmin" parameterType="admin" resultType="admin">
-  <![CDATA[	select * from admin where admin_id = #{admin_id} and admin_passwd = #{admin_passwd}  ]]>
+  <![CDATA[	select * from admin where admin_id = #{admin_id}]]>
 	</select>
 
 	<insert id="setAdmin" parameterType="admin">

@@ -42,19 +42,21 @@
 				<div class="login-top-wrap"></div>
 				
 					<div class="login-input-container">
-				<form action="/login.do" method="get">
+				<form action="/login.do" method="post" id = "loginForm" name = "loginForm" >
 						<div class="login-input-wrap input-id">
 							<i class="far fa-envelope"></i> <input id="id"
-								placeholder="example@mail.com" name="customer_id"
+								placeholder="example@mail.com" class = "id" name="customer_id"
 								value="${memberVO.customer_id}" type="text">
+								<span id = "idCorrection"></span>
 						</div>
 						<div class="login-input-wrap input-password">
 							<i class="fas fa-key"></i> <input id="passwd" placeholder="비밀번호"
-								name="customer_passwd" value="${memberVO.customer_passwd}"
+								name="customer_passwd" class="passwd" value="${memberVO.customer_passwd}"
 								type="password">
+								<span id = "passCorrection"></span>
 						</div>
 						<div class="login-btn-wrap">
-							<input type="submit" value="로그인" id="login" class="login-btn" />
+							<button id="login-btn" class="login-btn">로그인</button>
 							<span>아직 회원이 아니십니까?&nbsp;&nbsp;<a href="terms.jsp">회원가입</a></span>
 							<span>비밀번호를 잊으셨나요? <a href="/views/IdpwSearch.jsp">&nbsp;&nbsp;비밀번호찾기</a></span>
 						</div>
@@ -66,72 +68,63 @@
 				<div class="social">
 					<span>소셜 로그인</span>
 					<br>
-					<button onclick="kakaoLogin()"><img style = "display:flex;justify-content:center;"alt="" src="/views/resources/img/kakao_login_medium_wide.png"></button>
-					
-					<script>
-					 function kakaoLogin() {
-
-			             $.ajax({
-			                 url: '/kakao.do',
-			                 type: 'get',
-			                 async: false,
-			                 dataType: 'text',
-			                 success: function (res) {
-			                     location.href = res;
-			                 }
-			             });
-
-			           }
-					
-					</script>
+					<button style = "border : none;" onclick="kakaoLogin()"><img style = "display:flex;justify-content:center;"alt="" src="/views/resources/img/kakao_login_medium_wide.png"></button>
 					
 					
 					
-					
-					<!-- <script>
-						Kakao.init('23ba625f7534454f4f7553b3ef9cfd1c'); //발급받은 키 중 javascript키를 사용해준다.
-						console.log(Kakao.isInitialized()); // sdk초기화여부판단
-						//카카오로그인
-						function kakaoLogin() {
-						    Kakao.Auth.login({
-						      success: function (response) {
-						        Kakao.API.request({
-						          url: '/v2/user/me',
-						          success: function (response) {
-						        	  console.log(response)
-						          },
-						          fail: function (error) {
-						            console.log(error)
-						          },
-						        })
-						      },
-						      fail: function (error) {
-						        console.log(error)
-						      },
-						    })
-						  }
-						//카카오로그아웃  
-						function kakaoLogout() {
-						    if (Kakao.Auth.getAccessToken()) {
-						      Kakao.API.request({
-						        url: '/v1/user/unlink',
-						        success: function (response) {
-						        	console.log(response)
-						        },
-						        fail: function (error) {
-						          console.log(error)
-						        },
-						      })
-						      Kakao.Auth.setAccessToken(undefined)
-						    }
-						  }  
-						</script> -->
 				</div>
 			</div>
 		</div>
 	</div>
+	
+	<!-------------------- 스크립트 ---------------------->
+	
+	<!-- 소셜로그인 -->
+	<script>
+	function kakaoLogin() {
 
-
+		$.ajax({
+			url: '/kakao.do',
+			type: 'get',
+			async: false,
+			dataType: 'text',
+			success: function (res) {
+				location.href = res;
+			}
+		});
+	}
+					
+	</script>
+	
+	<!-- 로그인 유효성 -->
+	<script>
+		$('#login-btn').click(function(){
+			var id = $('#id').val();
+			var passwd = $('#passwd').val();
+			
+			console.log(id);
+			console.log(passwd);
+			console.log("함수 실행");
+			
+			if (id == "" || id == null){
+				$('#id').attr("placeholder","아이디를 입력해주세요.");
+				$('#id').append('<style> .id::placeholder{color:red} </style>')
+				$('#id').focus();
+				return false;
+			} else if (passwd == "" || passwd == null){
+				$('#passwd').attr("placeholder","비밀번호를 입력해주세요.");
+				$('#passwd').append('<style> .passwd::placeholder{color:red} </style>')
+				$('#passwd').focus();
+				return false;
+			} else if (passwd != "" && id != ""){
+				$('#login-btn').submit();
+			}
+		});
+	</script>
+	
+	 
+	
+</body>
 
 	<jsp:include page="/common/footer.jsp" />
 </html>

@@ -426,12 +426,12 @@
 								<input id="button" type="button" value="등록" onclick="location.href='/admin/member_staff_insert.jsp';"/>
 							</div>
 							<div>
-								<input id="delBtn" type="button" value="삭제" />
+								<input id="delBtn" type="button" value="삭제" onclick="return confirm('선택한 관리자 회원정보를 삭제하시겠습니까?');" />
 							</div>
 
 						</div>
 
-	<!-- pagaing 처리 -->
+					<!-- pagaing 처리 -->
 						<div >					
 							<c:if test="${count > 0}">
 							<div class="icon_flex">

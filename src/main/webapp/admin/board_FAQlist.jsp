@@ -382,7 +382,7 @@
 <div class="flex">
 						<div> <input id="button" type="button" value="등록" onclick="window.location='/admin/board_FAQ_insert.jsp'"/> </div>
 <!-- 						<div> <input  id="button" type="button"  value="수정" /> </div> -->
-						<div> <input id="delBtn" type="button" value="삭제" /> </div>
+						<div> <input id="delBtn" type="button" value="삭제"  onclick="return confirm('선택한 게시글을 삭제하시겠습니까?');"/> </div>
 						
 						</div>
 

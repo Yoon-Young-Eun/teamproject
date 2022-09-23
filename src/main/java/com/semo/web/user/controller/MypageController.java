@@ -98,12 +98,12 @@ public class MypageController {
 	       pvo.setEndRow(currentPage * pageSize); //현재 화면에서의 마지막 게시물 행
 	       int count =0; 	 
 	      
-	       count = service.myOrderCount(); // 조회 개수 (여러 검색 조건등이 포함되어야함)
+	       count = service.myOrderCount(pvo); // 조회 개수 (여러 검색 조건등이 포함되어야함)
 	       System.out.println("count"+count);
 	       List<OrderVO> orderlist = null; //조회 데이터를 담을 List 객체
 	       if(count >0) { //조회할 데이터가 하나라도 있다면 메서드 실행
 	    	   orderlist = service.myOrderPaging(pvo);
-	    	   System.out.println("adminList"+orderlist);
+	    	   System.out.println("orderList"+orderlist);
 	    	  
 	       }else { //없으면 빵
 	    	   orderlist=Collections.emptyList(); 

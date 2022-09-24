@@ -30,42 +30,19 @@
 
 <script language="JavaScript" type="text/JavaScript">
 
-function check_on() {
-	var from=document.chek;
-	var checkCount = 0;
-	for (i=0; i<from.check1.length; i++) {
-	if(from.check1[i].checked==true) {
-	checkCount++;
-	}
-	}
-	if(checkCount==0) {
-	alert('체크상자 선택해주세요');
-	return false;
-	}
-	}
-	</script>
-	<script language="JavaScript">
-	<!-- 체크폼
-	function check_it() {
-	var from=document.chek;
-	if(from.result.checked==true){
-	for (i=0; i<from.check1.length; i++) {
-	from.check1[i].checked = true;
-	}
-	} else {
-	for (i=0; i<from.check1.length; i++) {
-	from.check1[i].checked =false;
-	}
-	}
+$(document).ready(function(){
+	 $("#nextBtn").click(function(){    
+         if($("#allcheck").is(":checked") == false){
+             alert("모든 약관에 동의 하셔야 다음 단계로 진행 가능합니다.");
+             return;
+         }else{
+             $("#terms_form").submit();
+         }
+     });    
+ });
 
-	}
 </script>
-<form action="list.php" method="post" name="chek" id="chek">
-<input name="result" type="checkbox" id="result" onclick="check_on();">
-<input type="checkbox" name="check1[]" id="check1" value="1">
-<input type="checkbox" name="check1[]" id="check1" value="2">
-<input type="checkbox" name="check1[]" id="check1" value="3">
-</form>
+
 
 </head>
 <body>
@@ -83,7 +60,7 @@ function check_on() {
 		</ul>
 	</div>
 </div>
-
+<form action="/views/certificate.jsp" id="terms_form" class="f" >
 	<div class="yak">
 		<c:forEach var="t" items="${tlist}">
 			<div class="yak1">
@@ -92,7 +69,7 @@ function check_on() {
 					<input type="button" value=" ▼ " onclick="showYak(this)" id="yakk33">
 					</div>
 					<div id="check_td">
-					동의<input type="checkbox" name="check1[]" id="check1" >
+					동의<input type="checkbox" name="check" id="check1" >
 					</div>
 				</div>
 				<div class="yak33" id="yak3">
@@ -102,18 +79,18 @@ function check_on() {
 		</c:forEach>
 		<div class="all_agree">
 				<div id="check_td" class="agree">
-				전체동의<input type="checkbox" name="check1[]" id="check1" class="allcheck"></div>
+				전체동의<input type="checkbox" id="allcheck" class="allcheck" name="check"></div>
 		</div>
 
 		
 		<div class = "btn">
    			<a href="/views/main.jsp" class="action-button shadow animate blue">이전</a>
-   			<a href="/views/certificate.jsp" class="action-button shadow animate blue" onClick="check_on();">다음</a>
-
+<!--    			<a href="/views/certificate.jsp" class="action-button shadow animate blue" onClick="check_on();">다음</a> -->
+			<input type="button" id="nextBtn" class="action-button shadow animate blue" value="다음"/>
 									 
 		</div> 
 	</div>
-
+</form>
 	<script>
 		function showYak(e) {
 			console.log(e.parentNode.parentNode.parentNode.childNodes[3].childNodes[1]);

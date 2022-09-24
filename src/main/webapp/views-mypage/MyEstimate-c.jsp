@@ -38,7 +38,7 @@
 		<!-- 제목 -->
 		<div class = "content-title-wrapper">
 			<div class = "content-title">
-				<h2>접수내역</h2>
+				<h2>취소내역</h2>
 			</div>
 			<!-- 소제목 -->
 			<div class = "content-subtitle-wrapper">
@@ -109,9 +109,9 @@
 				</div>
 								
 			</div><!-- order-item-wrapper -->
+			
 		<div class="btn">
-			<button id="btn" class="action-button shadow animate blue" onclick="location.href='/OrderSpecial1.do?customer_no=${getEstimate.customer_no}'">결제</button>
-			<button id="btn_c" class="action-button shadow animate red" onclick="location.href='/updateEstimate.do?customer_no=${getEstimate.customer_no}&estimate_cm_no=${getEstimate.estimate_cm_no }'">취소</button>
+			<button id="btn" class="action-button shadow animate blue" onclick="location.href='/getmyEstimate.do?customer_no=${getEstimate.customer_no}'">목록</button>
 		</div>
 	</div> <!-- content-wrapper -->
 	

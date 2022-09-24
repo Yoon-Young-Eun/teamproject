@@ -294,21 +294,38 @@ public class MypageController {
     @RequestMapping(value= "/myestimate.do")
     public String getMyEstimate(EstimateVO evo, Ad_EstimateVO avo, Estimate_ImageVO vo1, Model model) {
        System.out.println("내 견적요청서");
+       System.out.println(vo1);
        System.out.println("evo"+evo);
        System.out.println("avo"+ avo); 
        
        List<Estimate_ImageVO> eiv = service.getEstimateImg(vo1);
+       System.out.println(eiv);
        EstimateVO myvo = service.getMyEstimate(evo);
+       System.out.println(myvo);
 
        model.addAttribute("estiimg", eiv);
        model.addAttribute("getEstimate", myvo);
        System.out.println("myvo"+myvo);
        
+       String status="견적발송";
+       if(myvo.getEstimate_status().equals(status)) {
        System.out.println("관리자답변");
        Ad_EstimateVO advo = service.getAd_Estimate(avo);
        System.out.println("답변?"+advo);
        model.addAttribute("getAd", advo);
+
        return "/views-mypage/MyEstimate.jsp";
+       }else {
+    	   return "/views-mypage/MyEstimate-c.jsp";
+       }
+    }
+    
+    @RequestMapping(value="/updateEstimate.do")
+    public String updateEstimate(EstimateVO vo) {
+    	System.out.println("주문취소 상태 업데이트");
+    	service.updateEstimate(vo);
+    	
+    	return "/getmyEstimate.do";
     }
     
     //견적리스트

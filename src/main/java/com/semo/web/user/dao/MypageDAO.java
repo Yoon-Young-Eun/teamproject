@@ -143,6 +143,9 @@ public class MypageDAO {
 		public int getListCount(PagingVO pvo) {
 			return sql.selectOne("MypageVO.getListCount", pvo);
 		}
+		public EstimateVO updateEstimate(EstimateVO vo) {
+			return sql.selectOne("MypageVO.updateEstimate", vo);
+		}
 		
 	//마이 리뷰보기
 		
@@ -153,6 +156,10 @@ public class MypageDAO {
 		
 		public int getReviewCount(PagingVO vo) {
 			return sql.selectOne("MypageVO.getReviewCount",vo);
+		}
+	//리뷰상세
+		public ReviewVO viewReview(ReviewVO vo) {
+			return sql.selectOne("MypageVO.viewReview",vo);
 		}
 
 }

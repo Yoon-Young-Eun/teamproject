@@ -166,6 +166,17 @@ public class MypageServiceImpl implements MypageService{
 		
 		return dao.getReviewCount(vo);
 	}
+	
+	@Override
+	public EstimateVO updateEstimate(EstimateVO vo) {
+		return dao.updateEstimate(vo);
+	}
+
+	@Override
+	public ReviewVO viewReview(ReviewVO vo) {
+		
+		return dao.viewReview(vo);
+	}
 
 }
 

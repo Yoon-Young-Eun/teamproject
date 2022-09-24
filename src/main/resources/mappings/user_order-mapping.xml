@@ -57,8 +57,8 @@
 
 
 	<insert id="Orderspecial" parameterType="estimate">
-	<![CDATA[insert into estimate_cm(customer_no,customer_name,estimate_type,customer_address1,customer_address2,estimate_content,estimate_filepath)
-	values(#{customer_no},#{customer_name},#{estimate_type},#{customer_address1},#{customer_address2},#{estimate_content},#{estimate_filepath})]]>
+	<![CDATA[insert into estimate_cm(customer_no,customer_name,customer_phone,estimate_type,customer_address1,customer_address2,estimate_content,estimate_filepath)
+	values(#{customer_no},#{customer_name},#{customer_phone},#{estimate_type},#{customer_address1},#{customer_address2},#{estimate_content},#{estimate_filepath})]]>
 	</insert>
 
 	<insert id="insertImage" parameterType="estimate_image">

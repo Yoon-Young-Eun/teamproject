@@ -42,7 +42,7 @@ public interface MypageService {
 	public AddressListVO addressdetail(CustomerVO customer);
 	
 	//mypage order 리스트 카운트
-	public int myOrderCount();
+	public int myOrderCount(PagingVO vo);
 	
 	//mypage order 리스트
 	public List<OrderVO> myOrderPaging(PagingVO pvo);

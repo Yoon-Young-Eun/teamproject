@@ -164,7 +164,7 @@
       values (#{estimate_cm_no}, #{estimate_price}, #{estimate_type_title}, #{estimate_type_content}) ]]>
    </insert>
 
-   <select id="getAd_Estimate" parameterType="Ad_estimate" resultType="Ad_estimate">
+   <select id="getAd_Estimate" parameterType="estimate" resultType="Ad_estimate">
       <![CDATA[ select ad.estimate_ad_no, ad.estimate_cm_no, ad.estimate_price, ad.estimate_reply_date, t.estimate_type_title, ad.estimate_type_content from estimate_ad ad, estimate_type t where ad.estimate_cm_no=#{estimate_cm_no} and ad.estimate_type_content = t.estimate_type_content; ]]>
    </select>
 

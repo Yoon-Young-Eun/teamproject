@@ -369,7 +369,7 @@ ${StoreInfo.store_phone}
 		<a href="updateStorePage.mdo?store_code=${StoreInfo.store_code}">수정</a>
 	</div>
 	<div class="popup_btn">
-		<a href="deleteStore.mdo?store_code=${StoreInfo.store_code}">삭제</a>
+		<a href="deleteStore.mdo?store_code=${StoreInfo.store_code}" onclick="return confirm('해당 매장정보를 삭제하시겠습니까?');">삭제</a>
 	</div>
 </div>
 

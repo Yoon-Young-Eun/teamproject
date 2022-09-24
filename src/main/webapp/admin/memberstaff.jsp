@@ -12,6 +12,9 @@
 <meta name="author" content="" />
 <title>Dashboard - SEMO Admin</title>
 
+<!-- table & hover css -->
+<link href="/admin/css/table.css" rel="stylesheet" />
+
 <!-- icon 버튼 css -->
 <link href="/admin/css/icon.css" rel="stylesheet" />
 
@@ -393,10 +396,9 @@
 					<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
 					<div style= "width:100%; overflow-x:auto;">
 						<table id=""
-							class="emp-table dataPerPage tblCustomers tblexportData table"
-							border="5">
+							class="tblCustomers tblexportData table">
 							<thead>
-								<tr>
+								<tr style="background-color: #f2f2f2";>
 									<th width="50" id="check_td"><input type="checkbox"
 										name="check" class="allcheck"></th>
 									<th >No</th>
@@ -407,15 +409,14 @@
 								</tr>
 							</thead>
 							<tbody>
-							<!-- for문~(c:forEach)  이 for문의 id값은 "admin"으로 정함!-->  
 								<c:forEach var="admin" items="${adminList}">   <!--  adminList은 컨트롤러에서 model에 저장한 "adminList" 이름임 -->									
-								    <tr>
-										<td id="check_td"><input type="checkbox" name="check"></td>
-										<td>${admin.admin_no}</td>  <!--for문의 id값.컬럼명으로 값을 불러옴 -->
-										<td><a href="readStaff.mdo?admin_no=${admin.admin_no}">${admin.admin_id}</a></td>
+								    <tr class="colored" onclick="location.href='readStaff.mdo?admin_no=${admin.admin_no}'">
+										<td id="check_td"><input type="checkbox" class ="checkone" name="check"></td>
+										<td class="center">${admin.admin_no}</td>  <!--for문의 id값.컬럼명으로 값을 불러옴 -->
+										<td>${admin.admin_id}</a></td>
 										<td>${admin.admin_position}</td>
 										<td>${admin.admin_title}</td>
-										<td>${admin.admin_name}</td>
+										<td class="center">${admin.admin_name}</td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -426,12 +427,12 @@
 								<input id="button" type="button" value="등록" onclick="location.href='/admin/member_staff_insert.jsp';"/>
 							</div>
 							<div>
-								<input id="delBtn" type="button" value="삭제" />
+								<input id="delBtn" type="button" value="삭제" onclick="return confirm('선택한 관리자 회원정보를 삭제하시겠습니까?');" />
 							</div>
 
 						</div>
 
-	<!-- pagaing 처리 -->
+					<!-- pagaing 처리 -->
 						<div >					
 							<c:if test="${count > 0}">
 							<div class="icon_flex">
@@ -516,6 +517,13 @@
 		});
 	</script>
 
+<!-- 테이블 Checked 되었을때 이벤트 반응 막기 -->
+<script>
+$( ".checkone" ).click(function( event ) {
+  event.stopPropagation();
+  // Do something
+});
+</script> 
 	
 	
 	<script

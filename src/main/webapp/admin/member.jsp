@@ -12,6 +12,9 @@
 <meta name="author" content="" />
 <title>Dashboard - SEMO Admin</title>
 
+<!-- table & hover css -->
+<link href="/admin/css/table.css" rel="stylesheet" />
+
 <!-- icon 버튼 css -->
 <link href="/admin/css/icon.css" rel="stylesheet" />
 
@@ -369,14 +372,11 @@
 
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
 						<div style= "width:100%; overflow-x:auto;">
-						<table id=""
-							class="tblCustomers tblexportData table"
-							border="5">
+						<table id="#example-table-1"
+							class="tblCustomers tblexportData table">
 							<thead>
-								<tr>
-									<th width="50" id="check_td"><input type="checkbox"
-										name="check" class="allcheck"></th>
-									<th>회원코드</th>
+								<tr style="background-color: #f2f2f2";>
+									<th >회원코드</th>
 									<th>아이디(이메일)</th>
 									<th>이름</th>
 									<th>핸드폰</th>
@@ -387,15 +387,14 @@
 							</thead>
 							<tbody>
 								<c:forEach var="board" items="${articleList}">
-									<tr>
-										<td id="check_td"><input type="checkbox" name="check"></td>
-										<td>${board.customer_no}</td>
-										<td><a href="/getMemberBoard.mdo?customer_no=${board.customer_no}&customer_status=${board.customer_status}">${board.customer_id}</a></td>
+									<tr class="colored" onclick="location.href='/getMemberBoard.mdo?customer_no=${board.customer_no}&customer_status=${board.customer_status}'">
+										<td class="center">${board.customer_no}</td>
+										<td>${board.customer_id}</a></td>
 										<td>${board.customer_name}</td>
-										<td>${board.customer_phone}</td>
+										<td class="center">${board.customer_phone}</td>
 										<td>${board.customer_address1} ${board.customer_address2}</td>
-										<td>${board.customer_sms_permit}</td>
-										<td>${board.customer_status}</td>
+										<td class="center">${board.customer_sms_permit}</td>
+										<td class="center">${board.customer_status}</td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -430,9 +429,8 @@
 
 
 						<!-- 내용물 end -->
-						<div class="card-footer small text-muted">Updated yesterday
-							at 11:59 PM</div>
-					</div>
+							<div class="card-footer small text-muted">The Semo is king of world of best of universal</div>
+						</div>
 
 				</div>
 			</main>

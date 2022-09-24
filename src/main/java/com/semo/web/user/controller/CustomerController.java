@@ -1,4 +1,4 @@
-package com.semo.web.user.controller;
+	package com.semo.web.user.controller;
 
 import java.util.List;
 
@@ -33,7 +33,7 @@ public class CustomerController {
 	BCryptPasswordEncoder encoder; // 암호화 클래스
 
 	// 로그인
-	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
 	public String login(CustomerVO vo, OrderVO order, Model model, HttpSession session) {
 		
 		System.out.println(vo);
@@ -42,21 +42,22 @@ public class CustomerController {
 		// CustomerVO vo2 = userservice.getMember(vo); 기존의 메서드는 아이디 비번을 모두 비교하기에 사용이 적합하지 않음
 		System.out.println(userservice.getMember(vo));
 		// 입력한 ID를 통해 DB에 저장되어있는 암호화된 passwd를 포함한 회원정보를 가져옴
+		if(userservice.matchPasswd(vo) == null) {
+			System.out.println("잘못된 아이디입니다.");
+			return "/views/login.jsp";
+		}
+		
 		CustomerVO vo2 = userservice.matchPasswd(vo);
 		System.out.println("vo2" + vo2);
-		model.addAttribute("user", vo2);
-		model.addAttribute("id", vo2);
 		System.out.println(vo2);
 		
 		// 복호화 비교(DB에 저장된 암호화된 passwd과 사용자가 입력한 passwd를 matches()메서드를 통해 동일 여부 확인
 		if (encoder.matches(vo.getCustomer_passwd(), vo2.getCustomer_passwd())) {
 			System.out.println("로그인!");
-			model.addAttribute("user", vo2);
 			session.setAttribute("user_name", vo2.getCustomer_name());
 			session.setAttribute("id", vo2.getCustomer_id());
 			session.setAttribute("num", vo2.getCustomer_no());
 			return "/views/logined-main.jsp";
-
 		} else {
 			System.out.println("로그인 실패");
 			return "/views/login.jsp";
@@ -68,6 +69,9 @@ public class CustomerController {
 	@RequestMapping(value = "/logout.do", method = RequestMethod.POST)
 	public String logout(HttpSession session, Model model, CustomerVO vo) {
 
+		session.setAttribute("user_name", null);
+		session.setAttribute("id", null);
+		session.setAttribute("num", null);
 		session.invalidate();
 		System.out.println("정상적인 로그아웃");
 		return "/views/main.jsp";
@@ -99,7 +103,7 @@ public class CustomerController {
 	}
 
 	// 회원가입 완료 페이지 이동
-	@RequestMapping(value = "/complete.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/complete.do", method = RequestMethod.POST)
 	public String join(CustomerVO vo, HttpSession session, Model model) {
 		System.out.println("join check");
 		System.out.println(vo);

@@ -12,6 +12,9 @@
 <meta name="author" content="" />
 <title>Dashboard - SEMO Admin</title>
 
+<!-- table & hover css -->
+<link href="/admin/css/table.css" rel="stylesheet" />
+
 <!-- icon 버튼 css -->
 <link href="/admin/css/icon.css" rel="stylesheet" />
 
@@ -392,10 +395,9 @@
 							</div>
 						</div>
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
-						<table id="" class="tblCustomers tblexportData table" border="5">
+						<table id="" class="tblCustomers tblexportData table">
 							<thead>
-								<tr>
-								<tr>
+								<tr style="background-color: #f2f2f2";>
 									<th width="50" id="check_td"><input type="checkbox"
 										name="check" class="allcheck"></th>
 									<th>No</th>
@@ -407,14 +409,13 @@
 							</thead>
 							<tbody>
 								<c:forEach var="event" items="${EventList}">
-									<tr>
-										<td id="check_td"><input type="checkbox" name="check"></td>
-										<td>${event.board_event_no}</td>
-										<td><a
-											href="/getEvent.mdo?board_event_no=${event.board_event_no}">${event.board_event_title}</a></td>
+									<tr class="colored" onclick="location.href='/getEvent.mdo?board_event_no=${event.board_event_no}'">
+										<td id="check_td"><input type="checkbox" class="checkone" name="check"></td>
+										<td class="center">${event.board_event_no}</td>
+										<td>${event.board_event_title}</a></td>
 										<td>${event.board_event_content}</td>
 										<td><img src="${event.banner_filepath}" width="340px", height="100px"></td>
-										<td>${event.board_event_reg_date}</td>
+										<td class="center">${event.board_event_reg_date}</td>
 									</tr>
 								</c:forEach>
 
@@ -426,7 +427,7 @@
 									onclick="window.location='/admin/board_event_write.jsp'" />
 							</div>
 							<div>
-								<input id="delBtn" type="button" value="삭제" />
+								<input id="delBtn" type="button" value="삭제" onclick="return confirm('선택한 이벤트 정보를 삭제하시겠습니까?');"/>
 							</div>
 
 						</div>
@@ -538,6 +539,16 @@
 			</footer>
 		</div>
 	</div>
+	
+	<!-- 테이블 Checked 되었을때 이벤트 반응 막기 -->
+<script>
+$( ".checkone" ).click(function( event ) {
+  event.stopPropagation();
+  // Do something
+});
+</script> 
+
+
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>

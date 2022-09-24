@@ -355,7 +355,7 @@
 
 							</header>
 
-							<form action="/BoardUpload.mdo" method="post"
+							<form action="/BoardUpload.mdo" method="post" onsubmit="return confirm('새 공지사항을 등록하시겠습니까?');"
 								enctype="multipart/form-data">
 
 								<div id="content_wrap">
@@ -383,7 +383,7 @@
 									</div>
 									<div class="end">
 										<div class="board_btn">
-											<input type="submit" value="저장">
+											<input type="submit" value="등록">
 										</div>
 										<div class="board_btn">
 											<a href="/getBoardList.mdo">목록</a>

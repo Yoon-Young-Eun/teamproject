@@ -354,7 +354,7 @@
 
 							</header>
 							
-							<form action="/updateFAQ.mdo" method="GET">	
+							<form action="/updateFAQ.mdo" method="GET" onsubmit="return confirm('수정하시겠습니까?');">	
 							
 						<input type="hidden" name="board_faq_no" value="${FAQInfo.board_faq_no}">
 							

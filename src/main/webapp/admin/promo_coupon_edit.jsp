@@ -328,7 +328,7 @@
 								</div>
 							</header>
 
-							<form action = "/updateCoupon.mdo" method="get">
+							<form action = "/updateCoupon.mdo" method="get" onsubmit="return confirm('수정하시겠습니까?');">
 								<div class="content_wrap">
 								
 						<input type="hidden" name="coupon_code" value="${CouponInfo.coupon_code}">

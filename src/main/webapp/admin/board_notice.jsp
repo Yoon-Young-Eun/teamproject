@@ -12,6 +12,9 @@
 <meta name="author" content="" />
 <title>Dashboard - SEMO Admin</title>
 
+<!-- table & hover css -->
+<link href="/admin/css/table.css" rel="stylesheet" />
+
 <!-- icon 버튼 css -->
 <link href="/admin/css/icon.css" rel="stylesheet" />
 
@@ -397,9 +400,9 @@
 
 
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
-						<table id="" class="tblCustomers tblexportData table" border="5">
+						<table id="" class="tblCustomers tblexportData table">
 							<thead>
-								<tr>
+								<tr style="background-color: #f2f2f2";>
 									<th width="50" id="check_td"><input type="checkbox"
 										name="check" class="allcheck"></th>
 									<th>No</th>
@@ -410,15 +413,14 @@
 							</thead>
 							<tbody>
 								<c:forEach var="notice" items="${boardList}">
-									<tr>
-										<td id="check_td"><input type="checkbox" name="check"></td>
-										<td>${notice.notice_no}</td>
-										<td><a href="/getBoard.mdo?notice_no=${notice.notice_no}">${notice.notice_title}</a></td>
+									<tr class="colored" onclick="location.href='/getBoard.mdo?notice_no=${notice.notice_no}'">
+										<td id="check_td"><input type="checkbox" class="checkone" name="check"></td>
+										<td class="center">${notice.notice_no}</td>
+										<td>${notice.notice_title}</a></td>
 										<td>${notice.notice_content}</td>
-										<td>${notice.notice_reg_date}</td>
+										<td class="center">${notice.notice_reg_date}</td>
 									</tr>
 								</c:forEach>
-
 							</tbody>
 						</table>
 						<div class="flex">
@@ -427,7 +429,7 @@
 									onclick="window.location='/admin/board_notice_write.jsp'" />
 							</div>
 							<div>
-								<input id="delBtn" type="button" value="삭제" />
+								<input id="delBtn" type="button" value="삭제" onclick="return confirm('선택한 공지사항을 삭제하시겠습니까?');"/>
 							</div>
 						</div>
 						<!-- pagaing 처리 -->
@@ -530,6 +532,15 @@
 			</footer>
 		</div>
 	</div>
+	
+		<!-- 테이블 Checked 되었을때 이벤트 반응 막기 -->
+<script>
+$( ".checkone" ).click(function( event ) {
+  event.stopPropagation();
+  // Do something
+});
+</script> 
+
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>

@@ -11,20 +11,52 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>Dashboard - SEMO Admin</title>
+<style>
 
-<!-- table & hover css -->
-<link href="/admin/css/table.css" rel="stylesheet" />
+table,tr,td{
 
+  border:1px solid #000000;
+
+  border-collapse:collapse;
+
+}
+
+tr.colored:nth-child(even){
+
+  background-color:#aaaaaa;
+
+  color:#000000;
+
+}
+
+tr.colored:nth-child(odd){
+
+  background-color:#444444;
+
+  color:#FFFFFF;
+
+}
+
+tr.colored:hover td{
+
+  background-color:#f3e9e9 !important;
+
+  color:#303f39 !important;
+
+}
+
+</style>
 <!-- icon 버튼 css -->
-<link href="/admin/css/icon.css" rel="stylesheet"/>
+<link href="/admin/css/icon.css" rel="stylesheet" />
 
 <!--  테이블 필터(중요) -->
-<link href="/admin/css/filter.css"rel="stylesheet" />
-<script src="/admin/js/filter.js"crossorigin="anonymous"></script>
+<link href="/admin/css/filter.css" rel="stylesheet" />
+<script src="/admin/js/filter.js" crossorigin="anonymous"></script>
 
 <!-- 체크박스 js -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="/admin/js/checkbox.js"></script>
 
 <link
@@ -84,17 +116,20 @@
 							</div> 대시보드
 						</a>
 
-						<div class="sb-sidenav-menu-heading">관리자 메뉴</div>
+						
+                            
+                            <div class="sb-sidenav-menu-heading">관리자 메뉴</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_01" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 회원관리
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="change_id_01" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="member.jsp">회원관리</a>
-                                    <a class="nav-link" href="member_black.jsp">블랙회원관리</a>
-                                    <a class="nav-link" href="memberstaff.jsp">매니저관리</a>
+                                <nav class="sb-sidenav-men
+                                u-nested nav">
+                                    <a class="nav-link" href="/member.mdo">회원관리</a>
+                                    <a class="nav-link" href="/blackmember.mdo">블랙회원관리</a>
+                                    <a class="nav-link" href="/staffList.mdo">매니저관리</a>
                                 </nav>
                             </div>
                             
@@ -105,24 +140,24 @@
                             </a>
                             <div class="collapse" id="change_id_02" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="order.jsp">주문/결제</a>
-                                    <a class="nav-link" href="estimate.jsp">견적상품</a>
+                                    <a class="nav-link" href="/adminOrderList.mdo">주문/결제</a>
+									<a class="nav-link" href="/estimateList.mdo">견적주문</a>
+									<a class="nav-link" href="/memberorderList.mdo">개별조회</a>
                                 </nav>
                             </div>
-                            
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_03" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 매출현황
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-<!--                             <div class="collapse" id="change_id_03" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
-<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
-<!--                                     <a class="nav-link" href="#">매출현황#1</a> -->
-<!--                                     <a class="nav-link" href="#">매출현황#2</a> -->
-<!--                                 </nav> -->
-<!--                             </div> -->
+                            <div class="collapse" id="change_id_03" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+								<a class="nav-link" href="/salesStoreList.mdo">지점매출</a> 
+								<a class="nav-link" href="/salesProductList.mdo">상품매출</a>
+                                </nav>
+                            </div> 
                             
-                            <a class="nav-link collapsed" href="item.jsp" data-bs-toggle="collapse" data-bs-target="#change_id_04" aria-expanded="false" aria-controls="collapseLayouts">
+                            <a class="nav-link collapsed" href="/admin/item.jsp" data-bs-toggle="collapse" data-bs-target="#change_id_04" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 <span onclick="newPage()">상품등록</span>
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -134,9 +169,9 @@
 <!--                                 </nav> -->
 <!--                             </div> -->
                             
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_05" aria-expanded="false" aria-controls="collapseLayouts">
+                            <a class="nav-link collapsed" href="/admin/store.jsp" data-bs-toggle="collapse" data-bs-target="#change_id_05" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                매장관리
+                                <span onclick="newPage2()">매장관리</span>
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
 <!--                             <div class="collapse" id="change_id_05" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
@@ -153,12 +188,12 @@
                             </a>
                             <div class="collapse" id="change_id_06" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="board_notice.jsp">공지사항</a>
-                                    <a class="nav-link" href="board_event.jsp">이벤트</a>
+                                    <a class="nav-link" href="/admin/board_notice.jsp">공지사항</a>
+                                    <a class="nav-link" href="/admin/board_event.jsp">이벤트</a>
                                     <a class="nav-link" href="#">리뷰</a>
 
-                                    <a class="nav-link" href="board_Q&A.jsp">QnA</a>
-                                    <a class="nav-link" href="board_FAQ.jsp">자주하는 질문</a>
+                                    <a class="nav-link" href="/admin/board_Q&A.jsp">QnA</a>
+                                    <a class="nav-link" href="/admin/board_FAQ.jsp">자주하는 질문</a>
 
                                 </nav>
                             </div>
@@ -184,12 +219,13 @@
                             <div class="collapse" id="change_id_08" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
 
-                                    <a class="nav-link" href="promo.jsp">쿠폰관리</a>
-                                    <a class="nav-link" href="supporbanner.jsp">배너관리</a>
-                                    <a class="nav-link" href="supporclause.jsp">약관관리</a>
+                                    <a class="nav-link" href="/admin/promo.jsp">쿠폰관리</a>
+                                    <a class="nav-link" href="/admin/supporbanner.jsp">배너관리</a>
+                                    <a class="nav-link" href="/admin/supporclause.jsp">약관관리</a>
 
                                 </nav>
                             </div>
+                            
 
 						<div class="sb-sidenav-menu-heading">Interface</div>
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -281,122 +317,148 @@
 			<main>
 
 				<div class="container-fluid px-4">
-						<h1 class="mt-4">배너관리</h1>
+					<h1 class="mt-4">회원관리</h1>
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
-						<li class="breadcrumb-item active">배너관리</li>
+						<li class="breadcrumb-item active">회원관리</li>
 					</ol>
 					<div class="card mb-4">
 						<div class="card-body">
-							배너관리 페이지 입니다. <a target="_blank"
-								href="https://datatables.net/">아무링크</a> .
+							회원관리 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
 						</div>
 					</div>
-					<div class="card mb-4">
+					<div class="card mb-4" style="width:100%;">
 						<div class="card-header">
-							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 배너관리에 대한 세부제목
+							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 게시판에 대한 세부제목
+						</div>
+
+						<!--  여기부터 내용물 -->
+
+						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
+						<div class="flex">
+							<input type="button" id="btnExport" value="PDF" class="icon_pdf" />
+							<!-- pdf 버튼 -->
+							<button class="icon_excel"
+								onclick="exportToExcel('tblexportData', 'user-data')">Excel</button>
+							<!-- excel -->
+						</div>
+
+
+						<div class="b_button">
+							<!-- 테이블 행 필터 -->
+							<form name="selectname" action="member.mdo" method="get">
+							   <input type="hidden" name="searchCondition" value="${search.searchCondition}"/>
+							   <input type="hidden" name="searchKeyword" value="${search.searchKeyword}"/>
+								<div col-index=8>
+									<select name="selectPage" onchange="this.form.submit()">
+										<option value="">선택</option>
+										<option value="5">5</option>
+										<option value="10">10</option>
+										<option value="20">20</option>
+										<option value="50">50</option>
+									</select> entries per page
+								</div>
+							</form>
+
+
+							
+							<div class="icon_flex">
+							
+<%-- 							<!-- 문자 발송 -->
+							<div>
+							<select name="text" id="selectOption">
+								<c:forEach var="message" items="${messageList}">
+									<div>
+										<option style="padding:1px;" value="${message.message_content}">${message.message_title }</option>
+									</div>
+								</c:forEach>
+							</select>
+							</div>
+							<div><input style="margin-right: 5px;" type="button" id="selectBtn" value="문자발송" /></div>
+							 --%>
+
+							<!-- 검색기능 -->
+							<div>
+								<form action="member.mdo" method="get">
+									<div class="icon_flex">
+
+										<div><select name="searchCondition">
+												<c:forEach items="${conditionMap}" var="option">
+													<div>
+														<option value="${option.value}">${option.key}</option>
+													</div>
+												</c:forEach>
+										</select> <input type="text" id="se_input" name="searchKeyword" /></div>
+											<div>
+												<input type="submit" id="se_submit" value="검색" />
+											</div>
+											<div> <input type="reset" id="se_reset" value="초기화" /></div>
+									</div>
+								</form>
+							</div>
+							</div>
+							
 						</div>
 						
-						<!--  여기부터 내용물 -->
-					
 
-  
-     <!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
-     <div class="flex" > 
-      <input type="button" id="btnExport" value="PDF" class="icon_pdf"/><!-- pdf 버튼 -->
-	  <button class="icon_excel" onclick="exportToExcel('tblexportData', 'user-data')">Excel</button><!-- excel -->
-	 </div>
-	  
-	 
-	  
-	  <!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->  
-    <table id="" class="tblCustomers tblexportData table">
-        <thead>
-								<tr style="background-color: #f2f2f2";>
-									<th width="50" id="check_td"><input type="checkbox"
-										name="check" class="allcheck"></th>
-									<th>배너번호</th>
-									<th>배너이름</th>
-									<th>첨부파일</th>
-									<th>내용</th>								
-									<th>등록일</th>
+						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
+						<div style= "width:100%; overflow-x:auto;">
+						<table id=""
+							class="tblCustomers tblexportData table"
+							border="5">
+							<thead>
+								<tr>
+									<th>회원코드</th>
+									<th>아이디(이메일)</th>
+									<th>이름</th>
+									<th>핸드폰</th>
+									<th>주소</th>
+									<th>SMS수신</th>
+									<th>회원상태</th>
 								</tr>
-							</thead>  
+							</thead>
 							<tbody>
-								<!-- for문~(c:forEach)  이 for문의 id값은 "admin"으로 정함!-->
-								<c:forEach var="banner" items="${BannerList}">
-									<!--  adminList은 컨트롤러에서 model에 저장한 "adminList" 이름임 -->
-									<tr class="colored"
-										onclick="location.href='readBanner.mdo?banner_no=${banner.banner_no}'">
-										<td id="check_td"><input type="checkbox" class="checkone" name="check"></td>
-										<td class="center">${banner.banner_no}</td>
-										<!--for문의 id값.컬럼명으로 값을 불러옴 -->
-										<td>${banner.banner_title}</td>
-										<td><img src="${banner.banner_filepath}" width="340px", height="100px"></td>
-										<td>${banner.banner_content}</td>										
-										<td class="center">${banner.banner_reg_date}</td>
+								<c:forEach var="board" items="${articleList}">
+									<tr class="colored">
+										<td>${board.customer_no}</td>
+										<td><a href="/getMemberBoard.mdo?customer_no=${board.customer_no}&customer_status=${board.customer_status}">${board.customer_id}</a></td>
+										<td>${board.customer_name}</td>
+										<td>${board.customer_phone}</td>
+										<td>${board.customer_address1} ${board.customer_address2}</td>
+										<td>${board.customer_sms_permit}</td>
+										<td>${board.customer_status}</td>
 									</tr>
 								</c:forEach>
-
 							</tbody>
 						</table>
-<div class="flex">
-						<div> <input id="button" type="button" value="등록" onclick="location.href='/insertBanner.mdo'" /> </div>
-<!-- 						<div> <input  id="button" type="button"  value="수정" /> </div> -->
-						<div> <input id="delBtn" type="button" value="삭제"  onclick="return confirm('선택한 배너를 삭제하시겠습니까?');" /> </div>
-						
 						</div>
+						
+						<!-- pagaing 처리 -->
+						<div >					
+							<c:if test="${count > 0}">
+								<div class="icon_flex">
+								<div>
+								<c:if test="${startPage > pageBlock}">
+									<a href="member.mdo?pageNum=${startPage-pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="pageging2">이전</div></a>
+								</c:if>
+								</div>
+								<div class="icon_flex">
+								<c:forEach var="i" begin="${startPage}" end="${endPage}">
+										<a href="member.mdo?pageNum=${i}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="pageging">${i}</div></a>
+								</c:forEach>
+								</div>							
+								<div>
+								<c:if test="${endPage < pageCount}">
+									<a href="member.mdo?pageNum=${startPage + pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="pageging2">다음</div></a>
+								</c:if>
+								</div>
+								</div>
+							</c:if>
+						</div><!-- 페이징 종료 -->
+						
 
-<script type="text/javascript">
-	//체크삭제
-	$("#delBtn")
-			.click(
-					function() {
-						console.log("1");
-						var rowData = new Array();
-						var tdArr = new Array();
-						var checkbox = $("tbody input[name=check]:checked");
 
-						// 체크된 체크박스 값을 가져온다
-						checkbox
-								.each(function(i) {
-									var tr = checkbox
-											.parent()
-											.parent()
-											.eq(i);
-									var td = tr
-											.children();
-									rowData.push(tr
-											.text());
-									// td.eq(0)은 체크박스 이므로  td.eq(4)=전화번호 의 값을 가져온다.
 
-									var number = td.eq(
-											1).text()
-											+ ",";
-									number = number
-											.substring(
-													0,
-													number.length - 1); //마지막 , 제거
-									// 가져온 값을 배열에 담는다.
-									tdArr.push(number);
-
-									$
-											.ajax({
-												url : "deleteBannerCheck.mdo",
-												type : "get",
-												traditional : true,
-												data : {
-													tdArr : tdArr,
-												},
-												dataType : 'text',
-												success : function(data) {
-													location.href = "/BannerList.mdo";
-													console.log(data);
-												}
-											});
-								});
-					});
-</script>
 
 						<!-- 내용물 end -->
 						<div class="card-footer small text-muted">Updated yesterday
@@ -419,40 +481,80 @@
 			</footer>
 		</div>
 	</div>
-	
-		<!-- 테이블 Checked 되었을때 이벤트 반응 막기 -->
-	<script>
-		$(".checkone").click(function(event) {
-			event.stopPropagation();
-			// Do something
-		});
-	</script>
-	
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
-	<script src="js/scripts.js"></script>
+	<script src="/admin/js/scripts.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
 		crossorigin="anonymous"></script>
-	<script src="assets/demo/chart-area-demo.js"></script>
-	<script src="assets/demo/chart-bar-demo.js"></script>
+	<script src="/admin/assets/demo/chart-area-demo.js"></script>
+	<script src="/admin/assets/demo/chart-bar-demo.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
 		crossorigin="anonymous"></script>
-	<script src="js/datatables-simple-demo.js"></script>
-	    <script>
-        getUniqueValuesFromColumn()
-    </script>
-    
-    <!-- pdf -->
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-    <script src="js/pdf.js"></script>
-    
-    <!-- excel -->	
-    <script src="js/excel.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >	
-    	
+	<script src="/admin/js/datatables-simple-demo.js"></script>
+	<script>
+		getUniqueValuesFromColumn()
+	</script>
+
+
+	<!--체크박스 문자전송용 -->
+	<script>
+		// 상단 선택버튼 클릭시 체크된 Row의 값을 가져온다.
+		$("#selectBtn").click(function() {
+			console.log("1");
+			var rowData = new Array();
+			var tdArr = new Array();
+			var checkbox = $("tbody input[name=check]:checked");
+			var message = $("#selectOption option:selected").val();
+			/* var message = $("select[name='text' option:selected").val(); */
+			// 체크된 체크박스 값을 가져온다
+			checkbox.each(function(i) {
+				// checkbox.parent() : checkbox의 부모는 <td>이다.
+				// checkbox.parent().parent() : <td>의 부모이므로 <tr>이다.
+				var tr = checkbox.parent().parent().eq(i);
+				var td = tr.children();
+				rowData.push(tr.text());
+				// td.eq(0)은 체크박스 이므로  td.eq(4)=전화번호 의 값을 가져온다.
+
+				var phone = td.eq(4).text() + ",";
+				phone = phone.substring(0, phone.length - 1); //마지막 , 제거
+				// 가져온 값을 배열에 담는다.
+				tdArr.push(phone);
+				//console.log("phone : " + phone);
+
+				$.ajax({
+					url : "/sendSMSAll.mdo",
+					type : "get",
+					traditional : true,
+					data : {
+						tdArr : tdArr,
+						message : message
+					},
+					dataType : 'text',
+					success : function(data) {
+						console.log(data);
+					}
+				});
+			});
+			$("#ex3_Result2").html(tdArr);
+		});
+	</script>
+
+
+	<!-- pdf -->
+	<script type="text/javascript"
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+	<script src="/admin/js/pdf.js"></script>
+
+	<!-- excel -->
+	<script src="/admin/js/excel.js"></script>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
 </body>
 </html>

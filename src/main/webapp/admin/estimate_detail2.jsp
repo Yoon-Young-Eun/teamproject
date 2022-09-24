@@ -1,30 +1,46 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="utf-8" />
+<meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>Dashboard - SEMO Admin</title>
-<link href="/admin/css/item_product.css" rel="stylesheet" />
+<link href="/admin/css/styles.css" rel="stylesheet" />
+<link href="/admin/css/estimate_detail.css" rel="stylesheet" />
+<link href="/admin/css/estimate_reply.css" rel="stylesheet" />
+<script src="/admin/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/admin/js/fileupload.js"></script>
+<script type="text/javascript" src="/admin/js/estimate.js"></script>
+<script type="text/javascript" src="/admin/js/index_navbar_onclick.js"></script>
+
 <link
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
+
 <link href="/admin/css/styles.css" rel="stylesheet" />
+<link href="/admin/css/main_info_card.css" rel="stylesheet" />
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
 	crossorigin="anonymous"></script>
-<script type="text/javascript" src="/admin/js/index_navbar_onclick.js"></script>
+	
+	<!-- 팝업 -->
+	<script language="javascript">
+	function popup() {
+		window.open("/admin/popup.jsp", "확인", "width=350, height=200, left=570, top=300");
+	}
+	</script>
 </head>
+
 <body class="sb-nav-fixed">
+
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 		<!-- Navbar Brand-->
-		<a class="navbar-brand ps-3" href="index_dashboard.jsp">Start
-			Bootstrap</a>
+		<a class="navbar-brand ps-3" href="index.jsp">Start Bootstrap</a>
 		<!-- Sidebar Toggle-->
 		<button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
 			id="sidebarToggle" href="#!">
@@ -56,6 +72,7 @@
 				</ul></li>
 		</ul>
 	</nav>
+
 	<div id="layoutSidenav">
 		<div id="layoutSidenav_nav">
 			<nav class="sb-sidenav accordion sb-sidenav-dark"
@@ -68,7 +85,6 @@
 								<i class="fas fa-tachometer-alt"></i>
 							</div> 대시보드
 						</a>
-
 
 						<div class="sb-sidenav-menu-heading">관리자 메뉴</div>
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -84,9 +100,9 @@
 						<div class="collapse" id="change_id_01"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="member.jsp">회원관리</a> <a
-									class="nav-link" href="member_black.jsp">블랙회원관리</a> <a
-									class="nav-link" href="memberstaff.jsp">매니저관리</a>
+								<a class="nav-link" href="/admin/member.jsp">회원관리</a> <a
+									class="nav-link" href="/admin/member_black.jsp">블랙회원관리</a> <a
+									class="nav-link" href="/admin/memberstaff.jsp">매니저관리</a>
 							</nav>
 						</div>
 
@@ -103,8 +119,9 @@
 						<div class="collapse" id="change_id_02"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="order.jsp">주문/결제</a> <a
-									class="nav-link" href="#">견적상품</a>
+								<a class="nav-link" href="/admin/order.jsp">주문/결제</a> <a
+									class="nav-link" href="/getEstimateList.mdo">견적주문</a> <a
+									class="nav-link" href="/memberorderList.mdo">개별조회</a>
 							</nav>
 						</div>
 
@@ -118,14 +135,9 @@
 								<i class="fas fa-angle-down"></i>
 							</div>
 						</a>
-						<!--                             <div class="collapse" id="change_id_03" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
-						<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
-						<!--                                     <a class="nav-link" href="#">매출현황#1</a> -->
-						<!--                                     <a class="nav-link" href="#">매출현황#2</a> -->
-						<!--                                 </nav> -->
-						<!--                             </div> -->
+	
 
-						<a class="nav-link collapsed" href="item.jsp"
+						<a class="nav-link collapsed" href="/admin/item.jsp"
 							data-bs-toggle="collapse" data-bs-target="#change_id_04"
 							aria-expanded="false" aria-controls="collapseLayouts">
 							<div class="sb-nav-link-icon">
@@ -135,12 +147,6 @@
 								<i class="fas fa-angle-down"></i>
 							</div>
 						</a>
-						<!--                             <div class="collapse" id="change_id_04" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
-						<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
-						<!--                                     <a class="nav-link" href="#">상품등록#1</a> -->
-						<!--                                     <a class="nav-link" href="#">상품등록#2</a> -->
-						<!--                                 </nav> -->
-						<!--                             </div> -->
 
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 							data-bs-target="#change_id_05" aria-expanded="false"
@@ -152,12 +158,7 @@
 								<i class="fas fa-angle-down"></i>
 							</div>
 						</a>
-						<!--                             <div class="collapse" id="change_id_05" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
-						<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
-						<!--                                     <a class="nav-link" href="#">지점관리</a> -->
-						<!--                                     <a class="nav-link" href="#">외주관리</a> -->
-						<!--                                 </nav> -->
-						<!--                             </div> -->
+		
 
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
 							data-bs-target="#change_id_06" aria-expanded="false"
@@ -172,11 +173,11 @@
 						<div class="collapse" id="change_id_06"
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
-								<a class="nav-link" href="board_notice.jsp">공지사항</a> <a
-									class="nav-link" href="board_event.jsp">이벤트</a> <a
+								<a class="nav-link" href="/getBoardList.mdo">공지사항</a> <a
+									class="nav-link" href="/admin/board_event.jsp">이벤트</a> <a
 									class="nav-link" href="#">리뷰</a> <a class="nav-link"
-									href="board_Q&A.jsp">QnA</a> <a class="nav-link"
-									href="board_FAQ.jsp">자주하는 질문</a>
+									href="/admin/board_Q&A.jsp">QnA</a> <a class="nav-link"
+									href="/admin/board_FAQ.jsp">자주하는 질문</a>
 
 							</nav>
 						</div>
@@ -213,13 +214,12 @@
 							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
 							<nav class="sb-sidenav-menu-nested nav">
 
-								<a class="nav-link" href="promo.jsp">쿠폰관리</a> <a
-									class="nav-link" href="supporbanner.jsp">배너관리</a> <a
-									class="nav-link" href="supporclause.jsp">약관관리</a>
+								<a class="nav-link" href="/admin/promo.jsp">쿠폰관리</a> <a
+									class="nav-link" href="/admin/supporbanner.jsp">배너관리</a> <a
+									class="nav-link" href="/admin/supporclause.jsp">약관관리</a>
 
 							</nav>
 						</div>
-
 
 						<div class="sb-sidenav-menu-heading">Interface</div>
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -289,6 +289,7 @@
 							</nav>
 						</div>
 
+
 						<div class="sb-sidenav-menu-heading">Addons</div>
 						<a class="nav-link" href="charts.html">
 							<div class="sb-nav-link-icon">
@@ -301,103 +302,131 @@
 						</a>
 					</div>
 				</div>
-				<!--                     <div class="sb-sidenav-footer"> -->
-				<!--                         <div class="small">Logged in as:</div> -->
-				<!--                         Start Bootstrap -->
-				<!--                     </div> -->
+				<div class="sb-sidenav-footer">
+					<div class="small">Logged in as:</div>
+					Start Bootstrap
+				</div>
 			</nav>
 		</div>
 
 		<div id="layoutSidenav_content">
 			<main>
+				<div class="whole">
+					<div class="popup_wrapper">
 
-				<div class="container-fluid px-4">
-					<h1 class="mt-4">상품 조회</h1>
-					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
-						<li class="breadcrumb-item active">상품 조회</li>
-					</ol>
-					<div class="card mb-4">
-						<div class="card-body">상품을 조회합니다.</div>
+						<div class="popup_title">
+							<h1>견적상품</h1>
+						</div>
+						<div class="estimate_wrapper">
+							<div class="estimate_request">
+								<div class="estimate_request_title">견적코드</div>
+								<div class="estimate_request_value">${getEstimate.estimate_cm_no }</div>
+							</div>
+							<div class="estimate_request">
+								<div class="estimate_request_title">세탁종류</div>
+								<div class="estimate_request_value" name="estimate_type">${getEstimate.estimate_type }</div>
+							</div>
+							<div class="estimate_request">
+								<div class="estimate_request_title">작성자</div>
+								<div class="estimate_request_value" name="customer_name">${getEstimate.customer_name }</div>
+							</div>
+							<div class="estimate_request">
+								<div class="estimate_request_title">연락처</div>
+								<div class="estimate_request_value" name="customer_phone">${getEstimate.customer_phone }</div>
+							</div>
+							<div class="estimate_request">
+								<div class="estimate_request_title">접수일자</div>
+								<div class="estimate_request_value" name="estimate_date">${getEstimate.estimate_date}</div>
+							</div>
+							<div class="estimate_request">
+								<div class="estimate_request_title">주소</div>
+								<div class="estimate_request_value" name="customer_address1">${getEstimate.customer_address1}${getEstimate.customer_address2}</div>
+							</div>
+							<div class="estimate_request">
+								<div class="estimate_request_title">내용</div>
+								<div class="estimate_request_content" name="estimate_content">
+									${getEstimate.estimate_content }</div>
+							</div>
+							<div class="estimate_request">
+								<div class="estimate_request_title">첨부파일</div>
+								<div class="estimate_request_file" name="estiimg">
+									<c:forEach var="est_img" items="${estiimg}">
+										<img onclick="window.open(this.src)" hspace="0" src="${est_img.estimate_filepath}">
+									</c:forEach>
+								</div>
+							</div>
+							
+							<script type="text/javascript">
+							function detailView(src) {
+								   $("#detail_img").attr("src", src);
+								   $("#product_popup").show();
+								}
+								 
+								$(function(){
+								   $("#pop_close").click(function(){
+								      $("#detail_imgt_pop").hide();
+								   });
+								});
+							</script>
+
+							<div class="end">
+								<div id="layer_reply_btn">
+									<a href="#">답변</a>
+								</div>
+								<div id="layer_cancel_btn">
+									<a href="/getEstimateList.mdo">목록</a>
+								</div>
+							</div>
+						</div>
 					</div>
-					
-					
-<!-- <form action="/insertProduct.mdo" method="GET">			 -->
-<div class="pop_flex">
-<div class="popup_wrapper">
-<!-- <div class="popup_head"><h1>상품 조회</h1> -->
 
-<!-- </div> -->
+					<form id="insert" action="/insertEstimate.mdo?customer_phone=${getEstimate.customer_phone }" method="post">
+						<div class="layer" id="layer_reply">
+							<div class="popup_wrapper2">
 
-<div class="popup_title_wrap">
-<div class="popup_title">
-<div class="popup_title_text">
-대분류
-</div>
-<div class="popup_title_select">
-${ProductInfo.product_category_parent}
-</div>
-</div>
+								<div class="estimate_reply_wrapper">
+									<div class="estimate_reply_head">
+										<h1>견적서</h1>
+									</div>
+									<div class="estimate_reply_conwrap">
+										<div class="estimate_reply">
+											<input type="hidden" name="estimate_cm_no"
+												value="${getEstimate.estimate_cm_no}" />
+											<div class="estimate_reply_title">견적금액</div>
+											<div class="estimate_reply_body">
+												<input type="number" name="estimate_price">
+											</div>
+										</div>
+										<div class="estimate_reply">
+											<div class="estimate_reply_body" name="estimate_reply_date">
+											</div>
+										</div>
+										<div class="estimate_reply">
+											<div class="estimate_reply_title">이유</div>
+											<div class="estimate_reply_body">
+												<select name="estimate_type_content" id="selectOption">
+													<c:forEach var="type" items="${estitype}">
+														<div>
+															<option value="${type.estimate_type_content}">${type.estimate_type_title }</option>
+														</div>
+													</c:forEach>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
 
-<div class="popup_title">
-<div class="popup_title_text">
-소분류
-</div>
-<div class="popup_title_select">
-${ProductInfo.product_category_median}
-</div>
-</div>
-</div>
+								<div class="end" style="padding-top: 465px;">
+									<div class="board_btn">
+										<input type="button" value="발송" onclick="popup();">
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</main>
 
-
-
-<div class="item_infor_wrap">
-<div class="item_infor">
-<div class="popup_text">상품명</div>&nbsp;<div class="popup_inputbox">
-${ProductInfo.product_name}</div>
-</div>
-<div class="item_infor">
-<div class="popup_text">디테일</div>&nbsp;<div class="popup_inputbox">
-${ProductInfo.product_detail}</div>
-</div>
-<div class="item_infor">
-<div class="popup_text">등록일</div>&nbsp;<div class="popup_inputbox">
-${ProductInfo.product_reg_date}</div>
-</div>
-<div class="item_infor">
-<div class="popup_text">가격</div>&nbsp;<div class="popup_inputbox">
-${ProductInfo.product_price}</div>
-</div>
-<div class="item_infor">
-<div class="popup_text">영업이익</div>&nbsp;<div class="popup_inputbox">
-${ProductInfo.product_business_profits}</div>
-</div>
-<div class="item_infor">
-<div class="popup_text">순이익</div>&nbsp;<div class="popup_inputbox">
-${ProductInfo.product_net_profit}</div>
-</div>
-
-</div>
-
-
-
-<div class="end">
-	<div class="popup_btn">
-		<a href="/ProductList.mdo">목록</a>
-	</div>
-	<div class="popup_btn">
-		<a href="updateProductPage.mdo?product_code=${ProductInfo.product_code}">수정</a>
-	</div>
-	<div class="popup_btn">
-		<a href="deleteProduct.mdo?product_code=${ProductInfo.product_code}"  onclick="return confirm('해당 상품을 삭제하시겠습니까?');" >삭제</a>
-	</div>
-</div>
-
-</div>
-</div>
-<!-- </form> -->
-
-</main>
 			<footer class="py-4 bg-light mt-auto">
 				<div class="container-fluid px-4">
 					<div
@@ -412,6 +441,7 @@ ${ProductInfo.product_net_profit}</div>
 			</footer>
 		</div>
 	</div>
+
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
@@ -424,5 +454,6 @@ ${ProductInfo.product_net_profit}</div>
 	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
 		crossorigin="anonymous"></script>
 	<script src="js/datatables-simple-demo.js"></script>
+
 </body>
 </html>

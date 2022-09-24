@@ -354,7 +354,7 @@
 								</div>
 
 							</header>
-							<form action="/EventUpload.mdo" method="post"
+							<form action="/EventUpload.mdo" method="post" onsubmit="return confirm('새 이벤트를 등록하겠습니까?');"
 								enctype="multipart/form-data">
 								<div id="content_wrap">
 									<ul class="title_wrap">
@@ -401,7 +401,7 @@
 									</div>
 									<div class="end">
 										<div class="board_btn">
-											<input type="submit" value="저장">
+											<input type="submit" value="등록">
 										</div>
 										<div class="board_btn">
 											<a href="/getEventList.mdo">목록</a>

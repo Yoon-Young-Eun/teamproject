@@ -327,7 +327,7 @@
 									<h1>쿠폰</h1>
 								</div>
 							</header>
-							<form action="/insertCoupon.mdo" method="GET">
+							<form action="/insertCoupon.mdo" method="GET"  onsubmit="return confirm('신규 쿠폰을 등록하겠습니까?');">
 								<div class="content_wrap">
 
 									<div class="popup_title_wrap">
@@ -389,7 +389,7 @@
 
 								<div class="end">
 									<div class="popup_btn">
-										<input type="submit" value="저장">
+										<input type="submit" value="등록">
 									</div>
 
 									<div class="popup_btn">

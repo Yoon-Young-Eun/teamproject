@@ -94,7 +94,7 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public Ad_EstimateVO getAd_Estimate(Ad_EstimateVO vo) {
+	public Ad_EstimateVO getAd_Estimate(EstimateVO vo) {
 		return orderDao.getAd_Estimate(vo);
 	}
 

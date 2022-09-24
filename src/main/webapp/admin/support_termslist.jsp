@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,10 +14,11 @@
 
 <style>
 .table .ellipsis {
-position: relative;
-min-width: 200px;
-width: 850px;
+	position: relative;
+	min-width: 200px;
+	width: 850px;
 }
+
 .table .ellipsis span {
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -25,24 +26,28 @@ width: 850px;
 	position: absolute;
 	left: 9px;
 	right: 9px;
-
 }
+
 .ellipsis:before {
-content: '';
-display: inline-block;
+	content: '';
+	display: inline-block;
 }
 </style>
 
+<!-- table & hover css -->
+<link href="/admin/css/table.css" rel="stylesheet" />
+
 <!-- icon 버튼 css -->
-<link href="/admin/css/icon.css" rel="stylesheet"/>
+<link href="/admin/css/icon.css" rel="stylesheet" />
 
 <!--  테이블 필터(중요) -->
-<link href="/admin/css/filter.css"rel="stylesheet" />
-<script src="/admin/js/filter.js"crossorigin="anonymous"></script>
+<link href="/admin/css/filter.css" rel="stylesheet" />
+<script src="/admin/js/filter.js" crossorigin="anonymous"></script>
 
 <!-- 체크박스 js -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="/admin/js/checkbox.js"></script>
 
 <link
@@ -103,111 +108,154 @@ display: inline-block;
 						</a>
 
 						<div class="sb-sidenav-menu-heading">관리자 메뉴</div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_01" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                회원관리
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="change_id_01" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="member.jsp">회원관리</a>
-                                    <a class="nav-link" href="member_black.jsp">블랙회원관리</a>
-                                    <a class="nav-link" href="memberstaff.jsp">매니저관리</a>
-                                </nav>
-                            </div>
-                            
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_02" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                주문/결제관리
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="change_id_02" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="order.jsp">주문/결제</a>
-                                    <a class="nav-link" href="estimate.jsp">견적상품</a>
-                                </nav>
-                            </div>
-                            
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_03" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                매출현황
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-<!--                             <div class="collapse" id="change_id_03" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
-<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
-<!--                                     <a class="nav-link" href="#">매출현황#1</a> -->
-<!--                                     <a class="nav-link" href="#">매출현황#2</a> -->
-<!--                                 </nav> -->
-<!--                             </div> -->
-                            
-                            <a class="nav-link collapsed" href="item.jsp" data-bs-toggle="collapse" data-bs-target="#change_id_04" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                <span onclick="newPage()">상품등록</span>
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-<!--                             <div class="collapse" id="change_id_04" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
-<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
-<!--                                     <a class="nav-link" href="#">상품등록#1</a> -->
-<!--                                     <a class="nav-link" href="#">상품등록#2</a> -->
-<!--                                 </nav> -->
-<!--                             </div> -->
-                            
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_05" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                매장관리
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-<!--                             <div class="collapse" id="change_id_05" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
-<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
-<!--                                     <a class="nav-link" href="#">지점관리</a> -->
-<!--                                     <a class="nav-link" href="#">외주관리</a> -->
-<!--                                 </nav> -->
-<!--                             </div> -->
-                            
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_06" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                게시판
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="change_id_06" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="board_notice.jsp">공지사항</a>
-                                    <a class="nav-link" href="board_event.jsp">이벤트</a>
-                                    <a class="nav-link" href="#">리뷰</a>
+						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+							data-bs-target="#change_id_01" aria-expanded="false"
+							aria-controls="collapseLayouts">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-columns"></i>
+							</div> 회원관리
+							<div class="sb-sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<div class="collapse" id="change_id_01"
+							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+							<nav class="sb-sidenav-menu-nested nav">
+								<a class="nav-link" href="member.jsp">회원관리</a> <a
+									class="nav-link" href="member_black.jsp">블랙회원관리</a> <a
+									class="nav-link" href="memberstaff.jsp">매니저관리</a>
+							</nav>
+						</div>
 
-                                    <a class="nav-link" href="board_Q&A.jsp">QnA</a>
-                                    <a class="nav-link" href="board_FAQ.jsp">자주하는 질문</a>
+						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+							data-bs-target="#change_id_02" aria-expanded="false"
+							aria-controls="collapseLayouts">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-columns"></i>
+							</div> 주문/결제관리
+							<div class="sb-sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<div class="collapse" id="change_id_02"
+							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+							<nav class="sb-sidenav-menu-nested nav">
+								<a class="nav-link" href="order.jsp">주문/결제</a> <a
+									class="nav-link" href="estimate.jsp">견적상품</a>
+							</nav>
+						</div>
 
-                                </nav>
-                            </div>
-                            
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_07" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                채팅관리
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="change_id_07" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">보류</a>
-                                    <a class="nav-link" href="#">할지말지</a>
-                                    <a class="nav-link" href="#">아직미정</a>
-                                </nav>
-                            </div>
-                            
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_08" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                사이트관리
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="change_id_08" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
+						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+							data-bs-target="#change_id_03" aria-expanded="false"
+							aria-controls="collapseLayouts">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-columns"></i>
+							</div> 매출현황
+							<div class="sb-sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<!--                             <div class="collapse" id="change_id_03" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
+						<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
+						<!--                                     <a class="nav-link" href="#">매출현황#1</a> -->
+						<!--                                     <a class="nav-link" href="#">매출현황#2</a> -->
+						<!--                                 </nav> -->
+						<!--                             </div> -->
 
-                                    <a class="nav-link" href="promo.jsp">쿠폰관리</a>
-                                    <a class="nav-link" href="supporbanner.jsp">배너관리</a>
-                                    <a class="nav-link" href="/TermsList.mdo">약관관리</a>
+						<a class="nav-link collapsed" href="item.jsp"
+							data-bs-toggle="collapse" data-bs-target="#change_id_04"
+							aria-expanded="false" aria-controls="collapseLayouts">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-columns"></i>
+							</div> <span onclick="newPage()">상품등록</span>
+							<div class="sb-sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<!--                             <div class="collapse" id="change_id_04" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
+						<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
+						<!--                                     <a class="nav-link" href="#">상품등록#1</a> -->
+						<!--                                     <a class="nav-link" href="#">상품등록#2</a> -->
+						<!--                                 </nav> -->
+						<!--                             </div> -->
 
-                                </nav>
-                            </div>
+						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+							data-bs-target="#change_id_05" aria-expanded="false"
+							aria-controls="collapseLayouts">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-columns"></i>
+							</div> 매장관리
+							<div class="sb-sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<!--                             <div class="collapse" id="change_id_05" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion"> -->
+						<!--                                 <nav class="sb-sidenav-menu-nested nav"> -->
+						<!--                                     <a class="nav-link" href="#">지점관리</a> -->
+						<!--                                     <a class="nav-link" href="#">외주관리</a> -->
+						<!--                                 </nav> -->
+						<!--                             </div> -->
+
+						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+							data-bs-target="#change_id_06" aria-expanded="false"
+							aria-controls="collapseLayouts">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-columns"></i>
+							</div> 게시판
+							<div class="sb-sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<div class="collapse" id="change_id_06"
+							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+							<nav class="sb-sidenav-menu-nested nav">
+								<a class="nav-link" href="board_notice.jsp">공지사항</a> <a
+									class="nav-link" href="board_event.jsp">이벤트</a> <a
+									class="nav-link" href="#">리뷰</a> <a class="nav-link"
+									href="board_Q&A.jsp">QnA</a> <a class="nav-link"
+									href="board_FAQ.jsp">자주하는 질문</a>
+
+							</nav>
+						</div>
+
+						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+							data-bs-target="#change_id_07" aria-expanded="false"
+							aria-controls="collapseLayouts">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-columns"></i>
+							</div> 채팅관리
+							<div class="sb-sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<div class="collapse" id="change_id_07"
+							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+							<nav class="sb-sidenav-menu-nested nav">
+								<a class="nav-link" href="#">보류</a> <a class="nav-link" href="#">할지말지</a>
+								<a class="nav-link" href="#">아직미정</a>
+							</nav>
+						</div>
+
+						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
+							data-bs-target="#change_id_08" aria-expanded="false"
+							aria-controls="collapseLayouts">
+							<div class="sb-nav-link-icon">
+								<i class="fas fa-columns"></i>
+							</div> 사이트관리
+							<div class="sb-sidenav-collapse-arrow">
+								<i class="fas fa-angle-down"></i>
+							</div>
+						</a>
+						<div class="collapse" id="change_id_08"
+							aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+							<nav class="sb-sidenav-menu-nested nav">
+
+								<a class="nav-link" href="promo.jsp">쿠폰관리</a> <a
+									class="nav-link" href="supporbanner.jsp">배너관리</a> <a
+									class="nav-link" href="/TermsList.mdo">약관관리</a>
+
+							</nav>
+						</div>
 
 						<div class="sb-sidenav-menu-heading">Interface</div>
 						<a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
@@ -299,38 +347,41 @@ display: inline-block;
 			<main>
 
 				<div class="container-fluid px-4">
-						<h1 class="mt-4">약관관리</h1>
+					<h1 class="mt-4">약관관리</h1>
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
 						<li class="breadcrumb-item active">약관관리</li>
 					</ol>
 					<div class="card mb-4">
 						<div class="card-body">
-							약관관리 페이지 입니다. <a target="_blank"
-								href="https://datatables.net/">아무링크</a> .
+							약관관리 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
+							.
 						</div>
 					</div>
 					<div class="card mb-4">
 						<div class="card-header">
 							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 약관관리에 대한 세부제목
 						</div>
-						
-						<!--  여기부터 내용물 -->
-					
 
-  
-     <!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
-     <div class="flex" > 
-      <input type="button" id="btnExport" value="PDF" class="icon_pdf"/><!-- pdf 버튼 -->
-	  <button class="icon_excel" onclick="exportToExcel('tblexportData', 'user-data')">Excel</button><!-- excel -->
-	 </div>
-	  
-	 
-	  
-	  <!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->  
-    <table id="" class="tblCustomers tblexportData table" border="5">
-        <thead>
-								<tr>
+						<!--  여기부터 내용물 -->
+
+
+
+						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
+						<div class="flex">
+							<input type="button" id="btnExport" value="PDF" class="icon_pdf" />
+							<!-- pdf 버튼 -->
+							<button class="icon_excel"
+								onclick="exportToExcel('tblexportData', 'user-data')">Excel</button>
+							<!-- excel -->
+						</div>
+
+
+
+						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
+						<table id="" class="tblCustomers tblexportData table">
+							<thead>
+								<tr style="background-color: #f2f2f2";>
 									<th width="50" id="check_td"><input type="checkbox"
 										name="check" class="allcheck"></th>
 									<th>약관번호</th>
@@ -340,91 +391,98 @@ display: inline-block;
 									<th>필수여부</th>
 									<th>등록일</th>
 								</tr>
-							</thead>  
+							</thead>
 							<tbody>
 								<!-- for문~(c:forEach)  이 for문의 id값은 "admin"으로 정함!-->
 								<c:forEach var="terms" items="${TermsList}">
 									<!--  adminList은 컨트롤러에서 model에 저장한 "adminList" 이름임 -->
-									<tr>
-										<td id="check_td"><input type="checkbox" name="check"></td>
-										<td>${terms.terms_no}</td>
+									<tr class="colored"
+										onclick="location.href='readTerms.mdo?terms_no=${terms.terms_no}'">
+										<td id="check_td"><input type="checkbox" class="checkone" name="check"></td>
+										<td class="center">${terms.terms_no}</td>
 										<!--for문의 id값.컬럼명으로 값을 불러옴 -->
-										<td>${terms.terms_type}</td>
-										<td><a href="readTerms.mdo?terms_no=${terms.terms_no}">${terms.terms_title}</a></td>
-										<td  class="ellipsis"><span>${terms.terms_content}</span></td>
+										<td class="center">${terms.terms_type}</td>
+										<td>${terms.terms_title}</td>
+										<td class="ellipsis"><span>${terms.terms_content}</span></td>
 
-										<td>
-										<c:choose> 
-											<c:when test="${terms.terms_necessary == true}">
+										<td class="center"><c:choose>
+												<c:when test="${terms.terms_necessary == true}">
 												필수
-											</c:when>  
-											<c:otherwise>
+											</c:when>
+												<c:otherwise>
 												선택
-											</c:otherwise> 
-										</c:choose>
-										</td>
-										<td>${terms.terms_reg_date}</td>
+											</c:otherwise>
+											</c:choose></td>
+										<td class="center">${terms.terms_reg_date}</td>
 									</tr>
 								</c:forEach>
 
 							</tbody>
 						</table>
-<div class="flex">
-						<div> <input id="button" type="button" value="등록" onclick="window.location='/admin/support_terms_insert.jsp'"/> </div>
-						<div> <input id="delBtn" type="button" value="삭제"  onclick="return confirm('선택한 약관을 삭제하시겠습니까?');" /> </div>
-						
+						<div class="flex">
+							<div>
+								<input id="button" type="button" value="등록"
+									onclick="window.location='/admin/support_terms_insert.jsp'" />
+							</div>
+							<div>
+								<input id="delBtn" type="button" value="삭제"
+									onclick="return confirm('선택한 약관을 삭제하시겠습니까?');" />
+							</div>
+
 						</div>
 
-<script type="text/javascript">
-	//체크삭제
-	$("#delBtn")
-			.click(
-					function() {
-						console.log("1");
-						var rowData = new Array();
-						var tdArr = new Array();
-						var checkbox = $("tbody input[name=check]:checked");
+						<script type="text/javascript">
+							//체크삭제
+							$("#delBtn")
+									.click(
+											function() {
+												console.log("1");
+												var rowData = new Array();
+												var tdArr = new Array();
+												var checkbox = $("tbody input[name=check]:checked");
 
-						// 체크된 체크박스 값을 가져온다
-						checkbox
-								.each(function(i) {
-									var tr = checkbox
-											.parent()
-											.parent()
-											.eq(i);
-									var td = tr
-											.children();
-									rowData.push(tr
-											.text());
-									// td.eq(0)은 체크박스 이므로  td.eq(4)=전화번호 의 값을 가져온다.
+												// 체크된 체크박스 값을 가져온다
+												checkbox
+														.each(function(i) {
+															var tr = checkbox
+																	.parent()
+																	.parent()
+																	.eq(i);
+															var td = tr
+																	.children();
+															rowData.push(tr
+																	.text());
+															// td.eq(0)은 체크박스 이므로  td.eq(4)=전화번호 의 값을 가져온다.
 
-									var number = td.eq(
-											1).text()
-											+ ",";
-									number = number
-											.substring(
-													0,
-													number.length - 1); //마지막 , 제거
-									// 가져온 값을 배열에 담는다.
-									tdArr.push(number);
+															var number = td.eq(
+																	1).text()
+																	+ ",";
+															number = number
+																	.substring(
+																			0,
+																			number.length - 1); //마지막 , 제거
+															// 가져온 값을 배열에 담는다.
+															tdArr.push(number);
 
-									$
-											.ajax({
-												url : "deleteTermsCheck.mdo",
-												type : "get",
-												traditional : true,
-												data : {
-													tdArr : tdArr,
-												},
-												dataType : 'text',
-												success : function(data) {
-													location.href = "/TermsList.mdo";
-													console.log(data);
-												}
+															$
+																	.ajax({
+																		url : "deleteTermsCheck.mdo",
+																		type : "get",
+																		traditional : true,
+																		data : {
+																			tdArr : tdArr,
+																		},
+																		dataType : 'text',
+																		success : function(
+																				data) {
+																			location.href = "/TermsList.mdo";
+																			console
+																					.log(data);
+																		}
+																	});
+														});
 											});
-								});
-					});
-</script>
+						</script>
 
 						<!-- 내용물 end -->
 						<div class="card-footer small text-muted">Updated yesterday
@@ -447,6 +505,16 @@ display: inline-block;
 			</footer>
 		</div>
 	</div>
+
+
+	<!-- 테이블 Checked 되었을때 이벤트 반응 막기 -->
+	<script>
+		$(".checkone").click(function(event) {
+			event.stopPropagation();
+			// Do something
+		});
+	</script>
+
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		crossorigin="anonymous"></script>
@@ -459,19 +527,23 @@ display: inline-block;
 	<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
 		crossorigin="anonymous"></script>
 	<script src="js/datatables-simple-demo.js"></script>
-	    <script>
-        getUniqueValuesFromColumn()
-    </script>
-    
-    <!-- pdf -->
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-    <script src="js/pdf.js"></script>
-    
-    <!-- excel -->	
-    <script src="js/excel.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >	
-    	
+	<script>
+		getUniqueValuesFromColumn()
+	</script>
+
+	<!-- pdf -->
+	<script type="text/javascript"
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+	<script src="js/pdf.js"></script>
+
+	<!-- excel -->
+	<script src="js/excel.js"></script>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
 </body>
 </html>

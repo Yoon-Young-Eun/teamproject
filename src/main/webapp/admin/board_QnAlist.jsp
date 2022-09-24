@@ -12,6 +12,9 @@
 <meta name="author" content="" />
 <title>Dashboard - SB Admin</title>
 
+<!-- table & hover css -->
+<link href="/admin/css/table.css" rel="stylesheet" />
+
 <!-- icon 버튼 css -->
 <link href="/admin/css/icon.css" rel="stylesheet" />
 
@@ -355,36 +358,29 @@
 
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
 						<table id=""
-							class=" tblCustomers tblexportData table"
-							border="5">
+							class=" tblCustomers tblexportData table">
 							<thead>
-								<tr>
-									<th width="50" id="check_td"><input type="checkbox"
-										name="check" class="allcheck"></th>
-									<th col-index=2>번호</th>
-									<th col-index=3>분류<select class="table-filter"
-										onchange="filter_rows()">
-											<option value="all"></option>
-									</select></th>
-									<th col-index=4>제목</th>
-									<th col-index=5>내용</th>
-									<th col-index=6>등록일</th>
-									<th col-index=7>상태</th>
+								<tr style="background-color: #f2f2f2";>
+									<th>번호</th>
+									<th>분류</th>
+									<th>제목</th>
+									<th>내용</th>
+									<th>등록일</th>
+									<th>상태</th>
 								</tr>
 							</thead>  
 							<tbody>
 								<!-- for문~(c:forEach)  이 for문의 id값은 "admin"으로 정함!-->
 								<c:forEach var="QnA" items="${QnAList0}">
 									<!--  adminList은 컨트롤러에서 model에 저장한 "adminList" 이름임 -->
-									<tr>
-										<td id="check_td"><input type="checkbox" name="check"></td>
-										<td>${QnA.board_qna_no}</td>
+									<tr class="colored" onclick="location.href='readQnA.mdo?board_qna_no=${QnA.board_qna_no}&board_qna_status=${QnA.board_qna_status}'">
+										<td class="center">${QnA.board_qna_no}</td>
 										<!--for문의 id값.컬럼명으로 값을 불러옴 -->
-										<td>${QnA.board_qna_type}</td>
-										<td><a href="readQnA.mdo?board_qna_no=${QnA.board_qna_no}&board_qna_status=${QnA.board_qna_status}">${QnA.board_qna_title}</a></td>
-										<td><a href="readQnA.mdo?board_qna_no=${QnA.board_qna_no}&customer_no=${QnA.customer_no}&board_qna_status=${QnA.board_qna_status}">${QnA.board_qna_content}</a></td>
-										<td>${QnA.board_qna_reg_date}</td>
-										<td>
+										<td class="center">${QnA.board_qna_type}</td>
+										<td>${QnA.board_qna_title}</td>
+										<td>${QnA.board_qna_content}</td>
+										<td class="center">${QnA.board_qna_reg_date}</td>
+										<td class="center">
 										<c:choose> 
 											<c:when test="${QnA.board_qna_status eq 0}">
 												답변대기
@@ -415,36 +411,29 @@
 						
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
 						<table id=""
-							class="emp-table dataPerPage tblCustomers tblexportData table"
-							border="5">
+							class="tblCustomers tblexportData table">
 							<thead>
-								<tr>
-									<th width="50" id="check_td"><input type="checkbox"
-										name="check" class="allcheck"></th>
-									<th col-index=2>번호</th>
-									<th col-index=3>분류<select class="table-filter"
-										onchange="filter_rows()">
-											<option value="all"></option>
-									</select></th>
-									<th col-index=4>제목</th>
-									<th col-index=5>내용</th>
-									<th col-index=6>등록일</th>
-									<th col-index=7>상태</th>
+								<tr style="background-color: #f2f2f2";>
+									<th>번호</th>
+									<th>분류</th>
+									<th>제목</th>
+									<th>내용</th>
+									<th>등록일</th>
+									<th>상태</th>
 								</tr>
 							</thead>  
 							<tbody>
 								<!-- for문~(c:forEach)  이 for문의 id값은 "admin"으로 정함!-->
 								<c:forEach var="QnA" items="${QnAList1}">
 									<!--  adminList은 컨트롤러에서 model에 저장한 "adminList" 이름임 -->
-									<tr>
-										<td id="check_td"><input type="checkbox" name="check"></td>
-										<td>${QnA.board_qna_no}</td>
+									<tr class="colored" onclick="location.href='/readQnA.mdo?board_qna_no=${QnA.board_qna_no}&board_qna_status=${QnA.board_qna_status}'">
+										<td class="center">${QnA.board_qna_no}</td>
 										<!--for문의 id값.컬럼명으로 값을 불러옴 -->
-										<td>${QnA.board_qna_type}</td>
-										<td><a href="readQnA.mdo?board_qna_no=${QnA.board_qna_no}&board_qna_status=${QnA.board_qna_status}">${QnA.board_qna_title}</a></td>
-										<td><a href="readQnA.mdo?board_qna_no=${QnA.board_qna_no}&board_qna_status=${QnA.board_qna_status}">${QnA.board_qna_content}</a></td>
-										<td>${QnA.board_qna_reg_date}</td>
-										<td>
+										<td class="center">${QnA.board_qna_type}</td>
+										<td>${QnA.board_qna_title}</td>
+										<td>${QnA.board_qna_content} </td>
+										<td class="center">${QnA.board_qna_reg_date}</td>
+										<td class="center">
 										<c:choose> 
 											<c:when test="${QnA.board_qna_status eq 1}">
 												답변완료

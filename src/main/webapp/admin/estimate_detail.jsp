@@ -28,12 +28,6 @@
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
 	crossorigin="anonymous"></script>
 	
-	<!-- 팝업 -->
-	<script language="javascript">
-	function popup() {
-		window.open("/admin/popup.jsp", "확인", "width=350, height=200, left=570, top=300");
-	}
-	</script>
 </head>
 
 <body class="sb-nav-fixed">
@@ -380,7 +374,7 @@
 						</div>
 					</div>
 
-					<form id="insert" action="/insertEstimate.mdo?customer_phone=${getEstimate.customer_phone }" method="post">
+					<form id="insert" action="/insertEstimate.mdo?customer_phone=${getEstimate.customer_phone }" method="post" onsubmit="return confirm('견적을 발송하시겠습니까?');">
 						<div class="layer" id="layer_reply">
 							<div class="popup_wrapper2">
 
@@ -418,7 +412,7 @@
 
 								<div class="end" style="padding-top: 465px;">
 									<div class="board_btn">
-										<input type="button" value="발송" onclick="popup();">
+										<input type="submit" value="발송">
 									</div>
 								</div>
 							</div>

@@ -118,4 +118,9 @@
 	<select id="getReviewCount" parameterType="paging" resultType="int">
 	<![CDATA[select count(*) from board_review where customer_no=#{customer_no}]]>
 	</select>
+	
+	<!-- 리뷰 상세보기 -->
+	<select id="viewReview" parameterType="board_review" resultType="board_review">
+	<![CDATA[select * from board_review where board_review_no=#{board_review_no}]]>
+	</select>
  </mapper>

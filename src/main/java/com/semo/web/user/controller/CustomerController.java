@@ -35,7 +35,7 @@ public class CustomerController {
 	// 로그인
 	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
 	public String login(CustomerVO vo, OrderVO order, Model model, HttpSession session) {
-
+		
 		System.out.println(vo);
 		System.out.println("login method");
 		
@@ -47,7 +47,7 @@ public class CustomerController {
 		model.addAttribute("user", vo2);
 		model.addAttribute("id", vo2);
 		System.out.println(vo2);
-
+		
 		// 복호화 비교(DB에 저장된 암호화된 passwd과 사용자가 입력한 passwd를 matches()메서드를 통해 동일 여부 확인
 		if (encoder.matches(vo.getCustomer_passwd(), vo2.getCustomer_passwd())) {
 			System.out.println("로그인!");

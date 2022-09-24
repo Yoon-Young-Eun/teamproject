@@ -1,10 +1,12 @@
 package com.semo.web.user.controller;
-
+	
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,188 +29,225 @@ import com.semo.web.user.vo.OrderMtArrayVO;
 import com.semo.web.user.vo.OrderMtVO;
 import com.semo.web.user.vo.OrderProductVO;
 import com.semo.web.user.vo.OrderVO;
-
+	
 @Controller
 public class OrderController<imp_uid> {
-
+	
 	@Autowired
 	OrderService orderservice;
-
+	
+	//일반결제,특수세탁(견적요청)시 원하는 픽업날짜와 시간 선택
 	@RequestMapping(value = "/OrderAddress.do", method = RequestMethod.GET)
-	public String OrderAddress(CustomerVO vo, OrderVO vo1, Model model) {
-		System.out.println(vo);
-		System.out.println(vo1);
-
-		model.addAttribute("OrderAddress", vo);
-		model.addAttribute("gatepswd", vo1);
-		return "/pay/PayPickupDate.jsp";
+	public String OrderAddress(CustomerVO vo, OrderVO vo1, Model model, HttpSession session) {
+		session.getAttribute("id");
+		if(session.getAttribute("id") != null) {
+			System.out.println(vo);
+			System.out.println(vo1);
+			
+			session.getAttribute("num");
+			model.addAttribute("OrderAddress", vo);
+			model.addAttribute("gatepswd", vo1);
+			return "/pay/PayPickupDate.jsp";
+		}
+		
+		return "/views/login.jsp";
 	}
-
+	
 	@RequestMapping(value = "/OrderAddressTime.do", method = RequestMethod.GET)
-
-	public String OrderAddressTime(OrderVO vo, Model model) {
-		System.out.println(vo);
-		model.addAttribute("OrderData", vo);
-		System.out.println(vo);
-		return "/pay/payWashType.jsp";
-
+	
+	public String OrderAddressTime(OrderVO vo, Model model,HttpSession session) {
+		session.getAttribute("id");
+		if(session.getAttribute("id") != null) {
+			session.getAttribute("num");
+			System.out.println(vo);
+			model.addAttribute("OrderData", vo);
+			System.out.println(vo);
+			return "/pay/payWashType.jsp";	
+		}
+		return "/views/login.jsp";
+		
 	}
-
+	
 	@RequestMapping(value = "/OrderType.do", method = RequestMethod.GET)
 	// 일반세탁 주문페이지로
-	public String OrderType(OrderVO vo, Model model) {
-		System.out.println(vo);
-		model.addAttribute("OrderData", vo);
-		System.out.println(vo);
+	public String OrderType(OrderVO vo, Model model,HttpSession session) {
+		session.getAttribute("id");
+		if(session.getAttribute("id") != null) {
+			System.out.println(vo);
+			model.addAttribute("OrderData", vo);
+			System.out.println(vo);
+			session.getAttribute("num");
+			orderservice.getProductBottom();
+			orderservice.getProductOuter();
+			orderservice.getProductETC();
+			orderservice.getProductShoes();
+			orderservice.getProductBedding();
 
-		orderservice.getProductBottom();
-		orderservice.getProductOuter();
-		orderservice.getProductETC();
-		orderservice.getProductShoes();
-		orderservice.getProductBedding();
+			List<ProductVO> top = orderservice.getProductTop();
+			List<ProductVO> bottom = orderservice.getProductBottom();
+			List<ProductVO> outer = orderservice.getProductOuter();
+			List<ProductVO> etc = orderservice.getProductETC();
+			List<ProductVO> shoes = orderservice.getProductShoes();
+			List<ProductVO> bedding = orderservice.getProductBedding();
 
-		List<ProductVO> top = orderservice.getProductTop();
-		List<ProductVO> bottom = orderservice.getProductBottom();
-		List<ProductVO> outer = orderservice.getProductOuter();
-		List<ProductVO> etc = orderservice.getProductETC();
-		List<ProductVO> shoes = orderservice.getProductShoes();
-		List<ProductVO> bedding = orderservice.getProductBedding();
+			model.addAttribute("top", top);
+			System.out.println(top);
+			model.addAttribute("bottom", bottom);
+			model.addAttribute("outer", outer);
+			model.addAttribute("etc", etc);
+			model.addAttribute("shoes", shoes);
+			model.addAttribute("bedding", bedding);
+			return "/pay/payOrderGeneral.jsp";
+		}
+		return "/views/login.jsp";
 
-		model.addAttribute("top", top);
-		System.out.println(top);
-		model.addAttribute("bottom", bottom);
-		model.addAttribute("outer", outer);
-		model.addAttribute("etc", etc);
-		model.addAttribute("shoes", shoes);
-		model.addAttribute("bedding", bedding);
-
-		return "/pay/payOrderGeneral.jsp";
+		
 
 	}
 
 	@RequestMapping(value = "/OrderType1.do", method = RequestMethod.GET)
 	// 특수세탁 주문페이지로
-	public String OrderType1(OrderVO vo, Model model) {
-		System.out.println(vo);
-		model.addAttribute("OrderData", vo);
-		System.out.println("글자" + vo);
-
-		return "/pay/payOrderSpecial.jsp";
+	public String OrderType1(OrderVO vo, Model model,HttpSession session) {
+		if(session.getAttribute("id") != null) {
+			System.out.println(vo);
+			model.addAttribute("OrderData", vo);
+			System.out.println("글자" + vo);
+			return "/pay/payOrderSpecial.jsp";
+		}
+		
+		return "/views/login.jsp";
+		
 
 	}
 
 	@RequestMapping(value = "/OrderGeneral.do", method = RequestMethod.GET)
 	// 일반세탁 주문하기
-	public String OrderGeneral(OrderVO vo, Model model, DataSendVO vo2, OrderMtArrayVO vo4, CouponListVO cou, CustomerVO cvo) {
+	public String OrderGeneral(OrderVO vo, Model model, DataSendVO vo2, OrderMtArrayVO vo4, CouponListVO cou, CustomerVO cvo, HttpSession session) {
+		session.getAttribute("id");
+		if(session.getAttribute("id")!=null) {
+			List<OrderProductVO> vo6 = new ArrayList<OrderProductVO>();
+			for (int i = 0; i < vo4.getOrder_mtArray_sumPrice().size(); i++) {
+				if (vo4.getOrder_mtArray_count().get(i) != 0) {
 
-		List<OrderProductVO> vo6 = new ArrayList<OrderProductVO>();
-		for (int i = 0; i < vo4.getOrder_mtArray_sumPrice().size(); i++) {
-			if (vo4.getOrder_mtArray_count().get(i) != 0) {
+					OrderProductVO vo5 = new OrderProductVO();
+					vo5.setProduct_Array_code(vo4.getProduct_Array_code().get(i));
+					vo5.setOrder_mtArray_category1(vo4.getOrder_mtArray_category1().get(i));
+					vo5.setOrder_mtArray_category2(vo4.getOrder_mtArray_category2().get(i));
+					vo5.setOrder_mtArray_count(vo4.getOrder_mtArray_count().get(i));
+					vo5.setOrder_mtArray_price(vo4.getOrder_mtArray_price().get(i));
+					vo5.setOrder_mtArray_product(vo4.getOrder_mtArray_product().get(i));
+					vo5.setOrder_mtArray_sumPrice(vo4.getOrder_mtArray_sumPrice().get(i));
 
-				OrderProductVO vo5 = new OrderProductVO();
-				vo5.setProduct_Array_code(vo4.getProduct_Array_code().get(i));
-				vo5.setOrder_mtArray_category1(vo4.getOrder_mtArray_category1().get(i));
-				vo5.setOrder_mtArray_category2(vo4.getOrder_mtArray_category2().get(i));
-				vo5.setOrder_mtArray_count(vo4.getOrder_mtArray_count().get(i));
-				vo5.setOrder_mtArray_price(vo4.getOrder_mtArray_price().get(i));
-				vo5.setOrder_mtArray_product(vo4.getOrder_mtArray_product().get(i));
-				vo5.setOrder_mtArray_sumPrice(vo4.getOrder_mtArray_sumPrice().get(i));
+					vo6.add(vo5);
 
-				vo6.add(vo5);
-
-				System.out.println("vo6" + i + "번째" + vo6);
+					System.out.println("vo6" + i + "번째" + vo6);
+				}
 			}
+
+			System.out.println("나나나ㅏ" + vo6);
+			model.addAttribute("vvv", vo6);
+
+			model.addAttribute("checkbox", vo2);
+			model.addAttribute("OrderData", vo);
+			System.out.println(vo);
+
+			model.addAttribute("arr", vo4);
+			model.addAttribute("OrderProduct", vo6);
+			model.addAttribute("CustomerInfo",orderservice.getReadCustomerInfo(cvo)); // 내가 추가
+			System.out.println("customerinfo"+cvo);
+			
+			
+			if(vo.getOrder_price() >= 20000) {
+				vo.setOrder_delivery_price(0);
+			} else {
+				vo.setOrder_delivery_price(3500);
+			}
+			int price = vo.getOrder_price() + vo.getOrder_delivery_price();
+			model.addAttribute("price", price);
+			System.out.println(vo.getOrder_delivery_price());
+
+			List<TermsVO> terms = orderservice.selectTerms();
+			model.addAttribute("terms", terms);
+			System.out.println("약관약관"+terms);
+			int price1 = vo.getOrder_price();
+			model.addAttribute("price1", price1);
+			
+			
+			
+			return "/pay/payOrderGeneralCheck.jsp";
 		}
-
-		System.out.println("나나나ㅏ" + vo6);
-		model.addAttribute("vvv", vo6);
-
-		model.addAttribute("checkbox", vo2);
-		model.addAttribute("OrderData", vo);
-		System.out.println(vo);
-
-		model.addAttribute("arr", vo4);
-		model.addAttribute("OrderProduct", vo6);
-		model.addAttribute("CustomerInfo",orderservice.getReadCustomerInfo(cvo)); // 내가 추가
-		System.out.println("customerinfo"+cvo);
+		return "/views/login.jsp";
 		
-		
-		if(vo.getOrder_price() >= 20000) {
-			vo.setOrder_delivery_price(0);
-		} else {
-			vo.setOrder_delivery_price(3500);
-		}
-		int price = vo.getOrder_price() + vo.getOrder_delivery_price();
-		model.addAttribute("price", price);
-		System.out.println(vo.getOrder_delivery_price());
-
-		List<TermsVO> terms = orderservice.selectTerms();
-		model.addAttribute("terms", terms);
-		System.out.println("약관약관"+terms);
-		int price1 = vo.getOrder_price();
-		model.addAttribute("price1", price1);
-		
-		
-
-		return "/pay/payOrderGeneralCheck.jsp";
 	}
 
 	@RequestMapping(value = "/OrderCoupon.do", method = RequestMethod.GET)
-	public String OrderCoupon(OrderVO vo, Model model, CouponListVO cvo) {
-		System.out.println("오더" + vo);
-		System.out.println("쿠폰함" + cvo);
-		model.addAttribute("OrderData", vo);
-		System.out.println("랄랄라" + vo);
-		List<CouponListVO> CouponList = orderservice.OrderCoupon(vo);
-		model.addAttribute("couponList", CouponList);
-		System.out.println(CouponList);
-		
-		return "/pay/payCouponList.jsp";
+	public String OrderCoupon(OrderVO vo, Model model, CouponListVO cvo,HttpSession session) {
+		session.getAttribute("id");
+		if(session.getAttribute("id") != null) {
+			System.out.println("오더" + vo);
+			System.out.println("쿠폰함" + cvo);
+			model.addAttribute("OrderData", vo);
+			System.out.println("랄랄라" + vo);
+			List<CouponListVO> CouponList = orderservice.OrderCoupon(vo);
+			model.addAttribute("couponList", CouponList);
+			System.out.println(CouponList);
+			
+			return "/pay/payCouponList.jsp";
+		}
+		return "/views/login.jsp";
 	}
 
 	@RequestMapping(value="/OrderInsert.do", method=RequestMethod.GET)
-	public String  OrderInsert(OrderVO vo,OrderMtVO vo3 ,OrderMtArrayVO vo2,CouponListVO cou,Model model) {
-		System.out.println("오더"+ vo);
-		System.out.println("오더MT"+vo3);
+	public String  OrderInsert(OrderVO vo,OrderMtVO vo3 ,OrderMtArrayVO vo2,CouponListVO cou,Model model,HttpSession session) {
+		session.getAttribute("id");
+		if(session.getAttribute("id") != null) {
+			session.getAttribute("num");
+			System.out.println("오더"+ vo);
+			System.out.println("오더MT"+vo3);
 
-		orderservice.OrderInsert(vo);
-		int num = orderservice.OrderSelect(vo);
+			orderservice.OrderInsert(vo);
+			int num = orderservice.OrderSelect(vo);
 
-		for (int i = 0; i < vo2.getOrder_mtArray_count().size(); i++) {
+			for (int i = 0; i < vo2.getOrder_mtArray_count().size(); i++) {
 
-			OrderMtVO vo1 = new OrderMtVO();
-			vo1.setOrder_no(num);
-			vo1.setCustomer_no(vo.getCustomer_no());
-			System.out.println(vo1.getOrder_mt_no());
+				OrderMtVO vo1 = new OrderMtVO();
+				vo1.setOrder_no(num);
+				vo1.setCustomer_no(vo.getCustomer_no());
+				System.out.println(vo1.getOrder_mt_no());
 
-			vo1.setProduct_code(vo2.getProduct_Array_code().get(i));
-			vo1.setOrder_mt_category1(vo2.getOrder_mtArray_category1().get(i));
-			vo1.setOrder_mt_category2(vo2.getOrder_mtArray_category2().get(i));
-			vo1.setOrder_mt_count(vo2.getOrder_mtArray_count().get(i));
-			vo1.setOrder_mt_price(vo2.getOrder_mtArray_price().get(i));
-			vo1.setOrder_mt_product(vo2.getOrder_mtArray_product().get(i));
-			vo1.setCustomer_name(vo2.getCustomer_Array_name().get(i));
+				vo1.setProduct_code(vo2.getProduct_Array_code().get(i));
+				vo1.setOrder_mt_category1(vo2.getOrder_mtArray_category1().get(i));
+				vo1.setOrder_mt_category2(vo2.getOrder_mtArray_category2().get(i));
+				vo1.setOrder_mt_count(vo2.getOrder_mtArray_count().get(i));
+				vo1.setOrder_mt_price(vo2.getOrder_mtArray_price().get(i));
+				vo1.setOrder_mt_product(vo2.getOrder_mtArray_product().get(i));
+				vo1.setCustomer_name(vo2.getCustomer_Array_name().get(i));
 
-			orderservice.OrderInsert1(vo1);
+				orderservice.OrderInsert1(vo1);
 
-			System.out.println("vo1" + i + "번째" + vo1);
+				System.out.println("vo1" + i + "번째" + vo1);
 
+			}
+			
+			System.out.println(cou);
+			if(vo.getOrder_use_coupon_price() != null  && cou.getCoupon_code() != 0) {
+				System.out.println("1111"+cou);
+				orderservice.deleteCoupon(cou);
+				System.out.println(cou);
+			}
+
+			return "/pay/payGeneralComplete.jsp";
 		}
-		
-			orderservice.deleteCoupon(cou);
-		System.out.println(cou);
-		
-		System.out.println(vo);
-
-		return "/pay/payGeneralComplete.jsp";
+		return "/views/login.jsp";
 	}
 
 
 	@RequestMapping(value = "/Orderspecial.do")
-	public String Orderspecial(@RequestParam(name="file") MultipartFile[] file, Model model, EstimateVO vo, OrderVO vo2, Estimate_ImageVO vo1) throws IOException, SQLException {
-	
+	public String Orderspecial(@RequestParam(name="file") MultipartFile[] file, Model model, EstimateVO vo, OrderVO vo2, Estimate_ImageVO vo1,HttpSession session) throws IOException, SQLException {
+	session.getAttribute("id");
+	if(session.getAttribute("id") != null) {
 		AwsS3 awss3 = AwsS3.getInstance();
-		
+		session.getAttribute("num");
 
 		orderservice.Orderspecial(vo);
 		System.out.println(vo);
@@ -256,66 +295,89 @@ public class OrderController<imp_uid> {
 
 		return "/pay/payOrderSpecialCheck.jsp";
 	}
+		return "/views/login.jsp";
+	}
 
 	@RequestMapping(value = "/OrderSpecial1.do")
-	public String OrderSpecial1(OrderVO vo, CustomerVO vo1, EstimateVO vo2, Model model) {
-		System.out.println(vo);
-		System.out.println(vo1);
-		System.out.println(vo2);
-		CustomerVO vo3 = orderservice.OrderSpecial1(vo1);
-		model.addAttribute("customer", vo3);
-		System.out.println(vo3);
-		return "/pay2/paySAddress.jsp";
+	public String OrderSpecial1(OrderVO vo, CustomerVO vo1, EstimateVO vo2, Model model,HttpSession session) {
+		session.getAttribute("id");
+		if(session.getAttribute("id") != null) {
+			System.out.println(vo);
+			System.out.println(vo1);
+			System.out.println(vo2);
+			session.getAttribute("num");
+			CustomerVO vo3 = orderservice.OrderSpecial1(vo1);
+			model.addAttribute("customer", vo3);
+			System.out.println(vo3);
+			return "/pay2/paySAddress.jsp";	
+		}
+		return "/views/login.jsp";
 	}
 
 	@RequestMapping(value = "/OrderSpecial2.do")
-	public String OrderSpecial2(OrderVO vo, CustomerVO vo1, Model model) {
-		System.out.println(vo);
-		System.out.println(vo1);
-		model.addAttribute("OrderData", vo);
-		model.addAttribute("customer", vo1);
-		System.out.println(vo);
+	public String OrderSpecial2(OrderVO vo, CustomerVO vo1, Model model ,HttpSession session) {
+		session.getAttribute("id");
+		if(session.getAttribute("id") != null) {
+			System.out.println(vo);
+			System.out.println(vo1);
+			model.addAttribute("OrderData", vo);
+			model.addAttribute("customer", vo1);
+			System.out.println(vo);
 
-		return "/pay2/paySPickupDate.jsp";
+			return "/pay2/paySPickupDate.jsp";
+		}
+		return "/views/login.jsp";
 	}
 
 	@RequestMapping(value = "/OrderSpecial3.do")
-	public String OrderSpecial3(OrderVO vo, Model model) {
-		System.out.println(vo);
-		model.addAttribute("OrderData", vo);
-		return "/pay2/payEstimate.jsp";
+	public String OrderSpecial3(OrderVO vo, Model model,HttpSession session) {
+		session.getAttribute("id");
+		if(session.getAttribute("id") != null) {
+			System.out.println(vo);
+			model.addAttribute("OrderData", vo);
+			return "/pay2/payEstimate.jsp";
+		}
+		return "/views/login.jsp";
 	}
 
 	@RequestMapping(value = "/OrderSpecial4.do")
-	public String OrderSpecial4(OrderVO vo, Model model, DataSendVO vo1) {
-		System.out.println(vo);
-		model.addAttribute("OrderData", vo);
-		System.out.println(vo);
-		if (vo.getOrder_price() >= 20000) {
-			vo.setOrder_delivery_price(0);
-		} else {
-			vo.setOrder_delivery_price(3500);
+	public String OrderSpecial4(OrderVO vo, Model model, DataSendVO vo1,HttpSession session) {
+		session.getAttribute("id");
+		if(session.getAttribute("id") != null) {
+			System.out.println(vo);
+			model.addAttribute("OrderData", vo);
+			System.out.println(vo);
+			if (vo.getOrder_price() >= 20000) {
+				vo.setOrder_delivery_price(0);
+			} else {
+				vo.setOrder_delivery_price(3500);
+			}
+			int price = vo.getOrder_price() + vo.getOrder_delivery_price();
+			model.addAttribute("price", price);
+			System.out.println(vo.getOrder_delivery_price());
+
+			model.addAttribute("Data", vo1);
+			System.out.println(vo1);
+
+			int price1 = vo.getOrder_price();
+			model.addAttribute("price1", price1);
+			return "/pay2/paySOrderCheck.jsp";
 		}
-		int price = vo.getOrder_price() + vo.getOrder_delivery_price();
-		model.addAttribute("price", price);
-		System.out.println(vo.getOrder_delivery_price());
-
-		model.addAttribute("Data", vo1);
-		System.out.println(vo1);
-
-		int price1 = vo.getOrder_price();
-		model.addAttribute("price1", price1);
-		return "/pay2/paySOrderCheck.jsp";
+		return "/views/login.jsp";
 	}
 
 	@RequestMapping(value = "/OrderOrder.do")
-	public String OrderOrder(OrderVO vo, Model model) {
-		System.out.println(vo);
-		orderservice.OrderOrder(vo);
-		model.addAttribute("OrderDate", vo);
-		System.out.println(vo);
+	public String OrderOrder(OrderVO vo, Model model,HttpSession session) {
+		session.getAttribute("id");
+		if(session.getAttribute("id") != null) {
+			System.out.println(vo);
+			orderservice.OrderOrder(vo);
+			model.addAttribute("OrderDate", vo);
+			System.out.println(vo);
 
-		return "/pay2/paySSpecialComplete.jsp";
+			return "/pay2/paySSpecialComplete.jsp";
+		}
+		return "/views/login.jsp";
 	}
 
 }

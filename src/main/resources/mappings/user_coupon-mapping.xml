@@ -31,8 +31,8 @@
  	  select * from coupon_management
  	</select>
 		
- 	<select id="couponRandomNum" resultType="CouponList">
- 	  select count(coupon_code) from coupon_management where coupon_code=#{randomNumber}
+ 	<select id="couponRandomNum" resultType="int" parameterType="CouponList">
+ 	  select count(coupon_code) from coupon_management where coupon_code=#{coupon_code}
  	</select>
 	
 

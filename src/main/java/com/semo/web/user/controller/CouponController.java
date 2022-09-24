@@ -24,22 +24,13 @@ public class CouponController {
 // 랜덤쿠폰번호 생성
 
 	@RequestMapping(value="/insertWelcomeCoupon.do", method=RequestMethod.GET)
-	public String insertWelcomeCoupon(CouponListVO mvo, CouponVO vo,CustomerVO cvo, Model model) {
+	public String insertWelcomeCoupon(CouponListVO mvo, CouponVO vo,CustomerVO cvo) {
 		System.out.println("웰컴 쿠폰 등록 처리");
 		System.out.println(vo);
+	
+		CustomerService.insertWelcomeCoupon(mvo, vo, cvo);
 		
-		mvo.setCustomer_no(cvo.getCustomer_no());
-		
-		int randomNumber = (int)(Math.random() * 99999999) + 1; // 8자리 난수생성
-		
-		CouponListVO mycode = CustomerService.couponRandomNum(mvo);
-		
-		if(mycode == 0) {
-			
-		}
-		CustomerService.insertWelcomeCoupon(randomNumber);
-		
-		return "";
+		return null;
 	}
 	
 	

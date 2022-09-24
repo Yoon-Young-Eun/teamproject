@@ -65,8 +65,8 @@ public class CustomerDAO {
 	}
 	
 	// 쿠폰코드로검색해서새로생성되는랜덤쿠폰번호랑중복되는쿠폰코드카운트하기
-	public CouponListVO couponRandomNum(int num, int num2) {
+	public int couponRandomNum(CouponListVO mvo) {
 		System.out.println("DAO.couponRandomNum 실행");
-		return sql.select("CouponlistDAO.couponRandomNum", num, num2);
+		return sql.selectOne("CouponlistDAO.couponRandomNum", mvo);
 	}
 }

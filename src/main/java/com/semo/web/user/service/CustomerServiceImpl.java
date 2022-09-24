@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.semo.web.admin.vo.CouponVO;
 import com.semo.web.admin.vo.TermsVO;
 import com.semo.web.user.dao.CustomerDAO;
 import com.semo.web.user.vo.CouponListVO;
@@ -15,6 +16,7 @@ public class CustomerServiceImpl implements CustomerService{
 	
 	@Autowired
 	CustomerDAO dao;
+	
 	
 
 	// 회원 정보 수집, 로그인
@@ -57,7 +59,22 @@ public class CustomerServiceImpl implements CustomerService{
 
 	// 회원가입할때회원가입버튼누르면회원가입쿠폰쿠폰함에넣어주기
 	@Override
-	public void insertWelcomeCoupon(CouponListVO mvo) {
+	public void insertWelcomeCoupon(CouponListVO mvo, CouponVO vo,CustomerVO cvo) {
+		
+		mvo.setCustomer_no(cvo.getCustomer_no());
+		
+		int randomNumber = (int)(Math.random() * 99999999) + 1; // 8자리 난수생성
+		mvo.setCoupon_code(randomNumber);
+		int mycode = dao.couponRandomNum(mvo);
+		
+		while(mycode != 0) {
+			randomNumber = (int)(Math.random() * 99999999) + 1; // 8자리 난수생성
+			mvo.setCoupon_code(randomNumber);
+			mycode = dao.couponRandomNum(mvo);
+		
+		}
+		
+		
 		dao.insertWelcomeCoupon(mvo);
 	}
 	
@@ -69,8 +86,8 @@ public class CustomerServiceImpl implements CustomerService{
 
 	// 쿠폰코드로검색해서새로생성되는랜덤쿠폰번호랑중복되는쿠폰코드카운트하기
 	@Override
-	public CouponListVO couponRandomNum(int num, int num2) {
-		return dao.couponRandomNum(num, num2);
+	public int couponRandomNum(CouponListVO mvo) {
+		return dao.couponRandomNum(mvo);
 	}
 
 }

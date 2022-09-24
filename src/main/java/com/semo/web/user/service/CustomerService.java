@@ -2,6 +2,7 @@ package com.semo.web.user.service;
 
 import java.util.List;
 
+import com.semo.web.admin.vo.CouponVO;
 import com.semo.web.admin.vo.TermsVO;
 import com.semo.web.user.vo.CouponListVO;
 import com.semo.web.user.vo.CustomerVO;
@@ -28,11 +29,11 @@ public interface CustomerService {
 	public List<TermsVO> getTerms(TermsVO vo);
 
 	// 회원가입할때회원가입버튼누르면회원가입쿠폰쿠폰함에넣어주기
-	public void insertWelcomeCoupon(CouponListVO mvo);
+	public void insertWelcomeCoupon(CouponListVO mvo, CouponVO vo,CustomerVO cvo);
 	
 	// 회원번호로검색해서쿠폰리스트불러오기
 	public List<CouponListVO> getPCouponList();
 	
 	// 쿠폰코드로검색해서새로생성되는랜덤쿠폰번호랑중복되는쿠폰코드카운트하기
-	public CouponListVO couponRandomNum(int num, int num2);
+	public int couponRandomNum(CouponListVO mvo);
 }

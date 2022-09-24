@@ -6,6 +6,7 @@ import com.semo.web.admin.vo.BannerVO;
 import com.semo.web.admin.vo.CouponVO;
 import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.TermsVO;
+import com.semo.web.user.vo.CouponListVO;
 
 public interface SiteService {
 	
@@ -33,4 +34,5 @@ public interface SiteService {
 	public void updateTerms(TermsVO vo);
 	public void deleteTerms(int no);
 	public void deleteTerms(TermsVO vo);
+
 }

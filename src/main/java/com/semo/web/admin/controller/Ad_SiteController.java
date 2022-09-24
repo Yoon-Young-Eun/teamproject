@@ -116,9 +116,6 @@ public class Ad_SiteController {
 	       model.addAttribute("CouponList", CouponList);
 	       System.out.println("Coupon 목록 리스트"+CouponList);
 		
-		
-		
-		
 		return "/admin/promo_couponlist.jsp";            // 그냥 불러올때는 model의 키 이름.컬럼명 = ${xxxxList.컬럼명}
 	}
 	

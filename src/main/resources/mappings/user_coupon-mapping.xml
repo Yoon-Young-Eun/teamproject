@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ 
+ 
+ <mapper namespace="CouponlistDAO">
+ 
+ <insert id="insertWelcomeCoupon" parameterType="CouponList">
+ 		INSERT INTO coupon_management (
+ 			coupon_management_name, 
+ 			coupon_management_price, 
+ 			coupon_management_start_date, 
+ 			coupon_management_end_date,
+ 			coupon_management_status, 
+ 			customer_no,
+ 			coupon_code
+ 		) 
+ 		VALUES(
+ 			'회원가입축하쿠폰', 
+ 			3000, 
+ 			now(), 
+ 			date_add(now(), interval 1 month), 
+ 			0,
+			#{customer_no},
+			#{coupon_code}
+ 		)
+ 	</insert>
+
+	<select id="getPCouponList" resultType="CouponList">
+ 	  select * from coupon_management
+ 	</select>
+		
+ 	<select id="couponRandomNum" resultType="CouponList">
+ 	  select count(coupon_code) from coupon_management where coupon_code=#{randomNumber}
+ 	</select>
+	
+
+</mapper>

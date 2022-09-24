@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.semo.web.admin.vo.TermsVO;
 import com.semo.web.user.dao.CustomerDAO;
+import com.semo.web.user.vo.CouponListVO;
 import com.semo.web.user.vo.CustomerVO;
 
 @Service
@@ -53,6 +54,23 @@ public class CustomerServiceImpl implements CustomerService{
 	public List<TermsVO> getTerms(TermsVO vo) {
 		return dao.getTerms(vo);
 	}
+
+	// 회원가입할때회원가입버튼누르면회원가입쿠폰쿠폰함에넣어주기
+	@Override
+	public void insertWelcomeCoupon(CouponListVO mvo) {
+		dao.insertWelcomeCoupon(mvo);
+	}
 	
-	
+	// 회원번호로검색해서쿠폰리스트불러오기
+	@Override
+	public List<CouponListVO> getPCouponList() {
+		return dao.getPCouponList();
+	}
+
+	// 쿠폰코드로검색해서새로생성되는랜덤쿠폰번호랑중복되는쿠폰코드카운트하기
+	@Override
+	public CouponListVO couponRandomNum(int num, int num2) {
+		return dao.couponRandomNum(num, num2);
+	}
+
 }

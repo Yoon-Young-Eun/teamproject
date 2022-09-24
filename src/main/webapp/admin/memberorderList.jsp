@@ -12,6 +12,9 @@
 <meta name="author" content="" />
 <title>Dashboard - SEMO Admin</title>
 
+<!-- table & hover css -->
+<link href="/admin/css/table_Sales.css" rel="stylesheet" />
+
 <!-- icon 버튼 css -->
 <link href="/admin/css/icon.css" rel="stylesheet" />
 
@@ -283,14 +286,14 @@
 			<main>
 
 				<div class="container-fluid px-4">
-					<h1 class="mt-4">회원관리111</h1>
+					<h1 class="mt-4">개별주문이력</h1>
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
-						<li class="breadcrumb-item active">회원관리</li>
+						<li class="breadcrumb-item active">개별주문이력</li>
 					</ol>
 					<div class="card mb-4">
 						<div class="card-body">
-							회원관리 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
+							회원의 개별 주문 이력 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
 						</div>
 					</div>
 					<div class="card mb-4">
@@ -360,10 +363,9 @@
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
 						
 						<table id=""
-							class="tblCustomers tblexportData table"
-							border="5">
+							class="tblCustomers tblexportData table">
 							<thead>
-								<tr>
+								<tr style="background-color: #f2f2f2";>
 									<th>주문번호</th>
 									<th>회원번호</th>
 									<th>회원이름(이메일)</th>
@@ -377,16 +379,16 @@
 							</thead>
 							<tbody>
 								<c:forEach var="orderList" items="${userOrderList}">
-									<tr>
-										<td>${orderList.order_no}</td>
-										<td>${orderList.customer_no}</td>
-										<td>${orderList.customer_name}</a></td>
-										<td>${orderList.order_mt_category1}</td>
-										<td>${orderList.order_mt_category2}</td>
-										<td>${orderList.order_mt_product}</td>
-										<td>${orderList.order_mt_price}</td>
-										<td>${orderList.order_mt_count}</td>
-										<td>${orderList.order_mt_date}</td>
+									<tr class="colored">
+										<td class="center">${orderList.order_no}</td>
+										<td class="center">${orderList.customer_no}</td>
+										<td class="center">${orderList.customer_name}</a></td>
+										<td class="center">${orderList.order_mt_category1}</td>
+										<td class="center">${orderList.order_mt_category2}</td>
+										<td class="center">${orderList.order_mt_product}</td>
+										<td class="center">${orderList.order_mt_price}</td>
+										<td class="center">${orderList.order_mt_count}</td>
+										<td class="center">${orderList.order_mt_date}</td>
 									</tr>
 								</c:forEach>
 							</tbody>

@@ -385,7 +385,7 @@
 									</div>
 
 									<div class="board_btn">
-										<a href="/deleteBoard.mdo?notice_no=${board.notice_no}">삭제</a>
+										<a href="/deleteBoard.mdo?notice_no=${board.notice_no}" onclick="return confirm('삭제하시겠습니까?');">삭제</a>
 
 									</div>
 									<div class="board_btn">

@@ -28,7 +28,7 @@ public interface OrderService {
 	public void insertEstimate(Ad_EstimateVO vo);
 	public void updateEstimate(Ad_EstimateVO vo);
 	EstimateVO getEstimate(EstimateVO vo);
-	Ad_EstimateVO getAd_Estimate(Ad_EstimateVO vo);
+	Ad_EstimateVO getAd_Estimate(EstimateVO vo);
 	public List<Estimate_T_VO> getEstimateType();
 	public List<Estimate_ImageVO> getEstimateImg(Estimate_ImageVO vo1);
 }

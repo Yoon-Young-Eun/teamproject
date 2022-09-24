@@ -376,7 +376,7 @@
 										<a href="updateBannerPage.mdo?banner_no=${BannerInfo.banner_no}">수정</a>
 									</div>
 									<div class="popup_btn">
-										<a href="deleteBanner.mdo?banner_no=${BannerInfo.banner_no}">삭제</a>
+										<a href="deleteBanner.mdo?banner_no=${BannerInfo.banner_no}" onclick="return confirm('해당 배너를 삭제하시겠습니까?');">삭제</a>
 									</div>
 								</div>
 									</div>

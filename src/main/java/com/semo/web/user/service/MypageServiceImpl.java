@@ -172,6 +172,12 @@ public class MypageServiceImpl implements MypageService{
 		return dao.updateEstimate(vo);
 	}
 
+	@Override
+	public ReviewVO viewReview(ReviewVO vo) {
+		
+		return dao.viewReview(vo);
+	}
+
 }
 
 	

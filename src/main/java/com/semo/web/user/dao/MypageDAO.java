@@ -157,5 +157,9 @@ public class MypageDAO {
 		public int getReviewCount(PagingVO vo) {
 			return sql.selectOne("MypageVO.getReviewCount",vo);
 		}
+	//리뷰상세
+		public ReviewVO viewReview(ReviewVO vo) {
+			return sql.selectOne("MypageVO.viewReview",vo);
+		}
 
 }

@@ -35,7 +35,7 @@ public class MypageController {
 	// MyMain : 최근 주문
 	@RequestMapping(value = "/mypage.do", method = RequestMethod.GET)
 	public String RecentOrder(Model model, CustomerVO customer, OrderVO order, PagingVO pvo) {
-
+		
 		System.out.println("======================================================================================================");
 		System.out.println("go to MyMain.jsp");
 		System.out.println("Controller > " + customer);
@@ -452,6 +452,16 @@ public class MypageController {
 	 	  	
 	 	  	
     	return "/views-mypage/MyReview.jsp";
+    }
+    
+    //리뷰 상세보기
+    @RequestMapping(value="/viewReview.do")
+    public String viewReview(ReviewVO vo,Model model) {
+    	System.out.println(vo);
+    	service.viewReview(vo);
+    	model.addAttribute("view",service.viewReview(vo));
+    	System.out.println(service.viewReview(vo));
+    	return "/views-mypage/myReviewView.jsp";
     }
 		
 }

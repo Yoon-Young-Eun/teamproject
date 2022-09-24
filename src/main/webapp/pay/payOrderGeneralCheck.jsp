@@ -167,7 +167,7 @@
 	 
 	 
 	 
-	  <input type="hidden" value="" name="coupon_code" id="coupon_code2">
+	  <input type="number" value="0" name="coupon_code" id="coupon_code2" style="display: none;">
 	  <div id="couponCode" style="display: none">용용</div>
 
 
@@ -386,7 +386,7 @@ $("#q2").on("DOMSubtreeModified",function(){
 $("#couponCode").on("DOMSubtreeModified",function(){
 	   console.log("couponCode");
 	   
-	   $("#coupon_code2").val($("#couponCode").text().trim())  ;
+	   $("#coupon_code2").val(Number($("#couponCode").text().trim()))  ;
 })
 
 

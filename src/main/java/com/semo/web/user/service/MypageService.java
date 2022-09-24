@@ -73,4 +73,6 @@ public interface MypageService {
     
     //리뷰 카운트
     int getReviewCount(PagingVO vo);
+    //리뷰 상세보기
+    ReviewVO viewReview(ReviewVO vo);
 }

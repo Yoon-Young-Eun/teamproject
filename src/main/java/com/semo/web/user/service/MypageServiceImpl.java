@@ -167,6 +167,12 @@ public class MypageServiceImpl implements MypageService{
 		return dao.getReviewCount(vo);
 	}
 
+	@Override
+	public ReviewVO viewReview(ReviewVO vo) {
+		
+		return dao.viewReview(vo);
+	}
+
 }
 
 	

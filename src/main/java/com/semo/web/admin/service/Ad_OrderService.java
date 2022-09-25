@@ -12,7 +12,7 @@ import com.semo.web.user.vo.Estimate_ImageVO;
 import com.semo.web.user.vo.OrderMtVO;
 import com.semo.web.user.vo.OrderVO;
 
-public interface OrderService {
+public interface Ad_OrderService {
 	public List<OrderMtVO> getUserOrderList(PagingVO pvo);
 	public int getArticleCount(PagingVO pvo);
 	public List<OrderVO> getAdminOrderList(PagingVO pvo);

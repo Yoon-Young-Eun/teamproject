@@ -17,7 +17,7 @@ import com.semo.web.user.vo.OrderMtVO;
 import com.semo.web.user.vo.OrderVO;
 
 @Repository
-public class OrderDAO {
+public class Ad_OrderDAO {
 
 	
 	@Autowired

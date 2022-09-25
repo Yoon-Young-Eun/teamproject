@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.semo.web.admin.service.BoardService;
+import com.semo.web.admin.service.Ad_BoardService;
 import com.semo.web.admin.vo.NoticeVO;
 import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.amazon.s3.AwsS3;
@@ -29,7 +29,7 @@ import edu.emory.mathcs.backport.java.util.Collections;
 public class Ad_BoardController {
 
    @Autowired
-   private BoardService boardservice;
+   private Ad_BoardService boardservice;
 
    @RequestMapping(value="/getBoardList.mdo", method = RequestMethod.GET)
    public String getBoardList(PagingVO pvo, NoticeVO vo, Model model) {

@@ -2,6 +2,7 @@ package com.semo.web.user.service;
 
 import java.util.List;
 
+import com.semo.web.admin.vo.Ad_EstimateVO;
 import com.semo.web.admin.vo.ProductVO;
 import com.semo.web.admin.vo.TermsVO;
 import com.semo.web.user.vo.CouponListVO;
@@ -36,12 +37,14 @@ public interface OrderService {
 
 	CustomerVO getReadCustomerInfo(CustomerVO vo);
 
-	CustomerVO OrderSpecial1(CustomerVO vo1);
+	EstimateVO OrderSpecial1(EstimateVO vo2);
 	
 	void OrderOrder(OrderVO vo);
 
 	void deleteCoupon(CouponListVO cou);
 
-
+	Ad_EstimateVO selectEstimate(Ad_EstimateVO vo4);
+	
+	Ad_EstimateVO selectEstimate2(Ad_EstimateVO esti);
 	
 }

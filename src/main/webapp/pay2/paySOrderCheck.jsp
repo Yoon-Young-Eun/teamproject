@@ -18,7 +18,7 @@
 <div class="wrap">
     <div class="wrap1">
     
-    <jsp:include page="/common/header.jsp"></jsp:include>
+    <jsp:include page="/common/logined-header.jsp"></jsp:include>
     <div class="main">
   <div class="space_left"></div>
   <div class="main_content">
@@ -30,7 +30,7 @@
       세탁시 요청사항
     </div>
     <div class="service1">
-      <input type="text" value="${Data.data1}" readonly id="checkbox" name="order_request1">
+      <input type="text" value="${Data.data1}" readonly id="checkbox1" name="order_request1" style="border: 1px solid black;">
     </div>
     
 
@@ -54,9 +54,9 @@
 
 
 
-    <div class="main_text1">
+   <%--  <div class="main_text1">
  
-<%--       <div class="price" style="width:1000px;">
+      <div class="price" style="width:1000px;">
         <div class="price1">
           <input type="text" value="세탁비용 : " id="price_text" readonly>
           
@@ -116,8 +116,19 @@
 	  <input type="hidden" value="${OrderData.order_pickup_date }" name="order_pickup_date">
 	  <input type="hidden" value="${OrderData.order_pickup_time }" name="order_pickup_time">
 	  <input type="hidden" value="${OrderData.order_type}" name="order_type">
-	  
-
+	  <input type="hidden" value="${OrderData.estimate_cm_no }" name="estimate_cm_no">
+		
+	  <input type="number" value="0" name="coupon_code" id="coupon_code2" style="display: none;">
+	  <div id="couponCode" style="display: none">용용</div>
+		
+		
+		
+		<!-- 확인해주세요 -->
+	  <input type="hidden" value="${CustomerInfo.customer_id}" name="customer_id">
+      <input type="hidden" value="${CustomerInfo.customer_zipcode}" name="customer_zipcode">
+	  <input type="hidden" name="imp_uid" id="imp_uid">	
+		
+		
       <div class="pay" style="width:1000px;">
        <div class="pay1">
         결제금액
@@ -160,7 +171,7 @@
       <div class="total">
         <div class="total1" style="display: flex">
           <input type="text" value="최종금액 :" class="total_price1" id="cou33" readonly>
-          <input type="hidden" value="${price }" id="cou444" readonly  name="order_price">
+          <input type="hidden" value="${price}" id="cou444" readonly  name="order_price">
           <div id="q2" style="width:150px; text-align:right;font-size:20px;padding-right:3px;" >${price}</div>
           <input type="text" value="원" id="cou44" readonly style="width:30px;">
         </div> 

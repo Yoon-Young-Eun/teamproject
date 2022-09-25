@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="MainDAO">
+
+ 	<select id="getMain" parameterType="board_event" resultType="board_event">
+		SELECT * FROM board_event order by board_event_no desc LIMIT 0,3;
+ 	</select>
+ 	
+
+ 	
+</mapper>
+ 

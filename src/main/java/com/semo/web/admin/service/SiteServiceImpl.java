@@ -26,7 +26,7 @@ public class SiteServiceImpl implements SiteService {
 	public List<CouponVO> getCouponList(PagingVO pvo) {
 		return SiteDAO.getCouponList(pvo);
 	}
-
+	
 	@Override
 	public int getCouponArticleCount(PagingVO pvo) {
 		return SiteDAO.getCouponArticleCount(pvo);

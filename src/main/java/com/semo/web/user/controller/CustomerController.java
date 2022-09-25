@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.semo.web.admin.service.UtilService;
 import com.semo.web.admin.util.CoolSms;
+import com.semo.web.admin.vo.CouponVO;
 import com.semo.web.admin.vo.MessageVO;
 import com.semo.web.admin.vo.TermsVO;
 import com.semo.web.user.service.CoolSmsUser;
 import com.semo.web.user.service.CustomerService;
+import com.semo.web.user.vo.CouponListVO;
 import com.semo.web.user.vo.CustomerVO;
 import com.semo.web.user.vo.OrderVO;
 
@@ -113,7 +115,7 @@ public class CustomerController {
 
 	// 회원가입 완료 페이지 이동
 	@RequestMapping(value = "/complete.do", method = RequestMethod.POST)
-	public String join(CustomerVO vo, HttpSession session, Model model) {
+	public String join(CouponListVO mvo, CouponVO cvo, CustomerVO vo, HttpSession session, Model model) {
 		System.out.println("join check");
 		System.out.println(vo);
 		
@@ -127,7 +129,10 @@ public class CustomerController {
 		userservice.insertMember(vo2);
 		model.addAttribute("user", vo2.getCustomer_name());
 		System.out.println(vo2.getCustomer_name());
-		
+		System.out.println("쿠폰함VO:    "+mvo);
+		// 쿠폰 발급
+		userservice.insertWelcomeCoupon(mvo, cvo, vo);
+
 		
 		//회원가입 축하메세지
 		MessageVO msg = utilservice.welcomeMessage();

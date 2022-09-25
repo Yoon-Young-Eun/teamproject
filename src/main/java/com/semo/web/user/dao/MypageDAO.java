@@ -95,6 +95,19 @@ public class MypageDAO {
 		return sql.selectOne("MypageVO.insertask", qna);
 	}
 	
+	// qna_no >> 문의 상세 불러오기
+	public Cm_QnAVO askdetail(Cm_QnAVO qna) {
+		System.out.println("DAO > AskDetail");
+		return sql.selectOne("MypageVO.askdetail", qna);
+	}
+	
+	
+	// MyAskDetail : 문의글 수정
+	public Cm_QnAVO editask(Cm_QnAVO qna) {
+		System.out.println("DAO > Edit Ask");
+		return sql.selectOne("MypageVO.editask", qna);
+	}
+	
 	//mypaging order
 	
 	public int myOrderCount(PagingVO vo) {

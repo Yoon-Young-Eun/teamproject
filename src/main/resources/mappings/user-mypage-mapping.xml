@@ -32,14 +32,23 @@
  		select * from coupon_management where customer_no = #{customer_no}
  	</select>
  	
- 	<select id = "asklist" parameterType = "customer" resultType = "QNA">
+ 	<select id = "asklist" parameterType = "customer" resultType = "QnA">
  		select * from board_qna_cm where customer_no = #{customer_no}
  	</select>
  	
- 	<insert id="insertask" parameterType="QNA">
+ 	<select id = "askdetail" parameterType = "QnA" resultType = "QnA">
+ 		select * from board_qna_cm where board_qna_no=#{board_qna_no}
+ 	</select>
+ 	
+ 	<insert id="insertask" parameterType="QnA">
  		insert into board_qna_cm (board_qna_no, board_qna_type, board_qna_title, board_qna_content, customer_no)
  		values (#{board_qna_no}, #{board_qna_type}, #{board_qna_title}, #{board_qna_content}, #{customer_no})
  	</insert>
+ 	
+ 	<update id="editask" parameterType="QnA">
+ 		update board_qna_cm set board_qna_type = #{board_qna_type}, board_qna_title = #{board_qna_title}, board_qna_content = #{board_qna_content}
+ 		where board_qna_no = #{board_qna_no} 
+ 	</update>
  	
  	<select id="myOrderCount" parameterType="paging"  resultType="int">
  		select count(*) from order_cm where customer_no=#{customer_no}

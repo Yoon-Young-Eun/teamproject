@@ -394,16 +394,14 @@
 								<div>
 									<form action="blackmember.mdo" method="get">
 										<div class="icon_flex">
-
-											<div>
-												<select name="searchCondition">
+												<select name="searchCondition" class="margin_auto" >
 													<c:forEach items="${conditionMap}" var="option">
 														<div>
 															<option value="${option.value}">${option.key}</option>
 														</div>
 													</c:forEach>
 												</select> <input type="text" name="searchKeyword" />
-											</div>
+										
 											<div>
 												<input type="submit" value="검색" />
 											</div>

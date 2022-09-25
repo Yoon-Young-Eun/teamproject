@@ -21,7 +21,7 @@ public class CoolSms {
 		    params.put("to", phone);	 // 문자를 보낼 전화번호를 배열로 받음
 
 		    params.put("from", "01031721622");	
-		    params.put("type", "SMS");
+		    params.put("type", "LMS");
 		    params.put("text", message);
 		    System.out.println(message);
 		    params.put("app_version", "test app 1.2"); 

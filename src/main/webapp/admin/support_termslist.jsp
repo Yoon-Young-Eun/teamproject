@@ -379,6 +379,7 @@
 
 
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
+						<div style="width: 100%; overflow-x: auto;">
 						<table id="" class="tblCustomers tblexportData table">
 							<thead>
 								<tr style="background-color: #f2f2f2";>
@@ -403,7 +404,7 @@
 										<!--for문의 id값.컬럼명으로 값을 불러옴 -->
 										<td class="center">${terms.terms_type}</td>
 										<td>${terms.terms_title}</td>
-										<td class="ellipsis"><span>${terms.terms_content}</span></td>
+										<td style="width:400px;" class="ellipsis"><span>${terms.terms_content}</span></td>
 
 										<td class="center"><c:choose>
 												<c:when test="${terms.terms_necessary == true}">
@@ -419,6 +420,8 @@
 
 							</tbody>
 						</table>
+						
+						</div>
 						<div class="flex">
 							<div>
 								<input id="button" type="button" value="등록"

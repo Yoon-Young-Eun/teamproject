@@ -53,3 +53,9 @@
 	justify-content: space-between;
 	
 }
+
+.margin_auto{
+	padding : 3px 0px;
+	margin-top: auto;
+	margin-bottom : auto;
+}

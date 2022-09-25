@@ -426,14 +426,14 @@
 												<input type="date" name="endDate" />
 											</div>
 											<div>
-												<select name="searchKeyword1">
+												<select name="searchKeyword1" class="margin_auto">
 													<option style="justify-content: center" value="">구분</option>
 													<option value="일반세탁">일반세탁</option>
 													<option value="특수세탁">특수세탁</option>
 												</select>
 											</div>
 											<div>
-												<select name="searchKeyword2">
+												<select name="searchKeyword2" class="margin_auto">
 													<option style="justify-content: center" value="">매장명</option>
 													<c:forEach items="${search2}" var="search2">
 														<div>
@@ -443,7 +443,7 @@
 												</select>
 											</div>
 											<div>
-												<select name="searchKeyword3">
+												<select name="searchKeyword3" class="margin_auto">
 													<option style="justify-content: center" value="">지역</option>
 													<c:forEach items="${search3}" var="search3">
 														<div>

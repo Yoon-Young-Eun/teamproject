@@ -18,7 +18,7 @@ public class CoolSMSPass {
 		    params.put("to", userPhoneNumber);	 // 문자를 보낼 전화번호를 배열로 받음
 
 		    params.put("from", "01075156522");	
-		    params.put("type", "SMS");
+		    params.put("type", "LMS");
 		    params.put("text", "[TEST]인증번호는" +"["+randomNumber+"]"+"입니다.");
 		    System.out.println(randomNumber);
 		    params.put("app_version", "test app 1.2"); 

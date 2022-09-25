@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.semo.web.admin.service.MemberService;
 import com.semo.web.admin.service.UtilService;
 import com.semo.web.admin.util.CoolSms;
+import com.semo.web.admin.vo.AdminVO;
 import com.semo.web.admin.vo.MessageVO;
 import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.user.vo.CustomerVO;
@@ -21,6 +24,9 @@ import com.semo.web.user.vo.CustomerVO;
 @Controller
 public class Ad_CustomerController {
 	// 영은 : 회원관리, 블랙회원관리
+	
+	@Autowired
+	HttpSession session;
 	
 	@Autowired
 	MemberService memberService;
@@ -48,6 +54,14 @@ public class Ad_CustomerController {
 	@RequestMapping(value="/message.mdo")
 	public String sendMassage(String [] tdArr, String message, CustomerVO vo, MessageVO mvo) {
 		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		
 		/*
 		 * String phone = vo.getCustomer_phone(); String mess =
@@ -65,8 +79,17 @@ public class Ad_CustomerController {
 
 	
 	//회원 (블랙회원 제외) 조회 리스트
-	@RequestMapping(value="/member.mdo", method = RequestMethod.GET)
+	@RequestMapping("/member.mdo")
 	public String getMemberList(PagingVO pvo, CustomerVO vo, Model model, MessageVO mvo) {
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println("회원 목록 검색 처리");
 		System.out.println(mvo);
 		System.out.println(pvo);
@@ -138,8 +161,17 @@ public class Ad_CustomerController {
 	}	
 	
     //블랙맴버 리스트 조회 리스트
-	@RequestMapping(value="/blackmember.mdo", method = RequestMethod.GET)
+	@RequestMapping("/blackmember.mdo")
 	public String getBlackList(PagingVO pvo, CustomerVO vo, Model model, MessageVO mvo) {
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+	
 		System.out.println("블랙 목록 검색 처리");
 		
 		System.out.println(pvo);
@@ -210,6 +242,15 @@ public class Ad_CustomerController {
 	//일반 회원 정보 열람
    @RequestMapping(value="getMemberBoard.mdo", method=RequestMethod.GET)
     public String getRead(CustomerVO vo, Model model) {
+	   
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 	   	System.out.println("getRead() 메서드 실행");
 	    System.out.println(vo);
 	    CustomerVO user = memberService.getRead(vo);
@@ -222,6 +263,16 @@ public class Ad_CustomerController {
 	//블랙 회원 정보 열람
    @RequestMapping(value="getBlackMemberBoard.mdo", method=RequestMethod.GET)
     public String getReadBlack(CustomerVO vo, Model model) {
+	   
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
+		
 	   	System.out.println("getRead() 메서드 실행");
 	    System.out.println(vo);
 	    CustomerVO user = memberService.getRead(vo);
@@ -230,8 +281,17 @@ public class Ad_CustomerController {
 	    }
    
    	//일반회원 상세정보 수정
-	@RequestMapping(value="/memberUpdate.mdo", method=RequestMethod.GET)
+	@RequestMapping(value="/memberUpdate.mdo", method=RequestMethod.POST)
 	public String getMemberUpdate(CustomerVO vo) {
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println("memberUpdate.mdo 실행");
 		System.out.println(vo);
 		System.out.println("계정상태"+vo.getCustomer_status());
@@ -251,15 +311,24 @@ public class Ad_CustomerController {
 	}
 	
    	//블랙회원 상세정보 수정
-	@RequestMapping(value="/blackmemberUpdate.mdo", method=RequestMethod.GET)
+	@RequestMapping("/blackmemberUpdate.mdo")
 	public String getBlackMemberUpdate(CustomerVO vo) {
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println("blackmemberUpdate.mdo 실행");
 		System.out.println(vo);
 		System.out.println("계정상태"+vo.getCustomer_status());
 			
 			
 			MessageVO mvo = new MessageVO();
-			mvo.setMessage_title("계정복구문자");
+			mvo.setMessage_title("회원해지문자");
 			
 			if(vo.getCustomer_status() != "") {
 			memberService.getMemberUpdate(vo);

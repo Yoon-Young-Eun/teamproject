@@ -8,13 +8,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
-
+import com.semo.web.admin.vo.AdminVO;
 import com.semo.web.admin.service.Ad_BoardService;
 import com.semo.web.admin.vo.NoticeVO;
 import com.semo.web.admin.vo.PagingVO;
@@ -28,11 +30,24 @@ import edu.emory.mathcs.backport.java.util.Collections;
 @Controller
 public class Ad_BoardController {
 
+
+   @Autowired
+   HttpSession session;
+
    @Autowired
    private Ad_BoardService boardservice;
 
    @RequestMapping(value="/getBoardList.mdo", method = RequestMethod.GET)
    public String getBoardList(PagingVO pvo, NoticeVO vo, Model model) {
+	   
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
       System.out.println("글 목록 처리");
       System.out.println(pvo);
       
@@ -95,6 +110,15 @@ public class Ad_BoardController {
 
    @RequestMapping("/getBoard.mdo")
    public String getBoard(NoticeVO vo, Model model) {
+	   
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
       System.out.println("글 상세 보기 처리");
       String notice_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/board/";
       NoticeVO vos=boardservice.getBoard(vo);
@@ -107,6 +131,15 @@ public class Ad_BoardController {
 
    @RequestMapping(value="/insertBoard.mdo", method=RequestMethod.GET)
    public String insertBoard(NoticeVO vo) {
+	   
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
       System.out.println("글 등록 처리");
       //      boardservice.insertBoard(vo);
       //      return "redirect:/getBoardList.mdo";
@@ -115,6 +148,15 @@ public class Ad_BoardController {
 
    @RequestMapping("/BoardUpload.mdo")
    public String BoardUpload(NoticeVO vo, MultipartFile NoticeFile) throws IOException, SQLException {
+	   
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
       // aws s3 파일 업로드 처리 */
 	  AwsS3 awss3 = AwsS3.getInstance();
       InputStream is = NoticeFile.getInputStream();
@@ -135,6 +177,15 @@ public class Ad_BoardController {
 
    @RequestMapping(value="/updateBoard.mdo")
    public String updateBoard(NoticeVO vo, MultipartFile uploadImg) throws SQLException, IOException{
+	   
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 	  AwsS3 awss3 = AwsS3.getInstance();
 	  
       System.out.print(vo);
@@ -176,6 +227,15 @@ public class Ad_BoardController {
 
    @RequestMapping("/getUpdate.mdo")
    public String getUpdate(NoticeVO vo, Model model) {
+	   
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
       System.out.println("글 수정정보 보기 처리");
       String notice_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/board/";
       NoticeVO vos=boardservice.getBoard(vo);
@@ -189,6 +249,15 @@ public class Ad_BoardController {
 
    @RequestMapping("/deleteBoard2.mdo")
    public String deleteBoard2(String[] tdArr, NoticeVO vo) throws IOException {
+	   
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 	  AwsS3 awss3 = AwsS3.getInstance();
 	  
       System.out.println(tdArr[0]);
@@ -217,6 +286,16 @@ public class Ad_BoardController {
    // 삭제
    @RequestMapping("/deleteBoard.mdo")
    public String deleteBoard(NoticeVO vo) throws IOException, SQLException{
+	   
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
+		
 	  AwsS3 awss3 = AwsS3.getInstance();
 	  
       NoticeVO bringData = boardservice.getBoard(vo);

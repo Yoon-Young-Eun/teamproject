@@ -78,5 +78,10 @@ public class UtilServiceImpl implements UtilService {
 
 	}
 
+	@Override
+	public MessageVO welcomeMessage() {
+		return utildao.welcomeMessage();
+	}
+
 
 }

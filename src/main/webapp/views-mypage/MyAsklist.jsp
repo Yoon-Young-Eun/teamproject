@@ -41,17 +41,13 @@
 			</div>
 			<!-- 소제목 -->
 			<div class = "content-subtitle-wrapper">
-				<p>총 <b>5</b>개의 글</p>		
+				<p>총 <b>${cnt3}</b>개의 글</p>		
 				<!-- 검색창 --> 
 				<div class = "searchbar-wrapper">
 					 <!-- 분류 -->
 					<div class = "sort">
-						<select class = "select">
-							<option>제목</option>
-							<option>내용</option>
-							<option>제목+내용</option>
-						</select>
-						<button>검색</button>
+						<button>글쓰기</button>
+						<button>삭제</button>
 					</div>	
 				</div><!-- content-subtitle-wrapper -->
 			</div> <!-- content-title-wrapper -->	
@@ -74,13 +70,14 @@
 					<tr style = "border-bottom : 1px solid #cdcdcd;">
 						<td class = "check-title" style = "width : 10%; text-align : center;"><input type = "checkbox" /></td>
 						<td class = "num-content" style = "width : 10%; text-align : center;">${asklist.board_qna_no }</td>
-						<td class = "num-content" style = "width : 30%; text-align : center;">[${asklist.board_qna_type}] <a href = "#">${asklist.board_qna_title }</a></td>
+						<td class = "num-content" style = "width : 30%; text-align : center;">[${asklist.board_qna_type}] <a href = "/askdetail.do?board_qna_no=${asklist.board_qna_no}">${asklist.board_qna_title}</a></td>
 						<td class = "content-content" style = "width : 20%; text-align : center;">${asklist.board_qna_reg_date}</td>
 						<td class = "address-content" style = "width : 20%; text-align : center;">
 							<c:choose> 
                                  <c:when test="${asklist.board_qna_status eq 0}">
                                     답변대기
                                  </c:when>  
+                                 
                                  <c:otherwise>
                                     답변완료
                                  </c:otherwise> 

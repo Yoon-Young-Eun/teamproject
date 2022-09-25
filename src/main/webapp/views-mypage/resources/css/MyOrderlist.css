@@ -134,3 +134,7 @@ table tbody tr {
 .order-wrapper .paging-wrapper a:hover {
 	color : #63afe4;
 }
+
+.order-wrapper .paging-wrapper a:active {
+	color : #63afe4;
+}

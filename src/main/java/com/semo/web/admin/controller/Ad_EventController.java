@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.semo.web.admin.service.BoardService;
+import com.semo.web.admin.service.Ad_BoardService;
 import com.semo.web.admin.service.SiteService;
 import com.semo.web.admin.vo.EventVO;
 import com.semo.web.admin.vo.PagingVO;
@@ -27,7 +27,7 @@ import edu.emory.mathcs.backport.java.util.Collections;
 public class Ad_EventController {
 
 	@Autowired
-	private BoardService boardservice;
+	private Ad_BoardService boardservice;
 
 	@RequestMapping(value="/getEventList.mdo", method = RequestMethod.GET)
 	   public String getEventList(PagingVO pvo, EventVO vo, Model model) {

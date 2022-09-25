@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.semo.web.admin.dao.BoardDAO;
+import com.semo.web.admin.dao.Ad_BoardDAO;
 import com.semo.web.admin.vo.Ad_QnAVO;
 import com.semo.web.admin.vo.EventVO;
 import com.semo.web.admin.vo.FAQVO;
@@ -17,10 +17,10 @@ import com.semo.web.user.vo.Cm_QnAVO;
 import com.semo.web.user.vo.CustomerVO;
 
 @Service
-public class BoardServiceImpl implements BoardService {
+public class Ad_BoardServiceImpl implements Ad_BoardService {
 
 	@Autowired
-	BoardDAO boardDAO;
+	Ad_BoardDAO boardDAO;
 
 //	공지사항
 	@Override

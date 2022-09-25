@@ -68,6 +68,10 @@
 	   select * from message where message_type='견적'
 	</select>
 	
+	<select id="welcomeMessage" resultType="message">
+		select * from message where message_type='신규'
+	</select>
+	
 </mapper>
 
 

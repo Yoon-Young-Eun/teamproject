@@ -44,13 +44,13 @@ $(document).ready(function() {
 </script>
 <script>
 const $topBtn = document.querySelector(".moveTopBtn");
-
 //버튼 클릭 시 맨 위로 이동
 $topBtn.onclick = () => {
 window.scrollTo({ top: 0, behavior: "smooth" });  
 }
 const $bottomBtn = document.querySelector(".moveOrderBtn");
 </script>
+
 
 </body>
 </html>

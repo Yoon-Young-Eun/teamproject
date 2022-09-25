@@ -219,12 +219,98 @@
 
 
       <div class="bt1" style="width:1000px;">
-        <input type="button" id="but1" value="결제하기" onclick="order()" class="action-button shadow animate blue">
+        <input type="button" id="but1" value="결제하기" onclick="requestPay()" class="action-button shadow animate blue">
         <input type="button" id="but2" value="취소하기" class="action-button shadow animate blue" >
       </div>
     
       
 
+<!--  결제 js -->
+	<script>
+	function requestPay() {
+	  IMP.init('imp62424	881'); //iamport 대신 자신의 "가맹점 식별코드"를 사용
+	  IMP.request_pay({
+	    pg: "html5_inicis",
+	    pay_method: "card",
+	    merchant_uid : 'semo_'+new Date().getTime(),
+	    name : '결제테스트',
+	    amount : document.getElementById("cou444").value,
+// 		amount : '100',
+	    buyer_email : '${OrderData.customer_id}',
+	    buyer_name : '${OrderData.order_customer_name}',
+	    buyer_tel : '${OrderData.order_customer_phone}',
+	    buyer_addr : '${OrderData.order_address1} ${OrderData.order_address2}',
+	    buyer_postcode : '${OrderData.customer_zipcode}'
+	  }, function (rsp) {
+		    console.log(rsp);
+		    if (rsp.success) {
+		    	   console.log(rsp.success);
+		    	   console.log("adadasad");
+		    	   console.log("값1"+rsp.imp_uid);
+		    	   console.log(rsp.merchant_uid);
+		    	   console.log(rsp.card_name);
+		    	   console.log(rsp.card_quota);
+		    	   console.log(rsp.paid_amount);
+		    	   console.log(document.getElementById("customer_no").value);
+// 		    	   jQuery로 HTTP 요청
+		    	      $.ajax({
+	    	          	  url: "/insertPayInfo.do", // 가맹점 서버
+		    	          method: "GET",
+  		    	          dataType:"json",
+ 		    	          data: {
+ 		    	        	  customer_no: document.getElementById("customer_no").value,
+ 		    	        	  card_name: rsp.card_name,
+ 		    	        	  card_quota: rsp.card_quota,
+ 		    	        	  paid_amount: rsp.paid_amount,
+ 		    	              imp_uid: rsp.imp_uid,
+ 		    	              merchant_uid: rsp.merchant_uid
+ // 		    	              //기타 필요한 데이터가 있으면 추가 전달
+ 						
+		    	          },
+		    	          success:function(e){
+		    	        	  console.log(c);
+		    	          },
+		    	          error:function(er){
+		    	        	  console.log(rsp.imp_uid);
+		    	        	  document.getElementById("imp_uid").value = rsp.imp_uid;
+		    	        	  console.log(document.getElementById("imp_uid").value);
+		    	        	  var msg = '결제가 완료되었습니다.';
+				    			msg += '\n결제 금액 : ' + rsp.paid_amount;
+				    			msg += '\n카드 승인번호 : ' + rsp.apply_num;
+								    alert(msg);
+								    order();  
+		    	          }
+		    	      })
+	
+		    } else {
+		      var msg = '결제에 실패하였습니다.';
+		      msg += '에러내용 : ' + rsp.error_msg;
+		      alert(msg);
+		    }
+	  });
+	}
+	
+	
+	</script>
+      
+      <script>
+        function order(){
+          var money1 = document.getElementById("q2").innerText;
+          var abc = /[^0-9]/g;
+          var totalpay = Number(money1.replace(abc,""));
+          var totalpay2 = Number(money1);
+			console.log(totalpay2);
+          if(totalpay2 < 15000){
+         	alert("최소주문금액은 15000원 입니다.");
+          }else{
+        	  document.getElementById("form1").submit();
+          } 
+          
+
+        }
+
+        
+      </script>
       
       
       

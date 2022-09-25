@@ -291,11 +291,7 @@ public class MypageController {
 		
 		return "/myasklist.do";
 	}
-<<<<<<< HEAD
-	
-=======
->>>>>>> main
-	
+
 	// MyAskDetail : 게시글 수정하러 가기
 	@RequestMapping(value = "/myaskedit.do", method = RequestMethod.GET)
 	public String EditAsk(Model model, CustomerVO customer, Cm_QnAVO qna) {

@@ -1,5 +1,5 @@
 package com.semo.web.user.controller;
-	
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.semo.web.admin.vo.Ad_EstimateVO;
 import com.semo.web.admin.vo.ProductVO;
 import com.semo.web.admin.vo.TermsVO;
 import com.semo.web.amazon.s3.AwsS3;
@@ -29,50 +30,50 @@ import com.semo.web.user.vo.OrderMtArrayVO;
 import com.semo.web.user.vo.OrderMtVO;
 import com.semo.web.user.vo.OrderProductVO;
 import com.semo.web.user.vo.OrderVO;
-	
+
 @Controller
 public class OrderController<imp_uid> {
-	
+
 	@Autowired
 	OrderService orderservice;
-	
-	//일반결제,특수세탁(견적요청)시 원하는 픽업날짜와 시간 선택
+
+	// 일반결제,특수세탁(견적요청)시 원하는 픽업날짜와 시간 선택
 	@RequestMapping(value = "/OrderAddress.do", method = RequestMethod.GET)
 	public String OrderAddress(CustomerVO vo, OrderVO vo1, Model model, HttpSession session) {
 		session.getAttribute("id");
-		if(session.getAttribute("id") != null) {
+		if (session.getAttribute("id") != null) {
 			System.out.println(vo);
 			System.out.println(vo1);
-			
+
 			session.getAttribute("num");
 			model.addAttribute("OrderAddress", vo);
 			model.addAttribute("gatepswd", vo1);
 			return "/pay/PayPickupDate.jsp";
 		}
-		
+
 		return "/views/login.jsp";
 	}
-	
+
 	@RequestMapping(value = "/OrderAddressTime.do", method = RequestMethod.GET)
-	
-	public String OrderAddressTime(OrderVO vo, Model model,HttpSession session) {
+
+	public String OrderAddressTime(OrderVO vo, Model model, HttpSession session) {
 		session.getAttribute("id");
-		if(session.getAttribute("id") != null) {
+		if (session.getAttribute("id") != null) {
 			session.getAttribute("num");
 			System.out.println(vo);
 			model.addAttribute("OrderData", vo);
 			System.out.println(vo);
-			return "/pay/payWashType.jsp";	
+			return "/pay/payWashType.jsp";
 		}
 		return "/views/login.jsp";
-		
+
 	}
-	
+
 	@RequestMapping(value = "/OrderType.do", method = RequestMethod.GET)
 	// 일반세탁 주문페이지로
-	public String OrderType(OrderVO vo, Model model,HttpSession session) {
+	public String OrderType(OrderVO vo, Model model, HttpSession session) {
 		session.getAttribute("id");
-		if(session.getAttribute("id") != null) {
+		if (session.getAttribute("id") != null) {
 			System.out.println(vo);
 			model.addAttribute("OrderData", vo);
 			System.out.println(vo);
@@ -101,30 +102,28 @@ public class OrderController<imp_uid> {
 		}
 		return "/views/login.jsp";
 
-		
-
 	}
 
 	@RequestMapping(value = "/OrderType1.do", method = RequestMethod.GET)
 	// 특수세탁 주문페이지로
-	public String OrderType1(OrderVO vo, Model model,HttpSession session) {
-		if(session.getAttribute("id") != null) {
+	public String OrderType1(OrderVO vo, Model model, HttpSession session) {
+		if (session.getAttribute("id") != null) {
 			System.out.println(vo);
 			model.addAttribute("OrderData", vo);
 			System.out.println("글자" + vo);
 			return "/pay/payOrderSpecial.jsp";
 		}
-		
+
 		return "/views/login.jsp";
-		
 
 	}
 
 	@RequestMapping(value = "/OrderGeneral.do", method = RequestMethod.GET)
 	// 일반세탁 주문하기
-	public String OrderGeneral(OrderVO vo, Model model, DataSendVO vo2, OrderMtArrayVO vo4, CouponListVO cou, CustomerVO cvo, HttpSession session) {
+	public String OrderGeneral(OrderVO vo, Model model, DataSendVO vo2, OrderMtArrayVO vo4, CouponListVO cou,
+			CustomerVO cvo, HttpSession session) {
 		session.getAttribute("id");
-		if(session.getAttribute("id")!=null) {
+		if (session.getAttribute("id") != null) {
 			List<OrderProductVO> vo6 = new ArrayList<OrderProductVO>();
 			for (int i = 0; i < vo4.getOrder_mtArray_sumPrice().size(); i++) {
 				if (vo4.getOrder_mtArray_count().get(i) != 0) {
@@ -153,11 +152,10 @@ public class OrderController<imp_uid> {
 
 			model.addAttribute("arr", vo4);
 			model.addAttribute("OrderProduct", vo6);
-			model.addAttribute("CustomerInfo",orderservice.getReadCustomerInfo(cvo)); // 내가 추가
-			System.out.println("customerinfo"+cvo);
-			
-			
-			if(vo.getOrder_price() >= 20000) {
+			model.addAttribute("CustomerInfo", orderservice.getReadCustomerInfo(cvo)); // 내가 추가
+			System.out.println("customerinfo" + cvo);
+
+			if (vo.getOrder_price() >= 20000) {
 				vo.setOrder_delivery_price(0);
 			} else {
 				vo.setOrder_delivery_price(3500);
@@ -168,22 +166,20 @@ public class OrderController<imp_uid> {
 
 			List<TermsVO> terms = orderservice.selectTerms();
 			model.addAttribute("terms", terms);
-			System.out.println("약관약관"+terms);
+			System.out.println("약관약관" + terms);
 			int price1 = vo.getOrder_price();
 			model.addAttribute("price1", price1);
-			
-			
-			
+
 			return "/pay/payOrderGeneralCheck.jsp";
 		}
 		return "/views/login.jsp";
-		
+
 	}
 
 	@RequestMapping(value = "/OrderCoupon.do", method = RequestMethod.GET)
-	public String OrderCoupon(OrderVO vo, Model model, CouponListVO cvo,HttpSession session) {
+	public String OrderCoupon(OrderVO vo, Model model, CouponListVO cvo, HttpSession session) {
 		session.getAttribute("id");
-		if(session.getAttribute("id") != null) {
+		if (session.getAttribute("id") != null) {
 			System.out.println("오더" + vo);
 			System.out.println("쿠폰함" + cvo);
 			model.addAttribute("OrderData", vo);
@@ -191,19 +187,20 @@ public class OrderController<imp_uid> {
 			List<CouponListVO> CouponList = orderservice.OrderCoupon(vo);
 			model.addAttribute("couponList", CouponList);
 			System.out.println(CouponList);
-			
+
 			return "/pay/payCouponList.jsp";
 		}
 		return "/views/login.jsp";
 	}
 
-	@RequestMapping(value="/OrderInsert.do", method=RequestMethod.GET)
-	public String  OrderInsert(OrderVO vo,OrderMtVO vo3 ,OrderMtArrayVO vo2,CouponListVO cou,Model model,HttpSession session) {
+	@RequestMapping(value = "/OrderInsert.do", method = RequestMethod.GET)
+	public String OrderInsert(OrderVO vo, OrderMtVO vo3, OrderMtArrayVO vo2, CouponListVO cou, Model model,
+			HttpSession session) {
 		session.getAttribute("id");
-		if(session.getAttribute("id") != null) {
+		if (session.getAttribute("id") != null) {
 			session.getAttribute("num");
-			System.out.println("오더"+ vo);
-			System.out.println("오더MT"+vo3);
+			System.out.println("오더" + vo);
+			System.out.println("오더MT" + vo3);
 
 			orderservice.OrderInsert(vo);
 			int num = orderservice.OrderSelect(vo);
@@ -228,10 +225,10 @@ public class OrderController<imp_uid> {
 				System.out.println("vo1" + i + "번째" + vo1);
 
 			}
-			
+
 			System.out.println(cou);
-			if(vo.getOrder_use_coupon_price() != null  && cou.getCoupon_code() != 0) {
-				System.out.println("1111"+cou);
+			if (vo.getOrder_use_coupon_price() != null && cou.getCoupon_code() != 0) {
+				System.out.println("1111" + cou);
 				orderservice.deleteCoupon(cou);
 				System.out.println(cou);
 			}
@@ -241,83 +238,92 @@ public class OrderController<imp_uid> {
 		return "/views/login.jsp";
 	}
 
-
 	@RequestMapping(value = "/Orderspecial.do")
-	public String Orderspecial(@RequestParam(name="file") MultipartFile[] file, Model model, EstimateVO vo, OrderVO vo2, Estimate_ImageVO vo1,HttpSession session) throws IOException, SQLException {
-	session.getAttribute("id");
-	if(session.getAttribute("id") != null) {
-		AwsS3 awss3 = AwsS3.getInstance();
-		session.getAttribute("num");
+	public String Orderspecial(@RequestParam(name = "file") MultipartFile[] file, Model model, EstimateVO vo,
+			OrderVO vo2, Estimate_ImageVO vo1, HttpSession session) throws IOException, SQLException {
+		session.getAttribute("id");
+		if (session.getAttribute("id") != null) {
+			AwsS3 awss3 = AwsS3.getInstance();
+			session.getAttribute("num");
 
-		orderservice.Orderspecial(vo);
-		System.out.println(vo);
-		model.addAttribute("OrderEstimate", vo);
-		model.addAttribute("OrderData", vo2);
-		int num = vo.getCustomer_no();
-		System.out.println(num);
+			orderservice.Orderspecial(vo);
+			System.out.println(vo);
+			model.addAttribute("OrderEstimate", vo);
+			model.addAttribute("OrderData", vo2);
+			int num = vo.getCustomer_no();
+			System.out.println(num);
 
-		int num1 = orderservice.selectImage(vo);
-		System.out.println(num1);
+			int num1 = orderservice.selectImage(vo);
+			System.out.println(num1);
 
-		List<Estimate_ImageVO> estimate_image = new ArrayList<Estimate_ImageVO>();
-		try {
+			List<Estimate_ImageVO> estimate_image = new ArrayList<Estimate_ImageVO>();
+			try {
 
-			for (MultipartFile multipartFile : file) {
+				for (MultipartFile multipartFile : file) {
 
-				Estimate_ImageVO vo3 = new Estimate_ImageVO();
-				InputStream is = multipartFile.getInputStream();
-				System.out.println(is);
-				String key = multipartFile.getOriginalFilename();
-				String contentType = multipartFile.getContentType();
-				long contentLength = multipartFile.getSize();
+					Estimate_ImageVO vo3 = new Estimate_ImageVO();
+					InputStream is = multipartFile.getInputStream();
+					System.out.println(is);
+					String key = multipartFile.getOriginalFilename();
+					String contentType = multipartFile.getContentType();
+					long contentLength = multipartFile.getSize();
 
-				String bucket = "semoproject/estimate";
+					String bucket = "semoproject/estimate";
 
-				awss3.upload(is, key, contentType, contentLength, bucket);
-				String estimate_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/estimate/" + key;
+					awss3.upload(is, key, contentType, contentLength, bucket);
+					String estimate_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/estimate/" + key;
 
-				vo3.setEstimate_cm_no(num1);
-				vo3.setCustomer_no(num);
-				vo3.setEstimate_filepath(estimate_filepath);
-				orderservice.insertImage(vo3);
-				estimate_image.add(vo3);
-				System.out.println(vo3);
+					vo3.setEstimate_cm_no(num1);
+					vo3.setCustomer_no(num);
+					vo3.setEstimate_filepath(estimate_filepath);
+					orderservice.insertImage(vo3);
+					estimate_image.add(vo3);
+					System.out.println(vo3);
+
+				}
+				System.out.println(estimate_image);
+				model.addAttribute("estimate_image", estimate_image);
+				System.out.println("dd" + estimate_image);
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new IOException("파일 업로드 중 에러가 발생했습니다.");
 
 			}
-			System.out.println(estimate_image);
-			model.addAttribute("estimate_image", estimate_image);
-			System.out.println("dd" + estimate_image);
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new IOException("파일 업로드 중 에러가 발생했습니다.");
-
+			System.out.println("하하하하" + vo);
+			return "/pay/payOrderSpecialCheck.jsp";
 		}
-
-		return "/pay/payOrderSpecialCheck.jsp";
-	}
 		return "/views/login.jsp";
 	}
 
 	@RequestMapping(value = "/OrderSpecial1.do")
-	public String OrderSpecial1(OrderVO vo, CustomerVO vo1, EstimateVO vo2, Model model,HttpSession session) {
+	public String OrderSpecial1(OrderVO vo ,CustomerVO vo1,EstimateVO vo2, Ad_EstimateVO vo4, Model model, HttpSession session) {
 		session.getAttribute("id");
-		if(session.getAttribute("id") != null) {
-			System.out.println(vo);
-			System.out.println(vo1);
-			System.out.println(vo2);
+		if (session.getAttribute("id") != null) {
 			session.getAttribute("num");
-			CustomerVO vo3 = orderservice.OrderSpecial1(vo1);
-			model.addAttribute("customer", vo3);
+			System.out.println("비번비번"+vo1.getCm_gate_passwd());
+			model.addAttribute("customer",vo1);
+			System.out.println("adad"+vo1);
+			System.out.println(vo.getEstimate_cm_no());
+			model.addAttribute("OrderData",vo);
+			System.out.println("번호번호"+vo);
+			vo2.setEstimate_cm_no(vo.getEstimate_cm_no());
+			vo4.setEstimate_cm_no(vo.getEstimate_cm_no());
+			System.out.println("어드민어드민" + vo4);
+			Ad_EstimateVO vo5 = orderservice.selectEstimate(vo4);
+			model.addAttribute("Estimate_ad", vo5);
+			System.out.println("욜욜욜" + vo5);
+			EstimateVO vo3 = orderservice.OrderSpecial1(vo2);
+			model.addAttribute("esti", vo3);
 			System.out.println(vo3);
-			return "/pay2/paySAddress.jsp";	
+			return "/pay2/paySAddress.jsp";
 		}
 		return "/views/login.jsp";
 	}
 
 	@RequestMapping(value = "/OrderSpecial2.do")
-	public String OrderSpecial2(OrderVO vo, CustomerVO vo1, Model model ,HttpSession session) {
+	public String OrderSpecial2(OrderVO vo, CustomerVO vo1, Model model, HttpSession session) {
 		session.getAttribute("id");
-		if(session.getAttribute("id") != null) {
+		if (session.getAttribute("id") != null) {
 			System.out.println(vo);
 			System.out.println(vo1);
 			model.addAttribute("OrderData", vo);
@@ -330,20 +336,24 @@ public class OrderController<imp_uid> {
 	}
 
 	@RequestMapping(value = "/OrderSpecial3.do")
-	public String OrderSpecial3(OrderVO vo, Model model,HttpSession session) {
+	public String OrderSpecial3(OrderVO vo, Model model, HttpSession session,Ad_EstimateVO esti) {
 		session.getAttribute("id");
-		if(session.getAttribute("id") != null) {
+		if (session.getAttribute("id") != null) {
 			System.out.println(vo);
 			model.addAttribute("OrderData", vo);
+			System.out.println(esti);
+			Ad_EstimateVO esti1 = orderservice.selectEstimate2(esti);
+			model.addAttribute("esti",esti1);
+			System.out.println(esti1);
 			return "/pay2/payEstimate.jsp";
 		}
 		return "/views/login.jsp";
 	}
 
 	@RequestMapping(value = "/OrderSpecial4.do")
-	public String OrderSpecial4(OrderVO vo, Model model, DataSendVO vo1,HttpSession session) {
+	public String OrderSpecial4(OrderVO vo, Model model, DataSendVO vo1, HttpSession session) {
 		session.getAttribute("id");
-		if(session.getAttribute("id") != null) {
+		if (session.getAttribute("id") != null) {
 			System.out.println(vo);
 			model.addAttribute("OrderData", vo);
 			System.out.println(vo);
@@ -358,7 +368,7 @@ public class OrderController<imp_uid> {
 
 			model.addAttribute("Data", vo1);
 			System.out.println(vo1);
-
+			
 			int price1 = vo.getOrder_price();
 			model.addAttribute("price1", price1);
 			return "/pay2/paySOrderCheck.jsp";
@@ -367,15 +377,25 @@ public class OrderController<imp_uid> {
 	}
 
 	@RequestMapping(value = "/OrderOrder.do")
-	public String OrderOrder(OrderVO vo, Model model,HttpSession session) {
+	public String OrderOrder(OrderVO vo, Model model, HttpSession session) {
 		session.getAttribute("id");
-		if(session.getAttribute("id") != null) {
+		if (session.getAttribute("id") != null) {
 			System.out.println(vo);
 			orderservice.OrderOrder(vo);
 			model.addAttribute("OrderDate", vo);
 			System.out.println(vo);
 
 			return "/pay2/paySSpecialComplete.jsp";
+		}
+		return "/views/login.jsp";
+	}
+
+	@RequestMapping(value = "/myOrderView.do")
+	public String myOrderView(HttpSession session) {
+		session.getAttribute("id");
+		if (session.getAttribute("id") != null) {
+			session.getAttribute("num");
+			return "/myorderlist.do";
 		}
 		return "/views/login.jsp";
 	}

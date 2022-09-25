@@ -27,7 +27,7 @@ public class OrderVO {
    private String order_address2;
    private String imp_uid;
    private int order_delivery_price;
-
+   private int estimate_cm_no;
 public int getOrder_no() {
 	return order_no;
 }
@@ -166,7 +166,12 @@ public int getOrder_delivery_price() {
 public void setOrder_delivery_price(int order_delivery_price) {
 	this.order_delivery_price = order_delivery_price;
 }
-
+public int getEstimate_cm_no() {
+	return estimate_cm_no;
+}
+public void setEstimate_cm_no(int estimate_cm_no) {
+	this.estimate_cm_no = estimate_cm_no;
+}
 @Override
 public String toString() {
 	return "OrderVO [order_no=" + order_no + ", order_type=" + order_type + ", store_code=" + store_code
@@ -178,10 +183,8 @@ public String toString() {
 			+ order_customer_name + ", order_store_name=" + order_store_name + ", order_expected_date="
 			+ order_expected_date + ", order_customer_phone=" + order_customer_phone + ", order_address1="
 			+ order_address1 + ", order_address2=" + order_address2 + ", imp_uid=" + imp_uid + ", order_delivery_price="
-			+ order_delivery_price + "]";
+			+ order_delivery_price + ", estimate_cm_no=" + estimate_cm_no + "]";
 }
-
-
 
 
 }

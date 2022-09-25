@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.semo.web.admin.vo.Ad_EstimateVO;
 import com.semo.web.admin.vo.ProductVO;
 import com.semo.web.admin.vo.TermsVO;
 import com.semo.web.user.dao.OrderDAO;
@@ -97,8 +98,8 @@ public class OrderServiceImpl implements OrderService {
 		return orderdao.getReadCustomerInfo(vo);
 	}
 
-	public CustomerVO OrderSpecial1(CustomerVO vo1) {
-		return orderdao.OrderSpecial1(vo1);
+	public EstimateVO OrderSpecial1(EstimateVO vo2) {
+		return orderdao.OrderSpecial1(vo2);
 	}
 
 	@Override
@@ -111,5 +112,18 @@ public class OrderServiceImpl implements OrderService {
 		orderdao.deleteCoupon(cou);
 		
 	}
+
+	@Override
+	public Ad_EstimateVO selectEstimate(Ad_EstimateVO vo4) {
+		
+		return orderdao.selectEstimate(vo4);
+	}
+
+	@Override
+	public Ad_EstimateVO selectEstimate2(Ad_EstimateVO esti) {
+		
+		return orderdao.selectEstimate2(esti);
+	}
+
 
 }

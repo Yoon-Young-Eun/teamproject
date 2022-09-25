@@ -247,11 +247,11 @@
 	    name : '결제테스트',
 	    amount : document.getElementById("cou444").value,
 // 		amount : '100',
-	    buyer_email : '${OrderData.customer_id}',
+	    buyer_email : '${CustomerInfo.customer_id}',
 	    buyer_name : '${OrderData.order_customer_name}',
 	    buyer_tel : '${OrderData.order_customer_phone}',
 	    buyer_addr : '${OrderData.order_address1} ${OrderData.order_address2}',
-	    buyer_postcode : '${OrderData.customer_zipcode}'
+	    buyer_postcode : '${CustomerInfo.customer_zipcode}'
 	  }, function (rsp) {
 		    console.log(rsp);
 		    if (rsp.success) {
@@ -311,7 +311,7 @@
           var totalpay = Number(money1.replace(abc,""));
           var totalpay2 = Number(money1);
 			console.log(totalpay2);
-          if(totalpay2 < 15000){
+          if(totalpay2 < 14999){
          	alert("최소주문금액은 15000원 입니다.");
           }else{
         	  document.getElementById("form1").submit();

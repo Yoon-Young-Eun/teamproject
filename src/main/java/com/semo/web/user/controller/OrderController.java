@@ -345,18 +345,25 @@ public class OrderController<imp_uid> {
 			Ad_EstimateVO esti1 = orderservice.selectEstimate2(esti);
 			model.addAttribute("esti",esti1);
 			System.out.println(esti1);
+			
 			return "/pay2/payEstimate.jsp";
 		}
 		return "/views/login.jsp";
 	}
 
 	@RequestMapping(value = "/OrderSpecial4.do")
-	public String OrderSpecial4(OrderVO vo, Model model, DataSendVO vo1, HttpSession session) {
+	public String OrderSpecial4(OrderVO vo, Model model, DataSendVO vo1, CustomerVO cvo, HttpSession session) {
 		session.getAttribute("id");
+		System.out.println(vo);
 		if (session.getAttribute("id") != null) {
 			System.out.println(vo);
 			model.addAttribute("OrderData", vo);
 			System.out.println(vo);
+			
+			System.out.println("customerinfo" + cvo);
+			CustomerVO cvo2 = orderservice.getReadCustomerInfo(cvo);
+			model.addAttribute("CustomerInfo", cvo2); // 내가 추가
+			System.out.println(cvo2); 
 			if (vo.getOrder_price() >= 20000) {
 				vo.setOrder_delivery_price(0);
 			} else {
@@ -365,12 +372,13 @@ public class OrderController<imp_uid> {
 			int price = vo.getOrder_price() + vo.getOrder_delivery_price();
 			model.addAttribute("price", price);
 			System.out.println(vo.getOrder_delivery_price());
-
+			
 			model.addAttribute("Data", vo1);
 			System.out.println(vo1);
 			
 			int price1 = vo.getOrder_price();
 			model.addAttribute("price1", price1);
+			System.out.println(price1);
 			return "/pay2/paySOrderCheck.jsp";
 		}
 		return "/views/login.jsp";

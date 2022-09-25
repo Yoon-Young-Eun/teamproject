@@ -496,9 +496,6 @@ public class MypageController {
     	return "/views-mypage/MyReview.jsp";
     }
     
-<<<<<<< HEAD
-   
-=======
     //리뷰 상세보기
     @RequestMapping(value="/viewReview.do")
     public String viewReview(ReviewVO vo,Model model) {
@@ -508,6 +505,5 @@ public class MypageController {
     	System.out.println(service.viewReview(vo));
     	return "/views-mypage/myReviewView.jsp";
     }
->>>>>>> main
 		
 }

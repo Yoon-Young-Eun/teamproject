@@ -336,7 +336,7 @@ request.setCharacterEncoding("utf-8");
 					<!-- 상세정보 -->
 
 					<div>
-						<form action="/Ad_updateOrderInfo.mdo" method="GET" class="form">
+						<form action="/Ad_updateOrderInfo.mdo" method="GET" class="form"  onsubmit="return confirm('주문상태를 변경시 해당 문자가 회원에게 전송됩니다. 주문사항을 수정하시겠습니까?');">
 							<input type="hidden" name="order_customer_phone"
 								value="${order.order_customer_phone}" /> <input type="hidden"
 								name="order_no" value="${order.order_no}" />
@@ -391,7 +391,8 @@ request.setCharacterEncoding("utf-8");
 
 								<div class="flex">
 									<div class="member_state">
-										주문상태(${order.order_status}) : <select name="message_content">${order.order_status}
+										주문상태(${order.order_status}) : 
+										<select name="message_content">${order.order_status}
 										<option value="">상태수정</option>
 											<c:forEach var="message" items="${message}">
 												<option value="${message.message_content}">${message.message_title}</option>

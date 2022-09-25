@@ -373,7 +373,7 @@
 		<a href="updateFAQPage.mdo?board_faq_no=${FAQInfo.board_faq_no}">수정</a>
 	</div>
 	<div class="board_btn">
-		<a href="deleteFAQ.mdo?board_faq_no=${FAQInfo.board_faq_no}">삭제</a>
+		<a href="deleteFAQ.mdo?board_faq_no=${FAQInfo.board_faq_no}" onclick="return confirm('삭제하시겠습니까?');">삭제</a>
 	</div>
 </div>
 

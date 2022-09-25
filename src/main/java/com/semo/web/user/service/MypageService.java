@@ -73,10 +73,13 @@ public interface MypageService {
     public List<Estimate_ImageVO> getEstimateImg(Estimate_ImageVO vo);
     public List<EstimateVO> getmyEstimate(PagingVO pvo);
     int getListCount(PagingVO pvo);
+    public EstimateVO updateEstimate(EstimateVO vo);
     
     //마이 리뷰 보기
     List<ReviewVO> myReviewList(PagingVO vo);
     
     //리뷰 카운트
     int getReviewCount(PagingVO vo);
+    //리뷰 상세보기
+    ReviewVO viewReview(ReviewVO vo);
 }

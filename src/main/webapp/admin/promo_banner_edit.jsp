@@ -338,7 +338,7 @@
 					
 								<div class="write_form">
 								
-								<form action="/updateBanner.mdo" method="post" enctype="multipart/form-data">
+								<form action="/updateBanner.mdo" method="post" enctype="multipart/form-data" onsubmit="return confirm('수정하시겠습니까?');">
 							
 								<input type="hidden" name="banner_no" value="${BannerInfo.banner_no}">
 								

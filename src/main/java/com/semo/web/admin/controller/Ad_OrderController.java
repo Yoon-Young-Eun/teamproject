@@ -206,7 +206,7 @@ public class Ad_OrderController {
 				model.addAttribute("message", messageTypeList);
 				model.addAttribute("order", order);
 				model.addAttribute("storeList", storeList);
-				return "/admin/member_order.jsp";
+				return "/admin/order_memberInfo.jsp";
 			}		
 			
 			//주문 이력 수정 및 Coolsms 보내기
@@ -228,10 +228,11 @@ public class Ad_OrderController {
 				 
 				
 				 //정보 수정하기
-				 if(vo.getOrder_store_name() != "" && vo.getOrder_store_name() != null) {
+	
 				 System.out.println("updateOrderInfo");
+				 System.out.println("수정 직전 정보"+vo);
 				 orderserivce.updateOrderInfo(vo);
-				 }
+				 
 				 
 				return "/adminOrderList.mdo";
 			}
@@ -305,23 +306,38 @@ public class Ad_OrderController {
 		System.out.println("사용자 요청 상세보기 처리");
 		System.out.println(vo);
 		System.out.println("vo1 " +vo1);
+		System.out.println("전달받은 상태정보"+vo.getEstimate_status());
+		
+	
+		//입력받는 견적 상태가 "견적대기"일 경우, Estimate_cm
+		String status="견적대기";
+		
+		if(vo.getEstimate_status().equals(status)) {
+		System.out.println("견적대기 상태 메서드 실행");
+		
 		List<Estimate_T_VO> eto = orderserivce.getEstimateType();
-		System.out.println(eto);
-
-
-		
 		List<Estimate_ImageVO> eiv = orderserivce.getEstimateImg(vo1);
-
 		EstimateVO evo = orderserivce.getEstimate(vo);
-
 		
-		
-
 		model.addAttribute("estiimg", eiv);
 		model.addAttribute("getEstimate", evo);
 		model.addAttribute("estitype", eto);
 		System.out.println(evo);
+		
 		return "/admin/estimate_detail.jsp";
+		
+		}else {//입력받는 견적 상태가 "견적발송"일 경우, ad_Estimate 
+				System.out.println("관리자 답변 상세보기");
+				
+				EstimateVO uvo = orderserivce.getEstimate(vo);
+				Ad_EstimateVO avo = orderserivce.getAd_Estimate(vo);
+
+				model.addAttribute("getestimate", uvo);
+				model.addAttribute("getAd_Estimate", avo);
+				return "/admin/estimate_answer.jsp";
+			}
+		
+		
 	}
 
 	@RequestMapping(value = "/insertEstimate.mdo", method = RequestMethod.POST)
@@ -344,15 +360,16 @@ public class Ad_OrderController {
 		return "redirect:getEstimateList.mdo";
 	}
 
-	@RequestMapping("/getAd_Estimate.mdo")
-	public String getAd_Estimate(Ad_EstimateVO vo, EstimateVO evo, Model model) {
-		System.out.println("관리자 답변 상세보기");
-		EstimateVO uvo = orderserivce.getEstimate(evo);
-		System.out.println(uvo);
-		Ad_EstimateVO avo = orderserivce.getAd_Estimate(vo);
-		System.out.println(avo);
-		model.addAttribute("getestimate", uvo);
-		model.addAttribute("getAd_Estimate", avo);
-		return "/admin/estimate_answer.jsp";
-	}
+/*  // getEstimate.mdo 에 if절로 통합함
+ * @RequestMapping("/getAd_Estimate.mdo") public String
+ * getAd_Estimate(Ad_EstimateVO vo, EstimateVO evo, Model model) {
+ * System.out.println("관리자 답변 상세보기"); EstimateVO uvo =
+ * orderserivce.getEstimate(evo); System.out.println(uvo); Ad_EstimateVO avo =
+ * orderserivce.getAd_Estimate(vo); System.out.println(avo);
+ * model.addAttribute("getestimate", uvo); model.addAttribute("getAd_Estimate",
+ * avo); return "/admin/estimate_answer.jsp"; } 
+ * 
+ * 
+ */
+	
 }

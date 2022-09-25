@@ -55,21 +55,42 @@
 			<table>
 				<thead class = "order-body-title">
 					<tr>
-						<th class = "num-title" style = "width : 25%;">별점</th>
-						<th class = "num-title" style = "width : 25%;">제목</th>
-						<th class = "num-title" style = "width : 25%;">내용</th>
-						<th class = "content-content-title" style = "width : 25%;">날짜</th>
+						<th class = "num-title" style = "width : 33%;">별점</th>
+						<th class = "num-title" style = "width : 33%;">제목</th>
+						
+						<th class = "content-content-title" style = "width : 33%;">날짜</th>
 					
 					</tr>
 				</thead>
 				
 				<tbody class = "order-body-content">	
 					<c:forEach var="myreviewList" items="${myReviewList}">
+					
 					<tr style = "border-bottom : 1px solid #cdcdcd;">
-						<td class = "num-content" id="star" style = "width : 33%; text-align : center;">${myreviewList.board_review_rating}</td>
-						<td class = "num-content" style = "width : 33%; text-align : center;">${myreviewList.board_review_title}</td>
-						<td class = "content-content" style = "width : 33%; text-align : center;">${myreviewList.board_review_content}</td>
-						<td class = "address-content" style = "width : 33%; text-align : center;">${myreviewList.board_review_reg_date }</td>
+						<td class = "num-content" id="star" style = "width : 33%; text-align : center;"><c:choose>
+											<c:when test="${myreviewList.board_review_rating eq 5}">
+										★ ★ ★ ★ ★
+										    </c:when>
+											<c:when test="${myreviewList.board_review_rating eq 4}">
+										★ ★ ★ ★ ☆
+										    </c:when>
+										    <c:when test="${myreviewList.board_review_rating eq 3}">
+										★ ★ ★ ☆ ☆
+										    </c:when>
+										    <c:when test="${myreviewList.board_review_rating eq 2}">
+										★ ★ ☆ ☆ ☆
+										    </c:when>
+											<c:otherwise>
+												★ ☆ ☆ ☆ ☆
+											</c:otherwise>
+										</c:choose><span style="display:none;">${myreviewList.board_review_rating}</span></td>
+						<td class = "num-content" style = "width : 33%; text-align : center; font-size:20px;">${myreviewList.board_review_title} <input type="button" id="aa" style="width:30px; height: 17px; border-style:none; background-color:white;" onclick="hide(this)"></td>
+						
+						<td class = "address-content" style = "width : 33%; text-align : center;">${myreviewList.board_review_reg_date } </td>
+											
+					</tr>
+					<tr>
+					<td class = "content-content" style = "display:none; width : 100%; text-align : center; background-color:rgb(128,128,128,0.1);border-bottom:0.5px solid grey">${myreviewList.board_review_content}</td>
 					</tr>
 					</c:forEach>
 				</tbody>
@@ -106,7 +127,18 @@
 </div><!-- content-wrapper -->	
 </div>
 
-
+<script>
+function hide(e){
+	console.log(e.parentNode.parentNode.nextSibling.nextSibling.childNodes[1]);
+	var i = e.parentNode.parentNode.nextSibling.nextSibling.childNodes[1];
+	if(i.style.display === 'block'){
+		i.style.display = 'none';
+		console.log(i.style.display);
+	}else{
+		i.style.display = 'block';
+	}
+}
+</script>
 
 
 </body>

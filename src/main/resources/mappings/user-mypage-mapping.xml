@@ -76,7 +76,7 @@
  	
  	<!-- 견적서 -->
  	<select id="getMyEstimate" parameterType="estimate" resultType="estimate">
- 		select * from estimate_cm where customer_no = #{customer_no}
+ 		select * from estimate_cm where estimate_cm_no=#{estimate_cm_no}
  	</select>
  	
  	<select id="getAd_Estimate" parameterType="Ad_estimate" resultType="Ad_estimate">
@@ -87,9 +87,9 @@
  		<![CDATA[ select * from estimate_image where estimate_cm_no=#{estimate_cm_no} and customer_no=#{customer_no} ]]>
  	</select>
  	
-<!--  	<select id="getmyEstimate" parameterType="customer" resultType="estimate"> -->
-<!--  		select * from estimate_cm where customer_no=#{customer_no} -->
-<!--  	</select> -->
+ 	<update id="updateEstimate" parameterType="estimate">
+ 		<![CDATA[ update estimate_cm set estimate_status='주문취소' where estimate_cm_no=#{estimate_cm_no} ]]>
+ 	</update>
  	
  	<!-- 유저 견적서 리스트 -->
  	<select id="getmyEstimate" parameterType="paging" resultType="estimate">
@@ -102,6 +102,8 @@
     		</trim>
     	<![CDATA[order by estimate_cm_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} and customer_no = #{customer_no} ]]>
  	</select>
+ 	
+ 	
  	<!-- 유저 견적서 리스트 카운트 -->
  	<select id="getListCount" parameterType="paging" resultType="int">
 		<![CDATA[ select count(*) from estimate_cm  ]]>
@@ -126,5 +128,10 @@
 	<!-- 리뷰 카운트 -->
 	<select id="getReviewCount" parameterType="paging" resultType="int">
 	<![CDATA[select count(*) from board_review where customer_no=#{customer_no}]]>
+	</select>
+	
+	<!-- 리뷰 상세보기 -->
+	<select id="viewReview" parameterType="board_review" resultType="board_review">
+	<![CDATA[select * from board_review where board_review_no=#{board_review_no}]]>
 	</select>
  </mapper>

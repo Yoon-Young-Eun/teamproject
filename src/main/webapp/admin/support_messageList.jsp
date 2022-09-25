@@ -12,6 +12,9 @@
 <meta name="author" content="" />
 <title>Dashboard - SEMO Admin</title>
 
+<!-- table & hover css -->
+<link href="/admin/css/table.css" rel="stylesheet" />
+
 <!-- icon 버튼 css -->
 <link href="/admin/css/icon.css" rel="stylesheet" />
 
@@ -404,10 +407,9 @@
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
 						<div style="width: 100%; overflow-x: auto;">
 							<table id=""
-								class="emp-table dataPerPage tblCustomers tblexportData table"
-								border="5">
+								class="tblCustomers tblexportData table">
 								<thead>
-									<tr>
+									<tr style="background-color: #f2f2f2";>
 										<th width="50" id="check_td"><input type="checkbox"
 											name="check" class="allcheck"></th>
 										<th>문자코드</th>
@@ -418,12 +420,11 @@
 								</thead>
 								<tbody>
 									<c:forEach var="message" items="${messageList}">
-										<tr>
-											<td id="check_td"><input type="checkbox" name="check"></td>
-											<td>${message.message_no}</td>
+										<tr class="colored" onclick="location.href='/messageread.mdo?message_no=${message.message_no}'">
+											<td id="check_td"><input type="checkbox" class ="checkone" name="check"></td>
+											<td class="center">${message.message_no}</td>
 											<!--for문의 id값.컬럼명으로 값을 불러옴 -->
-											<td><a
-												href="/messageread.mdo?message_no=${message.message_no}">${message.message_type}</a></td>
+											<td class="center">${message.message_type}</td>
 											<td>${message.message_title}</td>
 											<td>${message.message_content}</td>
 										</tr>
@@ -534,6 +535,13 @@
 	</script>
 
 
+<!-- 테이블 Checked 되었을때 이벤트 반응 막기 -->
+<script>
+$( ".checkone" ).click(function( event ) {
+  event.stopPropagation();
+  // Do something
+});
+</script> 
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

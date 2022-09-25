@@ -332,7 +332,7 @@
 					<!-- 상세정보 -->
 				
 <div>					
-<form action="/memberUpdate.mdo" method="GET" class="form">			
+<form action="/memberUpdate.mdo" method="GET" class="form"  onsubmit="return confirm('주문상태를 변경시 해당 문자가 회원에게 전송됩니다. 주문사항을 수정하시겠습니까?');">			
 	<input type="hidden" name="customer_no" value="${user.customer_no}"/>
 	<div class="member_wrapper">
 		<div class="member_popup_head">

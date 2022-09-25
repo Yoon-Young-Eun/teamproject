@@ -27,7 +27,7 @@
 <div class="wrap">
     <div class="wrap1">
     
-    <jsp:include page="/common/header.jsp"></jsp:include>
+    <jsp:include page="/common/logined-header.jsp"></jsp:include>
     <div class="main">
     <div class="space_left"></div>
     <div class="main_box">
@@ -75,6 +75,8 @@
     <input type="hidden" value="${customer.customer_name }" name="order_customer_name">
     <input type="hidden" value="${OrderData.cm_gate_passwd }" name="cm_gate_passwd">
     <input type="hidden" value="특수세탁" name="order_type">
+    <input type="hidden" value="${OrderData.order_price }" name="order_price">
+    <input type="hidden" value="${OrderData.estimate_cm_no }" name="estimate_cm_no">
   </div>
   </form>
   

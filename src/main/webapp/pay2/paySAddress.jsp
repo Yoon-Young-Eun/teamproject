@@ -26,7 +26,7 @@
 	<div class="wrap">
 	<div class="wrap1">
 	
-	<jsp:include page="/common/header.jsp"></jsp:include>
+	<jsp:include page="/common/logined-header.jsp"></jsp:include>
 	
 	<div class="main">
   <div class="space_left"></div>
@@ -39,7 +39,7 @@
       <div class="address1">주소지관리</div>
       <div class="address2">
         
-        <input type="hidden" name="customer_no" value="${customer.customer_no }"  id="customnumber" required>
+        <input type="hidden" name="customer_no" value="${esti.customer_no }"  id="customnumber" required>
         <div class="address3">
           <div class="aa" >
         <input type="hidden" value="기본주소" id="ad1" readonly class="address_name">
@@ -55,37 +55,38 @@
         
       </div>
       <div class="address4">
-        <input type="hidden" id="phone" value="${customer.customer_phone }"  name="customer_phone" class="phone" required>
+        <input type="hidden" id="phone" value="${esti.customer_phone }"  name="customer_phone" class="phone" required>
         <div class="phone1" style="display: flex">
         <div class="phone_title" style="font-weight: normal; font-size:15px; width:100px; text-align:right; ">기본연락처 : </div>
-        <div class="phone9" id="z2" style="font-weight: normal; font-size:15px; margin-left:5px;">${customer.customer_phone}</div>
+        <div class="phone9" id="z2" style="font-weight: normal; font-size:15px; margin-left:5px;">${esti.customer_phone}</div>
         </div>
       </div>
       <div class="first_address">
-       <input type="hidden" id="address1-1" value="${customer.customer_address1 }"  name="customer_address1" class="address1-1" required>
+       <input type="hidden" id="address1-1" value="${esti.customer_address1 }"  name="customer_address1" class="address1-1" required>
       <div class="addressOne" style="display: flex">
       <div class="address_1" style="font-weight: normal; font-size:15px; width:100px; text-align:right;"> 기본 주소 : </div>
-      <div class="address_2" id="z3" style="font-weight: normal; font-size:15px; margin-left:5px;">${customer.customer_address1 }</div>
+      <div class="address_2" id="z3" style="font-weight: normal; font-size:15px; margin-left:5px;">${esti.customer_address1 }</div>
       
       </div>
       
       </div>
       <div class="second_address">
-       <input type="hidden" id="address1-2" value="${customer.customer_address2 }"  name="customer_address2" class="address1-2" required>
+       <input type="hidden" id="address1-2" value="${esti.customer_address2 }"  name="customer_address2" class="address1-2" required>
       <div class="addressOne" style="display: flex">
       <div class="address_3" style="font-weight: normal; font-size:15px; width:100px; text-align:right;">나머지주소 : </div>
-      <div class="address_4" id="z4" style="font-weight: normal; font-size:15px; margin-left:5px;">${customer.customer_address2 }</div>
+      <div class="address_4" id="z4" style="font-weight: normal; font-size:15px; margin-left:5px;">${esti.customer_address2 }</div>
       
       </div>
       </div>
       <div class="address5">
-       <input type="hidden" id="password" value="${gatepswd.cm_gate_passwd }" placeholder="#1234 , 종1234" class="password" name="cm_gate_passwd" required> 
+       <input type="hidden" id="password" value="${customer.cm_gate_passwd }" placeholder="#1234 , 종1234" class="password" name="cm_gate_passwd" required> 
         <div class="address_pass" style="display: flex">
         <div class="address_pass1"  style="font-weight: normal; font-size:15px; width:100px; text-align:right;">출입비밀번호 : </div>
         
-        <div class="address_pass2" id="z5" style="font-weight: normal; font-size:15px;" ></div>
-        <input type="hidden" value="${customer.customer_name }" name="customer_name" style="font-weight: normal; font-size:15px; margin-left:5px;">
-        
+        <div class="address_pass2" id="z5" style="font-weight: normal; font-size:15px; margin-left:5px;" >${customer.cm_gate_passwd }</div>
+        <input type="hidden" value="${esti.customer_name }" name="customer_name" style="font-weight: normal; font-size:15px; margin-left:5px;">
+        <input type="hidden" value="${Estimate_ad.estimate_price }" name="order_price">
+        <input type="hidden" value="${OrderData.estimate_cm_no }" name="estimate_cm_no">
         </div>
       </div>
     
@@ -110,7 +111,7 @@
 <script type="text/javascript">
    window.name = "parentForm";
 
-   var url="/getAddressList.do?customer_no="+${customer.customer_no };
+   var url="/getAddressList.do?customer_no="+${esti.customer_no };
    function showPopup() { window.open(url, "", "width=720, height=850"); }
    </script>
    

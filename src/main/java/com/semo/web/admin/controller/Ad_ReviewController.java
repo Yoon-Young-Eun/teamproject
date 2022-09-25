@@ -13,13 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-<<<<<<< HEAD
-import com.semo.web.admin.service.BoardService;
 import com.semo.web.admin.vo.AdminVO;
-=======
 import com.semo.web.admin.service.Ad_BoardService;
->>>>>>> main
 import com.semo.web.admin.vo.FAQVO;
 import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.ReviewVO;

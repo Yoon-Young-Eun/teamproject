@@ -30,14 +30,10 @@ import edu.emory.mathcs.backport.java.util.Collections;
 public class Ad_EventController {
 
 	@Autowired
-<<<<<<< HEAD
 	HttpSession session;
 	
 	@Autowired
-	private BoardService boardservice;
-=======
 	private Ad_BoardService boardservice;
->>>>>>> main
 
 	@RequestMapping(value="/getEventList.mdo", method = RequestMethod.GET)
 	   public String getEventList(PagingVO pvo, EventVO vo, Model model) {

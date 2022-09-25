@@ -461,10 +461,13 @@
 	});
 	</script>
 
-	<script>
+
    //이메일 정규직 
    //비밀번호 정규식: 영문(대소문자), 숫자, 특수문자 포함, 비밀번호 8~20자, 공백x 
+
+   	<script>
    function chkPW(){
+	   
 	console.log("!@!@!ㅋㅋㅋㅋ");
 	
 	   var name = $("#inputName").val();
@@ -482,11 +485,7 @@
 	   var pass = $(".pass").val();
 	   var repass = $(".repass").val();
 	   
-	   let dataResult
-	   
-	   
-	   
-	   
+
 	   if(name.trim() == null || name.trim() == ""){
 			  alert("이름을 작성해주세요.");
 			  return false;
@@ -517,47 +516,38 @@
 	   }else if(pass.trim() != repass.trim()){
 		    alert("비밀번호를 동일하게 입력해주세요.");
 		    return false;
-		    
-	   }else if(dataResult.trim() ==0){
-		    alert("아이디가 중복되었습니다.");
-		    return false;
-		    
 	   }else {
 	  	console.log("통과"); 
 	  	  form.submit();
 	   }
 	  }
-
-   $('#idCheck').click(function(){
-
-		var valId = $('#inputEmail').val();	
-		
-		var request = $.ajax({
-			url: "/idCheck.mdo", //통신할 url
-			method: "POST", //통신할 메서드 타입
-			data: { id : valId }, //전송할 데이타
-			dataType: "json"
-		});	 
-		request.done(function(data) {
-			data1 =data
-			console.log(data)
-			if(data == 1){
-				$("#idCheck").attr(idCheck, "1");
-				console.log($("#idCheck").attr(idCheck))
-					alert('사용 가능한 아이디입니다.');
-			} else{
-				$("#idCheck").attr("idCheck", "0");
-					alert('이미 가입된 아이디입니다.');
-			}	
-		});	 
-		request.fail(function( jqXHR, textStatus ) {
-		  alert( "Request failed: " + textStatus );
-		});			
-		
-		
-	});		
-
    </script>
+
+   	<script>
+	   $('#idCheck').click(function(){
+
+			var valId = $('#inputEmail').val();	
+			var request = $.ajax({
+				url: "/idCheck.mdo", //통신할 url
+				method: "POST", //통신할 메서드 타입
+				data: { id : valId }, //전송할 데이타
+				dataType: "json"
+			});	 
+			request.done(function(data) {
+				console.log(data)
+				if(data == 1){
+						alert('사용 가능한 아이디입니다.');
+				} else{
+						alert('이미 가입된 아이디입니다.');
+				}	
+			});	 
+			request.fail(function( jqXHR, textStatus ) {
+			  alert( "Request failed: " + textStatus );
+			});			
+		});
+	</script>
+	
+
 
 
 	<script

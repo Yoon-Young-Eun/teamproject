@@ -23,14 +23,10 @@ import com.semo.web.admin.vo.PagingVO;
 public class Ad_FAQController {
 	
 	@Autowired
-<<<<<<< HEAD
 	HttpSession session;
 	
 	@Autowired
-	private BoardService BoardService;
-=======
 	private Ad_BoardService BoardService;
->>>>>>> main
 	
 	// FAQ 등록
 	@RequestMapping(value="/insertFAQ.mdo", method=RequestMethod.GET)

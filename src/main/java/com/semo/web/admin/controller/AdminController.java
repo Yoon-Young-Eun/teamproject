@@ -45,9 +45,8 @@ public class AdminController {
 		System.out.println(vo); //값이 컨트롤러로 잘 보내지는 지 확인
 		System.out.println("어드민 login() 까꿍! ");
 		
-
-		//세션 유지시간 설정 
-		session.setMaxInactiveInterval(1800); // 1800 = 60s*30 (30분)
+//		
+//		session.setMaxInactiveInterval(1800); // 1800 = 60s*30 (30분)
 		
 		if(adminservice.getAdmin(vo) == null) {
 			System.out.println("유효하지 않은 아이디 입니다.");

@@ -19,5 +19,5 @@ public interface UtilService {
 	public MessageVO getMessageContentType(MessageVO mvo);
 	public List<CustomerVO> sendMessageToAll();
 	public MessageVO getMessageEstimateType();
-
+	public MessageVO welcomeMessage();
 }

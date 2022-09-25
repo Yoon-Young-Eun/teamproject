@@ -14,7 +14,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+<<<<<<< HEAD
 import com.semo.web.admin.vo.CouponVO;
+=======
+import com.semo.web.admin.service.UtilService;
+import com.semo.web.admin.util.CoolSms;
+import com.semo.web.admin.vo.MessageVO;
+>>>>>>> main
 import com.semo.web.admin.vo.TermsVO;
 import com.semo.web.user.service.CoolSmsUser;
 import com.semo.web.user.service.CustomerService;
@@ -27,9 +33,15 @@ public class CustomerController {
 
 	@Autowired
 	CustomerService userservice;
+	
+	@Autowired
+	UtilService utilservice;
 
 	@Autowired
 	CoolSmsUser coolsms;
+	
+	@Autowired
+	CoolSms cool;
 
 	@Resource(name = "bcryptPasswordEncoder") // Autowired와 유사
 	BCryptPasswordEncoder encoder; // 암호화 클래스
@@ -120,9 +132,21 @@ public class CustomerController {
 		userservice.insertMember(vo2);
 		model.addAttribute("user", vo2.getCustomer_name());
 		System.out.println(vo2.getCustomer_name());
+<<<<<<< HEAD
 		System.out.println("쿠폰함VO:    "+mvo);
 		// 쿠폰 발급
 		userservice.insertWelcomeCoupon(mvo, cvo, vo);
+=======
+		
+		
+		//회원가입 축하메세지
+		MessageVO msg = utilservice.welcomeMessage();
+		
+		String phone = vo2.getCustomer_phone();
+		String message = msg.getMessage_content();
+		
+		cool.sendMessage(phone, message);
+>>>>>>> main
 		
 		return "/views/complete.jsp";
 	}
@@ -139,4 +163,5 @@ public class CustomerController {
 		System.out.println("tvo"+tvo);
 		return "/views/terms.jsp";
 	}
+	
 }

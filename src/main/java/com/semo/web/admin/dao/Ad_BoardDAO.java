@@ -16,9 +16,9 @@ import com.semo.web.user.vo.Cm_QnAVO;
 import com.semo.web.user.vo.CustomerVO;
 
 @Repository
-public class BoardDAO {
+public class Ad_BoardDAO {
 
-	public BoardDAO() {}
+	public Ad_BoardDAO() {}
 
 	@Autowired
 	SqlSessionTemplate sqltemplate;

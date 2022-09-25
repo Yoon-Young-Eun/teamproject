@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.semo.web.admin.service.BoardService;
+import com.semo.web.admin.service.Ad_BoardService;
 import com.semo.web.admin.service.SiteService;
 import com.semo.web.admin.vo.AdminVO;
 import com.semo.web.admin.vo.EventVO;
@@ -30,10 +30,14 @@ import edu.emory.mathcs.backport.java.util.Collections;
 public class Ad_EventController {
 
 	@Autowired
+<<<<<<< HEAD
 	HttpSession session;
 	
 	@Autowired
 	private BoardService boardservice;
+=======
+	private Ad_BoardService boardservice;
+>>>>>>> main
 
 	@RequestMapping(value="/getEventList.mdo", method = RequestMethod.GET)
 	   public String getEventList(PagingVO pvo, EventVO vo, Model model) {
@@ -216,20 +220,24 @@ public class Ad_EventController {
 			bringData.setBoard_event_filepath(bringData.getBoard_event_filepath());
 		}
 		
+		
+		int index2 = bringData.getBoard_event_filepath().indexOf("/", 20);
+		String key2 = bringData.getBoard_event_filepath().substring(index2+1);
+		
 		if(!uploadImg2.getOriginalFilename().equals("")) {
-			if(!key.equals("event/" + uploadImg2)) {
-				awss3.delete(key);
+			if(!key2.equals("event/" + uploadImg2)) {
+				awss3.delete(key2);
 
-				InputStream is = uploadImg2.getInputStream();
-				String uploadKey = uploadImg2.getOriginalFilename();
-				String contentType = uploadImg2.getContentType();
-				long contentLength = uploadImg2.getSize();
+				InputStream is2 = uploadImg2.getInputStream();
+				String uploadKey2 = uploadImg2.getOriginalFilename();
+				String contentType2 = uploadImg2.getContentType();
+				long contentLength2 = uploadImg2.getSize();
 
-				String bucket = "semoproject/event";
+				String bucket2 = "semoproject/event";
 
-				awss3.upload(is, uploadKey, contentType, contentLength, bucket);
+				awss3.upload(is2, uploadKey2, contentType2, contentLength2, bucket2);
 
-				String banner_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/event/" + uploadKey;
+				String banner_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/event/" + uploadKey2;
 				bringData.setBanner_filepath(banner_filepath);
 			}else {
 				bringData.setBanner_filepath(bringData.getBanner_filepath());

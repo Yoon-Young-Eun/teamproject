@@ -26,7 +26,7 @@
 <body>
 
 <jsp:include page="/common/logined-header.jsp"/> 
-
+<form action="/OrderSpecial1.do?customer_no=${getEstimate.customer_no}&order_estimate_cm_no=${getEstimate.estimate_cm_no}">
 <div class = "page-wrapper">
 	<!-- 사이드메뉴 -->
 	<div class = "sidemenu">
@@ -56,27 +56,32 @@
 				<div class = "order-customer-detail">
 						<div class = "order-customer-name" style = "display : flex;">
 							<p class = "customer-title">접수번호</p>
-							<span class = "cutomer-content">${getEstimate.estimate_cm_no }</span>
+							<input type="text" class = "cutomer-content" value="${getEstimate.estimate_cm_no }" name="estimate_cm_no" readonly>
 						</div>
 						<div class = "order-customer-phone" style = "display : flex;">
 							<p class = "customer-title">접수일자</p>
-							<span class = "cutomer-content">${getEstimate.estimate_date }</span>
+							<input type="text" class = "cutomer-content" value="${getEstimate.estimate_date }" name="estimate_date" readonly>
 						</div>
 						<div class = "order-customer-phone" style = "display : flex;">
 							<p class = "customer-title">세탁종류</p>
-							<span class = "cutomer-content">${getEstimate.estimate_type }</span>
+							<input type="text" class = "cutomer-content" value="${getEstimate.estimate_type }" name="estimate_type" readonly>
 						</div>
 						<div class = "order-customer-phone" style = "display : flex;">
 							<p class = "customer-title">연락처</p>
-							<span class = "cutomer-content">${getEstimate.customer_phone }</span>
+							<input type="text" class = "cutomer-content" value="${getEstimate.customer_phone }" name="customer_phone" readonly>
 						</div>
 						<div class = "order-customer-phone" style = "display : flex;"> 
 							<p class = "customer-title">주소</p>						
-							<span class = "cutomer-content">${getEstimate.customer_address1}${getestimate.customer_address2}</span>
+							<input type="text" class = "cutomer-content" value="${getEstimate.customer_address1}" name="customer_address1" readonly>
+							<input type="text" class = "adad" value="${getEstimate.customer_address2}" name="customer_address2" readonly>
+						</div>
+						<div class = "order-customer-phone" style = "display : flex;"> 
+							<p class = "customer-title">출입비밀번호</p>						
+							<input type="text" class = "cutomer-content" name="cm_gate_passwd" placeholder="ex ) #0000">
 						</div>
 						<div class = "order-customer-phone" style = "display : flex;"> 
 							<p class = "customer-title">내용</p>						
-							<span class = "cutomer-content">${getEstimate.estimate_content }</span>
+							<input type="text" class = "cutomer-content" value="${getEstimate.estimate_content }" name="" readonly>
 						</div>
 						<div class = "order-customer-address"> 
 							<p class = "customer-title">첨부이미지</p>						
@@ -95,15 +100,15 @@
 					<div class = "order-customer-detail">
 						<div class = "order-customer-name" style = "display : flex;">
 							<p class = "customer-title">견적일자</p>
-							<span class = "cutomer-content">${getAd.estimate_reply_date }</span>
+							<input type="text" class = "cutomer-content" value="${getAd.estimate_reply_date }" name="" readonly>
 						</div>
 						<div class = "order-customer-phone" style = "display : flex;">
 							<p class = "customer-title">내용</p>
-							<span class = "cutomer-content">${getAd.estimate_type_content }</span>
+							<input type="text" class = "cutomer-content" value="${getAd.estimate_type_content }" name="estimate_content" readonly>
 						</div>
 						<div class = "order-customer-address" style = "display : flex;"> 
 							<p class = "customer-title">금액</p>						
-							<span class = "cutomer-content">${getAd.estimate_price }</span>
+							<input type="text" class = "cutomer-content" value="${getAd.estimate_price }" name="estimate_price" readonly>
 						</div>
 					</div>
 				</div>
@@ -111,11 +116,11 @@
 			</div><!-- order-item-wrapper -->
 		<div class="btn">
 			<button id="btn" class="action-button shadow animate blue">결제</button>
-			<button id="btn_c" class="action-button shadow animate red">취소</button>
+			<button id="btn_c" class="action-button shadow animate red" onclick="location.href='/updateEstimate.do?customer_no=${getEstimate.customer_no}&estimate_cm_no=${getEstimate.estimate_cm_no }'">취소</button>
 		</div>
 	</div> <!-- content-wrapper -->
 	
 </div>	<!-- page-wrapper -->	
-
+</form>
 </body>
 </html>

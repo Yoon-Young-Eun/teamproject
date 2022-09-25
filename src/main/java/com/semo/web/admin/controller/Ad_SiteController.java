@@ -137,9 +137,6 @@ public class Ad_SiteController {
 	       model.addAttribute("CouponList", CouponList);
 	       System.out.println("Coupon 목록 리스트"+CouponList);
 		
-		
-		
-		
 		return "/admin/promo_couponlist.jsp";            // 그냥 불러올때는 model의 키 이름.컬럼명 = ${xxxxList.컬럼명}
 	}
 	
@@ -381,7 +378,7 @@ public class Ad_SiteController {
 		
 		int index = bringData.getBanner_filepath().indexOf("/", 20);
 		String key = bringData.getBanner_filepath().substring(index+1);
-		
+		System.out.println("key :           "+key);
 		if(!uploadImg.getOriginalFilename().equals("")) {
 			if(!key.equals("banner/" + uploadImg)) {
 				awss3.delete(key);

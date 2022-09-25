@@ -57,8 +57,8 @@
 
 
 	<insert id="Orderspecial" parameterType="estimate">
-	<![CDATA[insert into estimate_cm(customer_no,customer_name,estimate_type,customer_address1,customer_address2,estimate_content,estimate_filepath)
-	values(#{customer_no},#{customer_name},#{estimate_type},#{customer_address1},#{customer_address2},#{estimate_content},#{estimate_filepath})]]>
+	<![CDATA[insert into estimate_cm(customer_no,customer_name,customer_phone,estimate_type,customer_address1,customer_address2,estimate_content,estimate_filepath)
+	values(#{customer_no},#{customer_name},#{customer_phone},#{estimate_type},#{customer_address1},#{customer_address2},#{estimate_content},#{estimate_filepath})]]>
 	</insert>
 
 	<insert id="insertImage" parameterType="estimate_image">
@@ -70,8 +70,13 @@
 	<![CDATA[select max(estimate_cm_no) from estimate_cm where customer_no=#{customer_no}]]>
 	</select>
 	
-	<select id="OrderSpecial1" parameterType="customer" resultType="customer">
-	<![CDATA[select * from customer where customer_no=#{customer_no}]]>
+	<select id="selectEstimate" parameterType="Ad_estimate" resultType="Ad_estimate">
+	<![CDATA[select * from estimate_ad where estimate_cm_no=#{estimate_cm_no}]]>
+	</select>
+	
+	
+	<select id="OrderSpecial1" parameterType="estimate" resultType="estimate">
+	<![CDATA[select * from estimate_cm where customer_no=#{customer_no} and estimate_cm_no=#{estimate_cm_no}]]>
 	</select>
 
 	<select id="getReadCustomerInfo" resultType="customer">
@@ -85,5 +90,9 @@
 	,#{order_customer_name},#{order_store_name},date_add(#{order_pickup_date},interval 5 day),#{order_customer_phone},#{order_address1},#{order_address2},#{order_delivery_price})]]>
 		
 	</insert>
+	
+	<select id="selectEstimate2" parameterType="Ad_estimate" resultType="Ad_estimate">
+	<![CDATA[select * from estimate_ad where estimate_cm_no=#{estimate_cm_no}]]>
+	</select>
 
 </mapper>

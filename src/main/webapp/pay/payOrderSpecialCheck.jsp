@@ -32,8 +32,8 @@
       견적완료
     </div>
     <div class="main_text2">
-      <input type="text" value="주문번호 :" id="order_text1" readonly>
-      <input type="text" value="${OrderEstimate.estimate_cm_no }" id="order_text2" readonly> 
+      <input type="text" value="주문상태 :" id="order_text1" readonly>
+      <input type="text" value="견적대기" id="order_text2" readonly> 
     </div>
     <div class="main_text3">
       <input type="text" value="이름 :" id="name_text1" readonly>
@@ -41,7 +41,7 @@
     </div>
     <div class="main_text4">
       <input type="text" value="연락처 :" id="phone_text1" readonly>
-      <input type="text" value="${OrderData.order_customer_phone }" id="phone_text2" readonly>
+      <input type="text" value="${OrderEstimate.customer_phone }" id="phone_text2" readonly>
     </div>
     <div class="main_text5">
       <input type="text" value="주소 :" id="address_text1" readonly>

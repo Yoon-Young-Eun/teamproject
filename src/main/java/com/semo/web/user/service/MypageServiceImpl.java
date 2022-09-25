@@ -87,10 +87,22 @@ public class MypageServiceImpl implements MypageService{
 		return dao.asklist(customer);
 	}
 	
+	// qna_no >> 문의 상세 불러오기
+	@Override
+	public Cm_QnAVO askdetail(Cm_QnAVO qna) {
+		return dao.askdetail(qna);
+	}
+	
 	// MyAsk : 문의글 작성 > MyAsklist : 목록으로 보내기
 	@Override
 	public Cm_QnAVO insertask(Cm_QnAVO qna) {
 		return dao.insertask(qna);
+	}
+	
+	// MyAskDetail : 문의글 수정
+	@Override
+	public Cm_QnAVO editask(Cm_QnAVO qna) {
+		return dao.editask(qna);
 	}
 	
 	// mypage order paging
@@ -166,6 +178,21 @@ public class MypageServiceImpl implements MypageService{
 		
 		return dao.getReviewCount(vo);
 	}
+	
+	@Override
+	public EstimateVO updateEstimate(EstimateVO vo) {
+		return dao.updateEstimate(vo);
+	}
+
+	@Override
+	public ReviewVO viewReview(ReviewVO vo) {
+		
+		return dao.viewReview(vo);
+	}
+
+
+
+	
 
 }
 

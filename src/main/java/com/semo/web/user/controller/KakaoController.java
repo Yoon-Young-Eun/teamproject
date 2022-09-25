@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.semo.web.user.service.KakaoService;
 import com.semo.web.user.vo.CustomerVO;
-import com.semo.web.user.vo.OrderVO;
 
 @Controller
 public class KakaoController {
@@ -71,18 +70,21 @@ public class KakaoController {
 		
 		System.out.println("@@@@@@@"+access_Token);
 		session.setAttribute("access_Token", access_Token);
-		session.setAttribute("num",User.getCustomer_no());
-		session.setAttribute("UserName",User.getCustomer_name());
-		
+
+	
 		if(User != null) {
+			session.setAttribute("id", User.getCustomer_id());
+			session.setAttribute("num",User.getCustomer_no());
+			session.setAttribute("UserName",User.getCustomer_name());
 			model.addAttribute("Info",User);
-			session.setAttribute("id", userId);				
+			session.setAttribute("K-id", userId);				
 			System.out.println("넘버넘버"+User.getCustomer_no());
 			System.out.println("뇽뇽뇽"+User);
 			System.out.println("가입정보가 있음");
 			session.getAttribute("access_Token");
+			
 			System.out.println(session.getAttribute("access_Token"));
-			return "redirect:/views/logined-main.jsp";
+			return "redirect:/views/main.jsp";
 		}else {
 			return "/views/kakaoform.jsp";
 		}

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.semo.web.admin.dao.OrderDAO;
+import com.semo.web.admin.dao.Ad_OrderDAO;
 import com.semo.web.admin.vo.Ad_EstimateVO;
 import com.semo.web.admin.vo.Estimate_T_VO;
 import com.semo.web.admin.vo.MessageVO;
@@ -19,11 +19,11 @@ import com.semo.web.user.vo.OrderVO;
 
 
 @Service
-public class OrderServiceImpl implements OrderService {
+public class Ad_OrderServiceImpl implements Ad_OrderService {
 
 	
 	@Autowired
-	OrderDAO orderDao;
+	Ad_OrderDAO orderDao;
 	
 	@Override
 	public List<OrderMtVO> getUserOrderList(PagingVO pvo) {

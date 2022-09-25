@@ -70,5 +70,10 @@ public class UtilDAO {
 		System.out.println("DAO.getMessageEstimateType()실행");
 		return sqlTemplate.selectOne("UtilDAO.getMessageEstimateType");
 	}
+	
+	public MessageVO welcomeMessage() {
+		System.out.println("DAO.welcomeMessage()실행");
+		return sqlTemplate.selectOne("UtilDAO.welcomeMessage");
+	}
 
 }

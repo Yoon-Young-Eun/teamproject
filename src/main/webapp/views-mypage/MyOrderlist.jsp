@@ -92,6 +92,7 @@
 				</tbody>
 			</table>
 				<!-- pagaing 처리 -->
+				
 						<div class = "paging-wrapper">					
 							<c:if test="${count > 0}">
 								<div class="paging">
@@ -119,6 +120,8 @@
 	
 	
 </div><!-- page-wrapper -->	
+
+<!-------------------- 스크립트 ---------------------->
 
 </body>
 </html>

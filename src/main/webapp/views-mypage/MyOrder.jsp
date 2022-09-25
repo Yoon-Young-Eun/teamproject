@@ -68,7 +68,7 @@
 					<c:when test = "${ordervo.order_status eq '수거대기'}">
 						<img alt="" src="/views-mypage/resources/img/delivery-progress-1.png">
 					</c:when>	
-					<c:when test = "${ordervo.order_status eq '수거중'}">
+					<c:when test = "${ordervo.order_status eq '수거완료'}">
 						<img alt="" src="/views-mypage/resources/img/delivery-progress-2.png">
 					</c:when>	
 					<c:when test = "${ordervo.order_status eq '세탁중'}">
@@ -80,13 +80,16 @@
 					<c:when test = "${ordervo.order_status eq '배송완료'}">
 						<img alt="" src="/views-mypage/resources/img/delivery-progress-5.png">
 					</c:when>	
+					<c:when test = "${ordervo.order_status eq '주문취소'}">
+						<img alt="" src="/views-mypage/resources/img/delivery-progress-0.png">
+					</c:when>	
 				</c:choose>
 				</center>
 			</div>
 			<div class = "status">
 				<ul>
 					<li><b>수거대기</b></li>
-					<li><b>수거중</b></li>
+					<li><b>수거완료</b></li>
 					<li><b>세탁중</b></li>
 					<li><b>배송중</b></li>
 					<li><b>배송완료</b></li>
@@ -139,7 +142,7 @@
 						<tr>
 							<td class = "order-item-name">${orderdetail.order_mt_product}</td>
 							<td class = "order-item-cnt">${orderdetail.order_mt_count}</td>
-							<td class = "order-item-price"><b>${orderdetail.order_mt_price}</b>원</td>	
+							<td class = "order-item-price"><b>${orderdetail.order_mt_price * orderdetail.order_mt_count}</b>원</td>	
 						</tr>
 					</tbody>
 				</table>
@@ -189,36 +192,64 @@
 					<div class = "pay-title">
 						<h3>결제 정보</h3>
 					</div>
-					<div class = "pay-content">
-						<div class = "pay-way" style = "display : flex;">
-							<p class = "pay-content-title">결제수단</p>
-							<span class = "pay-content-content">${ordervo.order_price_method}</span>
-						</div>
-						<div class = "pay-item" style = "display : flex;">
-							<p class = "pay-content-title">총 상품 가격</p>
-							<span class = "pay-content-content">${ordervo.order_price+ordervo.order_use_coupon_price}</span>
-						</div>
-						<div class = "pay-delivery" style = "display : flex;">
-							<p class = "pay-content-title">배송비</p>
-							<span class = "pay-content-content">${ordervo.order_delivery_price}</span>
-						</div>
-						<div class = "pay-discount" style = "display : flex;">
-							<p class = "pay-content-title">할인금액</p>
-							<span class = "pay-content-content" style = "line-height : 30px;">
-								-${ordervo.order_use_coupon_price}	
-								<br>
-								(쿠폰 할인)
-								<br>
-								-${ordervo.order_delivery_price}		
-								<br>
-								(배송비 할인)
-							</span>
-						</div>
-						<div class = "pay-total" style = "display : flex;">
-							<p class = "pay-content-title">총 결제금액</p>
-							<span class = "pay-content-content" style = "color : red; font-weight : bold;">${ordervo.order_price - ordervo.order_use_coupon_price - ordervo.order_delivery_price}</span>
-						</div>
-					</div>
+					<c:choose>
+						<c:when test = "${ordervo.order_status eq '주문취소'}">
+							<div class = "pay-content">
+								<div class = "pay-way" style = "display : flex;">
+									<p class = "pay-content-title">결제수단</p>
+									<span class = "pay-content-content">${ordervo.order_price_method}</span>
+								</div>
+								<div class = "pay-item" style = "display : flex;">
+									<p class = "pay-content-title">총 상품 가격</p>
+									<span class = "pay-content-content">${ordervo.order_price + ordervo.order_use_coupon_price}</span>
+								</div>
+								<div class = "pay-delivery" style = "display : flex;">
+									<p class = "pay-content-title">배송비</p>
+									<span class = "pay-content-content">${ordervo.order_delivery_price}</span>
+								</div>
+								<div class = "pay-discount" style = "display : flex;">
+									<p class = "pay-content-title">할인금액</p>
+									<span class = "pay-content-content" style = "line-height : 30px;">
+										-${ordervo.order_use_coupon_price}	
+										<br>
+										(쿠폰 할인)
+									</span>
+								</div>
+								<div class = "pay-total" style = "display : flex;">
+									<p class = "pay-content-title">총 결제금액</p>
+									<span class = "pay-content-content" style = "color : red; font-weight : bold;">-${ordervo.order_price}</span>
+								</div>
+							</div><!-- pay-content -->
+						</c:when>
+						<c:otherwise>
+							<div class = "pay-content">
+								<div class = "pay-way" style = "display : flex;">
+									<p class = "pay-content-title">결제수단</p>
+									<span class = "pay-content-content">${ordervo.order_price_method}</span>
+								</div>
+								<div class = "pay-item" style = "display : flex;">
+									<p class = "pay-content-title">총 상품 가격</p>
+									<span class = "pay-content-content">${ordervo.order_price + ordervo.order_use_coupon_price}</span>
+								</div>
+								<div class = "pay-delivery" style = "display : flex;">
+									<p class = "pay-content-title">배송비</p>
+									<span class = "pay-content-content">${ordervo.order_delivery_price}</span>
+								</div>
+								<div class = "pay-discount" style = "display : flex;">
+									<p class = "pay-content-title">할인금액</p>
+									<span class = "pay-content-content" style = "line-height : 30px;">
+										-${ordervo.order_use_coupon_price}	
+										<br>
+										(쿠폰 할인)
+									</span>
+								</div>
+								<div class = "pay-total" style = "display : flex;">
+									<p class = "pay-content-title">총 결제금액</p>
+									<span class = "pay-content-content" style = "color : #63afe4; font-weight : bold;">${ordervo.order_price}</span>
+								</div>
+							</div><!-- pay-content -->
+						</c:otherwise>
+					</c:choose>
 				</div>
 			</div><!-- order-item-wrapper -->
 	</div> <!-- content-wrapper -->

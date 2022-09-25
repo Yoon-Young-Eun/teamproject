@@ -96,7 +96,7 @@
           <input type="text" value="${orderproduct.order_mtArray_count }" name="order_mtArray_count" id="product" style="width: 100px;" readonly>
           <input type="text" value="${orderproduct.order_mtArray_price }" name="order_mtArray_price" id="product" style="width:150px;" readonly>
           <input type="text" value="${orderproduct.order_mtArray_sumPrice }" name="order_mtArray_sumPrice" id="product" style="width:150px;" readonly>
-          <input type="hidden" value="" name="">
+          
         </div>
         </c:forEach>
       </div>
@@ -167,14 +167,17 @@
 	 
 	 
 	 
-	  <input type="hidden" value="" name="coupon_code" id="coupon_code2">
+	 
+	 
+	 
+	  <input type="number" value="0" name="coupon_code" id="coupon_code2" style="display: none;">
 	  <div id="couponCode" style="display: none">용용</div>
 
-
+		
 	  <input type="hidden" value="${CustomerInfo.customer_id}" name="customer_id">
       <input type="hidden" value="${CustomerInfo.customer_zipcode}" name="customer_zipcode">
 	  <input type="hidden" name="imp_uid" id="imp_uid">
-	
+		
 
       <div class="pay" style="width:1000px;">
        <div class="pay1">
@@ -386,7 +389,7 @@ $("#q2").on("DOMSubtreeModified",function(){
 $("#couponCode").on("DOMSubtreeModified",function(){
 	   console.log("couponCode");
 	   
-	   $("#coupon_code2").val($("#couponCode").text().trim())  ;
+	   $("#coupon_code2").val(Number($("#couponCode").text().trim()))  ;
 })
 
 

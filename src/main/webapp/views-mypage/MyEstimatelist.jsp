@@ -37,7 +37,7 @@
 		<!-- 제목 -->
 		<div class = "content-title-wrapper">
 			<div class = "content-title">
-				<h2>내 주문 관리</h2>
+				<h2>내 견적 관리</h2>
 			</div>
 			<!-- 소제목 -->
 			<div class = "content-subtitle-wrapper">

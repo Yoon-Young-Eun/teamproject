@@ -14,9 +14,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.semo.web.admin.service.UtilService;
+import com.semo.web.admin.util.CoolSms;
+import com.semo.web.admin.vo.CouponVO;
+import com.semo.web.admin.vo.MessageVO;
 import com.semo.web.admin.vo.TermsVO;
 import com.semo.web.user.service.CoolSmsUser;
 import com.semo.web.user.service.CustomerService;
+import com.semo.web.user.vo.CouponListVO;
 import com.semo.web.user.vo.CustomerVO;
 import com.semo.web.user.vo.OrderVO;
 
@@ -25,9 +30,15 @@ public class CustomerController {
 
 	@Autowired
 	CustomerService userservice;
+	
+	@Autowired
+	UtilService utilservice;
 
 	@Autowired
 	CoolSmsUser coolsms;
+	
+	@Autowired
+	CoolSms cool;
 
 	@Resource(name = "bcryptPasswordEncoder") // Autowired와 유사
 	BCryptPasswordEncoder encoder; // 암호화 클래스
@@ -35,7 +46,7 @@ public class CustomerController {
 	// 로그인
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
 	public String login(CustomerVO vo, OrderVO order, Model model, HttpSession session) {
-
+		
 		System.out.println(vo);
 		System.out.println("login method");
 		
@@ -50,14 +61,14 @@ public class CustomerController {
 		CustomerVO vo2 = userservice.matchPasswd(vo);
 		System.out.println("vo2" + vo2);
 		System.out.println(vo2);
-
+		
 		// 복호화 비교(DB에 저장된 암호화된 passwd과 사용자가 입력한 passwd를 matches()메서드를 통해 동일 여부 확인
 		if (encoder.matches(vo.getCustomer_passwd(), vo2.getCustomer_passwd())) {
 			System.out.println("로그인!");
 			session.setAttribute("user_name", vo2.getCustomer_name());
 			session.setAttribute("id", vo2.getCustomer_id());
 			session.setAttribute("num", vo2.getCustomer_no());
-			return "/views/logined-main.jsp";
+			return "/views/main.jsp";
 		} else {
 			System.out.println("로그인 실패");
 			return "/views/login.jsp";
@@ -104,7 +115,7 @@ public class CustomerController {
 
 	// 회원가입 완료 페이지 이동
 	@RequestMapping(value = "/complete.do", method = RequestMethod.POST)
-	public String join(CustomerVO vo, HttpSession session, Model model) {
+	public String join(CouponListVO mvo, CouponVO cvo, CustomerVO vo, HttpSession session, Model model) {
 		System.out.println("join check");
 		System.out.println(vo);
 		
@@ -118,6 +129,19 @@ public class CustomerController {
 		userservice.insertMember(vo2);
 		model.addAttribute("user", vo2.getCustomer_name());
 		System.out.println(vo2.getCustomer_name());
+		System.out.println("쿠폰함VO:    "+mvo);
+		// 쿠폰 발급
+		userservice.insertWelcomeCoupon(mvo, cvo, vo);
+
+		
+		//회원가입 축하메세지
+		MessageVO msg = utilservice.welcomeMessage();
+		
+		String phone = vo2.getCustomer_phone();
+		String message = msg.getMessage_content();
+		
+		cool.sendMessage(phone, message);
+		
 		return "/views/complete.jsp";
 	}
 	
@@ -133,4 +157,5 @@ public class CustomerController {
 		System.out.println("tvo"+tvo);
 		return "/views/terms.jsp";
 	}
+	
 }

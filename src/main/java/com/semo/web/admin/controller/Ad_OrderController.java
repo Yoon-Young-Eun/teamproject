@@ -13,7 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.semo.web.admin.service.OrderService;
+import com.semo.web.admin.service.Ad_OrderService;
 import com.semo.web.admin.service.UtilService;
 import com.semo.web.admin.util.CoolSms;
 import com.semo.web.admin.vo.Ad_EstimateVO;
@@ -33,7 +33,7 @@ public class Ad_OrderController {
 	// 주문이력 관련 
 
 	@Autowired
-	OrderService orderserivce;
+	Ad_OrderService orderserivce;
 
 	@Autowired //문자 서비스
 	UtilService utilservice;

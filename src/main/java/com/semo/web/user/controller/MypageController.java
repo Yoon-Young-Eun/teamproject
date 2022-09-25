@@ -8,6 +8,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -35,7 +36,7 @@ public class MypageController {
 	// MyMain : 최근 주문
 	@RequestMapping(value = "/mypage.do", method = RequestMethod.GET)
 	public String RecentOrder(Model model, CustomerVO customer, OrderVO order, PagingVO pvo) {
-
+		
 		System.out.println("======================================================================================================");
 		System.out.println("go to MyMain.jsp");
 		System.out.println("Controller > " + customer);
@@ -250,6 +251,8 @@ public class MypageController {
 
 	}
 	
+	////////////////////////////////////////////////// 문의 게시판 //////////////////////////////////////////////////
+ 	
 	// MyAsklist : 문의내역
 	@RequestMapping(value = "/myasklist.do", method = RequestMethod.GET)
 	public String AskList(Model model, CustomerVO customer, Cm_QnAVO qna) {
@@ -260,6 +263,7 @@ public class MypageController {
 		
 		// 목록 개수 세기
 		int cnt3 = service.askcnt(customer);
+		System.out.println(cnt3);
 		model.addAttribute("cnt3", cnt3);
 		
 		// customer_no > 문의 목록 불러오기
@@ -271,14 +275,14 @@ public class MypageController {
 		return "/views-mypage/MyAsklist.jsp";
 	}
 	
-	// MyAsk : 문의글쓰기
+	// MyAsk : 문의글 쓰러 가기
 	@RequestMapping(value = "/myask.do", method = RequestMethod.GET)
 	public String Ask(Model model, CustomerVO customer, Cm_QnAVO qna) {
 		
 		return "/views-mypage/MyAsk.jsp";
 	}
 	
-	// MyAsk : 문의글 작성 > MyAsklist : 목록으로 보내기
+	// MyAsk : 문의글 작성 완료
 	@RequestMapping(value = "/insertask.do", method = RequestMethod.GET)
 	public String InsertAsk(Model model, Cm_QnAVO qna) {
 		
@@ -288,27 +292,82 @@ public class MypageController {
 		return "/myasklist.do";
 	}
 
+	// MyAskDetail : 게시글 수정하러 가기
+	@RequestMapping(value = "/myaskedit.do", method = RequestMethod.GET)
+	public String EditAsk(Model model, CustomerVO customer, Cm_QnAVO qna) {
+		System.out.println("============================================================");
+		System.out.println("go to My Ask Edit");
+		
+		Cm_QnAVO data = service.askdetail(qna);
+		model.addAttribute("data", data);
+		System.out.println("Controller > 수정 할 내용 > " + data);
+		
+		return "/views-mypage/MyAskEdit.jsp";
+	}
 	
+	// MyAskEdit : 게시글 수정 완료
+	@RequestMapping(value = "/updateask.do", method = RequestMethod.GET)
+	public String EditAsk(Model model, Cm_QnAVO qna) {
+		System.out.println("============================================================");
+		System.out.println("My Ask Edit");
+		
+		Cm_QnAVO editask = service.editask(qna);
+		model.addAttribute("editask",editask);
+		System.out.println("Controller > 수정 된 내용 > " + editask);
+		
+		return "/myasklist.do";
+	}
+	
+	// 문의글 상세보기
+	 @RequestMapping(value="/askdetail.do")
+	 public String AskDetail(Model model, Cm_QnAVO qna) {
+		 System.out.println(qna);
+		 
+		 Cm_QnAVO askdetail = service.askdetail(qna);
+		 
+		 System.out.println("Controller > askdetail > " + askdetail);
+		 model.addAttribute("askdetail", askdetail);
+		 return "/views-mypage/MyAskDetail.jsp";
+	 }
+	 
+	 ////////////////////////////////////////////////// 문의 게시판 끝 //////////////////////////////////////////////////
 	
 	//견적서
     @RequestMapping(value= "/myestimate.do")
     public String getMyEstimate(EstimateVO evo, Ad_EstimateVO avo, Estimate_ImageVO vo1, Model model) {
        System.out.println("내 견적요청서");
+       System.out.println(vo1);
        System.out.println("evo"+evo);
        System.out.println("avo"+ avo); 
        
        List<Estimate_ImageVO> eiv = service.getEstimateImg(vo1);
+       System.out.println(eiv);
        EstimateVO myvo = service.getMyEstimate(evo);
+       System.out.println(myvo);
 
        model.addAttribute("estiimg", eiv);
        model.addAttribute("getEstimate", myvo);
        System.out.println("myvo"+myvo);
        
+       String status="견적발송";
+       if(myvo.getEstimate_status().equals(status)) {
        System.out.println("관리자답변");
        Ad_EstimateVO advo = service.getAd_Estimate(avo);
        System.out.println("답변?"+advo);
        model.addAttribute("getAd", advo);
+
        return "/views-mypage/MyEstimate.jsp";
+       }else {
+    	   return "/views-mypage/MyEstimate-c.jsp";
+       }
+    }
+    
+    @RequestMapping(value="/updateEstimate.do")
+    public String updateEstimate(EstimateVO vo) {
+    	System.out.println("주문취소 상태 업데이트");
+    	service.updateEstimate(vo);
+    	
+    	return "/getmyEstimate.do";
     }
     
     //견적리스트
@@ -436,5 +495,17 @@ public class MypageController {
 	 	  	
     	return "/views-mypage/MyReview.jsp";
     }
+    
+
+    //리뷰 상세보기
+    @RequestMapping(value="/viewReview.do")
+    public String viewReview(ReviewVO vo,Model model) {
+    	System.out.println(vo);
+    	service.viewReview(vo);
+    	model.addAttribute("view",service.viewReview(vo));
+    	System.out.println(service.viewReview(vo));
+    	return "/views-mypage/myReviewView.jsp";
+    }
+
 		
 }

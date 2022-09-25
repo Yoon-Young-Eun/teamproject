@@ -10,7 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.semo.web.admin.service.BoardService;
+import com.semo.web.admin.service.Ad_BoardService;
 import com.semo.web.admin.service.UtilService;
 import com.semo.web.admin.util.CoolSms;
 import com.semo.web.admin.vo.Ad_QnAVO;
@@ -24,7 +24,7 @@ import com.semo.web.user.vo.CustomerVO;
 public class Ad_QnAController {
 	
 	@Autowired
-	private BoardService BoardService;
+	private Ad_BoardService BoardService;
 	
 	@Autowired
 	UtilService utilservice;

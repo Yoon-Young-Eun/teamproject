@@ -95,6 +95,19 @@ public class MypageDAO {
 		return sql.selectOne("MypageVO.insertask", qna);
 	}
 	
+	// qna_no >> 문의 상세 불러오기
+	public Cm_QnAVO askdetail(Cm_QnAVO qna) {
+		System.out.println("DAO > AskDetail");
+		return sql.selectOne("MypageVO.askdetail", qna);
+	}
+	
+	
+	// MyAskDetail : 문의글 수정
+	public Cm_QnAVO editask(Cm_QnAVO qna) {
+		System.out.println("DAO > Edit Ask");
+		return sql.selectOne("MypageVO.editask", qna);
+	}
+	
 	//mypaging order
 	
 	public int myOrderCount(PagingVO vo) {
@@ -143,6 +156,9 @@ public class MypageDAO {
 		public int getListCount(PagingVO pvo) {
 			return sql.selectOne("MypageVO.getListCount", pvo);
 		}
+		public EstimateVO updateEstimate(EstimateVO vo) {
+			return sql.selectOne("MypageVO.updateEstimate", vo);
+		}
 		
 	//마이 리뷰보기
 		
@@ -153,6 +169,10 @@ public class MypageDAO {
 		
 		public int getReviewCount(PagingVO vo) {
 			return sql.selectOne("MypageVO.getReviewCount",vo);
+		}
+	//리뷰상세
+		public ReviewVO viewReview(ReviewVO vo) {
+			return sql.selectOne("MypageVO.viewReview",vo);
 		}
 
 }

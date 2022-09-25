@@ -28,21 +28,22 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="/admin/js/checkbox.js"></script>
 
-<script type="text/javascript">
-   
-    function agreeCheck(frm)
-    {
-    	console.log("dd");
-       if (frm.button1.disabled==true)
-    	   
-        frm.button1.disabled=false
-        
-       else
-        frm.button1.disabled=true
-       
-    }
-    
+<script language="JavaScript" type="text/JavaScript">
+
+$(document).ready(function(){
+	 $("#nextBtn").click(function(){    
+         if($("#allcheck").is(":checked") == false){
+             alert("모든 약관에 동의 하셔야 다음 단계로 진행 가능합니다.");
+             return;
+         }else{
+             $("#terms_form").submit();
+         }
+     });    
+ });
+
 </script>
+
+
 </head>
 <body>
 
@@ -59,9 +60,8 @@
 		</ul>
 	</div>
 </div>
-
+<form action="/views/certificate.jsp" id="terms_form" class="f" >
 	<div class="yak">
-	<form action="/views/certificate.jsp">
 		<c:forEach var="t" items="${tlist}">
 			<div class="yak1">
 				<div class="yak2">
@@ -69,7 +69,7 @@
 					<input type="button" value=" ▼ " onclick="showYak(this)" id="yakk33">
 					</div>
 					<div id="check_td">
-					동의<input type="checkbox" name="check" id="check" >
+					동의<input type="checkbox" name="check" id="check1" >
 					</div>
 				</div>
 				<div class="yak33" id="yak3">
@@ -79,19 +79,18 @@
 		</c:forEach>
 		<div class="all_agree">
 				<div id="check_td" class="agree">
-				전체동의<input type="checkbox" id="check" name="check" class="allcheck" onClick="agreeCheck(this.form)"></div>
+				전체동의<input type="checkbox" id="allcheck" class="allcheck" name="check"></div>
 		</div>
 
 		
 		<div class = "btn">
    			<a href="/views/main.jsp" class="action-button shadow animate blue">이전</a>
-<!--    			<a href="/views/certificate.jsp" class="action-button shadow animate blue" id="button1" disabled>다음</a> -->
-<input type="submit" id="button1" value="확인" class="action-button shadow animate blue"
-									 disabled></input></form>
+<!--    			<a href="/views/certificate.jsp" class="action-button shadow animate blue" onClick="check_on();">다음</a> -->
+			<input type="button" id="nextBtn" class="action-button shadow animate blue" value="다음"/>
 									 
 		</div> 
 	</div>
-
+</form>
 	<script>
 		function showYak(e) {
 			console.log(e.parentNode.parentNode.parentNode.childNodes[3].childNodes[1]);

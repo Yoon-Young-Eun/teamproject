@@ -14,7 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.semo.web.admin.service.BoardService;
+import com.semo.web.admin.service.Ad_BoardService;
 import com.semo.web.admin.vo.AdminVO;
 import com.semo.web.admin.vo.FAQVO;
 import com.semo.web.admin.vo.PagingVO;
@@ -23,10 +23,14 @@ import com.semo.web.admin.vo.PagingVO;
 public class Ad_FAQController {
 	
 	@Autowired
+<<<<<<< HEAD
 	HttpSession session;
 	
 	@Autowired
 	private BoardService BoardService;
+=======
+	private Ad_BoardService BoardService;
+>>>>>>> main
 	
 	// FAQ 등록
 	@RequestMapping(value="/insertFAQ.mdo", method=RequestMethod.GET)

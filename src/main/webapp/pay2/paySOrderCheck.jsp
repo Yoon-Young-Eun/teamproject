@@ -18,7 +18,7 @@
 <div class="wrap">
     <div class="wrap1">
     
-    <jsp:include page="/common/header.jsp"></jsp:include>
+    <jsp:include page="/common/logined-header.jsp"></jsp:include>
     <div class="main">
   <div class="space_left"></div>
   <div class="main_content">
@@ -30,7 +30,7 @@
       세탁시 요청사항
     </div>
     <div class="service1">
-      <input type="text" value="${Data.data1}" readonly id="checkbox" name="order_request1">
+      <input type="text" value="${Data.data1}" readonly id="checkbox1" name="order_request1" style="border: 1px solid black;">
     </div>
     
 
@@ -54,9 +54,9 @@
 
 
 
-    <div class="main_text1">
+   <%--  <div class="main_text1">
  
-<%--       <div class="price" style="width:1000px;">
+      <div class="price" style="width:1000px;">
         <div class="price1">
           <input type="text" value="세탁비용 : " id="price_text" readonly>
           
@@ -116,8 +116,19 @@
 	  <input type="hidden" value="${OrderData.order_pickup_date }" name="order_pickup_date">
 	  <input type="hidden" value="${OrderData.order_pickup_time }" name="order_pickup_time">
 	  <input type="hidden" value="${OrderData.order_type}" name="order_type">
-	  
-
+	  <input type="hidden" value="${OrderData.estimate_cm_no }" name="estimate_cm_no">
+		
+	  <input type="number" value="0" name="coupon_code" id="coupon_code2" style="display: none;">
+	  <div id="couponCode" style="display: none">용용</div>
+		
+		
+		
+		<!-- 확인해주세요 -->
+	  <input type="hidden" value="${CustomerInfo.customer_id}" name="customer_id">
+      <input type="hidden" value="${CustomerInfo.customer_zipcode}" name="customer_zipcode">
+	  <input type="hidden" name="imp_uid" id="imp_uid">	
+		
+		
       <div class="pay" style="width:1000px;">
        <div class="pay1">
         결제금액
@@ -160,7 +171,7 @@
       <div class="total">
         <div class="total1" style="display: flex">
           <input type="text" value="최종금액 :" class="total_price1" id="cou33" readonly>
-          <input type="hidden" value="${price }" id="cou444" readonly  name="order_price">
+          <input type="hidden" value="${price}" id="cou444" readonly  name="order_price">
           <div id="q2" style="width:150px; text-align:right;font-size:20px;padding-right:3px;" >${price}</div>
           <input type="text" value="원" id="cou44" readonly style="width:30px;">
         </div> 
@@ -219,12 +230,98 @@
 
 
       <div class="bt1" style="width:1000px;">
-        <input type="button" id="but1" value="결제하기" onclick="order()" class="action-button shadow animate blue">
+        <input type="button" id="but1" value="결제하기" onclick="requestPay()" class="action-button shadow animate blue">
         <input type="button" id="but2" value="취소하기" class="action-button shadow animate blue" >
       </div>
     
       
 
+<!--  결제 js -->
+	<script>
+	function requestPay() {
+	  IMP.init('imp62424	881'); //iamport 대신 자신의 "가맹점 식별코드"를 사용
+	  IMP.request_pay({
+	    pg: "html5_inicis",
+	    pay_method: "card",
+	    merchant_uid : 'semo_'+new Date().getTime(),
+	    name : '결제테스트',
+	    amount : document.getElementById("cou444").value,
+// 		amount : '100',
+	    buyer_email : '${OrderData.customer_id}',
+	    buyer_name : '${OrderData.order_customer_name}',
+	    buyer_tel : '${OrderData.order_customer_phone}',
+	    buyer_addr : '${OrderData.order_address1} ${OrderData.order_address2}',
+	    buyer_postcode : '${OrderData.customer_zipcode}'
+	  }, function (rsp) {
+		    console.log(rsp);
+		    if (rsp.success) {
+		    	   console.log(rsp.success);
+		    	   console.log("adadasad");
+		    	   console.log("값1"+rsp.imp_uid);
+		    	   console.log(rsp.merchant_uid);
+		    	   console.log(rsp.card_name);
+		    	   console.log(rsp.card_quota);
+		    	   console.log(rsp.paid_amount);
+		    	   console.log(document.getElementById("customer_no").value);
+// 		    	   jQuery로 HTTP 요청
+		    	      $.ajax({
+	    	          	  url: "/insertPayInfo.do", // 가맹점 서버
+		    	          method: "GET",
+  		    	          dataType:"json",
+ 		    	          data: {
+ 		    	        	  customer_no: document.getElementById("customer_no").value,
+ 		    	        	  card_name: rsp.card_name,
+ 		    	        	  card_quota: rsp.card_quota,
+ 		    	        	  paid_amount: rsp.paid_amount,
+ 		    	              imp_uid: rsp.imp_uid,
+ 		    	              merchant_uid: rsp.merchant_uid
+ // 		    	              //기타 필요한 데이터가 있으면 추가 전달
+ 						
+		    	          },
+		    	          success:function(e){
+		    	        	  console.log(c);
+		    	          },
+		    	          error:function(er){
+		    	        	  console.log(rsp.imp_uid);
+		    	        	  document.getElementById("imp_uid").value = rsp.imp_uid;
+		    	        	  console.log(document.getElementById("imp_uid").value);
+		    	        	  var msg = '결제가 완료되었습니다.';
+				    			msg += '\n결제 금액 : ' + rsp.paid_amount;
+				    			msg += '\n카드 승인번호 : ' + rsp.apply_num;
+								    alert(msg);
+								    order();  
+		    	          }
+		    	      })
+	
+		    } else {
+		      var msg = '결제에 실패하였습니다.';
+		      msg += '에러내용 : ' + rsp.error_msg;
+		      alert(msg);
+		    }
+	  });
+	}
+	
+	
+	</script>
+      
+      <script>
+        function order(){
+          var money1 = document.getElementById("q2").innerText;
+          var abc = /[^0-9]/g;
+          var totalpay = Number(money1.replace(abc,""));
+          var totalpay2 = Number(money1);
+			console.log(totalpay2);
+          if(totalpay2 < 15000){
+         	alert("최소주문금액은 15000원 입니다.");
+          }else{
+        	  document.getElementById("form1").submit();
+          } 
+          
+
+        }
+
+        
+      </script>
       
       
       

@@ -13,7 +13,7 @@ import com.semo.web.user.vo.Cm_QnAVO;
 import com.semo.web.user.vo.CustomerVO;
 
 
-public interface BoardService {
+public interface Ad_BoardService {
 	
 //	공지사항
 	void insertBoard(NoticeVO vo);

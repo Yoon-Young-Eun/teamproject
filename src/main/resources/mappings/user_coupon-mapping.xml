@@ -35,5 +35,12 @@
  	  select count(coupon_code) from coupon_management where coupon_code=#{coupon_code}
  	</select>
 	
+	<select id="getNoForCoupon" resultType="int">
+	<![CDATA[ select * from customer where imp_uid=#{imp_uid} ]]>
+	</select>
+	
+	<select id="getCostomerNo" parameterType="customer" resultType="customer">
+		<![CDATA[ select * from customer where customer_id=#{customer_id} ]]>
+	</select>
 
 </mapper>

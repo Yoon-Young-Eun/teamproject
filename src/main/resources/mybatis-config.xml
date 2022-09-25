@@ -72,7 +72,8 @@
 		<mapper resource="mappings/user_pay-mapping.xml" />
 		<mapper resource="mappings/user_kakao-mapping.xml"/>
       <mapper resource="mappings/user-mypage-mapping.xml" />
-       <mapper resource="mappings/user_coupon-mapping.xml"/>		
+       <mapper resource="mappings/user_coupon-mapping.xml"/>
+       <mapper resource="mappings/main-mapping.xml"/>			
 
 	</mappers>
 

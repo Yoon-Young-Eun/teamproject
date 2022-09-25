@@ -120,7 +120,7 @@ public class CustomerController {
 		userservice.insertMember(vo2);
 		model.addAttribute("user", vo2.getCustomer_name());
 		System.out.println(vo2.getCustomer_name());
-		
+		System.out.println("쿠폰함VO:    "+mvo);
 		// 쿠폰 발급
 		userservice.insertWelcomeCoupon(mvo, cvo, vo);
 		

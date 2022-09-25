@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.semo.web.admin.vo.CouponVO;
 import com.semo.web.admin.vo.TermsVO;
 import com.semo.web.user.dao.CustomerDAO;
+import com.semo.web.user.dao.InfoDAO;
 import com.semo.web.user.vo.CouponListVO;
 import com.semo.web.user.vo.CustomerVO;
 
@@ -16,8 +17,10 @@ public class CustomerServiceImpl implements CustomerService{
 	
 	@Autowired
 	CustomerDAO dao;
-	
-	
+	@Autowired
+	CustomerDAO CustomerDAO;
+	@Autowired
+	InfoDAO InfoDAO;
 
 	// 회원 정보 수집, 로그인
 	@Override
@@ -61,21 +64,23 @@ public class CustomerServiceImpl implements CustomerService{
 	@Override
 	public void insertWelcomeCoupon(CouponListVO mvo, CouponVO vo,CustomerVO cvo) {
 		
-		mvo.setCustomer_no(cvo.getCustomer_no());
-		
-		int randomNumber = (int)(Math.random() * 99999999) + 1; // 8자리 난수생성
+		int randomNumber = (int)(Math.random() * 99999999 - 10000000) + 1; // 8자리 난수생성
 		mvo.setCoupon_code(randomNumber);
 		int mycode = dao.couponRandomNum(mvo);
+		CustomerVO cvo2 = CustomerDAO.matchPasswd(cvo);
+		System.out.println("회원넘버?"+cvo2);
+		int no = cvo2.getCustomer_no();
+		System.out.println("cvo.getCustomer_no()          "+no);
 		
 		while(mycode != 0) {
-			randomNumber = (int)(Math.random() * 99999999) + 1; // 8자리 난수생성
+			randomNumber = (int)(Math.random() * 99999999 - 10000000) + 1; // 8자리 난수생성
 			mvo.setCoupon_code(randomNumber);
 			mycode = dao.couponRandomNum(mvo);
-		
 		}
-		
-		
+		mvo.setCustomer_no(no);
+		System.out.println("쿠폰테이블에번호?"+mvo.getCustomer_no());
 		dao.insertWelcomeCoupon(mvo);
+		System.out.println("쿠폰매니지먼트VO:    " + mvo);
 	}
 	
 	// 회원번호로검색해서쿠폰리스트불러오기

@@ -41,13 +41,13 @@
 				<h3>MY 주문 <i class="fas fa-chevron-right"></i></h3>
 				<p class = "num">${cnt}</p>
 			</div>
-			<div class = "top-coupon">
+			<div class = "top-coupon" onclick = "location.href = '/mycoupon.do?customer_no=${num}'">
 				<h3>MY 쿠폰 <i class="fas fa-chevron-right"></i></h3>
 				<p class = "num">${cnt2}</p>
 			</div>
-			<div class = "top-ask">
+			<div class = "top-ask" onclick = "location.href = '/myasklist.do?customer_no=${num}'">
 				<h3>MY 문의 <i class="fas fa-chevron-right"></i></h3>
-				<p class = "num">5</p>
+				<p class = "num">${cnt3 }</p>
 			</div>
 		</div>
 		<!-- 최근 주문 -->

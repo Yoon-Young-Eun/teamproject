@@ -87,12 +87,12 @@ $(function(){
 
 <div class = "button">
 	<div class = "botton-list">
-		<div class = "btn" onclick = "location.href='#'">
+		<div class = "btn" onclick = "location.href='/pay/payUseText.jsp?customer_no=${num}'">
 			<span class = "btn-title">예약하기</span><br>
 			<span class = "btn-text">당신의 세탁물, <br> 지금 세모에게 맡기세요!</span><br>
 			<span class = "btn-icon"><i class="far fa-calendar-check fa-5x"></i></span>
 		</div>
-		<div class = "btn" onclick = "location.href='#'">
+		<div class = "btn" onclick = "location.href='/myorderlist.do?customer_no=${num}'">
 			<span class = "btn-title">세탁현황</span><br>
 			<span class = "btn-text">맡기신 세탁물, <br>진행상황이 궁금하세요?</span><br>
 			<span class = "btn-icon"><i class="fas fa-truck fa-5x"></i></span>

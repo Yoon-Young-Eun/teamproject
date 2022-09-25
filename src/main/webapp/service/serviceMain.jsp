@@ -59,7 +59,7 @@
         <p id="p1">문의 및 제안</p><br>
         <p id="p2">세탁서비스 및 서비스이용에 대한<br>
         문의/제안 사항을 남겨주세요</p></a>
-         <a href="./service2.html" id="aa2"><img src="/image/service3.jpg" id="image3">
+         <a href="/getBoardList.do" id="aa2"><img src="/image/service3.jpg" id="image3">
           <p id="p1">공지사항</p><br>
           <p id="p2">세탁서비스 이용에 관한 공지사항<br>
           게시판 입니다.</p></a></a>

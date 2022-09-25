@@ -58,8 +58,14 @@ public interface MypageService {
 	// customer_no > 문의 목록 불러오기
 	public List<Cm_QnAVO> asklist(CustomerVO customer);
 	
+	// qna_no > 문의 상세 불러오기
+	public Cm_QnAVO askdetail(Cm_QnAVO qna);
+	
 	// MyAsk : 문의글 작성 > MyAsklist : 목록으로 보내기
 	public Cm_QnAVO insertask(Cm_QnAVO qna);
+	
+	// MyAskDetail : 문의글 수정
+	public Cm_QnAVO editask(Cm_QnAVO qna);
 	
 	//특수세탁 견적서
     public EstimateVO getMyEstimate(EstimateVO vo);

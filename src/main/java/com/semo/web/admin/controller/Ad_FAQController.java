@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,11 +23,23 @@ import com.semo.web.admin.vo.PagingVO;
 public class Ad_FAQController {
 	
 	@Autowired
+	HttpSession session;
+	
+	@Autowired
 	private BoardService BoardService;
 	
 	// FAQ 등록
 	@RequestMapping(value="/insertFAQ.mdo", method=RequestMethod.GET)
 	public String insertFAQ(FAQVO vo) {
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println("FAQ 등록 처리");
 		System.out.println(vo);
 		
@@ -38,9 +52,16 @@ public class Ad_FAQController {
 	// FAQ 목록
 	@RequestMapping(value="/FAQList.mdo", method=RequestMethod.GET)
 	public String getFAQList(PagingVO pvo, FAQVO vo, Model model) {
-		System.out.println("admin FAQList()");
 		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
 		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
+		System.out.println("admin FAQList()");		
 		System.out.println(pvo);
 		
 		//검색조건을 가지고 페이지 이동을 하기 위한 장치
@@ -115,6 +136,15 @@ public class Ad_FAQController {
 	// FAQ 상세
 	@RequestMapping(value="/readFAQ.mdo", method=RequestMethod.GET)
 	public String getReadFAQ(Model model, FAQVO vo) {	
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println("admin readFAQ()");
 		model.addAttribute("FAQInfo", BoardService.getReadFAQ(vo));
 		System.out.println(BoardService.getReadFAQ(vo));
@@ -124,6 +154,15 @@ public class Ad_FAQController {
 	// FAQ 수정 페이지
 	@RequestMapping(value="/updateFAQPage.mdo", method=RequestMethod.GET)
 	public String editPage(Model model, FAQVO vo) {	
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println("updateFAQPage()");
 		model.addAttribute("FAQInfo", BoardService.getReadFAQ(vo));
 		System.out.println(BoardService.getReadFAQ(vo));
@@ -133,6 +172,15 @@ public class Ad_FAQController {
 	// FAQ 수정
 	@RequestMapping(value="/updateFAQ.mdo", method=RequestMethod.GET)
 	public String updateFAQ(FAQVO vo, Model model) {
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println(vo);
 		System.out.println("getUpdateFAQ 메서드 실행");
 		BoardService.updateFAQ(vo); // update는 리턴값 없음
@@ -143,6 +191,15 @@ public class Ad_FAQController {
 	// FAQ 삭제
 	@RequestMapping(value="/deleteFAQ.mdo", method=RequestMethod.GET)
 	public String deleteFAQ(FAQVO vo, Model model) {
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println(vo);
 		System.out.println("deleteFAQ 메서드 실행");
 		BoardService.deleteFAQ(vo);
@@ -153,6 +210,15 @@ public class Ad_FAQController {
 	// FAQ 삭제 (체크박스)
 	@RequestMapping("/deleteFAQCheck.mdo")
 	public String deleteFAQCheck(String[] tdArr, FAQVO vo) {
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println(tdArr[0]);
 		System.out.println("글 삭제 처리");
 

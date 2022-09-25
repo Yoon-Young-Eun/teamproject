@@ -8,6 +8,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.semo.web.admin.service.BoardService;
 import com.semo.web.admin.service.SiteService;
+import com.semo.web.admin.vo.AdminVO;
 import com.semo.web.admin.vo.EventVO;
 import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.amazon.s3.AwsS3;
@@ -27,10 +30,22 @@ import edu.emory.mathcs.backport.java.util.Collections;
 public class Ad_EventController {
 
 	@Autowired
+	HttpSession session;
+	
+	@Autowired
 	private BoardService boardservice;
 
 	@RequestMapping(value="/getEventList.mdo", method = RequestMethod.GET)
 	   public String getEventList(PagingVO pvo, EventVO vo, Model model) {
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 	      System.out.println("글 목록 처리");
 	  model.addAttribute("search",pvo);
 	
@@ -90,6 +105,15 @@ public class Ad_EventController {
 
 	@RequestMapping("/getEvent.mdo")
    public String getEvent(EventVO vo, Model model) {
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
       System.out.println("글 상세 보기 처리");
       System.out.println("vo"+vo);
       String event_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/event/";
@@ -110,6 +134,16 @@ public class Ad_EventController {
 
 	@RequestMapping("/EventUpload.mdo")
 	public String EventUpload(EventVO vo, MultipartFile EventFile, MultipartFile banner) throws IOException, SQLException {
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
+		
 		// aws s3 파일 업로드 처리 */
 		AwsS3 awss3 = AwsS3.getInstance(); 
 		InputStream is = EventFile.getInputStream();
@@ -141,6 +175,16 @@ public class Ad_EventController {
 
 	@RequestMapping(value="/updateEvent.mdo")
 	public String updateEvent(EventVO vo, MultipartFile uploadImg, MultipartFile uploadImg2) throws SQLException, IOException{
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
+		
 		AwsS3 awss3 = AwsS3.getInstance();
 		System.out.print(vo);
 		System.out.println(uploadImg);
@@ -205,6 +249,16 @@ public class Ad_EventController {
 
 	@RequestMapping("/getUpdateEvent.mdo")
 	public String getUpdateEvent(EventVO vo, Model model) {
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
+		
 		System.out.println("글 수정정보 보기 처리");
 		model.addAttribute("event", boardservice.getEvent(vo));
 		return "/admin/board_event_update.jsp";
@@ -213,6 +267,15 @@ public class Ad_EventController {
 
 	@RequestMapping("/deleteEvent2.mdo")
 	public String deleteEvent2(String[] tdArr, EventVO vo) throws IOException, SQLException{
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		AwsS3 awss3 = AwsS3.getInstance();
 		System.out.println(tdArr[0]);
 		System.out.println("글 삭제 처리");
@@ -243,6 +306,15 @@ public class Ad_EventController {
 
 	@RequestMapping("/deleteEvent.mdo") 
 	public String deleteEvent(EventVO vo) throws IOException, SQLException{
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		AwsS3 awss3 = AwsS3.getInstance();
 		EventVO bringData = boardservice.getEvent(vo);
 

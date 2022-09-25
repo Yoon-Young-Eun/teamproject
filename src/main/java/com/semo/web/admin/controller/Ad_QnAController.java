@@ -2,6 +2,8 @@ package com.semo.web.admin.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +14,7 @@ import com.semo.web.admin.service.BoardService;
 import com.semo.web.admin.service.UtilService;
 import com.semo.web.admin.util.CoolSms;
 import com.semo.web.admin.vo.Ad_QnAVO;
+import com.semo.web.admin.vo.AdminVO;
 import com.semo.web.admin.vo.MessageVO;
 import com.semo.web.user.vo.Cm_QnAVO;
 import com.semo.web.user.vo.CustomerVO;
@@ -31,7 +34,16 @@ public class Ad_QnAController {
 	
 	// QnA 목록
 	@RequestMapping(value="/QnAList.mdo", method=RequestMethod.GET)
-	public String getQnAList(CustomerVO vo, Model model, MessageVO mvo) {
+	public String getQnAList(CustomerVO vo, Model model, MessageVO mvo, HttpSession session) {
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println("admin QnAList()");
 		List<Cm_QnAVO> QnAList0 = BoardService.getQnAList0();
 		model.addAttribute("QnAList0", QnAList0); // model에 저장해서 보내면 jsp에서 불러 사용할 수 있는데.
@@ -45,7 +57,17 @@ public class Ad_QnAController {
 	
 	// QnA 상세
 	@RequestMapping(value="/readQnA.mdo", method=RequestMethod.GET)
-	public String getReadQnA(Model model, Cm_QnAVO vo) {	
+	public String getReadQnA(Model model, Cm_QnAVO vo, HttpSession session) {	
+		
+		//세션 유무확인
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
+		
 		System.out.println("admin readQnA()");
 		System.out.println(vo);
 		int num = vo.getBoard_qna_status();
@@ -65,7 +87,16 @@ public class Ad_QnAController {
 	
 	// QnA 답변 등록
 	@RequestMapping(value="/insertQnA.mdo", method=RequestMethod.GET)
-	public String insertQnA(Ad_QnAVO avo, Cm_QnAVO cvo, String message, CustomerVO vo, MessageVO mvo) {
+	public String insertQnA(Ad_QnAVO avo, Cm_QnAVO cvo, String message, CustomerVO vo, MessageVO mvo, HttpSession session) {
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println("답변 등록 처리");
 		System.out.println(avo);
 		System.out.println(cvo);

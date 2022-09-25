@@ -124,6 +124,11 @@
 				<div class="space_left"></div>
 				<div class="content_box">
 					<form action="/OrderSpecial4.do" id="form1">
+					
+					<!-- 확인해주세요 -->
+	  <input type="hidden" value="${CustomerInfo.customer_id}" name="customer_id">
+      <input type="hidden" value="${CustomerInfo.customer_zipcode}" name="customer_zipcode">
+					
 						<div class="main_text">
 							<div class="main_text1">특수세탁 결제하기</div>
 							<div class="estimate_text1" style="font-size:20px; font-weight: bold; display: flex; height: 50px; align-items: center;">견적내용

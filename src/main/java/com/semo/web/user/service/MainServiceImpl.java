@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.semo.web.admin.vo.EventVO;
+import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.user.dao.MainDAO;
-import com.semo.web.user.vo.CustomerVO;
 
 @Service
 public class MainServiceImpl implements MainService {
@@ -16,7 +16,7 @@ public class MainServiceImpl implements MainService {
 	MainDAO MainDAO;
 	
 	@Override
-	public List<EventVO> getMain(EventVO vo) {
+	public List<EventVO> getMain(PagingVO vo) {
 		return MainDAO.getMain(vo);
 	}
 	

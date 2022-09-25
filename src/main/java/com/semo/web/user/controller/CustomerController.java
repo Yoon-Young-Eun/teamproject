@@ -14,13 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-<<<<<<< HEAD
-import com.semo.web.admin.vo.CouponVO;
-=======
 import com.semo.web.admin.service.UtilService;
 import com.semo.web.admin.util.CoolSms;
+import com.semo.web.admin.vo.CouponVO;
 import com.semo.web.admin.vo.MessageVO;
->>>>>>> main
 import com.semo.web.admin.vo.TermsVO;
 import com.semo.web.user.service.CoolSmsUser;
 import com.semo.web.user.service.CustomerService;
@@ -132,12 +129,10 @@ public class CustomerController {
 		userservice.insertMember(vo2);
 		model.addAttribute("user", vo2.getCustomer_name());
 		System.out.println(vo2.getCustomer_name());
-<<<<<<< HEAD
 		System.out.println("쿠폰함VO:    "+mvo);
 		// 쿠폰 발급
 		userservice.insertWelcomeCoupon(mvo, cvo, vo);
-=======
-		
+
 		
 		//회원가입 축하메세지
 		MessageVO msg = utilservice.welcomeMessage();
@@ -146,7 +141,6 @@ public class CustomerController {
 		String message = msg.getMessage_content();
 		
 		cool.sendMessage(phone, message);
->>>>>>> main
 		
 		return "/views/complete.jsp";
 	}

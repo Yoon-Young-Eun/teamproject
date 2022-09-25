@@ -22,7 +22,7 @@
 
 <header id = "header">
    <div class = "top-menu-wrapper">
-      <h1><a href = "/views/main.jsp">△■</a></h1>
+      <h1><a href = "/index.do">△■</a></h1>
       <nav class = "top-menu">
          <ul class = "top-list">
             <li id = "login"><a href = "/views/login.jsp">로그인</a></li>

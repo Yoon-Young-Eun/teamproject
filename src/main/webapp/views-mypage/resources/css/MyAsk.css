@@ -138,6 +138,18 @@ a {
 	border-radius: 5px;
 	padding-left : 10px;
 }
+#textbar9{
+	width: 610px;
+	height: 50px;
+	margin-left: 35px;
+	background-color: rgb(128, 128, 128, 0.2);
+	border-style: none;
+	border-radius: 5px;
+	padding-left : 10px;
+}
+#textbar9:focus{
+	outline:none;
+}
 
 #textbar2 {
 	width: 600px;
@@ -197,4 +209,29 @@ a {
     text-align: center;
     align-items: center;
     display: flex;
+}
+
+
+#insert{
+	border-top: none;
+	border-left:none;
+	border-right:none;
+	border-bottom: 5px solid #2b92da;
+}
+#insert:active{
+	transform: translate(0px,5px);
+  -webkit-transform: translate(0px,5px);
+	border-bottom: 1px solid;
+}
+
+#insert1{
+	border-top: none;
+	border-left:none;
+	border-right:none;
+	border-bottom: 5px solid grey;
+}
+#insert1:active{
+	transform: translate(0px,5px);
+  -webkit-transform: translate(0px,5px);
+	border-bottom: 1px solid;
 }

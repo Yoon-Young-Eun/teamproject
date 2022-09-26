@@ -1,21 +1,28 @@
 package com.semo.web.user.controller;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.semo.web.admin.vo.Ad_EstimateVO;
 import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.ReviewVO;
 import com.semo.web.admin.vo.StoreVO;
+import com.semo.web.amazon.s3.AwsS3;
 import com.semo.web.user.service.MypageService;
 import com.semo.web.user.vo.AddressListVO;
 import com.semo.web.user.vo.Cm_QnAVO;
@@ -44,7 +51,7 @@ public class MypageController {
 		// 요약박스
 		int cnt = service.ordercnt(customer);
 		int cnt2 = service.couponcnt(customer);
-		int cnt3 = service.askcnt(customer);
+		int cnt3 = service.askcnt(pvo);
 		
 		model.addAttribute("cnt", cnt);
 		model.addAttribute("cnt2", cnt2);
@@ -254,62 +261,132 @@ public class MypageController {
 	////////////////////////////////////////////////// 문의 게시판 //////////////////////////////////////////////////
  	
 	// MyAsklist : 문의내역
-	@RequestMapping(value = "/myasklist.do", method = RequestMethod.GET)
-	public String AskList(Model model, CustomerVO customer, Cm_QnAVO qna) {
+	@RequestMapping("/myasklist.do")
+	public String AskList(Model model, Cm_QnAVO qna, HttpSession session , PagingVO vo) {
 		System.out.println("======================================================================================================");
 		System.out.println("go to Myasklist.jsp");
-		
-		System.out.println("Controller > " + customer);
+		session.getAttribute("num");
 		
 		// 목록 개수 세기
-		int cnt3 = service.askcnt(customer);
+		int cnt3 = service.askcnt(vo);
 		System.out.println(cnt3);
 		model.addAttribute("cnt3", cnt3);
 		
 		// customer_no > 문의 목록 불러오기
-		List<Cm_QnAVO> asklist = service.asklist(customer);
-		System.out.println("Controller > asklist > " + asklist);
 		
-		model.addAttribute("asklist", asklist);
+		if (vo.getPageNum() == null) {
+    		vo.setPageNum("1");
+	       }
+	      
+	      System.out.println(vo.getSelectPage());
+	      if (vo.getSelectPage()==null ) {
+	    	  vo.setSelectPage("5");
+	      }
+	       int pageSize = Integer.parseInt(vo.getSelectPage());
+	       int currentPage = Integer.parseInt(vo.getPageNum()); 
+	       vo.setStartRow((currentPage -1)* pageSize +1);
+	       vo.setEndRow(currentPage * pageSize);
+
+ 
+	    	
+	   	
+	      
+	     
+	       List<Cm_QnAVO> asklist =null;
+	       if(cnt3 >0) {
+	    	   asklist =  service.asklist(vo);	
+	    	   
+	       }else {
+	    	   asklist=Collections.emptyList(); 
+	       }
+
+	 	  if(cnt3 >0) {
+	    	  int pageBlock =5;
+	    	  int imsi =cnt3 % pageSize ==0 ?0:1;
+	    	  int pageCount = cnt3/pageSize +imsi;
+	    	  int startPage =(int)((currentPage-1)/pageBlock)*pageBlock +1;
+	    	  int endPage = startPage + pageBlock -1;
+	    	  
+	    	  // 추가 if문 : endPage(예:10)이 pageCount(예:9)보다 클경우 endPage의 값은 9로 한다!
+	    	  if(endPage > pageCount) {
+	    		  endPage = pageCount;
+	    	  }
+	    	  
+	    	  model.addAttribute("pageCount",pageCount);
+	    	  model.addAttribute("startPage",startPage);
+	    	  model.addAttribute("endPage",endPage);
+	    	  model.addAttribute("pageBlock",pageBlock);
+	          model.addAttribute("cnt3", cnt3);
+	    	  }
+	       
+	 	  	  model.addAttribute("asklist", asklist);
+		
+		
 		
 		return "/views-mypage/MyAsklist.jsp";
 	}
 	
-	// MyAsk : 문의글 쓰러 가기
+	// MyAsk : 문의글 쓰러 가기 //9/26 승현
 	@RequestMapping(value = "/myask.do", method = RequestMethod.GET)
 	public String Ask(Model model, CustomerVO customer, Cm_QnAVO qna) {
-		
+		System.out.println(customer);
+		CustomerVO customer1 = service.selectask(customer);
+		model.addAttribute("ask",customer1);
 		return "/views-mypage/MyAsk.jsp";
 	}
 	
 	// MyAsk : 문의글 작성 완료
-	@RequestMapping(value = "/insertask.do", method = RequestMethod.GET)
-	public String InsertAsk(Model model, Cm_QnAVO qna) {
+	@RequestMapping(value = "/insertask.do", method = RequestMethod.POST)
+	public String InsertAsk(Model model, Cm_QnAVO qna , MultipartFile file,HttpSession session) throws IOException, SQLException {
+		session.getAttribute("num");
+		AwsS3 awss3 = AwsS3.getInstance();
+		InputStream is = file.getInputStream();
+		System.out.println(is);
+		String key = file.getOriginalFilename();
+		System.out.println(key);
+		String contentType = file.getContentType();
+		System.out.println(contentType);
+		long contentLength = file.getSize();
+		System.out.println(contentLength);
 		
-		Cm_QnAVO qnavo = service.insertask(qna);
-		model.addAttribute("qnavo", qnavo);
+		String bucket = "semoproject/Q&A";
 		
-		return "/myasklist.do";
+		awss3.upload(is, key, contentType, contentLength, bucket);
+		String event_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/Q&A/" + key;
+		qna.setBoard_qna_filepath(event_filepath);
+		
+		service.insertask(qna);
+		System.out.println("아아아");
+		
+		
+		return "redirect:myasklist.do?customer_no="+qna.getCustomer_no();
 	}
 
 	// MyAskDetail : 게시글 수정하러 가기
 	@RequestMapping(value = "/myaskedit.do", method = RequestMethod.GET)
-	public String EditAsk(Model model, CustomerVO customer, Cm_QnAVO qna) {
+	public String EditAsk(Model model, CustomerVO customer, Cm_QnAVO qna,HttpSession session) {
+		session.getAttribute("num");
 		System.out.println("============================================================");
 		System.out.println("go to My Ask Edit");
-		
+		CustomerVO customer1 = service.selectCus(customer);
+		model.addAttribute("ask2",customer1);
+		System.out.println("꺌꺌"+ customer1);
 		Cm_QnAVO data = service.askdetail(qna);
-		model.addAttribute("data", data);
+		model.addAttribute("ask", data);
+		System.out.println("나와라"+data);
+		
 		System.out.println("Controller > 수정 할 내용 > " + data);
 		
 		return "/views-mypage/MyAskEdit.jsp";
 	}
 	
 	// MyAskEdit : 게시글 수정 완료
-	@RequestMapping(value = "/updateask.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/updateask.do", method = RequestMethod.POST)
 	public String EditAsk(Model model, Cm_QnAVO qna) {
 		System.out.println("============================================================");
 		System.out.println("My Ask Edit");
+		System.out.println(qna);
+		
 		
 		Cm_QnAVO editask = service.editask(qna);
 		model.addAttribute("editask",editask);
@@ -325,10 +402,30 @@ public class MypageController {
 		 
 		 Cm_QnAVO askdetail = service.askdetail(qna);
 		 
+		 
 		 System.out.println("Controller > askdetail > " + askdetail);
 		 model.addAttribute("askdetail", askdetail);
 		 return "/views-mypage/MyAskDetail.jsp";
 	 }
+	 
+	 //문의글 삭제하기
+	 
+	 @RequestMapping(value="/deleteQnA.do")
+	 public String deleteQnA(String[]num,Cm_QnAVO vo , Model model) {
+		 System.out.println(num[0]);
+		 List<Integer> arr = new ArrayList<Integer>();
+		 for(int a = 0 ; a < num.length; a++) {
+			 arr.add(Integer.parseInt(num[a]));
+			 System.out.println(arr.get(a));
+			 vo.setBoard_qna_no(arr.get(a));
+			 service.deleteQnA(vo);
+		 }
+		 
+		 return "/myasklist.do?customer_no="+vo.getCustomer_no();
+	 }
+	 
+	 
+	 
 	 
 	 ////////////////////////////////////////////////// 문의 게시판 끝 //////////////////////////////////////////////////
 	
@@ -443,7 +540,7 @@ public class MypageController {
     @RequestMapping(value="/myReview.do")
     public String myReview(PagingVO vo,ReviewVO vo1,Model model) {
     	System.out.println("고객정보내놔"+vo);
-   	
+    	
     	
     	if (vo.getPageNum() == null) {
     		vo.setPageNum("1");

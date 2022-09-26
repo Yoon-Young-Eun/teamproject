@@ -68,7 +68,7 @@
 									<form action="getmyEstimate.do" method="get">
 									<input type="hidden" name="customer_no" value="${num}">
 										<div class="icon_flex">
-											<td><select name="searchCondition">
+											<select name="searchCondition">
 													<c:forEach items="${condition}" var="option">
 														<div>
 															<option value="${option.value}">${option.key}</option>

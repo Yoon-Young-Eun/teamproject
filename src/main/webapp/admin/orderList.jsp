@@ -382,7 +382,7 @@
 
 								<!-- 문자 발송 -->
 								<div>
-									<select name="text" id="selectOption">
+									<select name="text" id="selectOption"  class="margin_auto">
 										<c:forEach var="message" items="${messageList}">
 											<div>
 												<option style="padding: 1px;"
@@ -407,15 +407,15 @@
 											<div>
 												<input type="date" name="endDate" />
 											</div>
-											<div>
-												<select name="searchCondition">
+											
+												<select name="searchCondition" class="margin_auto" >
 													<c:forEach items="${conditionMap}" var="option">
 														<div>
 															<option value="${option.value}">${option.key}</option>
 														</div>
 													</c:forEach>
 												</select> <input type="text" name="searchKeyword" />
-											</div>
+											
 											<div>
 												<input type="submit" value="검색" />
 											</div>

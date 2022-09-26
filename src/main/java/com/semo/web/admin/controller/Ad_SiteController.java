@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.semo.web.admin.service.SiteService;
+import com.semo.web.admin.vo.AdminVO;
 import com.semo.web.admin.vo.BannerVO;
 import com.semo.web.admin.vo.CouponVO;
 import com.semo.web.admin.vo.PagingVO;
@@ -34,7 +37,16 @@ public class Ad_SiteController {
 	
 	// 쿠폰 등록
 	@RequestMapping(value="/insertCoupon.mdo", method=RequestMethod.GET)
-	public String insertCoupon(CouponVO vo) {
+	public String insertCoupon(CouponVO vo, HttpSession session) {
+		
+		//세션 유무확인
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println("쿠폰 등록 처리");
 		System.out.println(vo);
 		
@@ -46,7 +58,16 @@ public class Ad_SiteController {
 	      
 	// 쿠폰 목록
 	@RequestMapping(value="/CouponList.mdo", method=RequestMethod.GET)
-	public String getCouponList(PagingVO pvo, Model model) {
+	public String getCouponList(PagingVO pvo, Model model, HttpSession session ) {
+		
+		//세션 유무확인
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println("admin couponList()");
 		
 		//검색조건을 가지고 페이지 이동을 하기 위한 장치
@@ -121,7 +142,16 @@ public class Ad_SiteController {
 	
 	// 쿠폰 상세
 	@RequestMapping(value="/readCoupon.mdo", method=RequestMethod.GET)
-	public String getReadCoupon(Model model, CouponVO vo) {	
+	public String getReadCoupon(Model model, CouponVO vo, HttpSession session) {	
+		
+		//세션 유무확인 HttpSession session
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println("admin readCoupon()");
 		model.addAttribute("CouponInfo", SiteService.getReadCoupon(vo));
 		System.out.println(SiteService.getReadCoupon(vo));
@@ -130,7 +160,16 @@ public class Ad_SiteController {
 	
 	// 쿠폰 수정 페이지
 	@RequestMapping(value="/updateCouponPage.mdo", method=RequestMethod.GET)
-	public String editPage(Model model, CouponVO vo) {	
+	public String editPage(Model model, CouponVO vo, HttpSession session) {	
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println("updateCouponPage()");
 		model.addAttribute("CouponInfo", SiteService.getReadCoupon(vo));
 		System.out.println(SiteService.getReadCoupon(vo));
@@ -140,7 +179,16 @@ public class Ad_SiteController {
 	
 	// 쿠폰 수정
 	@RequestMapping(value="/updateCoupon.mdo", method=RequestMethod.GET)
-	public String updateCoupon(CouponVO vo, Model model) {
+	public String updateCoupon(CouponVO vo, Model model, HttpSession session) {
+		
+		//세션 유무확인
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println(vo);
 		System.out.println("getUpdateCoupon 메서드 실행");
 		SiteService.updateCoupon(vo); // update는 리턴값 없음
@@ -150,7 +198,16 @@ public class Ad_SiteController {
 	
 	// 쿠폰 삭제
 	@RequestMapping(value="/deleteCoupon.mdo", method=RequestMethod.GET)
-	public String deleteCoupon(CouponVO vo, Model model) {
+	public String deleteCoupon(CouponVO vo, Model model, HttpSession session) {
+		
+		//세션 유무확인
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println(vo);
 		System.out.println("deleteCoupon 메서드 실행");
 		SiteService.deleteCoupon(vo);
@@ -160,7 +217,16 @@ public class Ad_SiteController {
 	
 	// 쿠폰 삭제 (체크박스)
 	@RequestMapping("/deleteCouponCheck.mdo")
-	public String deleteCouponCheck(String[] tdArr, CouponVO vo) {
+	public String deleteCouponCheck(String[] tdArr, CouponVO vo, HttpSession session) {
+		
+		//세션 유무확인
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println(tdArr[0]);
 		System.out.println("글 삭제 처리");
 
@@ -188,7 +254,16 @@ public class Ad_SiteController {
 	}
 	
 	@RequestMapping("/bannerUpload.mdo")
-	public String bannerUpload(BannerVO vo, MultipartFile banner) throws IOException, SQLException {
+	public String bannerUpload(BannerVO vo, MultipartFile banner, HttpSession session) throws IOException, SQLException {
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		// aws s3 파일 업로드 처리 */
 		AwsS3 awss3 = AwsS3.getInstance();
 		InputStream is = banner.getInputStream();
@@ -210,7 +285,16 @@ public class Ad_SiteController {
 	
 	// 배너 목록
 	@RequestMapping(value="/BannerList.mdo", method=RequestMethod.GET)
-	public String getBannerList(Model model) {
+	public String getBannerList(Model model, HttpSession session) {
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println("admin BannerList()");
 		List<BannerVO> BannerList = SiteService.getBannerList();
 		model.addAttribute("BannerList", BannerList); // model에 저장해서 보내면 jsp에서 불러 사용할 수 있는데.
@@ -220,7 +304,16 @@ public class Ad_SiteController {
 	
 	// 배너 상세
 	@RequestMapping(value="/readBanner.mdo", method=RequestMethod.GET)
-	public String getReadBanner(Model model, BannerVO vo) {	
+	public String getReadBanner(Model model, BannerVO vo, HttpSession session) {	
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println("admin readBanner()");
 		
 		String banner_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/banner/";
@@ -248,7 +341,16 @@ public class Ad_SiteController {
 	
 	// 배너 수정 페이지
 	@RequestMapping(value="/updateBannerPage.mdo", method=RequestMethod.GET)
-	public String editPage(Model model, BannerVO vo) {	
+	public String editPage(Model model, BannerVO vo, HttpSession session) {	
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println("updateBannerPage()");
 		
 		model.addAttribute("BannerInfo", SiteService.getReadBanner(vo));
@@ -258,7 +360,17 @@ public class Ad_SiteController {
 	
 	// 배너 수정
 	@RequestMapping(value="/updateBanner.mdo")
-	public String updateBanner(BannerVO vo, MultipartFile uploadImg) throws SQLException, IOException {
+	public String updateBanner(BannerVO vo, MultipartFile uploadImg, HttpSession session) throws SQLException, IOException {
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
+		
 		AwsS3 awss3 = AwsS3.getInstance();
 		System.out.println(vo);
 		System.out.println(uploadImg);
@@ -298,7 +410,15 @@ public class Ad_SiteController {
 
 	// 배너 삭제
 	@RequestMapping("/deleteBanner.mdo")
-	public String deleteDelete(BannerVO vo) throws IOException, SQLException{
+	public String deleteDelete(BannerVO vo, HttpSession session) throws IOException, SQLException{
+		
+		//세션 유무확인
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
 		
 		AwsS3 awss3 = AwsS3.getInstance();
 		BannerVO bringData = SiteService.getReadBanner(vo);
@@ -317,7 +437,17 @@ public class Ad_SiteController {
 	
 	// 배너 삭제 (체크박스)
 	@RequestMapping("/deleteBannerCheck.mdo")
-	public String deleteBannerCheck(String[] tdArr, BannerVO vo) throws IOException {
+	public String deleteBannerCheck(String[] tdArr, BannerVO vo, HttpSession session) throws IOException {
+		
+		
+		//세션 유무확인
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		
 		AwsS3 awss3 = AwsS3.getInstance();
 		
@@ -349,7 +479,16 @@ public class Ad_SiteController {
 	
 	// 약관 등록
 	@RequestMapping(value="/insertTerms.mdo", method=RequestMethod.POST)
-	   public String insertTerms(TermsVO vo) {
+	   public String insertTerms(TermsVO vo, HttpSession session) {
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 	      System.out.println("쿠폰 등록 처리");
 	      System.out.println(vo);
 	      
@@ -361,7 +500,16 @@ public class Ad_SiteController {
 	
 	// 약관 목록
 	@RequestMapping(value="/TermsList.mdo", method=RequestMethod.GET)
-	public String getTermsList(Model model) {
+	public String getTermsList(Model model, HttpSession session) {
+		
+		//세션 유무확인
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println("admin TermsList()");
 		List<TermsVO> TermsList = SiteService.getTermsList();
 		model.addAttribute("TermsList", TermsList); // model에 저장해서 보내면 jsp에서 불러 사용할 수 있는데.
@@ -371,7 +519,16 @@ public class Ad_SiteController {
 	
 	// 약관 상세
 	@RequestMapping(value="/readTerms.mdo", method=RequestMethod.GET)
-	public String getReadTerms(Model model, TermsVO vo) {	
+	public String getReadTerms(Model model, TermsVO vo, HttpSession session) {
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		String TermsResult;
 		System.out.println("admin readTerms()");
 		model.addAttribute("TermsInfo", SiteService.getReadTerms(vo));
@@ -388,7 +545,16 @@ public class Ad_SiteController {
 	
 	// 약관 수정 페이지
 	@RequestMapping(value="/updateTermsPage.mdo", method=RequestMethod.GET)
-	public String editPage(Model model, TermsVO vo) {	
+	public String editPage(Model model, TermsVO vo, HttpSession session) {	
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println("updatePage()");
 		model.addAttribute("TermsInfo", SiteService.getReadTerms(vo));
 		System.out.println(SiteService.getReadTerms(vo));
@@ -398,7 +564,16 @@ public class Ad_SiteController {
 	
 	// 약관 수정
 	@RequestMapping(value="/updateTerms.mdo", method=RequestMethod.GET)
-	public String updateTerms(TermsVO vo, Model model) {
+	public String updateTerms(TermsVO vo, Model model, HttpSession session) {
+		
+		//세션 유무확인
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println(vo);
 		System.out.println("getUpdateTerms 메서드 실행");
 		SiteService.updateTerms(vo); // update는 리턴값 없음
@@ -408,7 +583,16 @@ public class Ad_SiteController {
 	
 	// 약관 삭제
 	@RequestMapping(value="/deleteTerms.mdo", method=RequestMethod.GET)
-	public String deleteDelete(TermsVO vo, Model model) {
+	public String deleteDelete(TermsVO vo, Model model, HttpSession session) {
+		
+		//세션 유무확인
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println(vo);
 		System.out.println("deleteTerms 메서드 실행");
 		SiteService.deleteTerms(vo);
@@ -418,7 +602,16 @@ public class Ad_SiteController {
 	
 	// 약관 삭제 (체크박스)
 	@RequestMapping("/deleteTermsCheck.mdo")
-	public String deleteTermsCheck(String[] tdArr, TermsVO vo) {
+	public String deleteTermsCheck(String[] tdArr, TermsVO vo, HttpSession session) {
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println(tdArr[0]);
 		System.out.println("글 삭제 처리");
 

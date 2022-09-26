@@ -6,12 +6,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import com.semo.web.admin.vo.AdminVO;
 import com.semo.web.admin.service.Ad_BoardService;
 import com.semo.web.admin.vo.FAQVO;
 import com.semo.web.admin.vo.PagingVO;
@@ -25,7 +27,16 @@ public class Ad_ReviewController {
 		
 		// 리뷰 상태 변화
 		@RequestMapping(value="/updateReviewBoard.mdo", method=RequestMethod.GET)
-		public String updateReviewBoard(ReviewVO vo, Model model) {
+		public String updateReviewBoard(ReviewVO vo, Model model, HttpSession session) {
+
+			//세션 유무확인
+			AdminVO admin = (AdminVO)session.getAttribute("admin");
+			
+			if(admin == null) {
+					System.out.println("세션 정보가 없습니다.");
+					return "redirect:/admin/login.jsp";
+			}
+			
 			System.out.println("상태 활성/비활성 처리");
 			System.out.println(vo);
 			
@@ -37,8 +48,17 @@ public class Ad_ReviewController {
 	
 		// 리뷰 목록
 		@RequestMapping(value="/ReviewBoardList.mdo", method=RequestMethod.GET)
-		public String getReviewBoardList(PagingVO pvo, ReviewVO vo, Model model) {
+		public String getReviewBoardList(PagingVO pvo, ReviewVO vo, Model model, HttpSession session) {
 			System.out.println("admin ReviewBoardList()");
+			
+			//세션 유무확인
+			AdminVO admin = (AdminVO)session.getAttribute("admin");
+			
+			if(admin == null) {
+					System.out.println("세션 정보가 없습니다.");
+					return "redirect:/admin/login.jsp";
+			}
+			
 			
 			//검색조건을 가지고 페이지 이동을 하기 위한 장치
 			//페이징 버튼에  href = &searchKeyword=${search.searchKeyword} 등을 하기위함 
@@ -113,7 +133,16 @@ public class Ad_ReviewController {
 		
 		// 리뷰 상세
 		@RequestMapping(value="/readReviewBoard.mdo", method=RequestMethod.GET)
-		public String getReadReviewBoard(Model model, ReviewVO vo) {	
+		public String getReadReviewBoard(Model model, ReviewVO vo, HttpSession session) {	
+			
+			//세션 유무확인 
+			AdminVO admin = (AdminVO)session.getAttribute("admin");
+			
+			if(admin == null) {
+					System.out.println("세션 정보가 없습니다.");
+					return "redirect:/admin/login.jsp";
+			}
+			
 			System.out.println("admin readReviewBoard()");
 			model.addAttribute("ReviewInfo", BoardService.getReadReviewBoard(vo));
 			System.out.println(BoardService.getReadReviewBoard(vo));
@@ -123,7 +152,16 @@ public class Ad_ReviewController {
 		
 		// 리뷰 삭제
 		@RequestMapping(value="/deleteReviewBoard.mdo", method=RequestMethod.GET)
-		public String deleteReviewBoard(ReviewVO vo, Model model) {
+		public String deleteReviewBoard(ReviewVO vo, Model model, HttpSession session) {
+			
+			//세션 유무확인
+			AdminVO admin = (AdminVO)session.getAttribute("admin");
+			
+			if(admin == null) {
+					System.out.println("세션 정보가 없습니다.");
+					return "redirect:/admin/login.jsp";
+			}
+			
 			System.out.println(vo);
 			System.out.println("deleteReviewBoard 메서드 실행");
 			BoardService.deleteReviewBoard(vo);
@@ -133,7 +171,16 @@ public class Ad_ReviewController {
 		
 		// 리뷰 삭제 (체크박스)
 		@RequestMapping("/deleteReviewBoardCheck.mdo")
-		public String deleteReviewBoardCheck(String[] tdArr, ReviewVO vo) {
+		public String deleteReviewBoardCheck(String[] tdArr, ReviewVO vo, HttpSession session) {
+			
+			//세션 유무확인 
+			AdminVO admin = (AdminVO)session.getAttribute("admin");
+			
+			if(admin == null) {
+					System.out.println("세션 정보가 없습니다.");
+					return "redirect:/admin/login.jsp";
+			}
+			
 			System.out.println(tdArr[0]);
 			System.out.println("글 삭제 처리");
 

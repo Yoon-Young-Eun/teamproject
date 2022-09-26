@@ -17,14 +17,15 @@ public class MainController {
 	@Autowired
 	MainService MainService;
 	
-	// 배너
+	// 메인 배너
+	// 어드민 이벤트 게시판에서 등록하면 가장 마지막에 등록한 게시글의 배너 3개 출력 
 	@RequestMapping("/index.do")
 	public String getMain(EventVO vo, PagingVO pvo, Model model) {
 		
 		System.out.println("main BannerList()");
 		List<EventVO> BannerList = MainService.getMain(pvo);
 		model.addAttribute("BannerList", BannerList);
-		System.out.println("BannerList:          "+BannerList); 
+		System.out.println("BannerList:      "+BannerList); 
 		
 		return "/views/main.jsp";
 	}

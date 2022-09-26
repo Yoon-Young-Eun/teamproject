@@ -29,7 +29,7 @@
            -->
            <li class="listItemT" style="left:0px; border-bottom: 2px solid #a9d3f0; color : #2b92da; font-weight:bold;">고객센터</li>
            <li class="listItemA"><i class="far fa-question-circle"></i><a href="/getFaqList.do">자주묻는 질문</a></li>
-           <li class="listItemA"><i class="fas fa-exclamation-circle"></i><a href="/service/serviceNotice.jsp">공지사항</a></li>
+           <li class="listItemA"><i class="fas fa-exclamation-circle"></i><a href="/getBoardList.do">공지사항</a></li>
            <li class="listItemA"><i class="far fa-calendar-alt"></i><a href="/getBoardEventList.do">이벤트</a></li>            
         </ul>
     </div>

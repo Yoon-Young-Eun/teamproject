@@ -133,6 +133,8 @@
 		});
 		$(document).ready(function(){
 			$("#next").click(function(){
+				var phone = $("#phone").val();
+				console.log("phone 번호"+phone);
 				if($("#next").hasClass("next")){
 					alert("본인인증을 해주세요");
 					if(!(/^([0-8]).{0,20}$/.test($("#phone").val().trim())
@@ -143,7 +145,7 @@
 						$("#phone2").focus();
 					}
 				}else{
-					location.href="form.jsp";
+					location.href="form.jsp?phone="+phone;
 				}
 			});
 		});

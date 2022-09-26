@@ -181,9 +181,9 @@ public class MypageController {
 		System.out.println("Controller > OrderDetail > " + orderdetail);
 		
 		// store_no > 직영점 상세 불러오기 (StoreVO)
-		StoreVO storedetail = service.storedetail(order);
+		StoreVO storedetail = service.storedetail(ordervo);
 		System.out.println("Controller > StoreDetail > " + storedetail);
-		
+				
 		model.addAttribute("orderdetail", orderdetail);
 		model.addAttribute("orderlist", orderlist);
 		model.addAttribute("storedetail", storedetail);

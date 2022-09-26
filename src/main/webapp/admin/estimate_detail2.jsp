@@ -380,7 +380,8 @@
 						</div>
 					</div>
 
-					<form id="insert" action="/insertEstimate.mdo?customer_phone=${getEstimate.customer_phone }" method="post">
+					<form id="insert" action="/insertEstimate.mdo?customer_phone=${getEstimate.customer_phone}" method="post">
+					
 						<div class="layer" id="layer_reply">
 							<div class="popup_wrapper2">
 

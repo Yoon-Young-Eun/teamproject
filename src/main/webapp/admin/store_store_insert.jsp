@@ -365,6 +365,14 @@
 <div class="popup_text">전화번호</div><div class="popup_inputbox"><input type="text" name="store_phone" placeholder="010-1234-5678"></div>
 </div>
 
+<div class="popup_office">
+<div class="popup_text">위도</div><div class="popup_inputbox"><input type="text" name="store_latitude" placeholder="위도 입력"></div>
+</div>
+
+<div class="popup_office">
+<div class="popup_text">경도</div><div class="popup_inputbox"><input type="text" name="store_longitude" placeholder="경도 입력"></div>
+</div>
+
 <div class="end">
 		<div class="popup_btn">
 			<input type="submit" value="등록">

@@ -51,4 +51,13 @@ public class MemberDAO {
 		sqlTemplate.update("MemberDAO.getMemberUpdate", vo);
 	}
 
+	public List<CustomerVO> getSmsPermitList(CustomerVO vo){
+		System.out.println("getSmsPermit() 메서드 실행");
+		return sqlTemplate.selectList("MemberDAO.getSmsPermitList", vo);
+	}
+	
+	public CustomerVO getSmsPermit(CustomerVO vo) {
+		System.out.println("getSmsPermit() 메서드 실행");
+		return sqlTemplate.selectOne("MemberDAO.getSmsPermit",vo);
+	}
 }

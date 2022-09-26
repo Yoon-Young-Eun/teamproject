@@ -60,7 +60,7 @@
 	
     <!-- 모든 문자 보내기 -->
     <select id="sendMessageToAll" resultType="customer">
-    select customer_phone from customer 
+    select * from customer 
     </select>
 
 	

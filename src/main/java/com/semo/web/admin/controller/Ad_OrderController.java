@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.semo.web.admin.service.Ad_OrderService;
+import com.semo.web.admin.service.MemberService;
 import com.semo.web.admin.service.UtilService;
 import com.semo.web.admin.util.CoolSms;
 import com.semo.web.admin.vo.Ad_EstimateVO;
@@ -41,9 +42,13 @@ public class Ad_OrderController {
 	@Autowired
 	CoolSms coolsms;
 	
+	@Autowired
+	MemberService memberService;
+	
 	@RequestMapping("/sendSelectedMessage.mdo")
-	public void sendSelectedMessage(String [] tdArr, String message) {
-		
+	public void sendSelectedMessage(int [] tdArr, String message) {
+		System.out.println("sendSelectedMessage 메서드");
+		System.out.println("받은 order번호"+tdArr);
 		coolsms.sendMessage(tdArr, message);
 	}
 	
@@ -241,7 +246,7 @@ public class Ad_OrderController {
 			
 			//주문 이력 수정 및 Coolsms 보내기
 			@RequestMapping("/Ad_updateOrderInfo.mdo")
-			public String getAd_updateOrderInfo(OrderVO vo, MessageVO mvo, HttpSession session) {
+			public String getAd_updateOrderInfo(OrderVO vo, CustomerVO cvo, MessageVO mvo, HttpSession session) {
 				
 				//세션 유무확인 
 				AdminVO admin = (AdminVO)session.getAttribute("admin");
@@ -253,16 +258,24 @@ public class Ad_OrderController {
 				
 				System.out.println("order수정사항"+ vo);				
 				System.out.println("문자 내용"+mvo);
-				 String phone = vo.getOrder_customer_phone(); 
+				 //String phone = vo.getOrder_customer_phone(); 
 				 String mess = mvo.getMessage_content();
 				 
 				 //Coolsms 보내기
 				 if(mess != "" && mess != null) {
+					 
+				  CustomerVO vo2 = memberService.getRead(cvo); 
+				  if(vo2.getCustomer_sms_permit()==1) {
+						CustomerVO vo3 = memberService.getSmsPermit(vo2);
+						String phone = vo3.getCustomer_phone(); 
+				  	
+					 
 					 System.out.println("문자 내용 있음");
 				 coolsms.sendMessage(phone, mess); 				 
 				 MessageVO mv = orderserivce.getMessageTitle(mvo);
 				 vo.setOrder_status(mv.getMessage_title());
 				 System.out.println("order_Status 값"+vo.getOrder_status());
+				  }
 				 }
 				 
 				
@@ -399,7 +412,7 @@ public class Ad_OrderController {
 	}
 
 	@RequestMapping(value = "/insertEstimate.mdo", method = RequestMethod.POST)
-	public String insertEstimate(Ad_EstimateVO vo, EstimateVO evo, HttpSession session ) {
+	public String insertEstimate(Ad_EstimateVO vo, EstimateVO evo, CustomerVO cvo, HttpSession session ) {
 		
 		//세션 유무확인 HttpSession session
 		AdminVO admin = (AdminVO)session.getAttribute("admin");
@@ -417,12 +430,17 @@ public class Ad_OrderController {
 		orderserivce.updateEstimate(vo);
 		
 		MessageVO msg = utilservice.getMessageEstimateType();
-
-		String phone = evo.getCustomer_phone();
 		String message = msg.getMessage_content();
 		
-		coolsms.sendMessage(phone, message);
 		
+		System.out.println("cvo"+cvo);
+		CustomerVO cvo1 = memberService.getRead(cvo);
+		System.out.println(cvo1);
+		if(cvo1.getCustomer_sms_permit()==1) {
+			String phone = cvo1.getCustomer_phone();
+			coolsms.sendMessage(phone, message);
+		}
+				
 		System.out.println("답변등록 처리");
 		return "redirect:getEstimateList.mdo";
 	}

@@ -298,7 +298,7 @@
 				    			msg += '\n결제 금액 : ' + rsp.paid_amount;
 				    			msg += '\n카드 승인번호 : ' + rsp.apply_num;
 								    alert(msg);
-								    order();  
+// 								    order();  
 		    	          }
 		    	      })
 	

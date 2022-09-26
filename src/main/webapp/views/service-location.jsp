@@ -10,7 +10,7 @@
 <!-- font awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 <!-- resources -->
-<link rel="stylesheet" href="/views/resources/css/service-location.css"/>
+<link rel="stylesheet" href="/views-menu/resources/css/location.css"/>
 <link rel="stylesheet" href="/common/css/header.css"/>
 <link rel="stylesheet" href="/common/css/button.css"/>
 <link rel="stylesheet" href="/common/css/footer.css"/>

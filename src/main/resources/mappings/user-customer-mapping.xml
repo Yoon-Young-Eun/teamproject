@@ -14,10 +14,10 @@
 	<insert id="insertMember" parameterType="customer">
 		insert into
 		customer (customer_name, customer_id, customer_passwd, customer_phone,
-		customer_zipcode, customer_address1, customer_address2,customer_birth)
+		customer_zipcode, customer_address1, customer_address2,customer_birth, customer_sms_permit)
 		values ( #{customer_name}, #{customer_id}, #{customer_passwd},
 		#{customer_phone}, #{customer_zipcode}, #{customer_address1},
-		#{customer_address2}, #{customer_birth})
+		#{customer_address2}, #{customer_birth}, #{customer_sms_permit})
 
 	</insert>
 

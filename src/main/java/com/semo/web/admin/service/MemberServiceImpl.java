@@ -50,6 +50,16 @@ public class MemberServiceImpl implements MemberService {
 		memberDao.getMemberUpdate(vo);
 	}
 
+	@Override
+	public List<CustomerVO> getSmsPermitList(CustomerVO vo) {
+		return memberDao.getSmsPermitList(vo);
+	}
+
+	@Override
+	public CustomerVO getSmsPermit(CustomerVO vo) {
+		return memberDao.getSmsPermit(vo);
+	}
+
 		
 
 

@@ -413,7 +413,7 @@
 		function sendMessage() {
 			console.log("sendMessage() 실행");
 			let message = $("#content").val();
-			if (confirm('해당 문자를 모든 회원에게 송부하시겠습까?')) {
+			if (confirm('해당 문자를 모든 회원에게 송부하시겠습까?(sms허용한함)')) {
 				console.log("ddd");
 				location.href = "/sendSMSAll.mdo?message_content=" + message;
 			}

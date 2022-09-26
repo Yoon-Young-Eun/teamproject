@@ -11,12 +11,11 @@ private String board_qna_content;
 private String board_qna_filepath;
 private Date board_qna_reg_date;
 private int board_qna_status;
-private String customer_no;
+private int customer_no;
 	   
 private String admin_qna_title;
 private String admin_qna_content;
 private Date admin_qna_reg_date;
-
 public int getBoard_qna_no() {
 	return board_qna_no;
 }
@@ -59,10 +58,10 @@ public int getBoard_qna_status() {
 public void setBoard_qna_status(int board_qna_status) {
 	this.board_qna_status = board_qna_status;
 }
-public String getCustomer_no() {
+public int getCustomer_no() {
 	return customer_no;
 }
-public void setCustomer_no(String customer_no) {
+public void setCustomer_no(int customer_no) {
 	this.customer_no = customer_no;
 }
 public String getAdmin_qna_title() {
@@ -83,7 +82,6 @@ public Date getAdmin_qna_reg_date() {
 public void setAdmin_qna_reg_date(Date admin_qna_reg_date) {
 	this.admin_qna_reg_date = admin_qna_reg_date;
 }
-
 @Override
 public String toString() {
 	return "Cm_QnAVO [board_qna_no=" + board_qna_no + ", board_qna_type=" + board_qna_type + ", board_qna_title="
@@ -92,7 +90,6 @@ public String toString() {
 			+ board_qna_status + ", customer_no=" + customer_no + ", admin_qna_title=" + admin_qna_title
 			+ ", admin_qna_content=" + admin_qna_content + ", admin_qna_reg_date=" + admin_qna_reg_date + "]";
 }
-
 
 
 }

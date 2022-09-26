@@ -456,7 +456,7 @@
 								<tbody>
 									<c:forEach var="order" items="${adminOrderList}">
 										<tr class="colored"
-											onclick="location.href='/Ad_getReadOrderInfo.mdo?order_no=${order.order_no}'">
+											onclick="location.href='/Ad_getReadOrderInfo.mdo?order_no=${order.order_no}&customer_no=${order.customer_no}'">
 											<td id="check_td"><input type="checkbox"
 												class="checkone" name="check"></td>
 											<td class="center">${order.order_no}</td>
@@ -577,7 +577,7 @@
 				rowData.push(tr.text());
 				// td.eq(0)은 체크박스 이므로  td.eq(4)=전화번호 의 값을 가져온다.
 
-				var phone = td.eq(3).text() + ",";
+				var phone = td.eq(1).text() + ",";
 				phone = phone.substring(0, phone.length - 1); //마지막 , 제거
 				// 가져온 값을 배열에 담는다.
 				tdArr.push(phone);

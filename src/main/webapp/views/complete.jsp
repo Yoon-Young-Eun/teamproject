@@ -38,7 +38,7 @@
 </div>
 
 <div class = "msg">
-	<span class = "text-1">환영합니다, <b>${user_name}</b> 님!</span><br>	
+	<span class = "text-1">환영합니다, <b>${user}</b> 님!</span><br>	
 	<span class = "text-1">회원가입이 완료되었습니다.</span><br>
 	<span class = "text-2">세모의 다양한 서비스를 지금 만나보세요!</span>
 </div>

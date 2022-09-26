@@ -114,5 +114,87 @@ a {
 }
 
 .button-wrapper {
-	margin : 40px;
+	margin-top : 40px;
+}
+
+.main_text3 {
+	display: flex;
+	height: 80px;
+	align-items: center;
+}
+
+.type_title1 {
+	width: 150px;	
+	text-align: left;
+}
+
+
+#textbar1 {
+	width: 610px;
+	height: 50px;
+	margin-left: 35px;
+	background-color: rgb(128, 128, 128, 0.2);
+	border-style: none;
+	border-radius: 5px;
+	padding-left : 10px;
+}
+
+#textbar2 {
+	width: 600px;
+	margin-left: 35px;
+	background-color: rgb(128, 128, 128, 0.2);
+	border-style: none;
+	border-radius: 5px;
+	height: 25px;
+	display: flex;
+	align-items: center;
+}
+.main_text3 mg{
+	height: 200px;
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid grey;
+}
+
+.main_text4 {
+	height: 200px;
+	display: flex;
+	align-items: center;
+}
+
+#write_area {
+	width: 600px;
+	margin-left: 35px;
+	background-color: rgb(128, 128, 128, 0.2);
+	border-style: none;
+	border-radius: 5px;
+	resize: none;
+	height: 150px;
+}
+
+/* 파일업로드 */
+.file_wrap input[type="file"] {
+	display: none;
+}
+
+.file_wrap {
+	display: flex;
+	align-items: center;
+	height: 80px;
+}
+
+
+.fileBtn {
+	left: 0;
+	bottom: 0;
+	top: 0;
+	margin: auto;
+	height: 50px;
+	color: #333;
+	font-size: 15px;
+	border-radius: 5px;
+    width: 100px;
+    text-align: center;
+    align-items: center;
+    display: flex;
 }

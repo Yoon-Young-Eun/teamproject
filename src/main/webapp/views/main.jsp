@@ -76,7 +76,6 @@
 	</div>	
 </div>
 
-
 <!-- 이미지 베너 --> 
 <div class = "img-banner"><img src="/views/resources/img/aal banner.png"></div>
 

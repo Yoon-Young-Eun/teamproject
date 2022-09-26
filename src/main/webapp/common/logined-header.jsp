@@ -26,7 +26,7 @@
 
 <header id = "header">
    <div class = "top-menu-wrapper" >
-      <h1><a href = "/views/logined-main.jsp?customer_no=${num}&userInfo=${K}">△■</a></h1>
+      <h1><a href = "/index.do?customer_no=${num}&userInfo=${K}">△■</a></h1>
       <form action="/logout.do" name = "logoutForm" method = "post">
       <nav class = "top-menu">
          <ul class = "top-list">

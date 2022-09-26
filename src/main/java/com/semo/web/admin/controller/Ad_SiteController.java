@@ -546,7 +546,6 @@ public class Ad_SiteController {
 	// 약관 수정 페이지
 	@RequestMapping(value="/updateTermsPage.mdo", method=RequestMethod.GET)
 	public String editPage(Model model, TermsVO vo, HttpSession session) {	
-		
 		//세션 유무확인 
 		AdminVO admin = (AdminVO)session.getAttribute("admin");
 		
@@ -565,7 +564,7 @@ public class Ad_SiteController {
 	// 약관 수정
 	@RequestMapping(value="/updateTerms.mdo", method=RequestMethod.GET)
 	public String updateTerms(TermsVO vo, Model model, HttpSession session) {
-		
+		System.out.println(vo);
 		//세션 유무확인
 		AdminVO admin = (AdminVO)session.getAttribute("admin");
 		
@@ -574,7 +573,7 @@ public class Ad_SiteController {
 				return "redirect:/admin/login.jsp";
 		}
 		
-		System.out.println(vo);
+		System.out.println(vo.getTerms_type());
 		System.out.println("getUpdateTerms 메서드 실행");
 		SiteService.updateTerms(vo); // update는 리턴값 없음
 		System.out.println("완료!");

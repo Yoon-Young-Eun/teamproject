@@ -359,7 +359,7 @@
 										<div class="clause_select">
 											<select name="terms_type" >
 												<option value="회원가입">회원가입</option>
-												<option value="2">결제</option>
+												<option value="결제">결제</option>
 											</select>
 										</div></li>
 				

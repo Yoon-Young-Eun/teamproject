@@ -94,5 +94,10 @@
 	<select id="selectEstimate2" parameterType="Ad_estimate" resultType="Ad_estimate">
 	<![CDATA[select * from estimate_ad where estimate_cm_no=#{estimate_cm_no}]]>
 	</select>
+	
+	
+	<update id="updateEst" parameterType="estimate">
+		<![CDATA[ update estimate_cm set estimate_status='결제완료' where estimate_cm_no=#{estimate_cm_no} ]]>
+	</update>
 
 </mapper>

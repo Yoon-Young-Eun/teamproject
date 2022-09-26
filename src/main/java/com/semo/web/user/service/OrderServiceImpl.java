@@ -125,5 +125,10 @@ public class OrderServiceImpl implements OrderService {
 		return orderdao.selectEstimate2(esti);
 	}
 
+	@Override
+	public void updateEst(EstimateVO evo) {
+		orderdao.updateEst(evo);
+	}
 
+	
 }

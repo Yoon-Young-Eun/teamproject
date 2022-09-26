@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="DashboardDAO">
+
+<select id="getOrderStatus" parameterType="order" resultType="int">
+   select count(*) from order_cm where order_status='수거대기';
+</select>
+
+<select id="getOrderStatusIng" parameterType="order" resultType="int">
+   select count(*) from order_cm where order_status='세탁중';
+</select>
+
+<select id="getOrderStatusEnd" parameterType="order" resultType="int">
+   select count(*) from order_cm where order_status='배송완료';
+</select>
+
+<select id="getOrderStatusCC" parameterType="order" resultType="int">
+   select count(*) from order_cm where order_status='주문취소';
+</select>
+
+<select id="getEstimateStatus" parameterType="estimate" resultType="int">
+   select count(*) from estimate_cm where estimate_status='견적대기';
+</select>
+
+<select id="getQnAStatus" parameterType="QnA" resultType="int">
+   select count(*) from board_qna_cm where board_qna_status=0;
+</select>
+
+<select id="getTodaySales" parameterType="order" resultType="int">
+   select sum(order_price) from order_cm where order_date BETWEEN DATE_ADD(NOW(),INTERVAL -1 DAY ) AND NOW();
+</select>
+
+<select id="getMonthSales" parameterType="order" resultType="int">
+   select sum(order_price) from order_cm where order_date BETWEEN DATE_ADD(NOW(),INTERVAL -1 MONTH ) AND NOW();
+</select>
+
+<select id="getYearSales" parameterType="order" resultType="int">
+   select sum(order_price) from order_cm where order_date BETWEEN DATE_ADD(NOW(),INTERVAL -1 YEAR ) AND NOW();
+</select>
+
+</mapper>
+

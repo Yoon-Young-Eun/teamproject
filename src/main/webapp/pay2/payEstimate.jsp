@@ -118,19 +118,24 @@
 	<div class="wrap">
 		<div class="wrap1">
 
-			<jsp:include page="/common/header.jsp"></jsp:include>
+			<jsp:include page="/common/logined-header.jsp"></jsp:include>
 
 			<div class="main">
 				<div class="space_left"></div>
 				<div class="content_box">
 					<form action="/OrderSpecial4.do" id="form1">
+					
+					<!-- 확인해주세요 -->
+	  <input type="hidden" value="${CustomerInfo.customer_id}" name="customer_id">
+      <input type="hidden" value="${CustomerInfo.customer_zipcode}" name="customer_zipcode">
+					
 						<div class="main_text">
 							<div class="main_text1">특수세탁 결제하기</div>
-							<div class="estimate_text1">
-							<input type="text" value="특수세탁 1단계" readonly style="width:700px;" id="estimate_text1">
+							<div class="estimate_text1" style="font-size:20px; font-weight: bold; display: flex; height: 50px; align-items: center;">견적내용
+							<!-- <input type="text" value="특수세탁 1단계" readonly style="width:700px;" id="estimate_text1"> -->
 							</div>
 							<div class="estimate_text2">
-							<input type="text" value="너무 더러워서 1단계 입니다." readonly style="height:100px;" id="estimate_text2"> 
+							<input type="text" value="${esti.estimate_type_content }" readonly style="height:100px;" id="estimate_text2" name="estimate_type_content"> 
 							</div>
 							<div class="main_text2" style="display:none;">세탁할 옷의 종류를 선택하세요</div>
 
@@ -441,7 +446,7 @@
 							</div>
 							
 							<div class="price5">
-								합계 금액: <input type="text" class="price3" id="pppp"readonly value="18000"
+								합계 금액: <input type="text" class="price3" id="pppp"readonly value="${OrderData.order_price} "
 									name="order_price"> 원
 							</div>
 
@@ -461,6 +466,8 @@
 							<input type="hidden" value="${OrderData.order_type}"
 								name="order_type">
 							<input type="hidden" value="0" name="order_use_coupon_price">
+							
+   							<input type="hidden" value="${OrderData.estimate_cm_no }" name="estimate_cm_no">
 
 							<div class="main_text10">
 								<input type="submit" value="주문하기" id="pay" onclick="order()"

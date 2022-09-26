@@ -27,7 +27,7 @@
 <div class="wrap">
     <div class="wrap1">
     
-    <jsp:include page="/common/header.jsp"></jsp:include>
+    <jsp:include page="/common/logined-header.jsp"></jsp:include>
     <div class="main">
     <div class="space_left"></div>
     <div class="main_box">
@@ -43,7 +43,7 @@
 	<form action="/OrderSpecial3.do">
      <div class="main_text3">
       <div class="main_text4">
-        <input type="date" id="datepicker" name="order_pickup_date" required>
+        <input type="date" id="datepicker" name="order_pickup_date" required >
       </div>
      </div>
      <div class="main_time">
@@ -75,13 +75,63 @@
     <input type="hidden" value="${customer.customer_name }" name="order_customer_name">
     <input type="hidden" value="${OrderData.cm_gate_passwd }" name="cm_gate_passwd">
     <input type="hidden" value="특수세탁" name="order_type">
+    <input type="hidden" value="${OrderData.order_price }" name="order_price">
+    <input type="hidden" value="${OrderData.estimate_cm_no }" name="estimate_cm_no">
   </div>
   </form>
   
     
     </div>
-   
+  
+    <script type="text/javascript">
+    let offerdate = document.getElementById("datepicker").value; // input date 값 가져오기
+    console.log(offerdate);
+	let date = new Date(); //현재시간
+	let minDate = getFormatDate(date); 
+	$("#datepicker").attr("min",minDate);
+	
+	date.setDate(date.getDate() + 30);
+	console.log(date);
+	let maxDate = getFormatDate(date);
+	$("#datepicker").attr("max",maxDate);
     
+    function getFormatDate(date){
+        var year = date.getFullYear();              //yyyy
+        var month = (1 + date.getMonth());          //M
+        month = month >= 10 ? month : '0' + month;  //month 두자리로 저장
+        var day = date.getDate();                   //d
+        day = day >= 10 ? day : '0' + day;          //day 두자리로 저장
+        return  year + '-' + month + '-' + day;       //'-' 추가하여 yyyy-mm-dd 형태 생성 가능
+    }
+		
+   /*  document.getElementById("datepicker").addEventListener("change",function(){
+    	console.log(offerdate);
+    	console.log(minDate); */
+    	/* if (offerdate < minDate) {
+   		
+    		$("#datepicker").focus();
+
+    		alert("오늘 이후의 날짜를 선택해주세요");
+    		document.getElementById("datepicker").value = null;
+    	}
+    	
+    	
+    	if (offerdate > maxDate) {
+    		
+    		
+    		$("#datepicker").focus();
+
+    		alert("최대 30일까지 선택 가능합니다.");
+    		document.getElementById("datepicker").value = null;
+    	} 
+        
+        
+    	
+    })*/
+    
+	
+    
+    </script>
     
     
     </div>

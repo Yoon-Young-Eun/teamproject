@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.semo.web.admin.service.SalesService;
 import com.semo.web.admin.service.UtilService;
+import com.semo.web.admin.vo.AdminVO;
 import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.user.vo.OrderMtVO;
 import com.semo.web.user.vo.OrderVO;
@@ -25,7 +28,16 @@ public class Ad_SalesController {
 	SalesService salseService;
 	
 	@RequestMapping(value="/salesStoreList.mdo")
-	public String getSalesStoreList(PagingVO pvo, OrderVO vo, Model model){
+	public String getSalesStoreList(PagingVO pvo, OrderVO vo, Model model, HttpSession session){
+		
+		//세션 유무확인 HttpSession session
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println("매출 메서드 실행");
 		System.out.println(pvo);
 		 model.addAttribute("search",pvo);
@@ -89,7 +101,16 @@ public class Ad_SalesController {
 	
 	
 	@RequestMapping(value="/salesProductList.mdo")
-	public String getSalesProductList(PagingVO pvo, OrderMtVO vo, Model model) {
+	public String getSalesProductList(PagingVO pvo, OrderMtVO vo, Model model, HttpSession session) {
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println("매출 메서드 실행");
 		System.out.println("PagingVO"+ pvo);
 

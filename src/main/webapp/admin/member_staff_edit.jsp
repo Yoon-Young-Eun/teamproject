@@ -17,6 +17,7 @@
 	href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
 	rel="stylesheet" />
 <link href="/admin/css/styles.css" rel="stylesheet" />
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
 	crossorigin="anonymous"></script>
 <script type="text/javascript" src="/admin/js/index_navbar_onclick.js"></script>
@@ -331,7 +332,7 @@
 					
 					<!-- 상세정보 -->
 
-	<form action = "/updatestaff.mdo" method="get" class="form" onsubmit="return confirm('매니저 정보를 수정 하시겠습니까? ');">
+	<form action = "/updatestaff.mdo" method="post" id= "form" class="form" onsubmit="return confirm('매니저 정보를 수정 하시겠습니까? ');">
 	 <%-- 히든으로 no 값을 보냄 다음 update할때 where admin_no =#{admin_no}를 해주기위해,, --%>
 		<input type="hidden" name="admin_no" value="${adminInfo.admin_no}">
 	<div class="popup_wrapper">
@@ -375,23 +376,23 @@
 			<div class="popup_text2">비밀번호</div>
 			&nbsp;
 			<div class="popup_inputbox">
-				<input type="text" id="pass" placeholder="">
+				<input type="password" class="pass" id="inputPassword" placeholder="">
 			</div>
 		</div>
-		<div class="popup_login">
+		<div class="popup_login" style="margin-bottom : 0px;">
 			<div class="popup_text3">비밀번호&nbsp;확인</div>
 			&nbsp;
 			<div class="popup_inputbox">
-				<input type="text" name="admin_passwd" id="repass" placeholder="">
-				<span id="pwChecking"></span>
+				<input type="password" name="admin_passwd" class="repass" placeholder="">
 			</div>
 		</div>
+		<div><span id="pwChecking" style="font-size: 5px;"></span></div>
 		<!-- <div class="popup_img"><img src="image/gorae.jpg" width="60px" height="60px"><br><br></div> -->
 
 
 		<div class="end">
 			<div class="popup_btn">
-			 <input type="submit"  id="login-btn" value="저장" style="border-style:none;"> 
+			 <input type="button"  onclick="chkPW()" id="login-btn" value="저장" style="border-style:none;"> 
 			</div>
 			<div class="popup_btn">
 				<a href="/staffList.mdo" onclick="self.close();">취소</a>
@@ -415,23 +416,60 @@
 		</div>
 	</div>
 	
-	
-
-<script type="text/javascript">
+	<script type="text/javascript">
 	$(document).ready(function(){
 	
-	$('#repass').keyup(function(){
+	$('.repass').keyup(function(){
 		console.log("ASdasdads");
-        if($('#pass').val() != $('#repass').val()){
+        if($('.pass').val() != $('.repass').val()){
            $('#pwChecking').css("color", "red");
            $('#pwChecking').html("비밀번호가 일치하지 않습니다. 다시 확인해주세요!");
-        }else {
+        }else if($('.pass').val() == "" && $('.repass').val() == ""){
+        	console.log("dddd");
+        	$('#pwChecking').html(null)		 	
+        } else {
            $('#pwChecking').css("color", "green");
            $('#pwChecking').html("비밀번호가 일치합니다. 회원가입을 계속 진행해주세요!");
         }
      });
 	});
 	</script>
+	
+	<script>
+	  function chkPW(){
+	console.log("!@!@!ㅋㅋㅋㅋ");
+
+	   var pw = $("#inputPassword").val();
+	   var num = pw.search(/[0-9]/g);
+	   var eng = pw.search(/[a-z]/ig);
+	   var spe = pw.search(/[`~!@#$%^&*?]/gi);
+	   
+	   var pass = $(".pass").val();
+	   var repass = $(".repass").val();
+
+	   if(pw.length < 8 || pw.length > 20){
+		   console.log("11");
+	    alert("8자리 ~ 20자리 이내로 입력해주세요.");
+	    return false;
+	   }else if(pw.search(/\s/) != -1){
+		   console.log("22");
+	    alert("비밀번호는 공백 없이 입력해주세요.");
+	    return false;
+	   }else if(num < 0 || eng < 0 || spe < 0 ){
+		   console.log("33");
+	    alert("영문,숫자, 특수문자를 혼합하여 입력해주세요.");
+	    return false;
+	   }else if(pass.trim() != repass.trim()){
+		   console.log("44");
+		    alert("비밀번호를 동일하게 입력해주세요.");
+		    return false;
+	   }else {
+		   console.log("55");
+	  	console.log("통과"); 
+	  	  form.submit();
+	   }
+	  }
+   </script>
 	
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

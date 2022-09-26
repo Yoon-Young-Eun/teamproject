@@ -377,7 +377,6 @@
 					<form id="insert" action="/insertEstimate.mdo?customer_phone=${getEstimate.customer_phone }" method="post" onsubmit="return confirm('견적을 발송하시겠습니까?');">
 						<div class="layer" id="layer_reply">
 							<div class="popup_wrapper2">
-
 								<div class="estimate_reply_wrapper">
 									<div class="estimate_reply_head">
 										<h1>견적서</h1>

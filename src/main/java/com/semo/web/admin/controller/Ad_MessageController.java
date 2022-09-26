@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.semo.web.admin.service.UtilService;
 import com.semo.web.admin.util.CoolSmsAll;
+import com.semo.web.admin.vo.AdminVO;
 import com.semo.web.admin.vo.MessageVO;
 import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.user.vo.CustomerVO;
@@ -20,6 +23,8 @@ import com.semo.web.user.vo.CustomerVO;
 @Controller
 public class Ad_MessageController {
 
+	@Autowired
+	HttpSession session;
 	
 	@Autowired
 	UtilService utilservice;
@@ -29,6 +34,16 @@ public class Ad_MessageController {
 	
 	@RequestMapping("/sendSMSAll.mdo")
 	public String sendSmsAll(MessageVO content) {
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
+		
 		System.out.println("sendSmsAll메서드");
 		System.out.println("보낼 메시지"+content);
 		List<CustomerVO> phoneList = utilservice.sendMessageToAll();
@@ -43,6 +58,15 @@ public class Ad_MessageController {
 	
 	@RequestMapping("/supportmessageList.mdo")
 	public String getSupportMessageList(Model model, MessageVO mvo, PagingVO pvo ) {
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		
 		System.out.println("getSupportMessageList 메서드 실행");
 		System.out.println(mvo);
@@ -110,6 +134,15 @@ public class Ad_MessageController {
 	
 	@RequestMapping("/messageread.mdo")
 	public String getMessageRead(MessageVO mvo, Model model) {
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println("getMessageRead 메서드 실행");	
         MessageVO read = utilservice.getReadMessage(mvo);
         System.out.println(read);
@@ -119,6 +152,15 @@ public class Ad_MessageController {
 	
 	@RequestMapping("/messageedit.mdo")
 	public String MessageEdit(MessageVO mvo, Model model) {
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println("MessageEdit 메서드 실행");
         MessageVO read = utilservice.getReadMessage(mvo);
         System.out.println(read);
@@ -128,13 +170,31 @@ public class Ad_MessageController {
 	
 	@RequestMapping("/insertmessage.mdo")
 	public String insertMessage(MessageVO mvo) {
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println("insertMessage 메서드 실행");
 		utilservice.insertMessage(mvo);
-		return "/supportmessageList.mdo";
+		return "redirect:/supportmessageList.mdo";
 	}
 	
 	@RequestMapping("/updatemessage.mdo")
 	public String updateMessage(MessageVO mvo) {
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println(mvo);
 		System.out.println("updateMessage 메서드 실행");
 		utilservice.updateMessage(mvo);
@@ -143,6 +203,15 @@ public class Ad_MessageController {
 	
 	@RequestMapping("/deletemessage.mdo")
 	public String deleteMessage(MessageVO mvo) {
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println("updateMessage 메서드 실행");
 		utilservice.deleteMessage(mvo);
 		return "/supportmessageList.mdo";
@@ -151,6 +220,15 @@ public class Ad_MessageController {
 	
 	@RequestMapping("/messageSelectDelete.mdo")
 	public String messageSelectedDelete(String[] num, MessageVO mvo) {
+		
+		//세션 유무확인 
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println(num[0]);
 		System.out.println("selected 삭제 처리");
 		 

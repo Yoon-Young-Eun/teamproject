@@ -341,12 +341,14 @@ public class OrderController<imp_uid> {
 	}
 
 	@RequestMapping(value = "/OrderSpecial4.do")
-	public String OrderSpecial4(OrderVO vo, Model model, DataSendVO vo1,HttpSession session) {
+	public String OrderSpecial4(OrderVO vo, Model model,CustomerVO cvo, DataSendVO vo1,HttpSession session) {
 		session.getAttribute("id");
 		if(session.getAttribute("id") != null) {
 			System.out.println(vo);
 			model.addAttribute("OrderData", vo);
 			System.out.println(vo);
+			model.addAttribute("CustomerInfo",orderservice.getReadCustomerInfo(cvo)); // 내가 추가
+			System.out.println("customerinfo"+cvo);
 			if (vo.getOrder_price() >= 20000) {
 				vo.setOrder_delivery_price(0);
 			} else {

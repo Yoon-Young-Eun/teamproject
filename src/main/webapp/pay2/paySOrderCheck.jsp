@@ -236,11 +236,11 @@
 	    name : '결제테스트',
 	    amount : document.getElementById("cou444").value,
 // 		amount : '100',
-	    buyer_email : '${OrderData.customer_id}',
+	    buyer_email : '${CustomerInfo.customer_id}',
 	    buyer_name : '${OrderData.order_customer_name}',
 	    buyer_tel : '${OrderData.order_customer_phone}',
 	    buyer_addr : '${OrderData.order_address1} ${OrderData.order_address2}',
-	    buyer_postcode : '${OrderData.customer_zipcode}'
+	    buyer_postcode : '${CustomerInfo.customer_zipcode}'
 	  }, function (rsp) {
 		    console.log(rsp);
 		    if (rsp.success) {
@@ -278,7 +278,7 @@
 				    			msg += '\n결제 금액 : ' + rsp.paid_amount;
 				    			msg += '\n카드 승인번호 : ' + rsp.apply_num;
 								    alert(msg);
-								    order();  
+// 								    order();  
 		    	          }
 		    	      })
 	

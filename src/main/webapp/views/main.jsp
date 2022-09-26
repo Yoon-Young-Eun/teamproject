@@ -38,12 +38,20 @@
 	<div class="slidewrap">
 		
 		<ul class="slidelist">
+		
+		<!-- 페이징 -->
+		<ul class="slide-pagelist">
+			<li><label for="slide01"></label></li>
+			<li><label for="slide02"></label></li>
+			<li><label for="slide03"></label></li>
+		</ul>
+		
 			<!-- 슬라이드 영역 -->
 			
 			<c:forEach var="banner" items="${BannerList}">
 			
 			<li class="slideitem">
-				<a>
+				<a href="getBoardEvent.do?board_event_no=${event.board_event_no}">
 					<img src="${banner.banner_filepath}">
 				</a>
 			</li>
@@ -67,19 +75,16 @@
 			</div>
 
 		</ul>
-		<!-- 페이징 -->
-		<ul class="slide-pagelist">
-			<li><label for="slide01"></label></li>
-			<li><label for="slide02"></label></li>
-			<li><label for="slide03"></label></li>
-		</ul>
+		
 	</div>	
 </div>
 
-
+<<<<<<< HEAD
+=======
 <!-- 이미지 베너 --> 
 <div class = "img-banner"><img src="/views/resources/img/aal banner.png"></div>
 
+>>>>>>> main
 <!-- 바로가기 버튼 -->
 <div class = "button">
 	<div class = "botton-list">
@@ -95,6 +100,10 @@
 		</div>
 	</div>
 </div>
+
+<!-- 이미지 베너 --> 
+<div class = "img-banner"><img src="/views/resources/img/aal banner.png"></div>
+
 
 <!-- 리뷰세션 -->
 <div class="rbd-core-ui" style = "background-image:url(/views/resources/img/review-back.png);">

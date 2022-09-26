@@ -34,7 +34,6 @@ a {
 
 /*SIDEBAR*/
 .sidebar {
-	margin-left:240px;
     position: absolute;
 /* Change :absolute; to :fixed; to keep the sidebar in place when scolling. */
     background: none;

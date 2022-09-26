@@ -61,6 +61,7 @@
       <mapper resource="mappings/ad_order-mapping.xml" />
       <mapper resource="mappings/ad_member-mapping.xml" />
       <mapper resource="mappings/ad_sales-mapping.xml" />
+      <mapper resource="mappings/ad_dashboard-mapping.xml" />
 
 
 		<!-- user -->

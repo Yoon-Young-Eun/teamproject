@@ -43,8 +43,8 @@
 	
 	<div class="main_text">
       <div class="main_text1">
-         공지사항
-         
+         공지사항    
+      </div>
       <div class="b_button">
 							<!-- 테이블 행 필터 -->
 							<form name="selectname" action="getBoardList.do" method="get">
@@ -74,34 +74,33 @@
 														</div>
 													</c:forEach>
 											</select> <input type="text" name="searchKeyword" />
-												<div>
-													<input type="submit" value="검색" />
-												</div>
-												<div> <input type="reset" value="초기화" /></div>
+												
+													<input type="submit" value="검색" style="height: 30px; width:45px;"/>
+
+												 <input type="reset" value="초기화" style="height: 30px; width:45px;"/>
 										</div>
 									</form>
 								</div>
 							</div>
 
 						</div>
-      </div>
-      
       
 
 
 						<table class="main_text3">
 							<thead>
-							<tr>
+							<tr>					
 							<th class="main_textNumber">글번호</th>
 							<th class="main_textTitle">제목</th>
 							<th class="main_textContent">내용</th>
 							<th class="main_textDate">작성일</th>
 							</tr>
 							</thead>
+
 							<tbody>
-					
+							
 							<c:forEach var="notice" items="${boardList}">	
-				
+							
 									<tr class="notice_title" onclick="location.href='/getBoard.do?notice_no=${notice.notice_no}'">
 										<td>${notice.notice_no}</td>
 										<td>${notice.notice_title}</td>

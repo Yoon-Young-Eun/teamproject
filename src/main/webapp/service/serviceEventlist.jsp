@@ -15,8 +15,9 @@
 </head>
 <body>
 <div class="wrap">
+	<jsp:include page="/common/header.jsp"></jsp:include>
     <div class="wrap1">
-    <jsp:include page="/common/header.jsp"></jsp:include>
+    
     
     <div class="main">
 	<div class="space_left">

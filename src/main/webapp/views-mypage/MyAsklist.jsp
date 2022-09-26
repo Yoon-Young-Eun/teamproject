@@ -46,7 +46,7 @@
 				<div class = "searchbar-wrapper">
 					 <!-- 분류 -->
 					<div class = "sort">
-						<button>글쓰기</button>
+						<button onclick="location.href='/myask.do?customer=${num}'">글쓰기</button>
 						<button>삭제</button>
 					</div>	
 				</div><!-- content-subtitle-wrapper -->

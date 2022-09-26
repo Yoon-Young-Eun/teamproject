@@ -34,6 +34,10 @@
 		<![CDATA[ update order_cm set order_status='주문취소', order_price_status='환불완료', imp_uid='canceled' where order_no=#{order_no} ]]>
 	</update>
 	
+	<update id="updateEstimate" parameterType="ORDER">
+		<![CDATA[ update order_cm set order_status='주문취소', order_price_status='환불완료', imp_uid='canceled' where order_no=#{order_no} ]]>
+	</update>
+	
 	<delete id="deletePayInfo" parameterType="pay">
 	<![CDATA[ delete from pay where terms_no=#{terms_no} ]]>
 	</delete>

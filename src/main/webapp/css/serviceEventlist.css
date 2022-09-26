@@ -7,23 +7,26 @@ body {
 html{
 	font-family: 'Noto Sans KR', sans-serif;
 }
-
+.wrap1 {
+	display: flex;
+	justify-content: center;
+}
 .main{
 	display: flex;
+	width: 1440px;
 }
 .space_left{
 	margin-top:58px;
-	width: 440px;
+	width: 200px;
 }
 .space_right{
-	width:240px;
+	width:200px;
 }
 .main_box{
 	margin-top:20px;
 	width: 1040px;
 }
 .main_text{
-   width: 800px;
    margin-left: 30px;
 }
 .main_text1{
@@ -57,7 +60,7 @@ html{
 	display:flex;
 	justify-content:center;
 	background-color:rgb(128,128,128,0.1);
-	width:400px;
+	width:610px;
 	height:100px;
 	text-align:center;
 	align-items: center;

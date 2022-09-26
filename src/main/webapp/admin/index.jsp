@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -240,12 +241,12 @@
                         <div class="main_info_card_head_title">오늘의 할일</div>
                         </div>
                         <div class="main_info_card_body">
-                        <div class="order"><div class="order_info">주문완료</div><div class="red_box"><div class="order_info_print">110</div></div></div>
-                        <div class="order"><div class="order_info">주문취소</div><div class="red_box"><div class="order_info_print">2</div></div></div>
-                        <div class="order"><div class="order_info">수거예정</div><div class="red_box"><div class="order_info_print">16</div></div></div>
-                        <div class="order"><div class="order_info">배달예정</div><div class="red_box"><div class="order_info_print">48</div></div></div>
-                        <div class="order"><div class="order_info">견적요청</div><div class="red_box"><div class="order_info_print">25</div></div></div>
-                        <div class="order"><div class="order_info">문의답변</div><div class="red_box"><div class="order_info_print">53</div></div></div>
+                        <div class="order"><div class="order_info">주문완료</div><div class="red_box"><div class="order_info_print">${OrderInfoEnd}</div></div></div>
+                        <div class="order"><div class="order_info">주문취소</div><div class="red_box"><div class="order_info_print">${OrderInfoCC}</div></div></div>
+                        <div class="order"><div class="order_info">수거예정</div><div class="red_box"><div class="order_info_print">${OrderInfo}</div></div></div>
+                        <div class="order"><div class="order_info">배달예정</div><div class="red_box"><div class="order_info_print">${OrderInfoIng}</div></div></div>
+                        <div class="order"><div class="order_info">견적요청</div><div class="red_box"><div class="order_info_print">${EstimateInfo}</div></div></div>
+                        <div class="order"><div class="order_info">문의답변</div><div class="red_box"><div class="order_info_print">${QnAInfo}</div></div></div>
                         </div>
                         </div>
                         
@@ -264,7 +265,7 @@
                                 <div class="card bg-transparent mb-4">
                                     <div class="card_body">
                                     <div class="card-body-wrapper"><div class="card-body">일 매출</div></div>
-                                    <div class="card-body-static">\ 583,100</div></div>
+                                    <div class="card-body-static">\ <fmt:formatNumber value="${OrderTodaySales}" pattern="#,###"/></div></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
 <!--                                         <a class="small text-white stretched-link" href="#">View Details</a> -->
                                         <a class="small text-dark stretched-link" href="#">View Details</a>
@@ -277,7 +278,7 @@
                                 <div class="card bg-transparent mb-4">
                                     <div class="card_body">
                                     <div class="card-body-wrapper"><div class="card-body">월 매출</div></div>
-                                    <div class="card-body-static">\ 3,938,670</div></div>
+                                    <div class="card-body-static">\ <fmt:formatNumber value="${OrderMonthSales}" pattern="#,###"/></div></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-dark stretched-link" href="#">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
@@ -289,7 +290,7 @@
                                 <div class="card bg-transparent mb-4">
                                     <div class="card_body">
                                     <div class="card-body-wrapper"><div class="card-body">연 매출</div></div>
-                                    <div class="card-body-static">\ 479,202,180</div></div>
+                                    <div class="card-body-static">\  <fmt:formatNumber value="${OrderYearSales}" pattern="#,###"/> </div></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-dark stretched-link" href="#">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>

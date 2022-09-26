@@ -23,13 +23,17 @@
 			<script>
 				$(function(){
 					var id = "${id}";
+					var num = "${num}";
 	
 					if (id == ""){
 						$('#header').load("/common/header.jsp");
+						$('#aa2').attr("href","/views/login.jsp");
 					} else {
 						$('#header').load("/common/logined-header.jsp");
+						$('#aa2').attr("href","/myask.do?customer_no="+num);
 					}
 				});
+			
 			</script>
 		</div>
 	</form>
@@ -55,7 +59,7 @@
         <input id="tab2-2" name="tabs-two" type="radio">
         <div class="body2">
           <div class="image0">
-         <a href="./service1.html" id="aa2"><img src="/image/service2.jpg" id="image2">
+         <a href="#" id="aa2"><img src="/image/service2.jpg" id="image2">
         <p id="p1">문의 및 제안</p><br>
         <p id="p2">세탁서비스 및 서비스이용에 대한<br>
         문의/제안 사항을 남겨주세요</p></a>
@@ -70,7 +74,10 @@
 
       
     </div>
+	<script>
 	
+	
+	</script>
 	
 	</div>
 	<div class="space_right"></div>

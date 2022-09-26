@@ -45,9 +45,9 @@
 			</div><!-- content-subtitle-wrapper -->
 			
 			<!-- 글쓰기 -->
-			<form action="/insertask.do" method = "get" name = "insertForm">
+			<form action="/insertask.do" method = "post" name = "insertForm" enctype="multipart/form-data">
 			<div class = "article-wrapper" style = "width : 100%;">
-			<input type="hidden" name="customer_no" value="${num}"/>
+			<input type="hidden" name="customer_no" value="${ask.customer_no}"/>
 			
 			<div class = "main_text3">
 				<div class = "type_title1">분류<span id="span1" style = "color : red;">&nbsp;*</span></div>
@@ -64,7 +64,7 @@
 					작성자 <span id="span1" style = "color : red;">*</span>
 				</div>
 				<div class="name">
-					<input type="text" readonly id="textbar1">
+					<input type="text" readonly id="textbar1" value="${ask.customer_name }">
 				</div>
 			</div> <!-- 작성자 -->
 			
@@ -73,23 +73,23 @@
 					휴대전화 <span id="span1" style = "color : red;">*</span>
 				</div>
 				<div class="name">
-					<input type="text" readonly id="textbar1">
+					<input type="text" readonly id="textbar1" value="${ask.customer_phone }">
 				</div>
 			</div> <!-- 휴대전화 -->
-			<div class="main_text3">
+			<%-- <div class="main_text3">
 				<div class="type_title1">
 					이메일 <span id="span1" style = "color : red;">*</span>
 				</div>
 				<div class="name">
-					<input type="text" readonly id="textbar1">
+					<input type="text" readonly id="textbar1" value="${ask.customer_id }">
 				</div>
-			</div> <!-- 이메일 -->
+			</div> <!-- 이메일 --> --%>
 			<div class="main_text3">
 				<div class="type_title1">
 					제목 <span id="span1" style = "color : red;">*</span>
 				</div>
 				<div class="name">
-					<input type="text" id="textbar1" style = "background:white; border : 2px solid #cdcdcd;">
+					<input type="text" id="textbar1" style = "background:white; border : 2px solid #cdcdcd;" name="board_qna_title">
 				</div>
 			</div> <!-- 제목 -->
 			<div class="main_text4">
@@ -97,17 +97,18 @@
 					내용 <span id="span1" style = "color : red;">*</span>
 				</div>
 				<div class="name">
-					<textarea id="write_area"style = "background:white; border : 2px solid #cdcdcd; padding : 10px;"></textarea>
+					<textarea id="write_area"style = "background:white; border : 2px solid #cdcdcd; padding : 10px;" name="board_qna_content"></textarea>
 				</div>
 			</div><!-- 내용 -->
 			<div class="file_wrap">
 				<input type="file" name="file" accept="*" id="bizFile" />
 				<div class="main_text3 mg">
 					<div class="type_title1">
-						<label for="bizFile" id="label1">파일 업로드</label>
+						<label id="label1">파일 업로드</label>
 					</div>
 					<div class="name">
-						<span id="textbar1" style="align-items: center; display: flex;">선택된 파일없음</span>
+					<input type="text" id="textbar9" style="align-items: center; display: flex; color:red; font-weight:bold;" value="선택된 파일 없음" readonly>
+						
 					</div>
 					<div class = "btn" style = "margin-left : 20px;">
 						<label for="bizFile" id="label1">파일 선택</label>
@@ -115,9 +116,9 @@
 				</div>
 			</div><!-- 첨부파일 -->
 			
-			<div class = "button-wrapper">
-				<a href="/myasklist.do?customer_no=${num}" class="action-button shadow animate grey" style = "height : 30px;">취소</a>	
-				<a type = "submit" id = "insert" class="action-button shadow animate blue" style = "height : 30px;">등록</a>	
+			<div class = "button-wrapper" style="width:1000px;">
+				<input type ="button" id = "insert1" onclick="location.href='/myasklist.do?customer_no=${num}'" class="action-button shadow animate grey" style = "height : 50px;" value="취소">	
+				<input type ="submit" id = "insert" class="action-button shadow animate blue" style = "height : 50px;" value="등록">	
 			</div>
 			</div>
 			</form>
@@ -130,11 +131,13 @@
 <!-------------------- 스크립트 -------------------->
 <script>
 	document.getElementById("bizFile").addEventListener("change",function() {
-		var filename = document.getElementById("fileName");
-
-		if (this.files[0] == undefined) {
-			filename.innerText = "선택된 파일없음";
-			return;
+		var filename = document.getElementById("bizFile").value;
+		console.log(filename);
+		console.log(document.getElementById("bizFile").files[0].name);
+		
+		if (document.getElementById("bizFile").files[0] != undefined) {
+			document.getElementById("textbar9").value = document.getElementById("bizFile").files[0].name;
+				
 		}
 
 		var size = this.files[0].size;

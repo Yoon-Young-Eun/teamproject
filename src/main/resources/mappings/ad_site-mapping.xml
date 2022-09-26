@@ -122,7 +122,7 @@
 	</select>
 	
 	<select id="getReadTerms4" resultType="terms">
-	<![CDATA[ select * from terms where terms_no=4 ]]>
+	<![CDATA[ select * from terms where terms_no=3 ]]>
 	</select>
 	
 </mapper>

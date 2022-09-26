@@ -241,12 +241,12 @@
                         <div class="main_info_card_head_title">오늘의 할일</div>
                         </div>
                         <div class="main_info_card_body">
-                        <div class="order"><div class="order_info">주문완료</div><div class="red_box"><div class="order_info_print">${OrderInfoEnd}</div></div></div>
-                        <div class="order"><div class="order_info">주문취소</div><div class="red_box"><div class="order_info_print">${OrderInfoCC}</div></div></div>
-                        <div class="order"><div class="order_info">수거예정</div><div class="red_box"><div class="order_info_print">${OrderInfo}</div></div></div>
-                        <div class="order"><div class="order_info">배달예정</div><div class="red_box"><div class="order_info_print">${OrderInfoIng}</div></div></div>
-                        <div class="order"><div class="order_info">견적요청</div><div class="red_box"><div class="order_info_print">${EstimateInfo}</div></div></div>
-                        <div class="order"><div class="order_info">문의답변</div><div class="red_box"><div class="order_info_print">${QnAInfo}</div></div></div>
+                        <div class="order"><div class="order_info"><a href="/adminOrderList.mdo?startDate=&endDate=&searchCondition=order_status&searchKeyword=배송완료">완료된주문</a></div><div class="red_box"><div class="order_info_print">${OrderInfoEnd}</div></div></div>
+                        <div class="order"><div class="order_info"><a href="/adminOrderList.mdo?startDate=&endDate=&searchCondition=order_status&searchKeyword=주문취소">주문취소</a></div><div class="red_box"><div class="order_info_print">${OrderInfoCC}</div></div></div>
+                        <div class="order"><div class="order_info"><a href="/adminOrderList.mdo?startDate=&endDate=&searchCondition=order_status&searchKeyword=수거대기">수거예정</a></div><div class="red_box"><div class="order_info_print">${OrderInfo}</div></div></div>
+                        <div class="order"><div class="order_info"><a href="/adminOrderList.mdo?startDate=&endDate=&searchCondition=order_status&searchKeyword=세탁중">배달예정(세탁중)</a></div><div class="red_box"><div class="order_info_print">${OrderInfoIng}</div></div></div>
+                        <div class="order"><div class="order_info"><a href="/getEstimateList.mdo?searchCondition=estimate_status&searchKeyword=견적대기">견적요청</a></div><div class="red_box"><div class="order_info_print">${EstimateInfo}</div></div></div>
+                        <div class="order"><div class="order_info"><a href="/QnAList.mdo">문의답변</a></div><div class="red_box"><div class="order_info_print">${QnAInfo}</div></div></div>
                         </div>
                         </div>
                         
@@ -268,7 +268,7 @@
                                     <div class="card-body-static">\ <fmt:formatNumber value="${OrderTodaySales}" pattern="#,###"/></div></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
 <!--                                         <a class="small text-white stretched-link" href="#">View Details</a> -->
-                                        <a class="small text-dark stretched-link" href="#">View Details</a>
+                                        <a class="small text-dark stretched-link" href="/salesProductList.mdo">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -280,7 +280,7 @@
                                     <div class="card-body-wrapper"><div class="card-body">월 매출</div></div>
                                     <div class="card-body-static">\ <fmt:formatNumber value="${OrderMonthSales}" pattern="#,###"/></div></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-dark stretched-link" href="#">View Details</a>
+                                        <a class="small text-dark stretched-link" href="/salesProductList.mdo">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -292,18 +292,18 @@
                                     <div class="card-body-wrapper"><div class="card-body">연 매출</div></div>
                                     <div class="card-body-static">\  <fmt:formatNumber value="${OrderYearSales}" pattern="#,###"/> </div></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-dark stretched-link" href="#">View Details</a>
+                                        <a class="small text-dark stretched-link" href="/salesProductList.mdo">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
-<!--                                 <div class="card bg-danger text-white mb-4"> -->
+<!--                                <div class="card bg-danger text-white mb-4">-->
                                 <div class="card bg-transparent mb-4">
                                     <div class="card_body">
                                     <div class="card-body-wrapper"><div class="card-body">방문자</div></div>
-                                    <div class="visitor_img"><img src="image/visitor.png" width="15px" height="15px"></div>&nbsp;&nbsp;
-                                    <div class="card-body-static">2,358</div></div>
+                                    <div class="visitor_img"><img src="/admin/image/visitor.png" width="15px" height="15px"></div>&nbsp;&nbsp;
+                                    <div class="card-body-static">${VcountInfo}</div></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small  text-dark stretched-link" href="#">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>

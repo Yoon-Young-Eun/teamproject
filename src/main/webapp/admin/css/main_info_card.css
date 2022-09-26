@@ -37,6 +37,16 @@
 	color: #555555;
 	margin-right: 8px;
 }
+.order_info>a {
+	color: black;
+	font-size: 20px;
+	text-decoration: none;
+}
+.order_info>a:hover {
+	color: black;
+	font-size: 20px;
+	text-decoration: underline;
+}
 .order_info_print {
 	width: 3%;
 	font-size: 18px;

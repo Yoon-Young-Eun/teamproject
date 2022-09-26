@@ -50,11 +50,8 @@
 	</div>
 	<div class="main_img">
 	<img src="${event.board_event_filepath}"><br>
-	${filename}<br>
-	<img src="/image/220829_01.jpg"><br>
-	<img src="/image/220829_02.jpg"><br>
-	<img src="/image/220829_03.jpg"><br>
-	<img src="/image/220829_04.jpg"><br>
+	<span class="right">파일명: <span class="mg_left"><a href="${event.board_event_filepath}" target="_blank">${filename}</a></span></span><br>
+	
 	
 	<br><br>
 	<div class="event_btn"><input type="button" id="button2" value="목록" onclick="location.href='/getBoardEventList.do'" class="action-button shadow animate blue" ></div>

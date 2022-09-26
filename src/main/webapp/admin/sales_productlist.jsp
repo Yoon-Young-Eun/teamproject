@@ -383,8 +383,9 @@
 							</form>
 						</div>
 						<div>
-						<select id=AreaChart name="chartDate" onChange="drawChart()">
-							<option value="week">검색</option>
+						&nbsp;&nbsp;&nbsp;
+						<select id=AreaChart name="chartDate" onChange="drawChart()" class="margin_auto" >
+							<option value="week">기간선택</option>
 							<option value="day">일일</option>
 							<option value="week">주간</option>
 							<option value="month">월별</option>

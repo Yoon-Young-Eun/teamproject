@@ -39,22 +39,17 @@
 		
 		<ul class="slidelist">
 			<!-- 슬라이드 영역 -->
+			
+			<c:forEach var="banner" items="${BannerList}">
+			
 			<li class="slideitem">
 				<a>
-					<img src="http://www.clean-aid.co.kr/uploads/banner/20220302670190.jpg">
+					<img src="${banner.banner_filepath}">
 				</a>
 			</li>
-			<li class="slideitem">
-				<a>
-					<img src="http://www.clean-aid.co.kr/uploads/banner/20180403575555.jpg">
-				</a>
-			</li>
-			<li class="slideitem">
-				<a>
-					<img src="http://www.clean-aid.co.kr/uploads/banner/20190131807498.jpg">
-				</a>
-			</li>
-
+			
+			</c:forEach>
+			
 			<!-- 좌,우 슬라이드 버튼 -->
 			<div class="slide-control">
 				<div>
@@ -81,10 +76,6 @@
 	</div>	
 </div>
 
-
-<c:forEach var="banner" items="${BannerList}">
-		<img src="${banner.banner_filepath}" width="340px", height="100px">
-		</c:forEach>
 
 <!-- 이미지 베너 --> 
 <div class = "img-banner"><img src="/views/resources/img/aal banner.png"></div>

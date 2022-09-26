@@ -351,26 +351,29 @@
 
 
 								<ul class="title_wrap">
-
+								
 									<li><span class="title">분류</span> <input
 										class="title_wrap_input" type="text"
 										value="${read.message_type}" readonly /></li>
-									<li><span class="title">제목</span> <input
+									<div class="message_flex">
+									<div><span class="title">제목</span> <input
 										class="title_wrap_input" type="text"
-										value="${read.message_title}" readonly /></li>
-
-
-
+										value="${read.message_title}" readonly /></div>
 									<div>
 										<input style="margin-right: 5px;" type="button" value="전체문자발송"
 											onclick="sendMessage()" />
 									</div>
+									</div>
+
+
+
 
 
 
 								</ul>
 								<div class="writeWrap">
-									<textarea id="content" class="writeArea" readonly>${read.message_content}</textarea>
+									<textarea id="content" class="writeArea"
+										value="${read.message_content}" readonly>${read.message_content}</textarea>
 								</div>
 
 								<div class="end">
@@ -378,7 +381,8 @@
 										<a href="/messageedit.mdo?message_no=${read.message_no}">수정</a>
 									</div>
 									<div class="popup_btn">
-										<a href="/deletemessage.mdo?message_no=${read.message_no}" onclick="return confirm('해당 문자를 삭제하시겠습니까?');">삭제</a>
+										<a href="/deletemessage.mdo?message_no=${read.message_no}"
+											onclick="return confirm('해당 문자를 삭제하시겠습니까?');">삭제</a>
 									</div>
 									<div class="popup_btn">
 										<a href="/supportmessageList.mdo" onclick="self.close();">취소</a>
@@ -406,15 +410,15 @@
 	</div>
 
 	<script type="text/javascript">
-		
-									function sendMessage(){
-										let message = $("#content").val();
-										if(confirm('해당 문자를 모든 회원에게 송부하시겠습까?')){
-											console.log("ddd");
-											location.href="/sendSMSAll.mdo?message_content="+message;	
-									}
-									
-									</script>
+		function sendMessage() {
+			console.log("sendMessage() 실행");
+			let message = $("#content").val();
+			if (confirm('해당 문자를 모든 회원에게 송부하시겠습까?')) {
+				console.log("ddd");
+				location.href = "/sendSMSAll.mdo?message_content=" + message;
+			}
+		}
+	</script>
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

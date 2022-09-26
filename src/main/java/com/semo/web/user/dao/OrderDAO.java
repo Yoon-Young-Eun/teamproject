@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.semo.web.admin.vo.Ad_EstimateVO;
 import com.semo.web.admin.vo.ProductVO;
 import com.semo.web.admin.vo.TermsVO;
 import com.semo.web.user.vo.CouponListVO;
@@ -74,8 +75,8 @@ public class OrderDAO {
 		return sqlSessiontemplate.selectOne("OrderDAOuser.getReadCustomerInfo", vo);
 	}
 	
-	public CustomerVO OrderSpecial1(CustomerVO vo1) {
-		return sqlSessiontemplate.selectOne("OrderDAOuser.OrderSpecial1",vo1);
+	public EstimateVO OrderSpecial1(EstimateVO vo2) {
+		return sqlSessiontemplate.selectOne("OrderDAOuser.OrderSpecial1",vo2);
 	}
 	
 	public void OrderOrder(OrderVO vo) {
@@ -84,5 +85,11 @@ public class OrderDAO {
 	}
 	public void deleteCoupon(CouponListVO cou) {
 		sqlSessiontemplate.delete("OrderDAOuser.deleteCoupon",cou);
+	}
+	public Ad_EstimateVO selectEstimate(Ad_EstimateVO vo4) {
+		return sqlSessiontemplate.selectOne("OrderDAOuser.selectEstimate",vo4);
+	}
+	public Ad_EstimateVO selectEstimate2(Ad_EstimateVO esti) {
+		return sqlSessiontemplate.selectOne("OrderDAOuser.selectEstimate2", esti);
 	}
 }

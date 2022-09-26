@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +17,7 @@ import com.semo.web.admin.service.Ad_OrderService;
 import com.semo.web.admin.service.UtilService;
 import com.semo.web.admin.util.CoolSms;
 import com.semo.web.admin.vo.Ad_EstimateVO;
+import com.semo.web.admin.vo.AdminVO;
 import com.semo.web.admin.vo.Estimate_T_VO;
 import com.semo.web.admin.vo.MessageVO;
 import com.semo.web.admin.vo.PagingVO;
@@ -46,7 +49,16 @@ public class Ad_OrderController {
 	
 		// 주문이력
 		@RequestMapping("/adminOrderList.mdo")
-		public String getOrderList(PagingVO pvo, Model model, MessageVO mvo) {
+		public String getOrderList(PagingVO pvo, Model model, MessageVO mvo, HttpSession session) {
+			
+			//세션 유무확인 
+			AdminVO admin = (AdminVO)session.getAttribute("admin");
+			
+			if(admin == null) {
+					System.out.println("세션 정보가 없습니다.");
+					return "redirect:/admin/login.jsp";
+			}			
+			
 			System.out.println("getOrderList() 실행");
 			
 				model.addAttribute("search",pvo);
@@ -119,7 +131,16 @@ public class Ad_OrderController {
 		
 		   //회원 개인 구매이력
 		   @RequestMapping(value="/memberorderList.mdo", method = RequestMethod.GET)
-			public String getUserOrderList(PagingVO pvo,  Model model, MessageVO mvo) {
+			public String getUserOrderList(PagingVO pvo,  Model model, MessageVO mvo, HttpSession session) {
+			   
+				//세션 유무확인
+				AdminVO admin = (AdminVO)session.getAttribute("admin");
+				
+				if(admin == null) {
+						System.out.println("세션 정보가 없습니다.");
+						return "redirect:/admin/login.jsp";
+				}
+				
 				System.out.println("회원 개인 구매 이력");
 				
 				System.out.println(pvo);
@@ -192,7 +213,16 @@ public class Ad_OrderController {
 		   
 		   
 			@RequestMapping("/Ad_getReadOrderInfo.mdo")
-			public String getAd_ReadOrderInfo(OrderVO vo, Model model, MessageVO mvo) {
+			public String getAd_ReadOrderInfo(OrderVO vo, Model model, MessageVO mvo, HttpSession session) {
+				
+				//세션 유무확인 
+				AdminVO admin = (AdminVO)session.getAttribute("admin");
+				
+				if(admin == null) {
+						System.out.println("세션 정보가 없습니다.");
+						return "redirect:/admin/login.jsp";
+				}
+				
 				System.out.println(vo);
 				
 				OrderVO order = orderserivce.getReadOrderInfo(vo);
@@ -211,7 +241,16 @@ public class Ad_OrderController {
 			
 			//주문 이력 수정 및 Coolsms 보내기
 			@RequestMapping("/Ad_updateOrderInfo.mdo")
-			public String getAd_updateOrderInfo(OrderVO vo, MessageVO mvo) {
+			public String getAd_updateOrderInfo(OrderVO vo, MessageVO mvo, HttpSession session) {
+				
+				//세션 유무확인 
+				AdminVO admin = (AdminVO)session.getAttribute("admin");
+				
+				if(admin == null) {
+						System.out.println("세션 정보가 없습니다.");
+						return "redirect:/admin/login.jsp";
+				}
+				
 				System.out.println("order수정사항"+ vo);				
 				System.out.println("문자 내용"+mvo);
 				 String phone = vo.getOrder_customer_phone(); 
@@ -243,7 +282,17 @@ public class Ad_OrderController {
 	
 	// 견적서
 	@RequestMapping(value = "/getEstimateList.mdo", method = RequestMethod.GET)
-	public String getEstimateList(PagingVO pvo, EstimateVO vo, Model model) {
+	public String getEstimateList(PagingVO pvo, EstimateVO vo, Model model, HttpSession session) {
+		
+		//세션 유무확인
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
+		
 		System.out.println("사용자요청 목록 처리");
 
 		model.addAttribute("search", pvo);
@@ -302,12 +351,21 @@ public class Ad_OrderController {
 	}
 
 	@RequestMapping("/getEstimate.mdo")
-	public String getEstimate(EstimateVO vo, Estimate_ImageVO vo1, Model model) {
+	public String getEstimate(EstimateVO vo, Estimate_ImageVO vo1, Model model, HttpSession session) {
+		
+		//세션 유무확인 HttpSession session
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
+		
 		System.out.println("사용자 요청 상세보기 처리");
 		System.out.println(vo);
 		System.out.println("vo1 " +vo1);
 		System.out.println("전달받은 상태정보"+vo.getEstimate_status());
-		
 	
 		//입력받는 견적 상태가 "견적대기"일 경우, Estimate_cm
 		String status="견적대기";
@@ -341,7 +399,16 @@ public class Ad_OrderController {
 	}
 
 	@RequestMapping(value = "/insertEstimate.mdo", method = RequestMethod.POST)
-	public String insertEstimate(Ad_EstimateVO vo, EstimateVO evo ) {
+	public String insertEstimate(Ad_EstimateVO vo, EstimateVO evo, HttpSession session ) {
+		
+		//세션 유무확인 HttpSession session
+		AdminVO admin = (AdminVO)session.getAttribute("admin");
+		
+		if(admin == null) {
+				System.out.println("세션 정보가 없습니다.");
+				return "redirect:/admin/login.jsp";
+		}
+		
 		System.out.println("insertEstimate메서드");
 		System.out.println(vo);
 

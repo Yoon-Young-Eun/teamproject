@@ -469,7 +469,7 @@
 								class="tblCustomers tblexportData table">
 								<thead>
 									<tr style="background-color: #f2f2f2";>
-										<th>주문일자</th>
+										<th style="width:20%;">주문일자</th>
 										<th>구분</th>
 										<th>매장명</th>
 										<th>지역</th>

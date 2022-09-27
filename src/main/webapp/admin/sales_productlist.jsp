@@ -472,7 +472,7 @@
 						<table id="" class="tblCustomers tblexportData table">
 							<thead>
 								<tr style="background-color: #f2f2f2";>
-									<th>주문일자</th>
+									<th style="width:20%;">주문일자</th>
 									<th>대분류</th>
 									<th>중분류</th>
 									<th>상품명</th>

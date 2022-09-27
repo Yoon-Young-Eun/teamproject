@@ -19,11 +19,11 @@
 				<div class="container-fluid px-4">
 					<h1 class="mt-4">문자등록</h1>
 					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
+						<li class="breadcrumb-item"><a href="/index.mdo">대시보드</a></li>
 						<li class="breadcrumb-item active">문자등록</li>
 					</ol>
 					<div class="card mb-4">
-						<div class="card-body">문자 등록 화면입니다..</div>
+						<div class="card-body">문자 등록 화면입니다.</div>
 					</div>
 					<div class="dd">
 						<!-- <div class="card-header">

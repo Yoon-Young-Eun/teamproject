@@ -31,19 +31,16 @@
 				<div class="container-fluid px-4">
 					<h1 class="mt-4">1:1문의 관리</h1>
 					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
+						<li class="breadcrumb-item"><a href="index.mdo">대시보드</a></li>
 						<li class="breadcrumb-item active">1:1문의 관리</li>
 					</ol>
 					<div class="card mb-4">
 						<div class="card-body">
-							1:1문의 관리 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
-							.
+							1:1문의 관리 페이지 입니다. 
 						</div>
 					</div>
 					<div class="card mb-4">
-						<div class="card-header">
-							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 게시판에 대한 세부제목
-						</div>
+						
 
 						<!--  여기부터 내용물 -->
 

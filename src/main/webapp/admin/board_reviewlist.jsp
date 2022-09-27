@@ -26,21 +26,18 @@
 			<main>
 
 				<div class="container-fluid px-4">
-					<h1 class="mt-4">notice</h1>
+					<h1 class="mt-4">리뷰</h1>
 					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item"><a href="/admin/index.jsp">Dashboard</a></li>
-						<li class="breadcrumb-item active">notice</li>
+						<li class="breadcrumb-item"><a href="index.mdo">대시보드</a></li>
+						<li class="breadcrumb-item active">리뷰</li>
 					</ol>
 					<div class="card mb-4">
 						<div class="card-body">
-							notice 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
-							.
+							리뷰 관리 페이지 입니다. 
 						</div>
 					</div>
 					<div class="card mb-4">
-						<div class="card-header">
-							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 notice에 대한
-							세부제목
+					
 						</div>
 
 						<!--  여기부터 내용물 -->

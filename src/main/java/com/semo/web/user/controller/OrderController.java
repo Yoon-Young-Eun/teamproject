@@ -408,5 +408,16 @@ public class OrderController<imp_uid> {
 		}
 		return "/login.do";
 	}
+	
+	@RequestMapping(value="/startOrder.do")
+	public String startOrder(HttpSession session) {
+		session.getAttribute("id");
+		session.getAttribute("num");
+		if(session.getAttribute("id") == null) {
+			return "/login.do";
+		}
+		
+		return "/pay/payUseText.jsp";
+	}
 
 }

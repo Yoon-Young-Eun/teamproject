@@ -3,10 +3,42 @@
 * {
 	font-family: 'Noto Sans KR', sans-serif;
 }
+html {
+	width: 100%;
+	max-width: 1920px;
+	scroll-behavior: smooth;
+}
+body {
+	zoom: 1;
+	position: relative;
+	z-index: 1;
+	-ms-overflow-y-style: none;
+}
+.whole-wrapper{
+	display: flex;
+	justify-content: center;
+	margin-right : 150px;
+	margin-left : 150px;
+	max-width : 1240px;
+	width : 100%;
+} 
 
 .main {
 	display: flex;
 	justify-content: center;
+}
+
+/*제목*/
+.content-title {
+	line-height: 70px;
+}
+
+/*소제목*/
+.content-subtitle-wrapper {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 2px solid;
+	line-height: 70px;
 }
 
 .space_left, .space_right {
@@ -15,7 +47,7 @@
 
 .wrapper {
 	width: 1040px;
-	padding: 40px;
+	padding: 50px;
 	height: 700px;
 }
 

@@ -49,13 +49,13 @@
 				<input type="hidden" value="${User.customer_passwd }">
 				<input type="hidden" value="${User.customer_no}" name="customer_no">
 				<div class="password" style="display: flex; justify-content: center; width:1000px;">
-				<input type="text" value="비밀번호" readonly style="margin-top:20px; border-style:none;">
-				<input type="password" value="" style="margin-top:20px;" name="customer_passwd" id="pass">
+				<input type="text" value="비밀번호" readonly style="margin-top:20px; border-style:none; height:30px; font-size:20px; width:150px;" id="qq2">
+				<input type="password" value="" style="margin-top:20px; width:200px;" name="customer_passwd" id="pass">
 				</div>
 				<div style="display:flex; width:1000px;justify-content: center;"><span id="pwCorrection"></span></div>
 				<div class="password1" style="display: flex; justify-content: center; width:1000px; margin-top:15px;">
-				<input type="text" value="비밀번호 확인" readonly style="margin-top:20px; border-style:none;">
-				<input type="password"  style="margin-top:20px;" id="repass">
+				<input type="text" value="비밀번호 확인" readonly style="margin-top:20px; border-style:none; height:30px; font-size:20px; width:150px;" id="qq2">
+				<input type="password"  style="margin-top:20px; width:200px;" id="repass">
 				
 				</div>
 				<div style="display:flex; width:1000px;justify-content: center;margin-bottom:10px;"><span id="pwChecking"></span></div>

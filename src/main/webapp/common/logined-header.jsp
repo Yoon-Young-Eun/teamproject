@@ -26,11 +26,11 @@
 
 <header id = "header">
    <div class = "top-menu-wrapper" >
-      <h1><a href = "/index.do?customer_no=${num}&userInfo=${K}">△■</a></h1>
+      <h1><a href = "/index.do">△■</a></h1>
       <form action="/logout.do" name = "logoutForm" method = "post">
       <nav class = "top-menu">
          <ul class = "top-list">
-         	<li><a href = "/views/logined-main.jsp?customer_no=${num}&userInfo=${K}">메인으로</a></li>
+         	<li><a href = "/index.do">메인으로</a></li>
             <li><button id = "logout" class = "logout" type="submit">로그아웃</button></li>
             <li><a href = "/mypage.do?customer_no=${num}">마이페이지</a></li>
             <li><a href = "/service/serviceMain.jsp">고객센터</a></li>
@@ -64,8 +64,8 @@
                <div>
                   <h4>이용방법</h4>
                   <ul>
-                     <li><a href="#">주문방법</a></li>
-                     <li><a href="#">수거방법</a></li>
+                     <li><a href="/views-menu/how_to.jsp#howto">주문방법</a></li>
+                     <li><a href="/views-menu/how_to.jsp#delivery">수거방법</a></li>
                   </ul>
                </div>
             </div><!-- hrsub inner -->
@@ -78,7 +78,7 @@
                <div>
                   <h4>서비스 지역</h4>
                   <ul>
-                     <li><a href="/views/service-location.jsp">서울</a></li>
+                     <li><a href="/views-menu/location.jsp">서울</a></li>
                   </ul>
                </div>
             </div><!-- hrsub inner -->
@@ -138,8 +138,8 @@ var cbpHorizontalMenu = (function() {
         current = -1;
  
     function init() {
-        $menuItems.on( 'click', open );
-        $listItems.on( 'click', function( event ) { event.stopPropagation(); } );
+        $menuItems.on( 'mouseover', open );
+        $listItems.on( 'mouseover', function( event ) { event.stopPropagation(); } );
     }
  
     function open( event ) {

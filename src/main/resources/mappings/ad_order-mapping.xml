@@ -108,14 +108,8 @@
 
    <!-- 주문 상세보기 수정 -->
    <update id="updateOrderInfo" parameterType="order">
-   <![CDATA[ update order_cm set]]>
-   <trim prefixOverrides=",">
-   <if test ="order_store_name != null and order_store_name != ''">
-   order_store_name=#{order_store_name} </if>
-   <if test ="order_status != null and order_status != ''">
-    , order_status=#{order_status} </if>
-     where order_no=#{order_no}
-     </trim>
+   <![CDATA[update order_cm set order_store_name=#{order_store_name}, order_status=#{order_status} where order_no=#{order_no}]]>
+ 
    </update>
    
     <!-- message 에서 title가져오기 -->

@@ -173,4 +173,6 @@ font-family: 'Noto Sans KR', sans-serif;
 }
  */
 
-
+#qq2:focus{
+	outline:none;
+}

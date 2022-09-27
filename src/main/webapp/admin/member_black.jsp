@@ -31,19 +31,16 @@
 				<div class="container-fluid px-4">
 					<h1 class="mt-4">정지회원</h1>
 					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item"><a href="/admin/index.jsp">Dashboard</a></li>
+						<li class="breadcrumb-item"><a href="index.mdo">대시보드</a></li>
 						<li class="breadcrumb-item active">정지회원</li>
 					</ol>
 					<div class="card mb-4">
 						<div class="card-body">
-							정지회원 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
-							.
+							정지회원 페이지 입니다. 
 						</div>
 					</div>
 					<div class="card mb-4">
-						<div class="card-header">
-							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 정지회원에 대한 세부제목
-						</div>
+						
 
 						<!--  여기부터 내용물 -->
 
@@ -141,9 +138,9 @@
 											onclick="location.href='/getBlackMemberBoard.mdo?customer_no=${black.customer_no}&customer_status=${black.customer_status}'">
 											<td id="check_td"><input type="checkbox"
 												class="checkone" name="check"></td>
-											<td>${black.customer_no}</td>
+											<td class="center">${black.customer_no}</td>
 											<!--for문의 id값.컬럼명으로 값을 불러옴 -->
-											<td>${black.customer_id}</td>
+											<td class="center">${black.customer_id}</td>
 											<td class="center">${black.customer_name}</td>
 											<td class="center">${black.customer_phone}</td>
 											<td class="center">${black.customer_address1}</td>
@@ -188,8 +185,7 @@
 
 
 						<!-- 내용물 end -->
-						<div class="card-footer small text-muted">Updated yesterday
-							at 11:59 PM</div>
+			
 					</div>
 
 				</div>

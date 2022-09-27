@@ -31,19 +31,16 @@
 				<div class="container-fluid px-4">
 					<h1 class="mt-4">매니저관리</h1>
 					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item"><a href="/admin/index.jsp">Dashboard</a></li>
+						<li class="breadcrumb-item"><a href="/index.mdo">대시보드</a></li>
 						<li class="breadcrumb-item active">매니저관리</li>
 					</ol>
 					<div class="card mb-4">
 						<div class="card-body">
-							매니저관리 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
-							.
+							매니저관리 페이지 입니다. 
 						</div>
 					</div>
-					<div class="card mb-4">
-						<div class="card-header" style= "width:100%;>
-							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 매니저에 대한 세부제목
-						</div>
+					<div class="card mb-4" style="width:100%;">
+						
 
 						<!--  여기부터 내용물 -->
 
@@ -111,11 +108,11 @@
 								<tr style="background-color: #f2f2f2";>
 									<th width="50" id="check_td"><input type="checkbox"
 										name="check" class="allcheck"></th>
-									<th >No</th>
-									<th >아이디</th>
-									<th >부서</th>
-									<th >직급</th>
-									<th >이름</th>
+									<th style="width:10%;">No</th>
+									<th style="width:30%;">아이디</th>
+									<th style="width:20%;">부서</th>
+									<th style="width:20%;">직급</th>
+									<th style="width:20%;">이름</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -123,9 +120,9 @@
 								    <tr class="colored" onclick="location.href='readStaff.mdo?admin_no=${admin.admin_no}'">
 										<td id="check_td"><input type="checkbox" class ="checkone" name="check"></td>
 										<td class="center">${admin.admin_no}</td>  <!--for문의 id값.컬럼명으로 값을 불러옴 -->
-										<td>${admin.admin_id}</a></td>
-										<td>${admin.admin_position}</td>
-										<td>${admin.admin_title}</td>
+										<td class="center">${admin.admin_id}</a></td>
+										<td class="center">${admin.admin_position}</td>
+										<td class="center">${admin.admin_title}</td>
 										<td class="center">${admin.admin_name}</td>
 									</tr>
 								</c:forEach>

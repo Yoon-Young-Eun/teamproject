@@ -78,6 +78,7 @@
 	</div><!-- content-title-wrapper -->
 </div><!-- content-wrapper -->	
 
+<jsp:include page="/common/footer.jsp"/> 
 
 </body>
 </html>

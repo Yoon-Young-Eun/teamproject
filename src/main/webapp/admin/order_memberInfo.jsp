@@ -21,7 +21,7 @@ request.setCharacterEncoding("utf-8");
 				<div class="container-fluid px-4">
 					<h1 class="mt-4">주문상세정보</h1>
 					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item"><a href="/admin/index.jsp">Dashboard</a></li>
+						<li class="breadcrumb-item"><a href="/index.mdo">대시보드</a></li>
 						<li class="breadcrumb-item active">주문상세정보</li>
 					</ol>
 					<div class="card mb-4">
@@ -89,7 +89,7 @@ request.setCharacterEncoding("utf-8");
 									<div class="member_state">
 										주문상태(${order.order_status}) : 
 										<select name="message_content">${order.order_status}
-										<option value="">상태수정</option>
+										<option value="${order.order_status}">상태수정</option>
 											<c:forEach var="message" items="${message}">
 												<option value="${message.message_content}">${message.message_title}</option>
 											</c:forEach>
@@ -98,7 +98,7 @@ request.setCharacterEncoding("utf-8");
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									<div class="member_state">
 										담당지점(${order.order_store_name}) : <select name="order_store_name">
-											<option value="">지점변경</option>
+											<option value="${order.order_store_name}">지점변경</option>
 											<c:forEach var="store" items="${storeList}">
 												<option value="${store.store_name}">${store.store_name}</option>
 											</c:forEach>

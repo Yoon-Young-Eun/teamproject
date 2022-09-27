@@ -42,6 +42,28 @@
  		select * from board_qna_cm where board_qna_no=#{board_qna_no}
  	</select>
  	
+ 	<select id="askdetail2" resultType = "QnA">
+ 		<![CDATA[  select
+               a.admin_qna_title,
+               a.admin_qna_content,
+               a.admin_qna_reg_date,
+               c.board_qna_status,
+               c.board_qna_no,
+               c.board_qna_type,
+               c.board_qna_title,
+               c.board_qna_content,
+               c.board_qna_filepath,
+               c.board_qna_reg_date,
+               c.customer_no
+            from
+               board_qna_admin as a,
+               board_qna_cm as c
+            where
+               c.board_qna_no=#{board_qna_no}
+            and
+               a.board_qna_no=#{board_qna_no}    ]]>
+ 	</select>
+ 	
  	<insert id="insertask" parameterType="QnA">
  		insert into board_qna_cm (board_qna_no, board_qna_type, board_qna_title, board_qna_content, customer_no,board_qna_filepath)
  		values (#{board_qna_no}, #{board_qna_type}, #{board_qna_title}, #{board_qna_content}, #{customer_no},#{board_qna_filepath})
@@ -95,30 +117,15 @@
  	
  	<!-- 유저 견적서 리스트 -->
  	<select id="getmyEstimate" parameterType="paging" resultType="estimate">
- 		<![CDATA[ select * from (select @rownum := @rownum+1 as rnum, customer_no, estimate_cm_no, estimate_type, estimate_date estimate_content, estimate_status from estimate_cm, (select @rownum :=0)as rowcolum]]>
- 		   <trim prefix="where">
-			<if test="searchCondition=='estimate_cm_no'">
-    		<![CDATA[estimate_cm_no like concat('%', #{searchKeyword}, '%') ]]></if>
-    		<if test="searchCondition=='estimate_content'">
-    		<![CDATA[estimate_content like concat('%', #{searchKeyword}, '%') ]]></if>
-    		</trim>
-    	<![CDATA[order by estimate_cm_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} and customer_no = #{customer_no} ]]>
+ 		<![CDATA[ select * from (select @rownum := @rownum+1 as rnum, customer_no, estimate_cm_no, estimate_type, estimate_date estimate_content, estimate_status from estimate_cm, (select @rownum :=0)as rowcolum order by estimate_cm_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} and customer_no = #{customer_no} ]]>
  	</select>
  	
  	
  	<!-- 유저 견적서 리스트 카운트 -->
  	<select id="getListCount" parameterType="paging" resultType="int">
-		<![CDATA[ select count(*) from estimate_cm  ]]>
-		<trim prefix="where" prefixOverrides="and | or">
-		<if test="searchCondition=='estimate_cm_no'">
-     	<![CDATA[estimate_cm_no like concat('%', #{searchKeyword}, '%') and]]></if> 
-     	 <if test="searchCondition=='estimate_content'">
-    	<![CDATA[estimate_content like concat('%', #{searchKeyword}, '%') and]]></if>
-    	 <if test="customer_no != 0">
-    	  <![CDATA[customer_no = #{customer_no}]]></if>
-    	</trim>
+		<![CDATA[select count(*) from estimate_cm where customer_no=#{customer_no} and estimate_cm_no=#{estimate_cm_no}]]>
  	</select>
-
+	
 
 	<!-- 마이 리뷰보기 -->
 	

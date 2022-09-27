@@ -5,10 +5,19 @@ body {
 	
 }
 html{
-	font-family: 'Noto Sans KR', sans-serif;
+	width:100%;
+	max-width : 1920px;
+	scroll-behavior:smooth;
 }
+
+.wrap1{
+	display: flex;
+	justify-content: center;
+}
+
 .main{
 	display: flex;
+	width: 1440px;
 }
 .space_left{
 	margin-top: 57px;
@@ -69,14 +78,12 @@ tbody{
 }
 
 .main_text3{
+	height:250px;
 	width:100%;
 	border-top: 2px solid rgb(128,128,128,0.5);
 	border-bottom: 1px solid rgb(128,128,128,0.5);
 }
 
-.main_text3 thead{
-	border-bottom: 2px solid black;
-}
 
 .main_textNumber{
    width: 25%;
@@ -166,7 +173,45 @@ tbody{
 	width: 7%;
 }
 
-.con >con{
+/* .con >con{ */
+/* 	display: flex; */
+/* 	justify-content: center; */
+/* } */
+
+.paging-wrapper {
 	display: flex;
 	justify-content: center;
+	margin-top: 20px;
+}
+
+.paging {
+	margin: auto;
+	display: flex;
+}
+
+.paging .paging-text {
+	width: 50px;
+	text-align: center;
+}
+
+.paging .paging-num {
+	display: flex;
+}
+
+.paging-wrapper a {
+	width: 50px;
+	text-align: center;
+}
+
+.paging-wrapper a:hover {
+	color: #63afe4;
+}
+
+.paging-wrapper a:active {
+	color: #63afe4;
+}
+
+.notice_title:hover{
+	color: #63afe4;
+	cursor: pointer;
 }

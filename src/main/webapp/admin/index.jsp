@@ -303,7 +303,7 @@
                                     <div class="card_body">
                                     <div class="card-body-wrapper"><div class="card-body">방문자</div></div>
                                     <div class="visitor_img"><img src="image/visitor.png" width="15px" height="15px"></div>&nbsp;&nbsp;
-                                    <div class="card-body-static">2,358</div></div>
+                                    <div class="card-body-static">${getVisitor }</div></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small  text-dark stretched-link" href="#">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>

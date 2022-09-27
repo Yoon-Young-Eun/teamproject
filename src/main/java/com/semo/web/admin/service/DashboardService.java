@@ -1,5 +1,6 @@
 package com.semo.web.admin.service;
 
+import com.semo.web.admin.vo.VisitorVO;
 import com.semo.web.user.vo.Cm_QnAVO;
 import com.semo.web.user.vo.EstimateVO;
 import com.semo.web.user.vo.OrderVO;
@@ -15,4 +16,6 @@ public interface DashboardService {
 	public int getTodaySales(OrderVO vo);
 	public int getMonthSales(OrderVO vo);
 	public int getYearSales(OrderVO vo);
+	
+	public int getVisitor(VisitorVO vo);
 }

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.semo.web.admin.dao.DashboardDAO;
+import com.semo.web.admin.vo.VisitorVO;
 import com.semo.web.user.vo.Cm_QnAVO;
 import com.semo.web.user.vo.EstimateVO;
 import com.semo.web.user.vo.OrderVO;
@@ -64,6 +65,13 @@ public class DashboardServiceImpl implements DashboardService {
 	@Override
 	public int getYearSales(OrderVO vo) {
 		return DashboardDAO.getYearSales(vo);
+	}
+
+	
+	//일방문자
+	@Override
+	public int getVisitor(VisitorVO vo) {
+		return DashboardDAO.getVisitor(vo);
 	}
 
 }

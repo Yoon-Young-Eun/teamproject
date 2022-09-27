@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.semo.web.admin.service.DashboardService;
 import com.semo.web.admin.vo.AdminVO;
+import com.semo.web.admin.vo.VisitorVO;
 import com.semo.web.user.vo.Cm_QnAVO;
 import com.semo.web.user.vo.EstimateVO;
 import com.semo.web.user.vo.OrderVO;
@@ -20,7 +21,7 @@ public class Ad_DashboardController {
 	DashboardService DashboardService;
 	
 	@RequestMapping("/index.mdo")
-	public String getOrderStatus(Model model, OrderVO vo, EstimateVO evo, Cm_QnAVO cvo, HttpSession session) {	
+	public String getOrderStatus(Model model, OrderVO vo, EstimateVO evo, Cm_QnAVO cvo, VisitorVO vvo,HttpSession session) {	
 		
 		//세션 유무확인 HttpSession session
 		AdminVO admin = (AdminVO)session.getAttribute("admin");
@@ -69,6 +70,10 @@ public class Ad_DashboardController {
 		model.addAttribute("OrderYearSales", DashboardService.getYearSales(vo));
 		System.out.println(DashboardService.getYearSales(vo));
 		
+		
+		//일방문자
+		System.out.println("일방문자수"+DashboardService.getVisitor(vvo));
+		model.addAttribute("getVisitor",DashboardService.getVisitor(vvo));
 		return "/admin/index.jsp";
 	}
 	

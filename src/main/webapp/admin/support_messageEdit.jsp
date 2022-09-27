@@ -99,10 +99,10 @@
 
 								<div class="end">
 									<div class="popup_btn">
-										<input type="submit" value="저장">
+										<input type="submit" value="저장" id="aa">
 									</div>
 									<div class="popup_btn">
-										<a href="/supportmessageList.mdo" onclick="self.close();">취소</a>
+										<input type="button" onclick="location.href='/supportmessageList.mdo'" id="aa" value="취소">
 									</div>
 								</div>
 

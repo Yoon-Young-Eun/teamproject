@@ -150,19 +150,19 @@
 									</div>
 									<div class="top3">
 										<input type="button" id="toggle3" onclick="openCloseToc3()"
-											value="외투" name="product_category_parent"
+											value="아우터" name="product_category_parent"
 											class="action-button shadow animate blue"
 											style="width: 154px; height: 50px; font-weight: normal; margin-top: 8px;">
 									</div>
 									<div class="top4">
 										<input type="button" id="toggle4" onclick="openCloseToc4()"
-											value="기타" name="product_category_parent"
+											value="악세서리" name="product_category_parent"
 											class="action-button shadow animate blue"
 											style="width: 154px; height: 50px; font-weight: normal; margin-top: 8px;">
 									</div>
 									<div class="top5">
 										<input type="button" id="toggle5" onclick="openCloseToc5()"
-											value="침구류" name="product_category_parent"
+											value="이불" name="product_category_parent"
 											class="action-button shadow animate blue"
 											style="width: 154px; height: 50px; font-weight: normal; margin-top: 8px;">
 									</div>

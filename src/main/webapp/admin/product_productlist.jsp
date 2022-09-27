@@ -63,7 +63,7 @@
 								<tr style="background-color: #f2f2f2";>
 									<th width="50" id="check_td"><input type="checkbox"
 										name="check" class="allcheck"></th>
-									<th>상품번호</th>
+									<th style="width:10%;">상품번호</th>
 									<th>대분류</th>
 									<th>소분류</th>
 									<th>상품명</th>
@@ -85,7 +85,7 @@
 										<td class="center">${product.product_category_parent}</td>
 										<td class="center">${product.product_category_median}</td>
 										<td class="center">${product.product_name}</td>
-										<td>${product.product_detail}</td>
+										<td class="center">${product.product_detail}</td>
 										<td class="center">${product.product_reg_date}</td>
 										<td class="center">${product.product_price}</td>
 									</tr>

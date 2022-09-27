@@ -163,11 +163,11 @@
 								<thead>
 									<tr style="background-color: #f2f2f2";>
 										<th style="width:10%;">주문일자</th>
-										<th style="width:20%;">구분</th>
-										<th style="width:20%;">매장명</th>
-										<th>지역</th>
-										<th style="width:20%;">결제방식</th>
-										<th style="width:20%;">결제금액</th>
+										<th style="width:15%;">구분</th>
+										<th style="width:15%;">매장명</th>
+										<th style="width:20%;">지역</th>
+										<th style="width:15%;">결제방식</th>
+										<th style="width:15%;">결제금액</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -225,7 +225,7 @@
 						<!-- 내용물 end -->
 
 					</div>
-
+</div>
 				</div>
 			</main>
 

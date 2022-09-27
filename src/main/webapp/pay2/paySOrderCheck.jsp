@@ -12,7 +12,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <title>[세모]세탁의 모든것</title>
+<<<<<<< HEAD
+=======
 
+>>>>>>> main
 <!-- jQuery -->
 	<script type="text/javascript"
 		src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -20,7 +23,10 @@
 	<!-- iamport.payment.js -->
 	<script type="text/javascript"
 		src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
+<<<<<<< HEAD
+=======
 		
+>>>>>>> main
 </head>
 <body>
 
@@ -116,7 +122,7 @@
   
       </div>
      
-      <input type="hidden" value="${OrderData.customer_no}"	name="customer_no"> 
+      <input type="hidden" value="${OrderData.customer_no}"	id="customer_no" name="customer_no"> 
 	  <input type="hidden"value="${OrderData.order_address1 }" name="order_address1">
 	  <input type="hidden" value="${OrderData.order_address2}" name="order_address2"> 
 	  <input type="hidden"value="${OrderData.order_customer_name}" name="order_customer_name"> 
@@ -298,7 +304,7 @@
 				    			msg += '\n결제 금액 : ' + rsp.paid_amount;
 				    			msg += '\n카드 승인번호 : ' + rsp.apply_num;
 								    alert(msg);
-// 								    order();  
+ 								    order();  
 		    	          }
 		    	      })
 	
@@ -333,24 +339,6 @@
       
       
       
-      
-      <script>
-        document.getElementById("but1").addEventListener("click",function order(){
-          var money1 = document.getElementById("q2").innerText;
-          var abc = /[^0-9]/g;
-          var totalpay = Number(money1.replace(abc,""));
-          var totalpay2 = Number(money1);
-			console.log(totalpay2);
-          if(totalpay2 < 15000){
-         	alert("최소주문금액은 15000원 입니다.");
-          }else{
-        	  document.getElementById("form1").submit();
-          }
-
-        })
-
-        
-      </script>
 <script>
 $("#q1").on("DOMSubtreeModified",function(){
 	   console.log("q1");

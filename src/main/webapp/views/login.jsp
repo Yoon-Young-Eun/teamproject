@@ -57,7 +57,7 @@
 						</div>
 						<div class="login-btn-wrap">
 							<button id="login-btn" class="login-btn">로그인</button>
-							<span>아직 회원이 아니십니까?&nbsp;&nbsp;<a href="terms.jsp">회원가입</a></span>
+							<span>아직 회원이 아니십니까?&nbsp;&nbsp;<a href="/getTerms.do">회원가입</a></span>
 							<span>비밀번호를 잊으셨나요? <a href="/views/IdpwSearch.jsp">&nbsp;&nbsp;비밀번호찾기</a></span>
 						</div>
 						

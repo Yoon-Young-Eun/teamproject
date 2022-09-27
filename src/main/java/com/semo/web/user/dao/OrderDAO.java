@@ -92,4 +92,8 @@ public class OrderDAO {
 	public Ad_EstimateVO selectEstimate2(Ad_EstimateVO esti) {
 		return sqlSessiontemplate.selectOne("OrderDAOuser.selectEstimate2", esti);
 	}
+	
+	public void updateEst(EstimateVO evo) {
+		sqlSessiontemplate.selectOne("OrderDAOuser.updateEst", evo);
+	}
 }

@@ -59,6 +59,7 @@ public class DashboardDAO {
 	public int getYearSales(OrderVO vo) {
 		return sql.selectOne("DashboardDAO.getYearSales", vo);
 	}
+
 	
 	// 방문자수 카운트
 	public int getVcount(CustomerVO vo) {

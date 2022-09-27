@@ -384,13 +384,15 @@ public class OrderController<imp_uid> {
 	}
 
 	@RequestMapping(value = "/OrderOrder.do")
-	public String OrderOrder(OrderVO vo, Model model, HttpSession session) {
+	public String OrderOrder(OrderVO vo, EstimateVO evo,Model model, HttpSession session) {
 		session.getAttribute("id");
 		if (session.getAttribute("id") != null) {
 			System.out.println(vo);
 			orderservice.OrderOrder(vo);
 			model.addAttribute("OrderDate", vo);
 			System.out.println(vo);
+			orderservice.updateEst(evo);
+			System.out.println("esti_vo?"+evo);
 
 			return "/pay2/paySSpecialComplete.jsp";
 		}

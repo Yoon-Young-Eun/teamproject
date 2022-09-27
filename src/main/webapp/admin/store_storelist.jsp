@@ -63,11 +63,10 @@
 								<tr style="background-color: #f2f2f2";>
 									<th width="50" id="check_td"><input type="checkbox"
 										name="check" class="allcheck"></th>
-									<th>매장코드</th>
+									<th style="width:10%;">매장코드</th>
 									<th>매장명</th>
 									<th>매장종류</th>
 									<th>주소</th>
-									<th>상세주소</th>
 									<th>전화번호</th>
 									<th>상태</th>
 								</tr>
@@ -84,7 +83,6 @@
 										<td class="center">${store.store_name}</td>
 										<td class="center">${store.store_type}</td>
 										<td class="center">${store.store_address1}</td>
-										<td>${store.store_address2}</td>
 										<td class="center">${store.store_phone}</td>
 										<td class="center">${store.store_status}</td>
 									</tr>

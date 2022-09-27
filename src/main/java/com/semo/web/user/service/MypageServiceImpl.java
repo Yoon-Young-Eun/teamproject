@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.semo.web.admin.vo.Ad_EstimateVO;
+import com.semo.web.admin.vo.Ad_QnAVO;
 import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.ReviewVO;
 import com.semo.web.admin.vo.StoreVO;
@@ -93,6 +94,12 @@ public class MypageServiceImpl implements MypageService{
 		return dao.askdetail(qna);
 	}
 	
+	//문의글 답변
+	@Override
+	public Cm_QnAVO askdetail2(Cm_QnAVO qna) {
+		return dao.askdetail2(qna);
+	}
+	
 	// MyAsk : 문의글 작성 > MyAsklist : 목록으로 보내기
 	@Override
 	public Cm_QnAVO insertask(Cm_QnAVO qna) {
@@ -104,6 +111,7 @@ public class MypageServiceImpl implements MypageService{
 	public Cm_QnAVO editask(Cm_QnAVO qna) {
 		return dao.editask(qna);
 	}
+
 	
 	// mypage order paging
 	@Override
@@ -213,11 +221,6 @@ public class MypageServiceImpl implements MypageService{
 		dao.deleteQnA(vo);
 		
 	}
-
-	
-
-
-
 	
 
 }

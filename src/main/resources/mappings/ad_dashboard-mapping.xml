@@ -4,40 +4,54 @@
 
 <mapper namespace="DashboardDAO">
 
+<!-- 대시보드 수거예정 -->
 <select id="getOrderStatus" parameterType="order" resultType="int">
    select count(*) from order_cm where order_status='수거대기';
 </select>
 
+<!-- 대시보드 배달예정(세탁중) -->
 <select id="getOrderStatusIng" parameterType="order" resultType="int">
    select count(*) from order_cm where order_status='세탁중';
 </select>
 
+<!-- 대시보드 완료된주문 -->
 <select id="getOrderStatusEnd" parameterType="order" resultType="int">
    select count(*) from order_cm where order_status='배송완료';
 </select>
 
+<!-- 대시보드 주문취소 -->
 <select id="getOrderStatusCC" parameterType="order" resultType="int">
    select count(*) from order_cm where order_status='주문취소';
 </select>
 
+<!-- 대시보드 견적요청 -->
 <select id="getEstimateStatus" parameterType="estimate" resultType="int">
    select count(*) from estimate_cm where estimate_status='견적대기';
 </select>
 
+<!-- 대시보드 문의답변 -->
 <select id="getQnAStatus" parameterType="QnA" resultType="int">
    select count(*) from board_qna_cm where board_qna_status=0;
 </select>
 
+<!-- 일매출 -->
 <select id="getTodaySales" parameterType="order" resultType="int">
    select sum(order_price) from order_cm where order_date BETWEEN DATE_ADD(NOW(),INTERVAL -1 DAY ) AND NOW();
 </select>
 
+<!-- 월매출 -->
 <select id="getMonthSales" parameterType="order" resultType="int">
    select sum(order_price) from order_cm where order_date BETWEEN DATE_ADD(NOW(),INTERVAL -1 MONTH ) AND NOW();
 </select>
 
+<!-- 연매출 -->
 <select id="getYearSales" parameterType="order" resultType="int">
    select sum(order_price) from order_cm where order_date BETWEEN DATE_ADD(NOW(),INTERVAL -1 YEAR ) AND NOW();
+</select>
+
+<!-- 방문자수 카운트 -->
+<select id="getVcount" parameterType="customer" resultType="int">
+ 	select count(*) from customer where vcount=1;
 </select>
 
 </mapper>

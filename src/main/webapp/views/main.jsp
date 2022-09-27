@@ -30,7 +30,7 @@
 <div id = "header">
 </div>
 
-<!-- 베너 -->
+<!-- 배너 -->
 <div class="section">
 	<input type="radio" name="slide" id="slide01" checked>
 	<input type="radio" name="slide" id="slide02">
@@ -46,16 +46,13 @@
 			<li><label for="slide03"></label></li>
 		</ul>
 		
-			<!-- 슬라이드 영역 -->
-			
+			<!-- 배너 슬라이드 영역 -->
 			<c:forEach var="banner" items="${BannerList}">
-			
 			<li class="slideitem">
-				<a href="getBoardEvent.do?board_event_no=${event.board_event_no}">
+				<a href="getBoardEvent.do?board_event_no=${banner.board_event_no}">
 					<img src="${banner.banner_filepath}">
 				</a>
 			</li>
-			
 			</c:forEach>
 			
 			<!-- 좌,우 슬라이드 버튼 -->
@@ -73,9 +70,7 @@
 					<label for="slide01" class="right"><i class="fas fa-angle-right"></i></label>
 				</div>
 			</div>
-
 		</ul>
-		
 	</div>	
 </div>
 
@@ -104,36 +99,36 @@
 	<div class="rbd-review-slider" style = "padding : 50px;">
 	<h2 style = "text-align:center; line-height:60px; padding : 20px; color:black;">후★기</h2>
 		<div class="rbd-review-container">
-			<div class="rbd-review review1.1 rbd-curr">
-				<h3 class="rbd-heading">이 집 세탁 잘하네</h3>
+		<c:forEach var="review" items="${ReviewList}">
+			<div class="rbd-review review1.${review.board_review_no } rbd-curr">
+				<h3 class="rbd-heading">${review.board_review_title}</h3>
 				<div class ="wrap-star">
-					<span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+					<c:choose>
+							<c:when test="${review.board_review_rating eq 5}">
+							<span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+							    </c:when>
+							<c:when test="${review.board_review_rating eq 4}">
+							<span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+							    </c:when>
+							<c:when test="${review.board_review_rating eq 3}">
+							<span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+							    </c:when>
+							<c:when test="${review.board_review_rating eq 2}">
+							<span><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+							    </c:when>
+							<c:otherwise>
+							<span><i class="fas fa-star"></i></span>
+								</c:otherwise>
+						</c:choose>
 				</div>
-				<div class="rbd-content">돈세탁도 해주나요?</div>
+				<div class="rbd-content">${review.board_review_content}</div>
 				<div class="rbd-footing">
 				</div>
-				<div class="rbd-review-meta">2022.08.29</div>
+				<div class="rbd-review-meta">${review.board_review_reg_date}</div>
 			</div>
-			<div class="rbd-review review1.2 rbd-next">
-				<h3 class="rbd-heading">바지 세탁 맡겼는데 앞구르기 하다가 찢어졌어요</h3>
-				<div class ="wrap-star">
-					<span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>
-				</div>
-				<div class="rbd-content">내 바지 돌려줘요</div>
-				<div class="rbd-footing">
-				</div>
-				<div class="rbd-review-meta">2022.06.30</div>
-			</div>
-			<div class="rbd-review review1.3">
-				<h3 class="rbd-heading">왜 세탁소 연결을 대전에다 해주세요</h3>
-				<div class ="wrap-star">
-					<span><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span>
-				</div>
-				<div class="rbd-content">난 서울 사는디</div>
-				<div class="rbd-footing">
-				</div>
-				<div class="rbd-review-meta">2022.10.11</div>
-			</div>
+		</c:forEach>
+		
+
 		</div>
 	</div>
 </div>

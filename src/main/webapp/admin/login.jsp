@@ -1,20 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport"
-	content="width=dev
-        ice-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content="" />
-<meta name="author" content="" />
-<title>Login - SB Admin</title>
-<link href="/admin/css/styles.css" rel="stylesheet" />
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%@ include file="/admin/ad_header.jsp"%>
+
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
-	crossorigin="anonymous"></script>
+
 </head>
 <body class="bg-primary">
 	<div id="layoutAuthentication">
@@ -61,18 +52,9 @@
 			</main>
 		</div>
 		<div id="layoutAuthentication_footer">
-			<footer class="py-4 bg-light mt-auto">
-				<div class="container-fluid px-4">
-					<div
-						class="d-flex align-items-center justify-content-between small">
-						<div class="text-muted">Copyright &copy; Your Website 2022</div>
-						<div>
-							<a href="#">Privacy Policy</a> &middot; <a href="#">Terms
-								&amp; Conditions</a>
-						</div>
-					</div>
-				</div>
-			</footer>
+		
+<%@ include file="/admin/ad_footer.jsp"%>
+
 		</div>
 	</div>
 	<script>

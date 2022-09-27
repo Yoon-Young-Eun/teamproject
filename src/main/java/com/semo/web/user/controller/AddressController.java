@@ -42,7 +42,7 @@ public class AddressController {
 			addressservice.setAddress(vo);
 			return "/getAddressList.do";
 		}
-		return "/views/login.jsp";
+		return "/login.do";
 	}
 
 
@@ -62,7 +62,7 @@ public class AddressController {
 			System.out.println(AddressList);
 			return "/pay/payAddressList.jsp";
 		}
-		return "/views/login.jsp";
+		return "/login.do";
 	}
 
 	@RequestMapping(value = "/getAddressList1.do", method = RequestMethod.GET)
@@ -77,7 +77,7 @@ public class AddressController {
 			return "/pay/payAddAddress.jsp";
 			/* return "redirect:getAddressList.do?customer_no="+vo.getCustomer_no(); */
 		}
-		return "/views/login.jsp";
+		return "/login.do";
 	}
 
 	@RequestMapping(value = "/deleteAddressList.do", method = RequestMethod.GET)
@@ -92,7 +92,7 @@ public class AddressController {
 			System.out.println(vo);
 			return "/getAddressList.do";	
 		}
-		return "/views/login.jsp";
+		return "/login.do";
 	}
 
 	@RequestMapping(value = "/updateAddressList.do", method = RequestMethod.GET)
@@ -104,7 +104,7 @@ public class AddressController {
 			addressservice.updateAddressList(vo);
 			return "/getAddressList.do";
 		}
-		return "/views/login.jsp";
+		return "/login.do";
 	}
 
 	@RequestMapping(value = "/sendAddressList.do", method = RequestMethod.GET)
@@ -119,7 +119,7 @@ public class AddressController {
 			model.addAttribute("vo", vo);
 			return "/pay/payaddressupdate.jsp";
 		}
-		return "/views/login.jsp";
+		return "/login.do";
 	}
 	
 	/*
@@ -144,7 +144,7 @@ public class AddressController {
 			return "/pay/payAddress.jsp";	
 		}
 
-		return "/views/login.jsp";
+		return "/login.do";
 	}
 	
 	@RequestMapping(value="/updateCustomerAddress.do",method = RequestMethod.GET)
@@ -159,7 +159,7 @@ public class AddressController {
 			addressservice.updateCustomerAddress(vo);
 			return "/getAddressList.do";	
 		}
-		return "/views/login.jsp";
+		return "/login.do";
 	}
 
 	
@@ -258,7 +258,7 @@ public class AddressController {
 				System.out.println(addressservice.sendCustomer(vo));
 				return "/views/myAddress.jsp";
 			}
-			return "/views/login.jsp";
+			return "/login.do";
 		}
 		
 		
@@ -283,7 +283,7 @@ public class AddressController {
 				vo.setCustomer_id((String)session.getAttribute("id"));
 				return "/views/myAddressList.jsp";
 			}
-				return "/views/login.jsp";
+				return "/login.do";
 		}
 		
 		
@@ -300,7 +300,7 @@ public class AddressController {
 				addressservice.updateCustomerAddress(vo);
 				return "/getmyAddressList.do";	
 			}
-			return "/views/login.jsp";
+			return "/login.do";
 		}
 		//주소록에 등록된 주소 수정페이지로 이동
 		@RequestMapping(value = "/sendmyAddressList.do", method = RequestMethod.GET)
@@ -315,7 +315,7 @@ public class AddressController {
 				model.addAttribute("vo", vo);
 				return "/views/myAddressUpdate.jsp";	
 			}
-			return "/views/login.jsp";
+			return "/login.do";
 		}
 		//수정완료시 주소록리스트 띄우기
 		@RequestMapping(value = "/updatemyAddressList.do", method = RequestMethod.GET)
@@ -327,7 +327,7 @@ public class AddressController {
 				addressservice.updateAddressList(vo);
 				return "/getmyAddressList.do";
 			}
-			return "/views/login.jsp";
+			return "/login.do";
 		}
 		
 		//등록된 주소지 삭제
@@ -343,7 +343,7 @@ public class AddressController {
 				System.out.println(vo);
 				return "/getmyAddressList.do";
 			}
-			return "/views/login.jsp";
+			return "/login.do";
 		}
 		//@주소지 추가
 		@RequestMapping(value = "/setmyAddress.do", method = RequestMethod.GET)
@@ -355,7 +355,7 @@ public class AddressController {
 				addressservice.setAddress(vo);
 				return "/getmyAddressList.do";
 			}
-			return "/views/login.jsp";
+			return "/login.do";
 
 		}
 		//배송지추가 입력창으로 이동
@@ -371,6 +371,6 @@ public class AddressController {
 				return "/views/myAddressSet.jsp";
 				/* return "redirect:getAddressList.do?customer_no="+vo.getCustomer_no(); */
 			}
-			return "/views/login.jsp";
+			return "/login.do";
 		}
 }

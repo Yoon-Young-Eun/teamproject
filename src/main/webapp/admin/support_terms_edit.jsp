@@ -97,11 +97,11 @@
 <!-- 								</div> -->
 								<div class="end">
 									<div class="popup_btn">
-										<input type="submit" value="저장">
+										<input type="submit" value="저장" id="aa">
 									</div>
 
 									<div class="popup_btn">
-										<a href="/TermsList.mdo">취소</a>
+										<input type="button" onclick="location.href='/TermsList.mdo'" value="취소" id="aa">
 									</div>
 								</div>
 							</form>

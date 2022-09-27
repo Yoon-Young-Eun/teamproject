@@ -78,7 +78,7 @@
 									<textarea class="writeArea" name="terms_content"></textarea>
 								</div>
 								<div class="end">
-									<input type="submit" value="등록">&nbsp;&nbsp;<a href="/TermsList.mdo">목록</a>
+									<input type="submit" value="등록" id="aa">&nbsp;&nbsp;<input type="button" id="aa" onclick="location.href='/TermsList.mdo'" value="목록">
 								</div>
 							</form>
 							</div>

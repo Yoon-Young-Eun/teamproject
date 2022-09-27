@@ -39,7 +39,24 @@
  
  	
  	<select id = "askdetail" parameterType = "QnA" resultType = "QnA">
- 		select * from board_qna_cm where board_qna_no=#{board_qna_no}
+ 		<![CDATA[  select
+               a.admin_qna_title,
+               a.admin_qna_content,
+               a.admin_qna_reg_date,
+               c.board_qna_no,
+               c.board_qna_type,
+               c.board_qna_title,
+               c.board_qna_content,
+               c.board_qna_filepath,
+               c.board_qna_reg_date,
+               c.customer_no
+            from
+               board_qna_admin as a,
+               board_qna_cm as c
+            where
+               c.board_qna_no=#{board_qna_no}
+            and
+               a.board_qna_no=#{board_qna_no}    ]]>
  	</select>
  	
  	<insert id="insertask" parameterType="QnA">

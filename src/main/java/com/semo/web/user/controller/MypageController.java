@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.semo.web.admin.vo.Ad_EstimateVO;
+import com.semo.web.admin.vo.Ad_QnAVO;
 import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.ReviewVO;
 import com.semo.web.admin.vo.StoreVO;
@@ -445,7 +446,6 @@ public class MypageController {
 		 System.out.println(qna);
 		 
 		 Cm_QnAVO askdetail = service.askdetail(qna);
-		 
 		 
 		 System.out.println("Controller > askdetail > " + askdetail);
 		 model.addAttribute("askdetail", askdetail);

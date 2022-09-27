@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.semo.web.admin.vo.Ad_EstimateVO;
+import com.semo.web.admin.vo.Ad_QnAVO;
 import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.ReviewVO;
 import com.semo.web.admin.vo.StoreVO;
@@ -107,6 +108,7 @@ public class MypageDAO {
 		System.out.println("DAO > Edit Ask");
 		return sql.selectOne("MypageVO.editask", qna);
 	}
+	
 	
 	//mypaging order
 	

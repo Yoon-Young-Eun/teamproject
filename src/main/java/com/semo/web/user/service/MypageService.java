@@ -3,6 +3,7 @@ package com.semo.web.user.service;
 import java.util.List;
 
 import com.semo.web.admin.vo.Ad_EstimateVO;
+import com.semo.web.admin.vo.Ad_QnAVO;
 import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.ReviewVO;
 import com.semo.web.admin.vo.StoreVO;
@@ -66,6 +67,7 @@ public interface MypageService {
 	
 	// MyAskDetail : 문의글 수정
 	public Cm_QnAVO editask(Cm_QnAVO qna);
+	
 	
 	//특수세탁 견적서
     public EstimateVO getMyEstimate(EstimateVO vo);

@@ -3,6 +3,7 @@ package com.semo.web.user.service;
 import java.util.List;
 
 import com.semo.web.admin.vo.Ad_EstimateVO;
+import com.semo.web.admin.vo.FAQVO;
 import com.semo.web.admin.vo.ProductVO;
 import com.semo.web.admin.vo.TermsVO;
 import com.semo.web.user.vo.CouponListVO;
@@ -46,5 +47,7 @@ public interface OrderService {
 	Ad_EstimateVO selectEstimate(Ad_EstimateVO vo4);
 	
 	Ad_EstimateVO selectEstimate2(Ad_EstimateVO esti);
+	
+	public void updateEst(EstimateVO evo);
 	
 }

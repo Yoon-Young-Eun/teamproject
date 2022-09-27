@@ -111,7 +111,7 @@
 	<![CDATA[ select * from terms where terms_no=#{terms_no} ]]>
 	</select>
 	<update id="updateTerms" parameterType="terms">
-  	update terms set terms_title=#{terms_title}, terms_content=#{terms_content}, terms_necessary=#{terms_necessary} where terms_no=#{terms_no}
+  	update terms set terms_type=#{terms_type}, terms_title=#{terms_title}, terms_content=#{terms_content}, terms_necessary=#{terms_necessary} where terms_no=#{terms_no}
 	</update>
   	<delete id="deleteTerms" parameterType="terms">
 	<![CDATA[ delete from terms where terms_no=#{terms_no} ]]>

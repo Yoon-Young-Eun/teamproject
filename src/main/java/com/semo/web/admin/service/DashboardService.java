@@ -17,4 +17,5 @@ public interface DashboardService {
 	public int getTodaySales(OrderVO vo);
 	public int getMonthSales(OrderVO vo);
 	public int getYearSales(OrderVO vo);
+	
 }

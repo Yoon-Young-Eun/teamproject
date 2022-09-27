@@ -113,6 +113,9 @@
 								<c:when test="${e.estimate_status eq '견적대기'}">
 									견적대기
 								</c:when>
+								<c:when test="${e.estimate_status eq '결제완료'}">
+									결제완료
+								</c:when>
 								<c:when test="${e.estimate_status eq '견적발송'}">
 									<p style = "height :30px;">견적완료</p>
 									<button onclick ="location.href='/myestimate.do?customer_no=${e.customer_no}&estimate_cm_no=${e.estimate_cm_no}'">견적서보기</button>

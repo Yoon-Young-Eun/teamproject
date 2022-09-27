@@ -18,7 +18,7 @@
 				<div class="container-fluid px-4">
 					<h1 class="mt-4">정지회원정보</h1>
 					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item"><a href="/admin/index.jsp">Dashboard</a></li>
+						<li class="breadcrumb-item"><a href="/index.mdo">Dashboard</a></li>
 						<li class="breadcrumb-item active">회원상세정보</li>
 					</ol>
 					<div class="card mb-4">

@@ -13,6 +13,8 @@ public interface MemberService {
 	public CustomerVO getRead(CustomerVO vo);
 	public List<CustomerVO> getBlackList(PagingVO pvo);
 	public void getMemberUpdate(CustomerVO vo);
+	public List<CustomerVO> getSmsPermitList(CustomerVO vo);
+	public CustomerVO getSmsPermit(CustomerVO vo);
 	
 	
 	

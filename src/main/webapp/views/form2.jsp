@@ -98,16 +98,16 @@
 							<tr>
 								<th class="tableNumber">휴대폰</th>
 								<td class="tableTitle"><label for="phone"> 
-								<input type="tel" class="inputBox" name="customer_phone" id="telInput" required pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}" maxlength="13" value="${param.phone}" disabled="disabled"/> 
+								<input type="tel" class="inputBox" name="customer_phone" id="telInput" required pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}" maxlength="13" placeholder="예) 010-1234-5678" /> 
 
 										</label> 
 										
 										<span style="margin-left: 25px; margin-right: 10px;">이벤트 수신</span>
-										<input type="radio" id="" name="customer_sms_permit" value="1" checked = "checked" />
+										<input type="radio" id="" name="=" checked = "checked" />
 										<label for="r1">
 										<span></span>동의
 										</label>
-										<input type="radio" id="" name="customer_sms_permit" value="0" />
+										<input type="radio" id="" name="=" />
 										<label for="r1">
 										<span></span>비동의
 										</label>
@@ -161,7 +161,6 @@
 	<script> 	
 		function idCheck() {
 			var id = $('#email1').val();
-			var email = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 			console.log("함수실행");
 			$.ajax({
 				url : "/idCheck.do",
@@ -175,14 +174,6 @@
 						$('#checking').css("color", "red");
 						$('#checking').html("다른 누군가가 사용한 아이디네요!");
 					}
-					
-					if (id.match(email) == null){
-						$('#checking').css("color", "red");
-						$('#checking').html("이메일 형식대로 작성해주세요.");
-					}
-					
-					
-					
 				},
 				error : function() {
 					$('#checking').html("에러라고 에러 에러 에러났따고 에러")

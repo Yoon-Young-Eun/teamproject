@@ -50,13 +50,13 @@ public interface MypageService {
 	// order_no count
 	public int ordercnt(CustomerVO customer);
 	public int couponcnt(CustomerVO customer);
-	public int askcnt(CustomerVO customer);
+	public int askcnt(PagingVO vo);
 	public int estimatecnt(PagingVO vo);
 	// customer_no > 쿠폰 목록 불러오기
 	public List<CouponListVO> couponlist (CustomerVO customer);
 	
 	// customer_no > 문의 목록 불러오기
-	public List<Cm_QnAVO> asklist(CustomerVO customer);
+	public List<Cm_QnAVO> asklist(PagingVO vo);
 	
 	// qna_no > 문의 상세 불러오기
 	public Cm_QnAVO askdetail(Cm_QnAVO qna);
@@ -82,4 +82,12 @@ public interface MypageService {
     int getReviewCount(PagingVO vo);
     //리뷰 상세보기
     ReviewVO viewReview(ReviewVO vo);
+    
+    CustomerVO selectask(CustomerVO customer);
+    
+    Cm_QnAVO selectask2(Cm_QnAVO qna);
+    
+    CustomerVO selectCus(CustomerVO customer);
+    
+    void deleteQnA(Cm_QnAVO vo);
 }

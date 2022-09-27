@@ -63,7 +63,7 @@
 					<c:when test = "${askdetail.board_qna_status eq '0'}">
 						<div style = "display : flex; justify-content : center; margin-top : 50px;"class = "article-btn-wrapper">
 							<a href="/myasklist.do?customer_no=${num}" class="action-button shadow animate grey" style = "height : 30px;">닫기</a>	
-							<a href = "/myaskedit.do?board_qna_no=${askdetail.board_qna_no }" id = "insert" class="action-button shadow animate blue" style = "height : 30px;">수정</a>	
+							<a href = "/myaskedit.do?board_qna_no=${askdetail.board_qna_no }&customer_no=${num}" id = "insert" class="action-button shadow animate blue" style = "height : 30px;">수정</a>	
 						</div>'
 					</c:when>
 				</c:choose>

@@ -83,8 +83,8 @@ public class MypageServiceImpl implements MypageService{
 	
 	// customer_no > 문의 목록 불러오기
 	@Override
-	public List<Cm_QnAVO> asklist(CustomerVO customer) {
-		return dao.asklist(customer);
+	public List<Cm_QnAVO> asklist(PagingVO vo) {
+		return dao.asklist(vo);
 	}
 	
 	// qna_no >> 문의 상세 불러오기
@@ -129,8 +129,8 @@ public class MypageServiceImpl implements MypageService{
 	}
 
 	@Override
-	public int askcnt(CustomerVO customer) {
-		return dao.askcnt(customer);
+	public int askcnt(PagingVO vo) {
+		return dao.askcnt(vo);
 	}
 	
 	@Override
@@ -189,6 +189,32 @@ public class MypageServiceImpl implements MypageService{
 		
 		return dao.viewReview(vo);
 	}
+
+	@Override
+	public CustomerVO selectask(CustomerVO customer) {
+		
+		return dao.selectask(customer);
+	}
+
+	@Override
+	public Cm_QnAVO selectask2(Cm_QnAVO qna) {
+		
+		return dao.selectask2(qna);
+	}
+
+	@Override
+	public CustomerVO selectCus(CustomerVO customer) {
+		
+		return dao.selectCus(customer);
+	}
+
+	@Override
+	public void deleteQnA(Cm_QnAVO vo) {
+		dao.deleteQnA(vo);
+		
+	}
+
+	
 
 
 

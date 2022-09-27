@@ -84,9 +84,9 @@ public class MypageDAO {
 	}
 	
 	// customer_no > 문의 목록 불러오기
-	public List<Cm_QnAVO> asklist(CustomerVO customer){
+	public List<Cm_QnAVO> asklist(PagingVO vo){
 		System.out.println("DAO > customer_no > AskList");
-		return sql.selectList("MypageVO.asklist", customer);
+		return sql.selectList("MypageVO.asklist", vo);
 	}
 	
 	// MyAsk : 문의글 작성 > MyAsklist : 목록으로 보내기
@@ -127,8 +127,8 @@ public class MypageDAO {
 		int cnt2 = sql.selectOne("MypageVO.couponcnt", customer);
 		return cnt2;
 	}
-	public int askcnt(CustomerVO customer) {
-		int cnt3 = sql.selectOne("MypageVO.askcnt", customer);
+	public int askcnt(PagingVO vo) {
+		int cnt3 = sql.selectOne("MypageVO.askcnt", vo);
 		return cnt3;
 	}
 	public int estimatecnt(PagingVO vo) {
@@ -174,5 +174,17 @@ public class MypageDAO {
 		public ReviewVO viewReview(ReviewVO vo) {
 			return sql.selectOne("MypageVO.viewReview",vo);
 		}
-
+		public CustomerVO selectask(CustomerVO customer) {
+			return sql.selectOne("MypageVO.selectask",customer);
+		}
+		public Cm_QnAVO selectask2(Cm_QnAVO qna) {
+			return sql.selectOne("MypageVO.selectask2",qna);
+		}
+		public CustomerVO selectCus(CustomerVO customer) {
+			return sql.selectOne("MypageVO.selectCus",customer);
+		}
+	//문의글 삭제
+		public void deleteQnA(Cm_QnAVO vo) {
+			sql.delete("MypageVO.deleteQnA",vo);
+		}
 }

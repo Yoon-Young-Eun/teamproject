@@ -59,7 +59,7 @@ public class AdminController {
 		if(encoder.matches(vo.getAdmin_passwd(), user.getAdmin_passwd())) {
 			System.out.println("로그인 성공");
 			session.setAttribute("admin", user); //나중에 로그인 후 우측 상단에 OO님 환영합니다로 불러올 데이터
-			return "/admin/index.jsp";   
+			return "/index.mdo";   
 		}else {
 			System.out.println("로그인 실패");
 			return "/admin/login.jsp";

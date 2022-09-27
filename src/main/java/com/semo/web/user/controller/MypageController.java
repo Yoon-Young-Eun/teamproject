@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.semo.web.admin.vo.Ad_EstimateVO;
+import com.semo.web.admin.vo.Ad_QnAVO;
 import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.ReviewVO;
 import com.semo.web.admin.vo.StoreVO;
@@ -444,13 +445,23 @@ public class MypageController {
 		 }
 		 System.out.println(qna);
 		 
-		 Cm_QnAVO askdetail = service.askdetail(qna);
+		 int num = qna.getBoard_qna_status();
+		 System.out.println(num);
 		 
+		 if(num == 0) {
+			 System.out.println("num = 0");
+		 Cm_QnAVO askdetail = service.askdetail(qna);
 		 
 		 System.out.println("Controller > askdetail > " + askdetail);
 		 model.addAttribute("askdetail", askdetail);
+		 }else if(num == 1){
+			 System.out.println("num = 1");
+			 Cm_QnAVO askdetail2 = service.askdetail2(qna);
+			 System.out.println("askdetail2" + askdetail2);
+			 model.addAttribute("askdetail", askdetail2);
+		 }
 		 return "/views-mypage/MyAskDetail.jsp";
-	 }
+	 }	
 	 
 	 //문의글 삭제하기
 	 
@@ -580,15 +591,9 @@ public class MypageController {
      	  m.addAttribute("startPage",startPage);
      	  m.addAttribute("endPage",endPage);
      	  m.addAttribute("pageBlock",pageBlock);
-
-          m.addAttribute("count", count);
        }
           
-       Map<String, String> condition = new HashMap<String, String>();
-       condition.put("견적번호", "estimate_cm_no");
-       condition.put("내용", "estimate_content");
-       
-       m.addAttribute("condition", condition);   
+      
        m.addAttribute("elist", evo);
        System.out.println(evo);
        

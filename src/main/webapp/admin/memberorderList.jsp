@@ -31,12 +31,12 @@
 				<div class="container-fluid px-4">
 					<h1 class="mt-4">개별주문이력</h1>
 					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
+						<li class="breadcrumb-item"><a href="/index.mdo">대시보드</a></li>
 						<li class="breadcrumb-item active">개별주문이력</li>
 					</ol>
 					<div class="card mb-4">
 						<div class="card-body">
-							회원의 개별 주문 이력 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
+							회원의 개별 주문 이력 페이지 입니다. 
 						</div>
 					</div>
 					<div class="card mb-4">
@@ -162,6 +162,7 @@
 						</div><!-- 페이징 종료 -->
 
 						<!-- 내용물 end -->
+						<div class="card-footer small text-muted"></div>
 					</div>
 				</div>
 			</main>

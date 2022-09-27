@@ -169,7 +169,7 @@
 						</div><!-- 페이징 종료 -->
 
 						<!-- 내용물 end -->
-							<div class="card-footer small text-muted">The Semo is king of world of best of universal</div>
+							<div class="card-footer small text-muted"></div>
 						</div>
 
 				</div>

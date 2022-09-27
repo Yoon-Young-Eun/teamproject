@@ -44,8 +44,7 @@
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="change_id_01" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-men
-                                u-nested nav">
+                                <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="/member.mdo">회원관리</a>
                                     <a class="nav-link" href="/blackmember.mdo">블랙회원관리</a>
                                     <a class="nav-link" href="/staffList.mdo">매니저관리</a>
@@ -72,7 +71,7 @@
                             <div class="collapse" id="change_id_03" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
 										<a class="nav-link" href="/salesStoreList.mdo">지점매출</a>
-										<a class="nav-link" href="/salesProductList.mdo">상품매출</a>
+										<a class="nav-link" href="/salesList.mdo">총괄매출</a>
                                 </nav>
                             </div> 
                             
@@ -108,25 +107,12 @@
                             <div class="collapse" id="change_id_06" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="/getBoardList.mdo">공지사항</a>
-                                    <a class="nav-link" href="/getBoardList.mdo">이벤트</a>
+                                    <a class="nav-link" href="/getEventList.mdo">이벤트/배너</a>
                                     <a class="nav-link" href="/ReviewBoardList.mdo">리뷰</a>
 
                                     <a class="nav-link" href="/QnAList.mdo">QnA</a>
                                     <a class="nav-link" href="/FAQList.mdo">자주하는 질문</a>
 
-                                </nav>
-                            </div>
-                            
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#change_id_07" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                채팅관리
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="change_id_07" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">보류</a>
-                                    <a class="nav-link" href="#">할지말지</a>
-                                    <a class="nav-link" href="#">아직미정</a>
                                 </nav>
                             </div>
                             
@@ -139,7 +125,7 @@
                                 <nav class="sb-sidenav-menu-nested nav">
 
                                     <a class="nav-link" href="/CouponList.mdo">쿠폰관리</a>
-                                    <a class="nav-link" href="/BannerList.mdo">배너관리</a>
+<!--                                     <a class="nav-link" href="/BannerList.mdo">배너관리</a> -->
                                     <a class="nav-link" href="/TermsList.mdo">약관관리</a>
 
                                 </nav>

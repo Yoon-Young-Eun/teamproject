@@ -34,21 +34,17 @@
 				<div class="container-fluid px-4">
 					<h1 class="mt-4">매출현황</h1>
 					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
+						<li class="breadcrumb-item"><a href="/index.mdo">대시보드</a></li>
 						<li class="breadcrumb-item active">지점별 매출현황</li>
 					</ol>
 					<div class="card mb-4" style="width: 100%; overflow-x: auto;">
 						<div class="card-body">
-							지점별 매출현황 페이지 입니다. <a target="_blank"
-								href="https://datatables.net/">아무링크</a>
+							지점별 매출현황 페이지 입니다. 
 
 						</div>
-
+						</div>		
 						<div class="card mb-4">
-							<div class="card-header">
-								<i class="fas fa-chart-area me-1"></i> 여기는 지점별 매출현황 현황에 대한 차트와
-								표데이터
-							</div>
+						
 							
 							<!--Chart -->
 							<div class="chartparent">
@@ -166,12 +162,12 @@
 								class="tblCustomers tblexportData table">
 								<thead>
 									<tr style="background-color: #f2f2f2";>
-										<th style="width:10%;">주문일자</th>
-										<th style="width:20%;">구분</th>
-										<th style="width:20%;">매장명</th>
+										<th>주문일자</th>
+										<th>구분</th>
+										<th>매장명</th>
 										<th>지역</th>
-										<th style="width:20%;">결제방식</th>
-										<th style="width:20%;">결제금액</th>
+										<th>결제방식</th>
+										<th>결제금액</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -221,19 +217,11 @@
 							</div>
 							<!-- 페이징 종료 -->
 
-
-						</div>
-
-
-
 						<!-- 내용물 end -->
-						<div class="card-footer small text-muted">Updated yesterday
-							at 11:59 PM</div>
+<div class="card-footer small text-muted"></div>
 					</div>
-
 				</div>
 			</main>
-
 	<!-- 구글차트 -->
 	<script type="text/javascript"
 		src="https://www.gstatic.com/charts/loader.js"></script>
@@ -242,7 +230,7 @@
 		google.charts.load('current', {packages : [ 'corechart', 'bar' ]});
 		google.charts.setOnLoadCallback(getGraph);
 		google.charts.load('current', {'packages' : [ 'corechart' ] });
-		 google.charts.setOnLoadCallback(drawChart); 
+		google.charts.setOnLoadCallback(drawChart); 
 
 		/* 	google.charts.setOnLoadCallback(getGraph);  // bar차트  */
 

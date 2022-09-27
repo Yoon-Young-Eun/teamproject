@@ -38,9 +38,14 @@ public class AdminController {
 	BCryptPasswordEncoder encoder; 
 	
 	
+	@RequestMapping("/login.mdo")
+	public String logon() {
+		
+		return "/admin/login.jsp";
+	}
 	
 	//login.jsp 에서 로그인 버튼시(login.mdo) 작동
-	@RequestMapping(value="/login.mdo", method = RequestMethod.POST)
+	@RequestMapping(value="/logon.mdo", method = RequestMethod.POST)
 	public String login(AdminVO vo, HttpSession session) {
 		System.out.println(vo); //값이 컨트롤러로 잘 보내지는 지 확인
 		System.out.println("어드민 login() 까꿍! ");

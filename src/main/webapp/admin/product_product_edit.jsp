@@ -17,7 +17,7 @@
 				<div class="container-fluid px-4">
 					<h1 class="mt-4">상품 조회</h1>
 					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
+						<li class="breadcrumb-item"><a href="/index.mdo">대시보드</a></li>
 						<li class="breadcrumb-item active">상품 조회</li>
 					</ol>
 					<div class="card mb-4">
@@ -91,11 +91,11 @@ ${ProductInfo.product_reg_date}</div>
 </div>
 <div class="item_infor">
 <div class="popup_text">영업이익</div>&nbsp;<div class="popup_inputbox">
-<input type="text" name="product_price" value="${ProductInfo.product_business_profits}" placeholder=""></div>
+<input type="text" name="product_business_profits" value="${ProductInfo.product_business_profits}" placeholder=""></div>
 </div>
 <div class="item_infor">
 <div class="popup_text">순이익</div>&nbsp;<div class="popup_inputbox">
-<input type="text" name="product_price" value="${ProductInfo.product_net_profit}" placeholder=""></div>
+<input type="text" name="product_net_profit" value="${ProductInfo.product_net_profit}" placeholder=""></div>
 </div>
 
 </div>

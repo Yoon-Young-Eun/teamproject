@@ -60,7 +60,7 @@
 					<div class = "article-content-text">${askdetail.board_qna_content}</div>
 				</div>
 				<c:choose>
-					<c:when test = "${askdetail.board_qna_status eq '0'}">
+					<c:when test = "${askdetail.board_qna_status eq 0}">
 						<div style = "display : flex; justify-content : center; margin-top : 50px;"class = "article-btn-wrapper">
 							<a href="/myasklist.do?customer_no=${num}" class="action-button shadow animate grey" style = "height : 30px;">닫기</a>	
 							<a href = "/myaskedit.do?board_qna_no=${askdetail.board_qna_no }&customer_no=${num}" id = "insert" class="action-button shadow animate blue" style = "height : 30px;">수정</a>	
@@ -71,18 +71,19 @@
 			</div>
 			<!-- 답변 내용 -->
 			<c:choose>
-				<c:when test = "${askdetail.board_qna_status eq '0'}">
+				<c:when test = "${askdetail.board_qna_status eq 0}">
+
 				</c:when>
 				<c:otherwise>
-					<div class = "answer-wrapper">
+									<div class = "answer-wrapper">
 						<h3>답변 내용</h3>
 						<div class = "article-title-wrapper">
 							<div class = "article-title">제목</div>
-							<div class = "article-title-text">[문의답변] <b>제목이지롱</b></div>
+							<div class = "article-title-text">[문의답변] <b>${askdetail.admin_qna_title}</b></div>
 						</div>
 						<div class = "article-content-wrapper">
 							<div class = "article-content">내용</div>
-							<div class = "article-content-text">내용이지롱</div>
+							<div class = "article-content-text">${askdetail.admin_qna_content}</div>
 						</div>
 					</div>
 				</c:otherwise>

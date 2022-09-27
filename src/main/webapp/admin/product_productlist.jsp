@@ -31,19 +31,16 @@
 				<div class="container-fluid px-4">
 					<h1 class="mt-4">상품관리</h1>
 					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
+						<li class="breadcrumb-item"><a href="/index.mdo">대시보드</a></li>
 						<li class="breadcrumb-item active">상품관리</li>
 					</ol>
 					<div class="card mb-4">
 						<div class="card-body">
-							상품관리 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
-							.
+							상품관리 페이지 입니다. 
 						</div>
 					</div>
 					<div class="card mb-4">
-						<div class="card-header">
-							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 상품관리에 대한 세부제목
-						</div>
+						
 
 						<!--  여기부터 내용물 -->
 
@@ -66,7 +63,7 @@
 								<tr style="background-color: #f2f2f2";>
 									<th width="50" id="check_td"><input type="checkbox"
 										name="check" class="allcheck"></th>
-									<th>상품번호</th>
+									<th style="width:10%;">상품번호</th>
 									<th>대분류</th>
 									<th>소분류</th>
 									<th>상품명</th>
@@ -88,7 +85,7 @@
 										<td class="center">${product.product_category_parent}</td>
 										<td class="center">${product.product_category_median}</td>
 										<td class="center">${product.product_name}</td>
-										<td>${product.product_detail}</td>
+										<td class="center">${product.product_detail}</td>
 										<td class="center">${product.product_reg_date}</td>
 										<td class="center">${product.product_price}</td>
 									</tr>
@@ -164,8 +161,7 @@
 						</script>
 
 						<!-- 내용물 end -->
-						<div class="card-footer small text-muted">Updated yesterday
-							at 11:59 PM</div>
+						<div class="card-footer small text-muted"></div>
 					</div>
 
 				</div>

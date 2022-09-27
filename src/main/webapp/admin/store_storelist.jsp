@@ -31,19 +31,16 @@
 				<div class="container-fluid px-4">
 					<h1 class="mt-4">매장관리</h1>
 					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
+						<li class="breadcrumb-item"><a href="/index.mdo">대시보드</a></li>
 						<li class="breadcrumb-item active">매장관리</li>
 					</ol>
 					<div class="card mb-4">
 						<div class="card-body">
-							매장관리 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
-							.
+							매장관리 페이지 입니다.
 						</div>
 					</div>
 					<div class="card mb-4">
-						<div class="card-header">
-							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 매장관리에 대한 세부제목
-						</div>
+						
 						<!--  여기부터 내용물 -->
 
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
@@ -63,11 +60,10 @@
 								<tr style="background-color: #f2f2f2";>
 									<th width="50" id="check_td"><input type="checkbox"
 										name="check" class="allcheck"></th>
-									<th>매장코드</th>
+									<th style="width:10%;">매장코드</th>
 									<th>매장명</th>
 									<th>매장종류</th>
 									<th>주소</th>
-									<th>상세주소</th>
 									<th>전화번호</th>
 									<th>상태</th>
 								</tr>
@@ -84,7 +80,6 @@
 										<td class="center">${store.store_name}</td>
 										<td class="center">${store.store_type}</td>
 										<td class="center">${store.store_address1}</td>
-										<td>${store.store_address2}</td>
 										<td class="center">${store.store_phone}</td>
 										<td class="center">${store.store_status}</td>
 									</tr>
@@ -159,8 +154,7 @@
 						</script>
 
 						<!-- 내용물 end -->
-						<div class="card-footer small text-muted">Updated yesterday
-							at 11:59 PM</div>
+<div class="card-footer small text-muted"></div>
 					</div>
 
 				</div>

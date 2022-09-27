@@ -30,12 +30,12 @@
 				<div class="container-fluid px-4">
 					<h1 class="mt-4">주문/결제</h1>
 					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item"><a href="/admin/index.jsp">Dashboard</a></li>
+						<li class="breadcrumb-item"><a href="/index.mdo">대시보드</a></li>
 						<li class="breadcrumb-item active">주문/결제</li>
 					</ol>
 					<div class="card mb-4">
 						<div class="card-body">
-							주문/결제 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
+							주문/결제 페이지 입니다.
 						</div>
 					</div>
 					<div class="card mb-4" style="width: 100%;">
@@ -208,7 +208,7 @@
 
 
 						<!-- 내용물 end -->
-
+<div class="card-footer small text-muted"></div>
 					</div>
 
 				</div>

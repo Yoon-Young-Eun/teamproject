@@ -35,20 +35,16 @@
 				<div class="container-fluid px-4">
 					<h1 class="mt-4">매출현황</h1>
 					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
+						<li class="breadcrumb-item"><a href="/index.mdo">대시보드</a></li>
 						<li class="breadcrumb-item active">상품별 매출현황</li>
 					</ol>
 					<div class="card mb-4" style="width: 100%; overflow-x: auto;">
 						<div class="card-body">
-							상품별 매출현황 페이지 입니다. <a target="_blank"
-								href="https://datatables.net/">아무링크</a>
-						</div>
+							상품별 매출현황 페이지 입니다. 
+					</div>
 					</div>
 					<div class="card mb-4">
-						<div class="card-header">
-							<i class="fas fa-chart-area me-1"></i> 여기는 상품별 매출현황 현황에 대한 차트와
-							표데이터
-						</div>
+						
 
 						<!--  여기부터 내용물 -->
 
@@ -57,8 +53,8 @@
 						<div class="chartparent">
 							<div class="chart chart_flex">
 								<!-- <div id="chart_div" style="width: 300px; height: 300px;"></div> -->
-								<div id="chart_div" style="width: 800px; height: 400px;"></div>
-								<div id="chart_area" style="width: 800px; height: 400px;"></div>
+								<div id="chart_div" style="width: 600px; height: 400px;"></div>
+								<div id="chart_area" style="width: 600px; height: 400px;"></div>
 							</div>
 						</div>
 						<div class="chart_flex">
@@ -73,7 +69,7 @@
 									</div>
 									<div>
 										<input type="button" value="검색" onClick="getGraph()" />
-									</div>
+									</div>	
 									<div>
 										<input type="reset" value="초기화" onChange="getGraph()" />
 									</div>
@@ -167,10 +163,11 @@
 						</div>
 
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
-						<table id="" class="tblCustomers tblexportData table">
+						<table id="" 
+						class="tblCustomers tblexportData table">
 							<thead>
 								<tr style="background-color: #f2f2f2";>
-									<th>주문일자</th>
+									<th style="width:20%;">주문일자</th>
 									<th>대분류</th>
 									<th>중분류</th>
 									<th>상품명</th>
@@ -225,6 +222,7 @@
 						<!-- 페이징 종료 -->
 
 						<!-- 내용물 end -->
+						<div class="card-footer small text-muted"></div>
 					</div>
 				</div>
 			</main>
@@ -234,9 +232,7 @@
 		src="https://www.gstatic.com/charts/loader.js"></script>
 
 	<script>
-		google.charts.load('current', {
-			'packages' : [ 'corechart' ]
-		});
+		google.charts.load('current', {	'packages' : [ 'corechart' ]});
 		google.charts.setOnLoadCallback(getGraph); // bar차트  
 		google.charts.setOnLoadCallback(drawChart); //area차트 
 		/* Bar */

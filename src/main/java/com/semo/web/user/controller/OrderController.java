@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.semo.web.admin.vo.Ad_EstimateVO;
+import com.semo.web.admin.vo.AdminVO;
 import com.semo.web.admin.vo.ProductVO;
+import com.semo.web.admin.vo.ReviewVO;
 import com.semo.web.admin.vo.TermsVO;
 import com.semo.web.amazon.s3.AwsS3;
 import com.semo.web.user.service.OrderService;
@@ -419,5 +421,22 @@ public class OrderController<imp_uid> {
 		
 		return "/pay/payUseText.jsp";
 	}
+	
+	// 리뷰 팝업
+	@RequestMapping("/getReadReviewPop.do")
+	public String getReadCoupon(Model model, OrderVO vo, HttpSession session) {	
+		
+		session.getAttribute("id");
+		if (session.getAttribute("id") != null) {
+			System.out.println("오더VO:      "+vo);
+			System.out.println("admin getReadReviewPop()");
+			OrderVO vo1 = orderservice.getReadReviewPop(vo);
+			model.addAttribute("OrderInfo", vo1);
+			System.out.println("11"+vo1);
+			return "/views-mypage/MyReview_popup.jsp";
+		}
+		return "/login.do";
+	}
+			
 
 }

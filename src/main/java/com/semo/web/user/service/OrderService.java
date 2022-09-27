@@ -50,4 +50,9 @@ public interface OrderService {
 	
 	public void updateEst(EstimateVO evo);
 	
+	// 리뷰 팝업
+	public OrderVO getReadReviewPop(OrderVO vo);
+	
+	// 리뷰 상태 업데이트
+	public void updateReviewStatus(OrderVO vo);
 }

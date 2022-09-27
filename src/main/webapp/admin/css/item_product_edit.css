@@ -12,6 +12,7 @@
 	font-weight: bold;
 	border : none;
 	background-color: #dee2e6;
+	margin: -4px;
 }
 
 .popup_btn input:hover {

@@ -125,7 +125,7 @@
 									</div>
 								</div>
 
-								<div class="end">
+								<div class="end" style="margin-top: 410px;">
 									<div class="board_btn">
 										<a href="/getEstimateList.mdo">목록</a>
 									</div>

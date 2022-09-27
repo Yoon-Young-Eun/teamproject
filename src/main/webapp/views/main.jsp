@@ -73,10 +73,7 @@
 		</ul>
 	</div>	
 </div>
-<<<<<<< HEAD
-=======
 
->>>>>>> main
 <!-- 바로가기 버튼 -->
 <div class = "button">
 	<div class = "botton-list">

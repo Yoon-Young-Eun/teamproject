@@ -9,15 +9,19 @@
     <title>Document</title>
     <link rel="stylesheet" href="/common/css/button.css">
     <link rel="stylesheet" href="/css/MyReview_popup.css">
+    <!-- JQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
+<!-- <form name="myform" id="myform" method="GET" action="/insertReview.do"> -->
+<form id="myform" name="myform" method="post" >
 <div class="wrapper">
 <div class="review_table">
 <div class="review_head"><h1>리뷰 작성</h1></div>
 <div class="review_rating">
 <div class="review_rating_title">서비스는 어떠셨나요?<span class="ft_gray mg_left">서비스에 대한 별점을 매겨주세요</span></div>
 <div class="review_rating_star">
-<form name="myform" id="myform" method="GET" action="./save">
+
     <fieldset>
         <input type="radio" name="board_review_rating" value="5" id="rate1"><label for="rate1">⭐</label>
         <input type="radio" name="board_review_rating" value="4" id="rate2"><label for="rate2">⭐</label>
@@ -40,22 +44,56 @@
 </span>
 
 </div>
-
+<input type="hidden" value="${OrderInfo.customer_no}" name="customer_no">
+<input type="text" value="${OrderInfo.order_no}" name="order_no">
+<input type="hidden" value="${OrderInfo.order_customer_name}" name="board_review_name">
 <div class="review_btn">
 
 	<div class="end">
-		<div class="action-button shadow animate blue" onclick="location.href='#'">저장</div>
+		<input type="button" onclick="fn_editFL();result();" class="action-button shadow animate blue"  value="저장"/>
 		<div class="action-button shadow animate blue" onclick="self.close();">취소</div>
 	</div>
 
 </div>
+
+</div>
+
+</div>
 </form>
-</div>
 
-</div>
+ 
+<script>
+function fn_editFL()
+{
+ console.log("adfasdfasdfasdf");
 
+   $.ajax({
+      url : "/insertReview.do",
+      data : $("#myform").serialize(),
+      dataType: "json",
+      type: "post",
+      success : function(xh)
+            {      
+    	  	console.log("adfadfgadfgadfgadgf");
 
+               window.close();
+            },
+            complete: function(xh)
+            {        	console.log("azzz");
+                   window.close();
+                }
+   });
+}
 
+</script>    
+    <script>
+    function result(){
+       
+       opener.document.getElementById("chse").innerText="12";
+       
+    }
+    </script>
+    
 </body>
 </html>
 

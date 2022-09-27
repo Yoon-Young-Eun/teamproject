@@ -11,6 +11,7 @@ body {
 	display: flex;
 	text-align: center;
 	justify-content: center;
+	margin-top: 34px;
 }
 
 .end a {
@@ -34,7 +35,15 @@ body {
 	border-radius: 10px;
 	background: #dee2e6;
 }
-
+.popup_btn >input{
+	background: #dee2e6;
+	font-weight: bold;
+}
+.popup_btn>input:hover {
+	font-weight: bold;
+	text-decoration: underline;
+	color: white;
+}
 .popup_wrapper {
 	width: 360px;
 	height: 544px;

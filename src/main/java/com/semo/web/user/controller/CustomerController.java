@@ -137,10 +137,14 @@ public class CustomerController {
 		//회원가입 축하메세지
 		MessageVO msg = utilservice.welcomeMessage();
 		
-		String phone = vo2.getCustomer_phone();
-		String message = msg.getMessage_content();
+		if(vo2.getCustomer_sms_permit()==1) {
+			String phone = vo2.getCustomer_phone();
+			System.out.println(phone);
+			String message = msg.getMessage_content();
+			
+			cool.sendMessage(phone, message);
+		}
 		
-		cool.sendMessage(phone, message);
 		
 		return "/views/complete.jsp";
 	}

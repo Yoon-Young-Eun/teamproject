@@ -4,7 +4,6 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.semo.web.admin.vo.VisitorVO;
 import com.semo.web.user.vo.Cm_QnAVO;
 import com.semo.web.user.vo.EstimateVO;
 import com.semo.web.user.vo.OrderVO;
@@ -53,11 +52,7 @@ public class DashboardDAO {
 	public int getYearSales(OrderVO vo) {
 		return sql.selectOne("DashboardDAO.getYearSales", vo);
 	}
-	
-	//일방문자
-	public int getVisitor(VisitorVO vo) {
-		return sql.selectOne("DashboardDAO.getVisitor", vo);
-	}
+
 	
 	
 }

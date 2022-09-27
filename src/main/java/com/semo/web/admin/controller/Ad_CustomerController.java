@@ -296,17 +296,25 @@ public class Ad_CustomerController {
 		System.out.println(vo);
 		System.out.println("계정상태"+vo.getCustomer_status());
 		
-		
 		MessageVO mvo = new MessageVO();
 		mvo.setMessage_title("회원정지문자");
+		
 		if(vo.getCustomer_status() != "") {
 		memberService.getMemberUpdate(vo);
 		MessageVO title = utilservice.getMessageContentType(mvo);
-		System.out.println("MessageVO title"+title);
-		String phone = vo.getCustomer_phone();
+	
+		CustomerVO vo2 = memberService.getRead(vo);
+		if(vo2.getCustomer_sms_permit()==1) {
+		CustomerVO vo3 = memberService.getSmsPermit(vo2);
+		String phone = vo3.getCustomer_phone();
 		String message = title.getMessage_content();
 		coolsms.sendMessage(phone, message);
+			return "member.mdo";	
+		}else {
+			return "member.mdo";	
 		}
+		}
+		memberService.getMemberUpdate(vo);
 	    return "member.mdo";
 	}
 	
@@ -329,16 +337,23 @@ public class Ad_CustomerController {
 			
 			MessageVO mvo = new MessageVO();
 			mvo.setMessage_title("회원해지문자");
-			
 			if(vo.getCustomer_status() != "") {
 			memberService.getMemberUpdate(vo);
 			MessageVO title = utilservice.getMessageContentType(mvo);
-			String phone = vo.getCustomer_phone();
-			
+		
+			CustomerVO vo2 = memberService.getRead(vo);
+			if(vo2.getCustomer_sms_permit()==1) {
+			CustomerVO vo3 = memberService.getSmsPermit(vo2);
+			String phone = vo3.getCustomer_phone();
 			String message = title.getMessage_content();
 			coolsms.sendMessage(phone, message);
+				return "blackmember.mdo";	
+			}else {
+				return "blackmember.mdo";	
 			}
-		    	return "blackmember.mdo";
+			}
+			memberService.getMemberUpdate(vo);
+	    	return "blackmember.mdo";
 	
 	}
 }

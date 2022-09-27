@@ -373,7 +373,7 @@ $("#q2").on("DOMSubtreeModified",function(){
          openwin = window.open(url, "", "width=710, height=850");
         
         }
-
+		
 
         </script>
 

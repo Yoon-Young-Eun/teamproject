@@ -9,7 +9,8 @@ public class StoreVO {
 	private int store_zipcode;
 	private String store_phone;
 	private String store_status;
-	
+	private String store_latitude;
+	private String store_longitude;
 	public int getStore_code() {
 		return store_code;
 	}
@@ -58,12 +59,25 @@ public class StoreVO {
 	public void setStore_status(String store_status) {
 		this.store_status = store_status;
 	}
+	public String getStore_latitude() {
+		return store_latitude;
+	}
+	public void setStore_latitude(String store_latitude) {
+		this.store_latitude = store_latitude;
+	}
+	public String getStore_longitude() {
+		return store_longitude;
+	}
+	public void setStore_longitude(String store_longitude) {
+		this.store_longitude = store_longitude;
+	}
+	
 	@Override
 	public String toString() {
 		return "StoreVO [store_code=" + store_code + ", store_type=" + store_type + ", store_name=" + store_name
 				+ ", store_address1=" + store_address1 + ", store_address2=" + store_address2 + ", store_zipcode="
-				+ store_zipcode + ", store_phone=" + store_phone + ", store_status=" + store_status + "]";
+				+ store_zipcode + ", store_phone=" + store_phone + ", store_status=" + store_status
+				+ ", store_latitude=" + store_latitude + ", store_longitude=" + store_longitude + "]";
 	}
-	
 	
 }

@@ -46,9 +46,9 @@ public class Ad_MessageController {
 		
 		System.out.println("sendSmsAll메서드");
 		System.out.println("보낼 메시지"+content);
-		List<CustomerVO> phoneList = utilservice.sendMessageToAll();
+		List<CustomerVO> allList = utilservice.sendMessageToAll();
 		
-		coolsmsAll.sendMessage(phoneList, content);
+		coolsmsAll.sendMessage(allList, content);
 		
 		return "/supportmessageList.mdo";
 	}

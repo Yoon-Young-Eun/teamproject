@@ -332,7 +332,7 @@
 					<!-- 상세정보 -->
 				
 <div>					
-<form action="/blackmemberUpdate.mdo" method="post" class="form" onsubmit="return confirm('저장 하시겠습니까? 계정상태 변경시 안내 문자가 회원에게 발송됩니다.');">			
+<form action="/blackmemberUpdate.mdo" method="post" class="form" onsubmit="return confirm('저장 하시겠습니까? 계정상태 변경시 안내 문자가 회원에게 발송됩니다(sms허용한함).');">			
 	<input type="hidden" name="customer_no" value="${user.customer_no}"/>
 	<input type="hidden" name="customer_phone" value="${user.customer_phone}"/>
  	<div class="member_wrapper">

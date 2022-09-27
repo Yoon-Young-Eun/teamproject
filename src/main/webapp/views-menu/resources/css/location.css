@@ -1,14 +1,20 @@
 @charset "UTF-8";
 
+.location-wrapper {
+	display : flex;
+	justify-content : center;
+	margin-bottom : 150px;
+}
+
 #text {
-	background : #cdcdcd;
+	background : #fcfcfc;
 	padding : 50px;
 }
 
 input {
 	border:none;
 	background : none;
-	width : 600px;
+	width : 500px;
 }
 
 #store_name {
@@ -17,4 +23,9 @@ input {
 	border-bottom : 2px solid;
 	height : 50px;
 	width : 300px;
+	margin-bottom : 40px;
+}
+
+.text-input {
+	height : 30px;
 }

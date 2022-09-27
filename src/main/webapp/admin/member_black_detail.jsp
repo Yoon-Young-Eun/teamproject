@@ -79,7 +79,7 @@
 
 		<div class="end">
 			<div class="popup_btn">
-				<input type="submit" value="저장" style="border-style:none;"/>
+				<input type="submit" value="저장" style="border-style:none; margin: -4px;"/>
 			</div>
 			<div class="popup_btn">
 				<a href="/blackmember.mdo" onclick="self.close();">취소</a>

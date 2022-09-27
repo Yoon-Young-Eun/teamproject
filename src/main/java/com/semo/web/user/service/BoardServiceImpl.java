@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.semo.web.admin.vo.EventVO;
 import com.semo.web.admin.vo.NoticeVO;
 import com.semo.web.admin.vo.PagingVO;
+import com.semo.web.admin.vo.ReviewVO;
 import com.semo.web.user.dao.BoardDAO;
 
 @Service
@@ -43,5 +44,12 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public int getBoardCount(PagingVO pvo) {
 		return boardDAO.getBoardCount(pvo);
+	}
+	
+	// 리뷰 입력
+	@Override
+	public void insertReview(ReviewVO vo) {
+		boardDAO.insertReview(vo);
+		
 	}
 }

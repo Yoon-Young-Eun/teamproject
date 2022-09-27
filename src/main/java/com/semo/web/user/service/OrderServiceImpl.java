@@ -129,6 +129,18 @@ public class OrderServiceImpl implements OrderService {
 	public void updateEst(EstimateVO evo) {
 		orderdao.updateEst(evo);
 	}
+	
+	// 리뷰 팝업
+	@Override
+	public OrderVO getReadReviewPop(OrderVO vo) {
+		return orderdao.getReadReviewPop(vo);
+	}
+	
+	// 리뷰 상태 업데이트
+	@Override
+	public void updateReviewStatus(OrderVO vo) {
+		orderdao.updateReviewStatus(vo);
+	}
 
 	
 }

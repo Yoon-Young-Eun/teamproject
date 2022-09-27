@@ -132,6 +132,27 @@
 	   	<if test="searchCondition=='board_review_content'">
 	   		<![CDATA[where board_review_content like concat('%', #{searchKeyword}, '%') ]]></if>
 	</select>
+	
+	<!-- 리뷰 입력 -->
+	<insert id="insertReview" parameterType="board_review">
+	insert into board_review (
+		board_review_rating,
+		board_review_title,
+		board_review_content,
+		order_no,
+		customer_no,
+		board_review_name
+		
+	) values (
+		#{board_review_rating},
+		#{board_review_title},
+		#{board_review_content},
+		#{order_no},
+		#{customer_no},
+		#{board_review_name}
+		
+	)
+	</insert>
 
 <!-- FAQ -->
 	<insert id="insertFAQ" parameterType="FAQ">

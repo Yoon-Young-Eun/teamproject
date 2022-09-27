@@ -6,10 +6,10 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.semo.web.admin.vo.BannerVO;
 import com.semo.web.admin.vo.EventVO;
 import com.semo.web.admin.vo.NoticeVO;
 import com.semo.web.admin.vo.PagingVO;
+import com.semo.web.admin.vo.ReviewVO;
 
 @Repository
 public class BoardDAO {
@@ -39,6 +39,10 @@ public class BoardDAO {
 	
 	public int getBoardCount(PagingVO pvo) {
 		return sql.selectOne("BoardDAO.getBoardCount", pvo);
+	}
+	
+	public void insertReview(ReviewVO vo) {
+		sql.insert("BoardDAO.insertReview",vo);
 	}
 	
 }

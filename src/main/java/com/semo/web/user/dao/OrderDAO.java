@@ -96,4 +96,15 @@ public class OrderDAO {
 	public void updateEst(EstimateVO evo) {
 		sqlSessiontemplate.selectOne("OrderDAOuser.updateEst", evo);
 	}
+	
+	// 리뷰 팝업
+	public OrderVO getReadReviewPop(OrderVO vo) {
+		return sqlSessiontemplate.selectOne("OrderDAOuser.getReadReviewPop",vo);
+	}
+	
+	// 리뷰 상태 업데이트
+	public void updateReviewStatus(OrderVO vo) {
+		System.out.println("DAO.updateReviewStatus 실행");
+		sqlSessiontemplate.update("OrderDAOuser.updateReviewStatus",vo);
+	}
 }

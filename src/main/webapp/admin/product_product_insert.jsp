@@ -83,10 +83,13 @@
 
 </div>
 
-<div class="popup_btn">
 <div class="end">
-	<input type="submit" value="저장">&nbsp;&nbsp;&nbsp;&nbsp;<a href="/ProductList.mdo">취소</a>
-</div>
+	<div class="popup_btn">
+		<input type="submit" value="저장">
+	</div>
+	<div class="popup_btn">
+		<a href="/ProductList.mdo">취소</a>
+	</div>
 </div>
 
 </div>

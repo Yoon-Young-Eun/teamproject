@@ -4,7 +4,7 @@
 
 <%@ include file="/admin/ad_header.jsp"%>
 
-<link href="/admin/css/item_product.css" rel="stylesheet" />
+<link href="/admin/css/item_product_edit.css" rel="stylesheet" />
 
 </head>
 <body class="sb-nav-fixed">
@@ -101,12 +101,10 @@ ${ProductInfo.product_reg_date}</div>
 </div>
 
 
-
 <div class="end">
 	<div class="popup_btn">
 		<input type="submit" value="저장">
 	</div>
-
 	<div class="popup_btn">
 		<a href="/ProductList.mdo">취소</a>
 	</div>

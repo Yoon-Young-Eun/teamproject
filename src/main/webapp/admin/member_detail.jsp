@@ -79,7 +79,7 @@
 
 		<div class="end">
 			<div class="popup_btn">
-				<input type="submit" value="저장"/>
+				<input type="submit" value="저장" style="margin: -4px;"/>
 			</div>
 			<div class="popup_btn">
 				<a href="/member.mdo" onclick="self.close();">취소</a>

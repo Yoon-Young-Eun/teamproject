@@ -88,16 +88,23 @@
 	,order_customer_name,order_expected_date,order_customer_phone,order_address1,order_address2,order_delivery_price,imp_uid)
 	values(#{order_type},#{store_code},#{order_pickup_date},#{order_pickup_time},#{cm_gate_passwd},#{order_request1},#{order_request2},#{order_price},#{order_use_coupon_price},#{order_price_method},#{customer_no}
 	,#{order_customer_name},date_add(#{order_pickup_date},interval 5 day),#{order_customer_phone},#{order_address1},#{order_address2},#{order_delivery_price},#{imp_uid})]]>
-
 	</insert>
 	
 	<select id="selectEstimate2" parameterType="Ad_estimate" resultType="Ad_estimate">
 	<![CDATA[select * from estimate_ad where estimate_cm_no=#{estimate_cm_no}]]>
 	</select>
 	
-	
 	<update id="updateEst" parameterType="estimate">
 		<![CDATA[ update estimate_cm set estimate_status='결제완료' where estimate_cm_no=#{estimate_cm_no} ]]>
 	</update>
+	
+	<!-- 리뷰 팝업 -->
+	<select id="getReadReviewPop" parameterType="order" resultType="order">
+   		select * from order_cm where order_no =#{order_no}
+    </select>
+    
+    <update id="updateReviewStatus" parameterType="order">
+    	<![CDATA[update order_cm set review_status=1 where order_no=#{order_no}]]>
+    </update>
 
 </mapper>

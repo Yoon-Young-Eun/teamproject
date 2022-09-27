@@ -21,11 +21,8 @@ public class Ad_DashboardController {
 	DashboardService DashboardService;
 	
 	@RequestMapping("/index.mdo")
-<<<<<<< HEAD
-	public String getOrderStatus(Model model, OrderVO vo, EstimateVO evo, Cm_QnAVO cvo ,HttpSession session) {	
-=======
 	public String getOrderStatus(Model model, OrderVO vo, EstimateVO evo, Cm_QnAVO qvo, CustomerVO cvo, HttpSession session) {	
->>>>>>> main
+
 		
 		//세션 유무확인 HttpSession session
 		AdminVO admin = (AdminVO)session.getAttribute("admin");

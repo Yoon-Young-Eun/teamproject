@@ -37,11 +37,6 @@ public class Ad_DashboardController {
 		model.addAttribute("OrderInfo", DashboardService.getOrderStatus(vo));
 		System.out.println(DashboardService.getOrderStatus(vo));
 		
-		// 대시보드 완료된주문
-		System.out.println("admin getOrderStatus()"+DashboardService.getOrderStatusEnd(vo));
-		model.addAttribute("OrderInfoEnd", DashboardService.getOrderStatusEnd(vo));
-		System.out.println(DashboardService.getOrderStatusEnd(vo));
-		
 		// 대시보드 배달예정(세탁중)
 		System.out.println("admin getOrderStatus()"+DashboardService.getOrderStatusIng(vo));
 		model.addAttribute("OrderInfoIng", DashboardService.getOrderStatusIng(vo));

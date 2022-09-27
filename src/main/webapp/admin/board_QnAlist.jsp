@@ -95,7 +95,7 @@
 
 							</tbody>
 						</table>
-						
+			
 <!-- 답변 대기 테이블 끝 -->
 <br>
 <!-- 답변 완료 테이블 시작 -->
@@ -151,6 +151,7 @@
 <!-- 답변 완료 테이블 끝 -->						
 
 						<!-- 내용물 end -->
+						<div class="card-footer small text-muted"></div>
 					</div>
 				</div>
 			</main>

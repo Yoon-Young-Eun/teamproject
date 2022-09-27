@@ -19,7 +19,7 @@
 									<h3 class="text-center font-weight-light my-4">Login</h3>
 								</div>
 								<div class="card-body">
-									<form action="/login.mdo" method="post" id="form">
+									<form action="/logon.mdo" method="post" id="form">
 										<div class="form-floating mb-3">
 											<input class="form-control" id="inputEmail" type="email"
 												name="admin_id" placeholder="name@example.com" /> <label

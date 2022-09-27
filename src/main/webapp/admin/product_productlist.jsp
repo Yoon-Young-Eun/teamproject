@@ -161,8 +161,7 @@
 						</script>
 
 						<!-- 내용물 end -->
-						<div class="card-footer small text-muted">Updated yesterday
-							at 11:59 PM</div>
+						<div class="card-footer small text-muted"></div>
 					</div>
 
 				</div>

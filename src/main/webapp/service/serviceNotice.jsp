@@ -16,7 +16,7 @@
 <body>
 
 <div class="wrap">
-    <div class="wrap1">
+    
       <!-- 헤더 : 로그인 유무에 따라 달라짐 -->  
     <form action="/login.do">
 		<div id = "header">
@@ -34,7 +34,7 @@
 		</div>
 	</form>
     
-    
+    <div class="wrap1">
     <div class="main">
 	<div class="space_left">
 	<jsp:include page="/common/centerSide.jsp"></jsp:include>
@@ -58,7 +58,7 @@
 										<option value="10">10</option>
 										<option value="20">20</option>
 										<option value="50">50</option>
-									</select> entries per page
+									</select>
 								</div>
 							</form>
 
@@ -113,26 +113,24 @@
 						</tbody>
 						
 					</table>
-					<!-- pagaing 처리 -->
-		
-						<div>
-							<c:if test="${count > 0}"> <!-- 조회된 데이터 개수가 0보다 크면 if문 실행 -->
-								<div class="icon_flex">
-								<div>
+						<!-- pagaing 처리 -->
+				
+						<div class = "paging-wrapper">					
+							<c:if test="${count > 0}">
+								<div class="paging">
+							    <div class="paging-text">
 								<c:if test="${startPage > pageBlock}"> <!-- 시작번호가 5보다 크면, 앞에 '이전'을 붙여줌 -->
-									<a href="getBoardList.do?pageNum=${startPage-pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="paging2">이전</div></a>
+									<a href="/getBoardList.do.do?pageNum=${startPage-pageBlock}&customer_no=${num}"><i class="fas fa-chevron-left"></i></a>
 								</c:if>
 								</div>
-								<div>
-								<div class="icon_flex">
+								<div class="paging-num">
 								<c:forEach var="i" begin="${startPage}" end="${endPage}">
-										<a href="getBoardList.do?pageNum=${i}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="paging">${i}</div></a>
+										<a href="/getBoardList.do.do?pageNum=${i}&customer_no=${num}">${i}</a>
 								</c:forEach>
-								</div>
 								</div>							
-								<div>
+								<div class="paging-text">
 								<c:if test="${endPage < pageCount}">
-									<a href="getBoardList.do?pageNum=${startPage + pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="paging2">다음</div></a>
+									<a href="/getBoardList.do.do?pageNum=${startPage + pageBlock}&customer_no=${num}"><i class="fas fa-chevron-right"></i></a>
 								</c:if>
 								</div>
 								</div>

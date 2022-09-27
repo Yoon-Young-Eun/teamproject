@@ -86,7 +86,17 @@
 						<td class = "address-content" style = "width : 20%; text-align : center;">${orderlist.order_address1}</td>
 						<td class = "date-content" style = "width : 20%; text-align : center;">${orderlist.order_date}</td>
 						<td class = "pickup-content" style = "width : 20%; text-align : center;">${orderlist.order_expected_date}</td>
-						<td class = "status-content" style = "width : 10%; text-align : center;">${orderlist.order_status}</td>
+						<td class = "status-content" style = "width : 10%; text-align : center;">
+							<c:choose>
+								<c:when test="${orderlist.order_status eq '배송완료'}">
+									${orderlist.order_status}
+									<input type="button" value="리뷰작성">
+								  </c:when>
+								<c:otherwise>
+									${orderlist.order_status}
+								</c:otherwise>
+							</c:choose>
+						</td>
 					</tr>
 					</c:forEach>
 				</tbody>

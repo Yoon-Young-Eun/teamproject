@@ -44,7 +44,7 @@ public class CustomerController {
 	BCryptPasswordEncoder encoder; // 암호화 클래스
 
 	// 로그인
-	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
+	@RequestMapping("/login.do")
 	public String login(CustomerVO vo, OrderVO order, Model model, HttpSession session) {
 		
 		System.out.println(vo);
@@ -68,7 +68,7 @@ public class CustomerController {
 			session.setAttribute("user_name", vo2.getCustomer_name());
 			session.setAttribute("id", vo2.getCustomer_id());
 			session.setAttribute("num", vo2.getCustomer_no());
-			return "/views/main.jsp";
+			return "/index.do";
 		} else {
 			System.out.println("로그인 실패");
 			return "/views/login.jsp";
@@ -85,7 +85,7 @@ public class CustomerController {
 		session.setAttribute("num", null);
 		session.invalidate();
 		System.out.println("정상적인 로그아웃");
-		return "/views/main.jsp";
+		return "/index.do";
 	}
 
 	// 아이디 중복 체크
@@ -137,10 +137,14 @@ public class CustomerController {
 		//회원가입 축하메세지
 		MessageVO msg = utilservice.welcomeMessage();
 		
-		String phone = vo2.getCustomer_phone();
-		String message = msg.getMessage_content();
+		if(vo2.getCustomer_sms_permit()==1) {
+			String phone = vo2.getCustomer_phone();
+			System.out.println(phone);
+			String message = msg.getMessage_content();
+			
+			cool.sendMessage(phone, message);
+		}
 		
-		cool.sendMessage(phone, message);
 		
 		return "/views/complete.jsp";
 	}

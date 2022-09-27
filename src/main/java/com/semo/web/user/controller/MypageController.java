@@ -35,15 +35,18 @@ import com.semo.web.user.vo.OrderVO;
 
 @Controller
 public class MypageController {
- 
+	
 	
 	@Autowired
 	MypageService service;
 	
 	// MyMain : 최근 주문
 	@RequestMapping(value = "/mypage.do", method = RequestMethod.GET)
-	public String RecentOrder(Model model, CustomerVO customer, OrderVO order, PagingVO pvo) {
-		
+	public String RecentOrder(Model model, CustomerVO customer, OrderVO order, PagingVO pvo,HttpSession session) {
+		session.getAttribute("id");
+		if(session.getAttribute("id") == null) {
+			return "/login.do";
+		}
 		System.out.println("======================================================================================================");
 		System.out.println("go to MyMain.jsp");
 		System.out.println("Controller > " + customer);
@@ -81,8 +84,11 @@ public class MypageController {
 	
 	// MyOrderList : 주문 목록
 	@RequestMapping(value = "/myorderlist.do", method = RequestMethod.GET)
-	public String OrderList(Model model, PagingVO pvo, CustomerVO customer, OrderVO order) {
-		
+	public String OrderList(Model model, PagingVO pvo, CustomerVO customer, OrderVO order,HttpSession session) {
+		session.getAttribute("id");
+		if(session.getAttribute("id") == null) {
+			return "/login.do";
+		}
 		 model.addAttribute("search", pvo);
 		
 		// 페이징 처리
@@ -166,8 +172,12 @@ public class MypageController {
 	
 	// MyOrder : 주문 상세
 	@RequestMapping(value = "/orderdetail.do", method = RequestMethod.GET)
-	public String OrderDetail(Model model, CustomerVO customer, OrderMtVO ordermt, OrderVO order, StoreVO store) {
+	public String OrderDetail(Model model, CustomerVO customer, OrderMtVO ordermt, OrderVO order, StoreVO store,HttpSession session) {
+		session.getAttribute("id");
 		
+		if(session.getAttribute("id") == null) {
+			return "/login.do";
+		}
 		System.out.println("======================================================================================================");
 		System.out.println("go to MyOrder.jsp");
 		System.out.println("Controller > " + order);
@@ -201,8 +211,11 @@ public class MypageController {
 	
 	// MyAddresslist : 주소 목록
 	@RequestMapping(value = "/myaddresslist.do", method = RequestMethod.GET)
-	public String AddressList(Model model, CustomerVO customer, AddressListVO address) {
-		
+	public String AddressList(Model model, CustomerVO customer, AddressListVO address,HttpSession session) {
+		session.getAttribute("id");
+		if(session.getAttribute("id") == null) {
+			return"/login.do";
+		}
 		System.out.println("======================================================================================================");
 		System.out.println("go to MyAddresslist.jsp");
 		System.out.println("Controller > customer " + customer);
@@ -221,7 +234,11 @@ public class MypageController {
 	
 	// MyAddress : 주소 상세
 	@RequestMapping(value = "/addressdetail.do", method = RequestMethod.GET)
-	public String AddressDetail(Model model, CustomerVO customer, AddressListVO address, OrderVO order) {
+	public String AddressDetail(Model model, CustomerVO customer, AddressListVO address, OrderVO order,HttpSession session) {
+		session.getAttribute("id");
+		if(session.getAttribute("id") == null) {
+			return "/login.do";
+		}
 		
 		System.out.println("======================================================================================================");
 		System.out.println("go to MyAdress.jsp");	
@@ -237,8 +254,11 @@ public class MypageController {
 
 	// MyCoupon : 쿠폰 조회
 	@RequestMapping(value = "/mycoupon.do", method = RequestMethod.GET)
-	public String Coupon(Model model, CustomerVO customer) {
-		
+	public String Coupon(Model model, CustomerVO customer,HttpSession session) {
+		session.getAttribute("id");
+		if(session.getAttribute("id") == null) {
+			return "/login.do";
+		}
 		System.out.println("======================================================================================================");
 		System.out.println("go to MyAdress.jsp");
 		
@@ -263,6 +283,10 @@ public class MypageController {
 	// MyAsklist : 문의내역
 	@RequestMapping("/myasklist.do")
 	public String AskList(Model model, Cm_QnAVO qna, HttpSession session , PagingVO vo) {
+		session.getAttribute("id");
+		if(session.getAttribute("id") == null) {
+			return "/login.do";
+		}
 		System.out.println("======================================================================================================");
 		System.out.println("go to Myasklist.jsp");
 		session.getAttribute("num");
@@ -328,7 +352,11 @@ public class MypageController {
 	
 	// MyAsk : 문의글 쓰러 가기 //9/26 승현
 	@RequestMapping(value = "/myask.do", method = RequestMethod.GET)
-	public String Ask(Model model, CustomerVO customer, Cm_QnAVO qna) {
+	public String Ask(Model model, CustomerVO customer, Cm_QnAVO qna,HttpSession session) {
+		session.getAttribute("id");
+		if(session.getAttribute("id") == null) {
+			return "/login.do";
+		}
 		System.out.println(customer);
 		CustomerVO customer1 = service.selectask(customer);
 		model.addAttribute("ask",customer1);
@@ -338,6 +366,10 @@ public class MypageController {
 	// MyAsk : 문의글 작성 완료
 	@RequestMapping(value = "/insertask.do", method = RequestMethod.POST)
 	public String InsertAsk(Model model, Cm_QnAVO qna , MultipartFile file,HttpSession session) throws IOException, SQLException {
+		session.getAttribute("id");
+		if(session.getAttribute("id") == null) {
+			return "/login.do";
+		}
 		session.getAttribute("num");
 		AwsS3 awss3 = AwsS3.getInstance();
 		InputStream is = file.getInputStream();
@@ -365,6 +397,10 @@ public class MypageController {
 	// MyAskDetail : 게시글 수정하러 가기
 	@RequestMapping(value = "/myaskedit.do", method = RequestMethod.GET)
 	public String EditAsk(Model model, CustomerVO customer, Cm_QnAVO qna,HttpSession session) {
+		session.getAttribute("id");
+		if(session.getAttribute("id") == null) {
+			return "/login.do";
+		}
 		session.getAttribute("num");
 		System.out.println("============================================================");
 		System.out.println("go to My Ask Edit");
@@ -382,7 +418,11 @@ public class MypageController {
 	
 	// MyAskEdit : 게시글 수정 완료
 	@RequestMapping(value = "/updateask.do", method = RequestMethod.POST)
-	public String EditAsk(Model model, Cm_QnAVO qna) {
+	public String EditAsk(Model model, Cm_QnAVO qna,HttpSession session) {
+		session.getAttribute("id");
+		if(session.getAttribute("id") == null) {
+			return "/login.do";
+		}
 		System.out.println("============================================================");
 		System.out.println("My Ask Edit");
 		System.out.println(qna);
@@ -397,7 +437,11 @@ public class MypageController {
 	
 	// 문의글 상세보기
 	 @RequestMapping(value="/askdetail.do")
-	 public String AskDetail(Model model, Cm_QnAVO qna) {
+	 public String AskDetail(Model model, Cm_QnAVO qna,HttpSession session ) {
+		 session.getAttribute("id");
+		 if(session.getAttribute("id") == null) {
+			 return "/login.do";
+		 }
 		 System.out.println(qna);
 		 
 		 Cm_QnAVO askdetail = service.askdetail(qna);
@@ -411,7 +455,11 @@ public class MypageController {
 	 //문의글 삭제하기
 	 
 	 @RequestMapping(value="/deleteQnA.do")
-	 public String deleteQnA(String[]num,Cm_QnAVO vo , Model model) {
+	 public String deleteQnA(String[]num,Cm_QnAVO vo , Model model,HttpSession session) {
+		 session.getAttribute("id");
+		 if(session.getAttribute("id") == null) {
+			 return "/login.do";
+		 }
 		 System.out.println(num[0]);
 		 List<Integer> arr = new ArrayList<Integer>();
 		 for(int a = 0 ; a < num.length; a++) {
@@ -431,7 +479,11 @@ public class MypageController {
 	
 	//견적서
     @RequestMapping(value= "/myestimate.do")
-    public String getMyEstimate(EstimateVO evo, Ad_EstimateVO avo, Estimate_ImageVO vo1, Model model) {
+    public String getMyEstimate(EstimateVO evo, Ad_EstimateVO avo, Estimate_ImageVO vo1, Model model,HttpSession session) {
+    	session.getAttribute("id");
+    	if(session.getAttribute("id") == null) {
+    		return "/login.do";
+    	}
        System.out.println("내 견적요청서");
        System.out.println(vo1);
        System.out.println("evo"+evo);
@@ -447,12 +499,15 @@ public class MypageController {
        System.out.println("myvo"+myvo);
        
        String status="견적발송";
+      
+       
+       
        if(myvo.getEstimate_status().equals(status)) {
        System.out.println("관리자답변");
        Ad_EstimateVO advo = service.getAd_Estimate(avo);
        System.out.println("답변?"+advo);
        model.addAttribute("getAd", advo);
-
+       
        return "/views-mypage/MyEstimate.jsp";
        }else {
     	   return "/views-mypage/MyEstimate-c.jsp";
@@ -460,7 +515,11 @@ public class MypageController {
     }
     
     @RequestMapping(value="/updateEstimate.do")
-    public String updateEstimate(EstimateVO vo) {
+    public String updateEstimate(EstimateVO vo,HttpSession session) {
+    	session.getAttribute("id");
+    	if(session.getAttribute("id") == null) {
+    		return "/login.do";
+    	}
     	System.out.println("주문취소 상태 업데이트");
     	service.updateEstimate(vo);
     	
@@ -469,7 +528,11 @@ public class MypageController {
     
     //견적리스트
     @RequestMapping(value= "/getmyEstimate.do")
-    public String getmyEstimate(PagingVO pvo, Model m) {
+    public String getmyEstimate(PagingVO pvo, Model m , HttpSession session) {
+    	session.getAttribute("id");
+    	if(session.getAttribute("id") == null) {
+    		return "/login.do";
+    	}
        System.out.println("견적리스트뽑기");
        System.out.println("페이징" + pvo);
        
@@ -538,7 +601,11 @@ public class MypageController {
     
     //마이페이지 -> 내 리뷰관리 
     @RequestMapping(value="/myReview.do")
-    public String myReview(PagingVO vo,ReviewVO vo1,Model model) {
+    public String myReview(PagingVO vo,ReviewVO vo1,Model model,HttpSession session) {
+    	session.getAttribute("id");
+    	if(session.getAttribute("id") == null) {
+    		return "/login.do";
+    	}
     	System.out.println("고객정보내놔"+vo);
     	
     	
@@ -595,7 +662,11 @@ public class MypageController {
     
     //리뷰 상세보기
     @RequestMapping(value="/viewReview.do")
-    public String viewReview(ReviewVO vo,Model model) {
+    public String viewReview(ReviewVO vo,Model model , HttpSession session) {
+    	session.getAttribute("id");
+    	if(session.getAttribute("id") == null) {
+    		return "/login.do";
+    	}
     	System.out.println(vo);
     	service.viewReview(vo);
     	model.addAttribute("view",service.viewReview(vo));

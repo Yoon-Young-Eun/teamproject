@@ -20,7 +20,7 @@
 	<!-- iamport.payment.js -->
 	<script type="text/javascript"
 		src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
-		
+
 </head>
 <body>
 
@@ -116,7 +116,7 @@
   
       </div>
      
-      <input type="hidden" value="${OrderData.customer_no}"	name="customer_no"> 
+      <input type="hidden" value="${OrderData.customer_no}"	id="customer_no" name="customer_no"> 
 	  <input type="hidden"value="${OrderData.order_address1 }" name="order_address1">
 	  <input type="hidden" value="${OrderData.order_address2}" name="order_address2"> 
 	  <input type="hidden"value="${OrderData.order_customer_name}" name="order_customer_name"> 
@@ -235,11 +235,11 @@
 
 
 
-<button onclick="requestPay()">결제하기</button>
+
 
 
       <div class="bt1" style="width:1000px;">
-        <input type="button" id="but1" value="결제하기" onclick="requestPay" class="action-button shadow animate blue">
+        <input type="button" id="but1" value="결제하기" onclick="requestPay()" class="action-button shadow animate blue">
         <input type="button" id="but2" value="취소하기" class="action-button shadow animate blue" >
       </div>
     
@@ -298,7 +298,7 @@
 				    			msg += '\n결제 금액 : ' + rsp.paid_amount;
 				    			msg += '\n카드 승인번호 : ' + rsp.apply_num;
 								    alert(msg);
-// 								    order();  
+ 								    order();  
 		    	          }
 		    	      })
 	
@@ -333,24 +333,6 @@
       
       
       
-      
-      <script>
-        document.getElementById("but1").addEventListener("click",function order(){
-          var money1 = document.getElementById("q2").innerText;
-          var abc = /[^0-9]/g;
-          var totalpay = Number(money1.replace(abc,""));
-          var totalpay2 = Number(money1);
-			console.log(totalpay2);
-          if(totalpay2 < 15000){
-         	alert("최소주문금액은 15000원 입니다.");
-          }else{
-        	  document.getElementById("form1").submit();
-          }
-
-        })
-
-        
-      </script>
 <script>
 $("#q1").on("DOMSubtreeModified",function(){
 	   console.log("q1");

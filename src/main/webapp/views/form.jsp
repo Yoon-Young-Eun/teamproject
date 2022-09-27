@@ -50,6 +50,7 @@
 	</div>
 
 	<form action="/complete.do" method="post" name = "joinForm"  id = "joinForm" onsubmit="return joinCorrection()">
+	<input type="hidden" name="customer_phone" value="${param.phone}"/>
 		<div class="wrapper">
 			<div class="sectionInner container">
 				<div class="content">

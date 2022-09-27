@@ -52,7 +52,7 @@
 					<div class="paymain_text">세탁 서비스 예약하기</div>
 
 					<input type="hidden" value="${num}" name="customer_no">
-					<input type="hidden" value="${num }" name="customer_no">
+					
 					<div class="paymain_text1">유의사항</div>
 					<div class="paymain_text2">
 

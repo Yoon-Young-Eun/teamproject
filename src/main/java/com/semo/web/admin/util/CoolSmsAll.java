@@ -6,12 +6,12 @@ import java.util.List;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import net.nurigo.java_sdk.api.Message;
 
 import com.semo.web.admin.service.MemberService;
 import com.semo.web.admin.vo.MessageVO;
 import com.semo.web.user.vo.CustomerVO;
 
+import net.nurigo.java_sdk.api.Message;
 import net.nurigo.java_sdk.exceptions.CoolsmsException;
 
 

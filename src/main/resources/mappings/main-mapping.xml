@@ -5,10 +5,12 @@
  <mapper namespace="MainDAO">
 
  	<select id="getMain" parameterType="board_event" resultType="board_event">
-		SELECT * FROM board_event order by board_event_no desc LIMIT 0,3;
+		SELECT * FROM board_event order by board_event_no desc LIMIT 0,3
  	</select>
  	
-
+	<select id="getMainReview" parameterType="board_review" resultType="board_review">
+		SELECT * FROM board_review order by board_review_rating desc LIMIT 0,3
+ 	</select>
  	
 </mapper>
  

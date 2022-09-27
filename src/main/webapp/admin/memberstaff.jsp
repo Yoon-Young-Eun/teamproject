@@ -111,11 +111,11 @@
 								<tr style="background-color: #f2f2f2";>
 									<th width="50" id="check_td"><input type="checkbox"
 										name="check" class="allcheck"></th>
-									<th >No</th>
-									<th >아이디</th>
-									<th >부서</th>
-									<th >직급</th>
-									<th >이름</th>
+									<th style="width:10%;">No</th>
+									<th style="width:30%;">아이디</th>
+									<th style="width:20%;">부서</th>
+									<th style="width:20%;">직급</th>
+									<th style="width:20%;">이름</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -123,9 +123,9 @@
 								    <tr class="colored" onclick="location.href='readStaff.mdo?admin_no=${admin.admin_no}'">
 										<td id="check_td"><input type="checkbox" class ="checkone" name="check"></td>
 										<td class="center">${admin.admin_no}</td>  <!--for문의 id값.컬럼명으로 값을 불러옴 -->
-										<td>${admin.admin_id}</a></td>
-										<td>${admin.admin_position}</td>
-										<td>${admin.admin_title}</td>
+										<td class="center">${admin.admin_id}</a></td>
+										<td class="center">${admin.admin_position}</td>
+										<td class="center">${admin.admin_title}</td>
 										<td class="center">${admin.admin_name}</td>
 									</tr>
 								</c:forEach>

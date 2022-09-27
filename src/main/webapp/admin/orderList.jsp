@@ -159,7 +159,7 @@
 											<td class="center">${order.order_no}</td>
 											<td class="center">${order.order_customer_name}</a></td>
 											<td class="center">${order.order_customer_phone}</td>
-											<td>${order.order_address1}${order.order_address2}</td>
+											<td>${order.order_address1}</td>
 											<td class="center">${order.order_date}</td>
 											<td class="center">${order.order_pickup_date}</td>
 											<td class="center">${order.order_pickup_time}</td>

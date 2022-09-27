@@ -84,7 +84,7 @@ public class KakaoController {
 			session.getAttribute("access_Token");
 			
 			System.out.println(session.getAttribute("access_Token"));
-			return "redirect:/views/main.jsp";
+			return "redirect:/index.do";
 		}else {
 			return "/views/kakaoform.jsp";
 		}
@@ -98,7 +98,7 @@ public class KakaoController {
 
 		session.invalidate();
 
-		return "/views/loginde-main.jsp";
+		return "/index.do";
 	}
 	
 }

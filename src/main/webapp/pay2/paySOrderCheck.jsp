@@ -12,10 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <title>[세모]세탁의 모든것</title>
-<<<<<<< HEAD
-=======
 
->>>>>>> main
 <!-- jQuery -->
 	<script type="text/javascript"
 		src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -23,10 +20,7 @@
 	<!-- iamport.payment.js -->
 	<script type="text/javascript"
 		src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
-<<<<<<< HEAD
-=======
-		
->>>>>>> main
+
 </head>
 <body>
 
@@ -241,11 +235,11 @@
 
 
 
-<button onclick="requestPay()">결제하기</button>
+
 
 
       <div class="bt1" style="width:1000px;">
-        <input type="button" id="but1" value="결제하기" onclick="requestPay" class="action-button shadow animate blue">
+        <input type="button" id="but1" value="결제하기" onclick="requestPay()" class="action-button shadow animate blue">
         <input type="button" id="but2" value="취소하기" class="action-button shadow animate blue" >
       </div>
     

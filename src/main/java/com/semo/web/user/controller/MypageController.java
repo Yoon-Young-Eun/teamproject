@@ -499,12 +499,15 @@ public class MypageController {
        System.out.println("myvo"+myvo);
        
        String status="견적발송";
+      
+       
+       
        if(myvo.getEstimate_status().equals(status)) {
        System.out.println("관리자답변");
        Ad_EstimateVO advo = service.getAd_Estimate(avo);
        System.out.println("답변?"+advo);
        model.addAttribute("getAd", advo);
-
+       
        return "/views-mypage/MyEstimate.jsp";
        }else {
     	   return "/views-mypage/MyEstimate-c.jsp";

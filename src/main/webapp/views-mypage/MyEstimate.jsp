@@ -115,8 +115,8 @@
 								
 			</div><!-- order-item-wrapper -->
 		<div class="btn">
-			<button id="btn" class="action-button shadow animate blue">결제</button>
-			<button id="btn_c" class="action-button shadow animate red" onclick="location.href='/updateEstimate.do?customer_no=${getEstimate.customer_no}&estimate_cm_no=${getEstimate.estimate_cm_no }'">취소</button>
+			<input type="submit" id="btn" class="action-button shadow animate blue" value="결제">
+			<input type="button" id="btn_c" class="action-button shadow animate red" onclick="location.href='/updateEstimate.do?customer_no=${getEstimate.customer_no}&estimate_cm_no=${getEstimate.estimate_cm_no }'" value="취소">
 		</div>
 	</div> <!-- content-wrapper -->
 	

@@ -162,12 +162,12 @@
 								class="tblCustomers tblexportData table">
 								<thead>
 									<tr style="background-color: #f2f2f2";>
-										<th>주문일자</th>
-										<th>구분</th>
-										<th>매장명</th>
+										<th style="width:10%;">주문일자</th>
+										<th style="width:20%;">구분</th>
+										<th style="width:20%;">매장명</th>
 										<th>지역</th>
-										<th>결제방식</th>
-										<th>결제금액</th>
+										<th style="width:20%;">결제방식</th>
+										<th style="width:20%;">결제금액</th>
 									</tr>
 								</thead>
 								<tbody>

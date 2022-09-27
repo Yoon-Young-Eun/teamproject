@@ -44,7 +44,7 @@ public class CustomerController {
 	BCryptPasswordEncoder encoder; // 암호화 클래스
 
 	// 로그인
-	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
+	@RequestMapping("/login.do")
 	public String login(CustomerVO vo, OrderVO order, Model model, HttpSession session) {
 		
 		System.out.println(vo);
@@ -85,7 +85,7 @@ public class CustomerController {
 		session.setAttribute("num", null);
 		session.invalidate();
 		System.out.println("정상적인 로그아웃");
-		return "/views/main.jsp";
+		return "/index.do";
 	}
 
 	// 아이디 중복 체크

@@ -18,13 +18,12 @@
 				<div class="container-fluid px-4">
 					<h1 class="mt-4">배너 조회</h1>
 					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
+						<li class="breadcrumb-item"><a href="/index.mdo">대시보드</a></li>
 						<li class="breadcrumb-item active">배너 조회</li>
 					</ol>
 					<div class="card mb-4">
 						<div class="card-body">
-							배너 조회 페이지 입니다. <a target="_blank" href="https://datatables.net/">아무링크</a>
-							.
+							배너 조회 페이지 입니다.
 						</div>
 					</div>
 

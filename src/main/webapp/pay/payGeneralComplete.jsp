@@ -39,16 +39,16 @@
       </div>
       <div class="main_text3">
       <div class="main_text4">
-        <input type="button" id="button1" onclick="location.href='./main.html'" value="메인으로" class="action-button shadow animate blue" style="width: 400px; height: 50px;">
+        <input type="button" id="button1" onclick="location.href='/index.do?customer_no=${num}'" value="메인으로" class="action-button shadow animate blue" style="width: 400px; height: 50px;">
       </div>
       <div class="main_text5">
-        <input type="button" id="button2" onclick="#" value="주문확인" class="action-button shadow animate blue" style="width: 400px; height: 50px;">
+        <input type="button" id="button2" onclick="location.href='/myorderlist.do?customer_no=${num}'" value="주문확인" class="action-button shadow animate blue" style="width: 400px; height: 50px;">
       </div>
       <div class="main_text6">
         <input type="button" id="button3" onclick="#" value="수거방법안내" class="action-button shadow animate blue" style="width: 400px; height: 50px;">
       </div>
       <div class="main_text7">
-        <input type="button" id="button4" onclick="location.href='/pay/pay1.jsp'" value="추가세탁" class="action-button shadow animate blue" style="width: 400px; height: 50px;">
+        <input type="button" id="button4" onclick="location.href='/startOrder.do?customer_no=${num}'" value="추가세탁" class="action-button shadow animate blue" style="width: 400px; height: 50px;">
       </div>
     </div>
     </div>

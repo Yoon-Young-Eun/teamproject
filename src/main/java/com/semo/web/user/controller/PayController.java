@@ -1,5 +1,7 @@
 package com.semo.web.user.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,7 +45,8 @@ public class PayController {
 	}
 	
 	@RequestMapping(value="/getRefund.do")
-	public String getToken(OrderVO vo) throws Exception{
+	public String getToken(OrderVO vo,HttpSession session) throws Exception{
+		session.getAttribute("num");
 		System.out.println("getRefund.do 메서드");
 		System.out.println("ordervo:    " +vo);
 		
@@ -57,7 +60,7 @@ public class PayController {
 		System.out.println("before update order ordervo"+vo);
 		PayService.updateOrder(ovo);
 		System.out.println("오더브이오:      " + vo);
-		return "/refund/refund3.jsp";
+		return "/myorderlist.do?customer_no="+ovo.getCustomer_no();
 		// requestURL 아임퐅크 고유키, 시크릿 키 정보를 포함하는 url 정보
 		
 	}

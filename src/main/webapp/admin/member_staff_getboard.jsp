@@ -17,7 +17,7 @@
 				<div class="container-fluid px-4">
 					<h1 class="mt-4">매니저등록</h1>
 					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item"><a href="/admin/index.jsp">Dashboard</a></li>
+						<li class="breadcrumb-item"><a href="index.mdo">대시보드</a></li>
 						<li class="breadcrumb-item active">매니저등록화면</li>
 					</ol>
 					<div class="card mb-4">

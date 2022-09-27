@@ -11,6 +11,7 @@
 <!-- summernote -->
 <script src="/admin/js/summernote/summernote-lite.js"></script>
 <script src="/admin/js/summernote/lang/summernote-ko-KR.js"></script>
+
 <link rel="stylesheet" href="/admin/css/summernote/summernote-lite.css">
 </head>
 
@@ -23,7 +24,7 @@
 				<div class="container-fluid px-4">
 					<h1 class="mt-4">게시판</h1>
 					<ol class="breadcrumb mb-4">
-						<li class="breadcrumb-item"><a href="index.jsp">Dashboard</a></li>
+						<li class="breadcrumb-item"><a href="/index.mdo">대시보드</a></li>
 						<li class="breadcrumb-item active">이벤트</li>
 					</ol>
 					<div class="card mb-4">
@@ -49,8 +50,7 @@
 											value="[이벤트] " /></li>
 									</ul>
 									<div id="summer" class="writeWrap">
-										<textarea id="summernote" class="writeArea"
-											name="board_event_content"></textarea>
+										<textarea id="summernote" class="writeArea" name="board_event_content"></textarea>
 									</div>
 									<div class="configWrap">
 										<ul>

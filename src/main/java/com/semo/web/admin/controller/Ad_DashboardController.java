@@ -29,7 +29,7 @@ public class Ad_DashboardController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		// 대시보드 수거예정

@@ -35,7 +35,7 @@ public class Ad_SalesController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println("매출 메서드 실행");
@@ -108,7 +108,7 @@ public class Ad_SalesController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println("매출 메서드 실행");

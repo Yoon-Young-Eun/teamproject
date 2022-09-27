@@ -37,7 +37,7 @@ public class Ad_FAQController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println("FAQ 등록 처리");
@@ -58,7 +58,7 @@ public class Ad_FAQController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println("admin FAQList()");		
@@ -142,7 +142,7 @@ public class Ad_FAQController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println("admin readFAQ()");
@@ -160,7 +160,7 @@ public class Ad_FAQController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println("updateFAQPage()");
@@ -178,7 +178,7 @@ public class Ad_FAQController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println(vo);
@@ -197,7 +197,7 @@ public class Ad_FAQController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println(vo);
@@ -216,7 +216,7 @@ public class Ad_FAQController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println(tdArr[0]);

@@ -32,7 +32,7 @@ public class Ad_StoreController {
 				
 				if(admin == null) {
 						System.out.println("세션 정보가 없습니다.");
-						return "redirect:/admin/login.jsp";
+						return "redirect:/login.mdo";
 				}
 				
 				
@@ -54,7 +54,7 @@ public class Ad_StoreController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		
@@ -74,7 +74,7 @@ public class Ad_StoreController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		
@@ -93,7 +93,7 @@ public class Ad_StoreController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println("updateStorePage()");
@@ -112,7 +112,7 @@ public class Ad_StoreController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println(vo);
@@ -131,7 +131,7 @@ public class Ad_StoreController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println(vo);
@@ -150,7 +150,7 @@ public class Ad_StoreController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println(tdArr[0]);

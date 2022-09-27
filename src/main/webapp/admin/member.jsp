@@ -119,7 +119,7 @@
 						<table id="#example-table-1"
 							class="tblCustomers tblexportData table">
 							<thead>
-								<tr style="background-color: #f2f2f2";>
+								<tr style="background-color: #f2f2f2;">
 									<th >회원코드</th>
 									<th>아이디(이메일)</th>
 									<th>이름</th>

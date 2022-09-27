@@ -32,24 +32,28 @@ a {
 }
 
 
+
 /*전체*/
 .page-wrapper {
-	display : flex;
-	justify-content : center;
+	display: flex;
+	justify-content: center;
+	margin-right : 150px;
+	margin-left : 150px;
+	
 }
 
-/*사이드메뉴*/
+/*사이드 메뉴*/
 
 /*본문*/
 .content-wrapper {
-	max-width : 1240px;
-	margin : 50px;
-	width : 100%;
+	max-width: 1040px;
+	margin: 50px;
+	width: 100%;
 }
 
 /*제목*/
 .content-title {
-	line-height : 70px;
+	line-height: 70px;
 }
 
 /*소제목*/
@@ -61,127 +65,71 @@ a {
 }
 
 .article-wrapper {
-	padding : 50px;
-}
-
-.sort-wrapper{
-	display : flex;	
-	height : 70px; 
+	width : 100%;
 	margin-top : 50px;
 }
 
-.sort-wrapper .sort-title{
-	width : 100px;
+.main_text2{
+	display : flex;
+	width : 100%;
+}
+
+.main_text3{
+	display : flex;
+	width : 100%;
+
+}
+
+.main_text4{
+	display : flex;
+	width : 100%;
+
+}
+
+.main_text5{
+	display : flex;
+	width : 100%;
+
 }
 
 
-.article-title-wrapper{
-	display : flex;	
-	height : 70px; 
-	margin-top : 50px;
-}
-
-.article-title-wrapper .article-title-title{
-	width : 100px;
-}
-
-.article-title-wrapper input{
+.main_text2 .name .sort{
 	height : 35px;
+	background-color: white;
+	border : 2px solid #cdcdcd;
+	border-radius: 5px;
 	width : 100%;
-	padding : 5px;
 }
 
-.article-content-wrapper{
+.main_text2 .type_title1, .main_text3 .type_title1, .main_text4 .type_title1, .main_text5 .type_title1{
+	height : 60px;
+	width : 150px;
+}
+
+.main_text2 .name, .main_text3 .name, .main_text4 .name {
+	width : 100%;
+}
+
+.main_text5 .file-name {
 	display : flex;
-}
-
-.article-content-wrapper .article-content-title{
-	width : 100px;
-}
-
-.article-content-wrapper textarea{
-	height : 200px;
 	width : 100%;
-	padding : 5px;
-	resize : none;
 }
-
-.button-wrapper {
-	width : 100%;
-	display : flex;
-	justify-content : center;
-	height : 70px;
-}
-
-.button-wrapper {
-	margin-top : 40px;
-}
-
-.main_text3 {
-	display: flex;
-	height: 80px;
-	align-items: center;
-}
-
-.type_title1 {
-	width: 150px;	
-	text-align: left;
-}
-
 
 #textbar1 {
-	width: 610px;
-	height: 50px;
-	margin-left: 35px;
+	height : 35px;
 	background-color: rgb(128, 128, 128, 0.2);
 	border-style: none;
 	border-radius: 5px;
-	padding-left : 10px;
-}
-#textbar9{
-	width: 610px;
-	height: 50px;
-	margin-left: 35px;
-	background-color: rgb(128, 128, 128, 0.2);
-	border-style: none;
-	border-radius: 5px;
-	padding-left : 10px;
-}
-#textbar9:focus{
-	outline:none;
+	width : 100%;
 }
 
-#textbar2 {
-	width: 600px;
-	margin-left: 35px;
-	background-color: rgb(128, 128, 128, 0.2);
-	border-style: none;
+textarea {
+	height : 200px;
+	background-color: white;
+	border : 2px solid #cdcdcd;
 	border-radius: 5px;
-	height: 25px;
-	display: flex;
-	align-items: center;
-}
-.main_text3 mg{
-	height: 200px;
-	display: flex;
-	align-items: center;
-	border-bottom: 1px solid grey;
-}
-
-.main_text4 {
-	height: 200px;
-	display: flex;
-	align-items: center;
-}
-
-#write_area {
-	width: 600px;
-	margin-left: 35px;
-	background-color: rgb(128, 128, 128, 0.2);
-	border-style: none;
-	border-radius: 5px;
-	resize: none;
-	height: 150px;
+	resize : none;
+	width : 100%;
 }
 
 /* 파일업로드 */
@@ -211,27 +159,27 @@ a {
     display: flex;
 }
 
-
-#insert{
-	border-top: none;
-	border-left:none;
-	border-right:none;
-	border-bottom: 5px solid #2b92da;
-}
-#insert:active{
-	transform: translate(0px,5px);
-  -webkit-transform: translate(0px,5px);
-	border-bottom: 1px solid;
+#textbar2{
+	height : 35px;
+	background-color: rgb(128, 128, 128, 0.2);
+	border-style: none;
+	border-radius: 5px;
 }
 
-#insert1{
-	border-top: none;
-	border-left:none;
-	border-right:none;
-	border-bottom: 5px solid grey;
+.btn {
+	width : 150px;
+	text-align:center;
 }
-#insert1:active{
-	transform: translate(0px,5px);
-  -webkit-transform: translate(0px,5px);
-	border-bottom: 1px solid;
+
+.button-wrapper {
+	display : flex;
+	justify-content : center;
+	margin-top : 30px;
+}
+
+.button-wrapper input {
+	height : 50px;
+	border-top : none;
+	border-left : none;
+	border-right : none;
 }

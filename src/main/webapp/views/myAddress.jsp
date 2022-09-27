@@ -25,63 +25,78 @@
 
 <jsp:include page="/common/logined-header.jsp"></jsp:include> 
 
- <div class="whole-wrapper">
-      <div class="main">
-      <jsp:include page="../common/mypageSide.jsp"/>
-      <form>
-         <div class="main_text">
-            <div class="MyQnA_title">
-               <h1>내 주소 관리</h1>
-            </div>
 
-            <!-- <div class="MyQnA_search">
-               <div class="search_condition">
-                  <select class="condition">
-                     <option>제목</option>
-                     <option>내용</option>
-                     <option>제목+내용</option>
-                  </select>
-               </div>
-               <div class="search_input">
-                  <input type="text" onfocus="value=''" value="검색어를 입력해주세요">
-               </div>
-               <div class="search_btn">
-                  <a href="#" class="action-button shadow animate blue" style="padding:5px 20px; margin-top:8px;">검색</a>
-               </div>
-            </div> -->
-			<input type="hidden" value="21" name="customer_no">
-            <div class="MyQnA_body" style="margin-top:114px;">
-               <div class="MyQnA_body_title">
-                 <input type="text" value="기본주소" id="address" readonly>
+<div class = "page-wrapper">
+	<!-- 사이드메뉴 -->
+	<div class = "sidemenu">
+		<jsp:include page="/common/mypageSide.jsp"/>
+	</div>
+	
+	<!-- 본문 제목 -->
+	<div class = "content-wrapper">
+		<!-- 제목 -->
+		<div class = "content-title-wrapper">
+			<div class = "content-title">
+				<h2>내 주소 관리</h2>
+			</div>
+			<!-- 소제목 -->
+			<div class = "content-subtitle-wrapper">
+				<p>&nbsp;</p>
+			</div><!-- content-subtitle-wrapper -->
+		</div> <!-- content-title-wrapper -->	
+	
+	<!-- 상세 내용 -->
+	<form>
+	<div class = "address-wrapper">
+		<div class = "address-content">
+			<div class = "address-content-title">
+				 <p><b>기본주소</b></p>
                  <input type="button" value="주소변경" id="button1" onclick="showPopup();">
-               </div>
+			</div>
+			<div class = "address-content-content">
+			<div class = "address-tel">
+				<div class = "title">
+					<p id="t_value">연락처</p>
+				</div>
+				<div class = "content">
+					<input type="text" value="${sendCustomer.customer_phone }" id="phone" readonly name="customer_phone">
+				</div>
+			</div>	
+			
+			<div class = "address-1">
+				<div class = "title">
+					<p id="t_value">주소</p>
+				</div>
+				<div class = "content">
+					<input type="text" value="${sendCustomer.customer_address1 }" id="address1" readonly name="customer_address1">
+				</div>
+			</div>
+			
+			<div class = "address-2">	
+				<div class = "title">
+					<p id="t_value">상세주소</p>
+				</div>
+				<div class = "content">
+					 <input type="text" value="${sendCustomer.customer_address2 }" id="address2" readonly name="customer_address2">
+				</div>
+			</div>
+			<div class = "address-passwd">
+				<div class = "title">
+					<p id="t_value">공동현관</p>
+				</div>
+				<div class = "content">
+					<input type="text" value="${sendCustomer.cm_gate_passwd }" id="gate_pw" readonly name="cm_gate_passwd">
+				</div>
+			</div>
+		</div>
+		</div><!-- address-content-->
+		<div id="chse" style="display: none">1</div>   
+	</div><!-- address-wrapper -->
+	</form>
+	</div><!-- content-wrapper -->
 
-               <div class="MyQnA_body_content">
-                  <div class="value1" style="display: flex" style="width:968px;">
-                  <input type="text" value="연락처" id="t_value" readonly>
-                  <input type="text" value="${sendCustomer.customer_phone }" id="phone" readonly name="customer_phone">
-                  </div>
-                  <div class="value2" style="display: flex" style="width:968px;">	
-                  <input type="text" value="기본주소" id="t_value" readonly>
-                  <input type="text" value="${sendCustomer.customer_address1 }" id="address1" readonly name="customer_address1">
-                  </div>
-                  <div class="value3" style="display: flex" style="width:968px;">
-                  <input type="text" value="나머지주소" id="t_value" readonly>
-                  <input type="text" value="${sendCustomer.customer_address2 }" id="address2" readonly name="customer_address2">
-                  </div>
-                  <div class="vlaue4" style="display: flex" style="width:968px;">
-                  <input type="text" value="출입비밀번호" id="t_value" readonly readonly>
-                  <input type="text" value="${sendCustomer.cm_gate_passwd }" id="gate_pw" readonly name="cm_gate_passwd">
-                  </div>
-               </div>
-            </div>
-
-<div id="chse" style="display: none">1</div>            
-         </div>
-         </form>
-      </div>
-
-   </div>
+</div>
+  
    
 <script type="text/javascript">
   var url="/getmyAddressList.do?customer_no="+${num};
@@ -98,7 +113,8 @@ $("#chse").on("DOMSubtreeModified",function(){
 	
 })
 </script>   
-
+ 
+</body>
 
 <jsp:include page="../common/footer.jsp"/> 
 </body>

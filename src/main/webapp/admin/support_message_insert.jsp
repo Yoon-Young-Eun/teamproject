@@ -89,9 +89,16 @@
 										
 <!-- 									</ul> -->
 <!-- 								</div> -->
+
 								<div class="end">
-									<input type="submit" value="등록">&nbsp;&nbsp;<a href="/supportmessageList.mdo" onclick="self.close();">취소</a>
+									<div class="popup_btn">
+										<input type="submit" value="등록">
+									</div>
+									<div class="popup_btn">
+										<a href="/supportmessageList.mdo" onclick="self.close();">취소</a>
+									</div>
 								</div>
+
 							</form>
 							</div>
 						</div>

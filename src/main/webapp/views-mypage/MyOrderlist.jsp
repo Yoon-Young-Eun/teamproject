@@ -70,8 +70,7 @@
 				<thead class = "order-body-title">
 					<tr>
 						<th class = "num-title" style = "width : 10%;">주문번호</th>
-						<th class = "content-content-title" style = "width : 20%;">내용</th>
-						<th class = "address-title" style = "width : 20%;">주소</th>
+						<th class = "content-content-title" style = "width : 40%;">내용</th>
 						<th class = "date-title" style = "width : 20%;">주문일자</th>
 						<th class = "pickup-title" style = "width : 20%;">배송예정일</th>
 						<th class = "status-title" style = "width : 10%;">주문상태</th>
@@ -82,8 +81,7 @@
 					<c:forEach var="orderlist" items="${orderlist}">
 					<tr style = "border-bottom : 1px solid #cdcdcd;">
 						<td class = "num-content" style = "width : 10%; text-align : center;">${orderlist.order_no}</td>
-						<td class = "content-content" style = "width : 20%; text-align : center;"><a href = "/orderdetail.do?order_no=${orderlist.order_no}&customer_no=${num}&store_code=${orderlist.store_code}">주문 자세히 보기</a></td>
-						<td class = "address-content" style = "width : 20%; text-align : center;">${orderlist.order_address1}</td>
+						<td class = "content-content" style = "width : 40%; text-align : center;"><a href = "/orderdetail.do?order_no=${orderlist.order_no}&customer_no=${num}&store_code=${orderlist.store_code}">주문 자세히 보기</a></td>
 						<td class = "date-content" style = "width : 20%; text-align : center;">${orderlist.order_date}</td>
 						<td class = "pickup-content" style = "width : 20%; text-align : center;">${orderlist.order_expected_date}</td>
 						<td class = "status-content" style = "width : 10%; text-align : center;">${orderlist.order_status}</td>

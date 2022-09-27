@@ -45,8 +45,8 @@
                <div>
                   <h4>이용방법</h4>
                   <ul>
-                     <li><a href="#">주문방법</a></li>
-                     <li><a href="#">수거방법</a></li>
+                     <li><a href="/views-menu/how_to.jsp#howto">주문방법</a></li>
+                     <li><a href="/views-menu/how_to.jsp#delivery">수거방법</a></li>
                   </ul>
                </div>
             </div><!-- hrsub inner -->
@@ -59,7 +59,7 @@
                <div>
                   <h4>서비스 지역</h4>
                   <ul>
-                     <li><a href="/views/service-location.jsp">서울</a></li>
+                     <li><a href="/views-menu/location.jsp">서울</a></li>
                   </ul>
                </div>
             </div><!-- hrsub inner -->
@@ -119,8 +119,8 @@ var cbpHorizontalMenu = (function() {
         current = -1;
  
     function init() {
-        $menuItems.on( 'click', open );
-        $listItems.on( 'click', function( event ) { event.stopPropagation(); } );
+        $menuItems.on( 'mouseover', open );
+        $listItems.on( 'mouseover', function( event ) { event.stopPropagation(); } );
     }
  
     function open( event ) {

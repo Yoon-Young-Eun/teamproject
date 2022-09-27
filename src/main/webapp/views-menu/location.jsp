@@ -128,7 +128,7 @@
 </form>
 
 <img alt="" src="/views-menu/resources/img/service-info.png" style = "width : 100%;">
-<div style = "display : flex;">
+<div class = "location-wrapper">
 <svg style='overflow:visible' height="656" width="800" xmlns="http://www.w3.org/2000/svg">
 <defs>
     <filter id="dropshadow">
@@ -215,8 +215,8 @@
 
 <div id = "text">
 	<input id = "store_name" placeholder = "세모직영점"/><br>
-	<input id = "store_address" placeholder = "주소"/><br>
-	<input id = "store_tel" placeholder = "전화번호"/>
+	<input class = "text_input" id = "store_address" placeholder = "주소"/><br>
+	<input class = "text_input" id = "store_tel" placeholder = "전화번호"/>
 </div>
 
 </div>
@@ -242,8 +242,10 @@ $(function(){
 <!-- 지점 위치 -->
 <script>
 $(document).ready(function(){
+	
+	/* 동작구 */
 	$('#CD11590').mouseover(function(){
-		$('#CD11590').css("fill","red");
+		$('#CD11590').css("fill","#ffd400");
 		$('#store_name').attr("placeholder", "세모 노량진점");
 		$('#store_address').attr("placeholder", "서울특별시 동작구 노량진동 45-3");
 		$('#store_tel').attr("placeholder", "02-123-4567");
@@ -251,7 +253,86 @@ $(document).ready(function(){
 	$('#CD11590').mouseout(function(){
 		$('#CD11590').css("fill","#63afe4");
 	});
+	
+	/* 중구 */
+	$('#CD11140').mouseover(function(){
+		$('#CD11140').css("fill","#ffd400");
+		$('#store_name').attr("placeholder", "세모 시청점");
+		$('#store_address').attr("placeholder", "서울특별시 중구 세종대로 110");
+		$('#store_tel').attr("placeholder", "02-123-4567");
+	});
+	$('#CD11140').mouseout(function(){
+		$('#CD11140').css("fill","#63afe4");
+	});
+	
+	/* 종로구 */
+	$('#CD11110').mouseover(function(){
+		$('#CD11110').css("fill","#ffd400");
+		$('#store_name').attr("placeholder", "세모 청와대점");
+		$('#store_address').attr("placeholder", "서울특별시 종로구 청와대로 1");
+		$('#store_tel').attr("placeholder", "02-123-4567");
+	});
+	$('#CD11110').mouseout(function(){
+		$('#CD11110').css("fill","#63afe4");
+	});
+	
+	/* 영등포구 */
+	$('#CD11560').mouseover(function(){
+		$('#CD11560').css("fill","#ffd400");
+		$('#store_name').attr("placeholder", "세모 국회의사당점");
+		$('#store_address').attr("placeholder", "서울특별시 영등포구 의사당대로 1");
+		$('#store_tel').attr("placeholder", "02-123-4567");
+	});
+	$('#CD11560').mouseout(function(){
+		$('#CD11560').css("fill","#63afe4");
+	});
+	
+	/* 강남구 */
+	$('#CD11680').mouseover(function(){
+		$('#CD11680').css("fill","#ffd400");
+		$('#store_name').attr("placeholder", "세모 코엑스점");
+		$('#store_address').attr("placeholder", "서울특별시 강남구 영동대로 513");
+		$('#store_tel').attr("placeholder", "02-123-4567");
+	});
+	$('#CD11680').mouseout(function(){
+		$('#CD11680').css("fill","#63afe4");
+	});
+	
+	/*송파구*/
+	$('#CD11710').mouseover(function(){
+		$('#CD11710').css("fill","#ffd400");
+		$('#store_name').attr("placeholder", "세모 롯데월드타워점");
+		$('#store_address').attr("placeholder", "서울특별시 송파구 올림픽로 300");
+		$('#store_tel').attr("placeholder", "02-123-4567");
+	});
+	$('#CD11710').mouseout(function(){
+		$('#CD11710').css("fill","#63afe4");
+	});
+	
+	/*용산구*/
+	$('#CD11170').mouseover(function(){
+		$('#CD11170').css("fill","#ffd400");
+		$('#store_name').attr("placeholder", "세모 남산타워점");
+		$('#store_address').attr("placeholder", "서울특별시 용산구 남산공원길 105");
+		$('#store_tel').attr("placeholder", "02-123-4567");
+	});
+	$('#CD11170').mouseout(function(){
+		$('#CD11170').css("fill","#63afe4");
+	});
+	
+	/*서초구*/
+	$('#CD11650').mouseover(function(){
+		$('#CD11650').css("fill","#ffd400");
+		$('#store_name').attr("placeholder", "세모 법원점");
+		$('#store_address').attr("placeholder", "서울특별시 서초구 서초중앙로 157");
+		$('#store_tel').attr("placeholder", "02-123-4567");
+	});
+	$('#CD11650').mouseout(function(){
+		$('#CD11650').css("fill","#63afe4");
+	});
 });
 </script>
+
+<jsp:include page="/common/footer.jsp"/> 
 </body>
 </html>

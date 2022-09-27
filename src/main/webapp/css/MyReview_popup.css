@@ -1,0 +1,125 @@
+@charset "UTF-8";
+html {
+	overflow: hidden;
+}
+/*---------- 별점 시작 ----------*/
+#myform fieldset{
+    display: inline-block; /* 하위 별점 이미지들이 있는 영역만 자리를 차지함.*/
+    direction: rtl; /* 이모지 순서 반전 */
+    border: 0; /* 필드셋 테두리 제거 */
+}
+#myform fieldset legend{
+    text-align: left;
+}
+#myform input[type=radio]{
+    display: none; /* 라디오박스 감춤 */
+}
+#myform label{
+    font-size: 3em; /* 이모지 크기 */
+    color: transparent; /* 기존 이모지 컬러 제거 */
+    text-shadow: 0 0 0 #f0f0f0; /* 새 이모지 색상 부여 */
+}
+#myform label:hover{
+    text-shadow: 0 0 0 #ffd700; /* 마우스 호버 */
+}
+#myform label:hover ~ label{
+    text-shadow: 0 0 0 #ffd700; /* 마우스 호버 뒤에오는 이모지들 */
+}
+#myform input[type=radio]:checked ~ label{
+    text-shadow: 0 0 0 #ffd700; /* 마우스 클릭 체크 */
+}
+/*---------- 별점 끝 ----------*/
+.wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.review_table {
+	width: 410px;
+	height: 550px;
+	padding: 30px;
+	border: 2px solid #cdcdcd;
+}
+
+.review_head {
+	margin-bottom: 10px;
+	border-bottom: 4px solid #000;
+	text-align: center;
+}
+.review_head>h1 {
+	margin-top: 0px;
+}
+
+.review_rating {
+/* 	display: flex; */
+/* 	justify-content: space-between; */
+	padding-bottom: 16px;
+	border-bottom: 2px solid #ddd;
+}
+.review_rating_title {
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	margin: 30px 0px 10px 0px;
+}
+.review_body {
+	border-bottom: 2px solid #ddd;
+}
+.review_rating_star {
+	display: flex;
+	justify-content: center;
+	padding: 10px 0px;
+}
+.review_body_content>textarea {
+	width: 394px;
+	height: 100px;
+	padding: 16px 0px 0px 16px;
+	font-size: 14px;
+	border: 0px;
+	resize: none;
+}
+.review_body_content>input {
+	width: 394px;
+	height: 30px;
+	padding: 6px 0px 0px 16px;
+	font-size: 14px;
+	border: 0px;
+	border-bottom: 2px solid #ddd;
+	margin-bottom: 6px;
+}
+.review_notice {
+	padding: 20px 0px 0px 16px;
+}
+
+.ft_gray {
+	color: #808080;
+	font-weight: normal;
+}
+.ft_red {
+	color: red;
+}
+.ft_size_s {
+	font-size: 11px;
+}
+.mg_left {
+	margin-left: 6px;
+}
+
+.review_btn {
+	width: 100%;
+	height: 90px;
+	background-color: #fff;
+	padding-right: 10px;
+	margin-bottom: 250px;
+}
+
+.end {
+/* 	width: 1040px; */
+	padding: 36px 0px;
+	display: flex;
+	justify-content: center;
+}
+
+.action-button {
+	padding: 6px 18px;
+}

@@ -90,7 +90,7 @@
 							<c:choose>
 								<c:when test="${orderlist.order_status eq '배송완료'}">
 									${orderlist.order_status}
-									<input type="button" value="리뷰작성">
+									<input type="button" value="리뷰작성" onclick="showPopupReview();">
 								  </c:when>
 								<c:otherwise>
 									${orderlist.order_status}
@@ -132,6 +132,10 @@
 </div><!-- page-wrapper -->	
 
 <!-------------------- 스크립트 ---------------------->
+
+<script language="javascript">
+  function showPopupReview() { window.open("/views-mypage/MyReview_popup.jsp", "리뷰작성", "width=490, height=620, left=370, top=150, resizeable=none"); }
+  </script>
 
 </body>
 </html>

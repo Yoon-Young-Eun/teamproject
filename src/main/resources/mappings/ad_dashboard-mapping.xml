@@ -14,11 +14,6 @@
    select count(*) from order_cm where order_status='세탁중';
 </select>
 
-<!-- 대시보드 완료된주문 -->
-<select id="getOrderStatusEnd" parameterType="order" resultType="int">
-   select count(*) from order_cm where order_status='배송완료';
-</select>
-
 <!-- 대시보드 주문취소 -->
 <select id="getOrderStatusCC" parameterType="order" resultType="int">
    select count(*) from order_cm where order_status='주문취소';
@@ -52,6 +47,50 @@
 <!-- 방문자수 카운트 -->
 <select id="getVcount" parameterType="customer" resultType="int">
  	select count(*) from customer where vcount=1;
+</select>
+
+
+
+<!-- Dash Area차트 조건별 조회 및 조인문(resultMap 사용) 쿼리  -->
+	<resultMap id="joinOrderMtVO" type="orderManagement">
+	<result column="product_code" property="product_code" />
+	<result column="order_mt_product" property="order_mt_product" />
+	<result column="order_mt_count" property="order_mt_count" />	
+	<result column="order_mt_price" property="order_mt_price" />
+	<result column="order_mt_date" property="order_mt_date" />
+	<collection resultMap="provos" property="productVo" />
+	</resultMap>	
+	
+	<resultMap id="provos" type="product">
+	<result column="product_code" property="product_code" />
+	<result column="product_category_parent" property="product_category_parent" />
+	<result column="product_category_median" property="product_category_median" />
+	<result column="product_name" property="product_name" />
+	<result column="product_detail" property="product_detail" />
+	<result column="product_reg_date" property="product_reg_date" />
+	<result column="product_price" property="product_price" />
+	<result column="product_business_profits" property="product_business_profits" />
+	<result column="product_net_profit" property="product_net_profit" />
+	</resultMap>
+	
+	
+
+<!-- Area Chart -->
+<select id="getMainBoardArea" resultMap="joinOrderMtVO">
+
+<![CDATA[select sum(a.order_mt_price) as order_mt_price, sum(a.order_mt_count) as order_mt_count, sum(b.product_business_profits)*order_mt_count as product_business_profits, sum(b.product_net_profit)*order_mt_count as product_net_profit,
+date_format(a.order_mt_date, '%m월') as order_mt_date from order_management as a join product as b on a.product_code = b.product_code group by date_format(a.order_mt_date, '%Y-%m') order by a.order_mt_date asc]]>     
+     
+</select>
+
+<!-- Bar Chart -->
+<select id="getMainBoardBar" resultType="order">
+<![CDATA[select order_store_name, sum(order_price) as order_price from order_cm group by order_store_name ]]>
+</select>
+
+<!-- Doughnut Chart -->
+<select id="getMainBoardDoughnut" resultType="orderManagement">
+<![CDATA[select order_mt_category1, sum(order_mt_price) as order_mt_price from order_management group by order_mt_category1 ]]>
 </select>
 
 </mapper>

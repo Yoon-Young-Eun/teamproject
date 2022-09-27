@@ -91,12 +91,16 @@
 <!-- 								</div> -->
 
 								<div class="end">
+<<<<<<< HEAD
 									<div class="popup_btn">
 										<input type="submit" value="등록">
 									</div>
 									<div class="popup_btn">
 										<a href="/supportmessageList.mdo" onclick="self.close();">취소</a>
 									</div>
+=======
+									<input type="submit" value="등록" id="aa">&nbsp;&nbsp;<input type="button" onclick="location.href='/supportmessageList.mdo'" id="aa" value="취소">
+>>>>>>> main
 								</div>
 
 							</form>

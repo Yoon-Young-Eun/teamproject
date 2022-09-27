@@ -125,3 +125,37 @@ table tbody tr {
 	margin: auto;
 	height: 30px;
 }
+
+.paging-wrapper {
+	display: flex;
+	justify-content: center;
+	height: 40px;
+	margin-top: 30px;
+}
+
+.order-wrapper .paging {
+	margin: auto;
+	display: flex;
+}
+
+.order-wrapper .paging .paging-text {
+	width: 50px;
+	text-align: center;
+}
+
+.order-wrapper .paging .paging-num {
+	display: flex;
+}
+
+.order-wrapper .paging-wrapper a {
+	width: 50px;
+	text-align: center;
+}
+
+.order-wrapper .paging-wrapper a:hover {
+	color: #63afe4;
+}
+
+.order-wrapper .paging-wrapper a:active {
+	color: #63afe4;
+}

@@ -24,71 +24,29 @@
 </head>
 <body>
 
-<jsp:include page="/common/logined-header.jsp"/> 
+<jsp:include page="/common/logined-header.jsp"/>
 
-<div class = "page-wrapper">
-	<!-- 사이드메뉴 -->
-	<div class = "sidemenu">
-		<jsp:include page="/common/mypageSide.jsp"/>
-	</div>
-	
-	<!-- 본문 -->
-	<div class = "content-wrapper">
-		<!-- 제목 -->
-		<div class = "content-title-wrapper">
-			<div class = "content-title">
-				<h2>내 견적 관리</h2>
-			</div>
-			<!-- 소제목 -->
-			<div class = "content-subtitle-wrapper">
-				<div class="content-subt">
-				<p>총 <b>${cnt4}</b>건의 주문내역</p>
+	<div class="page-wrapper">
+		<!-- 사이드메뉴 -->
+		<div class="sidemenu">
+			<jsp:include page="/common/mypageSide.jsp" />
+		</div>
+
+		<!-- 본문 -->
+		<div class="content-wrapper">
+			<!-- 제목 -->
+			<div class="content-title-wrapper">
+				<div class="content-title">
+					<h2>내 견적 관리</h2>
 				</div>
-				
-				<div class="b_button">
-							<!-- 테이블 행 필터 -->
-							<form name="selectname" action="getmyEstimate.do" method="get">
-								<input type="hidden" name="searchCondition" value="${search.searchCondition}" /> 
-								<input type="hidden" name="searchKeyword" value="${search.searchKeyword}" />
+				<!-- 소제목 -->
+				<div class="content-subtitle-wrapper">
+						<p>총 <b>${cnt4}</b>건의 주문내역</p>
+				</div>
 
-								<div class="pagecount">
-									<select name="selectPage" onchange="this.form.submit()">
-										<option value="">선택</option>
-										<option value="5">5</option>
-										<option value="10">10</option>
-										<option value="20">20</option>
-										<option value="50">50</option>
-									</select>
-								</div>
-							</form>
-
-							<div class="icon_flex">
-								<!-- 검색기능 -->
-
-									<form action="getmyEstimate.do" method="get">
-									<input type="hidden" name="customer_no" value="${num}">
-										<div class="icon_flex">
-											<select name="searchCondition">
-													<c:forEach items="${condition}" var="option">
-														<div>
-															<option value="${option.value}">${option.key}</option>
-														</div>
-													</c:forEach>
-											</select> <input type="text" name="searchKeyword" />
-					
-													<input type="submit" value="검색" style="height: 30px; width:45px;"/>
-
-												 <input type="reset" value="초기화" style="height: 30px; width:45px;"/>
-										</div>
-									</form>
-
-							</div>
-
-						</div>
-			</div><!-- content-subtitle-wrapper -->
-		</div> <!-- content-title-wrapper -->
-
-
+			</div>
+		
+	
 			<!-- 주문 상세 내용 -->
 		<div class = "order-wrapper">
 			
@@ -129,42 +87,33 @@
 						</c:forEach>
 					</tbody>
 						</table>
-		</div><!-- order-wrapper -->
-	</div><!-- content-wrapper -->
-	
-	
-</div><!-- page-wrapper -->
 
-	<!-- pagaing 처리 -->
-	<div>
-		<c:if test="${count > 0}">
-			<!-- 조회된 데이터 개수가 0보다 크면 if문 실행 -->
-			<div class="icon_flex">
-				<div>
-					<c:if test="${startPage > pageBlock}">
-						<!-- 시작번호가 5보다 크면, 앞에 '이전'을 붙여줌 -->
-						<a href="getmyEstimate.do?pageNum=${startPage-pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}">
-						<div class="pageging2">이전</div></a>
-					</c:if>
-				</div>
-				<div>
-					<div class="icon_flex">
-						<c:forEach var="i" begin="${startPage}" end="${endPage}">
-							<a href="getmyEstimate.do?pageNum=${i}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}">
-							<div class="pageging">${i}</div></a>
-						</c:forEach>
-					</div>
-				</div>
-				<div>
-					<c:if test="${endPage < pageCount}">
-						<a href="getmyEstimate.do?pageNum=${startPage + pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}">
-						<div class="pageging2">다음</div></a>
-					</c:if>
-				</div>
-			</div>
-		</c:if>
-	</div>
-	<!-- 페이징 종료 -->
+			<!-- pagaing 처리 -->
+				
+						<div class = "paging-wrapper">					
+							<c:if test="${count > 0}">
+								<div class="paging">
+							    <div class="paging-text">
+								<c:if test="${startPage > pageBlock}"> <!-- 시작번호가 5보다 크면, 앞에 '이전'을 붙여줌 -->
+									<a href="/getmyEstimate.do?pageNum=${startPage-pageBlock}&customer_no=${num}"><i class="fas fa-chevron-left"></i></a>
+								</c:if>
+								</div>
+								<div class="paging-num">
+								<c:forEach var="i" begin="${startPage}" end="${endPage}">
+										<a href="/getmyEstimate.do?pageNum=${i}&customer_no=${num}">${i}</a>
+								</c:forEach>
+								</div>							
+								<div class="paging-text">
+								<c:if test="${endPage < pageCount}">
+									<a href="/getmyEstimate.do?pageNum=${startPage + pageBlock}&customer_no=${num}"><i class="fas fa-chevron-right"></i></a>
+								</c:if>
+								</div>
+								</div>
+							</c:if>
+						</div><!-- 페이징 종료 -->
+				</div><!-- order-wrapper -->		
+			</div><!-- content-subtitle-wrapper -->
+	</div><!-- page-wrapper -->
 
 </body>
 </html>

@@ -29,18 +29,13 @@ public class Ad_DashboardController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		// 대시보드 수거예정
 		System.out.println("admin getOrderStatus()"+DashboardService.getOrderStatus(vo));
 		model.addAttribute("OrderInfo", DashboardService.getOrderStatus(vo));
 		System.out.println(DashboardService.getOrderStatus(vo));
-		
-		// 대시보드 완료된주문
-		System.out.println("admin getOrderStatus()"+DashboardService.getOrderStatusEnd(vo));
-		model.addAttribute("OrderInfoEnd", DashboardService.getOrderStatusEnd(vo));
-		System.out.println(DashboardService.getOrderStatusEnd(vo));
 		
 		// 대시보드 배달예정(세탁중)
 		System.out.println("admin getOrderStatus()"+DashboardService.getOrderStatusIng(vo));

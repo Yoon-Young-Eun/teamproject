@@ -46,9 +46,9 @@
 	<option value="상의">상의</option>
 	<option value="하의">하의</option>
 	<option value="신발">신발</option>
-	<option value="외투">외투</option>
-	<option value="기타">기타</option>
-	<option value="침구류">침구류</option>
+	<option value="아우터">아우터</option>
+	<option value="액세서리">액세서리</option>
+	<option value="이불">이불</option>
 </select>
 
 </div>
@@ -91,11 +91,11 @@ ${ProductInfo.product_reg_date}</div>
 </div>
 <div class="item_infor">
 <div class="popup_text">영업이익</div>&nbsp;<div class="popup_inputbox">
-<input type="text" name="product_price" value="${ProductInfo.product_business_profits}" placeholder=""></div>
+<input type="text" name="product_business_profits" value="${ProductInfo.product_business_profits}" placeholder=""></div>
 </div>
 <div class="item_infor">
 <div class="popup_text">순이익</div>&nbsp;<div class="popup_inputbox">
-<input type="text" name="product_price" value="${ProductInfo.product_net_profit}" placeholder=""></div>
+<input type="text" name="product_net_profit" value="${ProductInfo.product_net_profit}" placeholder=""></div>
 </div>
 
 </div>

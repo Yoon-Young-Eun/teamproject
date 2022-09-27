@@ -11,16 +11,16 @@
 	<![CDATA[select * from product where product_category_parent='하의']]>
 	</select>
 	<select id="getProductETC" resultType="product">
-	<![CDATA[select * from product where product_category_parent='기타']]>
+	<![CDATA[select * from product where product_category_parent='액세서리']]>
 	</select>
 	<select id="getProductShoes" resultType="product">
 	<![CDATA[select * from product where product_category_parent='신발']]>
 	</select>
 	<select id="getProductBedding" resultType="product">
-	<![CDATA[select * from product where product_category_parent='침구류']]>
+	<![CDATA[select * from product where product_category_parent='이불']]>
 	</select>
 	<select id="getProductOuter" resultType="product">
-	<![CDATA[select * from product where product_category_parent='외투']]>
+	<![CDATA[select * from product where product_category_parent='아우터']]>
 	</select>
 	
 	<select id="OrderCoupon" parameterType="ORDER" resultType="CouponList">

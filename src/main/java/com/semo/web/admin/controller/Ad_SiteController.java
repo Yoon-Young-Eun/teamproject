@@ -44,7 +44,7 @@ public class Ad_SiteController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println("쿠폰 등록 처리");
@@ -65,7 +65,7 @@ public class Ad_SiteController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println("admin couponList()");
@@ -149,7 +149,7 @@ public class Ad_SiteController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println("admin readCoupon()");
@@ -167,7 +167,7 @@ public class Ad_SiteController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println("updateCouponPage()");
@@ -186,7 +186,7 @@ public class Ad_SiteController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println(vo);
@@ -205,7 +205,7 @@ public class Ad_SiteController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println(vo);
@@ -224,7 +224,7 @@ public class Ad_SiteController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println(tdArr[0]);
@@ -261,7 +261,7 @@ public class Ad_SiteController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		// aws s3 파일 업로드 처리 */
@@ -292,7 +292,7 @@ public class Ad_SiteController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println("admin BannerList()");
@@ -311,7 +311,7 @@ public class Ad_SiteController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println("admin readBanner()");
@@ -348,7 +348,7 @@ public class Ad_SiteController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println("updateBannerPage()");
@@ -367,7 +367,7 @@ public class Ad_SiteController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		
@@ -417,7 +417,7 @@ public class Ad_SiteController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		AwsS3 awss3 = AwsS3.getInstance();
@@ -445,7 +445,7 @@ public class Ad_SiteController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		
@@ -486,7 +486,7 @@ public class Ad_SiteController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 	      System.out.println("쿠폰 등록 처리");
@@ -507,7 +507,7 @@ public class Ad_SiteController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println("admin TermsList()");
@@ -526,7 +526,7 @@ public class Ad_SiteController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		String TermsResult;
@@ -551,7 +551,7 @@ public class Ad_SiteController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println("updatePage()");
@@ -570,7 +570,7 @@ public class Ad_SiteController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println(vo.getTerms_type());
@@ -589,7 +589,7 @@ public class Ad_SiteController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println(vo);
@@ -608,7 +608,7 @@ public class Ad_SiteController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println(tdArr[0]);

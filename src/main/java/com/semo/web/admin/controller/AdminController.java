@@ -38,9 +38,14 @@ public class AdminController {
 	BCryptPasswordEncoder encoder; 
 	
 	
+	@RequestMapping("/login.mdo")
+	public String logon() {
+		
+		return "/admin/login.jsp";
+	}
 	
 	//login.jsp 에서 로그인 버튼시(login.mdo) 작동
-	@RequestMapping(value="/login.mdo", method = RequestMethod.POST)
+	@RequestMapping(value="/logon.mdo", method = RequestMethod.POST)
 	public String login(AdminVO vo, HttpSession session) {
 		System.out.println(vo); //값이 컨트롤러로 잘 보내지는 지 확인
 		System.out.println("어드민 login() 까꿍! ");
@@ -50,7 +55,7 @@ public class AdminController {
 		
 		if(adminservice.getAdmin(vo) == null) {
 			System.out.println("유효하지 않은 아이디 입니다.");
-			return "/admin/login.jsp";
+			return "/login.mdo";
 		}
 		
 		AdminVO user = adminservice.getAdmin(vo); 
@@ -62,7 +67,7 @@ public class AdminController {
 			return "/index.mdo";   
 		}else {
 			System.out.println("로그인 실패");
-			return "/admin/login.jsp";
+			return "/login.mdo";
 		}	
 	}
 	
@@ -105,7 +110,7 @@ public class AdminController {
 		session.setAttribute("admin", null); 
 		session.invalidate();
 		
-		return "/admin/login.jsp";
+		return "/login.mdo";
 	}
 	
 	//매니저 조회 리스트 (staffList.mdo)실행 
@@ -117,7 +122,7 @@ public class AdminController {
 			
 			if(admin == null) {
  				System.out.println("세션 정보가 없습니다.");
- 				return "redirect:/admin/login.jsp";
+ 				return "redirect:/login.mdo";
 			}
 			
 			System.out.println(pvo);
@@ -203,7 +208,7 @@ public class AdminController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println(vo);
@@ -226,7 +231,7 @@ public class AdminController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println("어드민 getBoard() 까꿍! ");
@@ -244,7 +249,7 @@ public class AdminController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println("어드민 UpdatePage() 까꿍! ");
@@ -264,7 +269,7 @@ public class AdminController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println(vo);
@@ -291,7 +296,7 @@ public class AdminController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println(vo);
@@ -310,7 +315,7 @@ public class AdminController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println(num[0]);

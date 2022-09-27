@@ -77,7 +77,7 @@
 					<tr style = "border-bottom : 1px solid #cdcdcd;">
 						<td class = "check-title" style = "width : 10%; text-align : center;"><input type = "checkbox" name="check" class="checkone"></td>
 						<td class = "num-content" style = "width : 10%; text-align : center;">${asklist.board_qna_no }</td>
-						<td class = "num-content" style = "width : 30%; text-align : center;">[${asklist.board_qna_type}] <a href = "/askdetail.do?board_qna_no=${asklist.board_qna_no}">${asklist.board_qna_title}</a></td>
+						<td class = "num-content" style = "width : 30%; text-align : center;">[${asklist.board_qna_type}] <a href = "/askdetail.do?board_qna_no=${asklist.board_qna_no}&board_qna_status=${asklist.board_qna_status}">${asklist.board_qna_title}</a></td>
 						<td class = "content-content" style = "width : 20%; text-align : center;">${asklist.board_qna_reg_date}</td>
 						<td class = "address-content" style = "width : 20%; text-align : center;">
 							<c:choose> 

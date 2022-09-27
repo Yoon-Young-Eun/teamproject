@@ -124,6 +124,9 @@
 								<input id="delBtn" type="button" value="삭제" />
 							</div>
 						</div>	
+							<!-- 내용물 end -->
+						
+						<div class="card-footer small text-muted"></div>
 					</div>
 				</div>
 			</main>
@@ -180,7 +183,7 @@
 											});
 						</script>
 
-						<!-- 내용물 end -->
+					
 	<!-- pdf -->
 	<script type="/admin/text/javascript"
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>

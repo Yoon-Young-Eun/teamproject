@@ -35,7 +35,7 @@ public class Ad_SalesController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println("매출 메서드 실행");
@@ -100,7 +100,7 @@ public class Ad_SalesController {
 	}
 	
 	
-	@RequestMapping(value="/salesProductList.mdo")
+	@RequestMapping(value="/salesList.mdo")
 	public String getSalesProductList(PagingVO pvo, OrderMtVO vo, Model model, HttpSession session) {
 		
 		//세션 유무확인 
@@ -108,7 +108,7 @@ public class Ad_SalesController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println("매출 메서드 실행");
@@ -168,7 +168,7 @@ public class Ad_SalesController {
 	       model.addAttribute("productSalesList", productSalesList);
 	       System.out.println("매출 DB 결과"+productSalesList);
 
-		return"admin/sales_productlist.jsp";
+		return"admin/sales_list.jsp";
 	}
 
 }

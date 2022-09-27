@@ -51,7 +51,7 @@ public class OrderController<imp_uid> {
 			return "/pay/PayPickupDate.jsp";
 		}
 
-		return "/views/login.jsp";
+		return "/login.do";
 	}
 
 	@RequestMapping(value = "/OrderAddressTime.do", method = RequestMethod.GET)
@@ -65,7 +65,7 @@ public class OrderController<imp_uid> {
 			System.out.println(vo);
 			return "/pay/payWashType.jsp";
 		}
-		return "/views/login.jsp";
+		return "/login.do";
 
 	}
 
@@ -100,7 +100,7 @@ public class OrderController<imp_uid> {
 			model.addAttribute("bedding", bedding);
 			return "/pay/payOrderGeneral.jsp";
 		}
-		return "/views/login.jsp";
+		return "/login.do";
 
 	}
 
@@ -114,7 +114,7 @@ public class OrderController<imp_uid> {
 			return "/pay/payOrderSpecial.jsp";
 		}
 
-		return "/views/login.jsp";
+		return "/login.do";
 
 	}
 
@@ -172,7 +172,7 @@ public class OrderController<imp_uid> {
 
 			return "/pay/payOrderGeneralCheck.jsp";
 		}
-		return "/views/login.jsp";
+		return "/login.do";
 
 	}
 
@@ -190,7 +190,7 @@ public class OrderController<imp_uid> {
 
 			return "/pay/payCouponList.jsp";
 		}
-		return "/views/login.jsp";
+		return "/login.do";
 	}
 
 	@RequestMapping(value = "/OrderInsert.do", method = RequestMethod.GET)
@@ -235,7 +235,7 @@ public class OrderController<imp_uid> {
 
 			return "/pay/payGeneralComplete.jsp";
 		}
-		return "/views/login.jsp";
+		return "/login.do";
 	}
 
 	@RequestMapping(value = "/Orderspecial.do")
@@ -292,7 +292,7 @@ public class OrderController<imp_uid> {
 			System.out.println("하하하하" + vo);
 			return "/pay/payOrderSpecialCheck.jsp";
 		}
-		return "/views/login.jsp";
+		return "/login.do";
 	}
 
 	@RequestMapping(value = "/OrderSpecial1.do")
@@ -317,7 +317,7 @@ public class OrderController<imp_uid> {
 			System.out.println(vo3);
 			return "/pay2/paySAddress.jsp";
 		}
-		return "/views/login.jsp";
+		return "/login.do";
 	}
 
 	@RequestMapping(value = "/OrderSpecial2.do")
@@ -332,7 +332,7 @@ public class OrderController<imp_uid> {
 
 			return "/pay2/paySPickupDate.jsp";
 		}
-		return "/views/login.jsp";
+		return "/login.do";
 	}
 
 	@RequestMapping(value = "/OrderSpecial3.do")
@@ -348,7 +348,7 @@ public class OrderController<imp_uid> {
 			
 			return "/pay2/payEstimate.jsp";
 		}
-		return "/views/login.jsp";
+		return "/login.do";
 	}
 
 	@RequestMapping(value = "/OrderSpecial4.do")
@@ -380,7 +380,7 @@ public class OrderController<imp_uid> {
 			System.out.println(price1);
 			return "/pay2/paySOrderCheck.jsp";
 		}
-		return "/views/login.jsp";
+		return "/login.do";
 	}
 
 	@RequestMapping(value = "/OrderOrder.do")
@@ -394,7 +394,7 @@ public class OrderController<imp_uid> {
 
 			return "/pay2/paySSpecialComplete.jsp";
 		}
-		return "/views/login.jsp";
+		return "/login.do";
 	}
 
 	@RequestMapping(value = "/myOrderView.do")
@@ -404,7 +404,7 @@ public class OrderController<imp_uid> {
 			session.getAttribute("num");
 			return "/myorderlist.do";
 		}
-		return "/views/login.jsp";
+		return "/login.do";
 	}
 
 }

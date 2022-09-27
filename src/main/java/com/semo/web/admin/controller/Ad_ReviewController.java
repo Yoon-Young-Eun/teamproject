@@ -34,7 +34,7 @@ public class Ad_ReviewController {
 			
 			if(admin == null) {
 					System.out.println("세션 정보가 없습니다.");
-					return "redirect:/admin/login.jsp";
+					return "redirect:/login.mdo";
 			}
 			
 			System.out.println("상태 활성/비활성 처리");
@@ -56,7 +56,7 @@ public class Ad_ReviewController {
 			
 			if(admin == null) {
 					System.out.println("세션 정보가 없습니다.");
-					return "redirect:/admin/login.jsp";
+					return "redirect:/login.mdo";
 			}
 			
 			
@@ -140,7 +140,7 @@ public class Ad_ReviewController {
 			
 			if(admin == null) {
 					System.out.println("세션 정보가 없습니다.");
-					return "redirect:/admin/login.jsp";
+					return "redirect:/login.mdo";
 			}
 			
 			System.out.println("admin readReviewBoard()");
@@ -159,7 +159,7 @@ public class Ad_ReviewController {
 			
 			if(admin == null) {
 					System.out.println("세션 정보가 없습니다.");
-					return "redirect:/admin/login.jsp";
+					return "redirect:/login.mdo";
 			}
 			
 			System.out.println(vo);
@@ -178,7 +178,7 @@ public class Ad_ReviewController {
 			
 			if(admin == null) {
 					System.out.println("세션 정보가 없습니다.");
-					return "redirect:/admin/login.jsp";
+					return "redirect:/login.mdo";
 			}
 			
 			System.out.println(tdArr[0]);

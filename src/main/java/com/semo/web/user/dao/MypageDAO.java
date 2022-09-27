@@ -102,6 +102,10 @@ public class MypageDAO {
 		return sql.selectOne("MypageVO.askdetail", qna);
 	}
 	
+	public Cm_QnAVO askdetail2(Cm_QnAVO qna) {
+		return sql.selectOne("MypageVO.askdetail2", qna);
+	}
+	
 	
 	// MyAskDetail : 문의글 수정
 	public Cm_QnAVO editask(Cm_QnAVO qna) {

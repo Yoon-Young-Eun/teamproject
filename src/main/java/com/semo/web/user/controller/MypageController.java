@@ -445,12 +445,23 @@ public class MypageController {
 		 }
 		 System.out.println(qna);
 		 
+		 int num = qna.getBoard_qna_status();
+		 System.out.println(num);
+		 
+		 if(num == 0) {
+			 System.out.println("num = 0");
 		 Cm_QnAVO askdetail = service.askdetail(qna);
 		 
 		 System.out.println("Controller > askdetail > " + askdetail);
 		 model.addAttribute("askdetail", askdetail);
+		 }else if(num == 1){
+			 System.out.println("num = 1");
+			 Cm_QnAVO askdetail2 = service.askdetail2(qna);
+			 System.out.println("askdetail2" + askdetail2);
+			 model.addAttribute("askdetail", askdetail2);
+		 }
 		 return "/views-mypage/MyAskDetail.jsp";
-	 }
+	 }	
 	 
 	 //문의글 삭제하기
 	 

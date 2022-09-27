@@ -1,6 +1,7 @@
 package com.semo.web.user.controller;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -49,12 +50,18 @@ public class InfoController {
 	}
 	
 	@RequestMapping(value="/deleteCustomer.do")
-	public String deleteCustomer(CustomerVO vo, Model model) {
+	public String deleteCustomer(CustomerVO vo, HttpSession session) {
 		System.out.println("회원정보 삭제");
 		CustomerVO cvo = infoservice.getCustomerInfo(vo);
 		System.out.println(cvo);
-		model.addAttribute("info", cvo);
+
 		infoservice.deleteCustomer(cvo);
+		
+		session.setAttribute("user_name", null);
+		session.setAttribute("id", null);
+		session.setAttribute("num", null);
+		session.invalidate();
+		
 		return "redirect:/views/main.jsp";
 	}
 	

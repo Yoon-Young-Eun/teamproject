@@ -64,7 +64,7 @@
 						<div style = "display : flex; justify-content : center; margin-top : 50px;"class = "article-btn-wrapper">
 							<a href="/myasklist.do?customer_no=${num}" class="action-button shadow animate grey" style = "height : 30px;">닫기</a>	
 							<a href = "/myaskedit.do?board_qna_no=${askdetail.board_qna_no }&customer_no=${num}" id = "insert" class="action-button shadow animate blue" style = "height : 30px;">수정</a>	
-						</div>'
+						</div>
 					</c:when>
 				</c:choose>
 				</form>
@@ -72,9 +72,10 @@
 			<!-- 답변 내용 -->
 			<c:choose>
 				<c:when test = "${askdetail.board_qna_status eq 0}">
+
 				</c:when>
 				<c:otherwise>
-					<div class = "answer-wrapper">
+									<div class = "answer-wrapper">
 						<h3>답변 내용</h3>
 						<div class = "article-title-wrapper">
 							<div class = "article-title">제목</div>

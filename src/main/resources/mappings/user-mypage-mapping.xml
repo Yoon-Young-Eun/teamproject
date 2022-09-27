@@ -39,10 +39,15 @@
  
  	
  	<select id = "askdetail" parameterType = "QnA" resultType = "QnA">
+ 		select * from board_qna_cm where board_qna_no=#{board_qna_no}
+ 	</select>
+ 	
+ 	<select id="askdetail2" resultType = "QnA">
  		<![CDATA[  select
                a.admin_qna_title,
                a.admin_qna_content,
                a.admin_qna_reg_date,
+               c.board_qna_status,
                c.board_qna_no,
                c.board_qna_type,
                c.board_qna_title,

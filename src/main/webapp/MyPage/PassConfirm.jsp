@@ -24,32 +24,40 @@
 </head>
 <body>
 
-      <div class="whole-wrapper">
-      <jsp:include page="/common/logined-header.jsp"></jsp:include>
-      <div class="main">
-         <div class="space_left">
-            <jsp:include page="/common/mypageSide.jsp" />
-         </div>
-         <form>
+ <jsp:include page="/common/logined-header.jsp"></jsp:include>
 
-      <div class="wrapper">
-         <div class="MyInfo_title">
-            <h1>내 정보 수정</h1>
-         </div>
-
-         <div class="password">
-            <div class="password-title">비밀번호 입력</div>
-            <div class="password-input">
-               <input type="password"  id="pw" name="customer_passwd">
-            </div>
-            <div class="btn">
-               <!-- <input type="submit" id="pwCheck" class="action-button shadow animate blue" value="확인"/> -->
-               <input type="button" onclick = "pwCheck()" id="confirm" class="action-button shadow animate blue" value="확인"/>
-            </div>
-         </div>
-      </div>
-         </form>   
-      </div>
+	<div class="whole-wrapper">
+   
+		<div class="main">
+			<div class="space_left">
+	            <jsp:include page="/common/mypageSide.jsp" />
+	         </div>
+	         
+	         <form>
+		      <div class="wrapper">
+		         <div class = "content-title-wrapper">
+					<div class = "content-title">
+						<h2>내 정보 수정</h2>
+					</div>
+					<!-- 소제목 -->
+					<div class = "content-subtitle-wrapper">
+						<p>&nbsp;</p>
+					</div><!-- content-subtitle-wrapper -->
+				</div> <!-- content-title-wrapper -->	
+		
+		         <div class="password">
+		            <div class="password-title">비밀번호 입력</div>
+		            <div class="password-input">
+		               <input type="password"  id="pw" name="customer_passwd">
+		            </div>
+		            <div class="btn">
+		               <!-- <input type="submit" id="pwCheck" class="action-button shadow animate blue" value="확인"/> -->
+		               <input type="button" onclick = "pwCheck()" id="confirm" class="action-button shadow animate blue" value="확인"/>
+		            </div>
+		         </div>
+		      </div>
+	         </form>   
+	      </div>
       
          <div class="space_right"></div>
       </div>

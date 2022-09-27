@@ -42,25 +42,6 @@
 			<!-- 소제목 -->
 			<div class = "content-subtitle-wrapper">
 				<p>총 <b>${cnt}</b>건의 주문내역</p>
-<!-- 		
-				 검색창
-				<div class = "searchbar-wrapper">
-					 분류
-					<div class = "sort">
-						<select class = "select">
-							<option>최근순</option>
-							<option>내용</option>
-							<option>제목+내용</option>
-						</select>
-					</div>
-					검색
-					<div class = "searchbar">
-						<input type = "text" onfocus = "value = ''" value = "검색어를 입력해주세요.">
-						<button>검색</button>
-					</div>
-				</div> 
-				searchbar-wrapper
- -->				
 			</div><!-- content-subtitle-wrapper -->
 		</div> <!-- content-title-wrapper -->	
 		

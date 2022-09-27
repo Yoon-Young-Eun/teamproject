@@ -40,13 +40,16 @@ a:hover {
 .page-wrapper {
 	display: flex;
 	justify-content: center;
+	margin-right : 150px;
+	margin-left : 150px;
+	
 }
 
 /*사이드 메뉴*/
 
 /*본문*/
 .content-wrapper {
-	max-width: 1240px;
+	max-width: 1040px;
 	margin: 50px;
 	width: 100%;
 }

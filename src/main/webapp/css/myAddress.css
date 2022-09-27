@@ -28,208 +28,75 @@ li {
 
 a {
 	text-decoration: none;
+	color: black;
 }
 
-.whole-wrapper {
-	display: flex;
-   justify-content: center;
-}
-.main {
-  	display:flex;
- 	padding-left : 230px;
-   max-width: 1440px;
-   width:100%
-}
-
-/* .space_left, .space_right {
-   width: 200px;
-} */
-
-.main_text {
-   width:968px;
-   padding: 40px;
-/*    height: 500px; */
-/*    margin-left: 165px; */
-}
-
-.MyQnA_title {
-   text-align: center;
-   border-bottom: 1px solid #ddd;
-}
-
-.MyQnA_search {
-   display: flex;
-   justify-content: end;
-   margin-top: 80px;
-   margin-bottom: 4px;
-   align-items: center;
-   height: 30px;
-}
-
-.condition {
-   height: 34px;
-   margin-right: 5px;
-   font-size: 15px;
-   text-indent: 3px;
-}
-
-.search_input>input {
-   height: 30px;
-   width: 250px;
-   margin-right: 10px;
-   padding: 0px;
-   font-size: 15px;
-   text-indent: 5px;
-}
-
-.MyQnA_body {
-   height: 85px;
-   width: auto;
-   text-align: center;
-}
-
-.MyQnA_body_title {
-   display: flex;
-   justify-content:space-between;
-   margin-top: 20px;
-   padding: 4px;
-   border-bottom: 4px solid black;
-   border-top: 2px solid black;
-}
-#button1{
-	width:100px;
-	border-radius:3px;
-	font-weight:bold;
-	color:black;
-}
-.title_num {
-   font-size: 20px;
-   width: 50px;
-}
-
-.title_group {
-   font-size: 20px;
-   width: 100px;
-}
-
-.title_subject {
-   font-size: 20px;
-   width: 470px;
-}
-
-.title_date {
-   font-size: 20px;
-   width: 240px;
-}
-
-.title_answer {
-   font-size: 20px;
-   width: 100px;
-}
-
-.MyQnA_body_content {
-   height:170px;
-   border-bottom: 2px solid gray;
-   /*    border-top: 2px solid gray; */
-  
-   
-}
-
-.content_num {
-   font-size: 15px;
-   width: 50px;
-}
-
-.content_group {
-   font-size: 15px;
-   width: 100px;
-}
-
-.content_subject {
-   font-size: 15px;
-   width: 470px;
-}
-
-.content_date {
-   font-size: 15px;
-   width: 240px;
-}
-
-.content_answer {
-   font-size: 15px;
-   width: 100px;
-}
-
-.end_btn {
-   display: flex;
-   justify-content: end;
-   margin-top: 7px;
-}
-
-
-#t_value{
-	font-size:15px;
-	font-family: 'Noto Sans KR', sans-serif;
-	border-style:none;
-	width:200px;
-	height:30px;
-	margin-top:10px;
-}
-#t_value:focus{
-	outline:none;
-}
-#phone{
-	font-size:15px;
-	font-family: 'Noto Sans KR', sans-serif;
-	border-style:none;
-	width:500px;
-	height:30px;
-	margin-top:10px;
-}
-#phone:focus{
-	outline:none;
-}
-#address1{
-	font-size:15px;
-	font-family: 'Noto Sans KR', sans-serif;
-	border-style:none;
-	width:500px;
-	height:30px;
-	margin-top:10px;
-}
-#address1:focus{
-	outline:none;
-}
-#address2{
-	width:500px;
-	font-size:15px;
-	font-family: 'Noto Sans KR', sans-serif;
-	border-style:none;
-	
-	height:30px;
-	margin-top:10px;
-}
-#address2:focus{
-	outline:none;
-}
-#gate_pw{
-	width:500px;
-	font-size:15px;
-	font-family: 'Noto Sans KR', sans-serif;
-	border-style:none;
-	
-	height:30px;
-	margin-top:10px;
-}
-#gate_pw:focus{
-	outline:none;
-}
-#address{
-	height:30px;
-	border-style:none;
-	font-size:17px;
+a:hover {
 	font-weight: bold;
+	cursor: pointer;
 }
-#address:focus{
-	outline:none;
+
+/*전체*/
+.page-wrapper {
+	display: flex;
+	justify-content: center;
+	margin-right : 150px;
+	margin-left : 150px;
+	
+}
+
+/*사이드 메뉴*/
+
+/*본문*/
+.content-wrapper {
+	max-width: 1040px;
+	margin: 50px;
+	width: 100%;
+}
+
+/*제목*/
+.content-title {
+	line-height: 70px;
+}
+
+/*소제목*/
+.content-subtitle-wrapper {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 2px solid;
+	line-height: 70px;
+}
+
+.address-content-title {
+	display : flex;
+	justify-content : space-between;
+	line-height : 60px;
+	border-bottom : 1px solid;
+	padding : 10px;
+	
+}
+
+.address-content-title input {
+	height : 25px;
+	margin-top : auto;
+	margin-bottom : auto;
+	text-align : center;
+}
+
+.address-content-content {
+	padding : 30px;
+} 
+
+
+.address-tel, .address-1, .address-2, .address-passwd {
+	display : flex;
+}
+
+.address-tel .title, .address-1 .title, .address-2 .title, .address-passwd .title{
+	width : 100px;
+	height : 50px;
+}
+
+.address-tel input, .address-1 input, .address-2 input, .address-passwd input{
+	border : none;
 }

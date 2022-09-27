@@ -78,13 +78,6 @@
 		
 	</div>	
 </div>
-
-<<<<<<< HEAD
-=======
-<!-- 이미지 베너 --> 
-<div class = "img-banner"><img src="/views/resources/img/aal banner.png"></div>
-
->>>>>>> main
 <!-- 바로가기 버튼 -->
 <div class = "button">
 	<div class = "botton-list">

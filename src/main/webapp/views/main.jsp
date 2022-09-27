@@ -162,9 +162,9 @@ $(function() {
 		var id = "${num}";
 		
 		if (id == ""){
-			location.href = "/views/login.jsp";
+			location.href = "/login.do";
 		}else {
-			location.href = "/pay/payUseText.jsp";
+			location.href = "/startOrder.do";
 		}
 	});
 	
@@ -172,9 +172,9 @@ $(function() {
 		var id = "${num}";
 		console.log(id);
 		if (id == ""){
-			location.href = "/views/login.jsp";
+			location.href = "/login.do";
 		} else {
-			location.href = "/orderlist.do?customer_no=${num}";
+			location.href = "/myorderlist.do?customer_no=${num}";
 		}
 	})
 });

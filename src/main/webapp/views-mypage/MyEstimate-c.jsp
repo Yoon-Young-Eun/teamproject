@@ -38,7 +38,7 @@
 		<!-- 제목 -->
 		<div class = "content-title-wrapper">
 			<div class = "content-title">
-				<h2>취소내역</h2>
+				<h2>접수내역</h2>
 			</div>
 			<!-- 소제목 -->
 			<div class = "content-subtitle-wrapper">

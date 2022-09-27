@@ -162,6 +162,7 @@
 						</div><!-- 페이징 종료 -->
 
 						<!-- 내용물 end -->
+						<div class="card-footer small text-muted"></div>
 					</div>
 				</div>
 			</main>

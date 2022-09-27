@@ -42,7 +42,7 @@
 							지점별 매출현황 페이지 입니다. 
 
 						</div>
-
+						</div>		
 						<div class="card mb-4">
 						
 							
@@ -162,12 +162,12 @@
 								class="tblCustomers tblexportData table">
 								<thead>
 									<tr style="background-color: #f2f2f2";>
-										<th style="width:10%;">주문일자</th>
-										<th style="width:15%;">구분</th>
-										<th style="width:15%;">매장명</th>
-										<th style="width:20%;">지역</th>
-										<th style="width:15%;">결제방식</th>
-										<th style="width:15%;">결제금액</th>
+										<th>주문일자</th>
+										<th>구분</th>
+										<th>매장명</th>
+										<th>지역</th>
+										<th>결제방식</th>
+										<th>결제금액</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -217,18 +217,11 @@
 							</div>
 							<!-- 페이징 종료 -->
 
-
-						</div>
-
-
-
 						<!-- 내용물 end -->
-
+<div class="card-footer small text-muted"></div>
 					</div>
-</div>
 				</div>
 			</main>
-
 	<!-- 구글차트 -->
 	<script type="text/javascript"
 		src="https://www.gstatic.com/charts/loader.js"></script>
@@ -237,7 +230,7 @@
 		google.charts.load('current', {packages : [ 'corechart', 'bar' ]});
 		google.charts.setOnLoadCallback(getGraph);
 		google.charts.load('current', {'packages' : [ 'corechart' ] });
-		 google.charts.setOnLoadCallback(drawChart); 
+		google.charts.setOnLoadCallback(drawChart); 
 
 		/* 	google.charts.setOnLoadCallback(getGraph);  // bar차트  */
 

@@ -182,7 +182,15 @@
 
 
 
-						<script type="text/javascript">
+						
+
+						<!-- 내용물 end -->
+<div class="card-footer small text-muted"></div>
+</div>
+				</div>
+			</main>
+
+<script type="text/javascript">
 							//체크삭제
 							$("#delBtn")
 									.click(
@@ -235,10 +243,6 @@
 											});
 						</script>
 
-						<!-- 내용물 end -->
-
-				</div>
-			</main>
 
 		<!-- 테이블 Checked 되었을때 이벤트 반응 막기 -->
 	<script>

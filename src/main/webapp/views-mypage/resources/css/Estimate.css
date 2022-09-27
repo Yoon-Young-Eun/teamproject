@@ -47,30 +47,33 @@ a:hover {
 
 /*전체*/
 .page-wrapper {
-	display : flex;
-	justify-content : center;
+	display: flex;
+	justify-content: center;
+	margin-right : 150px;
+	margin-left : 150px;
+	
 }
 
 /*사이드 메뉴*/
 
 /*본문*/
 .content-wrapper {
-	max-width : 1240px;
-	margin : 50px;
-	width : 100%;
+	max-width: 1040px;
+	margin: 50px;
+	width: 100%;
 }
 
 /*제목*/
 .content-title {
-	line-height : 70px;
+	line-height: 70px;
 }
 
 /*소제목*/
 .content-subtitle-wrapper {
-	display : flex;
-	justify-content : space-between;
-	border-bottom : 2px solid; 	
-	line-height : 70px;
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 2px solid;
+	line-height: 70px;
 }
 
 /*내용*/

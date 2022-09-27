@@ -13,8 +13,7 @@
          <if test="searchCondition=='customer_status'">   
              <![CDATA[customer_status like concat('%', #{searchKeyword}, '%') and]]></if>
     <![CDATA[customer_status not in ('블랙회원') ]]>
-   </select>
-   
+   </select>  
    
        <!-- 블랙회원을 제외한 정상회원 조회 (검색기능 포함)-->
    <select id="getArticeList" parameterType="paging"
@@ -38,11 +37,6 @@
     <![CDATA[customer_status = ('블랙회원')]]>
    </select>
    
-   
-   
-
-   
-
    <!-- 회원상세정보 읽기 -->
    <select id="getRead" parameterType="customer"
       resultType="customer">
@@ -54,8 +48,6 @@
      update customer set customer_status =#{customer_status} where customer_no=#{customer_no}
     </update>
     
-   
-
    <!-- 블랙회원 회원 조회 (검색기능 포함)-->
    <select id="getBlackList" parameterType="paging"
       resultType="customer">
@@ -65,6 +57,15 @@
          <if test="searchCondition=='customer_status'">   
              <![CDATA[customer_status like concat('%', #{searchKeyword}, '%') and]]></if>
     <![CDATA[customer_status = ('블랙회원') order by customer_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]>
+   </select>
+   
+    <!-- 단체문자 sms 허용 전화번호 쿼리 -->
+   <select id="getSmsPermitList" parameterType="customer" resultType="customer">
+   	 	select * from customer where customer_sms_permit = 1 and customer_no=#{customer_no}
+   </select>
+   <!--  개인 문제 sms 허용 전화번호 쿼리 -->
+   <select id="getSmsPermit" parameterType="customer" resultType="customer">
+   	 	select * from customer where customer_sms_permit = 1 and customer_no=#{customer_no}
    </select>
 
 </mapper>

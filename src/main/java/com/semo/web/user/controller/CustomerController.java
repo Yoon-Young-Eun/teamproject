@@ -68,7 +68,7 @@ public class CustomerController {
 			session.setAttribute("user_name", vo2.getCustomer_name());
 			session.setAttribute("id", vo2.getCustomer_id());
 			session.setAttribute("num", vo2.getCustomer_no());
-			return "/views/main.jsp";
+			return "/index.do";
 		} else {
 			System.out.println("로그인 실패");
 			return "/views/login.jsp";

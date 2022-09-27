@@ -36,4 +36,7 @@ public interface CustomerService {
 	
 	// 쿠폰코드로검색해서새로생성되는랜덤쿠폰번호랑중복되는쿠폰코드카운트하기
 	public int couponRandomNum(CouponListVO mvo);
+	
+	// 방문자수 카운트
+	public void updateVcount(CustomerVO vo);
 }

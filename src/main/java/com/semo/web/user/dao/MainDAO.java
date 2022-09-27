@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.semo.web.admin.vo.EventVO;
 import com.semo.web.admin.vo.PagingVO;
+import com.semo.web.user.vo.ReviewVO;
 
 @Repository
 public class MainDAO {
@@ -18,5 +19,11 @@ public class MainDAO {
 	public List<EventVO> getMain(PagingVO vo){
 		System.out.println("MainDAO.getMain EventList 불러오기 실행");
 		return sql.selectList("MainDAO.getMain", vo);
+	}
+	
+	// 메인 리뷰
+	public List<ReviewVO> getMainReview(){
+		System.out.println("MainDAO.getMainReview ReviewList 불러오기 실행");
+		return sql.selectList("MainDAO.getMainReview");
 	}
 }

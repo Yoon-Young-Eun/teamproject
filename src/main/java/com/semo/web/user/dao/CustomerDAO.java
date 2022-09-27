@@ -69,4 +69,10 @@ public class CustomerDAO {
 		System.out.println("DAO.couponRandomNum 실행");
 		return sql.selectOne("CouponlistDAO.couponRandomNum", mvo);
 	}
+	
+	// 방문자수 카운트
+	public void updateVcount(CustomerVO vo) {
+		System.out.println("DAO.updateVcount 실행");
+		sql.update("CustomerVO.updateVcount", vo);
+	}
 }

@@ -21,7 +21,7 @@
  	</select>
  	
  	<select id = "storedetail" parameterType = "ORDER" resultType = "store">
- 		select * from store where store_code = #{store_code}
+ 		select * from store where store_name = #{order_store_name}
  	</select>
  
  	<select id = "addresslist" parameterType = "customer" resultType = "CM_ADDRESS">

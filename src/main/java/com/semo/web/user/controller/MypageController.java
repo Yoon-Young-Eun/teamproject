@@ -591,15 +591,9 @@ public class MypageController {
      	  m.addAttribute("startPage",startPage);
      	  m.addAttribute("endPage",endPage);
      	  m.addAttribute("pageBlock",pageBlock);
-
-          m.addAttribute("count", count);
        }
           
-       Map<String, String> condition = new HashMap<String, String>();
-       condition.put("견적번호", "estimate_cm_no");
-       condition.put("내용", "estimate_content");
-       
-       m.addAttribute("condition", condition);   
+      
        m.addAttribute("elist", evo);
        System.out.println(evo);
        

@@ -94,5 +94,11 @@ public class CustomerServiceImpl implements CustomerService{
 	public int couponRandomNum(CouponListVO mvo) {
 		return dao.couponRandomNum(mvo);
 	}
+	
+	// 방문자수 카운트
+	@Override
+	public void updateVcount(CustomerVO vo) {
+		CustomerDAO.updateVcount(vo);
+	}
 
 }

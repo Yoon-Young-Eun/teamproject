@@ -136,7 +136,7 @@
 										<td>${board.customer_id}</a></td>
 										<td>${board.customer_name}</td>
 										<td class="center">${board.customer_phone}</td>
-										<td>${board.customer_address1} ${board.customer_address2}</td>
+										<td>${board.customer_address1}</td>
 										<td class="center">${board.customer_sms_permit}</td>
 										<td class="center">${board.customer_status}</td>
 									</tr>

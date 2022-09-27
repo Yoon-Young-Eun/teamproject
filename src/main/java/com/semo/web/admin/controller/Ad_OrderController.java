@@ -259,8 +259,8 @@ public class Ad_OrderController {
 				System.out.println("order수정사항"+ vo);				
 				System.out.println("문자 내용"+mvo);
 				 //String phone = vo.getOrder_customer_phone(); 
-				 String mess = mvo.getMessage_content();
-				 
+				String mess = mvo.getMessage_content();
+
 				 //Coolsms 보내기
 				 if(mess != "" && mess != null) {
 					 
@@ -272,13 +272,11 @@ public class Ad_OrderController {
 					 
 					 System.out.println("문자 내용 있음");
 				 coolsms.sendMessage(phone, mess); 				 
-				 MessageVO mv = orderserivce.getMessageTitle(mvo);
-				 vo.setOrder_status(mv.getMessage_title());
-				 System.out.println("order_Status 값"+vo.getOrder_status());
 				  }
 				 }
-				 
-				
+					MessageVO mv = orderserivce.getMessageTitle(mvo);
+					vo.setOrder_status(mv.getMessage_title());
+					 System.out.println("order_Status 값"+vo.getOrder_status());
 				 //정보 수정하기
 	
 				 System.out.println("updateOrderInfo");

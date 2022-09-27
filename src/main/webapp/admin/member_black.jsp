@@ -141,9 +141,9 @@
 											onclick="location.href='/getBlackMemberBoard.mdo?customer_no=${black.customer_no}&customer_status=${black.customer_status}'">
 											<td id="check_td"><input type="checkbox"
 												class="checkone" name="check"></td>
-											<td>${black.customer_no}</td>
+											<td class="center">${black.customer_no}</td>
 											<!--for문의 id값.컬럼명으로 값을 불러옴 -->
-											<td>${black.customer_id}</td>
+											<td class="center">${black.customer_id}</td>
 											<td class="center">${black.customer_name}</td>
 											<td class="center">${black.customer_phone}</td>
 											<td class="center">${black.customer_address1}</td>

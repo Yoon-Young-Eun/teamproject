@@ -68,28 +68,30 @@
 												<div class="filebox" style="width:920px">
 												
 												<label for="ex_filename2">파일 선택</label> <input type="file"
-												id="ex_filename2" class="upload-hidden" value="${event.banner_filepath}" name="banner"
-												accept="image/*" onchange="setThumbnail2(event);" /> 
+												id="ex_filename2" class="upload-hidden" name="uploadImg"
+												accept="image/*" onchange="setThumbnail(event);" /> 
 												<input class="upload-name" value="" disabled="disabled">
+												
 											
 										</div></li>
 
-									<div id="image_container2"><img src="${event.board_event_filepath}" style="width:100%"></div>
-										
+										<div id="image_container"><img src="${event.banner_filepath}" style="width:100%"></div>
 												
+											
 											<li style="display: flex; margin-top: 15px;"><span
 												class="title">이벤트</span>&nbsp;&nbsp;
 												<div class="filebox" style="width:920px">
 												
 												<label for="ex_filename">파일 선택</label> <input type="file"
-														id="ex_filename" value="${event.board_event_filepath}" name="event" class="upload-hidden" onchange="setThumbnail(event);" >
+														id="ex_filename" name="uploadImg2" class="upload-hidden" onchange="setThumbnail2(event);" >
 													<input class="upload-name" value="" disabled="disabled">
 												
-									<div id="image_container"><img src="${event.banner_filepath}" style="width:100%"></div>			
+													
 												</div></li>
 											
+												<div id="image_container2"><img src="${event.board_event_filepath}" style="width:100%"></div>
 												
-
+											
 										</ul>
 									</div>
 									<div class="end">
@@ -104,7 +106,6 @@
 								</div>
 							</form>
 						</div>
-
 
 					</div>
 

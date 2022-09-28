@@ -11,15 +11,14 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.semo.web.admin.vo.Ad_EstimateVO;
-import com.semo.web.admin.vo.AdminVO;
 import com.semo.web.admin.vo.ProductVO;
-import com.semo.web.admin.vo.ReviewVO;
 import com.semo.web.admin.vo.TermsVO;
 import com.semo.web.amazon.s3.AwsS3;
 import com.semo.web.user.service.OrderService;
@@ -120,7 +119,7 @@ public class OrderController<imp_uid> {
 
 	}
 
-	@RequestMapping(value = "/OrderGeneral.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/OrderGeneral.do", method = RequestMethod.POST)
 	// 일반세탁 주문하기
 	public String OrderGeneral(OrderVO vo, Model model, DataSendVO vo2, OrderMtArrayVO vo4, CouponListVO cou,
 			CustomerVO cvo, HttpSession session) {
@@ -195,7 +194,7 @@ public class OrderController<imp_uid> {
 		return "/login.do";
 	}
 
-	@RequestMapping(value = "/OrderInsert.do", method = RequestMethod.GET)
+	@RequestMapping(value="/OrderInsert.do" , method=RequestMethod.POST)
 	public String OrderInsert(OrderVO vo, OrderMtVO vo3, OrderMtArrayVO vo2, CouponListVO cou, Model model,
 			HttpSession session) {
 		session.getAttribute("id");

@@ -54,8 +54,48 @@
 								onclick="exportToExcel('tblexportData', 'user-data')">Excel</button>
 							<!-- excel -->
 						</div>
-						
+							
+							
+							
+					<div class="b_button">
+							<!-- 테이블 행 필터 -->
+							<form name="selectname" action="QnAList.mdo" method="get">
+							   <input type="hidden" name="searchCondition4" value="${search2.searchCondition4}"/>
+							   <input type="hidden" name="searchKeyword4" value="${search2.searchKeyword4}"/>
+								<div col-index=8>
+									<select name="selectPage2" onchange="this.form.submit()">
+										<option value="">선택</option>
+										<option value="5">5</option>
+										<option value="10">10</option>
+										<option value="20">20</option>
+										<option value="50">50</option>
+									</select> entries per page
+								</div>
+							</form>
+						<div class="icon_flex">
+						<!-- 검색기능 -->
+							<div>
+								<form action="QnAList.mdo" method="get">
+									<div class="icon_flex">
 
+										<select name="searchCondition4" class="margin_auto" >
+												<c:forEach items="${conditionMap2}" var="option">
+													<div>
+														<option value="${option.value}">${option.key}</option>
+													</div>
+												</c:forEach>
+										</select> 
+										<input type="text" id="se_input" name="searchKeyword4" />
+											<div>
+												<input type="submit" id="se_submit" value="검색" />
+											</div>
+											<div> <input type="reset" id="se_reset" value="초기화" /></div>
+									</div>
+								</form>
+							</div>
+						</div>
+						</div>
+						
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
 						<table id=""
 							class=" tblCustomers tblexportData table">
@@ -96,6 +136,33 @@
 							</tbody>
 						</table>
 			
+			<!-- pagaing 처리 -->
+						<div >					
+							<c:if test="${count2 > 0}">
+								<div class="icon_flex">
+								<div>
+								<c:if test="${startPage2 > pageBlock2}">
+									    <a href="QnAList.mdo?pageNum2=${startPage2-pageBlock2}&selectPage4=${search2.selectPage4}&searchKeyword4=${search2.searchKeyword4}&searchCondition4=${search2.searchCondition4}&pageNum=${startPage-pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="pageging2">이전</div></a>
+								</c:if>
+								</div>
+								<div class="icon_flex">
+								<c:forEach var="i" begin="${startPage2}" end="${endPage2}">
+										<a href="QnAList.mdo?pageNum2=${i}&selectPage2=${search2.selectPage2}&searchKeyword4=${search2.searchKeyword4}&searchCondition4=${search2.searchCondition4}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="pageging">${i}</div></a>
+								
+								</c:forEach>
+								</div>							
+								<div>
+								<c:if test="${endPage2 < pageCount2}">
+								    	<a href="QnAList.mdo?pageNum2=${startPage2 + pageBlock2}&selectPage2=${search2.selectPage2}&searchKeyword4=${search2.searchKeyword4}&searchCondition4=${search2.searchCondition4}&pageNum=${startPage + pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div class="pageging2">다음</div></a>
+								</c:if>                 
+								</div>
+								</div>
+							</c:if>
+						</div><!-- 페이징 종료 -->
+						
+						
+			
+			
 <!-- 답변 대기 테이블 끝 -->
 <br>
 <!-- 답변 완료 테이블 시작 -->
@@ -109,6 +176,45 @@
 							<!-- excel -->
 						</div>
 						
+						<div class="b_button">
+							<!-- 테이블 행 필터 -->
+							<form name="selectname" action="QnAList.mdo" method="get">
+							   <input type="hidden" name="searchCondition" value="${search.searchCondition}"/>
+							   <input type="hidden" name="searchKeyword" value="${search.searchKeyword}"/>
+								<div col-index=8>
+									<select name="selectPage" onchange="this.form.submit()">
+										<option value="">선택</option>
+										<option value="5">5</option>
+										<option value="10">10</option>
+										<option value="20">20</option>
+										<option value="50">50</option>
+									</select> entries per page
+								</div>
+							</form>
+						
+						<div class="icon_flex">
+						<!-- 검색기능 -->
+							<div>
+								<form action="QnAList.mdo" method="get">
+									<div class="icon_flex">
+
+										<select name="searchCondition" class="margin_auto" >
+												<c:forEach items="${conditionMap}" var="option">
+													<div>
+														<option value="${option.value}">${option.key}</option>
+													</div>
+												</c:forEach>
+										</select> 
+										<input type="text" id="se_input" name="searchKeyword" />
+											<div>
+												<input type="submit" id="se_submit" value="검색" />
+											</div>
+											<div> <input type="reset" id="se_reset" value="초기화" /></div>
+									</div>
+								</form>
+							</div>
+						</div>
+						</div>
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
 						<table id=""
 							class="tblCustomers tblexportData table">
@@ -148,6 +254,32 @@
 
 							</tbody>
 						</table>
+						
+						<!-- pagaing 처리 -->
+						<div >					
+							<c:if test="${count > 0}">
+								<div class="icon_flex">
+								<div>
+								<c:if test="${startPage > pageBlock}">
+									    <a href="QnAList.mdo?pageNum=${startPage-pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}&pageNum2=${startPage2-pageBlock2}&selectPage4=${search2.selectPage4}&searchKeyword4=${search2.searchKeyword4}&searchCondition4=${search2.searchCondition4}"><div class="pageging2">이전</div></a>
+								</c:if>
+								</div>
+								<div class="icon_flex">
+								<c:forEach var="i" begin="${startPage}" end="${endPage}">
+										<a href="QnAList.mdo?pageNum=${i}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}&selectPage2=${search2.selectPage2}&searchKeyword4=${search2.searchKeyword4}&searchCondition4=${search2.searchCondition4}"><div class="pageging">${i}</div></a>
+									
+								</c:forEach>
+								</div>							
+								<div>
+								<c:if test="${endPage < pageCount}">
+									    <a href="QnAList.mdo?pageNum=${startPage + pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}&pageNum2=${startPage2 + pageBlock2}&selectPage2=${search2.selectPage2}&searchKeyword4=${search2.searchKeyword4}&searchCondition4=${search2.searchCondition4}"><div class="pageging2">다음</div></a>
+								</c:if>
+								</div>
+								</div>
+							</c:if>
+						</div><!-- 페이징 종료 -->
+						
+						
 <!-- 답변 완료 테이블 끝 -->						
 
 						<!-- 내용물 end -->

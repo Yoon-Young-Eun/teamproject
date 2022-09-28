@@ -11,6 +11,7 @@
       <typeAlias type="com.semo.web.admin.vo.AdminVO" alias="admin" />
       <typeAlias type="com.semo.web.admin.vo.MessageVO" alias="message" />
       <typeAlias type="com.semo.web.admin.vo.PagingVO" alias="paging"/>
+      <typeAlias type="com.semo.web.admin.vo.PagingQVO" alias="pagingQ"/>
 
       <typeAlias type="com.semo.web.user.vo.AddressListVO" alias="CM_ADDRESS" />   
       <typeAlias type="com.semo.web.user.vo.OrderVO" alias="ORDER" />

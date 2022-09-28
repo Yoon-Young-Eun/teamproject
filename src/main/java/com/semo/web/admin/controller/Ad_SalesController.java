@@ -100,7 +100,7 @@ public class Ad_SalesController {
 	}
 	
 	
-	@RequestMapping(value="/salesList.mdo")
+	@RequestMapping(value="//salesProductList.mdo")
 	public String getSalesProductList(PagingVO pvo, OrderMtVO vo, Model model, HttpSession session) {
 		
 		//세션 유무확인 
@@ -168,7 +168,7 @@ public class Ad_SalesController {
 	       model.addAttribute("productSalesList", productSalesList);
 	       System.out.println("매출 DB 결과"+productSalesList);
 
-		return"admin/sales_list.jsp";
+		return"admin/sales_productlist.jsp";
 	}
 
 }

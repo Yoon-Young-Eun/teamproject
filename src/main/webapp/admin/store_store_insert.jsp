@@ -78,7 +78,7 @@
 
 <div class="end">
 		<div class="popup_btn">
-			<input type="submit" value="등록">
+			<input type="submit" value="등록" style="margin: -2px;">
 		</div>
 
 		<div class="popup_btn">

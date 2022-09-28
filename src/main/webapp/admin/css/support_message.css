@@ -131,6 +131,18 @@ header>h1 {
 	border-radius: 10px;
 	background: #dee2e6;
 }
+.popup_btn input{
+	font-weight: bold;
+	border : none;
+	background-color: #dee2e6;
+
+}
+
+.popup_btn input:hover {
+	font-weight: bold;
+	text-decoration: underline;
+	color: white;
+}
 
 .end {
 	border-radius: 3px;

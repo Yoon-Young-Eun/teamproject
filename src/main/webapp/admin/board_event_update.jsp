@@ -44,8 +44,9 @@
 								</div>
 
 							</header>
-							<form action="/EventUpload.mdo" method="post"
+							<form action="/updateEvent.mdo" method="post"
 								enctype="multipart/form-data" onsubmit="return confirm('수정하시겠습니까?');">
+								<input type="hidden" value="${event.board_event_no}" name="board_event_no">
 								<div id="content_wrap">
 									<ul class="title_wrap">
 										<li><span class="title">제목</span> <input type="text"
@@ -62,34 +63,32 @@
 												placeholder="배너번호를 입력해주세요" value=" " name="banner_no"
 												class="ban" />${event.banner_no}</li>
 
-											
-												
+
 											<li style="display: flex; margin-top: 15px;"><span class="title">배너</span>&nbsp;&nbsp;												
 												<div class="filebox" style="width:920px">
 												
 												<label for="ex_filename2">파일 선택</label> <input type="file"
-												id="ex_filename2" class="upload-hidden" name="banner"
-												accept="image/*" onchange="setThumbnail(event);" /> 
+												id="ex_filename2" class="upload-hidden" value="${event.banner_filepath}" name="banner"
+												accept="image/*" onchange="setThumbnail2(event);" /> 
 												<input class="upload-name" value="" disabled="disabled">
-												
 											
 										</div></li>
 
-										<div id="image_container"><img src="${event.banner_filepath}" style="width:100%"></div>
+									<div id="image_container2"><img src="${event.board_event_filepath}" style="width:100%"></div>
+										
 												
-											
 											<li style="display: flex; margin-top: 15px;"><span
 												class="title">이벤트</span>&nbsp;&nbsp;
 												<div class="filebox" style="width:920px">
 												
 												<label for="ex_filename">파일 선택</label> <input type="file"
-														id="ex_filename" name="EventFile" class="upload-hidden" onchange="setThumbnail2(event);" >
+														id="ex_filename" value="${event.board_event_filepath}" name="event" class="upload-hidden" onchange="setThumbnail(event);" >
 													<input class="upload-name" value="" disabled="disabled">
 												
-													
+									<div id="image_container"><img src="${event.banner_filepath}" style="width:100%"></div>			
 												</div></li>
 											
-												<div id="image_container2"><img src="${event.board_event_filepath}" style="width:100%"></div>
+												
 
 										</ul>
 									</div>

@@ -70,7 +70,7 @@
 							<c:choose>
 								<c:when test="${order.order_status eq '배송완료' && order.review_status eq 0}">
 									${order.order_status}
-									<input type="button" value="리뷰작성" onclick="showPopupReview(${order.order_no});"/>
+									<input class="review_btn" type="button" value="리뷰작성" onclick="showPopupReview(${order.order_no});"/>
 								  </c:when>
 								<c:when test="${order.order_status == '배송완료' && order.review_status == 1}">
 									${order.order_status}

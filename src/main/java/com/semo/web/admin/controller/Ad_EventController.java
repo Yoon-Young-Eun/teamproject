@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.semo.web.admin.service.Ad_BoardService;
-import com.semo.web.admin.service.SiteService;
 import com.semo.web.admin.vo.AdminVO;
 import com.semo.web.admin.vo.EventVO;
 import com.semo.web.admin.vo.PagingVO;
@@ -168,13 +167,13 @@ public class Ad_EventController {
 		String banner_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/event/" + key2;
 		vo.setBanner_filepath(banner_filepath);
 		
-		boardservice.updateEvent(vo);
+		boardservice.insertEvent(vo);
 
 		return "redirect:/getEventList.mdo";
 	}
 
 	@RequestMapping(value="/updateEvent.mdo")
-	public String updateEvent(EventVO vo, MultipartFile uploadImg, MultipartFile uploadImg2) throws SQLException, IOException{
+	public String updateEvent(EventVO vo, MultipartFile eventt, MultipartFile banner) throws SQLException, IOException{
 		
 		//세션 유무확인 
 		AdminVO admin = (AdminVO)session.getAttribute("admin");
@@ -187,21 +186,22 @@ public class Ad_EventController {
 		
 		AwsS3 awss3 = AwsS3.getInstance();
 		System.out.print(vo);
-		System.out.println(uploadImg);
+		System.out.println(eventt);
 		System.out.println("글 수정 기능 처리");
 		EventVO bringData = boardservice.getEvent(vo);
-
+		System.out.println("bringData:    "+bringData);
 		int index = bringData.getBoard_event_filepath().indexOf("/", 20);
 		String key = bringData.getBoard_event_filepath().substring(index+1);
 
-		if(!uploadImg.getOriginalFilename().equals("")) {
-			if(!key.equals("event/" + uploadImg)) {
+		if(!eventt.getOriginalFilename().equals("")) {
+			if(!key.equals("event/" + eventt)) {
+				System.out.println("이미지 삭제 if절");
 				awss3.delete(key);
 
-				InputStream is = uploadImg.getInputStream();
-				String uploadKey = uploadImg.getOriginalFilename();
-				String contentType = uploadImg.getContentType();
-				long contentLength = uploadImg.getSize();
+				InputStream is = eventt.getInputStream();
+				String uploadKey = eventt.getOriginalFilename();
+				String contentType = eventt.getContentType();
+				long contentLength = eventt.getSize();
 
 				String bucket = "semoproject/event";
 
@@ -210,41 +210,45 @@ public class Ad_EventController {
 				String board_event_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/event/" + uploadKey;
 				bringData.setBoard_event_filepath(board_event_filepath);
 			}else {
+				System.out.println("삭제 첫번쨰 else");
 				bringData.setBoard_event_filepath(bringData.getBoard_event_filepath());
 			}
 		}else {
+			System.out.println("파일이름이 다를떄 else");
 			bringData.setBoard_event_filepath(bringData.getBoard_event_filepath());
 		}
 		
+		EventVO bringData2 = boardservice.getEvent(vo);
+		System.out.println("bringData2:    "+bringData2);
+		int index2 = bringData2.getBoard_event_filepath().indexOf("/", 20);
+		String key2 = bringData2.getBoard_event_filepath().substring(index2+1);
 		
-		int index2 = bringData.getBoard_event_filepath().indexOf("/", 20);
-		String key2 = bringData.getBoard_event_filepath().substring(index2+1);
-		
-		if(!uploadImg2.getOriginalFilename().equals("")) {
-			if(!key2.equals("event/" + uploadImg2)) {
+		if(!banner.getOriginalFilename().equals("")) {
+			if(!key2.equals("event/" + banner)) {
 				awss3.delete(key2);
 
-				InputStream is2 = uploadImg2.getInputStream();
-				String uploadKey2 = uploadImg2.getOriginalFilename();
-				String contentType2 = uploadImg2.getContentType();
-				long contentLength2 = uploadImg2.getSize();
+				InputStream is2 = banner.getInputStream();
+				String uploadKey2 = banner.getOriginalFilename();
+				String contentType2 = banner.getContentType();
+				long contentLength2 = banner.getSize();
 
 				String bucket2 = "semoproject/event";
 
 				awss3.upload(is2, uploadKey2, contentType2, contentLength2, bucket2);
 
 				String banner_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/event/" + uploadKey2;
-				bringData.setBanner_filepath(banner_filepath);
+				bringData2.setBanner_filepath(banner_filepath);
+				
 			}else {
-				bringData.setBanner_filepath(bringData.getBanner_filepath());
+				bringData2.setBanner_filepath(bringData2.getBanner_filepath());
 			}
 		}else {
-			bringData.setBanner_filepath(bringData.getBanner_filepath());
+			bringData2.setBanner_filepath(bringData2.getBanner_filepath());
 		}
 		
-		bringData.setBoard_event_title(vo.getBoard_event_title());
-		bringData.setBoard_event_content(vo.getBoard_event_content());
-		boardservice.updateEvent(bringData);
+		bringData2.setBoard_event_title(vo.getBoard_event_title());
+		bringData2.setBoard_event_content(vo.getBoard_event_content());
+		boardservice.updateEvent(bringData2);
 
 		return "redirect:/getEventList.mdo";
 	}

@@ -45,12 +45,12 @@
 
 </div>
 <input type="hidden" value="${OrderInfo.customer_no}" name="customer_no">
-<input type="text" value="${OrderInfo.order_no}" name="order_no">
+<input type="hidden" value="${OrderInfo.order_no}" name="order_no">
 <input type="hidden" value="${OrderInfo.order_customer_name}" name="board_review_name">
 <div class="review_btn">
 
 	<div class="end">
-		<input type="button" onclick="fn_editFL();result();" class="action-button shadow animate blue"  value="저장"/>
+		<input type="button" onclick="fn_editFL();result();" id="nextBtn" class="action-button shadow animate blue"  value="저장"/>
 		<div class="action-button shadow animate blue" onclick="self.close();">취소</div>
 	</div>
 

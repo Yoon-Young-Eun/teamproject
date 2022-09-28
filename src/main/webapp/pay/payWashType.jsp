@@ -29,7 +29,7 @@
       서비스종류 선택
     </div>
     <div class="fofofofo" style="display: flex; width: 1000px; justify-content: center; margin:0px;">
-    <form action="/OrderType.do">
+    <form action="/OrderType.do" >
     <div class="payment_text3" style="width:300px">
       <div class="general">
         <input type="submit"  value="일반세탁" id="general1"  class="action-button shadow animate blue" style="padding: 0px; width: 200px; height: 60px;" name="order_type"> 

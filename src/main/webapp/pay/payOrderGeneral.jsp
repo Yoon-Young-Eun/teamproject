@@ -123,7 +123,7 @@
 			<div class="main">
 				<div class="space_left"></div>
 				<div class="content_box">
-					<form action="/OrderGeneral.do" id="form1">
+					<form action="/OrderGeneral.do" id="form1" method="POST">
 						<div class="main_text">
 							<div class="main_text1">일반세탁 결제하기</div>
 							<div class="main_text2">세탁할 옷의 종류를 선택하세요</div>
@@ -460,10 +460,11 @@
 							<input type="hidden" value="0" name="order_use_coupon_price">
 
 							<div class="main_text10">
+								<input type="button" value="취소하기" id="paycancel" onclick="cancel()"
+									class="action-button shadow animate blue">
 								<input type="button" value="주문하기" id="pay" onclick="order()"
 									class="action-button shadow animate blue" > 
-								<input type="button" value="취소하기" id="paycancel" onclick="#"
-									class="action-button shadow animate blue">
+								
 							</div>
 						</div>
 
@@ -491,16 +492,14 @@
 
         
       </script>
-			
-			
-			
-			<!-- <script>
-			if(Number(document.getElementById("pppp").value) >= 15000){
-				document.getElementById("form1").submit();
+		
+		<script>
+		function cancel(){
+			if(confirm('주문을 취소하시겠습니까?') == true){
+				location.href='/index.do';
 			}
-			
-			</script> -->
-			
+		}
+		</script>
 			
 			
 			<script>

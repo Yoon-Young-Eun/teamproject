@@ -208,8 +208,7 @@
 																			tdArr : tdArr,
 																		},
 																		dataType : 'text',
-																		success : function(
-																				data) {
+																		success : function(data) {
 																			location.href = "getEventList.mdo";
 																			console
 																					.log(data);

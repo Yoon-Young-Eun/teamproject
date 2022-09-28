@@ -3,7 +3,8 @@
 .chartparent {
 /* 	width:1628px; */
 	display: flex;
-	justify-content: space-around;
+	/* justify-content: space-around; */
+	justify-content: center;
 }
 
 .chart {

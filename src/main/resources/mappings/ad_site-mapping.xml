@@ -104,9 +104,23 @@
   			#{terms_necessary}
   		)
   	</insert>
-  	<select id="getTermsList" resultType="terms">
- 	  select * from terms
+  	<select id="getTermsList" resultType="terms" parameterType="paging">
+ 	  <![CDATA[ select * from (select @rownum := @rownum+1 as rnum, terms_no, terms_type, terms_title, terms_content, terms_necessary, terms_reg_date from terms, (select @rownum :=0)as rowcolum ]]>
+ 	  	<if test="searchCondition=='terms_title'">
+    		<![CDATA[where terms_title like concat('%', #{searchKeyword}, '%') ]]></if>
+    		<if test="searchCondition=='terms_type'">
+    		<![CDATA[where terms_type like concat('%', #{searchKeyword}, '%') ]]></if>
+    	<![CDATA[order by terms_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]>
  	</select>
+ 	
+ 	<select id="getTermsCount" parameterType="paging" resultType="int">
+		<![CDATA[ select count(*) from terms  ]]>
+		<if test="searchCondition=='terms_title'">
+     	<![CDATA[ where terms_title like concat('%', #{searchKeyword}, '%')]]></if> 
+     	 <if test="searchCondition=='terms_type'">
+    	<![CDATA[where terms_type like concat('%', #{searchKeyword}, '%') ]]></if>
+	</select>
+	
  	<select id="getReadTerms" resultType="terms">
 	<![CDATA[ select * from terms where terms_no=#{terms_no} ]]>
 	</select>

@@ -11,6 +11,7 @@ import com.semo.web.admin.vo.EventVO;
 import com.semo.web.admin.vo.FAQVO;
 import com.semo.web.admin.vo.MessageVO;
 import com.semo.web.admin.vo.NoticeVO;
+import com.semo.web.admin.vo.PagingQVO;
 import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.ReviewVO;
 import com.semo.web.user.vo.Cm_QnAVO;
@@ -173,12 +174,12 @@ public class Ad_BoardServiceImpl implements Ad_BoardService {
 	
 // QnA
 	@Override
-	public List<Cm_QnAVO> getQnAList0() {
-		return boardDAO.getQnAList0();
+	public List<Cm_QnAVO> getQnAList0(PagingQVO qvo) {
+		return boardDAO.getQnAList0(qvo);
 	}
 	@Override
-	public List<Cm_QnAVO> getQnAList1() {
-		return boardDAO.getQnAList1();
+	public List<Cm_QnAVO> getQnAList1(PagingVO pvo) {
+		return boardDAO.getQnAList1(pvo);
 	}
 
 	@Override
@@ -206,6 +207,15 @@ public class Ad_BoardServiceImpl implements Ad_BoardService {
 		return boardDAO.getReadPhoneNum(vo);
 	}
 
+	@Override
+	public int getCmQnACount(PagingQVO qvo) {
+		return boardDAO.getCmQnACount(qvo);
+	}
+
+	@Override
+	public int getAdQnACount(PagingVO pvo) {
+		return boardDAO.getAdQnACount(pvo);
+	}
 
 	
 	

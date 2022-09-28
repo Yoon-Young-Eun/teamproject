@@ -27,9 +27,33 @@
  			#{store_longitude}
  		)
  	</insert>
- 	<select id="getStoreList" resultType="store">
- 	  select * from store
- 	</select>
+<!--  	<select id="getStoreList" resultType="store"> -->
+<!--  	  select * from store -->
+<!--  	</select> -->
+
+ 	<!-- 어드민 리스트 조회 -->
+	<select id="getStoreList" parameterType="paging"
+		resultType="store"> 
+   <![CDATA[select * from (select @rownum := @rownum+1 as rnum, store_code, store_type, store_name, store_phone, store_status from store, (select @rownum :=0)as rowcolum]]>
+			<if test="searchCondition=='store_type'">
+    		<![CDATA[where store_type like concat('%', #{searchKeyword}, '%') ]]></if>
+    		<if test="searchCondition=='store_name'">
+    		<![CDATA[where store_name like concat('%', #{searchKeyword}, '%') ]]></if>
+    		<if test="searchCondition=='store_status'">
+    		<![CDATA[where store_status like concat('%', #{searchKeyword}, '%') ]]></if>
+    <![CDATA[order by store_code desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]>
+	</select>
+	
+	<!-- 어드민리스트 count -->
+	<select id="getArticleCount" parameterType="paging" resultType="int">
+	   <![CDATA[ select count(*) from store  ]]>
+		<if test="searchCondition=='store_type'">
+	    	<![CDATA[ where store_type like concat('%', #{searchKeyword}, '%')]]></if> 
+	    	 <if test="searchCondition=='store_name'">
+	   	<![CDATA[where store_name like concat('%', #{searchKeyword}, '%') ]]></if>
+	   	<if test="searchCondition=='store_status'">
+	   	<![CDATA[where store_status like concat('%', #{searchKeyword}, '%') ]]></if>
+	</select> 	
  	
  	<select id="getReadStore" resultType="store">
 	<![CDATA[ select * from store where store_code=#{store_code} ]]>

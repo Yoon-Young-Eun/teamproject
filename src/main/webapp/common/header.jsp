@@ -22,7 +22,7 @@
 
 <header id = "header">
    <div class = "top-menu-wrapper">
-      <h1><a href = "/index.do">△■</a></h1>
+      <h1><a href = "/index.do"><img alt="" src="/common/img/logo_color.png" style = "height : 55px; margin-top : 15px;"></a></h1>
       <nav class = "top-menu">
          <ul class = "top-list">
             <li id = "login"><a href = "/views/login.jsp">로그인</a></li>

@@ -7,7 +7,6 @@
 <script type="text/javascript" src="/admin/js/fileupload.js"></script>
 <!-- 게시판 css -->
 <link rel="stylesheet" href="/admin/css/board.css" />
-<link rel="stylesheet" href="/admin/css/board_event_write.css" />
 
 <!-- summernote -->
 <script src="/admin/js/summernote/summernote-lite.js"></script>

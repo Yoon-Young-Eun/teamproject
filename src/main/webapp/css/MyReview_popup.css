@@ -123,3 +123,16 @@ html {
 .action-button {
 	padding: 6px 18px;
 }
+
+#nextBtn{
+   border-top: none;
+   border-left:none;
+   border-right:none;
+   border-bottom: 5px solid #2b92da;
+}
+
+#nextBtn:active{
+   transform: translate(0px,5px);
+  -webkit-transform: translate(0px,5px);
+   border-bottom: 1px solid;
+}

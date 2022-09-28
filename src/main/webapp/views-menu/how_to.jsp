@@ -10,7 +10,7 @@
 <!-- font awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
 <!-- resources -->
-<link rel="stylesheet" href="/views/resources/css/how_to.css"/>
+<link rel="stylesheet" href="/views-menu/resources/css/how_to.css"/>
 <link rel="stylesheet" href="/common/css/header.css"/>
 <link rel="stylesheet" href="/common/css/button.css"/>
 <link rel="stylesheet" href="/common/css/footer.css"/>
@@ -45,10 +45,25 @@ $(function(){
 </script>
 </div>
 </form>
-<div id = "howto" style = "display : flex; justify-content : center; margin-top : 50px;">
-<img alt="" src="/views-menu/resources/img/howto.png">
+<div class = "wrapper" style = "margin-top : 100px;">
+
+<div class = "howto">
+<img alt="" src="/views-menu/resources/img/howto1.png">
+<img alt="" src="/views-menu/resources/img/howto2.png">
+<img alt="" src="/views-menu/resources/img/howto3.png">
+<img alt="" src="/views-menu/resources/img/howto4.png">
+<img alt="" src="/views-menu/resources/img/howto5.png">
+<img alt="" src="/views-menu/resources/img/howto6.png">
+<img alt="" src="/views-menu/resources/img/howto7.png">
+<img alt="" src="/views-menu/resources/img/howto8.png">
 </div>
-<div id = "delivery">
+<div class = "delivery">
+<img alt="" src="/views-menu/resources/img/del1.png">
+<img alt="" src="/views-menu/resources/img/del2.png">
+<img alt="" src="/views-menu/resources/img/del3.png">
+<img alt="" src="/views-menu/resources/img/del4.png">
+<img alt="" src="/views-menu/resources/img/del5.png">
+</div>
 </div>
 <jsp:include page="/common/footer.jsp"/> 
 </body>

@@ -22,7 +22,7 @@
 		</ul>
 	</div>
 	<div class = "bottom-info">
-		<h2>△■</h2>
+		<h2><img alt="" src="/common/img/logo_black.png" style = "height : 50px;"></h2>
 		<div class = "bottom-info-list">
 			<span>상호명 : 세탁의 모든것</span>
 			<span>대표전화 : 02-000-0000</span>

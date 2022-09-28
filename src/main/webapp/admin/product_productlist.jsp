@@ -55,7 +55,7 @@
 
 						<div class="b_button">
 							<!-- 테이블 행 필터 -->
-							<form name="selectname" action="FAQList.mdo" method="get">
+							<form name="selectname" action="ProductList.mdo" method="get">
 								<input type="hidden" name="searchCondition"
 									value="${search.searchCondition}" /> <input type="hidden"
 									name="searchKeyword" value="${search.searchKeyword}" />

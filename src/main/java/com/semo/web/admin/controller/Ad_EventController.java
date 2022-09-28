@@ -168,7 +168,7 @@ public class Ad_EventController {
 		String banner_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/event/" + key2;
 		vo.setBanner_filepath(banner_filepath);
 		
-		boardservice.insertEvent(vo);
+		boardservice.updateEvent(vo);
 
 		return "redirect:/getEventList.mdo";
 	}

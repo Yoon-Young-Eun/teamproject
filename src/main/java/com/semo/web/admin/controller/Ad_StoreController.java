@@ -88,7 +88,7 @@ public class Ad_StoreController {
 			      
 			       count = StoreService.getArticleCount(pvo); // 조회 개수 (여러 검색 조건등이 포함되어야함)
 			       System.out.println("count"+count);
-			       List<ProductVO> StoreList = null; //조회 데이터를 담을 List 객체
+			       List<StoreVO> StoreList = null; //조회 데이터를 담을 List 객체
 			       if(count >0) { //조회할 데이터가 하나라도 있다면 메서드 실행
 			    	   StoreList= StoreService.getStoreList(pvo);
 			    	   System.out.println("StoreList"+StoreList);
@@ -117,10 +117,9 @@ public class Ad_StoreController {
 			       
 			       //검색을 적용할 타이틀을 정하는 제목(jsp에서 받아서 작업할거임)
 					Map<String, String> conditionMap = new HashMap<String, String>();
-					conditionMap.put("대분류", "product_category_parent");
-					conditionMap.put("소분류", "product_category_median");
-					conditionMap.put("상품명", "product_name");
-					conditionMap.put("상품가격", "product_price");
+					conditionMap.put("매장종류", "store_type");
+					conditionMap.put("매장명", "store_name");
+					conditionMap.put("상태", "store_status");
 					/* conditionMap.put("회원상태", "customer_status"); */
 					
 				   //위에서 얻은 데이터를 model에 담아 보낸다~

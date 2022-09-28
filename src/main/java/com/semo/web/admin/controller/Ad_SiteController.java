@@ -500,18 +500,70 @@ public class Ad_SiteController {
 	
 	// 약관 목록
 	@RequestMapping(value="/TermsList.mdo", method=RequestMethod.GET)
-	public String getTermsList(Model model, HttpSession session) {
-		
+	public String getTermsList(PagingVO pvo, Model model, HttpSession session) {
+
 		//세션 유무확인
 		AdminVO admin = (AdminVO)session.getAttribute("admin");
-		
+
 		if(admin == null) {
-				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/login.mdo";
+			System.out.println("세션 정보가 없습니다.");
+			return "redirect:/login.mdo";
 		}
-		
+
 		System.out.println("admin TermsList()");
-		List<TermsVO> TermsList = SiteService.getTermsList();
+
+		model.addAttribute("search",pvo);
+
+		//페이징
+		if (pvo.getPageNum() == null) {
+			pvo.setPageNum("1");
+		}
+		System.out.println(pvo.getSelectPage());
+		if (pvo.getSelectPage()==null) {
+			pvo.setSelectPage("5");
+		}
+
+		int pageSize = Integer.parseInt(pvo.getSelectPage());
+		int currentPage = Integer.parseInt(pvo.getPageNum());
+		System.out.println("paagenum"+currentPage);
+		pvo.setStartRow((currentPage - 1)*pageSize+1);
+		pvo.setEndRow(currentPage * pageSize);
+		int count=0;
+
+		count=SiteService.getTermsCount(pvo);
+		System.out.println("count"+count);
+
+		List<TermsVO> TermsList = null;
+		if(count >0) {
+			TermsList = SiteService.getTermsList(pvo);
+		}else {
+			TermsList =Collections.emptyList();
+		}
+
+		if(count >0) {
+			int pageBlock =5;
+			int imsi =count % pageSize ==0 ?0:1;
+			int pageCount = count/pageSize +imsi;
+			int startPage =(int)((currentPage-1)/pageBlock)*pageBlock +1;
+			int endPage = startPage + pageBlock -1;
+
+			if(endPage > pageCount) {
+				endPage = pageCount;
+			}
+
+			model.addAttribute("count", count);
+			model.addAttribute("pageCount",pageCount);
+			model.addAttribute("startPage",startPage);
+			model.addAttribute("endPage",endPage);
+			model.addAttribute("pageBlock",pageBlock);
+
+		}
+
+		Map<String, String> condition = new HashMap<String, String>();
+		condition.put("제목", "terms_title");
+		condition.put("분류", "terms_type");
+
+		model.addAttribute("condition", condition);
 		model.addAttribute("TermsList", TermsList); // model에 저장해서 보내면 jsp에서 불러 사용할 수 있는데.
 		System.out.println(TermsList);              // for문에서는 for문 id이름.컬럼명 ${for문의id이름.컬럼명}
 		return "/admin/support_termslist.jsp";            // 그냥 불러올때는 model의 키 이름.컬럼명 = ${xxxxList.컬럼명}

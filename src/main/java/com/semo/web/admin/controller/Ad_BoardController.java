@@ -95,8 +95,6 @@ public class Ad_BoardController {
     	  model.addAttribute("endPage",endPage);
     	  model.addAttribute("pageBlock",pageBlock);
 
-          model.addAttribute("count", count);
-
     	  }
       
       Map<String, String> condition = new HashMap<String, String>();

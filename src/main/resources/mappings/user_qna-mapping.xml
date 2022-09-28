@@ -5,12 +5,49 @@
 <mapper namespace="cm_BoardDAO">
 
 <!-- QnA -->
- 	<select id="getQnAList0" resultType="QnA">
- 	<![CDATA[ select * from board_qna_cm where board_qna_status=0 ]]>
+	
+	<select id="getCmQnACount" parameterType="pagingQ" resultType="int">
+	 	<![CDATA[ select count(*) from board_qna_cm where]]>
+ 	<if test ="searchCondition4=='board_qna_title'">
+ 	<![CDATA[board_qna_title like concat('%', #{searchKeyword4}, '%') and ]]></if>
+ 	 <if test ="searchCondition4=='board_qna_content'">
+ 	<![CDATA[board_qna_content like concat('%', #{searchKeyword4}, '%') and ]]></if>
+ 	<![CDATA[ board_qna_status=0 order by board_qna_no desc]]>
+	</select>
+	
+ 	<select id="getQnAList0" parameterType="pagingQ" resultType="QnA">
+ 	<![CDATA[ select * from (select @rownum := @rownum+1 as rnum, board_qna_no, board_qna_type, board_qna_title, board_qna_content, board_qna_filepath, board_qna_reg_date, board_qna_status, customer_no from board_qna_cm, (select @rownum :=0) as rowcolum where]]>
+ 	<if test ="searchCondition4=='board_qna_title'">
+ 	<![CDATA[board_qna_title like concat('%', #{searchKeyword4}, '%') and ]]></if>
+ 	 <if test ="searchCondition4=='board_qna_content'">
+ 	<![CDATA[board_qna_content like concat('%', #{searchKeyword4}, '%') and ]]></if>
+ 	<![CDATA[board_qna_status=0 order by board_qna_no desc) as rownum_table where rnum >=#{startRow2} and rnum <=#{endRow2} ]]>
  	</select>
- 	<select id="getQnAList1" resultType="QnA">
- 	<![CDATA[ select * from board_qna_cm where board_qna_status=1 ]]>
+
+ 	
+ 	
+ 	
+ 	
+ 	<select id="getAdQnACount" parameterType="paging" resultType="int">
+ 	 <![CDATA[ select count(*) from board_qna_cm where]]>
+ 	<if test ="searchCondition=='admin_qna_title'">
+ 	<![CDATA[admin_qna_title like concat('%', #{searchKeyword}, '%') and ]]></if>
+ 	 <if test ="searchCondition=='admin_qna_content'">
+ 	<![CDATA[admin_qna_content like concat('%', #{searchKeyword}, '%') and ]]></if>
+ 	<![CDATA[ board_qna_status=1 order by board_qna_no desc]]>
  	</select>
+ 	
+ 	<select id="getQnAList1" parameterType="paging" resultType="QnA">
+ 	 	<![CDATA[ select * from (select @rownum := @rownum+1 as rnum, board_qna_no, board_qna_type, board_qna_title, board_qna_content, board_qna_filepath, board_qna_reg_date, board_qna_status, customer_no from board_qna_cm, (select @rownum :=0) as rowcolum where]]>
+ 	<if test ="searchCondition=='admin_qna_title'">
+ 	<![CDATA[admin_qna_title like concat('%', #{searchKeyword}, '%') and ]]></if>
+ 	 <if test ="searchCondition=='admin_qna_content'">
+ 	<![CDATA[admin_qna_content like concat('%', #{searchKeyword}, '%') and ]]></if>
+ 	<![CDATA[board_qna_status=1 order by board_qna_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]>
+ 	</select>
+ 	
+ 	
+ 	
  	<select id="getReadQnA_q" resultType="QnA">
 	<![CDATA[ select * from board_qna_cm where board_qna_no=#{board_qna_no} ]]>
 	</select>

@@ -71,7 +71,7 @@
                             <div class="collapse" id="change_id_03" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
 										<a class="nav-link" href="/salesStoreList.mdo">지점매출</a>
-										<a class="nav-link" href="/salesList.mdo">총괄매출</a>
+										<a class="nav-link" href="/salesProductList.mdo">상품매출</a>
                                 </nav>
                             </div> 
                             

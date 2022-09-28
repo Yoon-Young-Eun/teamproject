@@ -7,6 +7,7 @@ import com.semo.web.admin.vo.EventVO;
 import com.semo.web.admin.vo.FAQVO;
 import com.semo.web.admin.vo.MessageVO;
 import com.semo.web.admin.vo.NoticeVO;
+import com.semo.web.admin.vo.PagingQVO;
 import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.ReviewVO;
 import com.semo.web.user.vo.Cm_QnAVO;
@@ -53,10 +54,12 @@ public interface Ad_BoardService {
 // QnA
 	public void insertQnA_ad(Ad_QnAVO vo);
 	public void updateQnA_cm(Cm_QnAVO vo);
-	public List<Cm_QnAVO> getQnAList0();
-	public List<Cm_QnAVO> getQnAList1();
+	public List<Cm_QnAVO> getQnAList0(PagingQVO qvo);
+	public List<Cm_QnAVO> getQnAList1(PagingVO pvo);
 	public Cm_QnAVO getReadQnA_q(Cm_QnAVO vo);
 	public Cm_QnAVO getReadQnA_a(Cm_QnAVO vo);
 	public CustomerVO getReadPhoneNum(CustomerVO vo);
+	public int getCmQnACount(PagingQVO qvo);
+	public int getAdQnACount(PagingVO pvo);
 	
 }

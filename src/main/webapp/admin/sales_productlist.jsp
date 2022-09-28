@@ -51,11 +51,12 @@
 
 						<!--Chart -->
 						<div class="chartparent">
-							<div class="chart chart_flex">
+							<!-- <div class="chart chart_flex"> -->
 								<!-- <div id="chart_div" style="width: 300px; height: 300px;"></div> -->
-								<div id="chart_div" style="width: 800px; height: 400px;"></div>
-								<div id="chart_area" style="width: 800px; height: 400px;"></div>
-							</div>
+								<div id="donutchart" style="width: 700px; height: 400px;"></div>
+								<div id="chart_div" style="width: 700px; height: 400px;"></div>
+								
+							<!-- </div> -->
 						</div>
 						<div class="chart_flex">
 						<div>
@@ -77,7 +78,9 @@
 							</form>
 						</div>
 						<div>
-						&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<select id=AreaChart name="chartDate" onChange="drawChart()" class="margin_auto" >
 							<option value="week">기간선택</option>
 							<option value="day">일일</option>
@@ -292,54 +295,36 @@
 						}
 					});//ajax	
 
-			/* Area */
-			console.log('AreaChart 차트');
-			let category = [ [ 'Date', '매출', '영업이익', '순이익' ] ]
+			console.log("도넛차트");
+			let category = [ [ 'Task', 'Hours per Day' ] ]
+			$.ajax({
 
-			$
-					.ajax({
-						url : "/getMainAreaChart.mdo",
-						type : "get",
-						data : $("#barChart").serialize(),
-						dataType : "json",
-						success : function(data) {
-							console.log("success" + data);
+				url : "/getDoughnutChart.mdo",
+				type : "get",
+				data : $("#barChart").serialize(),
+				dataType : "json",
+				success : function(data) {
+					console.log("success" + data);
 
-							for (let i = 0; i < data.length; i++) {
-								let price = Number(data[i].order_mt_price)
-								let profits = Number(data[i].productVo.product_business_profits)
-								let net = Number(data[i].productVo.product_net_profit)
-								let date = data[i].order_mt_date
-								category.push([ date, price, profits, net ]);
-								console.log(price);
-								console.log(profits);
-								console.log(net);
-								console.log(date);
-							}
-							console.log("최종" + category);
+					for (let i = 0; i < data.length; i++) {
+						let num = Number(data[i].order_mt_price);
+						category.push([ data[i].order_mt_category1, num ]);
+					}
+					console.log(category);
 
-							var data = google.visualization
-									.arrayToDataTable(category);
+					var data = google.visualization.arrayToDataTable(category);
 
-							var options = {
-								title : '기간별매출현황(Area_Chart)',
-								hAxis : {
-									title : '',
-									titleTextStyle : {
-										color : '#8e5ea2'
-									}
-								},
-								vAxis : {
-									minValue : 0
-								}
-							};
+					var options = {
+						title : '품목별 매출현황',
+						pieHole : 0.4,
+					};
 
-							var chart = new google.visualization.AreaChart(
-									document.getElementById('chart_area'));
-							chart.draw(data, options);
+					var chart = new google.visualization.PieChart(document
+							.getElementById('donutchart'));
+					chart.draw(data, options);
 
-						}
-					});
+				}
+			});	
 		}
 	</script>
 	
@@ -399,54 +384,6 @@
 						alert("실패");
 					}
 				});
-		
-	console.log('AreaChart 차트');
-	let category = [ [ 'Date', '매출', '영업이익', '순이익' ] ]
-
-	$
-			.ajax({
-				url : "/getMainAreaChart.mdo",
-				type : "get",
-				data : $("#AreaChart").serialize(),
-				dataType : "json",
-				success : function(data) {
-					console.log("success" + data);
-
-					for (let i = 0; i < data.length; i++) {
-						let price = Number(data[i].order_mt_price)
-						let profits = Number(data[i].productVo.product_business_profits)
-						let net = Number(data[i].productVo.product_net_profit)
-						let date = data[i].order_mt_date
-						category.push([ date, price, profits, net ]);
-						console.log(price);
-						console.log(profits);
-						console.log(net);
-						console.log(date);
-					}
-					console.log("최종" + category);
-
-					var data = google.visualization
-							.arrayToDataTable(category);
-
-					var options = {
-						title : '기간별매출현황(Area_Chart)',
-						hAxis : {
-							title : '',
-							titleTextStyle : {
-								color : '#8e5ea2'
-							}
-						},
-						vAxis : {
-							minValue : 0
-						}
-					};
-
-					var chart = new google.visualization.AreaChart(
-							document.getElementById('chart_area'));
-					chart.draw(data, options);
-
-				}
-			});
 }
 	</script>
 

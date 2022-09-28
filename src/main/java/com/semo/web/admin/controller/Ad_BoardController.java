@@ -45,7 +45,7 @@ public class Ad_BoardController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
       System.out.println("글 목록 처리");
@@ -95,8 +95,6 @@ public class Ad_BoardController {
     	  model.addAttribute("endPage",endPage);
     	  model.addAttribute("pageBlock",pageBlock);
 
-          model.addAttribute("count", count);
-
     	  }
       
       Map<String, String> condition = new HashMap<String, String>();
@@ -116,7 +114,7 @@ public class Ad_BoardController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
       System.out.println("글 상세 보기 처리");
@@ -137,7 +135,7 @@ public class Ad_BoardController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
       System.out.println("글 등록 처리");
@@ -154,7 +152,7 @@ public class Ad_BoardController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
       // aws s3 파일 업로드 처리 */
@@ -183,7 +181,7 @@ public class Ad_BoardController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 	  AwsS3 awss3 = AwsS3.getInstance();
@@ -233,7 +231,7 @@ public class Ad_BoardController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
       System.out.println("글 수정정보 보기 처리");
@@ -255,7 +253,7 @@ public class Ad_BoardController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 	  AwsS3 awss3 = AwsS3.getInstance();
@@ -292,7 +290,7 @@ public class Ad_BoardController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		

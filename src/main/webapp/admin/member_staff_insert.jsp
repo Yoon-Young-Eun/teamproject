@@ -97,7 +97,7 @@
 								<span id="pwChecking" style="font-size: 5px;"></span>
 							</div>
 
-							<div class="end">
+							<div class="end" style="margin-top: 20px;">
 								<div class="popup_btn">
 									<input type="button" onclick="chkPW()"
 										style="border-style: none;" value="등록" />

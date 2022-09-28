@@ -43,7 +43,7 @@ public class Ad_EventController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 	      System.out.println("글 목록 처리");
@@ -111,7 +111,7 @@ public class Ad_EventController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
       System.out.println("글 상세 보기 처리");
@@ -140,7 +140,7 @@ public class Ad_EventController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		
@@ -168,7 +168,7 @@ public class Ad_EventController {
 		String banner_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/event/" + key2;
 		vo.setBanner_filepath(banner_filepath);
 		
-		boardservice.insertEvent(vo);
+		boardservice.updateEvent(vo);
 
 		return "redirect:/getEventList.mdo";
 	}
@@ -181,7 +181,7 @@ public class Ad_EventController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		
@@ -259,7 +259,7 @@ public class Ad_EventController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		
@@ -277,7 +277,7 @@ public class Ad_EventController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		AwsS3 awss3 = AwsS3.getInstance();
@@ -316,7 +316,7 @@ public class Ad_EventController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		AwsS3 awss3 = AwsS3.getInstance();

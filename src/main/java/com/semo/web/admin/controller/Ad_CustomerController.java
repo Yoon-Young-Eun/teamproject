@@ -59,7 +59,7 @@ public class Ad_CustomerController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		
@@ -87,7 +87,7 @@ public class Ad_CustomerController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println("회원 목록 검색 처리");
@@ -169,7 +169,7 @@ public class Ad_CustomerController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 	
 		System.out.println("블랙 목록 검색 처리");
@@ -248,7 +248,7 @@ public class Ad_CustomerController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 	   	System.out.println("getRead() 메서드 실행");
@@ -269,7 +269,7 @@ public class Ad_CustomerController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		
@@ -289,7 +289,7 @@ public class Ad_CustomerController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println("memberUpdate.mdo 실행");
@@ -327,7 +327,7 @@ public class Ad_CustomerController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println("blackmemberUpdate.mdo 실행");

@@ -61,7 +61,7 @@ public class Ad_OrderController {
 			
 			if(admin == null) {
 					System.out.println("세션 정보가 없습니다.");
-					return "redirect:/admin/login.jsp";
+					return "redirect:/login.mdo";
 			}			
 			
 			System.out.println("getOrderList() 실행");
@@ -143,7 +143,7 @@ public class Ad_OrderController {
 				
 				if(admin == null) {
 						System.out.println("세션 정보가 없습니다.");
-						return "redirect:/admin/login.jsp";
+						return "redirect:/login.mdo";
 				}
 				
 				System.out.println("회원 개인 구매 이력");
@@ -225,7 +225,7 @@ public class Ad_OrderController {
 				
 				if(admin == null) {
 						System.out.println("세션 정보가 없습니다.");
-						return "redirect:/admin/login.jsp";
+						return "redirect:/login.mdo";
 				}
 				
 				System.out.println(vo);
@@ -253,7 +253,7 @@ public class Ad_OrderController {
 				
 				if(admin == null) {
 						System.out.println("세션 정보가 없습니다.");
-						return "redirect:/admin/login.jsp";
+						return "redirect:/login.mdo";
 				}
 				
 				System.out.println("order수정사항"+ vo);				
@@ -300,7 +300,7 @@ public class Ad_OrderController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		
@@ -369,7 +369,7 @@ public class Ad_OrderController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		
@@ -417,7 +417,7 @@ public class Ad_OrderController {
 		
 		if(admin == null) {
 				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/admin/login.jsp";
+				return "redirect:/login.mdo";
 		}
 		
 		System.out.println("insertEstimate메서드");

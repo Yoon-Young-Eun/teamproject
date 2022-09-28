@@ -76,9 +76,9 @@
 			<a href="/memberorderList.mdo?customer_no=${user.customer_no}">주문이력</a>
 		</div>
 
-		<div class="end">
+		<div class="end" style="margin-top: 150px;">
 			<div class="popup_btn">
-				<input type="submit" value="저장"/>
+				<input type="submit" value="저장" style="margin: -4px;"/>
 			</div>
 			<div class="popup_btn">
 				<a href="/member.mdo" onclick="self.close();">취소</a>

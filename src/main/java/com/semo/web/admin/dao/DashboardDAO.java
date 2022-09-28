@@ -1,5 +1,7 @@
 package com.semo.web.admin.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.semo.web.user.vo.Cm_QnAVO;
 import com.semo.web.user.vo.CustomerVO;
 import com.semo.web.user.vo.EstimateVO;
+import com.semo.web.user.vo.OrderMtVO;
 import com.semo.web.user.vo.OrderVO;
 
 @Repository
@@ -19,12 +22,7 @@ public class DashboardDAO {
 	public int getOrderStatus(OrderVO vo) {
 		return sql.selectOne("DashboardDAO.getOrderStatus", vo);
 	}
-	
-	// 대시보드 완료된주문
-	public int getOrderStatusEnd(OrderVO vo) {
-		return sql.selectOne("DashboardDAO.getOrderStatusEnd", vo);
-	}
-	
+
 	// 대시보드 배달예정(세탁중)
 	public int getOrderStatusIng(OrderVO vo) {
 		return sql.selectOne("DashboardDAO.getOrderStatusIng", vo);
@@ -66,4 +64,20 @@ public class DashboardDAO {
 		return sql.selectOne("DashboardDAO.getVcount", vo);
 	}
 	
+	// Area Chart
+	public List<OrderMtVO> getMainBoardArea(){
+		return sql.selectList("DashboardDAO.getMainBoardArea");
+	}
+	
+	// Bar Chart
+	public List<OrderVO> getMainBoardBar(){
+		return sql.selectList("DashboardDAO.getMainBoardBar");
+	}
+	
+	// Doughnut Chart
+	public List<OrderMtVO> getMainBoardDoughnut(){
+		return sql.selectList("DashboardDAO.getMainBoardDoughnut");
+	}
+	
+
 }

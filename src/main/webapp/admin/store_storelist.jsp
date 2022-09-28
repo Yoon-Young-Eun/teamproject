@@ -39,6 +39,7 @@
 							매장관리 페이지 입니다.
 						</div>
 					</div>
+					
 					<div class="card mb-4">
 						
 						<!--  여기부터 내용물 -->
@@ -52,7 +53,46 @@
 							<!-- excel -->
 						</div>
 
+						<div class="b_button">
+							<!-- 테이블 행 필터 -->
+							<form name="selectname" action="StoreList.mdo" method="get">
+								<input type="hidden" name="searchCondition"
+									value="${search.searchCondition}" /> <input type="hidden"
+									name="searchKeyword" value="${search.searchKeyword}" />
 
+								<div col-index=8>
+									<select name="selectPage" onchange="this.form.submit()">
+										<option value="">선택</option>
+										<option value="5">5</option>
+										<option value="10">10</option>
+										<option value="20">20</option>
+										<option value="50">50</option>
+									</select> entries per page
+								</div>
+							</form>
+
+							<div class="icon_flex">
+								<!-- 검색기능 -->
+								<div>
+									<form action="StoreList.mdo" method="get">
+										<div class="icon_flex">
+											<td><select name="searchCondition">
+													<c:forEach items="${conditionMap}" var="option">
+														<div>
+															<option value="${option.value}">${option.key}</option>
+														</div>
+													</c:forEach>
+											</select> <input type="text" name="searchKeyword" />
+												<div>
+													<input type="submit" value="검색" />
+												</div>
+												<div></div> <input type="reset" value="초기화" />
+										</div>
+									</form>
+								</div>
+							</div>
+
+						</div>
 
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
 						<table id="" class="tblCustomers tblexportData table">
@@ -60,11 +100,10 @@
 								<tr style="background-color: #f2f2f2";>
 									<th width="50" id="check_td"><input type="checkbox"
 										name="check" class="allcheck"></th>
-									<th>매장코드</th>
+									<th style="width:10%;">매장코드</th>
 									<th>매장명</th>
 									<th>매장종류</th>
 									<th>주소</th>
-									<th>상세주소</th>
 									<th>전화번호</th>
 									<th>상태</th>
 								</tr>
@@ -81,7 +120,6 @@
 										<td class="center">${store.store_name}</td>
 										<td class="center">${store.store_type}</td>
 										<td class="center">${store.store_address1}</td>
-										<td>${store.store_address2}</td>
 										<td class="center">${store.store_phone}</td>
 										<td class="center">${store.store_status}</td>
 									</tr>
@@ -155,8 +193,42 @@
 											});
 						</script>
 
-						<!-- 내용물 end -->
+						<!-- pagaing 처리 -->
+						<div>
+							<c:if test="${count > 0}">
+								<!-- 조회된 데이터 개수가 0보다 크면 if문 실행 -->
+								<div class="icon_flex">
+									<div>
+										<c:if test="${startPage > pageBlock}">
+											<!-- 시작번호가 5보다 크면, 앞에 '이전'을 붙여줌 -->
+											<a
+												href="StoreList.mdo?pageNum=${startPage-pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div
+													class="pageging2">이전</div></a>
+										</c:if>
+									</div>
+									<div class="icon_flex">
+										<c:forEach var="i" begin="${startPage}" end="${endPage}">
+											<a
+												href="StoreList.mdo?pageNum=${i}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div
+													class="pageging">${i}</div></a>
+										</c:forEach>
+									</div>
 
+									<div>
+										<c:if test="${endPage < pageCount}">
+											<a
+												href="StoreList.mdo?pageNum=${startPage + pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div
+													class="pageging2">다음</div></a>
+										</c:if>
+									</div>
+								</div>
+							</c:if>
+						</div>
+						<!-- 페이징 종료 -->
+
+
+						<!-- 내용물 end -->
+<div class="card-footer small text-muted"></div>
 					</div>
 
 				</div>

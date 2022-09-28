@@ -9,7 +9,7 @@
  	</select>
  	
 	<select id="getMainReview" parameterType="board_review" resultType="board_review">
-		SELECT * FROM board_review order by board_review_rating desc LIMIT 0,3
+		SELECT * FROM board_review where board_review_status=1 order by board_review_rating desc LIMIT 0,3
  	</select>
  	
 </mapper>

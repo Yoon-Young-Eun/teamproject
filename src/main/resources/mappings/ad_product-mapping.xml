@@ -23,16 +23,53 @@
  			#{product_net_profit}
  		)
  	</insert>
- 	<select id="getProductList" resultType="product">
- 	  select * from product
- 	</select>
+<!--  	<select id="getProductList" resultType="product"> -->
+<!--  	  select * from product -->
+<!--  	</select> -->
+ 	
+ 	<!-- 어드민 리스트 조회 -->
+	<select id="getProductList" parameterType="paging"
+		resultType="product"> 
+   <![CDATA[select * from (select @rownum := @rownum+1 as rnum, product_code, product_category_parent, product_category_median, product_name, product_detail, product_reg_date, product_price from product, (select @rownum :=0)as rowcolum]]>
+			<if test="searchCondition=='product_category_parent'">
+    		<![CDATA[where product_category_parent like concat('%', #{searchKeyword}, '%') ]]></if>
+    		<if test="searchCondition=='product_category_median'">
+    		<![CDATA[where product_category_median like concat('%', #{searchKeyword}, '%') ]]></if>
+    		<if test="searchCondition=='product_name'">
+    		<![CDATA[where product_name like concat('%', #{searchKeyword}, '%') ]]></if>
+    		<if test="searchCondition=='product_price'">
+    		<![CDATA[where product_name like concat('%', #{searchKeyword}, '%') ]]></if>
+    <![CDATA[order by product_code desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]>
+	</select>
+	
+	<!-- 어드민리스트 count -->
+	<select id="getArticleCount" parameterType="paging" resultType="int">
+	   <![CDATA[ select count(*) from product  ]]>
+		<if test="searchCondition=='product_category_parent'">
+	    	<![CDATA[ where product_category_parent like concat('%', #{searchKeyword}, '%')]]></if> 
+	    	 <if test="searchCondition=='product_category_median'">
+	   	<![CDATA[where product_category_median like concat('%', #{searchKeyword}, '%') ]]></if>
+	   	<if test="searchCondition=='product_name'">
+	   	<![CDATA[where product_name like concat('%', #{searchKeyword}, '%') ]]></if>
+	   	<if test="searchCondition=='product_price'">
+	   	<![CDATA[where product_name like concat('%', #{searchKeyword}, '%') ]]></if>
+	</select> 	
  	
  	<select id="getReadProduct" resultType="product">
 	<![CDATA[ select * from product where product_code=#{product_code} ]]>
 	</select>
 	
 	<update id="updateProduct" parameterType="product">
-  	update product set product_code=#{product_code}, product_category_parent=#{product_category_parent}, product_category_median=#{product_category_median}, product_name=#{product_name}, product_detail=#{product_detail}, product_price=#{product_price} where product_code=#{product_code}
+  	update product set 
+  	product_code=#{product_code}, 
+  	product_category_parent=#{product_category_parent}, 
+  	product_category_median=#{product_category_median}, 
+  	product_name=#{product_name}, 
+  	product_detail=#{product_detail}, 
+  	product_price=#{product_price},
+  	product_business_profits=#{product_business_profits},
+ 	product_net_profit=#{product_net_profit}
+  	where product_code=#{product_code}
 	</update>
  	
  	<delete id="deleteProduct" parameterType="product">

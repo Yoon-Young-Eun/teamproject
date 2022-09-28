@@ -4,6 +4,9 @@
 
 <%@ include file="/admin/ad_header.jsp"%>
 
+<!-- table & hover css -->
+<link href="/admin/css/table.css" rel="stylesheet" />
+
 <!-- icon 버튼 css -->
 <link href="/admin/css/icon.css" rel="stylesheet" />
 
@@ -35,7 +38,7 @@
 						<div class="card-body">
 							리뷰 관리 페이지 입니다. 
 						</div>
-					</div>
+					
 					<div class="card mb-4">
 					
 						</div>
@@ -50,38 +53,69 @@
 								onclick="exportToExcel('tblexportData', 'user-data')">Excel</button>
 							<!-- excel -->
 						</div>
+						
+						<div class="b_button">
+							<!-- 테이블 행 필터 -->
+							<form name="selectname" action="ReviewBoardList.mdo" method="get">
+								<input type="hidden" name="searchCondition" value="${search.searchCondition}" /> 
+								<input type="hidden" name="searchKeyword" value="${search.searchKeyword}" />
+
+								<div>
+									<select name="selectPage" onchange="this.form.submit()">
+										<option value="">선택</option>
+										<option value="5">5</option>
+										<option value="10">10</option>
+										<option value="20">20</option>
+										<option value="50">50</option>
+									</select> entries per page
+								</div>
+							</form>
+
+							<div class="icon_flex">
+								<!-- 검색기능 -->
+								<div>
+									<form action="ReviewBoardList.mdo" method="get">
+										<div class="icon_flex">
+											<select name="searchCondition">
+													<c:forEach items="${conditionMap}" var="option">
+														<div>
+															<option value="${option.value}">${option.key}</option>
+														</div>
+													</c:forEach>
+											</select> <input type="text" name="searchKeyword" />
+												<div>
+													<input type="submit" value="검색" />
+												</div>
+												<div><input type="reset" value="초기화" /></div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
 
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
 						<table id=""
-							class="emp-table dataPerPage tblCustomers tblexportData table"
-							border="5">
+							class="emp-table dataPerPage tblCustomers tblexportData table">
 							<thead>
-								<tr>
+								<tr style="background-color: #f2f2f2";>
 									<th width="50" id="check_td"><input type="checkbox"
 										name="check" class="allcheck"></th>
-									<th col-index=2>No</th>
-									<th col-index=3>평점<select class="table-filter"
-										onchange="filter_rows()">
-											<option value="all"></option>
-									</select></th>
-									<th col-index=4>작성자</th>
-									<th col-index=5>제목
-									</th>
-									<th col-index=6>내용</th>
-									<th col-index=7>작성일</th>
-									<th col-index=8>상태<select class="table-filter"
-										onchange="filter_rows()">
-											<option value="all"></option>
-									</select></th>
+									<th>No</th>
+									<th>평점</th>
+									<th>작성자</th>
+									<th>제목</th>
+									<th>내용</th>
+									<th>작성일</th>
+									<th>상태</th>
 									
 								</tr>
 							</thead>
 							<tbody>
 								<c:forEach var="review" items="${ReviewList}">
-									<tr>
-										<td id="check_td"><input type="checkbox" name="check"></td>
-										<td>${review.board_review_no}</td>
-										<td>
+									<tr class="colored" onclick="location.href='/readReviewBoard.mdo?board_review_no=${review.board_review_no}'">
+										<td id="check_td"><input type="checkbox" class="checkone" name="check"></td>
+										<td class="center">${review.board_review_no}</td>
+										<td class="center">
 										<c:choose>
 											<c:when test="${review.board_review_rating eq 5}">
 										★ ★ ★ ★ ★
@@ -100,11 +134,11 @@
 											</c:otherwise>
 										</c:choose>    ${review.board_review_rating}
 										</td>
-										<td>${review.board_review_name}</td>  
-										<td><a href="readReviewBoard.mdo?board_review_no=${review.board_review_no}">${review.board_review_title}</a></td>
-										<td><a href="readReviewBoard.mdo?board_review_no=${review.board_review_no}">${review.board_review_content}</a></td>
-										<td>${review.board_review_reg_date}</td>
-										<td>
+										<td class="center">${review.board_review_name}</td>  
+										<td>${review.board_review_title}</td>
+										<td>${review.board_review_content}</td>
+										<td class="center">${review.board_review_reg_date}</td>
+										<td class="center">
 										<c:choose> 
 											<c:when test="${review.board_review_status eq 1}">
 												활성
@@ -127,8 +161,47 @@
 							<div>
 								<input id="delBtn" type="button" value="삭제" />
 							</div>
+						</div>	
+						
+						<!-- pagaing 처리 -->
+
+						<div>
+							<c:if test="${count > 0}">
+								<!-- 조회된 데이터 개수가 0보다 크면 if문 실행 -->
+								<div class="icon_flex">
+									<div>
+										<c:if test="${startPage > pageBlock}">
+											<!-- 시작번호가 5보다 크면, 앞에 '이전'을 붙여줌 -->
+											<a href="ReviewBoardList.mdo?pageNum=${startPage-pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}">
+												<div class="pageging2">이전</div></a>
+										</c:if>
+									</div>
+									<div>
+										<div class="icon_flex">
+											<c:forEach var="i" begin="${startPage}" end="${endPage}">
+												<a href="ReviewBoardList.mdo?pageNum=${i}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}">
+												<div class="pageging">${i}</div></a>
+											</c:forEach>
+										</div>
+									</div>
+									<div>
+										<c:if test="${endPage < pageCount}">
+											<a href="ReviewBoardList.mdo?pageNum=${startPage + pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}">
+											<div class="pageging2">다음</div></a>
+										</c:if>
+									</div>
+								</div>
+							</c:if>
 						</div>
-						<script type="text/javascript">
+						<!-- 페이징 종료 -->
+							<!-- 내용물 end -->
+						
+						<div class="card-footer small text-muted"></div>
+					</div>
+				</div>
+			</main>
+			
+			<script type="text/javascript">
 							//체크삭제
 							$("#delBtn")
 									.click(
@@ -180,13 +253,16 @@
 											});
 						</script>
 
-						<!-- 내용물 end -->
-						
-					</div>
-				</div>
-			</main>
 
-	<!-- pdf -->
+		<!-- 테이블 Checked 되었을때 이벤트 반응 막기 -->
+		<script>
+			$(".checkone").click(function(event) {
+				event.stopPropagation();
+				// Do something
+			});
+		</script>
+
+		<!-- pdf -->
 	<script type="/admin/text/javascript"
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script type="/admin/text/javascript"

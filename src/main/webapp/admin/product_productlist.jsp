@@ -41,10 +41,7 @@
 					</div>
 					<div class="card mb-4">
 						
-
 						<!--  여기부터 내용물 -->
-
-
 
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
 						<div class="flex">
@@ -56,6 +53,47 @@
 						</div>
 
 
+						<div class="b_button">
+							<!-- 테이블 행 필터 -->
+							<form name="selectname" action="ProductList.mdo" method="get">
+								<input type="hidden" name="searchCondition"
+									value="${search.searchCondition}" /> <input type="hidden"
+									name="searchKeyword" value="${search.searchKeyword}" />
+
+								<div col-index=8>
+									<select name="selectPage" onchange="this.form.submit()">
+										<option value="">선택</option>
+										<option value="5">5</option>
+										<option value="10">10</option>
+										<option value="20">20</option>
+										<option value="50">50</option>
+									</select> entries per page
+								</div>
+							</form>
+
+							<div class="icon_flex">
+								<!-- 검색기능 -->
+								<div>
+									<form action="ProductList.mdo" method="get">
+										<div class="icon_flex">
+											<td><select name="searchCondition">
+													<c:forEach items="${conditionMap}" var="option">
+														<div>
+															<option value="${option.value}">${option.key}</option>
+														</div>
+													</c:forEach>
+											</select> <input type="text" name="searchKeyword" />
+												<div>
+													<input type="submit" value="검색" />
+												</div>
+												<div></div> <input type="reset" value="초기화" />
+										</div>
+									</form>
+								</div>
+							</div>
+
+						</div>
+
 
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
 						<table id="" class="tblCustomers tblexportData table">
@@ -63,7 +101,7 @@
 								<tr style="background-color: #f2f2f2";>
 									<th width="50" id="check_td"><input type="checkbox"
 										name="check" class="allcheck"></th>
-									<th>상품번호</th>
+									<th style="width:10%;">상품번호</th>
 									<th>대분류</th>
 									<th>소분류</th>
 									<th>상품명</th>
@@ -85,7 +123,7 @@
 										<td class="center">${product.product_category_parent}</td>
 										<td class="center">${product.product_category_median}</td>
 										<td class="center">${product.product_name}</td>
-										<td>${product.product_detail}</td>
+										<td class="center">${product.product_detail}</td>
 										<td class="center">${product.product_reg_date}</td>
 										<td class="center">${product.product_price}</td>
 									</tr>
@@ -160,9 +198,43 @@
 											});
 						</script>
 
+						<!-- pagaing 처리 -->
+						<div>
+							<c:if test="${count > 0}">
+								<!-- 조회된 데이터 개수가 0보다 크면 if문 실행 -->
+								<div class="icon_flex">
+									<div>
+										<c:if test="${startPage > pageBlock}">
+											<!-- 시작번호가 5보다 크면, 앞에 '이전'을 붙여줌 -->
+											<a
+												href="ProductList.mdo?pageNum=${startPage-pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div
+													class="pageging2">이전</div></a>
+										</c:if>
+									</div>
+									<div class="icon_flex">
+										<c:forEach var="i" begin="${startPage}" end="${endPage}">
+											<a
+												href="ProductList.mdo?pageNum=${i}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div
+													class="pageging">${i}</div></a>
+										</c:forEach>
+									</div>
+
+									<div>
+										<c:if test="${endPage < pageCount}">
+											<a
+												href="ProductList.mdo?pageNum=${startPage + pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}"><div
+													class="pageging2">다음</div></a>
+										</c:if>
+									</div>
+								</div>
+							</c:if>
+						</div>
+						<!-- 페이징 종료 -->
+
+
+
 						<!-- 내용물 end -->
-						<div class="card-footer small text-muted">Updated yesterday
-							at 11:59 PM</div>
+						<div class="card-footer small text-muted"></div>
 					</div>
 
 				</div>

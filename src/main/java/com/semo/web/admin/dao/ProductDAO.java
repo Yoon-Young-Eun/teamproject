@@ -6,7 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.semo.web.admin.vo.CouponVO;
+import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.ProductVO;
 
 @Repository
@@ -20,9 +20,13 @@ public class ProductDAO {
 		sql.insert("ProductDAO.insertProduct", vo);
 	}
 	
-	public List<ProductVO> getProductList(){
+	public List<ProductVO> getProductList(PagingVO pvo){
 		System.out.println("DAO.getProductList 실행");
-		return sql.selectList("ProductDAO.getProductList");
+		return sql.selectList("ProductDAO.getProductList", pvo);
+	}
+	
+	public int getArticleCount(PagingVO pvo) {
+		return sql.selectOne("ProductDAO.getArticleCount", pvo);
 	}
 	
 	public ProductVO getReadProduct(ProductVO vo) {

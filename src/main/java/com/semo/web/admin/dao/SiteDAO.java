@@ -89,9 +89,13 @@ public class SiteDAO {
 		sql.insert("SiteDAO.insertTerms", vo);
 	}
 	
-	public List<TermsVO> getTermsList(){
+	public List<TermsVO> getTermsList(PagingVO pvo){
 		System.out.println("DAO.getTermsList 실행");
-		return sql.selectList("SiteDAO.getTermsList");
+		return sql.selectList("SiteDAO.getTermsList", pvo);
+	}
+	
+	public int getTermsCount(PagingVO pvo) {
+		return sql.selectOne("SiteDAO.getTermsCount", pvo);
 	}
 	
 	public TermsVO getReadTerms(TermsVO vo) {

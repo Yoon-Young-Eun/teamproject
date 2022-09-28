@@ -143,7 +143,7 @@
 </script>
 
 						<!-- 내용물 end -->
-
+<div class="card-footer small text-muted"></div>
 					</div>
 
 				</div>

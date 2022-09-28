@@ -117,7 +117,7 @@
 	
 		<select id="getMainBarChart" parameterType="paging" resultType="order">
 			<if test="chartDate == null">
-		 <![CDATA[ select date_format(order_date, '%Y-%m-%d') as order_date, sum(order_price) as order_price from order_cm]]>
+		 <![CDATA[ select date_format(order_date, '%Y/%m/%d') as order_date, sum(order_price) as order_price from order_cm]]>
 	 	  		<if test="startDate != null and endDate != null and startDate != '' and endDate != ''">
     			<![CDATA[where order_date >= #{startDate} and order_date < #{endDate} ]]></if>
     		    <![CDATA[group by date_format(order_date, '%Y-%m-%d') order by order_date asc ]]>
@@ -125,13 +125,13 @@
     	   <if test="chartDate != null">
          <![CDATA[select sum(order_price) as order_price,]]>
 	            <if test="chartDate == 'day'">
-	  			<![CDATA[date_format(order_date, '%m-%d') as order_date from order_cm group by date_format(order_date, '%m-%d') order by order_date asc]]></if>
+	  			<![CDATA[date_format(order_date, '%m월-%d일') as order_date from order_cm group by date_format(order_date, '%m-%d') order by order_date asc]]></if>
 	  			<if test="chartDate == 'week'">
 	  			<![CDATA[date_format(order_date, '%U째 주') as order_date from order_cm group by order_date order by order_date asc]]></if>
 	  			<if test="chartDate == 'month'">
-	  			<![CDATA[date_format(order_date, '%Y-%m') as order_date from order_cm group by date_format(order_date, '%Y-%m') order by order_date asc]]></if>
+	  			<![CDATA[date_format(order_date, '%m월') as order_date from order_cm group by date_format(order_date, '%Y-%m') order by order_date asc]]></if>
 	  			<if test="chartDate == 'year'">
-	  			<![CDATA[date_format(order_date, '%Y') as order_date from order_cm group by date_format(order_date, '%Y') order by order_date asc]]></if>
+	  			<![CDATA[date_format(order_date, '%Y년') as order_date from order_cm group by date_format(order_date, '%Y') order by order_date asc]]></if>
     	  </if>
     			 
 		 </select>
@@ -163,7 +163,7 @@
 	<select id="getMainAreaChart" parameterType="paging" resultMap="joinOrderMt">
 	<if test="chartDate == null">
 	<![CDATA[select  sum(a.order_mt_price) as order_mt_price, sum(a.order_mt_count) as order_mt_count, sum(b.product_business_profits)*order_mt_count as product_business_profits , 
-	  sum(b.product_net_profit)*order_mt_count as product_net_profit, date_format(a.order_mt_date, '%Y-%m-%d') as order_mt_date 
+	  sum(b.product_net_profit)*order_mt_count as product_net_profit, date_format(a.order_mt_date, '%Y/%m/%d') as order_mt_date 
       from order_management as a join product as b on a.product_code = b.product_code]]>
 	<if test="startDate != null and endDate != null and startDate != '' and endDate != ''">
     <![CDATA[where order_mt_date >= #{startDate} and order_mt_date < #{endDate} ]]></if>
@@ -173,13 +173,13 @@
     <if test="chartDate != null">
       <![CDATA[select sum(a.order_mt_price) as order_mt_price, sum(a.order_mt_count) as order_mt_count, sum(b.product_business_profits)*order_mt_count as product_business_profits, sum(b.product_net_profit)*order_mt_count as product_net_profit,]]>
 	  <if test="chartDate == 'day'">
-	  <![CDATA[date_format(a.order_mt_date, '%m-%d') as order_mt_date from order_management as a join product as b on a.product_code = b.product_code group by date_format(a.order_mt_date, '%m-%d') order by a.order_mt_date asc]]></if>
+	  <![CDATA[date_format(a.order_mt_date, '%m월-%d일') as order_mt_date from order_management as a join product as b on a.product_code = b.product_code group by date_format(a.order_mt_date, '%m-%d') order by a.order_mt_date asc]]></if>
 	  <if test="chartDate == 'week'">
 	  <![CDATA[date_format(order_mt_date, '%U째 주') as order_mt_date from order_management as a join product as b on a.product_code = b.product_code group by order_mt_date order by order_mt_date asc]]></if>
 	  <if test="chartDate == 'month'">
-	  <![CDATA[date_format(a.order_mt_date, '%Y-%m') as order_mt_date from order_management as a join product as b on a.product_code = b.product_code group by date_format(a.order_mt_date, '%Y-%m') order by a.order_mt_date asc]]></if>
+	  <![CDATA[date_format(a.order_mt_date, '%m월') as order_mt_date from order_management as a join product as b on a.product_code = b.product_code group by date_format(a.order_mt_date, '%Y-%m') order by a.order_mt_date asc]]></if>
 	  <if test="chartDate == 'year'">
-	  <![CDATA[date_format(a.order_mt_date, '%Y') as order_mt_date from order_management as a join product as b on a.product_code = b.product_code group by date_format(a.order_mt_date, '%Y') order by a.order_mt_date asc]]></if>
+	  <![CDATA[date_format(a.order_mt_date, '%Y년') as order_mt_date from order_management as a join product as b on a.product_code = b.product_code group by date_format(a.order_mt_date, '%Y') order by a.order_mt_date asc]]></if>
     </if>
     
 	</select>

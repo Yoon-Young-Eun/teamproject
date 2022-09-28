@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.semo.web.admin.vo.Ad_EstimateVO;
+import com.semo.web.admin.vo.Ad_QnAVO;
 import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.ReviewVO;
 import com.semo.web.admin.vo.StoreVO;
@@ -101,12 +102,17 @@ public class MypageDAO {
 		return sql.selectOne("MypageVO.askdetail", qna);
 	}
 	
+	public Cm_QnAVO askdetail2(Cm_QnAVO qna) {
+		return sql.selectOne("MypageVO.askdetail2", qna);
+	}
+	
 	
 	// MyAskDetail : 문의글 수정
 	public Cm_QnAVO editask(Cm_QnAVO qna) {
 		System.out.println("DAO > Edit Ask");
 		return sql.selectOne("MypageVO.editask", qna);
 	}
+	
 	
 	//mypaging order
 	

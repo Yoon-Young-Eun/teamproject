@@ -119,7 +119,7 @@
 						<table id="#example-table-1"
 							class="tblCustomers tblexportData table">
 							<thead>
-								<tr style="background-color: #f2f2f2";>
+								<tr style="background-color: #f2f2f2;">
 									<th >회원코드</th>
 									<th>아이디(이메일)</th>
 									<th>이름</th>
@@ -169,7 +169,7 @@
 						</div><!-- 페이징 종료 -->
 
 						<!-- 내용물 end -->
-							<div class="card-footer small text-muted">The Semo is king of world of best of universal</div>
+							<div class="card-footer small text-muted"></div>
 						</div>
 
 				</div>

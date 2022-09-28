@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.semo.web.admin.dao.StoreDAO;
+import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.StoreVO;
 
 @Service
@@ -19,8 +20,13 @@ public class StoreServiceImpl implements StoreService {
 	}
 
 	@Override
-	public List<StoreVO> getStoreList() {
-		return StoreDAO.getStoreList();
+	public List<StoreVO> getStoreList(PagingVO pvo) {
+		return StoreDAO.getStoreList(pvo);
+	}
+	
+	@Override
+	public int getArticleCount(PagingVO pvo) {
+		return StoreDAO.getArticleCount(pvo);
 	}
 
 	@Override

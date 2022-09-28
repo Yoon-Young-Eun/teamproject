@@ -134,6 +134,15 @@
 							</div>
 
 						</div>
+						
+						
+						
+						
+						
+						
+						
+						
+						
 
 						<script type="text/javascript">
 							//체크삭제

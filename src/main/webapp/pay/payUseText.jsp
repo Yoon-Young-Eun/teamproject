@@ -105,14 +105,16 @@
 						</div>
 
 						<div class="paymain_button">
+						<div class="paymain_button1">
+								<input type="button" id="button2"
+									onclick="location.href='/index.do'" class="action-button shadow animate blue" value="취소">
+							</div>
+						
 							<div class="paymain_button1">
 								<input type="submit" id="button1" value="확인" class="action-button shadow animate blue"
 									 disabled></input>
 							</div>
-							<div class="paymain_button1">
-								<input type="button" id="button2"
-									onclick="#" class="action-button shadow animate blue" value="취소">
-							</div>
+							
 						</div>
 					</form>
 

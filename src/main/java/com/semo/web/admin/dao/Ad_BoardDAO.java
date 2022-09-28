@@ -10,6 +10,7 @@ import com.semo.web.admin.vo.Ad_QnAVO;
 import com.semo.web.admin.vo.EventVO;
 import com.semo.web.admin.vo.FAQVO;
 import com.semo.web.admin.vo.NoticeVO;
+import com.semo.web.admin.vo.PagingQVO;
 import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.ReviewVO;
 import com.semo.web.user.vo.Cm_QnAVO;
@@ -154,13 +155,13 @@ public class Ad_BoardDAO {
 	}
 	
 // QnA
-	public List<Cm_QnAVO> getQnAList0(){
+	public List<Cm_QnAVO> getQnAList0(PagingQVO qvo){
 		System.out.println("DAO.getQnAList0 실행");
-		return sqltemplate.selectList("cm_BoardDAO.getQnAList0");
+		return sqltemplate.selectList("cm_BoardDAO.getQnAList0", qvo);
 	}
-	public List<Cm_QnAVO> getQnAList1(){
+	public List<Cm_QnAVO> getQnAList1(PagingVO pvo){
 		System.out.println("DAO.getQnAList1 실행");
-		return sqltemplate.selectList("cm_BoardDAO.getQnAList1");
+		return sqltemplate.selectList("cm_BoardDAO.getQnAList1", pvo);
 	}
 	
 	public Cm_QnAVO getReadQnA_q(Cm_QnAVO vo) {
@@ -183,6 +184,12 @@ public class Ad_BoardDAO {
 	public CustomerVO getReadPhoneNum(CustomerVO vo) {
 		System.out.println("DAO.getReadPhoneNum 실행");
 		return sqltemplate.selectOne("CustomerVO.getReadPhoneNum", vo);
+	}
+	public int getCmQnACount(PagingQVO qvo) {
+		return sqltemplate.selectOne("cm_BoardDAO.getCmQnACount", qvo);
+	}
+	public int getAdQnACount(PagingVO pvo) {
+		return sqltemplate.selectOne("cm_BoardDAO.getAdQnACount", pvo);
 	}
 	
 }

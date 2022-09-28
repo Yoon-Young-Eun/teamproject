@@ -46,25 +46,10 @@ $(function(){
 </div>
 </form>
 <div class = "wrapper" style = "margin-top : 100px;">
+<img alt="" src="/views-menu/resources/img/shirts1.png">
+<img alt="" src="/views-menu/resources/img/shirts2.png">
+<img alt="" src="/views-menu/resources/img/shirts3.png">
+</div>
 
-<div id = "howto" class = "howto">
-<img alt="" src="/views-menu/resources/img/howto1.png">
-<img alt="" src="/views-menu/resources/img/howto2.png">
-<img alt="" src="/views-menu/resources/img/howto3.png">
-<img alt="" src="/views-menu/resources/img/howto4.png">
-<img alt="" src="/views-menu/resources/img/howto5.png">
-<img alt="" src="/views-menu/resources/img/howto6.png">
-<img alt="" src="/views-menu/resources/img/howto7.png">
-<img alt="" src="/views-menu/resources/img/howto8.png">
-</div>
-<div id = "delivery" class = "delivery">
-<img alt="" src="/views-menu/resources/img/del1.png">
-<img alt="" src="/views-menu/resources/img/del2.png">
-<img alt="" src="/views-menu/resources/img/del3.png">
-<img alt="" src="/views-menu/resources/img/del4.png">
-<img alt="" src="/views-menu/resources/img/del5.png">
-</div>
-</div>
-<jsp:include page="/common/footer.jsp"/> 
 </body>
 </html>

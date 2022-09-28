@@ -72,10 +72,9 @@
                <div>
                   <h4>일반 클리닝</h4>
                   <ul>
-                     <li><a href="cleaning-service#normal">일반의류</a></li>
-                     <li><a href="cleaning-service#shirts">와이셔츠</a></li>
-                     <li><a href="cleaning-service#bedding">이불</a></li>
-                     <li><a href="cleaning-service#shoes">운동화</a></li>
+                     <li><a href="cleaning-service-normal.jsp">일반의류</a></li>
+                     <li><a href="cleaning-service-shirts.jsp">와이셔츠</a></li>
+                     <li><a href="cleaning-service-bedding.jsp">이불</a></li>        
                   </ul>
                   <h4>특수 클리닝</h4>
                   <ul>
@@ -87,7 +86,7 @@
                   <h4>　</h4>
                   <ul>
                      <li><a href="cleaning-service#outdoor">아웃도어</a></li>
-                     <li><a href="cleaning-service#school">교복</a></li>
+                      <li><a href="cleaning-service#shoes">운동화</a></li>
                      <li><a href="cleaning-service#acc">모자/인형/가방</a></li>
                   </ul>
                </div>

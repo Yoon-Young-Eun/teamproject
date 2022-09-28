@@ -123,7 +123,7 @@
 			<div class="main">
 				<div class="space_left"></div>
 				<div class="content_box">
-					<form action="/OrderGeneral.do" id="form1">
+					<form action="/OrderGeneral.do" id="form1" method="POST">
 						<div class="main_text">
 							<div class="main_text1">일반세탁 결제하기</div>
 							<div class="main_text2">세탁할 옷의 종류를 선택하세요</div>

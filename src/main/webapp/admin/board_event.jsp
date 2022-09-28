@@ -38,9 +38,6 @@
 						</div>
 					</div>
 					<div class="card mb-4">
-						<div class="card-header">
-							<i class="fas fa-chart-area me-1"></i> 여기는 아래 표 또는 event에 대한 세부제목
-						</div>
 
 						<!--  여기부터 내용물 -->
 
@@ -208,8 +205,7 @@
 																			tdArr : tdArr,
 																		},
 																		dataType : 'text',
-																		success : function(
-																				data) {
+																		success : function(data) {
 																			location.href = "getEventList.mdo";
 																			console
 																					.log(data);

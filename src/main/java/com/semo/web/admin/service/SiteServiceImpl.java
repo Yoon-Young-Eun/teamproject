@@ -93,8 +93,8 @@ public class SiteServiceImpl implements SiteService {
 	}
 
 	@Override
-	public List<TermsVO> getTermsList() {
-		return SiteDAO.getTermsList();
+	public List<TermsVO> getTermsList(PagingVO pvo) {
+		return SiteDAO.getTermsList(pvo);
 	}
 
 	@Override
@@ -117,6 +117,11 @@ public class SiteServiceImpl implements SiteService {
 	@Override
 	public void deleteTerms(int no) {
 		SiteDAO.deleteTerms(no);
+	}
+
+	@Override
+	public int getTermsCount(PagingVO pvo) {
+		return SiteDAO.getTermsCount(pvo);
 	}
 
 }

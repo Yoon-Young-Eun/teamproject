@@ -53,6 +53,45 @@
 								onclick="exportToExcel('tblexportData', 'user-data')">Excel</button>
 							<!-- excel -->
 						</div>
+						
+						<div class="b_button">
+							<!-- 테이블 행 필터 -->
+							<form name="selectname" action="ReviewBoardList.mdo" method="get">
+								<input type="hidden" name="searchCondition" value="${search.searchCondition}" /> 
+								<input type="hidden" name="searchKeyword" value="${search.searchKeyword}" />
+
+								<div>
+									<select name="selectPage" onchange="this.form.submit()">
+										<option value="">선택</option>
+										<option value="5">5</option>
+										<option value="10">10</option>
+										<option value="20">20</option>
+										<option value="50">50</option>
+									</select> entries per page
+								</div>
+							</form>
+
+							<div class="icon_flex">
+								<!-- 검색기능 -->
+								<div>
+									<form action="ReviewBoardList.mdo" method="get">
+										<div class="icon_flex">
+											<select name="searchCondition">
+													<c:forEach items="${conditionMap}" var="option">
+														<div>
+															<option value="${option.value}">${option.key}</option>
+														</div>
+													</c:forEach>
+											</select> <input type="text" name="searchKeyword" />
+												<div>
+													<input type="submit" value="검색" />
+												</div>
+												<div><input type="reset" value="초기화" /></div>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
 
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
 						<table id=""
@@ -73,9 +112,8 @@
 							</thead>
 							<tbody>
 								<c:forEach var="review" items="${ReviewList}">
-									<tr class="colored"
-											onclick="location.href='/readReviewBoard.mdo?board_review_no=${review.board_review_no}'">
-										<td id="check_td"><input type="checkbox" name="check"></td>
+									<tr class="colored" onclick="location.href='/readReviewBoard.mdo?board_review_no=${review.board_review_no}'">
+										<td id="check_td"><input type="checkbox" class="checkone" name="check"></td>
 										<td class="center">${review.board_review_no}</td>
 										<td class="center">
 										<c:choose>
@@ -124,6 +162,38 @@
 								<input id="delBtn" type="button" value="삭제" />
 							</div>
 						</div>	
+						
+						<!-- pagaing 처리 -->
+
+						<div>
+							<c:if test="${count > 0}">
+								<!-- 조회된 데이터 개수가 0보다 크면 if문 실행 -->
+								<div class="icon_flex">
+									<div>
+										<c:if test="${startPage > pageBlock}">
+											<!-- 시작번호가 5보다 크면, 앞에 '이전'을 붙여줌 -->
+											<a href="ReviewBoardList.mdo?pageNum=${startPage-pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}">
+												<div class="pageging2">이전</div></a>
+										</c:if>
+									</div>
+									<div>
+										<div class="icon_flex">
+											<c:forEach var="i" begin="${startPage}" end="${endPage}">
+												<a href="ReviewBoardList.mdo?pageNum=${i}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}">
+												<div class="pageging">${i}</div></a>
+											</c:forEach>
+										</div>
+									</div>
+									<div>
+										<c:if test="${endPage < pageCount}">
+											<a href="ReviewBoardList.mdo?pageNum=${startPage + pageBlock}&selectPage=${search.selectPage}&searchKeyword=${search.searchKeyword}&searchCondition=${search.searchCondition}">
+											<div class="pageging2">다음</div></a>
+										</c:if>
+									</div>
+								</div>
+							</c:if>
+						</div>
+						<!-- 페이징 종료 -->
 							<!-- 내용물 end -->
 						
 						<div class="card-footer small text-muted"></div>
@@ -183,8 +253,16 @@
 											});
 						</script>
 
-					
-	<!-- pdf -->
+
+		<!-- 테이블 Checked 되었을때 이벤트 반응 막기 -->
+		<script>
+			$(".checkone").click(function(event) {
+				event.stopPropagation();
+				// Do something
+			});
+		</script>
+
+		<!-- pdf -->
 	<script type="/admin/text/javascript"
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script type="/admin/text/javascript"

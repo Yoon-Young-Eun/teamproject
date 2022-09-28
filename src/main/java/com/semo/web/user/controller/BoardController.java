@@ -4,17 +4,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.semo.web.admin.vo.BannerVO;
 import com.semo.web.admin.vo.EventVO;
 import com.semo.web.admin.vo.NoticeVO;
 import com.semo.web.admin.vo.PagingVO;
+import com.semo.web.admin.vo.ReviewVO;
 import com.semo.web.user.service.BoardService;
+import com.semo.web.user.service.OrderService;
+import com.semo.web.user.vo.OrderVO;
 
 import edu.emory.mathcs.backport.java.util.Collections;
 
@@ -23,6 +28,8 @@ public class BoardController {
 	
 	@Autowired
 	BoardService BoardService;
+	@Autowired
+	OrderService OrderService;
 
 	//이벤트
 	@RequestMapping(value="/getBoardEventList.do", method=RequestMethod.GET)
@@ -115,16 +122,34 @@ public class BoardController {
 	
 	
 	@RequestMapping("/getBoard.do")
-	   public String getBoard(NoticeVO vo, Model model) {
-	      System.out.println("글 상세 보기 처리");
-	      String notice_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/board/";
-	      NoticeVO vos=BoardService.getBoard(vo);
-	      String filename = vos.getNotice_filepath().replace(notice_filepath, "");
-	      System.out.println(vos);
-	      model.addAttribute("board", vos);
-	      model.addAttribute("filename", filename);
-	      return "/service/getNotice.jsp";
-	   }
+   public String getBoard(NoticeVO vo, Model model) {
+      System.out.println("글 상세 보기 처리");
+      String notice_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/board/";
+      NoticeVO vos=BoardService.getBoard(vo);
+      String filename = vos.getNotice_filepath().replace(notice_filepath, "");
+      System.out.println(vos);
+      model.addAttribute("board", vos);
+      model.addAttribute("filename", filename);
+      return "/service/getNotice.jsp";
+   }
+	
+	@RequestMapping("/insertReview.do")
+	@ResponseBody
+	public String insertReview(ReviewVO vo, OrderVO ovo, HttpSession session) {
+	
+		session.getAttribute("id");
+		if (session.getAttribute("id") != null) {
+			System.out.println("리뷰 등록 처리");
+			System.out.println(vo);
+			
+			BoardService.insertReview(vo);
+			OrderService.updateReviewStatus(ovo);
+			System.out.println();
+			
+			return "/myorderlist.do";
+		}
+		return "/login.do";
+	}
 	
 	
 }

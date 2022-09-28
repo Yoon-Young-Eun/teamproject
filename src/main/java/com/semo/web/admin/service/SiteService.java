@@ -29,10 +29,10 @@ public interface SiteService {
 	
 	// 약관
 	public void insertTerms(TermsVO vo);
-	public List<TermsVO> getTermsList();
+	public List<TermsVO> getTermsList(PagingVO pvo);
 	public TermsVO getReadTerms(TermsVO vo);
 	public void updateTerms(TermsVO vo);
 	public void deleteTerms(int no);
 	public void deleteTerms(TermsVO vo);
-
+	int getTermsCount(PagingVO pvo);
 }

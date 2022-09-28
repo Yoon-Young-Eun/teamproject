@@ -43,9 +43,9 @@
 	<option value="상의">상의</option>
 	<option value="하의">하의</option>
 	<option value="신발">신발</option>
-	<option value="외투">외투</option>
-	<option value="기타">기타</option>
-	<option value="침구류">침구류</option>
+	<option value="아우터">아우터</option>
+	<option value="액세서리">액세서리</option>
+	<option value="이불">이불</option>
 </select>
 </div>
 </div>
@@ -83,10 +83,13 @@
 
 </div>
 
-<div class="popup_btn">
 <div class="end">
-	<input type="submit" value="저장">&nbsp;&nbsp;&nbsp;&nbsp;<a href="/ProductList.mdo">취소</a>
-</div>
+	<div class="popup_btn">
+		<input type="submit" value="저장">
+	</div>
+	<div class="popup_btn">
+		<a href="/ProductList.mdo">취소</a>
+	</div>
 </div>
 
 </div>

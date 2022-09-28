@@ -164,6 +164,16 @@
 	border-radius: 10px;
 	background: #dee2e6;
 }
+.board_btn>input {
+	background: #dee2e6;
+	font-weight: bold;
+	border: 0px;
+}
+.board_btn>input:hover {
+font-weight: bold;
+	text-decoration: underline;
+	color: white;
+}
 
 .end a {
 	color : #212529;

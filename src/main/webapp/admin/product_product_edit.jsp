@@ -4,7 +4,7 @@
 
 <%@ include file="/admin/ad_header.jsp"%>
 
-<link href="/admin/css/item_product.css" rel="stylesheet" />
+<link href="/admin/css/item_product_edit.css" rel="stylesheet" />
 
 </head>
 <body class="sb-nav-fixed">
@@ -46,9 +46,9 @@
 	<option value="상의">상의</option>
 	<option value="하의">하의</option>
 	<option value="신발">신발</option>
-	<option value="외투">외투</option>
-	<option value="기타">기타</option>
-	<option value="침구류">침구류</option>
+	<option value="아우터">아우터</option>
+	<option value="액세서리">액세서리</option>
+	<option value="이불">이불</option>
 </select>
 
 </div>
@@ -101,12 +101,10 @@ ${ProductInfo.product_reg_date}</div>
 </div>
 
 
-
 <div class="end">
 	<div class="popup_btn">
 		<input type="submit" value="저장">
 	</div>
-
 	<div class="popup_btn">
 		<a href="/ProductList.mdo">취소</a>
 	</div>

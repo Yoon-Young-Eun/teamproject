@@ -89,9 +89,13 @@
 										
 <!-- 									</ul> -->
 <!-- 								</div> -->
+
 								<div class="end">
-									<input type="submit" value="등록">&nbsp;&nbsp;<a href="/supportmessageList.mdo" onclick="self.close();">취소</a>
+
+									<input type="submit" value="등록" id="aa">&nbsp;&nbsp;<input type="button" onclick="location.href='/supportmessageList.mdo'" id="aa" value="취소">
+
 								</div>
+
 							</form>
 							</div>
 						</div>

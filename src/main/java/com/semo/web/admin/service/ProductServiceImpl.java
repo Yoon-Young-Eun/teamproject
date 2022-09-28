@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.semo.web.admin.dao.ProductDAO;
+import com.semo.web.admin.vo.PagingVO;
 import com.semo.web.admin.vo.ProductVO;
 
 @Service
@@ -20,8 +21,8 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public List<ProductVO> getProductList() {
-		return ProductDAO.getProductList();
+	public List<ProductVO> getProductList(PagingVO pvo) {
+		return ProductDAO.getProductList(pvo);
 	}
 
 	@Override
@@ -42,6 +43,11 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public void deleteProduct(int no) {
 		ProductDAO.deleteProduct(no);
+	}
+
+	@Override
+	public int getArticleCount(PagingVO pvo) {
+		return ProductDAO.getArticleCount(pvo);
 	}
 
 }

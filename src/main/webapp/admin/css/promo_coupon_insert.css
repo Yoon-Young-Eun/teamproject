@@ -128,3 +128,15 @@
 	text-decoration: underline;
 	color: white;
 }
+
+.popup_btn>input {
+	background: #dee2e6;
+	font-weight: bold;
+	border: 0px;
+}
+
+.popup_btn>input:hover {
+font-weight: bold;
+	text-decoration: underline;
+	color: white;
+}

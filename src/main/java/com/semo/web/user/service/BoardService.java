@@ -5,6 +5,7 @@ import java.util.List;
 import com.semo.web.admin.vo.EventVO;
 import com.semo.web.admin.vo.NoticeVO;
 import com.semo.web.admin.vo.PagingVO;
+import com.semo.web.admin.vo.ReviewVO;
 
 public interface BoardService {
 	
@@ -16,4 +17,8 @@ public interface BoardService {
 	public NoticeVO getBoard(NoticeVO vo);
 	public List<NoticeVO> getBoardList(PagingVO pvo);
 	int getBoardCount(PagingVO pvo);
+	
+	// 리뷰 입력
+	public void insertReview(ReviewVO vo);
+	
 }

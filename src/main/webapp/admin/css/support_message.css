@@ -12,7 +12,13 @@ a {
 a:hover {
 	text-decoration: underline;
 }
-
+#aa{
+	font-size: 18px;
+	font-weight: bold;
+	border : none;
+	background-color: #dee2e6;
+	
+}
 ul, lu {
 	list-style-type: none;
 	margin: 0px;
@@ -124,6 +130,18 @@ header>h1 {
 	padding: 10px;
 	border-radius: 10px;
 	background: #dee2e6;
+}
+.popup_btn input{
+	font-weight: bold;
+	border : none;
+	background-color: #dee2e6;
+
+}
+
+.popup_btn input:hover {
+	font-weight: bold;
+	text-decoration: underline;
+	color: white;
 }
 
 .end {

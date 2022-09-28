@@ -26,7 +26,7 @@
 
 <header id = "header">
    <div class = "top-menu-wrapper" >
-      <h1><a href = "/index.do">△■</a></h1>
+      <h1><a href = "/index.do"><img alt="" src="/common/img/logo_color.png" style = "height : 55px; margin-top : 15px;"></a></h1>
       <form action="/logout.do" name = "logoutForm" method = "post">
       <nav class = "top-menu">
          <ul class = "top-list">

@@ -33,6 +33,7 @@
 	</div>
 	
 	<!-- 본문 -->
+	<jsp:include page = "/common/quick-menu.jsp"/>
 	<div class = "content-wrapper">
 		<!-- 제목 -->
 		<div class = "content-title-wrapper">
@@ -43,16 +44,16 @@
 			<div class = "content-subtitle-wrapper">
 				<p style = "color : red;">* 필수항목입니다</p>		
 			</div><!-- content-subtitle-wrapper -->
-			
+		</div> <!-- content-title-wrapper -->		
 			<!-- 글쓰기 -->
 			<form action="/updateask.do?board_qna_no=${ask.board_qna_no }" method = "post" name = "insertForm" enctype="multipart/form-data">
 			<div class = "article-wrapper" style = "width : 100%;">
 			<input type="hidden" name="customer_no" value="${ask2.customer_no}"/>
 			
-			<div class = "main_text3">
-				<div class = "type_title1">분류<span id="span1" style = "color : red;">&nbsp;*</span></div>
-				<div class = "name">
-					<select name = "board_qna_type"  id="textbar1" style = "background:white; border : 2px solid #cdcdcd;">
+			<div class = "main_text2">
+					<div class = "type_title1">분류<span id="span1" style = "color : red;">&nbsp;*</span></div>
+					<div class = "name">
+						<select name = "board_qna_type"  class = "sort">
 						<option value = "배송문의">배송문의</option>
 						<option value = "세탁문의">세탁문의</option>
 						<option value = "기타문의">기타문의</option>
@@ -75,16 +76,8 @@
 				<div class="name">
 					<input type="text" readonly id="textbar1" value="${ask2.customer_phone }">
 				</div>
-			</div> <!-- 휴대전화 -->
-			<%-- <div class="main_text3">
-				<div class="type_title1">
-					이메일 <span id="span1" style = "color : red;">*</span>
-				</div>
-				<div class="name">
-					<input type="text" readonly id="textbar1" value="${ask.customer_id }">
-				</div>
-			</div> <!-- 이메일 --> --%>
-			<div class="main_text3">
+			</div>
+			<div class="main_text4">
 				<div class="type_title1">
 					제목 <span id="span1" style = "color : red;">*</span>
 				</div>
@@ -101,11 +94,11 @@
 				</div>
 			</div><!-- 내용 -->
 			<div class="file_wrap">
-				<input type="file" name="file" accept="*" id="bizFile" />
-				<div class="main_text3 mg">
-					<div class="type_title1">
-						<label id="label1">파일 업로드</label>
-					</div>
+					<input type="file" name="file" accept="*" id="bizFile" />
+					<div class="main_text5">
+						<div class="type_title1" style = "">
+							<label id="label1">파일 업로드</label>
+						</div>
 					<div class="name">
 					<input type="text" id="textbar9" style="align-items: center; display: flex; color:red; font-weight:bold;" value="선택된 파일 없음" readonly>
 						
@@ -122,7 +115,6 @@
 			</div>
 			</div>
 			</form>
-		</div> <!-- content-title-wrapper -->	
 	</div>	
 </div>	
 

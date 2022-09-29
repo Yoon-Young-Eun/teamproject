@@ -45,7 +45,7 @@ $(function(){
 </script>
 </div>
 </form>
-
+<jsp:include page = "/common/quick-menu.jsp"/>
 <div id = "hello">
 <img alt="" src="/views/resources/img/info-1.png" style = "width : 100%;">
 </div>

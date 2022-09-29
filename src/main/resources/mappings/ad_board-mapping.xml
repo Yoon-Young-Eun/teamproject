@@ -64,7 +64,7 @@
 	</insert>
 
 	<update id="updateEvent" parameterType="board_event">
-		<![CDATA[ update board_event set board_event_title=#{board_event_title}, board_event_content=#{board_event_content}, board_event_filepath=#{board_event_filepath} where board_event_no=#{board_event_no} ]]>
+		<![CDATA[ update board_event set board_event_title=#{board_event_title}, board_event_content=#{board_event_content}, banner_filepath=#{banner_filepath}, board_event_filepath=#{board_event_filepath} where board_event_no=#{board_event_no} ]]>
 	</update>
 
 	<delete id="deleteEvent" parameterType="board_event">

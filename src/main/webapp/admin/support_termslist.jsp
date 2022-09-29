@@ -166,8 +166,7 @@
 									onclick="window.location='/admin/support_terms_insert.jsp'" />
 							</div>
 							<div>
-								<input id="delBtn" type="button" value="삭제"
-									onclick="return confirm('선택한 약관을 삭제하시겠습니까?');" />
+<input id="delBtn" type="button" value="삭제" onclick="deleteA();" />
 							</div>
 
 						</div>
@@ -207,10 +206,17 @@
 						<!-- 페이징 종료 -->
 						
 						<script type="text/javascript">
-							//체크삭제
-							$("#delBtn")
-									.click(
-											function() {
+						   function deleteA(){
+							   console.log("delete())");
+							   if(confirm("선택한 약관을 삭제하시겠습니까?")){
+								   deleteAll();
+								   return true;
+							   }else{
+								   return false;
+							   }
+						   }
+						      //체크삭제
+						      function deleteAll() {
 												console.log("1");
 												var rowData = new Array();
 												var tdArr = new Array();
@@ -256,7 +262,7 @@
 																		}
 																	});
 														});
-											});
+											};
 						</script>
 
 						<!-- 내용물 end -->

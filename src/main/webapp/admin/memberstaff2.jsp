@@ -135,7 +135,7 @@
                         <input id="button" type="button" value="등록" onclick="location.href='/admin/member_staff_insert.jsp';"/>
                      </div>
                      <div>
-                        <input id="delBtn" type="button" value="삭제" onclick="deleteA();" />
+                        <input id="delBtn" type="button" value="삭제" onclick="return confirm('선택한 관리자 회원정보를 삭제하시겠습니까?');" />
                      </div>
 
                   </div>
@@ -173,19 +173,8 @@
          </main>
          
    <script type="text/javascript">
-   
-   
-   function deleteA(){
-	   console.log("delete())");
-	   if(confirm("선택한 관리자 회원정보를 삭제하시겠습니까?")){
-		   deleteAll();
-		   return true;
-	   }else{
-		   return false;
-	   }
-   }
       //체크삭제
-      function deleteAll() {
+      $("#delBtn").click(function() {
          console.log("1");
          var rowData = new Array();
          var num = new Array();
@@ -217,7 +206,7 @@
                }
             });
          });
-      }
+      });
    </script>
 
 <!-- 테이블 Checked 되었을때 이벤트 반응 막기 -->

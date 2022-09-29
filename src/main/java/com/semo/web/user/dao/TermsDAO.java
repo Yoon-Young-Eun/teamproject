@@ -17,7 +17,7 @@ public class TermsDAO {
 	
 	public List<TermsVO> getTermsList(){
 		System.out.println("DAO.getTermsList 실행");
-		return sql.selectList("SiteDAO.getTermsList");
+		return sql.selectList("SiteDAO.getTermsMainList");
 	}
 	
 	public TermsVO getTermsMain(TermsVO vo) {

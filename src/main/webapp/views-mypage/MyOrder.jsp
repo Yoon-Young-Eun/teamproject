@@ -260,98 +260,57 @@
 
 <!-- 지도 -->
 <script>
-	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-	mapOption = { 
-	center: 
-		
+	var mapContainer = document.getElementById('map') // 지도를 표시할 div 
+	console.log("map");
+	var num1 = Number(0);
+ 	var num2 = Number(0);
+
 	if (document.getElementById('order_store_name').value === '노량진점') {
-		new kakao.maps.LatLng(37.513007626488594, 126.93989940550772),
-		level: 3 // 지도의 확대 레벨
-		};
-		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-		// 마커가 표시될 위치입니다 
-		var markerPosition  = new kakao.maps.LatLng(37.513007626488594, 126.93989940550772); 
-	} else if (document.getElementById('order_store_name').value === '시청점') {
-		new kakao.maps.LatLng(37.566857992065586, 126.97866356824198), 
-		level: 3 // 지도의 확대 레벨
-		};
-		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-		// 마커가 표시될 위치입니다 
-		var markerPosition  = new kakao.maps.LatLng(37.566857992065586, 126.97866356824198); 
-	} else if (document.getElementById('order_store_name').value === '청와대점') {
-		new kakao.maps.LatLng(37.586564230544354, 126.97480278835683), 
-		level: 3 // 지도의 확대 레벨
-		};
-		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-		// 마커가 표시될 위치입니다 
-		var markerPosition  = new kakao.maps.LatLng(37.586564230544354, 126.97480278835683); 
-	} else if (document.getElementById('order_store_name').value === '국회의사당점') {
-		new kakao.maps.LatLng(37.53183392416857, 126.91413983106807),
-		level: 3 // 지도의 확대 레벨
-		};
-		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-		// 마커가 표시될 위치입니다 
-		var markerPosition  = new kakao.maps.LatLng(37.53183392416857, 126.91413983106807); 
-	} else if (document.getElementById('order_store_name').value === '코엑스점') {
-		new kakao.maps.LatLng(37.51238658438941, 127.05880783427013), 
-		level: 3 // 지도의 확대 레벨
-		};
-		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-		// 마커가 표시될 위치입니다 
-		var markerPosition  = new kakao.maps.LatLng(37.51238658438941, 127.05880783427013); 
-	} else if (document.getElementById('order_store_name').value === '롯데월드타워점') {
-		new kakao.maps.LatLng(37.5126223756192, 127.1026969968422),
-		level: 3 // 지도의 확대 레벨
-		};
-		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-		// 마커가 표시될 위치입니다 
-		var markerPosition  = new kakao.maps.LatLng(37.5126223756192, 127.1026969968422);
-
-	} else if (document.getElementById('order_store_name').value === '남산타워점') {
-		new kakao.maps.LatLng(37.55127433886607, 126.9882560895345), 
-		level: 3 // 지도의 확대 레벨
-		};
-		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-		// 마커가 표시될 위치입니다 
-		var markerPosition  = new kakao.maps.LatLng(37.55127433886607, 126.9882560895345); 
-	} else if (document.getElementById('order_store_name').value === '법원점') {
-		new kakao.maps.LatLng(37.495934829363385, 127.01107370085373), 
-		level: 3 // 지도의 확대 레벨
-		};
-		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-		// 마커가 표시될 위치입니다 
-		var markerPosition  = new kakao.maps.LatLng(37.495934829363385, 127.01107370085373); 
-	} else { // 입력값 없는 경우 본점으로(청와대점)
-		new kakao.maps.LatLng(37.586564230544354, 126.97480278835683), 
-		level: 3 // 지도의 확대 레벨
-		};
-		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-		// 마커가 표시될 위치입니다 
-		var markerPosition  = new kakao.maps.LatLng(37.586564230544354, 126.97480278835683); 
+	num1 = Number(37.513007626488594);
+	num2 = Number(126.93989940550772);
 	}
-//     center: new kakao.maps.LatLng(37.513007626488594, 126.93989940550772), // 지도의 중심좌표
-    
+	else if (document.getElementById('order_store_name').value === '시청점') {
+		num1 = Number(37.566857992065586);
+		num2 = Number(126.97866356824198);
+	}
+	else if (document.getElementById('order_store_name').value === '청와대점') {
+		num1 = Number(37.586564230544354);
+		num2 = Number(126.97480278835683);
+	}
+	else if (document.getElementById('order_store_name').value === '국회의사당점') {
+		num1 = Number(37.53183392416857);
+		num2 = Number(126.91413983106807);
+	}
 
+ else if (document.getElementById('order_store_name').value === '코엑스점') {
+	num1 = Number(37.51238658438941);
+	num2 = Number(127.05880783427013);
 
-// if (document.getElementById('order_store_name').value === '노량진점') {
-// 	var markerPosition  = new kakao.maps.LatLng(37.513007626488594, 126.93989940550772); 
-// } else if (document.getElementById('order_store_name').value === '시청점') {
-// 	var markerPosition  = new kakao.maps.LatLng(37.566857992065586, 126.97866356824198); 
-// } else if (document.getElementById('order_store_name').value === '청와대점') {
-// 	var markerPosition  = new kakao.maps.LatLng(37.586564230544354, 126.97480278835683); 
-// } else if (document.getElementById('order_store_name').value === '국회의사당점') {
-// 	var markerPosition  = new kakao.maps.LatLng(37.53183392416857, 126.91413983106807); 
-// } else if (document.getElementById('order_store_name').value === '코엑스점') {
-// 	var markerPosition  = new kakao.maps.LatLng(37.51238658438941, 127.05880783427013); 
-// } else if (document.getElementById('order_store_name').value === '롯데월드타워점') {
-	 
-// } else if (document.getElementById('order_store_name').value === '남산타워점') {
-// 	var markerPosition  = new kakao.maps.LatLng(37.55127433886607, 126.9882560895345); 
-// } else if (document.getElementById('order_store_name').value === '법원점') {
-// 	var markerPosition  = new kakao.maps.LatLng(37.495934829363385, 127.01107370085373); 
-// } else { // 입력값 없는 경우 본점으로(청와대점)
-// 	var markerPosition  = new kakao.maps.LatLng(37.586564230544354, 126.97480278835683); 
-// }
+} else if (document.getElementById('order_store_name').value === '롯데월드타워점') {
+	 num1 = Number(37.5126223756192);
+	num2 = Number(127.1026969968422);
+} else if (document.getElementById('order_store_name').value === '남산타워점') {
+	num1 = Number(37.55127433886607);
+	num2 = Number(126.9882560895345);
+} else if (document.getElementById('order_store_name').value === '법원점') {
+	num1 = Number(37.495934829363385);
+	num2 = Number(127.01107370085373);
+} else { // 입력값 없는 경우 본점으로(청와대점)
+	num1 = Number(37.586564230544354);
+	num2 = Number(126.97480278835683);
+}
+	
+	
+	mapOption = { 
+// 		center: new kakao.maps.LatLng(37.513007626488594, 126.93989940550772),
+		center: new kakao.maps.LatLng(num1, num2),
+		level: 3 // 지도의 확대 레벨
+	};
+	var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+	// 마커가 표시될 위치입니다 
+
+	var markerPosition  = new kakao.maps.LatLng(num1, num2); 
+
 
 // 마커를 생성합니다
 var marker = new kakao.maps.Marker({

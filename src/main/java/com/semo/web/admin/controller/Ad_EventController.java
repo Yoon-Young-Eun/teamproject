@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.semo.web.admin.service.Ad_BoardService;
-import com.semo.web.admin.service.SiteService;
 import com.semo.web.admin.vo.AdminVO;
 import com.semo.web.admin.vo.EventVO;
 import com.semo.web.admin.vo.PagingVO;
@@ -168,23 +167,13 @@ public class Ad_EventController {
 		String banner_filepath = "https://semoproject.s3.ap-northeast-2.amazonaws.com/event/" + key2;
 		vo.setBanner_filepath(banner_filepath);
 		
-		boardservice.updateEvent(vo);
+		boardservice.insertEvent(vo);
 
 		return "redirect:/getEventList.mdo";
 	}
 
 	@RequestMapping(value="/updateEvent.mdo")
 	public String updateEvent(EventVO vo, MultipartFile uploadImg, MultipartFile uploadImg2) throws SQLException, IOException{
-		
-		//세션 유무확인 
-		AdminVO admin = (AdminVO)session.getAttribute("admin");
-		
-		if(admin == null) {
-				System.out.println("세션 정보가 없습니다.");
-				return "redirect:/login.mdo";
-		}
-		
-		
 		AwsS3 awss3 = AwsS3.getInstance();
 		System.out.print(vo);
 		System.out.println(uploadImg);

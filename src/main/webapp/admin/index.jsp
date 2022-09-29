@@ -110,7 +110,7 @@
                                 <div class="card mb-4 chartparent">
                                     <div class="card-header">
                                         <i class="fas fa-chart-area me-1"></i>
-                                        기간별매출현황(Area_Chart)
+                                        기간별매출현황(Area_Chart) &nbsp;&nbsp;<a class="small text-dark stretched-link" href="/salesStoreList.mdo">View Details</a>
                                     </div>
                                     <div class="card-body chartparent">
                                     <div id="chart_area" class="chart" style="width: 600px; height: 400px;"></div>
@@ -121,7 +121,7 @@
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-bar me-1"></i>
-                                        품목별 매출현황(Donutchart Chart)
+                                        품목별 매출현황(Doughnut_Chart) &nbsp;&nbsp;<a class="small text-dark stretched-link" href="/salesProductList.mdo">View Details</a>
                                     </div>
                                     <div class="card-body chartparent">
                                     <div id="donutchart" class="chart" style="width: 600px; height: 400px;"></div>
@@ -132,7 +132,7 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                지점별 매출현황(Bar_Chart) 
+                                지점별 매출현황(Bar_Chart) &nbsp;&nbsp;<a class="small text-dark stretched-link" href="/salesProductList.mdo">View Details</a>
                             </div>
                             <div class="card-body chartparent">   
                                  <div id="chart_div" class="chart" style="width: 1200px; height: 400px;"></div>     

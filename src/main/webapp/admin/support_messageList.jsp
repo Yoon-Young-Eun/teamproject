@@ -133,7 +133,7 @@
 									onclick="location.href='/admin/support_message_insert.jsp';" />
 							</div>
 							<div>
-								<input id="delBtn" type="button" value="삭제" onclick="return confirm('선택한 문자정보를 삭제하시겠습니까?');"  />
+								<input id="delBtn" type="button" value="삭제" onclick="deleteA();" />
 							</div>
 
 						</div>
@@ -178,8 +178,18 @@
 			</main>
 
 	<script type="text/javascript">
-		//체크삭제
-		$("#delBtn").click(function() {
+
+	   function deleteA(){
+		   console.log("delete())");
+		   if(confirm("선택한 문자정보를 삭제하시겠습니까?")){
+			   deleteAll();
+			   return true;
+		   }else{
+			   return false;
+		   }
+	   }
+	      //체크삭제
+	      function deleteAll() {
 			console.log("1");
 			var rowData = new Array();
 			var num = new Array();
@@ -211,7 +221,7 @@
 					}
 				});
 			});
-		});
+		};
 	</script>
 
 

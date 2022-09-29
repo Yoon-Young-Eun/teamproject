@@ -3,6 +3,28 @@
 
 <%@ include file="/admin/ad_header.jsp"%>
 
+<style>
+.table .ellipsis {
+	position: relative;
+	min-width: 200px;
+	width: 850px;
+}
+
+.table .ellipsis span {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	position: absolute;
+	left: 9px;
+	right: 9px;
+}
+
+.ellipsis:before {
+	content: '';
+	display: inline-block;
+}
+</style>
+
 <!-- table & hover css -->
 <link href="/admin/css/table.css" rel="stylesheet" />
 
@@ -124,7 +146,7 @@
 										<!--for문의 id값.컬럼명으로 값을 불러옴 -->
 										<td class="center">${FAQ.board_faq_type}</td>
 										<td>${FAQ.board_faq_title}</td>
-										<td>${FAQ.board_faq_content}</td>
+										<td class="ellipsis" style="width:800px"><span>${FAQ.board_faq_content}</span></td>
 										<td class="center">${FAQ.board_faq_reg_date}</td>
 									</tr>
 								</c:forEach>
@@ -139,8 +161,7 @@
 							</div>
 							<!-- 						<div> <input  id="button" type="button"  value="수정" /> </div> -->
 							<div>
-								<input id="delBtn" type="button" value="삭제"
-									onclick="return confirm('선택한 게시글을 삭제하시겠습니까?');" />
+								<input id="delBtn" type="button" value="삭제" onclick="deleteA();" />
 							</div>
 
 						</div>
@@ -191,10 +212,18 @@
 			</main>
 
 <script type="text/javascript">
-							//체크삭제
-							$("#delBtn")
-									.click(
-											function() {
+function deleteA(){
+	   console.log("delete())");
+	   if(confirm("선택한 게시글을 삭제하시겠습니까?")){
+		   deleteAll();
+		   return true;
+	   }else{
+		   return false;
+	   }
+}
+   //체크삭제
+   function deleteAll() {
+
 												console.log("1");
 												var rowData = new Array();
 												var tdArr = new Array();
@@ -240,7 +269,7 @@
 																		}
 																	});
 														});
-											});
+											};
 						</script>
 
 

@@ -19,6 +19,7 @@
 
 <body>
 
+<<<<<<< HEAD
 <form action="/login.do">
 	<div id="header">
 	<script>
@@ -57,6 +58,34 @@
 		<div class = "main-wrapper">
 		
 			<div class="main_text">
+=======
+<div class="wrap">
+	
+			<!-- 헤더 : 로그인 유무에 따라 달라짐 -->
+			<form action="/login.do">
+				<div id="header">
+					<script>
+						$(function() {
+							var id = "${id}";
+
+							if (id == "") {
+								$('#header').load("/common/header.jsp");
+							} else {
+								$('#header').load("/common/logined-header.jsp");
+							}
+						});
+					</script>
+				</div>
+			</form>
+<div class="wrap1">
+			<div class="main">
+				<div class="space_left">
+					<jsp:include page="/common/centerSide.jsp"></jsp:include>
+				</div>
+				<div class="main_box">
+					<div class="main_text">
+					<div class="main_text1">공지사항</div>
+>>>>>>> main
 					<div class="title">
 						<div class="sub">제목</div>
 						<div class="con">${board.notice_title }</div>

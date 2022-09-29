@@ -163,25 +163,9 @@ $(function() {
 <img alt="" src="image/info-2.png" style = "width : 100%;">
 </div>
 
-
+<jsp:include page="/common/footer.jsp" />
 </body>
 
-<footer>
-	<div class = "bottom-menu">
-		<ul>
-			<li><a href="#">개인정보처리방침</a></li>
-			<li><a href="#">이용약관</a></li>
-			<li><a href="#">의류보관 이용약관</a></li>
-		</ul>
-	</div>
-	<div class = "bottom-info">
-		<h2>△■</h2>
-		<div class = "bottom-info-list">
-			<span>상호명 : 세탁의 모든것</span>
-			<span>대표전화 : 02-000-0000</span>
-			<span>사업자 번호 : no.00000000000</span>	
-		</div>
-	</div>
-</footer>
+
 
 </html>

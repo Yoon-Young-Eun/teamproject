@@ -1,45 +1,80 @@
 @charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	width: 100%;
+	max-width: 1920px;
+	scroll-behavior: smooth;
+}
+
 body {
-	overflow-x: hidden;
+	zoom: 1;
+	position: relative;
+	z-index: 1;
+	-ms-overflow-y-style: none;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	font-weight: bold;
+	cursor: pointer;
+}
+
+/*전체*/
+.page-wrapper {
+	display: flex;
+	justify-content: center;
+	margin-right : 150px;
+	margin-left : 150px;
 	
 }
-html{
-	font-family: 'Noto Sans KR', sans-serif;
+
+/*사이드 메뉴*/
+
+/*본문*/
+.content-wrapper {
+	max-width: 1040px;
+	margin: 50px;
+	width: 100%;
 }
-.main{
+
+/*제목*/
+.content-title {
+	line-height: 70px;
+}
+
+/*소제목*/
+.content-subtitle-wrapper {
 	display: flex;
-}
-.space_left{
-	margin-top:60px;
-	width: 440px;
-}
-.main_box{
-	margin-top:20px;
-	width: 1040px;
+	justify-content: space-between;
+	border-bottom: 2px solid;
+	line-height: 70px;
 }
 
+.main-wrapper {
+	width : 100%;
+	margin-top : 50px;
+}
 
-
-#tap2-3{
-  background-color: white;
-  border: 1px solid rgb(128,128,128,0.3);
-}
-#tap2-4{
-  background-color: white;
-  border: 1px solid rgb(128,128,128,0.3);
-}
-#tap2-1{
-  margin-left: 0px;
-}
-#tap2-2{
-  margin-right: 0px;
-}
 
 .taps {
-  margin-left:35px;
-  height:500px;
-  width: 800px;
-  padding-top: 80px;
+	width : 100%;
   display: block;
   display: -webkit-flex;
   display: -moz-flex;
@@ -128,13 +163,13 @@ border-bottom: 1px solid #dddddd;
 display: inline-block;
 content: 'Q';
 font-size: 14px;
-color: #63afe4;
+color: #006633;
 margin: 0 5px;
 }
 
 .que.on>span{
 font-weight: bold;
-color: #63afe4;	
+color: #006633;	
 }
 
 .anw {

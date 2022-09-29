@@ -40,6 +40,7 @@
 	</div>
 	
 	<!-- 본문 -->
+	<jsp:include page = "/common/quick-menu.jsp"/>
 	<div class = "content-wrapper">
 		<!-- 제목 -->
 		<div class = "content-title-wrapper">
@@ -169,11 +170,11 @@
 			});
 		});
 	</script>
-	
+
 	
 	
 </div><!-- content-wrapper -->	
 </div>
-
+	<jsp:include page="/common/footer.jsp" />
 </body>
 </html>

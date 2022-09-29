@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>[세모]세탁의 모든것</title>
 </head>
 <body>
 카카오로그인<br>

@@ -19,7 +19,7 @@
 	justify-content : end;
 }
 </style>
-<title>Insert title here</title>
+<title>[세모]세탁의 모든것</title>
 </head>
 <body>
 <div class = "always-button">

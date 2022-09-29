@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Insert title here</title>
+<title>[세모]세탁의 모든것</title>
 
 <!-- font awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
@@ -91,22 +91,22 @@
                <div>
                   <h4>일반 클리닝</h4>
                   <ul>
-                     <li><a href="cleaning-service-normal.jsp">일반의류</a></li>
-                     <li><a href="cleaning-service-shirts.jsp">와이셔츠</a></li>
-                     <li><a href="cleaning-service-bedding.jsp">이불</a></li>        
+                     <li><a href="/views-menu/cleaning-service-normal.jsp">일반의류</a></li>
+                     <li><a href="/views-menu/cleaning-service-shirts.jsp">와이셔츠</a></li>
+                     <li><a href="/views-menu/cleaning-service-bedding.jsp">이불</a></li>        
                   </ul>
                   <h4>특수 클리닝</h4>
                   <ul>
-                     <li><a href="cleaning-service#royal">로얄 클리닝</a></li>
-                     <li><a href="cleaning-service#special">특수 클리닝</a></li>
+                     <li><a href="/views-menu/cleaning-service#royal">로얄 클리닝</a></li>
+                     <li><a href="/views-menu/cleaning-service#special">특수 클리닝</a></li>
                   </ul>
                </div>
                <div>
                   <h4>　</h4>
                   <ul>
-                     <li><a href="cleaning-service#outdoor">아웃도어</a></li>
-                      <li><a href="cleaning-service#shoes">운동화</a></li>
-                     <li><a href="cleaning-service#acc">모자/인형/가방</a></li>
+                     <li><a href="/views/cleaning-service#outdoor">아웃도어</a></li>
+                      <li><a href="/views/cleaning-service#shoes">운동화</a></li>
+                     <li><a href="/views/cleaning-service#acc">모자/인형/가방</a></li>
                   </ul>
                </div>
                

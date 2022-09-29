@@ -19,72 +19,72 @@
 
 <body>
 <form action="/login.do">
-	<div id="header">
-	<script>
-		$(function() {
-			var id = "${id}";
-			if (id == "") {
-				$('#header').load("/common/header.jsp");
-			} else {
-				$('#header').load("/common/logined-header.jsp");
-			}
-		});
-	</script>
-	</div>
+   <div id="header">
+   <script>
+      $(function() {
+         var id = "${id}";
+         if (id == "") {
+            $('#header').load("/common/header.jsp");
+         } else {
+            $('#header').load("/common/logined-header.jsp");
+         }
+      });
+   </script>
+   </div>
 </form>
 
 <div class = "page-wrapper">
-	<!-- 사이드메뉴 -->
-	<div class = "sidemenu">
-		<jsp:include page="/common/centerSide.jsp"></jsp:include>
-	</div>
+   <!-- 사이드메뉴 -->
+   <div class = "sidemenu">
+      <jsp:include page="/common/centerSide.jsp"></jsp:include>
+   </div>
 
-	<!-- 본문 -->
-	<jsp:include page = "/common/quick-menu.jsp"/>
-	<div class = "content-wrapper">
-	<!-- 제목 -->
-		<div class = "content-title-wrapper">
-			<div class = "content-title">
-				<h2>고객센터</h2>
-			</div>
-			<!-- 소제목 -->
-			<div class = "content-subtitle-wrapper">
-				<p>세모의 고객, 당신을 위한 공간입니다.</p>		
-			</div><!-- content-subtitle-wrapper -->
-		</div> <!-- content-title-wrapper -->	
-		
-		<div class = "main-wrapper">
-		
-			<div class="main_text">
-					<div class="title">
-						<div class="sub">제목</div>
-						<div class="con">${board.notice_title }</div>
-					</div>
-					
-					<div class="content">
-					<div id="summer" class="writeWrap">
-						<div class="sub">내용</div>
-						<div id="summernote" class="writeArea" name="notice_content">${board.notice_content }</div>
-					</div>
-					</div>
-					
-					<div class="title">
-									<div class="sub">첨부파일</div>
-											<div class="filebox">
-												<c:choose>
-													<c:when
-														test="${board.notice_filepath eq 'https://semoproject.s3.ap-northeast-2.amazonaws.com/board/'}">
+   <!-- 본문 -->
+   <jsp:include page = "/common/quick-menu.jsp"/>
+   <div class = "content-wrapper">
+   <!-- 제목 -->
+      <div class = "content-title-wrapper">
+         <div class = "content-title">
+            <h2>고객센터</h2>
+         </div>
+         <!-- 소제목 -->
+         <div class = "content-subtitle-wrapper">
+            <p>세모의 고객, 당신을 위한 공간입니다.</p>      
+         </div><!-- content-subtitle-wrapper -->
+      </div> <!-- content-title-wrapper -->   
+      
+      <div class = "main-wrapper">
+      
+         <div class="main_text">
+               <div class="title">
+                  <div class="sub">제목</div>
+                  <div class="con">${board.notice_title }</div>
+               </div>
+               
+               <div class="content">
+               <div id="summer" class="writeWrap">
+                  <div class="sub">내용</div>
+                  <div id="summernote" class="writeArea" name="notice_content">${board.notice_content }</div>
+               </div>
+               </div>
+               
+               <div class="title">
+                           <div class="sub">첨부파일</div>
+                                 <div class="filebox">
+                                    <c:choose>
+                                       <c:when
+                                          test="${board.notice_filepath eq 'https://semoproject.s3.ap-northeast-2.amazonaws.com/board/'}">
                                     파일없음
                                  </c:when>
-													<c:otherwise>
-														<a href="${board.notice_filepath}" target="_blank">파일보기(${filename})</a>
-													</c:otherwise>
-												</c:choose>
-											</div>
-								</div>
-				</div>		</div>
-	</div>
-</div>		
+                                       <c:otherwise>
+                                          <a href="${board.notice_filepath}" target="_blank">파일보기(${filename})</a>
+                                       </c:otherwise>
+                                    </c:choose>
+                                 </div>
+                        </div>
+            </div>      </div>
+   </div>
+</div>      
 
 </body>
 <jsp:include page="/common/footer.jsp" />

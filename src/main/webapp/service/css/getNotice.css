@@ -99,3 +99,14 @@ a:hover {
 	border-radius : 5px;
 	height : 300px;
 }
+
+.btn{
+	display:flex;
+	justify-content : center;
+}
+
+#button2{
+	border-top:none;
+	border-left : none;
+	border-right:none;
+}

@@ -170,11 +170,6 @@
 							</div>
 
 						</div>
-<<<<<<< HEAD
-=======
-
-						<!-- pagaing 처리 -->
->>>>>>> main
 
 						<!-- pagaing 처리 -->
 						<div>

@@ -13,14 +13,12 @@
 <!--                 </div> -->
             </form>
             <!-- Navbar-->
+            <div style="color:white;">${admin.admin_name}님 환영합니다.!</div>
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Settings</a></li>
-                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                        <li><a class="dropdown-item" href="/logout.mdo">Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -108,7 +106,7 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="/getBoardList.mdo">공지사항</a>
                                     <a class="nav-link" href="/getEventList.mdo">이벤트/배너</a>
-                                    <a class="nav-link" href="/ReviewBoardList.mdo">리뷰</a>
+                                    <a class="nav-link" href="/ReviewBoardList.mdo">리뷰관리</a>
 
                                     <a class="nav-link" href="/QnAList.mdo">QnA</a>
                                     <a class="nav-link" href="/FAQList.mdo">자주하는 질문</a>
@@ -127,7 +125,7 @@
                                     <a class="nav-link" href="/CouponList.mdo">쿠폰관리</a>
 <!--                                     <a class="nav-link" href="/BannerList.mdo">배너관리</a> -->
                                     <a class="nav-link" href="/TermsList.mdo">약관관리</a>
-
+									<a class="nav-link" href="/supportmessageList.mdo">문자관리</a>
                                 </nav>
                             </div>
                         </div>

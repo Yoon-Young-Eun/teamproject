@@ -38,6 +38,8 @@ public class AdminController {
 	BCryptPasswordEncoder encoder; 
 	
 	
+
+	
 	@RequestMapping("/login.mdo")
 	public String logon() {
 		
@@ -330,9 +332,6 @@ public class AdminController {
 				vo.setAdmin_no(arr.get(a));
 				adminservice.selectedDelete(vo.getAdmin_no());
 				System.out.println(vo.getAdmin_no());
-				//계정 삭제와 함께 세션정보를 함께 삭제해야 한다.
-				session.setAttribute("admin", null); 
-				session.invalidate();
 			}
 		}
 		return "staffList.mdo";

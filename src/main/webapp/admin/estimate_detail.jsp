@@ -86,7 +86,7 @@
 						</div>
 					</div>
 
-					<form id="insert" action="/insertEstimate.mdo?customer_phone=${getEstimate.customer_phone }" method="post" onsubmit="return confirm('견적을 발송하시겠습니까? 발송시 회원에게 안내 문자가 발송됩니다.(주문상태를 변경시 해당 문자가 회원에게 전송됩니다(sms허용한함).)');">
+					<form id="insert" action="/insertEstimate.mdo?customer_phone=${getEstimate.customer_phone }" method="post" onsubmit="return confirm('견적을 발송하시겠습니까? 발송시 회원에게 안내 문자가 발송됩니다.(sms허용한함)');">
 					<input type="hidden" name="customer_no" value="${getEstimate.customer_no}"/>
 						<div class="layer" id="layer_reply">
 							<div class="popup_wrapper2">

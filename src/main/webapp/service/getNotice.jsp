@@ -19,7 +19,7 @@
 <body>
 
 <div class="wrap">
-	<div class="wrap1">
+	
 			<!-- 헤더 : 로그인 유무에 따라 달라짐 -->
 			<form action="/login.do">
 				<div id="header">
@@ -36,7 +36,7 @@
 					</script>
 				</div>
 			</form>
-
+<div class="wrap1">
 			<div class="main">
 				<div class="space_left">
 					<jsp:include page="/common/centerSide.jsp"></jsp:include>

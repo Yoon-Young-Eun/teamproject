@@ -33,7 +33,7 @@
 				<jsp:include page="/common/mypageSide.jsp" />
 			</div>
 			
-			<form action="/updateCustomer.do" method="post" name="UpdateForm">
+			<form action="/updateCustomer.do" name="UpdateForm">
 			<input type="hidden" name="customer_no" value="${info.customer_no}">
 			<div class="main_text">
 				<div class="MyInfo_title">
@@ -109,7 +109,7 @@
 					<div class="end_btn">
 						<input type="submit" id="Update" class="action-button shadow animate blue " value="수정"/>
 						<div class="action-button shadow animate blue" id="bye">탈퇴</div>
-						<div class="action-button shadow animate blue" onclick="window.location='/views-mypage/MyMain.jsp'">메인</div>
+						<div class="action-button shadow animate blue" onclick="window.location='/mypage.do'">메인</div>
 					</div>
 				</div>
 				

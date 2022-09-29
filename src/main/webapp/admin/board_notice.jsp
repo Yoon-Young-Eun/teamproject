@@ -100,7 +100,6 @@
 										name="check" class="allcheck"></th>
 									<th>No</th>
 									<th>제목</th>
-									<th>내용</th>
 									<th>작성일</th>
 								</tr>
 							</thead>
@@ -110,7 +109,6 @@
 										<td id="check_td"><input type="checkbox" class="checkone" name="check"></td>
 										<td class="center">${notice.notice_no}</td>
 										<td>${notice.notice_title}</a></td>
-										<td>${notice.notice_content}</td>
 										<td class="center">${notice.notice_reg_date}</td>
 									</tr>
 								</c:forEach>

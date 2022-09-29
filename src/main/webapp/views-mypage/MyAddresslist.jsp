@@ -82,6 +82,16 @@
 	</div>
 </div>
 
+
+<div class = "always-button">
+<a class = "booking" href = "#"><img alt="" src="/views/resources/img/booking.png"></a>
+<br>
+<br>
+<br>
+<a class = "going-up" href = "#"><img alt="" src="/views/resources/img/going_up.png"></a>
+</div>
+<jsp:include page="../common/footer.jsp"/> 
+
 <!-------------------- 스크립트 -------------------->
 <script>	
 	var address = document.ElementById('address').innerText();

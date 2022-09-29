@@ -135,6 +135,10 @@
 	<![CDATA[ select * from terms where terms_no=#{terms_no} ]]>
 	</select>
 	
+	<select id="getTermsMainList" resultType="terms">
+	<![CDATA[ select * from terms]]>
+	</select>
+	
 	<select id="getReadTerms4" resultType="terms">
 	<![CDATA[ select * from terms where terms_no=3 ]]>
 	</select>

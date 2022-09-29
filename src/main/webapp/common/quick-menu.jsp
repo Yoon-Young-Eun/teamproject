@@ -10,6 +10,10 @@
 	position:absolute; 
 	top:180px; 
 	left : 90%;
+	background : #f7f7f7;
+	padding : 20px;
+	border : none;
+	border-radius : 40px;
 	}
 	
 #followquick img {
@@ -19,7 +23,7 @@
 </head>
 <body>
 	<div id = "followquick">
-			<a class = "booking" href = "#"><img alt="" src="/views/resources/img/booking.png"></a>
+			<a class = "booking" href = "/startOrder.do"><img alt="" src="/views/resources/img/booking.png"></a>
 			<br><br>
 			<a class = "going-up" href = "#"><img alt="" src="/views/resources/img/going_up.png"></a>
 	</div>

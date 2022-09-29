@@ -32,7 +32,7 @@
 			<div class="space_left">
 				<jsp:include page="/common/mypageSide.jsp" />
 			</div>
-			
+			<jsp:include page = "/common/quick-menu.jsp"/>
 			<form action="/updateCustomer.do" name="UpdateForm">
 			<input type="hidden" name="customer_no" value="${info.customer_no}">
 			<div class="main_text">

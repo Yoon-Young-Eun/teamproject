@@ -3,6 +3,28 @@
 
 <%@ include file="/admin/ad_header.jsp"%>
 
+<style>
+.table .ellipsis {
+	position: relative;
+	min-width: 200px;
+	width: 850px;
+}
+
+.table .ellipsis span {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	position: absolute;
+	left: 9px;
+	right: 9px;
+}
+
+.ellipsis:before {
+	content: '';
+	display: inline-block;
+}
+</style>
+
 <!-- table & hover css -->
 <link href="/admin/css/table.css" rel="stylesheet" />
 
@@ -124,7 +146,7 @@
 										<!--for문의 id값.컬럼명으로 값을 불러옴 -->
 										<td class="center">${FAQ.board_faq_type}</td>
 										<td>${FAQ.board_faq_title}</td>
-										<td>${FAQ.board_faq_content}</td>
+										<td class="ellipsis" style="width:800px"><span>${FAQ.board_faq_content}</span></td>
 										<td class="center">${FAQ.board_faq_reg_date}</td>
 									</tr>
 								</c:forEach>

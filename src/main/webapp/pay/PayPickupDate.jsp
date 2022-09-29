@@ -65,9 +65,9 @@
      </div>
 
      <div class="main_text5">
-      
+      <input type="button" value="이전으로" id="button2" onclick="history.go(-1)" class="action-button shadow animate blue" >
       <input type="submit" value="다음단계" id="button1"  class="action-button shadow animate blue" >
-      <input type="button" value="이전으로" id="button2" onclick="location.href='paymain.html'" class="action-button shadow animate blue" >
+      
       <input type="hidden" value="${OrderAddress.customer_no}" name="customer_no">
     <input type="hidden" value="${OrderAddress.customer_address1 }" name="order_address1">
     <input type="hidden" value="${OrderAddress.customer_address2}" name="order_address2">

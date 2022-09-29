@@ -33,14 +33,14 @@
 			<main>
 
 				<div class="container-fluid px-4">
-					<h1 class="mt-4">매출현황</h1>
+					<h1 class="mt-4">상품별 매출현황</h1>
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item"><a href="/index.mdo">대시보드</a></li>
-						<li class="breadcrumb-item active">매출현황</li>
+						<li class="breadcrumb-item active">상품별 매출현황</li>
 					</ol>
 					<div class="card mb-4" style="width: 100%; overflow-x: auto;">
 						<div class="card-body">
-							기간별 매출현황 페이지 입니다. 
+							상품별 매출현황 페이지 입니다. 
 					</div>
 					</div>
 					<div class="card mb-4">

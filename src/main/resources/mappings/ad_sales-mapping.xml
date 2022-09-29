@@ -56,7 +56,7 @@
 			<if test="searchKeyword3 != null">
     			<![CDATA[and order_address1 like concat('%', #{searchKeyword3}, '%')]]></if>
 		</trim>
-    <![CDATA[order by order_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]>
+    <![CDATA[order by order_date desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow} ]]>
 	</select>
 
 	<!-- 매출 조회를 위한 order_management 테이블 페이징 쿼리 -->
@@ -74,7 +74,7 @@
 			<if test="searchKeyword3 !=null">
     			<![CDATA[and order_mt_product like concat('%', #{searchKeyword3}, '%')]]></if>
 		</trim>
-    <![CDATA[order by order_mt_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow}]]>
+    <![CDATA[order by order_mt_date desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow}]]>
 	</select>
 
 

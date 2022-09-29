@@ -40,6 +40,7 @@
 	</div>
 	
 	<!-- 본문 -->
+	<jsp:include page = "/common/quick-menu.jsp"/>
 	<div class = "content-wrapper">
 		<!-- 제목 -->
 		<div class = "content-title-wrapper">
@@ -66,9 +67,9 @@
 					<tr>
 						<th class = "check-title" style = "width : 10%; text-align : center;"><input type = "checkbox" name="check" class="allcheck"></th>
 						<th class = "num-title" style = "width : 10%;">번호</th>
-						<th class = "content-content-title" style = "width : 30%;">제목</th>
+						<th class = "content-content-title" style = "width : 50%;">제목</th>
 						<th class = "address-title" style = "width : 20%;">날짜</th>
-						<th class = "address-title" style = "width : 20%;">비고</th>
+						<th class = "address-title" style = "width : 10%;">비고</th>
 					</tr>
 				</thead>
 				
@@ -77,9 +78,9 @@
 					<tr style = "border-bottom : 1px solid #cdcdcd;">
 						<td class = "check-title" style = "width : 10%; text-align : center;"><input type = "checkbox" name="check" class="checkone"></td>
 						<td class = "num-content" style = "width : 10%; text-align : center;">${asklist.board_qna_no }</td>
-						<td class = "num-content" style = "width : 30%; text-align : center;">[${asklist.board_qna_type}] <a href = "/askdetail.do?board_qna_no=${asklist.board_qna_no}&board_qna_status=${asklist.board_qna_status}">${asklist.board_qna_title}</a></td>
+						<td class = "num-content" style = "width : 50%; text-align : center;">[${asklist.board_qna_type}] <a href = "/askdetail.do?board_qna_no=${asklist.board_qna_no}&board_qna_status=${asklist.board_qna_status}">${asklist.board_qna_title}</a></td>
 						<td class = "content-content" style = "width : 20%; text-align : center;">${asklist.board_qna_reg_date}</td>
-						<td class = "address-content" style = "width : 20%; text-align : center;">
+						<td class = "address-content" style = "width : 10%; text-align : center;">
 							<c:choose> 
                                  <c:when test="${asklist.board_qna_status eq 0}">
                                     답변대기
@@ -169,11 +170,11 @@
 			});
 		});
 	</script>
-	
+
 	
 	
 </div><!-- content-wrapper -->	
 </div>
-
+	<jsp:include page="/common/footer.jsp" />
 </body>
 </html>

@@ -126,7 +126,7 @@
 <div id = "header">
 </div>
 </form>
-
+<jsp:include page = "/common/quick-menu.jsp"/>
 <img alt="" src="/views-menu/resources/img/service-info.png" style = "width : 100%;">
 <div class = "location-wrapper">
 <svg style='overflow:visible' height="656" width="800" xmlns="http://www.w3.org/2000/svg">
@@ -332,7 +332,7 @@ $(document).ready(function(){
 	});
 });
 </script>
-
+<br><br><br>
 <jsp:include page="/common/footer.jsp"/> 
 </body>
 </html>

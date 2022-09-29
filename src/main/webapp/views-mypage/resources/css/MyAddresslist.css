@@ -99,3 +99,17 @@ table tbody tr {
 	display : flex;
 	width : 100%;
 }
+
+.going-up{
+	height : 70px;
+	margin-right : 50px;
+	display : flex;
+	justify-content : end;
+}
+
+.booking{
+	margin-right : 50px;
+	height : 70px;
+	display : flex;
+	justify-content : end;
+}

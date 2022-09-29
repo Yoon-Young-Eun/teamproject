@@ -22,7 +22,7 @@
     <div class="main">
   <div class="space_left"></div>
   <div class="main_content">
-  <form action="/OrderInsert.do" id="form1">
+  <form action="/OrderInsert.do" method="post" id="form1">
     <div class="main_text">
       주문내역 확인
     </div>

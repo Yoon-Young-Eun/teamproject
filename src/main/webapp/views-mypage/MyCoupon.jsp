@@ -31,7 +31,7 @@
 	<div class = "sidemenu">
 		<jsp:include page="/common/mypageSide.jsp"/>
 	</div>
-	
+	<jsp:include page = "/common/quick-menu.jsp"/>
 	<!-- 본문 -->
 	<div class = "content-wrapper">
 		<!-- 제목 -->
@@ -58,18 +58,18 @@
 			<table>
 				<thead class = "order-body-title">
 					<tr>
-						<th class = "num-title" style = "width : 33%;">쿠폰명</th>
-						<th class = "content-content-title" style = "width : 33%;">할인금액</th>
-						<th class = "address-title" style = "width : 33%;">유효기간</th>
+						<th class = "num-title" style = "width : 30%;">쿠폰명</th>
+						<th class = "content-content-title" style = "width : 20%;">할인금액</th>
+						<th class = "address-title" style = "width : 50%;">유효기간</th>
 					</tr>
 				</thead>
 				
 				<tbody class = "order-body-content">	
 					<c:forEach var="couponlist" items="${couponlist}">
 					<tr style = "border-bottom : 1px solid #cdcdcd;">
-						<td class = "num-content" style = "width : 33%; text-align : center;">${couponlist.coupon_management_name}</td>
-						<td class = "content-content" style = "width : 33%; text-align : center;">${couponlist.coupon_management_price}</td>
-						<td class = "address-content" style = "width : 33%; text-align : center;">${couponlist.coupon_management_start_date} - ${couponlist.coupon_management_end_date}</td>
+						<td class = "num-content" style = "width : 30%; text-align : center;">${couponlist.coupon_management_name}</td>
+						<td class = "content-content" style = "width : 20%; text-align : center;">${couponlist.coupon_management_price}</td>
+						<td class = "address-content" style = "width : 50%; text-align : center;">${couponlist.coupon_management_start_date} - ${couponlist.coupon_management_end_date}</td>
 					</tr>
 					</c:forEach>
 				</tbody>

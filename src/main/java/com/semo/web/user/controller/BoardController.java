@@ -113,7 +113,6 @@ public class BoardController {
 	      
 	      Map<String, String> condition = new HashMap<String, String>();
 	      condition.put("제목", "notice_title");
-	      condition.put("내용", "notice_content");
 	      
 	      model.addAttribute("condition", condition);
 	      model.addAttribute("boardList", boardList);

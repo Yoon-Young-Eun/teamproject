@@ -118,8 +118,8 @@ var cbpHorizontalMenu = (function() {
         current = -1;
  
     function init() {
-        $menuItems.on( 'mouseover', open );
-        $listItems.on( 'mouseover', function( event ) { event.stopPropagation(); } );
+        $menuItems.on( 'click', open );
+        $listItems.on( 'click', function( event ) { event.stopPropagation(); } );
     }
  
     function open( event ) {
@@ -138,7 +138,7 @@ var cbpHorizontalMenu = (function() {
         else {
             $item.addClass( 'cbp-hropen' );
             current = idx;
-            $body.off( 'mouseout' ).on( 'mouseout', close );
+            $body.off( 'click' ).on( 'click', close );
         }
  
         return false;

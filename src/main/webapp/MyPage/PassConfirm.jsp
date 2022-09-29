@@ -32,7 +32,7 @@
 			<div class="space_left">
 	            <jsp:include page="/common/mypageSide.jsp" />
 	         </div>
-	         
+	         <jsp:include page = "/common/quick-menu.jsp"/>
 	         <form>
 		      <div class="wrapper">
 		         <div class = "content-title-wrapper">

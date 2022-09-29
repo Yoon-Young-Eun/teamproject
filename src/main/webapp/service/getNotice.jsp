@@ -39,7 +39,6 @@
       <jsp:include page="/common/centerSide.jsp"></jsp:include>
    </div>
 
-<<<<<<< HEAD
    <!-- 본문 -->
    <jsp:include page = "/common/quick-menu.jsp"/>
    <div class = "content-wrapper">
@@ -75,43 +74,6 @@
                                     <c:choose>
                                        <c:when
                                           test="${board.notice_filepath eq 'https://semoproject.s3.ap-northeast-2.amazonaws.com/board/'}">
-=======
-	<!-- 본문 -->
-	<jsp:include page = "/common/quick-menu.jsp"/>
-	<div class = "content-wrapper">
-	<!-- 제목 -->
-		<div class = "content-title-wrapper">
-			<div class = "content-title">
-				<h2>고객센터</h2>
-			</div>
-			<!-- 소제목 -->
-			<div class = "content-subtitle-wrapper">
-				<p>세모의 고객, 당신을 위한 공간입니다.</p>		
-			</div><!-- content-subtitle-wrapper -->
-		</div> <!-- content-title-wrapper -->	
-		
-		<div class = "main-wrapper">
-		
-			<div class="main_text">
-					<div class="title">
-						<div class="sub">제목</div>
-						<div class="con">${board.notice_title }</div>
-					</div>
-					
-					<div class="content">
-					<div id="summer" class="writeWrap">
-						<div class="sub">내용</div>
-						<div id="summernote" class="writeArea" name="notice_content">${board.notice_content }</div>
-					</div>
-					</div>
-					
-					<div class="title">
-									<div class="sub">첨부파일</div>
-											<div class="filebox">
-												<c:choose>
-													<c:when
-														test="${board.notice_filepath eq 'https://semoproject.s3.ap-northeast-2.amazonaws.com/board/'}">
->>>>>>> main
                                     파일없음
                                  </c:when>
                                        <c:otherwise>
@@ -120,13 +82,7 @@
                                     </c:choose>
                                  </div>
                         </div>
-<<<<<<< HEAD
             </div>      </div>
-=======
-            </div>      
-            <div class="btn"><input type="button" id="button2" value="목록" onclick="location.href='getBoardList.do'" class="action-button shadow animate blue" ></div>
-            </div>
->>>>>>> main
    </div>
 </div>      
 

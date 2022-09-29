@@ -102,49 +102,49 @@
 						<table id="" class="tblCustomers tblexportData table">
 							<thead>
 								<tr style="background-color: #f2f2f2";>
-									<th width="50" id="check_td"><input type="checkbox"
-										name="check" class="allcheck"></th>
+<!-- 									<th width="50" id="check_td"><input type="checkbox"
+										name="check" class="allcheck"></th> -->
 									<th>쿠폰번호</th>
 									<th>쿠폰명</th>
 									<th>할인금액</th>
 									<th>발급대상</th>
-									<th>시작일</th>
-									<th>만료일</th>
+			<!-- 						<th>시작일</th>
+									<th>만료일</th> -->
 								</tr>
 							</thead>
 							<tbody>
 								<!-- for문~(c:forEach)  이 for문의 id값은 "admin"으로 정함!-->
 								<c:forEach var="coupon" items="${CouponList}">
 									<!--  adminList은 컨트롤러에서 model에 저장한 "adminList" 이름임 -->
-									<tr class="colored"
+<%-- 									<tr class="colored"
 										onclick="location.href='readCoupon.mdo?coupon_code=${coupon.coupon_code}'">
 										<td id="check_td"><input type="checkbox" class="checkone"
-											name="check"></td>
+											name="check"></td> --%>
 										<td class="center">${coupon.coupon_code}</td>
 										<!--for문의 id값.컬럼명으로 값을 불러옴 -->
-										<td>${coupon.coupon_title}</td>
+										<td class="center">${coupon.coupon_title}</td>
 										<td class="center">${coupon.coupon_sale_price}</td>
 										<td class="center">${coupon.coupon_type}</td>
-										<td class="center">${coupon.coupon_start_date}</td>
-										<td class="center">${coupon.coupon_end_date}</td>
+<%-- 										<td class="center">${coupon.coupon_start_date}</td>
+										<td class="center">${coupon.coupon_end_date}</td> --%>
 									</tr>
 								</c:forEach>
 
 							</tbody>
 						</table>
-						<div class="flex">
+<!-- 						<div class="flex">
 							<div>
 								<input id="button" type="button" value="등록"
 									onclick="window.location='/admin/promo_coupon_insert.jsp'" />
 							</div>
-							<!-- 							<div> -->
-							<!-- 								<input id="button" type="button" value="수정" /> -->
-							<!-- 							</div> -->
+														<div>
+															<input id="button" type="button" value="수정" />
+														</div>
 							<div>
 <input id="delBtn" type="button" value="삭제" onclick="deleteA();" />
 							</div>
 
-						</div>
+						</div> -->
 
 
 						<!-- pagaing 처리 -->
@@ -191,7 +191,7 @@
 				</div>
 			</main>
 
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 	   function deleteA(){
 		   console.log("delete())");
 		   if(confirm("선택한 쿠폰을 삭제하시겠습니까?")){
@@ -250,7 +250,7 @@
 														});
 											};
 						</script>
-
+ -->
 
 	<!-- 테이블 Checked 되었을때 이벤트 반응 막기 -->
 	<script>

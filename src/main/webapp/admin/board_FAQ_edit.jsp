@@ -56,26 +56,18 @@
 <c:choose> 
 	<c:when test="${FAQInfo.board_faq_type eq '세탁'}">
 		<option value="세탁">세탁</option>
-		<option value="주문">주문</option>
 		<option value="배송">배송</option>
-		<option value="결제">결제</option>
 	</c:when>  
 	<c:when test="${FAQInfo.board_faq_type eq '주문'}">
-		<option value="주문">주문</option>
 		<option value="세탁">세탁</option>
 		<option value="배송">배송</option>
-		<option value="결제">결제</option>
 	</c:when>  
 	<c:when test="${FAQInfo.board_faq_type eq '배송'}">
 		<option value="배송">배송</option>
-		<option value="주문">주문</option>
 		<option value="세탁">세탁</option>
-		<option value="결제">결제</option>
 	</c:when> 
 	<c:otherwise>
-		<option value="결제">결제</option>
 		<option value="배송">배송</option>
-		<option value="주문">주문</option>
 		<option value="세탁">세탁</option>
 	
 	</c:otherwise> 

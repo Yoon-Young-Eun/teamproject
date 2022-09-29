@@ -89,7 +89,7 @@ ${QnAInfo_q.board_qna_content}
 
 <div class="end">
 	<div class="board_btn">
-		<input type="submit" value="저장">
+		<input type="submit" value="발송">
 	</div>
 </div>
 								

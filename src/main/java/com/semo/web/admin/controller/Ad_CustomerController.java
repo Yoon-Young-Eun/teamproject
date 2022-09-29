@@ -336,7 +336,7 @@ public class Ad_CustomerController {
 			
 			
 			MessageVO mvo = new MessageVO();
-			mvo.setMessage_title("회원해지문자");
+			mvo.setMessage_title("정지해지문자");
 			if(vo.getCustomer_status() != "") {
 			memberService.getMemberUpdate(vo);
 			MessageVO title = utilservice.getMessageContentType(mvo);

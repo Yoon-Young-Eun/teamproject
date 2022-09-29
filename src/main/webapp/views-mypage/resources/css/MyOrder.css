@@ -31,10 +31,7 @@ a {
 	color : black;
 }
 
-a:hover {
-	
-	
-}
+
 
 /*전체*/
 .page-wrapper {
@@ -56,20 +53,15 @@ a:hover {
 
 /*제목*/
 .content-title {
-	line-height : 70px;
+	line-height: 70px;
 }
 
 /*소제목*/
 .content-subtitle-wrapper {
 	display : flex;
 	justify-content : space-between;
-	border-bottom : 3px solid black;	
-	height : 70px;
-}
-
-.content-subtitle-wrapper p {
-	margin-top :auto;
-	margin-bottom :auto;
+	border-bottom : 2px solid; 	
+	line-height : 70px;
 }
 
 /*내용*/

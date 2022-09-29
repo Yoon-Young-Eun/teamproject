@@ -49,9 +49,7 @@
 											<select class="select" name="board_faq_type">
 												<option selected disabled>분류</option>
 												<option value="세탁">세탁관리</option>
-												<option value="주문">주문관리</option>
 												<option value="배송">배송관리</option>
-												<option value="결제">결제관리</option>
 											</select>
 										</div></li>
 									

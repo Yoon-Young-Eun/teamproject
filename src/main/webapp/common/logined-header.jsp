@@ -137,8 +137,8 @@ var cbpHorizontalMenu = (function() {
         current = -1;
  
     function init() {
-        $menuItems.on( 'mouseover', open );
-        $listItems.on( 'mouseover', function( event ) { event.stopPropagation(); } );
+        $menuItems.on( 'click', open );
+        $listItems.on( 'click', function( event ) { event.stopPropagation(); } );
     }
  
     function open( event ) {

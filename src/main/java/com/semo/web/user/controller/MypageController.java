@@ -539,7 +539,7 @@ public class MypageController {
     
     //견적리스트
     @RequestMapping(value= "/getmyEstimate.do")
-    public String getmyEstimate(PagingVO pvo, Model m , HttpSession session) {
+    public String getmyEstimate(PagingVO pvo, EstimateVO vo,Model m , HttpSession session) {
     	session.getAttribute("id");
     	if(session.getAttribute("id") == null) {
     		return "/login.do";
@@ -553,7 +553,7 @@ public class MypageController {
        if (pvo.getPageNum() == null) {
      	  pvo.setPageNum("1");
        }
-       System.out.println(pvo.getSelectPage());
+
        if (pvo.getSelectPage()==null) {
      	  pvo.setSelectPage("5");
        }

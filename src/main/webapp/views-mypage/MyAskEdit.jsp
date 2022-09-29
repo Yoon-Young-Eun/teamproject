@@ -25,13 +25,11 @@
 <body>
 
 <jsp:include page="/common/logined-header.jsp"/> 
-
 <div class = "page-wrapper">
 	<!-- 사이드메뉴 -->
 	<div class = "sidemenu">
 		<jsp:include page="/common/mypageSide.jsp"/>
 	</div>
-	
 	<!-- 본문 -->
 	<jsp:include page = "/common/quick-menu.jsp"/>
 	<div class = "content-wrapper">
@@ -44,80 +42,81 @@
 			<div class = "content-subtitle-wrapper">
 				<p style = "color : red;">* 필수항목입니다</p>		
 			</div><!-- content-subtitle-wrapper -->
-		</div> <!-- content-title-wrapper -->		
-			<!-- 글쓰기 -->
-			<form action="/updateask.do?board_qna_no=${ask.board_qna_no }" method = "post" name = "insertForm" enctype="multipart/form-data">
-			<div class = "article-wrapper" style = "width : 100%;">
-			<input type="hidden" name="customer_no" value="${ask2.customer_no}"/>
-			
-			<div class = "main_text2">
+		</div> <!-- content-title-wrapper -->	
+		
+		<form action="/updateask.do?board_qna_no=${ask.board_qna_no }" method = "post" name = "insertForm" enctype="multipart/form-data">
+			<div class = "article-wrapper" >
+				<input type="hidden" name="customer_no" value="${ask2.customer_no}"/>
+					
+				<div class = "main_text2">
 					<div class = "type_title1">분류<span id="span1" style = "color : red;">&nbsp;*</span></div>
 					<div class = "name">
 						<select name = "board_qna_type"  class = "sort">
-						<option value = "배송문의">배송문의</option>
-						<option value = "세탁문의">세탁문의</option>
-						<option value = "기타문의">기타문의</option>
-					</select>
-				</div>
-			</div> <!-- sort-wrapper -->
-			<div class="main_text3">
-				<div class="type_title1">
-					작성자 <span id="span1" style = "color : red;">*</span>
-				</div>
-				<div class="name">
-					<input type="text" readonly id="textbar1" value="${ask2.customer_name }">
-				</div>
-			</div> <!-- 작성자 -->
+							<option value = "배송문의">배송문의</option>
+							<option value = "세탁문의">세탁문의</option>
+							<option value = "기타문의">기타문의</option>
+						</select>
+					</div>
+				</div> <!-- sort-wrapper -->
+				
+				<div class="main_text3">
+					<div class="type_title1">
+						작성자 <span id="span1" style = "color : red;">*</span>
+					</div>
+					<div class="name">
+						<input type="text" readonly id="textbar1" value="${ask2.customer_name }">
+					</div>
+				</div> <!-- 작성자 -->
 			
-			<div class="main_text3">
-				<div class="type_title1">
-					휴대전화 <span id="span1" style = "color : red;">*</span>
+				<div class="main_text3">
+		            <div class="type_title1">
+		               휴대전화 <span id="span1" style = "color : red;">*</span>
+		            </div>
+		            <div class="name">
+		           <input type="text" readonly id="textbar1" value="${ask2.customer_phone }">
+       		    	</div>
 				</div>
-				<div class="name">
-					<input type="text" readonly id="textbar1" value="${ask2.customer_phone }">
-				</div>
-			</div>
-			<div class="main_text4">
+				<div class="main_text4">
 				<div class="type_title1">
 					제목 <span id="span1" style = "color : red;">*</span>
-				</div>
-				<div class="name">
-					<input type="text" id="textbar1" style = "background:white; border : 2px solid #cdcdcd;" name="board_qna_title" value="${ask.board_qna_title }">
-				</div>
-			</div> <!-- 제목 -->
-			<div class="main_text4">
-				<div class="type_title1">
-					내용 <span id="span1" style = "color : red;">*</span>
-				</div>
-				<div class="name">
-					<textarea id="write_area"style = "background:white; border : 2px solid #cdcdcd; padding : 10px;" name="board_qna_content">${ask.board_qna_content }</textarea>
-				</div>
-			</div><!-- 내용 -->
-			<div class="file_wrap">
+					</div>
+					<div class="name">
+						<input type="text" id="textbar1" style = "background:white; border : 2px solid #cdcdcd;" name="board_qna_title" value="${ask.board_qna_title }">
+					</div>
+				</div> <!-- 제목 -->
+				
+				<div class="main_text4">
+					<div class="type_title1">
+						내용 <span id="span1" style = "color : red;">*</span>
+					</div>
+					<div class="name">
+						<textarea id="write_area"name="board_qna_content">${ask.board_qna_content }</textarea>
+					</div>
+				</div><!-- 내용 -->
+				
+				<div class="file_wrap">
 					<input type="file" name="file" accept="*" id="bizFile" />
 					<div class="main_text5">
 						<div class="type_title1" style = "">
 							<label id="label1">파일 업로드</label>
 						</div>
-					<div class="name">
-					<input type="text" id="textbar9" style="align-items: center; display: flex; color:red; font-weight:bold;" value="선택된 파일 없음" readonly>
-						
+						<div class="file-name">
+						<input type="text" id="textbar2" readonly>
+						<div class = "btn">
+							<label for="bizFile" id="label1">파일 선택</label>
+						</div>	
+						</div>	
 					</div>
-					<div class = "btn" style = "margin-left : 20px;">
-						<label for="bizFile" id="label1">파일 선택</label>
-					</div>		
+				</div><!-- 첨부파일 -->
+				
+				<div class = "button-wrapper" >
+					<input type ="button" id = "insert1" onclick="location.href='/myasklist.do?customer_no=${num}'" class="action-button shadow animate grey" value="취소">	
+					<input type ="submit" id = "insert" class="action-button shadow animate blue" value="등록">	
 				</div>
-			</div><!-- 첨부파일 -->
-			
-			<div class = "button-wrapper" style="width:1000px;">
-				<input type ="button" id = "insert1" onclick="location.href='/myasklist.do?customer_no=${num}'" class="action-button shadow animate grey" style = "height : 50px;" value="취소">	
-				<input type ="submit" id = "insert" class="action-button shadow animate blue" style = "height : 50px;" value="등록">	
-			</div>
-			</div>
-			</form>
-	</div>	
-</div>	
-
+			</div><!-- article-wrapper -->
+		</form>
+	</div>
+</div>
 	<jsp:include page="/common/footer.jsp" />
 
 <!-------------------- 스크립트 -------------------->

@@ -46,7 +46,7 @@ public class InfoController {
 		cvo.setCustomer_passwd(encoder.encode(vo.getCustomer_passwd()));
 		
 		infoservice.updateCustomerInfo(cvo);
-		return "/views-mypage/MyMain.jsp";
+		return "/mypage.do";
 	}
 	
 	@RequestMapping(value="/deleteCustomer.do")

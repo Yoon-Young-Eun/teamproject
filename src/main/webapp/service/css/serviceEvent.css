@@ -1,0 +1,103 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	width: 100%;
+	max-width: 1920px;
+	scroll-behavior: smooth;
+}
+
+body {
+	zoom: 1;
+	position: relative;
+	z-index: 1;
+	-ms-overflow-y-style: none;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	font-weight: bold;
+	cursor: pointer;
+}
+
+/*전체*/
+.page-wrapper {
+	display: flex;
+	justify-content: center;
+	margin-right : 150px;
+	margin-left : 150px;
+	
+}
+
+/*사이드 메뉴*/
+
+/*본문*/
+.content-wrapper {
+	max-width: 1040px;
+	margin: 50px;
+	width: 100%;
+}
+
+/*제목*/
+.content-title {
+	line-height: 70px;
+}
+
+/*소제목*/
+.content-subtitle-wrapper {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 2px solid;
+	line-height: 70px;
+}
+
+.main-wrapper {
+	width : 100%;
+	margin-top : 50px;
+}
+
+.main_reg_date {
+	display : flex;
+}
+
+.main_reg_date .title {
+	width : 100px;
+}
+
+.event_btn {
+	display:flex;
+	justify-content : center;
+}
+#button2{
+	border-top:none;
+	border-left : none;
+	border-right:none;
+}
+
+.main_content {
+	margin-top : 30px;
+	border : 2px solid #cdcdcd;
+	border-radius : 5px;
+	line-height : 35px;
+	padding : 10px;
+}
+
+.right{
+	margin-top : 30px;
+}

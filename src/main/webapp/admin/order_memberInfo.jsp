@@ -110,8 +110,8 @@ request.setCharacterEncoding("utf-8");
 
 
 								<div class="member_order">
-									<a style="font-size: 10px;"
-										href="/memberorderList.mdo?order_no=${order.order_no}">주문리스트</a>
+<%-- 									<a style="font-size: 10px;"
+										href="/memberorderList.mdo?order_no=${order.order_no}">주문리스트</a> --%>
 								</div>
 
 								<div class="end">

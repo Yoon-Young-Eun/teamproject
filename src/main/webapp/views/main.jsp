@@ -135,8 +135,15 @@
 		</div>
 	</div>
 </div>
-
+<div class = "always-button">
+<!-- <a href = "#"><img alt="" src="/views/resources/img/booking.png"></a> -->
+<br>
+<br>
+<br>
+<a class = "going-up" href = "#"><img alt="" src="/views/resources/img/going_up.png"></a>
+</div>
 <jsp:include page="/common/footer.jsp"/> 
+
 </form>
 </body>
 

@@ -45,6 +45,7 @@ $(function(){
 </script>
 </div>
 </form>
+<jsp:include page = "/common/quick-menu.jsp"/>
 <div class = "wrapper" style = "margin-top : 100px;">
 <img alt="" src="/views-menu/resources/img/shirts1.png">
 <img alt="" src="/views-menu/resources/img/shirts2.png">

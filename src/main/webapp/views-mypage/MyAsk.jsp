@@ -30,17 +30,17 @@
 	<div class = "sidemenu">
 		<jsp:include page="/common/mypageSide.jsp"/>
 	</div>
-	
 	<!-- 본문 -->
+	<jsp:include page = "/common/quick-menu.jsp"/>
 	<div class = "content-wrapper">
 		<!-- 제목 -->
 		<div class = "content-title-wrapper">
 			<div class = "content-title">
-				<h2>내 주문 관리</h2>
+				<h2>문의하기</h2>
 			</div>
 			<!-- 소제목 -->
 			<div class = "content-subtitle-wrapper">
-				<p>총 <b>${cnt}</b>건의 주문내역</p>
+				<p style = "color : red;">* 필수항목입니다</p>		
 			</div><!-- content-subtitle-wrapper -->
 		</div> <!-- content-title-wrapper -->	
 		
@@ -67,19 +67,11 @@
 						<input type="text" readonly id="textbar1" value="${ask.customer_name }">
 					</div>
 				</div> <!-- 작성자 -->
+			
 				
-				<div class="main_text3">
-					<div class="type_title1">
-						휴대전화 <span id="span1" style = "color : red;">*</span>
-					</div>
-					<div class="name">
-						<input type="text" readonly id="textbar1" value="${ask.customer_phone }">
-					</div>
-				</div> <!-- 휴대전화 -->
-				
-				<div class="main_text3">
-					<div class="type_title1">
-						제목 <span id="span1" style = "color : red;">*</span>
+				<div class="main_text4">
+				<div class="type_title1">
+					제목 <span id="span1" style = "color : red;">*</span>
 					</div>
 					<div class="name">
 						<input type="text" id="textbar1" style = "background:white; border : 2px solid #cdcdcd;" name="board_qna_title">

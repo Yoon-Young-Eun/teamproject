@@ -100,7 +100,6 @@
 										name="check" class="allcheck"></th>
 									<th>No</th>
 									<th>제목</th>
-									<th>내용</th>
 									<th>작성일</th>
 								</tr>
 							</thead>
@@ -110,7 +109,6 @@
 										<td id="check_td"><input type="checkbox" class="checkone" name="check"></td>
 										<td class="center">${notice.notice_no}</td>
 										<td>${notice.notice_title}</a></td>
-										<td>${notice.notice_content}</td>
 										<td class="center">${notice.notice_reg_date}</td>
 									</tr>
 								</c:forEach>
@@ -122,7 +120,7 @@
 									onclick="window.location='/admin/board_notice_write.jsp'" />
 							</div>
 							<div>
-								<input id="delBtn" type="button" value="삭제" onclick="return confirm('선택한 공지사항을 삭제하시겠습니까?');"/>
+								<input id="delBtn" type="button" value="삭제" onclick="deleteA();" />
 							</div>
 						</div>
 						<!-- pagaing 처리 -->
@@ -164,10 +162,18 @@
 	
 	
 	<script type="text/javascript">
-							//체크삭제
-							$("#delBtn")
-									.click(
-											function() {
+	
+	   function deleteA(){
+		   console.log("delete())");
+		   if(confirm("선택한 공지사항을 삭제하시겠습니까?")){
+			   deleteAll();
+			   return true;
+		   }else{
+			   return false;
+		   }
+	   }
+	      //체크삭제
+	      function deleteAll() {
 												console.log("1");
 												var rowData = new Array();
 												var tdArr = new Array();
@@ -212,7 +218,7 @@
 																		}
 																	});
 														});
-											});
+											};
 						</script>
 						
 		<!-- 테이블 Checked 되었을때 이벤트 반응 막기 -->

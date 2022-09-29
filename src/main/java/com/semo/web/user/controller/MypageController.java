@@ -678,5 +678,10 @@ public class MypageController {
     	System.out.println(service.viewReview(vo));
     	return "/views-mypage/myReviewView.jsp";
     }
+    
+    @RequestMapping(value="/viewHow.do")
+    public String viewHow() {
+    	return "/views-menu/how_to.jsp";
+    }
 		
 }

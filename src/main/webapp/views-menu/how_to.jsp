@@ -45,6 +45,7 @@ $(function(){
 </script>
 </div>
 </form>
+<jsp:include page = "/common/quick-menu.jsp"/>
 <div class = "wrapper" style = "margin-top : 100px;">
 
 <div id = "howto" class = "howto">

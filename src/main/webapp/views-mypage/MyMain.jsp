@@ -31,7 +31,7 @@
 	<div class = "sidemenu">
 	<jsp:include page="/common/mypageSide.jsp"/>
 	</div>
-
+<jsp:include page = "/common/quick-menu.jsp"/>
 	<!-- 본문 -->
 	<div class = "content-wrapper">
 		<!-- 요약 박스 -->
@@ -86,6 +86,6 @@
 		</div>
 	</div><!-- content-wrapper -->
 </div><!-- page-wrapper -->
-
+<jsp:include page="/common/footer.jsp" />
 </body>
 </html>

@@ -33,7 +33,7 @@
 				<jsp:include page="/common/mypageSide.jsp" />
 			</div>
 			
-			<form action="/updateCustomer.do" name="UpdateForm">
+			<form action="/updateCustomer.do" name="UpdateForm" id="form" onsubmit="chkPW()">
 			<input type="hidden" name="customer_no" value="${info.customer_no}">
 			<div class="main_text">
 				<div class="MyInfo_title">
@@ -53,7 +53,7 @@
 							<tr>
 								<th class="tableNumber">비밀번호</th>
 								<td class="tableTitle"><label for="insertPw">
-								<input type="password" id="insertPw" class="inputBox" name = "customer_passwd" value="${pw.customer_passwd}" /></label>
+								<input type="password" id="insertPw" class="inputBox pass" name = "customer_passwd" value="${pw.customer_passwd}" /></label>
 								 <span class="text">비밀번호는 8자리 이상이며, 숫자와 영문, 특수문자(@,!,#,$,%)를
 										혼용해서 입력해주세요.</span> <span id="pwCorrection"></span> <script>
 									
@@ -64,7 +64,7 @@
 							<tr>
 								<th class="tableNumber">비밀번호 확인</th>
 								<td class="tableTitle"><label for="checkPw">
-								<input type="password" id="checkPw" class="inputBox" value="${pw.customer_passwd}" /></label> 
+								<input type="password" id="checkPw" class="inputBox repass" value="${pw.customer_passwd}" /></label> 
 										<span class="text">입력하신 비밀번호를 확인합니다.</span> <span id="pwChecking"></span>
 									</td>
 							</tr>
@@ -138,7 +138,7 @@ $(document).ready(function () {
                    text: "메인페이지로 되돌아갑니다.", // 내가 띄워줄 text 내용
                    icon: "success", // 그에 맞는 아이콘 무늬 
                    showConfirmButton: false, // Confirm 버튼을 보여줄 것인지? -> 나는 false 로 값이 안나타나고 바로 로딩돼서 없어지도록 만들어줬어!
-                   timer: 2000, // 타이머 걸어둬서 1.5초 지나면 바로 modal 없어지지롱
+                   timer: 5000, // 타이머 걸어둬서 1.5초 지나면 바로 modal 없어지지롱
                 })
                 location.href="/deleteCustomer.do?customer_no=${info.customer_no}"; // 이건 내가 어느 주소로 보내줄건지
             }else if(result.isDismissed){ // 만약에 result 를 아니오로 선택한 경우에는
@@ -147,7 +147,12 @@ $(document).ready(function () {
         })
     });
 });
-</script>							
+</script>			
+
+
+
+	
+					
 <!-- 비밀번호 체크 -->
 	<script type="text/javascript">
 	$(document).ready(function(){
@@ -180,14 +185,40 @@ $(document).ready(function () {
 			if($('#insertPw').val() != $('#checkPw').val()){
 				$('#pwChecking').css("color", "red");
 				$('#pwChecking').html("비밀번호가 일치하지 않습니다. 다시 확인해주세요!");
+			
 			}else {
 				$('#pwChecking').css("color", "green");
-				$('#pwChecking').html("비밀번호가 일치합니다. 회원가입을 계속 진행해주세요!");
+				$('#pwChecking').html("비밀번호가 일치합니다.");
+			
 			}
 		});
 										
 	});
 	</script>
+	
+	<!-- 회원 정보 유효성 검사 -->
+<script>
+
+	$('#Update').click(function(){
+		var UpdateForm = document.UpdateForm;
+		var passwd = $('#insertPw').val();
+		var check_passwd = $('#checkPw').val();
+
+		
+		console.log("정보수정 유효성 실행");
+
+		if(passwd.trim() != check_passwd.trim()){
+		    alert("비밀번호를 동일하게 입력해주세요.");
+		    return false;
+		}else{
+		form.submit();
+		}
+		
+	});
+	
+	</script>
+	
+	
 
 <!-- 전화번호 -->
 	<script>
@@ -254,33 +285,9 @@ $(document).ready(function () {
 	</script>
 									
 									
-<!-- 회원 정보 유효성 검사 -->
-<script>
 
-	$('#Update').click(function(){
-		var UpdateForm = document.UpdateForm;
-		var passwd = $('#insertPw').val();
-		var check_passwd = $('#checkPw').val();
-		
-		console.log("정보수정 유효성 실행");
-		
-		if (passwd == "" || passwd == null) {
-			$('#pwCorrection').css("color", "red");
-			$('#pwCorrection').html("변경할 비밀번호를 입력해주세요.");
-			$('#insertPw').focus();
-			return false;
-		} else if (check_passwd == "" || check_passwd == null) {
-			$('#pwChecking').css("color", "red");
-			$('#pwChecking').html("비밀번호를 확인해주세요.");
-			$('#checkPw').focus();
-			return false;
-		} 
-		UpdateForm.submit();
-		
-		
-	});
 	
-	</script>
+
 	
 </body>
 <jsp:include page="/common/footer.jsp" />

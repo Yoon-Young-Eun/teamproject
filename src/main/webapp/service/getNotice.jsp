@@ -120,7 +120,13 @@
                                     </c:choose>
                                  </div>
                         </div>
+<<<<<<< HEAD
             </div>      </div>
+=======
+            </div>      
+            <div class="btn"><input type="button" id="button2" value="목록" onclick="location.href='getBoardList.do'" class="action-button shadow animate blue" ></div>
+            </div>
+>>>>>>> main
    </div>
 </div>      
 

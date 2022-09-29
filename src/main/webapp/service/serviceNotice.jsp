@@ -134,22 +134,24 @@
 								<div class="paging">
 							    <div class="paging-text">
 								<c:if test="${startPage > pageBlock}"> <!-- 시작번호가 5보다 크면, 앞에 '이전'을 붙여줌 -->
-									<a href="/getBoardList.do.do?pageNum=${startPage-pageBlock}&customer_no=${num}"><i class="fas fa-chevron-left"></i></a>
+									<a href="/getBoardList.do?pageNum=${startPage-pageBlock}&customer_no=${num}"><i class="fas fa-chevron-left"></i></a>
 								</c:if>
 								</div>
 								<div class="paging-num">
 								<c:forEach var="i" begin="${startPage}" end="${endPage}">
-										<a href="/getBoardList.do.do?pageNum=${i}&customer_no=${num}">${i}</a>
+										<a href="/getBoardList.do?pageNum=${i}&customer_no=${num}">${i}</a>
 								</c:forEach>
 								</div>							
 								<div class="paging-text">
 								<c:if test="${endPage < pageCount}">
-									<a href="/getBoardList.do.do?pageNum=${startPage + pageBlock}&customer_no=${num}"><i class="fas fa-chevron-right"></i></a>
+									<a href="/getBoardList.do?pageNum=${startPage + pageBlock}&customer_no=${num}"><i class="fas fa-chevron-right"></i></a>
 								</c:if>
 								</div>
 								</div>
 							</c:if>
 						</div><!-- 페이징 종료 -->
+						
+						
 		</div>
 	</div>
 	</div>

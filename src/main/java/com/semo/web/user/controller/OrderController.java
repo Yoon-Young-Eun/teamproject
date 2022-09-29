@@ -387,8 +387,11 @@ public class OrderController<imp_uid> {
 	@RequestMapping(value = "/OrderOrder.do")
 	public String OrderOrder(OrderVO vo, EstimateVO evo,Model model, HttpSession session) {
 		session.getAttribute("id");
+		int num = (Integer)session.getAttribute("num");
 		if (session.getAttribute("id") != null) {
 			System.out.println(vo);
+			vo.setCustomer_no(num);
+			System.out.println(vo.getCustomer_no());
 			orderservice.OrderOrder(vo);
 			model.addAttribute("OrderDate", vo);
 			System.out.println(vo);

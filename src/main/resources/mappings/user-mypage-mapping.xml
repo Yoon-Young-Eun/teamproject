@@ -117,7 +117,7 @@
  	
  	<!-- 유저 견적서 리스트 -->
  	<select id="getmyEstimate" parameterType="paging" resultType="estimate">
- 		<![CDATA[ select * from (select @rownum := @rownum+1 as rnum, customer_no, estimate_cm_no, estimate_type, estimate_date estimate_content, estimate_status from estimate_cm, (select @rownum :=0)as rowcolum ]]>
+ 		<![CDATA[ select * from (select @rownum := @rownum+1 as rnum, customer_no, estimate_cm_no, estimate_type, estimate_date, estimate_content, estimate_status from estimate_cm, (select @rownum :=0)as rowcolum ]]>
  		<![CDATA[ where customer_no=#{customer_no} order by estimate_cm_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow}]]>
  	</select>
 

@@ -125,7 +125,7 @@
 									onclick="window.location='/admin/board_event_write.jsp'" />
 							</div>
 							<div>
-								<input id="delBtn" type="button" value="삭제" onclick="return confirm('선택한 이벤트 정보를 삭제하시겠습니까?');"/>
+								<input id="delBtn" type="button" value="삭제" onclick="deleteA();" />
 							</div>
 
 						</div>
@@ -164,10 +164,18 @@
 						</div>
 						<!-- 페이징 종료 -->
 						<script type="text/javascript">
-							//체크삭제
-							$("#delBtn")
-									.click(
-											function() {
+						
+						   function deleteA(){
+							   console.log("delete())");
+							   if(confirm("선택한 이벤트 정보를 삭제하시겠습니까?")){
+								   deleteAll();
+								   return true;
+							   }else{
+								   return false;
+							   }
+						   }
+						      //체크삭제
+						      function deleteAll() {
 												console.log("1");
 												var rowData = new Array();
 												var tdArr = new Array();
@@ -212,7 +220,7 @@
 																		}
 																	});
 														});
-											});
+											};
 						</script>
 
 

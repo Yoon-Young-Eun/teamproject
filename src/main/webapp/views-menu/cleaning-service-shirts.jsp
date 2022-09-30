@@ -52,5 +52,6 @@ $(function(){
 <img alt="" src="/views-menu/resources/img/shirts3.png">
 </div>
 
+<jsp:include page="/common/footer.jsp"/> 
 </body>
 </html>

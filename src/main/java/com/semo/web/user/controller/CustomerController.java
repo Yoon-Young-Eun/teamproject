@@ -114,7 +114,7 @@ public class CustomerController {
 	}
 
 	// 회원가입 완료 페이지 이동
-	@RequestMapping(value = "/complete.do", method = RequestMethod.POST)
+	@RequestMapping("/complete.do")
 	public String join(CouponListVO mvo, CouponVO cvo, CustomerVO vo, HttpSession session, Model model) {
 		System.out.println("join check");
 		System.out.println(vo);

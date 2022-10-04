@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Insert title here</title>
+<title>[세모]세탁의 모든것</title>
 
 <!-- font awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
@@ -34,7 +34,7 @@
 
             <li class="listItemT" style="left:0px; background: #a9d3f0; color : #1f2427; font-weight:bold;">MY 정보</li>
             <li class="listItemA"><i class="fas fa-user-edit"></i><a href="/getno.do?customer_no=${num}">회원 정보 수정</a></li>
-            <li class="listItemA" style = "margin-left:5px;"><i class="fas fa-map-marker-alt"></i><a href="/myAddress.do?customer_no=${num}">내주소 관리</a></li>
+            <li class="listItemA" style = "margin-left:5px;"><i class="fas fa-map-marker-alt"></i><a href="/myAddress.do?customer_no=${num}">내 주소 관리</a></li>
             <li class="listItemA"><i class="fas fa-ticket-alt"></i><a href="/mycoupon.do?customer_no=${num}">할인쿠폰</a></li>
             
             <li class="listItemT" style="left:0px; background: #a9d3f0; color :#1f2427; font-weight:bold;">MY 활동</li>

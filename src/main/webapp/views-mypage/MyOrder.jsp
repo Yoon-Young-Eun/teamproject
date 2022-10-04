@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Insert title here</title>
+<title>[세모]세탁의 모든것</title>
 
 <!-- font awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 <!-- map api -->
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=23ba625f7534454f4f7553b3ef9cfd1c"></script>
+<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=23ba625f7534454f4f7553b3ef9cfd1c"></script>
 </head>
 <body>
 
@@ -265,34 +265,34 @@
 	var num1 = Number(0);
  	var num2 = Number(0);
 
-	if (document.getElementById('order_store_name').value === '노량진점') {
+	if (document.getElementById('order_store_name').value === '동작구') {
 	num1 = Number(37.513007626488594);
 	num2 = Number(126.93989940550772);
 	}
-	else if (document.getElementById('order_store_name').value === '시청점') {
+	else if (document.getElementById('order_store_name').value === '중구') {
 		num1 = Number(37.566857992065586);
 		num2 = Number(126.97866356824198);
 	}
-	else if (document.getElementById('order_store_name').value === '청와대점') {
+	else if (document.getElementById('order_store_name').value === '종로구') {
 		num1 = Number(37.586564230544354);
 		num2 = Number(126.97480278835683);
 	}
-	else if (document.getElementById('order_store_name').value === '국회의사당점') {
+	else if (document.getElementById('order_store_name').value === '영등포구') {
 		num1 = Number(37.53183392416857);
 		num2 = Number(126.91413983106807);
 	}
 
- else if (document.getElementById('order_store_name').value === '코엑스점') {
+ else if (document.getElementById('order_store_name').value === '강남구') {
 	num1 = Number(37.51238658438941);
 	num2 = Number(127.05880783427013);
 
-} else if (document.getElementById('order_store_name').value === '롯데월드타워점') {
-	 num1 = Number(37.5126223756192);
+} else if (document.getElementById('order_store_name').value === '송파구') {
+	num1 = Number(37.5126223756192);
 	num2 = Number(127.1026969968422);
-} else if (document.getElementById('order_store_name').value === '남산타워점') {
+} else if (document.getElementById('order_store_name').value === '용산구') {
 	num1 = Number(37.55127433886607);
 	num2 = Number(126.9882560895345);
-} else if (document.getElementById('order_store_name').value === '법원점') {
+} else if (document.getElementById('order_store_name').value === '서초구') {
 	num1 = Number(37.495934829363385);
 	num2 = Number(127.01107370085373);
 } else { // 입력값 없는 경우 본점으로(청와대점)

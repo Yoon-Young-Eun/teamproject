@@ -5,9 +5,17 @@
 <%@ include file="/admin/ad_header.jsp"%>
 
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-
+<script>
+function onEnterLogin(){
+    var keyCode = window.event.keyCode;
+    
+    if (keyCode == 13) { //엔터키 이면
+       loginform.submit();
+    }
+ } //onEnterLogin()
+</script>
 </head>
-<body class="bg-primary">
+<body class="bg-primary" onkeydown="javascript:onEnterLogin();">
 	<div id="layoutAuthentication">
 		<div id="layoutAuthentication_content">
 			<main>
@@ -19,7 +27,7 @@
 									<h3 class="text-center font-weight-light my-4">Login</h3>
 								</div>
 								<div class="card-body">
-									<form action="/logon.mdo" method="post" id="form">
+									<form action="/logon.mdo" method="post" name="loginform" id="form">
 										<div class="form-floating mb-3">
 											<input class="form-control" id="inputEmail" type="email"
 												name="admin_id" placeholder="name@example.com" /> <label

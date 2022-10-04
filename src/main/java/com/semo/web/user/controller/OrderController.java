@@ -194,7 +194,7 @@ public class OrderController<imp_uid> {
 		return "/login.do";
 	}
 
-	@RequestMapping(value="/OrderInsert.do" , method=RequestMethod.POST)
+	@RequestMapping("/OrderInsert.do")
 	public String OrderInsert(OrderVO vo, OrderMtVO vo3, OrderMtArrayVO vo2, CouponListVO cou, Model model,
 			HttpSession session) {
 		session.getAttribute("id");

@@ -79,7 +79,7 @@
  	</select>
  	
  	<select id="myOrderPaging" parameterType="paging" resultType="order">
- 	<![CDATA[select * from (select @rownum := @rownum+1 as rnum, order_no, order_type, store_code, order_date, order_pickup_date, order_pickup_time, cm_gate_passwd, order_request1, order_request2, order_price, order_use_coupon_price, order_status, order_price_status, order_price_method, customer_no, order_customer_name, order_store_name, order_expected_date, order_customer_phone, order_address1, order_address2, order_delivery_price, review_status from order_cm, (select @rownum :=0)as rowcolum]]>
+ 	<![CDATA[select * from (select @rownum := @rownum+1 as rnum, order_no, order_type, store_code, order_date, order_pickup_date, order_pickup_time, cm_gate_passwd, order_request1, order_request2, order_price, order_use_coupon_price, order_status, order_price_status, order_price_method, customer_no, order_customer_name, order_store_name, order_expected_date, order_customer_phone, order_address1, order_address2, order_delivery_price from order_cm, (select @rownum :=0)as rowcolum]]>
  	 <![CDATA[ where customer_no=#{customer_no} order by order_no desc) as rownum_table where rnum >=#{startRow} and rnum <=#{endRow}]]>
 
  	</select>

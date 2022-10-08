@@ -106,10 +106,14 @@
    select * from store
    </select>
 
-   <!-- 주문 상세보기 수정 -->
+   <!-- 주문 상세보기 수정(문자 & 스토어) -->
    <update id="updateOrderInfo" parameterType="order">
    <![CDATA[update order_cm set order_store_name=#{order_store_name}, order_status=#{order_status} where order_no=#{order_no}]]>
- 
+   </update>
+   
+      <!-- 주문 상세보기 수정(스토어) -->
+   <update id="updateOrderStore" parameterType="order">
+   <![CDATA[update order_cm set order_store_name=#{order_store_name} where order_no=#{order_no}]]>
    </update>
    
     <!-- message 에서 title가져오기 -->

@@ -16,7 +16,7 @@ public interface DashboardService {
 	public int getQnAStatus(Cm_QnAVO vo);
 	public int getVcount(CustomerVO vo);
 	
-	public int getTodaySales(OrderVO vo);
+	public Integer getTodaySales();
 	public int getMonthSales(OrderVO vo);
 	public int getYearSales(OrderVO vo);
 	

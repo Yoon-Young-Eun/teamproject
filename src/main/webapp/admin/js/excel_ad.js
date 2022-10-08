@@ -1,4 +1,4 @@
-function fnExcelReport(table, title) {
+function fnExcelReport(table2, title) {
 
 var tab_text = '<html xmlns:x="urn:schemas-microsoft-com:office:excel">';
 
@@ -14,7 +14,7 @@ tab_text += '</x:ExcelWorksheets></x:ExcelWorkbook></xml></head><body>';
 
 tab_text += "<table border='1px'>";
 
-var exportTable = $('.' + table).clone();
+var exportTable = $('.' + table2).clone();
 
 exportTable.find('input').each(function(index, elem) {
 

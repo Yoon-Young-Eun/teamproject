@@ -63,9 +63,16 @@ public class Ad_DashboardController {
 		System.out.println(DashboardService.getVcount(cvo));
 		
 		// 일매출
-		System.out.println("admin getTodaySales()"+DashboardService.getTodaySales(vo));
-		model.addAttribute("OrderTodaySales", DashboardService.getTodaySales(vo));
-		System.out.println(DashboardService.getTodaySales(vo));
+		System.out.println("admin getTodaySales()"+DashboardService.getTodaySales());
+		if(DashboardService.getTodaySales()!= null) {
+			model.addAttribute("OrderTodaySales", 0);
+		}else {
+			model.addAttribute("OrderTodaySales", DashboardService.getTodaySales());
+			System.out.println(DashboardService.getTodaySales());
+		}
+		
+		
+
 		
 		// 월매출
 		System.out.println("admin getMonthSales()"+DashboardService.getMonthSales(vo));

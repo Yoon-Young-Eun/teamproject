@@ -44,8 +44,8 @@ public class DashboardDAO {
 	}
 	
 	// 일매출
-	public int getTodaySales(OrderVO vo) {
-		return sql.selectOne("DashboardDAO.getTodaySales", vo);
+	public Integer getTodaySales() {
+		return sql.selectOne("DashboardDAO.getTodaySales");
 	}
 	
 	// 월매출

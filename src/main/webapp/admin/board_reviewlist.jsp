@@ -45,13 +45,10 @@
 
 						<!--  여기부터 내용물 -->
 
-						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
+						<!--datatablesSimple는 부트스트렙id,  table excel 다운 tblCustomers pdf 다운   -->
 						<div class="flex">
 							<input type="button" id="btnExport" value="PDF" class="icon_pdf" />
-							<!-- pdf 버튼 -->
-							<button class="icon_excel"
-								onclick="exportToExcel('tblexportData', 'user-data')">Excel</button>
-							<!-- excel -->
+							<button type="button" class="icon_excel" onclick="fnExcelReport('table','title');">Excel</button>
 						</div>
 						
 						<div class="b_button">
@@ -95,7 +92,7 @@
 
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
 						<table id=""
-							class="emp-table dataPerPage tblCustomers tblexportData table">
+							class="tblCustomers table">
 							<thead>
 								<tr style="background-color: #f2f2f2";>
 									<th width="50" id="check_td"><input type="checkbox"
@@ -280,8 +277,6 @@
 
 	<!-- excel -->
 	<script src="/admin/js/excel.js"></script>
-	<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
 <%@ include file="/admin/ad_footer.jsp"%>
 <%@ include file="/admin/ad_end.jsp"%>

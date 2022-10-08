@@ -46,13 +46,10 @@
 
 <!-- 답변 대기 테이블 시작 -->
 <h1>답변 대기</h1>
-						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
+						<!-- pdf, excel 다운  -->
 						<div class="flex">
 							<input type="button" id="btnExport" value="PDF" class="icon_pdf" />
-							<!-- pdf 버튼 -->
-							<button class="icon_excel"
-								onclick="exportToExcel('tblexportData', 'user-data')">Excel</button>
-							<!-- excel -->
+							<button type="button" class="icon_excel" onclick="fnExcelReport('table','title');">Excel</button>
 						</div>
 							
 							
@@ -96,9 +93,9 @@
 						</div>
 						</div>
 						
-						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
+					<!--datatablesSimple는 부트스트렙id,  table excel 다운 tblCustomers pdf 다운   -->
 						<table id=""
-							class=" tblCustomers tblexportData table">
+							class=" tblCustomers table">
 							<thead>
 								<tr style="background-color: #f2f2f2";>
 									<th>번호</th>
@@ -167,14 +164,12 @@
 <br>
 <!-- 답변 완료 테이블 시작 -->
 <h1>답변 완료</h1>					
-						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
+								<!-- pdf, excel 다운  -->
+					<!-- 	
 						<div class="flex">
 							<input type="button" id="btnExport" value="PDF" class="icon_pdf" />
-							<!-- pdf 버튼 -->
-							<button class="icon_excel"
-								onclick="exportToExcel('tblexportData', 'user-data')">Excel</button>
-							<!-- excel -->
-						</div>
+							<button type="button" class="icon_excel" onclick="fnExcelReport('table2','title');">Excel</button>
+						 </div> -->
 						
 						<div class="b_button">
 							<!-- 테이블 행 필터 -->
@@ -215,9 +210,9 @@
 							</div>
 						</div>
 						</div>
-						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
+
 						<table id=""
-							class="tblCustomers tblexportData table">
+							class="">
 							<thead>
 								<tr style="background-color: #f2f2f2";>
 									<th>번호</th>
@@ -295,12 +290,10 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
 	<script type="text/javascript"
 		src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-	<script src="js/pdf.js"></script>
+	<script src="/admin/js/pdf.js"></script>
 
 	<!-- excel -->
-	<script src="js/excel.js"></script>
-	<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="/admin/js/excel.js"></script>
 		
 <%@ include file="/admin/ad_footer.jsp"%>
 <%@ include file="/admin/ad_end.jsp"%>

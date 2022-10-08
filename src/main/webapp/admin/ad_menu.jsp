@@ -13,7 +13,7 @@
 <!--                 </div> -->
             </form>
             <!-- Navbar-->
-            <div style="color:white;">${admin.admin_name}님 환영합니다.!</div>
+            <div style="color:white;">${admin.admin_name}님 환영합니다!</div>
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>

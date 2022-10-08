@@ -256,8 +256,8 @@ public class Ad_OrderController {
 						return "redirect:/login.mdo";
 				}
 				
+				System.out.println("mvo" + mvo);
 				System.out.println("order수정사항"+ vo);				
-				System.out.println("문자 내용"+mvo);
 				 //String phone = vo.getOrder_customer_phone(); 
 				String mess = mvo.getMessage_content();
 
@@ -268,20 +268,27 @@ public class Ad_OrderController {
 				  if(vo2.getCustomer_sms_permit()==1) {
 						CustomerVO vo3 = memberService.getSmsPermit(vo2);
 						String phone = vo3.getCustomer_phone(); 
-				  	
-					 
+
 					 System.out.println("문자 내용 있음");
-				 coolsms.sendMessage(phone, mess); 				 
-				  }
-				 }
+				 coolsms.sendMessage(phone, mess); 	
+				 
 					MessageVO mv = orderserivce.getMessageTitle(mvo);
+					System.out.println("mv 결과"+mv);
+
 					vo.setOrder_status(mv.getMessage_title());
 					 System.out.println("order_Status 값"+vo.getOrder_status());
+					 System.out.println("updateOrderInfo");
+					 System.out.println("수정 직전 정보"+vo);
+					 orderserivce.updateOrderInfo(vo);
+
+				  }
+				 }
+				 orderserivce.updateOrderStore(vo);
+
+				 
 				 //정보 수정하기
 	
-				 System.out.println("updateOrderInfo");
-				 System.out.println("수정 직전 정보"+vo);
-				 orderserivce.updateOrderInfo(vo);
+
 				 
 				 
 				return "/adminOrderList.mdo";

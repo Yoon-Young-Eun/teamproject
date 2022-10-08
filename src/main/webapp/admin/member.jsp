@@ -4,6 +4,11 @@
 
 <%@ include file="/admin/ad_header.jsp"%>
 
+
+<!-- excel -->
+<script src="/admin/js/excel.js"></script>
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
+
 <!-- table & hover css -->
 <link href="/admin/css/table.css" rel="stylesheet" />
 
@@ -48,11 +53,10 @@
 
 						<!--datatablesSimple table 템플릿 / emp-table dataPerPage 필드검색 / tblCustomers pdf 다운   -->
 						<div class="flex">
+						<!-- pdf 버튼 -->
 							<input type="button" id="btnExport" value="PDF" class="icon_pdf" />
-							<!-- pdf 버튼 -->
-							<button class="icon_excel"
-								onclick="exportToExcel('tblexportData', 'user-data')">Excel</button>
-							<!-- excel -->
+								<!-- excel -->
+							<button type="button" class="icon_excel" onclick="fnExcelReport('table','title');">Excel</button>
 						</div>
 
 
@@ -227,10 +231,7 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 	<script src="/admin/js/pdf.js"></script>
 
-	<!-- excel -->
-	<script src="/admin/js/excel.js"></script>
-	<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
+	
 <%@ include file="/admin/ad_footer.jsp"%>
 <%@ include file="/admin/ad_end.jsp"%>

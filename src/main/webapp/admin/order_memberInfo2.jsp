@@ -89,7 +89,7 @@ request.setCharacterEncoding("utf-8");
 									<div class="member_state">
 										주문상태(${order.order_status}) : 
 										<select name="message_content">${order.order_status}
-										<option value="">상태수정</option>
+										<option value="${order.order_status}">상태수정</option>
 											<c:forEach var="message" items="${message}">
 												<option value="${message.message_content}">${message.message_title}</option>
 											</c:forEach>

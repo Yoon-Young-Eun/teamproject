@@ -58,6 +58,10 @@ public class Ad_OrderDAO {
 		sqlTemplate.update("OrderDAO.updateOrderInfo", vo);
 	}
 	
+	public void updateOrderStore(OrderVO vo) {
+		sqlTemplate.update("OrderDAO.updateOrderStore", vo);
+	}
+	
 	public List<MessageVO> getMessageTypeList() {
 		return sqlTemplate.selectList("OrderDAO.getMessageTypeList");
 	}

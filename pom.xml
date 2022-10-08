@@ -222,14 +222,6 @@
 			<version>2.9.0</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
-		<dependency>
-			<groupId>commons-fileupload</groupId>
-			<artifactId>commons-fileupload</artifactId>
-			<version>1.4</version>
-		</dependency>
-
-
 		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>

@@ -61,6 +61,14 @@ public class Ad_OrderServiceImpl implements Ad_OrderService {
 		orderDao.updateOrderInfo(vo);
 	}
 
+
+	@Override
+	public void updateOrderStore(OrderVO vo) {
+		orderDao.updateOrderStore(vo);
+		
+	}
+
+	
 	@Override
 	public MessageVO getMessageTitle(MessageVO mvo) {
 		return orderDao.getMessageTitle(mvo);

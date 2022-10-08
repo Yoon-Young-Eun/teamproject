@@ -53,8 +53,8 @@ public class DashboardServiceImpl implements DashboardService {
 
 	//일매출
 	@Override
-	public int getTodaySales(OrderVO vo) {
-		return DashboardDAO.getTodaySales(vo);
+	public Integer getTodaySales() {
+		return DashboardDAO.getTodaySales();
 	}
 
 	// 월매출

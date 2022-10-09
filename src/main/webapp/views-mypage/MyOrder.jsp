@@ -265,34 +265,34 @@
 	var num1 = Number(0);
  	var num2 = Number(0);
 
-	if (document.getElementById('order_store_name').value === '동작구') {
+	if (document.getElementById('order_store_name').value === '동작지점') {
 	num1 = Number(37.513007626488594);
 	num2 = Number(126.93989940550772);
 	}
-	else if (document.getElementById('order_store_name').value === '중구') {
+	else if (document.getElementById('order_store_name').value === '중구지점') {
 		num1 = Number(37.566857992065586);
 		num2 = Number(126.97866356824198);
 	}
-	else if (document.getElementById('order_store_name').value === '종로구') {
+	else if (document.getElementById('order_store_name').value === '종로지점') {
 		num1 = Number(37.586564230544354);
 		num2 = Number(126.97480278835683);
 	}
-	else if (document.getElementById('order_store_name').value === '영등포구') {
+	else if (document.getElementById('order_store_name').value === '영등포지점') {
 		num1 = Number(37.53183392416857);
 		num2 = Number(126.91413983106807);
 	}
 
- else if (document.getElementById('order_store_name').value === '강남구') {
+ else if (document.getElementById('order_store_name').value === '강남지점') {
 	num1 = Number(37.51238658438941);
 	num2 = Number(127.05880783427013);
 
-} else if (document.getElementById('order_store_name').value === '송파구') {
+} else if (document.getElementById('order_store_name').value === '송파지점') {
 	num1 = Number(37.5126223756192);
 	num2 = Number(127.1026969968422);
-} else if (document.getElementById('order_store_name').value === '용산구') {
+} else if (document.getElementById('order_store_name').value === '용산지점') {
 	num1 = Number(37.55127433886607);
 	num2 = Number(126.9882560895345);
-} else if (document.getElementById('order_store_name').value === '서초구') {
+} else if (document.getElementById('order_store_name').value === '서초지점') {
 	num1 = Number(37.495934829363385);
 	num2 = Number(127.01107370085373);
 } else { // 입력값 없는 경우 본점으로(청와대점)

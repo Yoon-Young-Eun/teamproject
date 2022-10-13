@@ -20,13 +20,10 @@ import lombok.RequiredArgsConstructor;
 public class refund {
 	
 	
-	@Autowired
-	token token2;
-	
-	public String getToken(String token, String imp_uid, int amount) throws Exception {
+	public void getToken(String token, String imp_uid, int amount) throws Exception {
 		System.out.println("imp"+imp_uid+"+amount"+amount);
 
-		// requestURL 아임퐅크 고유키, 시크릿 키 정보를 포함하는 url 정보
+		// requestURL 아임포트 고유키, 시크릿 키 정보를 포함하는 url 정보
 		JSONObject json = new JSONObject();
 		
 		json.put("imp_uid", imp_uid);// 결제 완료시 나오는 imp_uid
@@ -38,26 +35,25 @@ public class refund {
 
 		String _token = "";
 
-		try {
+	
 
-			String requestString = "";
-
-			URL url = new URL("https://api.iamport.kr/payments/cancel");
-
+			URL url = new URL("https://api.iamport.kr/payments/cancel"); //환불 요청을 받을 서비스 url
+			
+			//아래 인스턴스는 url.openConnection() 메소드 호출에 의해서 얻어진다.
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
-			connection.setDoOutput(true);// 바디에 파라미터 작성 하게 하는 코드
+			connection.setDoOutput(true);// URLConnection의 출력 스트림을 사용할지의 여부
 
 			connection.setInstanceFollowRedirects(false);
 
-			connection.setRequestMethod("POST");
+			connection.setRequestMethod("POST"); // 스트림을 통해서 서버에 전달해야함
 
 			connection.setRequestProperty("Content-Type", "application/json");
-			connection.setRequestProperty("Authorization", token);// 토근값
+			connection.setRequestProperty("Authorization", token);// 앞에 token 클래스에서 생서한 토근값을 넣어줌
 			connection.setDoOutput(true);
-			try (OutputStream os = connection.getOutputStream()) {
-				byte request_data[] = json.toString().getBytes("utf-8");
-				os.write(request_data);
+			try (OutputStream os = connection.getOutputStream()) { //서버에 데이터를 보내기 위해 먼저 연결해서 출력을 활성화한다.
+				byte request_data[] = json.toString().getBytes("utf-8"); //결제정보
+				os.write(request_data);//데이터 전송
 				os.close();
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -65,51 +61,15 @@ public class refund {
 
 			connection.connect();
 
-			StringBuilder sb = new StringBuilder();
 
-			if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-
-				BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), "utf-8"));
-
-				String line = null;
-
-				while ((line = br.readLine()) != null) {
-
-					sb.append(line + "\n");
-
-				}
-
-				br.close();
-
-				requestString = sb.toString();
-
+			if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) { // 환불요청에 대한 응답 코드 받기
+				 //getInputStream으로 URL클래스가 나타내는 자원으로 부터 데이터를 읽어온다.
+				connection.getInputStream(); // 응답코드얻기 (환불완료)
 			}
 
 			connection.disconnect();
 
-			JSONParser jsonParser = new JSONParser();
-
-			JSONObject jsonObj = (JSONObject) jsonParser.parse(requestString);
-			System.out.println(jsonObj);
-			if ((Long) jsonObj.get("code") == 0) {
-
-				JSONObject getToken = (JSONObject) jsonObj.get("response");
-
-				System.out.println("getToken==>>" + getToken.get("access_token"));
-
-				_token = (String) getToken.get("access_token");
-				System.out.println("Asdafa");
-			}
-
-		} catch (Exception e) {
-
-			e.printStackTrace();
-
-			_token = "";
-
-		}
-		System.out.println(_token);
-		return _token;
+			
 
 	}
 }

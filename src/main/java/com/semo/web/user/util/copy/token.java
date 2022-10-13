@@ -28,7 +28,7 @@ public static String getToken(String imp_uid, int amount) throws Exception {
 
          
          requestString = "";
-         URL url = new URL("https://api.iamport.kr/users/getToken/");
+         URL url = new URL("https://api.iamport.kr/users/getToken/"); //를 호출하여 access token 발급을 요청하는 예제
 
          HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
@@ -42,15 +42,15 @@ public static String getToken(String imp_uid, int amount) throws Exception {
 
          OutputStream os = connection.getOutputStream();
 
-         os.write(json.toString().getBytes());
+         os.write(json.toString().getBytes()); //데이터 넘겨주기
 
-         connection.connect();
+         connection.connect(); 
 
          StringBuilder sb = new StringBuilder();
 
-         if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+         if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) { //발급요청에 대한 응답에서 access token을 받을 수 있다.
 
-            BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), "utf-8"));
+            BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(), "utf-8")); //응답에 대한 내용 출력
 
             String line = null;
 

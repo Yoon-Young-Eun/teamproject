@@ -248,7 +248,7 @@
 <!--  결제 js -->
 	<script>
 	function requestPay() {
-	  IMP.init('imp62424	881'); //iamport 대신 자신의 "가맹점 식별코드"를 사용
+	  IMP.init('imp62424881'); //iamport 대신 자신의 "가맹점 식별코드"를 사용
 	  IMP.request_pay({
 	    pg: "html5_inicis",
 	    pay_method: "card",
@@ -261,9 +261,9 @@
 	    buyer_tel : '${OrderData.order_customer_phone}',
 	    buyer_addr : '${OrderData.order_address1} ${OrderData.order_address2}',
 	    buyer_postcode : '${CustomerInfo.customer_zipcode}'
-	  }, function (rsp) {
+	  }, function (rsp) { //callback
 		    console.log(rsp);
-		    if (rsp.success) {
+		    if (rsp.success) { // 결제 성공 시: 결제 승인 또는 가상계좌 발급에 성공한 경우
 		    	   console.log(rsp.success);
 		    	   console.log("adadasad");
 		    	   console.log("값1"+rsp.imp_uid);
